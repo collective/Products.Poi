@@ -1,0 +1,109 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="Poi">
+
+  <head>
+    <metal:css fill-slot="css_slot">
+      <style type="text/css" media="all"
+        tal:content="string: @import url($portal_url/poi.css);"></style>
+    </metal:css>
+  </head>
+
+<body>
+<div metal:fill-slot="main">
+    
+    <div metal:define-macro="body">
+
+      <h1 tal:content="here/Title" class="documentFirstHeading">
+        Issue Title
+      </h1>
+
+      <div metal:use-macro="here/document_actions/macros/document_actions">
+        Document actions (print, sendto etc)
+      </div>
+      
+      <a href=""
+          class="link-parent visualNoPrint"
+          tal:define="parent_url python:here.navigationParent(here, template.getId())"
+          tal:attributes="href parent_url">
+  	    <span i18n:translate="poi_up_to_tracker">Up to issue tracker</span>
+      </a>
+      
+      <div class="documentDescription" tal:content="here/Description" />
+      
+      <div class="categories">
+        <span i18n:translate="poi_label_categories">Categories:</span>
+        <span tal:replace="python: ', '.join([here.aq_parent.getDataGridRow('categories', c)['title'] for c in here.getCategories()])" />
+      </div>
+      
+      <div class="issue-details">
+        
+      <div class="contact-details">
+        <span i18n:translate="poi_label_submitted_by">Submitted by:</span>
+        <span class="contact-user" tal:content="here/Creator" />
+        <tal:email condition="here/getContactEmail">
+          (<a class="link-plain"
+                tal:attributes="href string:mailto:${here/getContactEmail}"
+                tal:content="string:${here/getContactEmail}" />)
+        </tal:email>
+      </div>
+      
+      
+        
+        <div tal:content="structure here/getDetails" />
+          
+        <div class="steps-to-reproduce" tal:condition="here/getSteps">
+          <span i18n:translate="poi_label_steps">Steps to reproduce:</span>
+          <ol>
+            <li tal:repeat="step here/getSteps" tal:content="step" />
+          </ol>
+        </div>
+        
+      </div>
+      
+      <tal:responses repeat="response here/folderlistingFolderContents">
+      
+        <div class="response-details" metal:define-macro="response_view"
+                tal:attributes="class python: test(here.Creator() == response.Creator(),
+                                                'issue-details',
+                                                'response-details')">
+                  
+          
+            <div class="response-actions"
+                  tal:condition="python:user.has_permission('Modify portal content', here)">
+              <ul>
+                <li class="edit-response">
+                  <a href="" title="Edit this response"
+                      tal:attributes="href string:${response/absolute_url}/base_edit"
+                      i18n:attributes="title"
+                      i18n:translate="poi_edit_response">Edit</a>
+                </li>
+                <li class="delete-response">
+                  <a href="" title="Delete this response"
+                      tal:attributes="href string:${response/absolute_url}/poi_response_delete_confirm"
+                      i18n:attributes="title"
+                      i18n:translate="poi_delete_response">Delete</a>
+                </li>
+              </ul>
+            </div>
+          
+            <div class="response-info">
+              <span i18n:translate="poi_added_by">Added by</span>
+              <span class="contact-user" tal:content="response/Creator" />
+              <span i18n:translate="poi_added_on">on</span>
+              <span class="contact-user" 
+                    tal:content="python:here.toPortalTime(response.Date())" />
+            </div>
+      
+            <div tal:content="structure response/getResponse" />
+      
+        </div>
+      
+      </tal:responses>
+      
+  </div>
+</div>
+
+</body>
+</html>

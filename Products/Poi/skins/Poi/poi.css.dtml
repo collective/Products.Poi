@@ -1,0 +1,138 @@
+/* 
+** Poi style sheet for CSS2-capable browsers.
+**
+** Copyright Martin Aspeli - optilude@gmx.net
+**
+** Feel free to use whole or parts of this for your own designs, but give credit
+** where credit is due.
+**
+*/
+
+/* <dtml-with base_properties> */
+
+/* Borrowed from PloneHelpCenter */
+.link-expand {
+    background: transparent url(&dtml-portal_url;/arrowDown.gif) 4px 5px no-repeat;
+    padding: 1px 0px 1px 16px;
+    display: block;
+    font-size: &dtml-fontSmallSize;;
+    float: right;
+}
+
+#all-categories-box {
+  float: right;
+  clear: right;
+  margin-top: 1em;
+}
+
+#state-selection-box {
+  margin: 0;
+  float: right;
+  clear: right;
+  font-size: &dtml-fontSmallSize;;
+  text-transform: &dtml-textTransform;;
+}
+
+#state-selection-box ul {
+    margin: 0;
+    list-style: none;
+    line-height: normal;
+    display: inline;
+}
+
+#state-selection-box li {
+    margin-right: 0.25em;
+    list-style: none;
+    line-height: normal;
+    display: inline;
+    
+}
+
+/* Structural elements */
+
+.categories {
+    margin-top: 0.5em;
+    color: &dtml-discreetColor;;
+    font-size: &dtml-fontSmallSize;;
+    font-weight: normal;
+}
+
+.contact-details {
+    color: &dtml-discreetColor;;
+    font-size: &dtml-fontSmallSize;;
+    font-weight: normal;
+}
+
+.issue-details {
+    margin: 1em 0;
+    padding: 0.5em;
+    border: &dtml-borderWidth; &dtml-borderStyleAnnotations; &dtml-globalBorderColor;;
+}
+
+.response-info {
+    color: &dtml-discreetColor;;
+    font-size: &dtml-fontSmallSize;;
+    font-weight: normal;
+}
+
+.response-details {
+    margin: 1em 0;
+    padding: 0.5em;
+    border: &dtml-borderWidth; &dtml-borderStyleAnnotations; &dtml-notifyBorderColor;;
+}
+
+.steps-to-reproduce span {
+    font-style: italic;
+}
+
+.steps-to-reproduce ol {
+    margin: 0.5em 0 1em 3em;
+    line-height: 1em;
+}
+
+.steps-to-reproduce li {
+    margin: 0;
+    line-height: 1em;
+}
+
+.no-issues {
+  margin: 1em 0 1em 1em;
+  font-size: &dtml-fontSmallSize;;
+  color: &dtml-discreetColor;
+}
+
+/* Response actions box */
+.response-actions {
+  float: right;
+  clear: right;
+}
+
+.response-actions ul {
+  margin: 0;
+  line-height: 1em;
+  display: inline;
+}
+
+.response-actions ul li {
+  display: inline;
+}
+
+/* Issue states */
+
+.issue-open {
+    color: Red;
+}
+
+.issue-in-progress {
+    color: &dtml-notifyBorderColor;;
+}
+
+.issue-postponed {
+    color: &dtml-discreetColor;;
+}
+
+.issue-closed {
+    color &dtml-linkColor;;
+}
+
+/* </dtml-with> */

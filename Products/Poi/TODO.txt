@@ -1,0 +1,18 @@
+Poi TODO
+--------
+    
+    o Finish PSC versions of templates
+
+    o Do some more UI porno
+    o Make new icons
+    
+    o Write unit tests
+    
+        - at least one test per method
+        - tests of PSC vocabs
+        - tests of searches
+        - tests of transitions
+        - setup tests (workflow etc)?
+
+    o Write a README
+    
