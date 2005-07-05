@@ -39,6 +39,8 @@ from Products.Poi import product_globals as GLOBALS
 
 from zExceptions import NotFound, BadRequest
 
+from Products.Poi.config import CMF_DEPENDENCIES as installable_dependency
+
 from StringIO import StringIO
 import sys
 
@@ -55,7 +57,12 @@ def install(self):
                  PROJECTNAME)
     install_subskin(self, out, GLOBALS)
 
-
+    qi = getToolByName(self, 'portal_quickinstaller')
+    for product in installable_dependency:
+        assert qi.isProductInstallable(product), "%s is not installable" %product
+        if not qi.isProductInstalled(product):
+            qi.installProduct(product)
+    
     # try to call a workflow install method
     # in 'InstallWorkflows.py' method 'installWorkflows'
     try:
