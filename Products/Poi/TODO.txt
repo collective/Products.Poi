@@ -11,8 +11,13 @@ Poi TODO
             and also at issue level, for activity on that issue)
         - Topic (is one level of "category" enough, or do we need both topic
             and category, e.g. User Interface / Suggested improvement)
-        - Assignment (assign an issue to a user)
+        - Assignment (assign one or more users as responsible for an issue)
         - Issue and response attachments
+
+        --> At tracker level, have list of responsible users. These users 
+            optionally get an email when there is tracker activity. They 
+            get a local role set so that they can edit issues, change issue
+            severity etc. They can also be the target of issue assignments.
     
     o Other features to consider
         - Optional (!) ATSchemaEditorNG integration to get a set of variable
