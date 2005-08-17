@@ -61,6 +61,7 @@ schema= Schema((
     
     SimpleDataGridField('categories',
             default=['bug | Bug | Functionality bugs in the software', 'ui | User interface | User interface problems', 'performance | Performance | Performance issues']        ,
+        index="KeywordIndex"        ,
         widget=SimpleDataGridWidget(
     label="Categories",
     description="""Enter the issue categories for this tracker, one specification per line. The format is "Short name | Title | Description".""",
@@ -135,25 +136,25 @@ class PoiTracker(BaseFolder):
 
 
     security.declareProtected(Permissions.View, 'getFilteredIssues')
-    def getFilteredIssues(self,category,state):
+    def getFilteredIssues(self, category, state):
         """
-        Get the contained issues in the given category and review 
+        Get the contained issues in the given category and review
         state. If either is None, return all categories/states.
         """
-        
+
         catalog = getToolByName(self, 'portal_catalog')
-        
+
         query                = {}
         query['path']        = '/'.join(self.getPhysicalPath())
         query['portal_type'] = ['PoiIssue', 'PoiPscIssue']
-        
+
         if category:
             query['getCategories'] = category
         if state:
             query['review_state']  = state
-            
+
         query['sort_on'] = 'Date'
-        
+
         return catalog.searchResults(query)
 
 
@@ -163,13 +164,13 @@ class PoiTracker(BaseFolder):
         """
         Give issues sequential integers ids
         """
-        
+
         idx = 0
         ids = self.contentIds()
-        
+
         while "%d" % (idx,) in ids:
             idx += 1
-        
+
         return "%d" % (idx,)
 
 

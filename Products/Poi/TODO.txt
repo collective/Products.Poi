@@ -12,6 +12,7 @@ Poi TODO
         - Topic (is one level of "category" enough, or do we need both topic
             and category, e.g. User Interface / Suggested improvement)
         - Assignment (assign an issue to a user)
+        - Issue and response attachments
     
     o Other features to consider
         - Optional (!) ATSchemaEditorNG integration to get a set of variable
