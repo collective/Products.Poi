@@ -23,13 +23,13 @@
         state        python:test(stateName == 'todo', ['open', 'in-progress'], state);
         categories   python:test(category, [category], categoryIds)">
 
-      <h1 tal:content="here/Title" class="documentFirstHeading">
-        Tracker Title
-      </h1>
-
       <div metal:use-macro="here/document_actions/macros/document_actions">
         Document actions (print, sendto etc)
       </div>
+
+      <h1 tal:content="here/Title" class="documentFirstHeading">
+        Tracker Title
+      </h1>
 
       <div id="state-selection-box">
         <ul>

@@ -1,9 +1,10 @@
-""" Workflow: poi_tracker_workflow """
+"""Workflow: poi_tracker_workflow
+"""
 
-# Copyright (c) 2005 by None
+# Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
 #
-# Generated: 
-# Generator: ArchGenXML Version 1.4 devel 1
+
+# Generator: ArchGenXML Version 1.4.0-beta1 devel
 #            http://sf.net/projects/archetypes/
 #
 # GNU General Public Licence (GPL)
@@ -20,7 +21,7 @@
 # this program; if not, write to the Free Software Foundation, Inc., 59 Temple
 # Place, Suite 330, Boston, MA  02111-1307  USA
 #
-__author__    = '''unknown <unknown>'''
+__author__    = '''Martin Aspeli <optilude@gmx.net>'''
 __docformat__ = 'plaintext'
 __version__   = '$ Revision 0.0 $'[11:-2]
 
@@ -29,155 +30,187 @@ from Products.CMFCore.WorkflowTool import addWorkflowFactory
 from Products.DCWorkflow.DCWorkflow import DCWorkflowDefinition
 from Products.ExternalMethod.ExternalMethod import ExternalMethod
 
+##code-section create-workflow-module-header #fill in your manual code here
+##/code-section create-workflow-module-header
+
+
 productname = 'Poi'
 
-def setuppoi_tracker_workflow(self, wf):
+def setuppoi_tracker_workflow(self, workflow):
+    """Define the poi_tracker_workflow workflow.
     """
-    poi_tracker_workflow Workflow Definition
-    """
-    # add additional roles to portal
-    portal=getToolByName(self,'portal_url').getPortalObject()
-    data=list(portal.__ac_roles__)
-    for role in []:
-        if not role in self.__ac_roles__:
-            data.append(role)
-    portal.__ac_roles__=tuple(data)
 
-    wf.setProperties(title='poi_tracker_workflow')
+    workflow.setProperties(title='poi_tracker_workflow')
+
+    ##code-section create-workflow-setup-method-header #fill in your manual code here
+    ##/code-section create-workflow-setup-method-header
+
 
     for s in ['open', 'closed']:
-        wf.states.addState(s)
+        workflow.states.addState(s)
 
     for t in ['close', 'open']:
-        wf.transitions.addTransition(t)
+        workflow.transitions.addTransition(t)
 
     for v in ['review_history', 'comments', 'time', 'actor', 'action']:
-        wf.variables.addVariable(v)
+        workflow.variables.addVariable(v)
 
-    for p in [u'Add FirePoi Issues', u'Add FirePoi Responses', 'View', 'Modify portal content', 'Access contents information']:
-        wf.addManagedPermission(p)
+    for p in ['Add Poi Issues', 'Add Poi Responses', 'View', 'Modify portal content', 'Access contents information']:
+        workflow.addManagedPermission(p)
+ 
+    for l in []:
+        if not l in workflow.worklists.objectValues():
+            workflow.worklists.addWorklist(l)
 
     ## Initial State
 
-    wf.states.setInitialState('closed')
+    workflow.states.setInitialState('closed')
 
     ## States initialization
 
-    sdef = wf.states['open']
-    sdef.setProperties(title="""Open for submissions""",
-                       transitions=['close'])
-    sdef.setPermission('Add FirePoi Issues', 0, ['Member', 'Manager', 'Owner'])
-    sdef.setPermission('Add FirePoi Responses', 0, ['Manager'])
-    sdef.setPermission('View', 0, ['Anonymous', 'Member', 'Manager', 'Owner'])
-    sdef.setPermission('Modify portal content', 0, ['Owner', 'Manager'])
-    sdef.setPermission('Access contents information', 0, ['Anonymous', 'Member', 'Manager', 'Owner'])
+    stateDef = workflow.states['open']
+    stateDef.setProperties(title="""Open for submissions""",
+                           transitions=['close'])
+    stateDef.setPermission('Add Poi Issues',
+                           0,
+                           ['Member', 'Manager', 'Owner'])
+    stateDef.setPermission('Add Poi Responses',
+                           0,
+                           ['Manager'])
+    stateDef.setPermission('View',
+                           0,
+                           ['Anonymous', 'Member', 'Manager', 'Owner'])
+    stateDef.setPermission('Modify portal content',
+                           0,
+                           ['Owner', 'Manager'])
+    stateDef.setPermission('Access contents information',
+                           0,
+                           ['Anonymous', 'Member', 'Manager', 'Owner'])
 
-    sdef = wf.states['closed']
-    sdef.setProperties(title="""Closed for submissions""",
-                       transitions=['open'])
-    sdef.setPermission('Add FirePoi Issues', 0, ['Manager'])
-    sdef.setPermission('Add FirePoi Responses', 0, ['Manager'])
-    sdef.setPermission('View', 0, ['Member', 'Manager', 'Owner'])
-    sdef.setPermission('Modify portal content', 0, ['Manager', 'Owner'])
-    sdef.setPermission('Access contents information', 0, ['Member', 'Manager', 'Owner'])
+    stateDef = workflow.states['closed']
+    stateDef.setProperties(title="""Closed for submissions""",
+                           transitions=['open'])
+    stateDef.setPermission('Add Poi Issues',
+                           0,
+                           ['Manager'])
+    stateDef.setPermission('Add Poi Responses',
+                           0,
+                           ['Manager'])
+    stateDef.setPermission('View',
+                           0,
+                           ['Member', 'Manager', 'Owner'])
+    stateDef.setPermission('Modify portal content',
+                           0,
+                           ['Manager', 'Owner'])
+    stateDef.setPermission('Access contents information',
+                           0,
+                           ['Member', 'Manager', 'Owner'])
 
     ## Transitions initialization
-        
-    tdef = wf.transitions['close']
-    tdef.setProperties(title="""close""",
-                       new_state_id="""closed""",
-                       trigger_type=1,
-                       script_name="""""",
-                       after_script_name="""""",
-                       actbox_name="""close""",
-                       actbox_url="""""",
-                       actbox_category="""workflow""",
-                       props={'guard_permissions': 'View', 'guard_roles': 'Owner;Manager'},
-                       )
-        
+
+    transitionDef = workflow.transitions['close']
+    transitionDef.setProperties(title="""close""",
+                                new_state_id="""closed""",
+                                trigger_type=1,
+                                script_name="""""",
+                                after_script_name="""""",
+                                actbox_name="""close""",
+                                actbox_url="""""",
+                                actbox_category="""workflow""",
+                                props={},
+                                )
+
     ##creation of workflow scripts
     for wf_scriptname in ['giveManagerLocalrole']:
-        if not wf_scriptname in wf.scripts.objectIds():
-            wf.scripts._setObject(wf_scriptname,ExternalMethod(wf_scriptname, wf_scriptname, 
+        if not wf_scriptname in workflow.scripts.objectIds():
+            workflow.scripts._setObject(wf_scriptname,ExternalMethod(wf_scriptname, wf_scriptname,
                 productname + '.poi_tracker_workflow_scripts',
                 wf_scriptname))
-    
-    tdef = wf.transitions['open']
-    tdef.setProperties(title="""open""",
-                       new_state_id="""open""",
-                       trigger_type=1,
-                       script_name="""""",
-                       after_script_name="""giveManagerLocalrole""",
-                       actbox_name="""open""",
-                       actbox_url="""""",
-                       actbox_category="""workflow""",
-                       props={'guard_permissions': 'View', 'guard_roles': 'Owner;Manager'},
-                       )
+
+    transitionDef = workflow.transitions['open']
+    transitionDef.setProperties(title="""open""",
+                                new_state_id="""open""",
+                                trigger_type=1,
+                                script_name="""""",
+                                after_script_name="""giveManagerLocalrole""",
+                                actbox_name="""open""",
+                                actbox_url="""""",
+                                actbox_category="""workflow""",
+                                props={},
+                                )
 
     ## State Variable
-    wf.variables.setStateVar('review_state')
+    workflow.variables.setStateVar('review_state')
 
     ## Variables initialization
-    vdef = wf.variables['review_history']
-    vdef.setProperties(description="""Provides access to workflow history""",
-                       default_value="""""",
-                       default_expr="""state_change/getHistory""",
-                       for_catalog=0,
-                       for_status=0,
-                       update_always=0,
-                       props={'guard_permissions': 'Request review; Review portal content'})
+    variableDef = workflow.variables['review_history']
+    variableDef.setProperties(description="""Provides access to workflow history""",
+                              default_value="""""",
+                              default_expr="""state_change/getHistory""",
+                              for_catalog=0,
+                              for_status=0,
+                              update_always=0,
+                              props={'guard_permissions': 'Request review; Review portal content'})
 
-    vdef = wf.variables['comments']
-    vdef.setProperties(description="""Comments about the last transition""",
-                       default_value="""""",
-                       default_expr="""python:state_change.kwargs.get('comment', '')""",
-                       for_catalog=0,
-                       for_status=1,
-                       update_always=1,
-                       props=None)
+    variableDef = workflow.variables['comments']
+    variableDef.setProperties(description="""Comments about the last transition""",
+                              default_value="""""",
+                              default_expr="""python:state_change.kwargs.get('comment', '')""",
+                              for_catalog=0,
+                              for_status=1,
+                              update_always=1,
+                              props=None)
 
-    vdef = wf.variables['time']
-    vdef.setProperties(description="""Time of the last transition""",
-                       default_value="""""",
-                       default_expr="""state_change/getDateTime""",
-                       for_catalog=0,
-                       for_status=1,
-                       update_always=1,
-                       props=None)
+    variableDef = workflow.variables['time']
+    variableDef.setProperties(description="""Time of the last transition""",
+                              default_value="""""",
+                              default_expr="""state_change/getDateTime""",
+                              for_catalog=0,
+                              for_status=1,
+                              update_always=1,
+                              props=None)
 
-    vdef = wf.variables['actor']
-    vdef.setProperties(description="""The ID of the user who performed the last transition""",
-                       default_value="""""",
-                       default_expr="""user/getId""",
-                       for_catalog=0,
-                       for_status=1,
-                       update_always=1,
-                       props=None)
+    variableDef = workflow.variables['actor']
+    variableDef.setProperties(description="""The ID of the user who performed the last transition""",
+                              default_value="""""",
+                              default_expr="""user/getId""",
+                              for_catalog=0,
+                              for_status=1,
+                              update_always=1,
+                              props=None)
 
-    vdef = wf.variables['action']
-    vdef.setProperties(description="""The last transition""",
-                       default_value="""""",
-                       default_expr="""transition/getId|nothing""",
-                       for_catalog=0,
-                       for_status=1,
-                       update_always=1,
-                       props=None)
-                       
-    # XXX Generation of worklists is not implemented yet...
-    # in the meantime, you can use the protecte code section below to
-    # do it manually    
+    variableDef = workflow.variables['action']
+    variableDef.setProperties(description="""The last transition""",
+                              default_value="""""",
+                              default_expr="""transition/getId|nothing""",
+                              for_catalog=0,
+                              for_status=1,
+                              update_always=1,
+                              props=None)
 
-    ##code-section custom-init-bottom #fill in your manual code here
-    ##/code-section custom-init-bottom
+    ## Worklists Initialization
+
+
+    # WARNING: below protected section is deprecated.
+    # Add a tagged value 'worklist' with the worklist name to your state(s) instead.
+
+    ##code-section create-workflow-setup-method-footer #fill in your manual code here
+    ##/code-section create-workflow-setup-method-footer
+
 
 
 def createpoi_tracker_workflow(self, id):
-    "..."
+    """Create the workflow for Poi.
+    """
+    
     ob = DCWorkflowDefinition(id)
     setuppoi_tracker_workflow(self, ob)
     return ob
 
 addWorkflowFactory(createpoi_tracker_workflow,
                    id='poi_tracker_workflow',
-                   title='poi_tracker_workflow')
+                   title='FirePoi Tracker workflow')
+
+##code-section create-workflow-module-footer #fill in your manual code here
+##/code-section create-workflow-module-footer
 

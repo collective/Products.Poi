@@ -1,9 +1,9 @@
 """ Extensions/Install.py """
 
-# Copyright (c) 2005 by None
+# Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
 #
 # Generated: 
-# Generator: ArchGenXML Version 1.4 devel 1
+# Generator: ArchGenXML Version 1.4.0-beta1 devel
 #            http://sf.net/projects/archetypes/
 #
 # GNU General Public Licence (GPL)
@@ -20,12 +20,19 @@
 # this program; if not, write to the Free Software Foundation, Inc., 59 Temple
 # Place, Suite 330, Boston, MA  02111-1307  USA
 #
-__author__    = '''unknown <unknown>'''
+__author__    = '''Martin Aspeli <optilude@gmx.net>'''
 __docformat__ = 'plaintext'
 __version__   = '$ Revision 0.0 $'[11:-2]
-from Products.CMFCore.utils import manage_addTool
+
+import os.path
+import sys
+from StringIO import StringIO
+
+from App.Common import package_home
 from Products.CMFCore.utils import getToolByName
+from Products.CMFCore.utils import manage_addTool
 from Products.ExternalMethod.ExternalMethod import ExternalMethod
+from zExceptions import NotFound, BadRequest
 
 from Products.Archetypes.Extensions.utils import installTypes
 from Products.Archetypes.Extensions.utils import install_subskin
@@ -33,85 +40,82 @@ try:
     from Products.Archetypes.lib.register import listTypes
 except ImportError:
     from Products.Archetypes.public import listTypes
-
-from Products.Poi import PROJECTNAME
-from Products.Poi import product_globals as GLOBALS
-
-from zExceptions import NotFound, BadRequest
-
-from Products.Poi.config import CMF_DEPENDENCIES as installable_dependency
-
-from StringIO import StringIO
-import sys
+from Products.Poi.config import PROJECTNAME
+from Products.Poi.config import product_globals as GLOBALS
 
 def install(self):
     """ External Method to install Poi """
     out = StringIO()
-    #install_dependencies(self, out)
-
     print >> out, "Installation log of %s:" % PROJECTNAME
 
-    classes=listTypes(PROJECTNAME)
+    # If the config contains a list of dependencies, try to install
+    # them.  Add a list called DEPENDENCIES to your custom
+    # AppConfig.py (imported by config.py) to use it.
+    try:
+        from Products.Poi.config import DEPENDENCIES
+    except:
+        DEPENDENCIES = []
+    portal = getToolByName(self,'portal_url').getPortalObject()
+    quickinstaller = portal.portal_quickinstaller
+    for dependency in DEPENDENCIES:
+        print >> out, "Installing dependency %s:" % dependency
+        quickinstaller.installProduct(dependency)
+        get_transaction().commit(1)
+
+    classes = listTypes(PROJECTNAME)
     installTypes(self, out,
                  classes,
                  PROJECTNAME)
     install_subskin(self, out, GLOBALS)
 
-    qi = getToolByName(self, 'portal_quickinstaller')
-    for product in installable_dependency:
-        assert qi.isProductInstallable(product), "%s is not installable" %product
-        if not qi.isProductInstalled(product):
-            qi.installProduct(product)
-    
+
     # try to call a workflow install method
     # in 'InstallWorkflows.py' method 'installWorkflows'
     try:
         installWorkflows = ExternalMethod('temp','temp',PROJECTNAME+'.InstallWorkflows', 'installWorkflows').__of__(self)
     except NotFound:
-        installWorkflows=None
+        installWorkflows = None
 
     if installWorkflows:
         print >>out,'Workflow Install:'
-        res=installWorkflows(self,out)
+        res = installWorkflows(self,out)
         print >>out,res or 'no output'
     else:
         print >>out,'no workflow install'
 
-    
+
 
     # try to call a custom install method
     # in 'AppInstall.py' method 'install'
     try:
         install = ExternalMethod('temp','temp',PROJECTNAME+'.AppInstall', 'install')
-    except:
-        install=None
+    except NotFound:
+        install = None
 
     if install:
         print >>out,'Custom Install:'
-        res=install(self)
+        res = install(self)
         if res:
             print >>out,res
         else:
             print >>out,'no output'
     else:
         print >>out,'no custom install'
-
     return out.getvalue()
 
 def uninstall(self):
     out = StringIO()
 
-
     # try to call a workflow uninstall method
-    # in 'InstallWorkflows.py' method 'installWorkflows'
+    # in 'InstallWorkflows.py' method 'uninstallWorkflows'
     try:
         installWorkflows = ExternalMethod('temp','temp',PROJECTNAME+'.InstallWorkflows', 'uninstallWorkflows').__of__(self)
     except NotFound:
-        installWorkflows=None
+        installWorkflows = None
 
     if installWorkflows:
         print >>out,'Workflow Uninstall:'
-        res=uninstallWorkflows(self,out)
+        res = uninstallWorkflows(self,out)
         print >>out,res or 'no output'
     else:
         print >>out,'no workflow uninstall'
@@ -121,11 +125,11 @@ def uninstall(self):
     try:
         uninstall = ExternalMethod('temp','temp',PROJECTNAME+'.AppInstall', 'uninstall')
     except:
-        uninstall=None
+        uninstall = None
 
     if uninstall:
         print >>out,'Custom Uninstall:'
-        res=uninstall(self)
+        res = uninstall(self)
         if res:
             print >>out,res
         else:

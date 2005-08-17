@@ -1,9 +1,45 @@
 Poi TODO
 --------
-    
-    o Finish PSC versions of templates
 
-    o Do some more UI porno
+    Possible features for inclusion:
+    --------------------------------
+
+    o Possible fields to add:
+        - Severity (e.g. critical, low - vocab field on base tracker; probably
+            only editable by issue responders)
+        - Watchers (list of people to email, at tracker level for all activity,
+            and also at issue level, for activity on that issue)
+        - Topic (is one level of "category" enough, or do we need both topic
+            and category, e.g. User Interface / Suggested improvement)
+        - Assignment (assign an issue to a user)
+    
+    o Other features to consider
+        - Optional (!) ATSchemaEditorNG integration to get a set of variable
+            fields on a per-use-case basis (need to retain standard fields
+            always)
+    
+    o Alternative views (categorised by different fields)
+    
+    Fixes:
+    ------
+    
+    o Add "rejected" state to issue workflow
+    o Add state "new" to issue workflow, to signal it hasn't yet been
+        categorised/approved. Responders should add a response which sets
+        the state to "open" or "rejected" and re-categorise as appropriate.
+    o Test workflows/security properly
+    
+    o Make tracker use BTreeFolder as base
+    o Ensure templates work sensibly with large number of issues
+    o Add search interface
+
+    o Saving a response should return to the parent issue
+
+    o Add email notifications
+
+    o Finish PSC versions of templates
+        - Should organise listings by release
+
     o Make new icons
     
     o Write unit tests

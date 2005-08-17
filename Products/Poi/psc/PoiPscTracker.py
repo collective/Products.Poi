@@ -1,12 +1,7 @@
 # File: PoiPscTracker.py
-"""\
-Version of the PoiTracker which supports the PloneSoftwareCenter. 
-Intended to be added inside a PSCProject.
-
-"""
-# Copyright (c) 2005 by None
-#
-# Generator: ArchGenXML Version 1.4 devel 1 http://sf.net/projects/archetypes/
+# 
+# Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
+# Generator: ArchGenXML Version 1.4.0-beta1 devel http://sf.net/projects/archetypes/
 #
 # GNU General Public Licence (GPL)
 # 
@@ -22,12 +17,11 @@ Intended to be added inside a PSCProject.
 # this program; if not, write to the Free Software Foundation, Inc., 59 Temple
 # Place, Suite 330, Boston, MA  02111-1307  USA
 #
-__author__  = '''unknown <unknown>'''
+__author__  = '''Martin Aspeli <optilude@gmx.net>'''
 __docformat__ = 'plaintext'
 
 from AccessControl import ClassSecurityInfo
-from Products.Archetypes.public import *
-
+from Products.Archetypes.atapi import *
 
 from Products.Poi.PoiTracker import PoiTracker
 
@@ -36,7 +30,6 @@ from Products.Poi.PoiTracker import PoiTracker
 from Products.Poi import Permissions
 
 from Products.Poi.config import *
-
 ##code-section module-header #fill in your manual code here
 ##/code-section module-header
 
@@ -44,24 +37,26 @@ schema= Schema((
 ),
 )
 
+
 ##code-section after-schema #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
 ##/code-section after-schema
 
-class PoiPscTracker(BaseFolder,PoiTracker):
+class PoiPscTracker(PoiTracker,BaseFolder):
     """
     Version of the PoiTracker which supports the
     PloneSoftwareCenter. 
     Intended to be added inside a PSCProject.
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BaseFolder,'__implements__',()),) + (getattr(PoiTracker,'__implements__',()),)
+    __implements__ = (getattr(PoiTracker,'__implements__',()),) + (getattr(BaseFolder,'__implements__',()),)
 
 
     # This name appears in the 'add' box
     archetype_name             = 'Issue tracker'
-    portal_type = meta_type    = 'PoiPscTracker' 
 
+    meta_type    = 'PoiPscTracker' 
+    portal_type  = 'PoiPscTracker' 
     allowed_content_types      = ['PoiPscIssue'] 
     filter_content_types       = 1
     global_allow               = 0
@@ -78,7 +73,7 @@ class PoiPscTracker(BaseFolder,PoiTracker):
        {'action':      "string:$object_url/poi_tracker_view",
         'category':    "object",
         'id':          'view',
-        'name':        'poi_tracker_view',
+        'name':        'View',
         'permissions': (Permissions.View,),
         'condition'  : 'python:1'
        },
@@ -109,6 +104,7 @@ class PoiPscTracker(BaseFolder,PoiTracker):
         return DisplayList([(r.UID, r.Title) for r in releases])
 
 
+
     security.declareProtected(Permissions.View, 'getAvailableProposals')
     def getAvailableProposals(self):
         """
@@ -120,6 +116,7 @@ class PoiPscTracker(BaseFolder,PoiTracker):
                         path = '/'.join(self.getPhysicalPath()[:-1]),
                         )
         return DisplayList([(p.UID, p.Title) for p in proposals])
+
 
 
 registerType(PoiPscTracker,PROJECTNAME)

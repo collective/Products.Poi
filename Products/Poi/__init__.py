@@ -13,7 +13,7 @@
 
 from zLOG import LOG, INFO
 
-print LOG('Poi',INFO, 'Installing Product')
+LOG('Poi',INFO, 'Installing Product')
 
 try:
     import CustomizationPolicy

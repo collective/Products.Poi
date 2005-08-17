@@ -1,11 +1,7 @@
 # File: PoiIssue.py
-"""\
-The default tracker
-
-"""
-# Copyright (c) 2005 by None
-#
-# Generator: ArchGenXML Version 1.4 devel 1 http://sf.net/projects/archetypes/
+# 
+# Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
+# Generator: ArchGenXML Version 1.4.0-beta1 devel http://sf.net/projects/archetypes/
 #
 # GNU General Public Licence (GPL)
 # 
@@ -21,12 +17,11 @@ The default tracker
 # this program; if not, write to the Free Software Foundation, Inc., 59 Temple
 # Place, Suite 330, Boston, MA  02111-1307  USA
 #
-__author__  = '''unknown <unknown>'''
+__author__  = '''Martin Aspeli <optilude@gmx.net>'''
 __docformat__ = 'plaintext'
 
 from AccessControl import ClassSecurityInfo
-from Products.Archetypes.public import *
-
+from Products.Archetypes.atapi import *
 
 from Products.Poi.interfaces.Issue import Issue
 
@@ -35,102 +30,96 @@ from Products.Poi.interfaces.Issue import Issue
 import Permissions
 
 from Products.Poi.config import *
-
 ##code-section module-header #fill in your manual code here
 ##/code-section module-header
 
 schema= Schema((
     StringField('id',
-        widget=StringWidget(
-            visible={'view' : 'invisible', 'edit': 'visible'},
-            modes=('view',),
-            label='Id',
-            label_msgid='Poi_label_id',
-            description='Enter a value for id.',
-            description_msgid='Poi_help_id',
-            i18n_domain='Poi',
-        ),
-        mode="r",
-    ),
+            widget=StringWidget(
+    visible={'view' : 'invisible', 'edit': 'visible'},
+    modes=('view',),
+    label='Id',
+    label_msgid='Poi_label_id',
+    description='Enter a value for id.',
+    description_msgid='Poi_help_id',
+    i18n_domain='Poi',
+)        ,
+        mode="r"    ),
     
     StringField('title',
-        widget=StringWidget(
-            label="Title",
-            description="Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue.",
-            label_msgid='Poi_label_title',
-            description_msgid='Poi_help_title',
-            i18n_domain='Poi',
-        ),
-        required=1,
-        accessor="Title",
-    ),
+            widget=StringWidget(
+    label="Title",
+    description="Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue.",
+    label_msgid='Poi_label_title',
+    description_msgid='Poi_help_title',
+    i18n_domain='Poi',
+)        ,
+        required=1        ,
+        accessor="Title"    ),
     
     TextField('description',
-        widget=TextAreaWidget(
-            label="Overview",
-            description="Enter a brief overview of the issue. As with the title, a consise, meaningful description will make it easier for project managers to assess and respond to the issue.",
-            label_msgid='Poi_label_description',
-            description_msgid='Poi_help_description',
-            i18n_domain='Poi',
-        ),
-        required=1,
-        accessor="Description",
-    ),
+            widget=TextAreaWidget(
+    label="Overview",
+    description="Enter a brief overview of the issue. As with the title, a consise, meaningful description will make it easier for project managers to assess and respond to the issue.",
+    label_msgid='Poi_label_description',
+    description_msgid='Poi_help_description',
+    i18n_domain='Poi',
+)        ,
+        required=1        ,
+        accessor="Description"    ),
     
     LinesField('categories',
-        widget=MultiSelectionWidget(
-            label="Categories",
-            description="Select the category or categories (if applicable) this issue is relevant to.",
-            label_msgid='Poi_label_categories',
-            description_msgid='Poi_help_categories',
-            i18n_domain='Poi',
-        ),
-        enforceVocabulary=1,
-        multiValued=1,
-        vocabulary='getCategoriesVocab',
-        required=1,
-        schema="KeywordIndex:schema",
-    ),
+            widget=MultiSelectionWidget(
+    label="Categories",
+    description="Select the category or categories (if applicable) this issue is relevant to.",
+    label_msgid='Poi_label_categories',
+    description_msgid='Poi_help_categories',
+    i18n_domain='Poi',
+)        ,
+        enforceVocabulary=1        ,
+        multiValued=1        ,
+        vocabulary='getCategoriesVocab'        ,
+        disable_polymorphing="1"        ,
+        required=1        ,
+        schema="KeywordIndex:schema"    ),
     
     TextField('details',
-        allowable_content_types=('text/plain','text/structured','text/html','application/msword',),
+            allowable_content_types=('text/plain', 'text/structured', 'text/html', 'application/msword',)        ,
         widget=RichWidget(
-            label="Details",
-            description="Please provide further details",
-            rows="""10
-            python:('text/structured', 'text/plain', 'text/html', 'text/restructured')""",
-            label_msgid='Poi_label_details',
-            description_msgid='Poi_help_details',
-            i18n_domain='Poi',
-        ),
-        default_output_type="text/html",
-        default_content_type="text/structured",
-        required=1,
-    ),
+    label="Details",
+    description="Please provide further details",
+    rows="""10
+    python:('text/structured', 'text/plain', 'text/html', 'text/restructured')""",
+    label_msgid='Poi_label_details',
+    description_msgid='Poi_help_details',
+    i18n_domain='Poi',
+)        ,
+        default_output_type="text/html"        ,
+        default_content_type="text/structured"        ,
+        required=1    ),
     
     LinesField('steps',
-        widget=LinesWidget(
-            label="Steps to reproduce",
-            description="If applicable, please provide the steps to reproduce the error or identify the issue, one per line.",
-            label_msgid='Poi_label_steps',
-            description_msgid='Poi_help_steps',
-            i18n_domain='Poi',
-        ),
-    ),
+            widget=LinesWidget(
+    label="Steps to reproduce",
+    description="If applicable, please provide the steps to reproduce the error or identify the issue, one per line.",
+    label_msgid='Poi_label_steps',
+    description_msgid='Poi_help_steps',
+    i18n_domain='Poi',
+)    ),
     
     StringField('contactEmail',
-        widget=StringWidget(
-            label="Contact email address",
-            description="Optionally, provide an email address where you can be contacted for further information or when a resolution is available.",
-            label_msgid='Poi_label_contactEmail',
-            description_msgid='Poi_help_contactEmail',
-            i18n_domain='Poi',
-        ),
-        validators=('isEmail',),
-    ),
+            widget=StringWidget(
+    label="Contact email address",
+    description="Optionally, provide an email address where you can be contacted for further information or when a resolution is available.",
+    label_msgid='Poi_label_contactEmail',
+    description_msgid='Poi_help_contactEmail',
+    i18n_domain='Poi',
+)        ,
+        validators=("python:('isEmail'", ')')    ),
     
 ),
 )
+
 
 ##code-section after-schema #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
@@ -146,8 +135,9 @@ class PoiIssue(BaseFolder):
 
     # This name appears in the 'add' box
     archetype_name             = 'Issue'
-    portal_type = meta_type    = 'PoiIssue' 
 
+    meta_type    = 'PoiIssue' 
+    portal_type  = 'PoiIssue' 
     allowed_content_types      = ['PoiResponse'] 
     filter_content_types       = 1
     global_allow               = 0
@@ -164,7 +154,7 @@ class PoiIssue(BaseFolder):
        {'action':      "string:$object_url/poi_issue_view",
         'category':    "object",
         'id':          'view',
-        'name':        'poi_issue_view',
+        'name':        'View',
         'permissions': (Permissions.View,),
         'condition'  : 'python:1'
        },
@@ -196,6 +186,7 @@ class PoiIssue(BaseFolder):
         return "%d" % (idx,)
 
 
+
     security.declareProtected(Permissions.View, 'getCurrentIssueState')
     def getCurrentIssueState(self):
         """
@@ -207,6 +198,7 @@ class PoiIssue(BaseFolder):
         
         wftool = getToolByName(self, 'portal_workflow')
         return wftool.getInfoFor(self, 'review_state')
+
 
 
     security.declareProtected(Permissions.View, 'getAvailableIssueTransitions')
@@ -223,6 +215,7 @@ class PoiIssue(BaseFolder):
         return transitions
 
 
+
     security.declareProtected(Permissions.ModifyPortalContent, 'getCategoriesVocab')
     def getCategoriesVocab(self):
         """
@@ -231,6 +224,7 @@ class PoiIssue(BaseFolder):
 
         field = self.aq_parent.getField('categories')
         return field.getAsDisplayList(self.aq_parent)
+
 
 
 registerType(PoiIssue,PROJECTNAME)

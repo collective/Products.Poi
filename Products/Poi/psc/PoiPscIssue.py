@@ -1,12 +1,7 @@
 # File: PoiPscIssue.py
-"""\
-Version of the PoiIssue which supports the PloneSoftwareCenter.
-Intended to be used inside a PSCProject.
-
-"""
-# Copyright (c) 2005 by None
-#
-# Generator: ArchGenXML Version 1.4 devel 1 http://sf.net/projects/archetypes/
+# 
+# Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
+# Generator: ArchGenXML Version 1.4.0-beta1 devel http://sf.net/projects/archetypes/
 #
 # GNU General Public Licence (GPL)
 # 
@@ -22,12 +17,11 @@ Intended to be used inside a PSCProject.
 # this program; if not, write to the Free Software Foundation, Inc., 59 Temple
 # Place, Suite 330, Boston, MA  02111-1307  USA
 #
-__author__  = '''unknown <unknown>'''
+__author__  = '''Martin Aspeli <optilude@gmx.net>'''
 __docformat__ = 'plaintext'
 
 from AccessControl import ClassSecurityInfo
-from Products.Archetypes.public import *
-
+from Products.Archetypes.atapi import *
 
 from Products.Poi.PoiIssue import PoiIssue
 
@@ -36,60 +30,59 @@ from Products.Poi.PoiIssue import PoiIssue
 from Products.Poi import Permissions
 
 from Products.Poi.config import *
-
 ##code-section module-header #fill in your manual code here
 ##/code-section module-header
 
 schema= Schema((
     ReferenceField('releases',
-        widget=ReferenceWidget(
-            description="If this issue is related to one or more releases, please select them here.",
-            label="Releases",
-            label_msgid='Poi_label_releases',
-            description_msgid='Poi_help_releases',
-            i18n_domain='Poi',
-        ),
-        allowed_types=('PSCRelease',),
-        multiValued=1,
-        relationship="issueRelatedToRelease",
-        vocabulary='getAvailableReleases',
-        enforceVocabulary=1,
-    ),
+            widget=ReferenceWidget(
+    description="If this issue is related to one or more releases, please select them here.",
+    label="Releases",
+    label_msgid='Poi_label_releases',
+    description_msgid='Poi_help_releases',
+    i18n_domain='Poi',
+)        ,
+        allowed_types=('PSCRelease',)        ,
+        multiValued=1        ,
+        relationship="issueRelatedToRelease"        ,
+        vocabulary='getAvailableReleases'        ,
+        enforceVocabulary=1    ),
     
     ReferenceField('proposals',
-        widget=ReferenceWidget(
-            label="Improvement proposals",
-            description="If this issue is related to one or more improvement proposals, please select them here.",
-            label_msgid='Poi_label_proposals',
-            description_msgid='Poi_help_proposals',
-            i18n_domain='Poi',
-        ),
-        allowed_types=('PSCImprovementProposal',),
-        multiValued=1,
-        relationship="issueRelatedToProposal",
-        vocabulary='getAvailableProposals',
-        enforceVocabulary=1,
-    ),
+            widget=ReferenceWidget(
+    label="Improvement proposals",
+    description="If this issue is related to one or more improvement proposals, please select them here.",
+    label_msgid='Poi_label_proposals',
+    description_msgid='Poi_help_proposals',
+    i18n_domain='Poi',
+)        ,
+        allowed_types=('PSCImprovementProposal',)        ,
+        multiValued=1        ,
+        relationship="issueRelatedToProposal"        ,
+        vocabulary='getAvailableProposals'        ,
+        enforceVocabulary=1    ),
     
 ),
 )
 
+
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
 
-class PoiPscIssue(BaseFolder,PoiIssue):
+class PoiPscIssue(PoiIssue,BaseFolder):
     """
     Version of the PoiIssue which supports the PloneSoftwareCenter.
     Intended to be used inside a PSCProject.
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BaseFolder,'__implements__',()),) + (getattr(PoiIssue,'__implements__',()),)
+    __implements__ = (getattr(PoiIssue,'__implements__',()),) + (getattr(BaseFolder,'__implements__',()),)
 
 
     # This name appears in the 'add' box
     archetype_name             = 'Issue'
-    portal_type = meta_type    = 'PoiPscIssue' 
 
+    meta_type    = 'PoiPscIssue' 
+    portal_type  = 'PoiPscIssue' 
     allowed_content_types      = ['PoiPscResponse'] 
     filter_content_types       = 1
     global_allow               = 0
@@ -106,7 +99,7 @@ class PoiPscIssue(BaseFolder,PoiIssue):
        {'action':      "string:$object_url/poi_psc_issue_view",
         'category':    "object",
         'id':          'view',
-        'name':        'poi_psc_issue_view',
+        'name':        'view',
         'permissions': (Permissions.View,),
         'condition'  : 'python:1'
        },

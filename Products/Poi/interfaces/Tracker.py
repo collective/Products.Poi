@@ -1,13 +1,7 @@
 # File: Tracker.py
-"""\
-Interface for FirePoi trackers.
-Trackers can display their contained issues filtered by workflow 
-state and category.
-
-"""
-# Copyright (c) 2005 by None
-#
-# Generator: ArchGenXML Version 1.4 devel 1 http://sf.net/projects/archetypes/
+# 
+# Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
+# Generator: ArchGenXML Version 1.4.0-beta1 devel http://sf.net/projects/archetypes/
 #
 # GNU General Public Licence (GPL)
 # 
@@ -23,8 +17,9 @@ state and category.
 # this program; if not, write to the Free Software Foundation, Inc., 59 Temple
 # Place, Suite 330, Boston, MA  02111-1307  USA
 #
-__author__  = '''unknown <unknown>'''
+__author__  = '''Martin Aspeli <optilude@gmx.net>'''
 __docformat__ = 'plaintext'
+
 
 
 
@@ -48,6 +43,7 @@ class Tracker(Base):
         """
         
         pass
+
 
 # end of class Tracker
 
