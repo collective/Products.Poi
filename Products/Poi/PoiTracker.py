@@ -226,22 +226,6 @@ class PoiTracker(BaseBTreeFolder):
         return catalog.searchResults(query)
 
 
-
-    security.declareProtected(Permissions.AddIssue, 'generateUniqueId')
-    def generateUniqueId(self, typeName):
-        """
-        Give issues sequential integers ids
-        """
-
-        idx = 0
-        ids = self.contentIds()
-
-        while "%d" % (idx,) in ids:
-            idx += 1
-
-        return "%d" % (idx,)
-
-
     #manually created methods
 
     def validate_managers(self, value):
@@ -256,7 +240,6 @@ class PoiTracker(BaseBTreeFolder):
             return "The following user ids could not be found: %s" % ','.join(notFound)
         else:
             return None
-
 
     security.declareProtected(Permissions.ModifyPortalContent, 'setManagers')
     def setManagers(self, managers):

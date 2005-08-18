@@ -171,19 +171,17 @@ class PoiResponse(BaseContent):
         """
         # XXX: Why are we being called twice if enforceVocabulary=1 (hence)
         #  vocab becomes invalid after first time...
-        
+
         if transition and transition in self.getAvailableIssueTransitions():
             wftool = getToolByName(self, 'portal_workflow')
-            self._issueStateBefore = wftool.getInfoFor(self.aq_parent,  
+            self._issueStateBefore = wftool.getInfoFor(self.aq_parent,
                                                        'review_state')
             wftool.doActionFor(self.aq_parent, transition)
-            self._issueStateAfter = wftool.getInfoFor(self.aq_parent,  
+            self._issueStateAfter = wftool.getInfoFor(self.aq_parent,
                                                       'review_state')
             self._p_changed = 1
-                
+
         self.getField('issueTransition').set(self, transition)
-
-
 
     security.declareProtected(Permissions.View, 'getIssueStateBefore')
     def getIssueStateBefore(self):
@@ -205,7 +203,30 @@ class PoiResponse(BaseContent):
         # Default to None if it was not set
         return getattr(aq_base(self), '_issueStateAfter', None)
 
+    def processForm(self, data=1, metadata=0, REQUEST=None, values=None):
+        isNew = self.checkCreationFlag()
+        BaseObject.processForm(self, data, metadata, REQUEST, values)
+        if isNew:
+            parent = self.aq_inner.aq_parent
+            maxId = 0
+            for id in parent.objectIds():
+                try:
+                    intId = int(id)
+                    maxId = max(maxId, intId)
+                except (TypeError, ValueError):
+                    pass
+            newId = str(maxId + 1)
+            # Can't rename without a subtransaction commit when using
+            # portal_factory!
+            get_transaction().commit(1)
+            self.setId(newId)
 
+def modify_fti(fti):
+    # hide unnecessary tabs (usability enhancement)
+    for a in fti['actions']:
+        if a['id'] in ['metadata', 'sharing']:
+            a['visible'] = 0
+    return fti
 
 registerType(PoiResponse,PROJECTNAME)
 # end of class PoiResponse

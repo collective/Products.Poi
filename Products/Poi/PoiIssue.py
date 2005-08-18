@@ -229,22 +229,6 @@ class PoiIssue(BaseFolder):
 
     #Methods
 
-    security.declareProtected(Permissions.AddResponse, 'generateUniqueId')
-    def generateUniqueId(self, typeName):
-        """
-        Give responses sequential integer ids.
-        """
-        
-        idx = 0
-        ids = self.contentIds()
-        
-        while "%d" % (idx,) in ids:
-            idx += 1
-        
-        return "%d" % (idx,)
-
-
-
     security.declareProtected(Permissions.View, 'getCurrentIssueState')
     def getCurrentIssueState(self):
         """
@@ -298,6 +282,24 @@ class PoiIssue(BaseFolder):
     def getDefaultSeverity(self):
         """Get the default severity for new issues"""
         return self.aq_parent.getDefaultSeverity()
+
+    def processForm(self, data=1, metadata=0, REQUEST=None, values=None):
+        isNew = self.checkCreationFlag()
+        BaseFolder.processForm(self, data, metadata, REQUEST, values)
+        if isNew:
+            parent = self.aq_inner.aq_parent
+            maxId = 0
+            for id in parent.objectIds():
+                try:
+                    intId = int(id)
+                    maxId = max(maxId, intId)
+                except (TypeError, ValueError):
+                    pass
+            newId = str(maxId + 1)
+            # Can't rename without a subtransaction commit when using
+            # portal_factory!
+            get_transaction().commit(1)
+            self.setId(newId)
 
 
 def modify_fti(fti):
