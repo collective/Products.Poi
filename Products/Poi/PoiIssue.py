@@ -217,6 +217,7 @@ class PoiIssue(BaseFolder):
              schema
 
     ##code-section class-header #fill in your manual code here
+    _at_rename_after_creation = True
     aliases = {
         '(Default)'  : 'poi_issue_view',
         'view'       : 'poi_issue_view',
@@ -283,23 +284,21 @@ class PoiIssue(BaseFolder):
         """Get the default severity for new issues"""
         return self.aq_parent.getDefaultSeverity()
 
-    def processForm(self, data=1, metadata=0, REQUEST=None, values=None):
-        isNew = self.checkCreationFlag()
-        BaseFolder.processForm(self, data, metadata, REQUEST, values)
-        if isNew:
-            parent = self.aq_inner.aq_parent
-            maxId = 0
-            for id in parent.objectIds():
-                try:
-                    intId = int(id)
-                    maxId = max(maxId, intId)
-                except (TypeError, ValueError):
-                    pass
-            newId = str(maxId + 1)
-            # Can't rename without a subtransaction commit when using
-            # portal_factory!
-            get_transaction().commit(1)
-            self.setId(newId)
+    # Override to rename to a sequentially picked number
+    def _renameAfterCreation(self, check_auto_id=False):
+        parent = self.aq_inner.aq_parent
+        maxId = 0
+        for id in parent.objectIds():
+            try:
+                intId = int(id)
+                maxId = max(maxId, intId)
+            except (TypeError, ValueError):
+                pass
+        newId = str(maxId + 1)
+        # Can't rename without a subtransaction commit when using
+        # portal_factory!
+        get_transaction().commit(1)
+        self.setId(newId)
 
 
 def modify_fti(fti):
