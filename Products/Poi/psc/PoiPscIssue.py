@@ -116,6 +116,12 @@ class PoiPscIssue(PoiIssue,BaseFolder):
 
 
     #Methods
+def modify_fti(fti):
+    # hide unnecessary tabs (usability enhancement)
+    for a in fti['actions']:
+        if a['id'] in ['metadata', 'sharing']:
+            a['visible'] = 0
+    return fti
 
 registerType(PoiPscIssue,PROJECTNAME)
 # end of class PoiPscIssue

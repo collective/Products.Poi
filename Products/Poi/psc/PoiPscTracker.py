@@ -118,6 +118,12 @@ class PoiPscTracker(PoiTracker,BaseFolder):
         return DisplayList([(p.UID, p.Title) for p in proposals])
 
 
+def modify_fti(fti):
+    # hide unnecessary tabs (usability enhancement)
+    for a in fti['actions']:
+        if a['id'] in ['metadata', 'sharing']:
+            a['visible'] = 0
+    return fti
 
 registerType(PoiPscTracker,PROJECTNAME)
 # end of class PoiPscTracker

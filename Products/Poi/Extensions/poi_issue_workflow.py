@@ -86,7 +86,7 @@ def setuppoi_issue_workflow(self, workflow):
 
     stateDef = workflow.states['open']
     stateDef.setProperties(title="""Open""",
-                           transitions=['hold', 'close', 'begin'])
+                           transitions=['begin', 'hold', 'close'])
 
     stateDef = workflow.states['new']
     stateDef.setProperties(title="""New""",

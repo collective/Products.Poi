@@ -217,6 +217,13 @@ class PoiIssue(BaseFolder):
              schema
 
     ##code-section class-header #fill in your manual code here
+    aliases = {
+        '(Default)'  : 'poi_issue_view',
+        'view'       : 'poi_issue_view',
+        'edit'       : 'base_edit',
+        'properties' : 'base_metadata',
+        'sharing'    : 'folder_localrole_form'
+    }
     ##/code-section class-header
 
 
@@ -293,6 +300,12 @@ class PoiIssue(BaseFolder):
         return self.aq_parent.getDefaultSeverity()
 
 
+def modify_fti(fti):
+    # hide unnecessary tabs (usability enhancement)
+    for a in fti['actions']:
+        if a['id'] in ['metadata', 'sharing']:
+            a['visible'] = 0
+    return fti
 
 registerType(PoiIssue,PROJECTNAME)
 # end of class PoiIssue

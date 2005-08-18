@@ -7,9 +7,10 @@ Poi TODO
     o Possible fields to add:
         - Watchers (list of people to email upon issue activity)
         
-    o May want some mechanism for confirming that issues have been fixed.
+**  o May want some mechanism for confirming that issues have been fixed.
         - Can have some fancy workflow where original requester is able to
             confirm closed (may be annoying in some use cases to require this)
+
     
     o Other features to consider
         - Optional (!) ATSchemaEditorNG integration to get a set of variable
@@ -26,31 +27,28 @@ Poi TODO
     
     Security issues:
     
-        o Enable giving and taking Manager localrole when changing tracker
-            managers
         o Consider security settings more carefully
         o Test workflows/security properly
         o Create "new issue" worklist
     
     Performance:
 
-        o Make tracker use BTreeFolder as base
         o Ensure templates work sensibly with large number of issues
     
     User interface:
         
-        o Enable portal_factory for issues and responses
-        o Saving a response should return to the parent issue
-        o Put Issue and possibly Tracker in parentMetaTypesNotToQuery
-    
+        o Use CMF 1.5 style actions (/view, /edit etc.)
         o Rethink UI templates - need to incorporate severity and topic
         o Add search interface    
     
     Incomplete:
     
-        o Add email notifications
+        o Email notifications
+            - Add issue (only when saved out of factory!)
+            - Add response (ditto)
         
         o PloneSoftwareCenter integration
+            - Want to organise by release
         
         o Make new icons
     

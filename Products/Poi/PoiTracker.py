@@ -135,12 +135,12 @@ schema= Schema((
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
 
-class PoiTracker(BaseFolder):
+class PoiTracker(BaseBTreeFolder):
     """
     The default tracker
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BaseFolder,'__implements__',()),) + (Tracker,)
+    __implements__ = (getattr(BaseBTreeFolder,'__implements__',()),) + (Tracker,)
 
 
     # This name appears in the 'add' box
@@ -177,6 +177,13 @@ class PoiTracker(BaseFolder):
 
     ##code-section class-header #fill in your manual code here
     _at_rename_after_creation = True
+    aliases = {
+        '(Default)'  : 'poi_tracker_view',
+        'view'       : 'poi_tracker_view',
+        'edit'       : 'base_edit',
+        'properties' : 'base_metadata',
+        'sharing'    : 'folder_localrole_form'
+    }
     ##/code-section class-header
 
 
@@ -235,6 +242,45 @@ class PoiTracker(BaseFolder):
         return "%d" % (idx,)
 
 
+    #manually created methods
+
+    def validate_managers(self, value):
+        """Make sure issue tracker managers are actual user ids"""
+        membership = getToolByName(self, 'portal_membership')
+        notFound = []
+        for userId in value:
+            member = membership.getMemberById(userId)
+            if member is None:
+                notFound.append(userId)
+        if notFound:
+            return "The following user ids could not be found: %s" % ','.join(notFound)
+        else:
+            return None
+
+
+    security.declareProtected(Permissions.ModifyPortalContent, 'setManagers')
+    def setManagers(self, managers):
+        """
+        Set the list of tracker managers, and give them the Manager local role.
+        """
+        field = self.getField('managers')
+        currentManagers = field.get(self)
+        field.set(self, managers)
+
+        toRemove = [m for m in currentManagers if p not in managers]
+        toAdd = [p for p in managers if p not in currentManagers]
+        if toRemove:
+            self.manage_delLocalRoles(toRemove)
+        for userId in toAdd:
+            self.manage_setLocalRoles(userId, ['Manager'])
+
+
+def modify_fti(fti):
+    # hide unnecessary tabs (usability enhancement)
+    for a in fti['actions']:
+        if a['id'] in ['metadata', 'sharing']:
+            a['visible'] = 0
+    return fti
 
 registerType(PoiTracker,PROJECTNAME)
 # end of class PoiTracker

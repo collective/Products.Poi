@@ -151,6 +151,13 @@ class PoiResponse(BaseContent):
              schema
 
     ##code-section class-header #fill in your manual code here
+    aliases = {
+        '(Default)'  : 'poi_response_view',
+        'view'       : 'poi_response_view',
+        'edit'       : 'base_edit',
+        'properties' : 'base_metadata',
+        'sharing'    : 'folder_localrole_form'
+    }
     ##/code-section class-header
 
 
