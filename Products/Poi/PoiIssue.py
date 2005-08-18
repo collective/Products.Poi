@@ -54,7 +54,7 @@ schema= Schema((
     description_msgid='Poi_help_title',
     i18n_domain='Poi',
 )        ,
-        required=1        ,
+        required=True        ,
         accessor="Title"    ),
     
     TextField('description',
@@ -65,23 +65,50 @@ schema= Schema((
     description_msgid='Poi_help_description',
     i18n_domain='Poi',
 )        ,
-        required=1        ,
+        required=True        ,
         accessor="Description"    ),
     
+    LinesField('topics',
+            index="KeywordIndex:schema"        ,
+        widget=MultiSelectionWidget(
+    label="Topics",
+    description="Select the topic or topics (if applicable) this issue is relevant to.",
+    label_msgid='Poi_label_topics',
+    description_msgid='Poi_help_topics',
+    i18n_domain='Poi',
+)        ,
+        required=True        ,
+        multiValued=True        ,
+        vocabulary='getTopicsVocab'        ,
+        enforceVocabulary=True    ),
+    
     LinesField('categories',
-            widget=MultiSelectionWidget(
+            index="KeywordIndex:schema"        ,
+        widget=MultiSelectionWidget(
     label="Categories",
-    description="Select the category or categories (if applicable) this issue is relevant to.",
+    description="Select the category or categories (if applicable) this issue corresponds to.",
     label_msgid='Poi_label_categories',
     description_msgid='Poi_help_categories',
     i18n_domain='Poi',
 )        ,
-        enforceVocabulary=1        ,
-        multiValued=1        ,
+        required=True        ,
+        multiValued=True        ,
         vocabulary='getCategoriesVocab'        ,
-        disable_polymorphing="1"        ,
-        required=1        ,
-        schema="KeywordIndex:schema"    ),
+        enforceVocabulary=True    ),
+    
+    StringField('severity',
+            index="FieldIndex:schema"        ,
+        widget=SelectionWidget(
+    label="Severity",
+    description="Select the severity of this issue.",
+    label_msgid='Poi_label_severity',
+    description_msgid='Poi_help_severity',
+    i18n_domain='Poi',
+)        ,
+        vocabulary='getAvailableSeverities'        ,
+        default_method='getDefaultSeverity'        ,
+        required=True        ,
+        write_permission=Permissions.ModifySeverity    ),
     
     TextField('details',
             allowable_content_types=('text/plain', 'text/structured', 'text/html', 'application/msword',)        ,
@@ -96,7 +123,7 @@ schema= Schema((
 )        ,
         default_output_type="text/html"        ,
         default_content_type="text/structured"        ,
-        required=1    ),
+        required=True    ),
     
     LinesField('steps',
             widget=LinesWidget(
@@ -107,6 +134,16 @@ schema= Schema((
     i18n_domain='Poi',
 )    ),
     
+    FileField('attachment',
+            widget=FileWidget(
+    label="Attachment",
+    description="You may optionally upload a file attachment to your issue. Please do not upload unnecessarily large files.",
+    label_msgid='Poi_label_attachment',
+    description_msgid='Poi_help_attachment',
+    i18n_domain='Poi',
+)        ,
+        storage=AttributeStorage()    ),
+    
     StringField('contactEmail',
             widget=StringWidget(
     label="Contact email address",
@@ -116,6 +153,20 @@ schema= Schema((
     i18n_domain='Poi',
 )        ,
         validators=("python:('isEmail'", ')')    ),
+    
+    LinesField('issueAssignment',
+            index="KeywordIndex:schema"        ,
+        widget=MultiSelectionWidget(
+    label="Assigned to",
+    description="Select one or more tracker managers to assign this issue to.",
+    label_msgid='Poi_label_issueAssignment',
+    description_msgid='Poi_help_issueAssignment',
+    i18n_domain='Poi',
+)        ,
+        multiValued=True        ,
+        vocabulary='getManagers'        ,
+        required=False        ,
+        write_permission=Permissions.ModifyIssueAssignment    ),
     
 ),
 )
@@ -216,14 +267,30 @@ class PoiIssue(BaseFolder):
 
 
 
+    security.declarePublic('getTopicsVocab')
+    def getTopicsVocab(self):
+        """
+        Get the available topics as a DispayList.
+        """
+        field = self.aq_parent.getField('availableTopics')
+        return field.getAsDisplayList(self.aq_parent)
+
+
+
     security.declareProtected(Permissions.ModifyPortalContent, 'getCategoriesVocab')
     def getCategoriesVocab(self):
         """
         Get the categories available as a DisplayList.
         """
-
-        field = self.aq_parent.getField('categories')
+        field = self.aq_parent.getField('availableCategories')
         return field.getAsDisplayList(self.aq_parent)
+
+
+    #manually created methods
+
+    def getDefaultSeverity(self):
+        """Get the default severity for new issues"""
+        return self.aq_parent.getDefaultSeverity()
 
 
 

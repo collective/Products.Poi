@@ -56,7 +56,7 @@ schema= Schema((
     description_msgid='Poi_help_title',
     i18n_domain='Poi',
 )        ,
-        required=1        ,
+        required=True        ,
         accessor="Title"    ),
     
     ComputedField('description',
@@ -84,7 +84,7 @@ schema= Schema((
         allowed_types=('text/structured', 'text/plain', 'text/html', 'text/restructured',)        ,
         default_content_type="text/structured"        ,
         default_output_type="text/html"        ,
-        required=1    ),
+        required=True    ),
     
     StringField('issueTransition',
             mutator="setNewIssueState"        ,
@@ -97,7 +97,7 @@ schema= Schema((
 )        ,
         vocabulary='getAvailableIssueTransitions'        ,
         default=''        ,
-        enforceVocabulary=0        ,
+        enforceVocabulary=False        ,
         accessor="getIssueTransition"    ),
     
 ),

@@ -5,20 +5,8 @@ Poi TODO
     --------------------------------
 
     o Possible fields to add:
-        - Severity (e.g. critical, low - vocab field on base tracker; probably
-            only editable by issue responders)
-        - Watchers (list of people to email, at tracker level for all activity,
-            and also at issue level, for activity on that issue)
-        - Topic (is one level of "category" enough, or do we need both topic
-            and category, e.g. User Interface : Suggested improvement)
-        - Assignment (assign one or more users as responsible for an issue)
-        - Issue and response attachments
-
-        --> At tracker level, have list of responsible users. These users 
-            optionally get an email when there is tracker activity. They 
-            get a local role set so that they can edit issues, change issue
-            severity etc. They can also be the target of issue assignments.
-    
+        - Watchers (list of people to email upon issue activity)
+        
     o May want some mechanism for confirming that issues have been fixed.
         - Can have some fancy workflow where original requester is able to
             confirm closed (may be annoying in some use cases to require this)
@@ -28,41 +16,49 @@ Poi TODO
             fields on a per-use-case basis (need to retain standard fields
             always)
     
-    o Alternative views (categorised by different fields)
+    o In-form transition for Issues in the same way issues are transitioned
+        by responses (to make processing a "new" issue a one-step process)
+    
+    o More specific role than Manager for tracker managers
     
     Fixes:
     ------
     
-    o Add "rejected" state to issue workflow
-    o Add state "new" to issue workflow, to signal it hasn't yet been
-        categorised/approved. Tracker managers get a worklist of these and
-        edit the issues to set severity, verify categories etc. Should then
-        transition to "open" or "rejected", either with an automatic transition
-        (e.g. when severity set) or with a widget in the same way it is for
-        responses at the moment.
+    Security issues:
+    
+        o Enable giving and taking Manager localrole when changing tracker
+            managers
+        o Consider security settings more carefully
+        o Test workflows/security properly
+        o Create "new issue" worklist
+    
+    Performance:
+
+        o Make tracker use BTreeFolder as base
+        o Ensure templates work sensibly with large number of issues
+    
+    User interface:
         
-    o Test workflows/security properly
+        o Enable portal_factory for issues and responses
+        o Saving a response should return to the parent issue
+        o Put Issue and possibly Tracker in parentMetaTypesNotToQuery
     
-    o Make tracker use BTreeFolder as base
-    o Ensure templates work sensibly with large number of issues
-    o Add search interface
-
-    o Saving a response should return to the parent issue
-
-    o Add email notifications
-
-    o Finish PSC versions of templates
-        - Should organise listings by release
-
-    o Make new icons
+        o Rethink UI templates - need to incorporate severity and topic
+        o Add search interface    
     
-    o Write unit tests
+    Incomplete:
     
-        - at least one test per method
-        - tests of PSC vocabs
-        - tests of searches
-        - tests of transitions
-        - setup tests (workflow etc)?
+        o Add email notifications
+        
+        o PloneSoftwareCenter integration
+        
+        o Make new icons
+    
+        o Write unit tests
+            - at least one test per method
+            - tests of PSC vocabs
+            - tests of searches
+            - tests of transitions
+            - setup tests (workflow etc)?
 
-    o Write a README
-    
+        o Write a README :)

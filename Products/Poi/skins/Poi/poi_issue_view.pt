@@ -34,7 +34,7 @@
       
       <div class="categories">
         <span i18n:translate="poi_label_categories">Categories:</span>
-        <span tal:replace="python: ', '.join([here.aq_parent.getDataGridRow('categories', c)['title'] for c in here.getCategories()])" />
+        <span tal:replace="python: ', '.join([here.aq_parent.getDataGridRow('availableCategories', c)['title'] for c in here.getCategories()])" />
       </div>
       
       <div class="issue-details">

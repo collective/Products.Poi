@@ -46,10 +46,10 @@ def setuppoi_issue_workflow(self, workflow):
     ##/code-section create-workflow-setup-method-header
 
 
-    for s in ['closed', 'in-progress', 'postponed', 'open']:
+    for s in ['closed', 'in-progress', 'postponed', 'rejected', 'open', 'new']:
         workflow.states.addState(s)
 
-    for t in ['begin', 're-start', 're-open', 'close', 'postpone', 'hold']:
+    for t in ['begin', 'reject', 're-start', 're-open', 'close', 'postpone', 'hold', 'open', 'accept']:
         workflow.transitions.addTransition(t)
 
     for v in ['review_history', 'comments', 'time', 'actor', 'action']:
@@ -64,25 +64,33 @@ def setuppoi_issue_workflow(self, workflow):
 
     ## Initial State
 
-    workflow.states.setInitialState('open')
+    workflow.states.setInitialState('new')
 
     ## States initialization
 
     stateDef = workflow.states['closed']
-    stateDef.setProperties(title="""Issue closed""",
+    stateDef.setProperties(title="""Closed""",
                            transitions=['re-open'])
 
     stateDef = workflow.states['in-progress']
-    stateDef.setProperties(title="""Work in progresss""",
+    stateDef.setProperties(title="""In progress""",
                            transitions=['close', 'postpone'])
 
     stateDef = workflow.states['postponed']
     stateDef.setProperties(title="""Postponed""",
                            transitions=['re-start', 're-open'])
 
+    stateDef = workflow.states['rejected']
+    stateDef.setProperties(title="""Rejected""",
+                           transitions=['open'])
+
     stateDef = workflow.states['open']
     stateDef.setProperties(title="""Open""",
-                           transitions=['begin', 'hold', 'close'])
+                           transitions=['hold', 'close', 'begin'])
+
+    stateDef = workflow.states['new']
+    stateDef.setProperties(title="""New""",
+                           transitions=['reject', 'accept'])
 
     ## Transitions initialization
 
@@ -93,6 +101,18 @@ def setuppoi_issue_workflow(self, workflow):
                                 script_name="""""",
                                 after_script_name="""""",
                                 actbox_name="""Begin work""",
+                                actbox_url="""""",
+                                actbox_category="""workflow""",
+                                props={},
+                                )
+
+    transitionDef = workflow.transitions['reject']
+    transitionDef.setProperties(title="""Reject""",
+                                new_state_id="""rejected""",
+                                trigger_type=1,
+                                script_name="""""",
+                                after_script_name="""""",
+                                actbox_name="""Reject""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
                                 props={},
@@ -153,6 +173,30 @@ def setuppoi_issue_workflow(self, workflow):
                                 script_name="""""",
                                 after_script_name="""""",
                                 actbox_name="""Put on hold""",
+                                actbox_url="""""",
+                                actbox_category="""workflow""",
+                                props={},
+                                )
+
+    transitionDef = workflow.transitions['open']
+    transitionDef.setProperties(title="""Open""",
+                                new_state_id="""open""",
+                                trigger_type=1,
+                                script_name="""""",
+                                after_script_name="""""",
+                                actbox_name="""Open""",
+                                actbox_url="""""",
+                                actbox_category="""workflow""",
+                                props={},
+                                )
+
+    transitionDef = workflow.transitions['accept']
+    transitionDef.setProperties(title="""Accept""",
+                                new_state_id="""open""",
+                                trigger_type=1,
+                                script_name="""""",
+                                after_script_name="""""",
+                                actbox_name="""Accept""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
                                 props={},

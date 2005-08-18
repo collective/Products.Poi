@@ -75,8 +75,8 @@
 
       <tal:categories repeat="cat categories">
 
-        <tal:category define="categoryInfo python:here.getDataGridRow('categories', cat);
-                              issues python:here.getFilteredIssues(cat, state)">
+        <tal:category define="categoryInfo python:here.getDataGridRow('availableCategories', cat);
+                              issues python:here.getFilteredIssues(None, cat, None, state)">
             
           <h2 tal:content="categoryInfo/title">Category Title</h2>
   

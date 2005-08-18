@@ -45,7 +45,7 @@ schema= Schema((
     description_msgid='Poi_help_title',
     i18n_domain='Poi',
 )        ,
-        required=1        ,
+        required=True        ,
         accessor="Title"    ),
     
     TextField('description',
@@ -59,18 +59,74 @@ schema= Schema((
         accessor="Description"        ,
         disable_polymorphing="1"    ),
     
-    SimpleDataGridField('categories',
+    SimpleDataGridField('availableTopics',
+            default=['ui | User interface | User interface issues', 'functionality | Functionality| Issues with the basic functionality', 'process | Process | Issues relating to the development process itself']        ,
+        widget=SimpleDataGridWidget(
+    label="Topics",
+    description="""Enter the issue topics/areas for this tracker, one specification per line. The format is "Short name | Title | Description".""",
+    label_msgid='Poi_label_availableTopics',
+    description_msgid='Poi_help_availableTopics',
+    i18n_domain='Poi',
+)        ,
+        column_names=('id', 'title', 'description',)        ,
+        columns=3        ,
+        required=True    ),
+    
+    SimpleDataGridField('availableCategories',
             default=['bug | Bug | Functionality bugs in the software', 'ui | User interface | User interface problems', 'performance | Performance | Performance issues']        ,
-        index="KeywordIndex"        ,
         widget=SimpleDataGridWidget(
     label="Categories",
     description="""Enter the issue categories for this tracker, one specification per line. The format is "Short name | Title | Description".""",
-    label_msgid='Poi_label_categories',
-    description_msgid='Poi_help_categories',
+    label_msgid='Poi_label_availableCategories',
+    description_msgid='Poi_help_availableCategories',
     i18n_domain='Poi',
 )        ,
         column_names=('id', 'title', 'description')        ,
-        columns=3    ),
+        columns=3        ,
+        required=True    ),
+    
+    LinesField('availableSeverities',
+            default=['Critical', 'Important', 'Medium', 'Low']        ,
+        widget=LinesWidget(
+    label="Available severities",
+    description="Enter the different type of issue severities that should be available, one per line.",
+    label_msgid='Poi_label_availableSeverities',
+    description_msgid='Poi_help_availableSeverities',
+    i18n_domain='Poi',
+)        ,
+        required=True    ),
+    
+    StringField('defaultSeverity',
+            default='Medium'        ,
+        widget=SelectionWidget(
+    label="Default severity",
+    description="Select the default severity for new issues.",
+    label_msgid='Poi_label_defaultSeverity',
+    description_msgid='Poi_help_defaultSeverity',
+    i18n_domain='Poi',
+)        ,
+        enforceVocabulary=True        ,
+        vocabulary='getAvailableSeverities'        ,
+        required=True    ),
+    
+    LinesField('managers',
+            widget=LinesWidget(
+    label="Tracker managers",
+    description="Enter the user ids of the users who will be allowed to manage this tracker, one per line.",
+    label_msgid='Poi_label_managers',
+    description_msgid='Poi_help_managers',
+    i18n_domain='Poi',
+)    ),
+    
+    BooleanField('emailManagers',
+            default=True        ,
+        widget=BooleanWidget(
+    label="Email tracker managers when there is tracker activity",
+    description="If selected, tracker managers will receive an email each time a new issue or response is posted.",
+    label_msgid='Poi_label_emailManagers',
+    description_msgid='Poi_help_emailManagers',
+    i18n_domain='Poi',
+)    ),
     
 ),
 )
@@ -131,15 +187,16 @@ class PoiTracker(BaseFolder):
         """
         Get a list of all category ids in the tracker.
         """
-        return self.getField('categories').getColumn(self, 0)
+        return self.getField('availableCategories').getColumn(self, 0)
 
 
 
     security.declareProtected(Permissions.View, 'getFilteredIssues')
-    def getFilteredIssues(self, category, state):
+    def getFilteredIssues(self, topic, category, severity, state):
         """
-        Get the contained issues in the given category and review
-        state. If either is None, return all categories/states.
+        Get the contained issues in the given topic, category, severity
+        and/or review state. Any parameter may be None to avoid specifying
+        that parameter.
         """
 
         catalog = getToolByName(self, 'portal_catalog')
@@ -148,8 +205,12 @@ class PoiTracker(BaseFolder):
         query['path']        = '/'.join(self.getPhysicalPath())
         query['portal_type'] = ['PoiIssue', 'PoiPscIssue']
 
+        if topic:
+            query['getTopics'] = topic
         if category:
             query['getCategories'] = category
+        if severity:
+            query['getSeverity'] = severity
         if state:
             query['review_state']  = state
 

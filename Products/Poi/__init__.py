@@ -51,6 +51,7 @@ def initialize(context):
     import PoiTracker
     import PoiIssue
     import PoiResponse
+    import SimpleDataGridField
 
     # initialize portal content
     content_types, constructors, ftis = process_types(
