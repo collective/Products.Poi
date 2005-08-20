@@ -23,7 +23,7 @@ __docformat__ = 'plaintext'
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
 
-from Products.Poi.interfaces.Tracker import Tracker
+from Tracker import Tracker
 
 
 # additional imports from tagged value 'import'
@@ -36,97 +36,116 @@ from Products.Poi.config import *
 from Products.CMFCore.utils import getToolByName
 ##/code-section module-header
 
-schema= Schema((
+schema=Schema((
     StringField('title',
-            widget=StringWidget(
-    label="Tracker name",
-    description="Enter a descriptive name for this tracker",
-    label_msgid='Poi_label_title',
-    description_msgid='Poi_help_title',
-    i18n_domain='Poi',
-)        ,
-        required=True        ,
-        accessor="Title"    ),
+        widget=StringWidget(
+            label="Tracker name",
+            description="Enter a descriptive name for this tracker",
+            label_msgid='Poi_label_title',
+            description_msgid='Poi_help_title',
+            i18n_domain='Poi',
+        ),
+        required=True,
+        accessor="Title"
+    ),
     
     TextField('description',
-            widget=TextAreaWidget(
-    label="Tracker description",
-    description="Describe the purpose of this tracker",
-    label_msgid='Poi_label_description',
-    description_msgid='Poi_help_description',
-    i18n_domain='Poi',
-)        ,
-        accessor="Description"        ,
-        disable_polymorphing="1"    ),
+        widget=TextAreaWidget(
+            label="Tracker description",
+            description="Describe the purpose of this tracker",
+            label_msgid='Poi_label_description',
+            description_msgid='Poi_help_description',
+            i18n_domain='Poi',
+        ),
+        accessor="Description",
+        disable_polymorphing="1"
+    ),
     
     SimpleDataGridField('availableTopics',
-            default=['ui | User interface | User interface issues', 'functionality | Functionality| Issues with the basic functionality', 'process | Process | Issues relating to the development process itself']        ,
+        default=['ui | User interface | User interface issues', 'functionality | Functionality| Issues with the basic functionality', 'process | Process | Issues relating to the development process itself'],
         widget=SimpleDataGridWidget(
-    label="Topics",
-    description="""Enter the issue topics/areas for this tracker, one specification per line. The format is "Short name | Title | Description".""",
-    label_msgid='Poi_label_availableTopics',
-    description_msgid='Poi_help_availableTopics',
-    i18n_domain='Poi',
-)        ,
-        column_names=('id', 'title', 'description',)        ,
-        columns=3        ,
-        required=True    ),
+            label="Topics",
+            description="""Enter the issue topics/areas for this tracker, one specification per line. The format is "Short name | Title | Description".""",
+            label_msgid='Poi_label_availableTopics',
+            description_msgid='Poi_help_availableTopics',
+            i18n_domain='Poi',
+        ),
+        column_names=('id', 'title', 'description',),
+        columns=3,
+        required=True
+    ),
     
     SimpleDataGridField('availableCategories',
-            default=['bug | Bug | Functionality bugs in the software', 'ui | User interface | User interface problems', 'performance | Performance | Performance issues']        ,
+        default=['bug | Bug | Functionality bugs in the software', 'ui | User interface | User interface problems', 'performance | Performance | Performance issues'],
         widget=SimpleDataGridWidget(
-    label="Categories",
-    description="""Enter the issue categories for this tracker, one specification per line. The format is "Short name | Title | Description".""",
-    label_msgid='Poi_label_availableCategories',
-    description_msgid='Poi_help_availableCategories',
-    i18n_domain='Poi',
-)        ,
-        column_names=('id', 'title', 'description')        ,
-        columns=3        ,
-        required=True    ),
+            label="Categories",
+            description="""Enter the issue categories for this tracker, one specification per line. The format is "Short name | Title | Description".""",
+            label_msgid='Poi_label_availableCategories',
+            description_msgid='Poi_help_availableCategories',
+            i18n_domain='Poi',
+        ),
+        column_names=('id', 'title', 'description'),
+        columns=3,
+        required=True
+    ),
     
     LinesField('availableSeverities',
-            default=['Critical', 'Important', 'Medium', 'Low']        ,
+        default=['Critical', 'Important', 'Medium', 'Low'],
         widget=LinesWidget(
-    label="Available severities",
-    description="Enter the different type of issue severities that should be available, one per line.",
-    label_msgid='Poi_label_availableSeverities',
-    description_msgid='Poi_help_availableSeverities',
-    i18n_domain='Poi',
-)        ,
-        required=True    ),
+            label="Available severities",
+            description="Enter the different type of issue severities that should be available, one per line.",
+            label_msgid='Poi_label_availableSeverities',
+            description_msgid='Poi_help_availableSeverities',
+            i18n_domain='Poi',
+        ),
+        required=True
+    ),
     
     StringField('defaultSeverity',
-            default='Medium'        ,
+        default='Medium',
         widget=SelectionWidget(
-    label="Default severity",
-    description="Select the default severity for new issues.",
-    label_msgid='Poi_label_defaultSeverity',
-    description_msgid='Poi_help_defaultSeverity',
-    i18n_domain='Poi',
-)        ,
-        enforceVocabulary=True        ,
-        vocabulary='getAvailableSeverities'        ,
-        required=True    ),
+            label="Default severity",
+            description="Select the default severity for new issues.",
+            label_msgid='Poi_label_defaultSeverity',
+            description_msgid='Poi_help_defaultSeverity',
+            i18n_domain='Poi',
+        ),
+        enforceVocabulary=True,
+        vocabulary='getAvailableSeverities',
+        required=True
+    ),
+    
+    LinesField('availableReleases',
+        widget=LinesWidget(
+            label="Available releases",
+            description="Enter the releases which issues can be assigned to, one per line",
+            label_msgid='Poi_label_availableReleases',
+            description_msgid='Poi_help_availableReleases',
+            i18n_domain='Poi',
+        ),
+        required=True
+    ),
     
     LinesField('managers',
-            widget=LinesWidget(
-    label="Tracker managers",
-    description="Enter the user ids of the users who will be allowed to manage this tracker, one per line.",
-    label_msgid='Poi_label_managers',
-    description_msgid='Poi_help_managers',
-    i18n_domain='Poi',
-)    ),
+        widget=LinesWidget(
+            label="Tracker managers",
+            description="Enter the user ids of the users who will be allowed to manage this tracker, one per line.",
+            label_msgid='Poi_label_managers',
+            description_msgid='Poi_help_managers',
+            i18n_domain='Poi',
+        )
+    ),
     
     BooleanField('emailManagers',
-            default=True        ,
+        default=True,
         widget=BooleanWidget(
-    label="Email tracker managers when there is tracker activity",
-    description="If selected, tracker managers will receive an email each time a new issue or response is posted.",
-    label_msgid='Poi_label_emailManagers',
-    description_msgid='Poi_help_emailManagers',
-    i18n_domain='Poi',
-)    ),
+            label="Email tracker managers when there is tracker activity",
+            description="If selected, tracker managers will receive an email each time a new issue or response is posted.",
+            label_msgid='Poi_label_emailManagers',
+            description_msgid='Poi_help_emailManagers',
+            i18n_domain='Poi',
+        )
+    ),
     
 ),
 )
@@ -146,8 +165,8 @@ class PoiTracker(BaseBTreeFolder):
     # This name appears in the 'add' box
     archetype_name             = 'Tracker'
 
-    meta_type    = 'PoiTracker' 
-    portal_type  = 'PoiTracker' 
+    meta_type                  = 'PoiTracker' 
+    portal_type                = 'PoiTracker' 
     allowed_content_types      = ['PoiIssue'] 
     filter_content_types       = 1
     global_allow               = 1
@@ -161,11 +180,20 @@ class PoiTracker(BaseBTreeFolder):
     actions =  (
 
 
-       {'action':      "string:$object_url/poi_tracker_view",
+       {'action':      "string:${object_url}",
         'category':    "object",
         'id':          'view',
         'name':        'View',
         'permissions': (Permissions.View,),
+        'condition'  : 'python:1'
+       },
+        
+
+       {'action':      "string:${object_url}/edit",
+        'category':    "object",
+        'id':          'edit',
+        'name':        'Edit',
+        'permissions': (Permissions.ModifyPortalContent,),
         'condition'  : 'python:1'
        },
         
@@ -199,7 +227,7 @@ class PoiTracker(BaseBTreeFolder):
 
 
     security.declareProtected(Permissions.View, 'getFilteredIssues')
-    def getFilteredIssues(self, topic, category, severity, state):
+    def getFilteredIssues(self, release=None, topic=None, category=None, severity=None, state=None, sort_on='Date'):
         """
         Get the contained issues in the given topic, category, severity
         and/or review state. Any parameter may be None to avoid specifying
@@ -212,16 +240,18 @@ class PoiTracker(BaseBTreeFolder):
         query['path']        = '/'.join(self.getPhysicalPath())
         query['portal_type'] = ['PoiIssue', 'PoiPscIssue']
 
+        if release:
+            query['getRelease'] = release
         if topic:
-            query['getTopics'] = topic
+            query['getTopic'] = topic
         if category:
-            query['getCategories'] = category
+            query['getCategory'] = category
         if severity:
             query['getSeverity'] = severity
         if state:
             query['review_state']  = state
 
-        query['sort_on'] = 'Date'
+        query['sort_on'] = sort_on
 
         return catalog.searchResults(query)
 
@@ -241,6 +271,7 @@ class PoiTracker(BaseBTreeFolder):
         else:
             return None
 
+
     security.declareProtected(Permissions.ModifyPortalContent, 'setManagers')
     def setManagers(self, managers):
         """
@@ -250,8 +281,8 @@ class PoiTracker(BaseBTreeFolder):
         currentManagers = field.get(self)
         field.set(self, managers)
 
-        toRemove = [m for m in currentManagers if p not in managers]
-        toAdd = [p for p in managers if p not in currentManagers]
+        toRemove = [m for m in currentManagers if m not in managers]
+        toAdd = [m for m in managers if m not in currentManagers]
         if toRemove:
             self.manage_delLocalRoles(toRemove)
         for userId in toAdd:

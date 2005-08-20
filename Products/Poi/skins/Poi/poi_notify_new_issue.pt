@@ -1,0 +1,8 @@
+<div tal:omit-tag="">
+A new issue has been submitted to the "<span tal:replace="here/aq_parent/Title" />" tracker and awaits confirmation:
+
+    <a href="" tal:attributes="href here/absolute_url" tal:content="here/Title" />.
+
+</div>
+-- 
+<span tal:replace="options/fromName" />

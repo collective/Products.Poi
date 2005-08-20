@@ -11,14 +11,14 @@ def installWorkflows(self, package, out):
     ourProductWorkflow = ExternalMethod('temp',
                          'temp',
                          productname+'.'+'poi_tracker_workflow',
-                         'createpoi_tracker_workflow') 
+                         'createpoi_tracker_workflow')
     workflow = ourProductWorkflow(self, 'poi_tracker_workflow')
     workflowTool._setObject('poi_tracker_workflow', workflow)
     workflowTool.setChainForPortalTypes(['PoiTracker'], workflow.getId())
     ourProductWorkflow = ExternalMethod('temp',
                          'temp',
                          productname+'.'+'poi_issue_workflow',
-                         'createpoi_issue_workflow') 
+                         'createpoi_issue_workflow')
     workflow = ourProductWorkflow(self, 'poi_issue_workflow')
     workflowTool._setObject('poi_issue_workflow', workflow)
     workflowTool.setChainForPortalTypes(['PoiIssue'], workflow.getId())

@@ -26,13 +26,4 @@ __version__   = '$ Revision 0.0 $'[11:-2]
 ##code-section workflow-script-header #fill in your manual code here
 ##/code-section workflow-script-header
 
-## ['giveManagerLocalrole']
-
-def giveManagerLocalrole(self,state_change,**kw):
-    """Give the object's owner the 'Manager' localrole."""
-    
-    context = state_change.object
-    owner = context.Creator()
-    context.manage_setLocalRoles(owner, ['Manager'])
-
-
+## []

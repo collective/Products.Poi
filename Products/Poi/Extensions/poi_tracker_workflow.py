@@ -55,9 +55,9 @@ def setuppoi_tracker_workflow(self, workflow):
     for v in ['review_history', 'comments', 'time', 'actor', 'action']:
         workflow.variables.addVariable(v)
 
-    for p in ['Add Poi Issues', 'Add Poi Responses', 'View', 'Modify portal content', 'Access contents information']:
+    for p in ['Add Poi Issues', 'Add Poi Responses', 'View', 'Modify portal content', 'Access contents information', 'Add PoiIssues', 'Add PoiResponses']:
         workflow.addManagedPermission(p)
- 
+
     for l in []:
         if not l in workflow.worklists.objectValues():
             workflow.worklists.addWorklist(l)
@@ -90,50 +90,43 @@ def setuppoi_tracker_workflow(self, workflow):
     stateDef = workflow.states['closed']
     stateDef.setProperties(title="""Closed for submissions""",
                            transitions=['open'])
-    stateDef.setPermission('Add Poi Issues',
+    stateDef.setPermission('Add PoiIssues',
                            0,
-                           ['Manager'])
-    stateDef.setPermission('Add Poi Responses',
+                           ['Manager', 'Owner'])
+    stateDef.setPermission('Add PoiResponses',
                            0,
-                           ['Manager'])
+                           ['Manager', 'Owner'])
     stateDef.setPermission('View',
                            0,
-                           ['Member', 'Manager', 'Owner'])
+                           ['Anonymous', 'Member', 'Manager', 'Owner'])
     stateDef.setPermission('Modify portal content',
                            0,
                            ['Manager', 'Owner'])
     stateDef.setPermission('Access contents information',
                            0,
-                           ['Member', 'Manager', 'Owner'])
+                           ['Anonymous', 'Member', 'Manager', 'Owner'])
 
     ## Transitions initialization
 
     transitionDef = workflow.transitions['close']
-    transitionDef.setProperties(title="""close""",
+    transitionDef.setProperties(title="""Close tracker""",
                                 new_state_id="""closed""",
                                 trigger_type=1,
                                 script_name="""""",
                                 after_script_name="""""",
-                                actbox_name="""close""",
+                                actbox_name="""Close tracker""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
                                 props={},
                                 )
 
-    ##creation of workflow scripts
-    for wf_scriptname in ['giveManagerLocalrole']:
-        if not wf_scriptname in workflow.scripts.objectIds():
-            workflow.scripts._setObject(wf_scriptname,ExternalMethod(wf_scriptname, wf_scriptname,
-                productname + '.poi_tracker_workflow_scripts',
-                wf_scriptname))
-
     transitionDef = workflow.transitions['open']
-    transitionDef.setProperties(title="""open""",
+    transitionDef.setProperties(title="""Open tracker""",
                                 new_state_id="""open""",
                                 trigger_type=1,
                                 script_name="""""",
-                                after_script_name="""giveManagerLocalrole""",
-                                actbox_name="""open""",
+                                after_script_name="""""",
+                                actbox_name="""Open tracker""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
                                 props={},

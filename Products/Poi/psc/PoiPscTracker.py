@@ -33,7 +33,7 @@ from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
 ##/code-section module-header
 
-schema= Schema((
+schema=Schema((
 ),
 )
 
@@ -45,8 +45,7 @@ from Products.CMFCore.utils import getToolByName
 class PoiPscTracker(PoiTracker,BaseFolder):
     """
     Version of the PoiTracker which supports the
-    PloneSoftwareCenter. 
-    Intended to be added inside a PSCProject.
+    PloneSoftwareCenter. Intended to be added inside a PSCProject.
     """
     security = ClassSecurityInfo()
     __implements__ = (getattr(PoiTracker,'__implements__',()),) + (getattr(BaseFolder,'__implements__',()),)
@@ -55,8 +54,8 @@ class PoiPscTracker(PoiTracker,BaseFolder):
     # This name appears in the 'add' box
     archetype_name             = 'Issue tracker'
 
-    meta_type    = 'PoiPscTracker' 
-    portal_type  = 'PoiPscTracker' 
+    meta_type                  = 'PoiPscTracker' 
+    portal_type                = 'PoiPscTracker' 
     allowed_content_types      = ['PoiPscIssue'] 
     filter_content_types       = 1
     global_allow               = 0
@@ -70,11 +69,20 @@ class PoiPscTracker(PoiTracker,BaseFolder):
     actions =  (
 
 
-       {'action':      "string:$object_url/poi_tracker_view",
+       {'action':      "string:${object_url}",
         'category':    "object",
         'id':          'view',
         'name':        'View',
         'permissions': (Permissions.View,),
+        'condition'  : 'python:1'
+       },
+        
+
+       {'action':      "string:${object_url}/edit",
+        'category':    "object",
+        'id':          'edit',
+        'name':        'Edit',
+        'permissions': (Permissions.ModifyPortalContent,),
         'condition'  : 'python:1'
        },
         

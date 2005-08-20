@@ -33,34 +33,36 @@ from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
 ##/code-section module-header
 
-schema= Schema((
+schema=Schema((
     ReferenceField('releases',
-            widget=ReferenceWidget(
-    label="Releases",
-    description="If this response is relevant to one or more releases, select them here.",
-    label_msgid='Poi_label_releases',
-    description_msgid='Poi_help_releases',
-    i18n_domain='Poi',
-)        ,
-        allowed_types=('PSCRelease',)        ,
-        relationship="responseRelatedToRelease"        ,
-        multiValued=1        ,
-        vocabulary='getAvailableReleases'        ,
-        enforceVocabulary=1    ),
+        widget=ReferenceWidget(
+            label="Releases",
+            description="If this response is relevant to one or more releases, select them here.",
+            label_msgid='Poi_label_releases',
+            description_msgid='Poi_help_releases',
+            i18n_domain='Poi',
+        ),
+        allowed_types=('PSCRelease',),
+        relationship="responseRelatedToRelease",
+        multiValued=1,
+        vocabulary='getAvailableReleases',
+        enforceVocabulary=1
+    ),
     
     ReferenceField('proposals',
-            widget=ReferenceWidget(
-    label="Improvement proposals",
-    description="If this response is related to one or more improvement proposals, please select them here.",
-    label_msgid='Poi_label_proposals',
-    description_msgid='Poi_help_proposals',
-    i18n_domain='Poi',
-)        ,
-        allowed_types=('PSCImprovementProposal',)        ,
-        relationship="responseRelatedToProposal"        ,
-        multiValued=1        ,
-        vocabulary='getAvailableProposals'        ,
-        enforceVocabulary=1    ),
+        widget=ReferenceWidget(
+            label="Improvement proposals",
+            description="If this response is related to one or more improvement proposals, please select them here.",
+            label_msgid='Poi_label_proposals',
+            description_msgid='Poi_help_proposals',
+            i18n_domain='Poi',
+        ),
+        allowed_types=('PSCImprovementProposal',),
+        relationship="responseRelatedToProposal",
+        multiValued=1,
+        vocabulary='getAvailableProposals',
+        enforceVocabulary=1
+    ),
     
 ),
 )
@@ -72,8 +74,7 @@ schema= Schema((
 class PoiPscResponse(PoiResponse,BaseContent):
     """
     Version of the PoiResponse which supports the
-    PloneSoftwareCenter.
-    Intended to be used inside a PSCProject.
+    PloneSoftwareCenter. Intended to be used inside a PSCProject.
     """
     security = ClassSecurityInfo()
     __implements__ = (getattr(PoiResponse,'__implements__',()),) + (getattr(BaseContent,'__implements__',()),)
@@ -82,8 +83,8 @@ class PoiPscResponse(PoiResponse,BaseContent):
     # This name appears in the 'add' box
     archetype_name             = 'Response'
 
-    meta_type    = 'PoiPscResponse' 
-    portal_type  = 'PoiPscResponse' 
+    meta_type                  = 'PoiPscResponse' 
+    portal_type                = 'PoiPscResponse' 
     allowed_content_types      = [] + list(getattr(PoiResponse, 'allowed_content_types', []))
     filter_content_types       = 0
     global_allow               = 0

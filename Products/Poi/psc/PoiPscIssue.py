@@ -33,34 +33,37 @@ from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
 ##/code-section module-header
 
-schema= Schema((
-    ReferenceField('releases',
-            widget=ReferenceWidget(
-    description="If this issue is related to one or more releases, please select them here.",
-    label="Releases",
-    label_msgid='Poi_label_releases',
-    description_msgid='Poi_help_releases',
-    i18n_domain='Poi',
-)        ,
-        allowed_types=('PSCRelease',)        ,
-        multiValued=1        ,
-        relationship="issueRelatedToRelease"        ,
-        vocabulary='getAvailableReleases'        ,
-        enforceVocabulary=1    ),
+schema=Schema((
+    ReferenceField('release',
+        widget=ReferenceWidget(
+            description="Select the release this issue pertains to.",
+            label="Release",
+            label_msgid='Poi_label_release',
+            description_msgid='Poi_help_release',
+            i18n_domain='Poi',
+        ),
+        enforceVocabulary=True,
+        multiValued=False,
+        relationship="issueRelatedToRelease",
+        vocabulary='getAvailableReleases',
+        allowed_types=('PSCRelease',),
+        required=False
+    ),
     
     ReferenceField('proposals',
-            widget=ReferenceWidget(
-    label="Improvement proposals",
-    description="If this issue is related to one or more improvement proposals, please select them here.",
-    label_msgid='Poi_label_proposals',
-    description_msgid='Poi_help_proposals',
-    i18n_domain='Poi',
-)        ,
-        allowed_types=('PSCImprovementProposal',)        ,
-        multiValued=1        ,
-        relationship="issueRelatedToProposal"        ,
-        vocabulary='getAvailableProposals'        ,
-        enforceVocabulary=1    ),
+        widget=ReferenceWidget(
+            label="Improvement proposals",
+            description="If this issue is related to one or more improvement proposals, please select them here.",
+            label_msgid='Poi_label_proposals',
+            description_msgid='Poi_help_proposals',
+            i18n_domain='Poi',
+        ),
+        allowed_types=('PSCImprovementProposal',),
+        multiValued=1,
+        relationship="issueRelatedToProposal",
+        vocabulary='getAvailableProposals',
+        enforceVocabulary=1
+    ),
     
 ),
 )
@@ -81,9 +84,9 @@ class PoiPscIssue(PoiIssue,BaseFolder):
     # This name appears in the 'add' box
     archetype_name             = 'Issue'
 
-    meta_type    = 'PoiPscIssue' 
-    portal_type  = 'PoiPscIssue' 
-    allowed_content_types      = ['PoiPscResponse'] 
+    meta_type                  = 'PoiPscIssue' 
+    portal_type                = 'PoiPscIssue' 
+    allowed_content_types      = [] + list(getattr(PoiIssue, 'allowed_content_types', []))
     filter_content_types       = 1
     global_allow               = 0
     allow_discussion           = 0
@@ -96,11 +99,20 @@ class PoiPscIssue(PoiIssue,BaseFolder):
     actions =  (
 
 
-       {'action':      "string:$object_url/poi_psc_issue_view",
+       {'action':      "string:${object_url}",
         'category':    "object",
         'id':          'view',
         'name':        'view',
         'permissions': (Permissions.View,),
+        'condition'  : 'python:1'
+       },
+        
+
+       {'action':      "string:${object_url}/edit",
+        'category':    "object",
+        'id':          'edit',
+        'name':        'Edit',
+        'permissions': (Permissions.ModifyPortalContent,),
         'condition'  : 'python:1'
        },
         

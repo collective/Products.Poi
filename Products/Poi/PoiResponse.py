@@ -35,70 +35,86 @@ from Products.CMFCore.utils import getToolByName
 from Acquisition import aq_base
 ##/code-section module-header
 
-schema= Schema((
+schema=Schema((
     StringField('id',
-            widget=StringWidget(
-    visible={'edit' : 'invisible', 'view' : 'invisible'},
-    modes=('view',),
-    label='Id',
-    label_msgid='Poi_label_id',
-    description='Enter a value for id.',
-    description_msgid='Poi_help_id',
-    i18n_domain='Poi',
-)        ,
-        mode="r"    ),
+        widget=StringWidget(
+            visible={'edit' : 'invisible', 'view' : 'invisible'},
+            modes=('view',),
+            label='Id',
+            label_msgid='Poi_label_id',
+            description='Enter a value for id.',
+            description_msgid='Poi_help_id',
+            i18n_domain='Poi',
+        ),
+        mode="r"
+    ),
     
     StringField('title',
-            widget=StringWidget(
-    label="Subject",
-    description="""Enter a brief subject for this response, e.g. "Fixed" or "Will be fixed in next release".""",
-    label_msgid='Poi_label_title',
-    description_msgid='Poi_help_title',
-    i18n_domain='Poi',
-)        ,
-        required=True        ,
-        accessor="Title"    ),
+        widget=StringWidget(
+            label="Subject",
+            description="""Enter a brief subject for this response, e.g. "Fixed" or "Will be fixed in next release".""",
+            label_msgid='Poi_label_title',
+            description_msgid='Poi_help_title',
+            i18n_domain='Poi',
+        ),
+        required=True,
+        accessor="Title"
+    ),
     
     ComputedField('description',
-            widget=ComputedWidget(
-    visible={'view' : 'invisible', 'edit' : 'invisible'},
-    label='Description',
-    label_msgid='Poi_label_description',
-    description='Enter a value for description.',
-    description_msgid='Poi_help_description',
-    i18n_domain='Poi',
-)        ,
-        expression="context.getResponse(mimetype='text/plain')[:50]"        ,
-        accessor="Description"    ),
+        widget=ComputedWidget(
+            visible={'view' : 'invisible', 'edit' : 'invisible'},
+            label='Description',
+            label_msgid='Poi_label_description',
+            description='Enter a value for description.',
+            description_msgid='Poi_help_description',
+            i18n_domain='Poi',
+        ),
+        expression="context.getResponse(mimetype='text/plain')[:50]",
+        accessor="Description"
+    ),
     
     TextField('response',
-            allowable_content_types=('text/plain', 'text/structured', 'text/html', 'application/msword',)        ,
+        allowable_content_types=('text/plain', 'text/structured', 'text/html', 'application/msword',),
         widget=RichWidget(
-    label="Detailed response",
-    description="Please enter your response below",
-    rows="10",
-    label_msgid='Poi_label_response',
-    description_msgid='Poi_help_response',
-    i18n_domain='Poi',
-)        ,
-        allowed_types=('text/structured', 'text/plain', 'text/html', 'text/restructured',)        ,
-        default_content_type="text/structured"        ,
-        default_output_type="text/html"        ,
-        required=True    ),
+            label="Detailed response",
+            description="Please enter your response below",
+            rows="10",
+            label_msgid='Poi_label_response',
+            description_msgid='Poi_help_response',
+            i18n_domain='Poi',
+        ),
+        allowed_types=('text/structured', 'text/plain', 'text/html', 'text/restructured',),
+        default_content_type="text/structured",
+        default_output_type="text/html",
+        required=True
+    ),
     
     StringField('issueTransition',
-            mutator="setNewIssueState"        ,
+        mutator="setNewIssueState",
         widget=SelectionWidget(
-    label="Change issue state",
-    description="Select a change of state in the issue this response is for, if applicable",
-    label_msgid='Poi_label_issueTransition',
-    description_msgid='Poi_help_issueTransition',
-    i18n_domain='Poi',
-)        ,
-        vocabulary='getAvailableIssueTransitions'        ,
-        default=''        ,
-        enforceVocabulary=False        ,
-        accessor="getIssueTransition"    ),
+            label="Change issue state",
+            description="Select a change of state in the issue this response is for, if applicable",
+            label_msgid='Poi_label_issueTransition',
+            description_msgid='Poi_help_issueTransition',
+            i18n_domain='Poi',
+        ),
+        vocabulary='getAvailableIssueTransitions',
+        default='',
+        enforceVocabulary=False,
+        accessor="getIssueTransition"
+    ),
+    
+    FileField('attachment',
+        widget=FileWidget(
+            label="Attachment",
+            description="You may optionally upload a file attachment to your response. Please do not upload unnecessarily large files.",
+            label_msgid='Poi_label_attachment',
+            description_msgid='Poi_help_attachment',
+            i18n_domain='Poi',
+        ),
+        storage=AttributeStorage()
+    ),
     
 ),
 )
@@ -109,10 +125,9 @@ schema= Schema((
 
 class PoiResponse(BaseContent):
     """
-    A response to an issue, added by a project manager.
-    
-    When giving a response, the workflow state of the parent issue
-    can be set at the same time.
+    A response to an issue, added by a project manager. When giving
+    a response, the workflow state of the parent issue can be set at
+    the same time.
     """
     security = ClassSecurityInfo()
     __implements__ = (getattr(BaseContent,'__implements__',()),) + (Response,)
@@ -121,8 +136,8 @@ class PoiResponse(BaseContent):
     # This name appears in the 'add' box
     archetype_name             = 'Response'
 
-    meta_type    = 'PoiResponse' 
-    portal_type  = 'PoiResponse' 
+    meta_type                  = 'PoiResponse' 
+    portal_type                = 'PoiResponse' 
     allowed_content_types      = [] 
     filter_content_types       = 0
     global_allow               = 0
@@ -136,11 +151,20 @@ class PoiResponse(BaseContent):
     actions =  (
 
 
-       {'action':      "string:$object_url/poi_response_view",
+       {'action':      "string:${object_url}/view",
         'category':    "object",
         'id':          'view',
         'name':        'view',
         'permissions': (Permissions.View,),
+        'condition'  : 'python:1'
+       },
+        
+
+       {'action':      "string:$object_url/edit",
+        'category':    "object",
+        'id':          'edit',
+        'name':        'Edit',
+        'permissions': ("View",),
         'condition'  : 'python:1'
        },
         
@@ -184,6 +208,8 @@ class PoiResponse(BaseContent):
 
         self.getField('issueTransition').set(self, transition)
 
+
+
     security.declareProtected(Permissions.View, 'getIssueStateBefore')
     def getIssueStateBefore(self):
         """
@@ -204,7 +230,9 @@ class PoiResponse(BaseContent):
         # Default to None if it was not set
         return getattr(aq_base(self), '_issueStateAfter', None)
 
-    # Override to rename to a sequentially picked number
+
+    #manually created methods
+
     def _renameAfterCreation(self, check_auto_id=False):
         parent = self.aq_inner.aq_parent
         maxId = 0
@@ -219,6 +247,59 @@ class PoiResponse(BaseContent):
         # portal_factory!
         get_transaction().commit(1)
         self.setId(newId)
+
+        # Send notification
+        self.sendNotificationMail()
+
+
+    def sendNotificationMail(self):
+        """When this response is created, send a notification email to all
+        tracker managers, unless emailing is turned off.
+        """
+
+        issue = self.aq_parent
+        tracker = issue.aq_parent
+
+        if not tracker.getEmailManagers():
+            return
+
+        portal_membership = getToolByName(self, 'portal_membership')
+        portal_url        = getToolByName(self, 'portal_url')
+        plone_utils       = getToolByName(self, 'plone_utils')
+
+        portal = portal_url.getPortalObject()
+        mailHost = plone_utils.getMailHost()
+        fromAddress = portal.getProperty('email_from_address', None)
+        fromName = portal.getProperty('email_from_name', None)
+
+        if fromAddress is None or fromName is None:
+            return None
+
+        issueEmail = issue.getContactEmail()
+        mailedIssueContact = False
+
+        mailText = self.poi_notify_new_response(self, response = self, fromName = fromName)
+        managers = self.getManagers()
+        for manager in managers:
+            managerUser = portal_membership.getMemberById(manager)
+            if managerUser is not None:
+                managerEmail = managerUser.getProperty('email')
+                if managerEmail:
+                    if managerEmail == issueEmail:
+                        mailedIssueContact = True
+                    mailHost.secureSend(message = mailText,
+                                        mto = managerEmail,
+                                        mfrom = fromAddress,
+                                        subject = "New response to issue '%s' in tracker '%s'" % (issue.Title(), tracker.Title(),),
+                                        subtype = 'html')
+
+        if not mailedIssueContact and issueEmail:
+            mailHost.secureSend(message = mailText,
+                                mto = issueEmail,
+                                mfrom = fromAddress,
+                                subject = "New response to issue '%s' in tracker '%s'" % (issue.Title(), tracker.Title(),),
+                                subtype = 'html')
+
 
 def modify_fti(fti):
     # hide unnecessary tabs (usability enhancement)

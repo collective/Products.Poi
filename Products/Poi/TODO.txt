@@ -3,52 +3,48 @@ Poi TODO
 
     Possible features for inclusion:
     --------------------------------
-
-    o Possible fields to add:
-        - Watchers (list of people to email upon issue activity)
-        
-**  o May want some mechanism for confirming that issues have been fixed.
-        - Can have some fancy workflow where original requester is able to
-            confirm closed (may be annoying in some use cases to require this)
-
     
-    o Other features to consider
-        - Optional (!) ATSchemaEditorNG integration to get a set of variable
-            fields on a per-use-case basis (need to retain standard fields
-            always)
+    o More sophisticated email notification, e.g. based on workflow transitions
+    o Ability to mail a list instead of individual managers
+    o Link Topics and Plone groups. This way, all UI postings should fire
+        a mail to UI team, for example.
+    
+    o Max-size validator on uploaded attachments
     
     o In-form transition for Issues in the same way issues are transitioned
         by responses (to make processing a "new" issue a one-step process)
     
     o More specific role than Manager for tracker managers
+
+    o Possible fields to add:
+        - Watchers (list of people to email upon issue activity)
+
+    o Optional (!) ATSchemaEditorNG integration to get a set of variable
+        fields on a per-use-case basis (need to retain standard fields
+        always)
     
     Fixes:
     ------
     
+    Bugs:
+
+        o _renameAfterCreation() counter is not thread safe
+
     Security issues:
     
         o Consider security settings more carefully
         o Test workflows/security properly
         o Create "new issue" worklist
     
-    Performance:
-
-        o Ensure templates work sensibly with large number of issues
-    
     User interface:
         
-        o Use CMF 1.5 style actions (/view, /edit etc.)
-        o Rethink UI templates - need to incorporate severity and topic
+        o Rethink UI templates - need to incorporate release, severity and topic
+        o Ensure templates work sensibly with large number of issues
         o Add search interface    
     
     Incomplete:
-    
-        o Email notifications
-            - Add issue (only when saved out of factory!)
-            - Add response (ditto)
         
         o PloneSoftwareCenter integration
-            - Want to organise by release
         
         o Make new icons
     

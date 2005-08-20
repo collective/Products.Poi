@@ -50,6 +50,13 @@
 
 /* Structural elements */
 
+.infoBox {
+    float: right;
+}
+.infoBox td {
+    background: white;
+}
+
 .categories {
     margin-top: 0.5em;
     color: &dtml-discreetColor;;
@@ -79,6 +86,7 @@
     margin: 1em 0;
     padding: 0.5em;
     border: &dtml-borderWidth; &dtml-borderStyleAnnotations; &dtml-notifyBorderColor;;
+    clear: both;
 }
 
 .steps-to-reproduce span {
@@ -99,6 +107,10 @@
   margin: 1em 0 1em 1em;
   font-size: &dtml-fontSmallSize;;
   color: &dtml-discreetColor;
+}
+
+.issue-attachment-label {
+    margin-bottom: 0.5em;
 }
 
 /* Response actions box */

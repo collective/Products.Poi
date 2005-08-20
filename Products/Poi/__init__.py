@@ -40,7 +40,6 @@ DirectoryView.registerDirectory('skins/Poi',
 
 
 def initialize(context):
-    
     ##code-section custom-init-top #fill in your manual code here
     ##/code-section custom-init-top
 
@@ -51,6 +50,7 @@ def initialize(context):
     import PoiTracker
     import PoiIssue
     import PoiResponse
+    import Tracker
 
     # initialize portal content
     content_types, constructors, ftis = process_types(
@@ -86,8 +86,7 @@ def initialize(context):
     
     # Responses
     for metaType, constructor in \
-        {'PoiResponse'    : PoiResponse.addPoiResponse,
-         'PoiPscResponse' : psc.PoiPscResponse.addPoiPscResponse}.items ():
+        {'PoiResponse'    : PoiResponse.addPoiResponse,}.items ():
         context.registerClass(meta_type    = metaType,
                               constructors = (constructor,),
                               permission   = Permissions.AddResponse)

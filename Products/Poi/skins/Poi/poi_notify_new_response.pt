@@ -1,0 +1,8 @@
+<div tal:omit-tag="">
+A new response has been given to the issue "<span tal:replace="here/aq_parent/Title" />" in the tracker "<span tal:replace="here/aq_parent/aq_parent/Title" />":
+
+    <a href="" tal:attributes="href here/aq_parent/absolute_url" tal:content="here/Title" />.
+
+</div>
+-- 
+<span tal:replace="options/fromName" />

@@ -16,6 +16,7 @@ setDefaultRoles(DEFAULT_ADD_CONTENT_PERMISSION, ('Manager', 'Owner', 'Member'))
 product_globals=globals()
 
 ##code-section config-bottom #fill in your manual code here
+DEPENDENCIES = ['ArchAddOn']
 ##/code-section config-bottom
 
 

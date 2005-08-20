@@ -27,42 +27,53 @@
           class="link-parent visualNoPrint"
           tal:define="parent_url python:here.navigationParent(here, template.getId())"
           tal:attributes="href parent_url">
-  	    <span i18n:translate="poi_up_to_tracker">Up to issue tracker</span>
+          <span i18n:translate="poi_up_to_tracker">Up to issue tracker</span>
       </a>
       
+      <table class="vertical listing infoBox">
+          <tr>
+              <th i18n:translate="poi_label_release">Release:</th>
+              <td tal:content="here/getRelease" />
+          </tr>
+          <tr>
+              <th i18n:translate="poi_label_topic">Topic:</th>
+              <td tal:content="python:here.aq_parent.getDataGridRow('availableTopics', here.getTopic())['title']" />
+          </tr>
+          <tr>
+              <th i18n:translate="poi_label_category">Category:</th>
+              <td tal:content="python:here.aq_parent.getDataGridRow('availableCategories', here.getCategory())['title']" />
+          </tr>
+          <tr>
+              <th i18n:translate="poi_label_severity">Severity:</th>
+              <td tal:content="here/getSeverity" />
+          </tr>
+          <tr>
+              <th i18n:translate="poi_label_submitted_by">Submitted by:</th>
+              <td tal:content="here/Creator" />
+          </tr>
+          <tr tal:condition="here/getResponsibleManager">
+              <th i18n:translate="poi_label_resposible">Responsible:</th>
+              <td tal:content="here/getResponsibleManager" />
+          </tr>
+      </table>
+      
       <div class="documentDescription" tal:content="here/Description" />
-      
-      <div class="categories">
-        <span i18n:translate="poi_label_categories">Categories:</span>
-        <span tal:replace="python: ', '.join([here.aq_parent.getDataGridRow('availableCategories', c)['title'] for c in here.getCategories()])" />
-      </div>
-      
-      <div class="issue-details">
-        
-      <div class="contact-details">
-        <span i18n:translate="poi_label_submitted_by">Submitted by:</span>
-        <span class="contact-user" tal:content="here/Creator" />
-        <tal:email condition="here/getContactEmail">
-          (<a class="link-plain"
-                tal:attributes="href string:mailto:${here/getContactEmail}"
-                tal:content="string:${here/getContactEmail}" />)
-        </tal:email>
-      </div>
-      
-      
-        
-        <div tal:content="structure here/getDetails" />
           
-        <div class="steps-to-reproduce" tal:condition="here/getSteps">
+      <div tal:content="structure here/getDetails" />
+  
+      <div class="steps-to-reproduce" tal:condition="here/getSteps">
           <span i18n:translate="poi_label_steps">Steps to reproduce:</span>
-          <ol>
-            <li tal:repeat="step here/getSteps" tal:content="step" />
-          </ol>
-        </div>
-        
+            <ol>
+                <li tal:repeat="step here/getSteps" tal:content="step" />
+            </ol>
       </div>
       
-      <tal:responses repeat="response here/folderlistingFolderContents">
+      <div class="issue-attachment" tal:condition="python:here.getAttachment().get_size() &gt; 0">
+          <div class="issue-attachment-label" i18n:translate="poi_label_attachment">Attached:</div>
+          <metal:attachment use-macro="python:here.widget('attachment')"/>
+      </div>
+
+      <tal:responses repeat="response python:here.getFolderContents(contentFilter = {'sort_on' : 'getId'}, full_objects = True)">
       
         <div class="response-details" metal:define-macro="response_view"
                 tal:attributes="class python: test(here.Creator() == response.Creator(),
@@ -71,7 +82,7 @@
                   
           
             <div class="response-actions"
-                  tal:condition="python:user.has_permission('Modify portal content', here)">
+                  tal:condition="python:user.has_permission('Modify portal content', response)">
               <ul>
                 <li class="edit-response">
                   <a href="" title="Edit this response"
@@ -88,20 +99,31 @@
               </ul>
             </div>
           
-            <div class="response-info">
+            <div class="response-info"
+                 tal:define="stateBefore response/getIssueStateBefore;
+                             stateAfter  response/getIssueStateAfter;">
               <span i18n:translate="poi_added_by">Added by</span>
               <span class="contact-user" tal:content="response/Creator" />
               <span i18n:translate="poi_added_on">on</span>
               <span class="contact-user" 
-                    tal:content="python:here.toPortalTime(response.Date())" />
+                    tal:content="python:here.toPortalTime(response.Date(), long_format=True)" />
+              <div tal:condition="python:stateBefore and stateAfter and stateBefore != stateAfter">
+                  <span i18n:translate="poi_response_state_change">Changed issue state:</span>
+                  <span tal:replace="stateBefore" /> &rarr; <span tal:replace="stateAfter" />
+              </div>
             </div>
       
             <div tal:content="structure response/getResponse" />
+            
+            <div class="issue-attachment" tal:condition="python:response.getAttachment().get_size() &gt; 0">
+              <div class="issue-attachment-label" i18n:translate="poi_label_attachment">Attached:</div>
+              <metal:attachment use-macro="python:response.widget('attachment')"/>
+            </div>
       
         </div>
       
       </tal:responses>
-      
+      <div class="visualClear">&nbsp;</div>
   </div>
 </div>
 
