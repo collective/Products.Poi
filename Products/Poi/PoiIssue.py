@@ -56,7 +56,8 @@ schema=Schema((
             i18n_domain='Poi',
         ),
         required=True,
-        accessor="Title"
+        accessor="Title",
+        searchable=True
     ),
     
     TextField('description',
@@ -68,10 +69,12 @@ schema=Schema((
             i18n_domain='Poi',
         ),
         required=True,
-        accessor="Description"
+        accessor="Description",
+        searchable=True
     ),
     
     StringField('release',
+        default="(UNASSIGNED)",
         index="FieldIndex:schema",
         widget=SelectionWidget(
             label="Release",
@@ -80,8 +83,8 @@ schema=Schema((
             description_msgid='Poi_help_release',
             i18n_domain='Poi',
         ),
-        required=False,
-        vocabulary='getAvailableReleases'
+        required=True,
+        vocabulary='getReleasesVocab'
     ),
     
     StringField('topic',
@@ -138,9 +141,10 @@ schema=Schema((
             description_msgid='Poi_help_details',
             i18n_domain='Poi',
         ),
-        default_output_type="text/html",
+        required=True,
         default_content_type="text/structured",
-        required=True
+        searchable=True,
+        default_output_type="text/html"
     ),
     
     LinesField('steps',
@@ -150,7 +154,8 @@ schema=Schema((
             label_msgid='Poi_label_steps',
             description_msgid='Poi_help_steps',
             i18n_domain='Poi',
-        )
+        ),
+        searchable=True
     ),
     
     FileField('attachment',
@@ -185,9 +190,10 @@ schema=Schema((
             description_msgid='Poi_help_responsibleManager',
             i18n_domain='Poi',
         ),
-        required=False,
-        write_permission=Permissions.ModifyIssueAssignment,
-        vocabulary='getManagers'
+        vocabulary='getManagersVocab',
+        default="(UNASSIGNED)",
+        required=True,
+        write_permission=Permissions.ModifyIssueAssignment
     ),
     
 ),
@@ -332,7 +338,32 @@ class PoiIssue(BaseFolder):
         return field.getAsDisplayList(self.aq_parent)
 
 
-    security.declareProtected(Permissions.ModifyPortalContent, 'getCategoriesVocab')
+    def getReleasesVocab(self):
+        """
+        Get the releases available as a DisplayList. The first item is 'None',
+        with a key of '(UNASSIGNED)'.
+        """
+        items = self.aq_parent.getAvailableReleases()
+        vocab = DisplayList()
+        vocab.add('(UNASSIGNED)', 'None', 'poi_voacb_none')
+        for item in items:
+            vocab.add(item, item)
+        return vocab
+
+
+    def getManagersVocab(self):
+        """
+        Get the managers available as a DisplayList. The first item is 'None',
+        with a key of '(UNASSIGNED)'.
+        """
+        items = self.aq_parent.getManagers()
+        vocab = DisplayList()
+        vocab.add('(UNASSIGNED)', 'None', 'poi_voacb_none')
+        for item in items:
+            vocab.add(item, item)
+        return vocab
+
+
     def getCategoriesVocab(self):
         """
         Get the categories available as a DisplayList.

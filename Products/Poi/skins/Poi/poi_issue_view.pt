@@ -11,7 +11,8 @@
   </head>
 
 <body>
-<div metal:fill-slot="main">
+<div metal:fill-slot="main"
+        tal:define="wftool here/portal_workflow">
     
     <div metal:define-macro="body">
 
@@ -30,10 +31,16 @@
           <span i18n:translate="poi_up_to_tracker">Up to issue tracker</span>
       </a>
       
-      <table class="vertical listing infoBox">
+      <table class="vertical listing issue-info-box">
           <tr>
               <th i18n:translate="poi_label_release">Release:</th>
-              <td tal:content="here/getRelease" />
+              <td>
+                  <span tal:condition="python:here.getRelease() != '(UNASSIGNED)'" 
+                        tal:replace="here/getRelease" />
+                  <div tal:condition="python:here.getRelease() == '(UNASSIGNED)'" class="unassigned-field">
+                      &mdash;
+                  </div>
+              </td>
           </tr>
           <tr>
               <th i18n:translate="poi_label_topic">Topic:</th>
@@ -51,9 +58,23 @@
               <th i18n:translate="poi_label_submitted_by">Submitted by:</th>
               <td tal:content="here/Creator" />
           </tr>
-          <tr tal:condition="here/getResponsibleManager">
-              <th i18n:translate="poi_label_resposible">Responsible:</th>
-              <td tal:content="here/getResponsibleManager" />
+          <tr>
+              <th i18n:translate="poi_label_submitted_on">Submitted on:</th>
+              <td tal:content="python:here.toPortalTime(here.created())" />
+          </tr>
+          <tr>
+              <th i18n:translate="poi_label_responsible">Responsible:</th>
+              <td>
+                  <span tal:condition="python:here.getResponsibleManager() != '(UNASSIGNED)'" 
+                         tal:replace="here/getResponsibleManager" />
+                  <div tal:condition="python:here.getResponsibleManager() == '(UNASSIGNED)'" class="unassigned-field">
+                      &mdash;
+                  </div>
+              </td>
+          </tr>
+          <tr tal:define="state python:wftool.getInfoFor(here, 'review_state')">
+              <th i18n:translate="poi_label_state">State:</th>
+              <td tal:content="state" tal:attributes="class string:issue-${state}"/>
           </tr>
       </table>
       

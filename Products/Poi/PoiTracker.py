@@ -23,7 +23,7 @@ __docformat__ = 'plaintext'
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
 
-from Tracker import Tracker
+from Products.Poi.interfaces.Tracker import Tracker
 
 
 # additional imports from tagged value 'import'
@@ -76,7 +76,7 @@ schema=Schema((
     ),
     
     SimpleDataGridField('availableCategories',
-        default=['bug | Bug | Functionality bugs in the software', 'ui | User interface | User interface problems', 'performance | Performance | Performance issues'],
+        default=['bug | Bug | Functionality bugs in the software', 'feature | Feature | Suggested features', 'patch | Patch | Patches to the software'],
         widget=SimpleDataGridWidget(
             label="Categories",
             description="""Enter the issue categories for this tracker, one specification per line. The format is "Short name | Title | Description".""",
@@ -227,12 +227,13 @@ class PoiTracker(BaseBTreeFolder):
 
 
     security.declareProtected(Permissions.View, 'getFilteredIssues')
-    def getFilteredIssues(self, release=None, topic=None, category=None, severity=None, state=None, sort_on='Date'):
+    def getFilteredIssues(self, criteria=None, **kwargs):
         """
-        Get the contained issues in the given topic, category, severity
-        and/or review state. Any parameter may be None to avoid specifying
-        that parameter.
+        Get the contained issues in the given criteria.
         """
+
+        if criteria is None:
+            criteria = kwargs
 
         catalog = getToolByName(self, 'portal_catalog')
 
@@ -240,36 +241,35 @@ class PoiTracker(BaseBTreeFolder):
         query['path']        = '/'.join(self.getPhysicalPath())
         query['portal_type'] = ['PoiIssue', 'PoiPscIssue']
 
-        if release:
-            query['getRelease'] = release
-        if topic:
-            query['getTopic'] = topic
-        if category:
-            query['getCategory'] = category
-        if severity:
-            query['getSeverity'] = severity
-        if state:
-            query['review_state']  = state
+        if criteria.has_key('release'):
+            query['getRelease'] = criteria.get('release')
+        if criteria.has_key('topic'):
+            query['getTopic'] = criteria.get('topic')
+        if criteria.has_key('category'):
+            query['getCategory'] = criteria.get('category')
+        if criteria.has_key('severity'):
+            query['getSeverity'] = criteria.get('severity')
+        if criteria.has_key('state'):
+            query['review_state']  = criteria.get('state')
+        if criteria.has_key('responsible'):
+            query['getResponsibleManager']  = criteria.get('responsible')
+        if criteria.has_key('text'):
+            query['SearchableText']  = criteria.get('text')
 
-        query['sort_on'] = sort_on
+        query['sort_on'] = criteria.get('sort_on', 'created')
+        query['sort_order'] = criteria.get('sort_order', 'reverse')
 
         return catalog.searchResults(query)
 
 
     #manually created methods
 
-    def validate_managers(self, value):
-        """Make sure issue tracker managers are actual user ids"""
-        membership = getToolByName(self, 'portal_membership')
-        notFound = []
-        for userId in value:
-            member = membership.getMemberById(userId)
-            if member is None:
-                notFound.append(userId)
-        if notFound:
-            return "The following user ids could not be found: %s" % ','.join(notFound)
-        else:
-            return None
+    security.declareProtected(Permissions.View, 'getTopicIds')
+    def getTopicIds(self):
+        """
+        Get a list of all topic ids in the tracker.
+        """
+        return self.getField('availableTopics').getColumn(self, 0)
 
 
     security.declareProtected(Permissions.ModifyPortalContent, 'setManagers')
@@ -287,6 +287,33 @@ class PoiTracker(BaseBTreeFolder):
             self.manage_delLocalRoles(toRemove)
         for userId in toAdd:
             self.manage_setLocalRoles(userId, ['Manager'])
+
+
+    def validate_managers(self, value):
+        """Make sure issue tracker managers are actual user ids"""
+        membership = getToolByName(self, 'portal_membership')
+        notFound = []
+        for userId in value:
+            member = membership.getMemberById(userId)
+            if member is None:
+                notFound.append(userId)
+        if notFound:
+            return "The following user ids could not be found: %s" % ','.join(notFound)
+        else:
+            return None
+
+
+    security.declarePublic('getIssueWorkflowStates')
+    def getIssueWorkflowStates(self):
+        """Get a DisplayList of the workflow states available on issues"""
+        portal_workflow = getToolByName(self, 'portal_workflow')
+        chain = portal_workflow.getChainForPortalType('PoiIssue')
+        workflow = getattr(portal_workflow, chain[0])
+        states = getattr(workflow, 'states')
+        vocab = DisplayList()
+        for id, state in states.items():
+            vocab.add(id, state.title)
+        return vocab.sortedByValue()
 
 
 def modify_fti(fti):

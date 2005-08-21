@@ -13,15 +13,8 @@
 <body>
   <div metal:fill-slot="main">
     <div metal:define-macro="body" 
-      tal:define="
-        categoryIds  here/getCategoryIds;
-        states       python:['open', 'in-progress', 'postponed', 'closed'];
-        categoryName request/category | string:all;
-        category     python:test(categoryName == 'all', None, categoryName);
-        stateName    request/state | string:todo;
-        state        python:test(stateName == 'all', None, stateName);
-        state        python:test(stateName == 'todo', ['open', 'in-progress'], state);
-        categories   python:test(category, [category], categoryIds)">
+      tal:define="openStates python:['open', 'in-progress'];
+                  issueQueryString python:'%s/poi_issue_search?state=%s' % (here.absolute_url(), '&state='.join(openStates),)">
 
       <div metal:use-macro="here/document_actions/macros/document_actions">
         Document actions (print, sendto etc)
@@ -30,97 +23,97 @@
       <h1 tal:content="here/Title" class="documentFirstHeading">
         Tracker Title
       </h1>
-
-      <div id="state-selection-box">
-        <ul>
-          <li>
-            <a class="state-link" tal:condition="python:stateName != 'todo'"
-              tal:attributes="href string:${here/absolute_url}?category=${categoryName}&state=todo"
-              i18n:translate="poi_state_todo"
-              >To-do</a>
-            <span class="disabled-link" 
-              tal:condition="python:stateName == 'todo'">To-do</span>
-          </li>
-          <li>
-            <a class="state-link" tal:condition="python:stateName != 'all'"
-              tal:attributes="href string:${here/absolute_url}?category=${categoryName}&state=all"
-              i18n:translate="poi_states_all"
-              >All</a>
-            <span class="disabled-link" 
-              tal:condition="python:stateName == 'all'">All</span>
-          </li>
-          <li tal:repeat="s states">
-            <a state="state-link" tal:condition="python:stateName != s"
-              tal:attributes="href string:${here/absolute_url}?category=${categoryName}&state=${s}"
-              tal:content="s"
-              />
-            <span class="disabled-link"
-              tal:condition="python:stateName == s"
-              tal:content="s"
-              />
-          </li>
-        </ul>
-      </div>
-      
-      <div id="all-categories-box" tal:condition="python:categoryName != 'all'">
-        <a class="link-expand"
-          tal:attributes="href string:${here/absolute_url}?state=${stateName}">
-	        <span i18n:translate="poi_view_all_cats">View all categories</span>
-	      </a>
-      </div>
-      
+            
       <div class="documentDescription" tal:content="here/Description">
         Description.
       </div>
+      
+      <h2 i18n:translate="poi_heading_open_issues">Open issues</h2>
+      
+      <a class="issue-search-link" 
+         tal:attributes="href string:${here/absolute_url}/poi_issue_search_form" 
+         i18n:translate="poi_issue_search">Search for issues</a>
+      
+      <p i18n:translate="poi_help_open_issues">
+          Click a topic, release or issue state to see all open issues in that
+          category. For more advanced search options, click "search for issues".
+      </p>
 
-      <tal:categories repeat="cat categories">
 
-        <tal:category define="categoryInfo python:here.getDataGridRow('availableCategories', cat);
-                              issues python:here.getFilteredIssues(None, cat, None, state)">
-            
-          <h2 tal:content="categoryInfo/title">Category Title</h2>
-  
-          <a class="link-expand"
-               tal:condition="python:categoryName != cat"
-               tal:attributes="href string:${here/absolute_url}?category=${cat}&state=all">
-	          <span i18n:translate="poi_view_entire_category">
-                View all issues in category
-    	      </span>
-          </a>   
-  
-          <div class="discreet" tal:content="categoryInfo/description">
-                Category description
+      <div id="open-issues-by-topic" class="issue-quick-search-box">
+          <h3 i18n:translate="poi_heading_by_topic">By topic</h3>
+          <ul>
+              <tal:categories repeat="topic here/getTopicIds">
+                <li tal:define="topicInfo python:here.getDataGridRow('availableTopics', topic);
+                                issues python:here.getFilteredIssues(topic=topic, state=openStates)">
+                <a tal:attributes="href string:${issueQueryString}&topic=${topicInfo/id};
+                                   title topicInfo/description" 
+                   tal:content="topicInfo/title" /> (<span tal:replace="python:len(issues)" />)
+                </li>
+              </tal:categories>
+          </ul>
+      </div>
+      
+      <div id="open-issues-by-release" class="issue-quick-search-box">
+          <h3 i18n:translate="poi_heading_by_release">By release</h3>
+          <ul>
+              <tal:releases repeat="release here/getAvailableReleases">
+                  <li tal:define="issues python:here.getFilteredIssues(release=release, state=openStates)"
+                      tal:condition="nocall:issues">
+                    <a tal:attributes="href string:${issueQueryString}&release=${release}"
+                       tal:content="release" /> (<span tal:replace="python:len(issues)" />)
+                  </li>
+              </tal:releases>
+          </ul>
+      </div>
+      
+      <div id="open-issues-by-state" class="issue-quick-search-box"
+           tal:define="issueStates here/getIssueWorkflowStates">
+          <h3 i18n:translate="poi_heading_by_release">By state</h3>
+          <ul>
+              <tal:releases repeat="state issueStates">
+                  <li tal:define="issues python:here.getFilteredIssues(state=state)">
+                    <a tal:attributes="href string:${here/absolute_url}/poi_issue_search?state=${state}"
+                       tal:content="python:issueStates.getValue(state)" /> (<span tal:replace="python:len(issues)" />)
+                  </li>
+              </tal:releases>
+          </ul>
+      </div>
+      
+      <div class="visualClear">&nbsp;</div>
+      
+      <tal:manager condition="python:member.getId() in here.getManagers()">
+          <div id="unassigned-issues"
+               tal:define="issues python:here.getFilteredIssues(state='unconfirmed')"
+               tal:condition="nocall:issues">
+               
+               <h2 i18n:translate="poi_heading_unconfirmed_issues">Unconfirmed issues</h2>
+               <p i18n:translate="poi_help_unconfirmed_issues">
+                   The following issues have not yet been confirmed or assigned. Please
+                   review them and take the appropriate action.
+               </p>
+               
+               <metal:table use-macro="here/poi_issue_search/macros/issue_search_results" />
+               
           </div>
           
-          <tal:noissues tal:condition="not:nocall:issues">
-            <div class="no-issues" i18n:translate="poi_no_issues_found">
-                No issues found.
-            </div>
-          </tal:noissues>
-            
-          <dl tal:condition="issues">
-            <tal:block repeat="issue issues">
-              <dt>
-                <a href="" tal:content="issue/Title" 
-                   tal:define="review_state issue/review_state"
-                   tal:attributes="href issue/getURL;
-                                   class string:issue-$review_state">FAQ</a>
-              </dt>
-              <dd>
-                <div tal:content="issue/Description">
-                    Issue description
-                </div>
-              </dd>
-            </tal:block>
-          </dl>
-        </tal:category>
-        
-      </tal:categories>
+          <div id="my-issues"
+               tal:define="issues python:here.getFilteredIssues(state=openStates, responsible=member.getId())"
+               tal:condition="nocall:issues">
+               
+               <h2 i18n:translate="poi_heading_my_issues">My open issues</h2>
+               <p i18n:translate="poi_help_my_issues">
+                   The following open issues are assigned to you.
+               </p>
+               
+               <metal:table use-macro="here/poi_issue_search/macros/issue_search_results" />
+               
+          </div>
+          
+      </tal:manager>
       
     </div>
-    <div metal:use-macro="here/document_byline/macros/byline">
-      Get the byline - contains details about author and modification date.
-    </div>
+
   </div>
 </body>
 

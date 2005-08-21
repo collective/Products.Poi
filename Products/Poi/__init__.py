@@ -50,7 +50,6 @@ def initialize(context):
     import PoiTracker
     import PoiIssue
     import PoiResponse
-    import Tracker
 
     # initialize portal content
     content_types, constructors, ftis = process_types(

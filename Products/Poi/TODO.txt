@@ -4,12 +4,11 @@ Poi TODO
     Possible features for inclusion:
     --------------------------------
     
-    o More sophisticated email notification, e.g. based on workflow transitions
-    o Ability to mail a list instead of individual managers
+**  o More sophisticated email notification, e.g. based on workflow transitions
+        - Should email original author upon 'resolve' at least
+**  o Ability to mail a mailing list instead of individual managers
     o Link Topics and Plone groups. This way, all UI postings should fire
-        a mail to UI team, for example.
-    
-    o Max-size validator on uploaded attachments
+        a mail to the UI team, for example.
     
     o In-form transition for Issues in the same way issues are transitioned
         by responses (to make processing a "new" issue a one-step process)
@@ -18,6 +17,7 @@ Poi TODO
 
     o Possible fields to add:
         - Watchers (list of people to email upon issue activity)
+        - Fixed-in version (should be able to set on response and affect issue)
 
     o Optional (!) ATSchemaEditorNG integration to get a set of variable
         fields on a per-use-case basis (need to retain standard fields
@@ -26,33 +26,52 @@ Poi TODO
     Fixes:
     ------
     
-    Bugs:
+    Bugs/Known issues:
 
+**      o Non-owner/manager can change workflow states (need to set guard roles)
+            - Only manager should be allowed to change the state
+
+        o No way to specify sort order in issue search form, and no sensible
+            way of sorting by severity
+**      o Text search only searches issue, not responses
+            - May be able to append response text to issue SearchableText
+        
         o _renameAfterCreation() counter is not thread safe
-
+    
     Security issues:
     
         o Consider security settings more carefully
+            - Currently, owner and manager have edit privileges on issues and
+                responses. May wish to disallow owner of issue or response
+                from editing after it has been saved?
         o Test workflows/security properly
-        o Create "new issue" worklist
+        
+        o Max-size validator on uploaded attachments
     
     User interface:
         
-        o Rethink UI templates - need to incorporate release, severity and topic
-        o Ensure templates work sensibly with large number of issues
-        o Add search interface    
+        o Want to have sortable tables, but they look funny without nosort if
+            the title makes the item two lines long or more.
+            
+        o May be confusing to track issue progress is users edit a response
+            and change the issue state, e.g. using a response in the middle.
+            Workflow history will still work, of course.
+        
+        o Make new icons
     
     Incomplete:
         
         o PloneSoftwareCenter integration
-        
-        o Make new icons
+            - Should use referenced releases insead of vocab-based ones
+            - Consider linking issues/responses to improvement proposals
     
         o Write unit tests
-            - at least one test per method
-            - tests of PSC vocabs
-            - tests of searches
-            - tests of transitions
-            - setup tests (workflow etc)?
+            - Setup tests (types, workflow etc.)
+            - Custom methods
+                - getFilteredIssues()
+                - setManagers()
+                - setNewIssueState() + getIssueStateBefore/After()
+                - Notification mail logic
+            - PSC vocabs
 
         o Write a README :)

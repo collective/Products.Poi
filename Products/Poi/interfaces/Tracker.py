@@ -33,13 +33,21 @@ class Tracker(Base):
 
     #Methods
 
-    def getFilteredIssues(category,state):
+    def getFilteredIssues(criteria, **kwargs):
         """
-        Get the contained issues in the given category and review state.
+        Get the contained issues according to the given criteria.
         
-        If either is None, return all categories/states.
+        Valid keys are:
+        
+        topic -- A topic or list of topics
+        category -- A category or list of categories
+        severity -- A severity or list of severities
+        release -- A release or list of releases
+        responsible -- A resonsible manager or list of managers
+        text -- Free text search
+        sort_on -- Index to sort on
         """
-        
+
         pass
 
 

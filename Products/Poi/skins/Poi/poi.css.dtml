@@ -19,42 +19,35 @@
     float: right;
 }
 
-#all-categories-box {
-  float: right;
-  clear: right;
-  margin-top: 1em;
+/* Tracker front page */
+
+.issue-quick-search-box {
+    width: 30%; 
+    float: left; 
+    padding: 0 1em 1em 0;
 }
 
-#state-selection-box {
-  margin: 0;
-  float: right;
-  clear: right;
-  font-size: &dtml-fontSmallSize;;
-  text-transform: &dtml-textTransform;;
-}
 
-#state-selection-box ul {
-    margin: 0;
-    list-style: none;
-    line-height: normal;
-    display: inline;
-}
-
-#state-selection-box li {
-    margin-right: 0.25em;
-    list-style: none;
-    line-height: normal;
-    display: inline;
-    
+.issue-search-link {
+    display: block;
+    float: right;
+    background: &dtml-backgroundColor; url(&dtml-portal_url;/search_icon.gif) 2px 1px no-repeat;
+    padding: 1px 1px 1px 18px;
 }
 
 /* Structural elements */
 
-.infoBox {
+.issue-info-box {
     float: right;
 }
-.infoBox td {
-    background: white;
+.issue-info-box th {
+    text-align: right;
+}
+.issue-info-box td {
+    text-align: center;
+}
+.unassigned-field {
+    text-align: center;
 }
 
 .categories {
@@ -131,20 +124,28 @@
 
 /* Issue states */
 
+.issue-unconfirmed {
+    color: purple;
+}
+
 .issue-open {
-    color: Red;
+    color: red;
 }
 
 .issue-in-progress {
     color: &dtml-notifyBorderColor;;
 }
 
-.issue-postponed {
+.issue-postponed .issue-rejected {
     color: &dtml-discreetColor;;
 }
 
+.issue-resolved {
+    color: black;
+}
+
 .issue-closed {
-    color &dtml-linkColor;;
+    color: &dtml-linkColor;;
 }
 
 /* </dtml-with> */

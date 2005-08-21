@@ -1,0 +1,92 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="Poi">
+
+  <head>
+    <metal:css fill-slot="css_slot">
+      <style type="text/css" media="all"
+        tal:content="string: @import url($portal_url/poi.css);"></style>
+    </metal:css>
+  </head>
+
+<div metal:fill-slot="main"
+     tal:define="results   python:here.getFilteredIssues(request);
+                 Batch    python:modules['Products.CMFPlone'].Batch;
+                 DateTime python:modules['DateTime'].DateTime;
+                 b_size   python:30;b_start python:0;b_start request/b_start | b_start;">
+
+    <h1 i18n:translate="poi_heading_search_results">Issue search results</h1>
+
+    <a href=""
+          class="link-parent visualNoPrint"
+          tal:attributes="href string:${here/absolute_url}/poi_issue_search_form">
+          <span i18n:translate="poi_return_to_search">Return to search</span>
+      </a>
+
+    <div tal:condition="not:nocall:results">
+        <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
+    </div>
+
+    <div tal:condition="nocall:results"
+         tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);
+                     issues batch">
+
+        <strong>
+        <span i18n:translate="batch_x_items_matching_your_criteria"><span i18n:name="number" tal:content="python:len(issues)">234</span> items matching your criteria.</span>
+        </strong>
+
+        <table class="listing nosort" metal:define-macro="issue_search_results">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Release</th>
+                    <th>Topic</th>
+                    <th>Category</th>
+                    <th>Severity</th>
+                    <th>Created</th>
+                    <th>Responsible</th>
+                    <th>State</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tal:issues repeat="item issues">
+                    <tr tal:define="oddrow repeat/item/odd"
+                        tal:attributes="class python:test(oddrow, 'even', 'odd')">
+                        <td>
+                            <a tal:attributes="href  item/getURL;
+                                               title item/Description;" 
+                               tal:content="item/Title" />
+                        </td>
+                        <td>
+                            <span tal:condition="python:item.getRelease != '(UNASSIGNED)'"
+                                  tal:replace="item/getRelease" />
+                            <div tal:condition="python:item.getRelease == '(UNASSIGNED)'"
+                                 style="text-align:center">&mdash;</div>
+                        </td>
+                        <td tal:content="python:here.getDataGridRow('availableTopics', item.getTopic)['title']" />
+                        <td tal:content="python:here.getDataGridRow('availableCategories', item.getCategory)['title']" />
+                        <td tal:content="item/getSeverity" />
+                        <td tal:content="python:here.toPortalTime(item.created)"/>
+                        <td>
+                            <span tal:condition="python:item.getResponsibleManager != '(UNASSIGNED)'"
+                                  tal:replace="item/getResponsibleManager" />
+                            <div tal:condition="python:item.getResponsibleManager == '(UNASSIGNED)'"
+                                 style="text-align:center">&mdash;</div>
+                        </td>
+                        <td tal:attributes="class string:issue-${item/review_state}"
+                            tal:content="item/review_state" />
+                    </tr>
+                </tal:issues>
+            </tbody>
+        </table>
+         
+        <!-- Navigation -->
+        <div metal:use-macro="here/batch_macros/macros/navigation" />
+
+    </div>
+</div>
+
+
+</html>
+
