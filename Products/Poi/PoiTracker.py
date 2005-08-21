@@ -118,12 +118,12 @@ schema=Schema((
     LinesField('availableReleases',
         widget=LinesWidget(
             label="Available releases",
-            description="Enter the releases which issues can be assigned to, one per line",
+            description="Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release.",
             label_msgid='Poi_label_availableReleases',
             description_msgid='Poi_help_availableReleases',
             i18n_domain='Poi',
         ),
-        required=True
+        required=False
     ),
     
     LinesField('managers',
@@ -260,6 +260,14 @@ class PoiTracker(BaseBTreeFolder):
         query['sort_order'] = criteria.get('sort_order', 'reverse')
 
         return catalog.searchResults(query)
+
+
+
+    security.declareProtected(Permissions.View, 'isUsingReleases')
+    def isUsingReleases(self):
+        """Return a boolean indicating whether this tracker is using releases.
+        """
+        return len(self.getAvailableReleases()) > 0
 
 
     #manually created methods

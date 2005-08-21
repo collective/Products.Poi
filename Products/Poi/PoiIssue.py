@@ -79,6 +79,7 @@ schema=Schema((
         widget=SelectionWidget(
             label="Release",
             description="Select the release this issue pertains to.",
+            condition="object/isUsingReleases",
             label_msgid='Poi_label_release',
             description_msgid='Poi_help_release',
             i18n_domain='Poi',
@@ -141,7 +142,7 @@ schema=Schema((
             description_msgid='Poi_help_details',
             i18n_domain='Poi',
         ),
-        required=True,
+        required=False,
         default_content_type="text/structured",
         searchable=True,
         default_output_type="text/html"

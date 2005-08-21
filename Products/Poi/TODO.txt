@@ -50,6 +50,11 @@ Poi TODO
     
     User interface:
         
+**      o Make issue details non-required
+**      o Remove response title field
+**      o Make CMFDynamicViewFTI-aware to ease customisation. 
+            - Disallow default-page.
+        
         o Want to have sortable tables, but they look funny without nosort if
             the title makes the item two lines long or more.
             

@@ -54,7 +54,8 @@
           </ul>
       </div>
       
-      <div id="open-issues-by-release" class="issue-quick-search-box">
+      <div id="open-issues-by-release" class="issue-quick-search-box"
+           tal:condition="here/isUsingReleases">
           <h3 i18n:translate="poi_heading_by_release">By release</h3>
           <ul>
               <tal:releases repeat="release here/getAvailableReleases">

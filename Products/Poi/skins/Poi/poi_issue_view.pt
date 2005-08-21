@@ -32,7 +32,7 @@
       </a>
       
       <table class="vertical listing issue-info-box">
-          <tr>
+          <tr tal:condition="here/isUsingReleases">
               <th i18n:translate="poi_label_release">Release:</th>
               <td>
                   <span tal:condition="python:here.getRelease() != '(UNASSIGNED)'" 

@@ -40,7 +40,7 @@
             <thead>
                 <tr>
                     <th>Title</th>
-                    <th>Release</th>
+                    <th tal:condition="here/isUsingReleases">Release</th>
                     <th>Topic</th>
                     <th>Category</th>
                     <th>Severity</th>
@@ -58,7 +58,7 @@
                                                title item/Description;" 
                                tal:content="item/Title" />
                         </td>
-                        <td>
+                        <td tal:condition="here/isUsingReleases">
                             <span tal:condition="python:item.getRelease != '(UNASSIGNED)'"
                                   tal:replace="item/getRelease" />
                             <div tal:condition="python:item.getRelease == '(UNASSIGNED)'"

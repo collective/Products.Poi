@@ -40,7 +40,7 @@
                        size="30">
             </div>
     
-            <div class="field">
+            <div class="field" tal:condition="here/isUsingReleases">
                 
                 <label for="release" i18n:translate="poi_search_label_release">Release</label>
 
