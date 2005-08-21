@@ -63,11 +63,30 @@
     font-weight: normal;
 }
 
-.issue-details {
+/* Different response types */
+
+.response-clarification {
     margin: 1em 0;
     padding: 0.5em;
     border: &dtml-borderWidth; &dtml-borderStyleAnnotations; &dtml-globalBorderColor;;
+    clear: both;
 }
+
+.response-reply {
+    margin: 1em 0;
+    padding: 0.5em;
+    border: &dtml-borderWidth; &dtml-borderStyleAnnotations; &dtml-notifyBorderColor;;
+    clear: both;
+}
+
+.response-additional {
+    margin: 1em 0;
+    padding: 0.5em;
+    border: &dtml-borderWidth; &dtml-borderStyleAnnotations; &dtml-contentViewBorderColor;;
+    clear: both;    
+}
+
+/* Response details */
 
 .response-info {
     color: &dtml-discreetColor;;
@@ -75,12 +94,7 @@
     font-weight: normal;
 }
 
-.response-details {
-    margin: 1em 0;
-    padding: 0.5em;
-    border: &dtml-borderWidth; &dtml-borderStyleAnnotations; &dtml-notifyBorderColor;;
-    clear: both;
-}
+
 
 .steps-to-reproduce span {
     font-style: italic;

@@ -30,6 +30,7 @@ from Products.Poi.interfaces.Tracker import Tracker
 from Products.ArchAddOn.Fields import SimpleDataGridField
 import Permissions
 from Products.ArchAddOn.Widgets import SimpleDataGridWidget
+from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
 from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
@@ -154,12 +155,12 @@ schema=Schema((
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
 
-class PoiTracker(BaseBTreeFolder):
+class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
     """
     The default tracker
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BaseBTreeFolder,'__implements__',()),) + (Tracker,)
+    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseBTreeFolder,'__implements__',()),) + (Tracker,)
 
 
     # This name appears in the 'add' box
@@ -205,13 +206,8 @@ class PoiTracker(BaseBTreeFolder):
 
     ##code-section class-header #fill in your manual code here
     _at_rename_after_creation = True
-    aliases = {
-        '(Default)'  : 'poi_tracker_view',
-        'view'       : 'poi_tracker_view',
-        'edit'       : 'base_edit',
-        'properties' : 'base_metadata',
-        'sharing'    : 'folder_localrole_form'
-    }
+    default_view = 'poi_tracker_view'
+    suppl_views = ()
     ##/code-section class-header
 
 
@@ -271,6 +267,11 @@ class PoiTracker(BaseBTreeFolder):
 
 
     #manually created methods
+
+    def canSelectDefaultPage(self):
+        """Explicitly disallow selection of a default-page."""
+        return False
+
 
     security.declareProtected(Permissions.View, 'getTopicIds')
     def getTopicIds(self):

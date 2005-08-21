@@ -53,33 +53,22 @@ schema=Schema((
         widget=StringWidget(
             label="Subject",
             description="""Enter a brief subject for this response, e.g. "Fixed" or "Will be fixed in next release".""",
+            visible={'edit' : 'invisible', 'view' : 'invisible'},
+            modes=('view',),
             label_msgid='Poi_label_title',
             description_msgid='Poi_help_title',
             i18n_domain='Poi',
         ),
-        required=True,
-        accessor="Title"
-    ),
-    
-    ComputedField('description',
-        widget=ComputedWidget(
-            visible={'view' : 'invisible', 'edit' : 'invisible'},
-            label='Description',
-            label_msgid='Poi_label_description',
-            description='Enter a value for description.',
-            description_msgid='Poi_help_description',
-            i18n_domain='Poi',
-        ),
-        expression="context.getResponse(mimetype='text/plain')[:50]",
-        accessor="Description"
+        accessor="Title",
+        mode="r"
     ),
     
     TextField('response',
         allowable_content_types=('text/plain', 'text/structured', 'text/html', 'application/msword',),
         widget=RichWidget(
-            label="Detailed response",
+            label="Response",
             description="Please enter your response below",
-            rows="10",
+            rows="6",
             label_msgid='Poi_label_response',
             description_msgid='Poi_help_response',
             i18n_domain='Poi',
@@ -102,7 +91,8 @@ schema=Schema((
         vocabulary='getAvailableIssueTransitions',
         default='',
         enforceVocabulary=False,
-        accessor="getIssueTransition"
+        accessor="getIssueTransition",
+        write_permission=Permissions.ModifyIssueState
     ),
     
     FileField('attachment',
@@ -250,6 +240,13 @@ class PoiResponse(BaseContent):
 
         # Send notification
         self.sendNotificationMail()
+
+
+    def Title(self):
+        """Define title to be the same as response id. Responses have little
+        value on their own anyway.
+        """
+        return self.getId()
 
 
     def sendNotificationMail(self):

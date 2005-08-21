@@ -30,6 +30,8 @@ Poi TODO
 
 **      o Non-owner/manager can change workflow states (need to set guard roles)
             - Only manager should be allowed to change the state
+        o Issue owner can delete responses
+            - Only manager should be able to delete responses
 
         o No way to specify sort order in issue search form, and no sensible
             way of sorting by severity
@@ -49,16 +51,11 @@ Poi TODO
         o Max-size validator on uploaded attachments
     
     User interface:
-        
-**      o Make issue details non-required
-**      o Remove response title field
-**      o Make CMFDynamicViewFTI-aware to ease customisation. 
-            - Disallow default-page.
-        
+                
         o Want to have sortable tables, but they look funny without nosort if
             the title makes the item two lines long or more.
             
-        o May be confusing to track issue progress is users edit a response
+        o May be confusing to track issue progress if users edit a response
             and change the issue state, e.g. using a response in the middle.
             Workflow history will still work, of course.
         

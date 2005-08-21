@@ -93,13 +93,16 @@
           <div class="issue-attachment-label" i18n:translate="poi_label_attachment">Attached:</div>
           <metal:attachment use-macro="python:here.widget('attachment')"/>
       </div>
+      
+      <div class="visualClear"><!----></div>
 
       <tal:responses repeat="response python:here.getFolderContents(contentFilter = {'sort_on' : 'getId'}, full_objects = True)">
       
         <div class="response-details" metal:define-macro="response_view"
-                tal:attributes="class python: test(here.Creator() == response.Creator(),
-                                                'issue-details',
-                                                'response-details')">
+                tal:attributes="class python: test(response.Creator() == here.Creator(),
+                                                   'response-clarification',
+                                                   test(response.Creator() in here.getManagers(),
+                                                        'response-reply', 'response-additional'))">
                   
           
             <div class="response-actions"
@@ -144,7 +147,7 @@
         </div>
       
       </tal:responses>
-      <div class="visualClear">&nbsp;</div>
+      <div class="visualClear"><!----></div>
   </div>
 </div>
 

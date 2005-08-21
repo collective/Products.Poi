@@ -136,7 +136,7 @@ schema=Schema((
         widget=RichWidget(
             label="Details",
             description="Please provide further details",
-            rows="""10
+            rows="""6
             python:('text/structured', 'text/plain', 'text/html', 'text/restructured')""",
             label_msgid='Poi_label_details',
             description_msgid='Poi_help_details',

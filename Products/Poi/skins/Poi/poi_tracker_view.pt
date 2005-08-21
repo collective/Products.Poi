@@ -81,7 +81,7 @@
           </ul>
       </div>
       
-      <div class="visualClear">&nbsp;</div>
+      <div class="visualClear"><!----></div>
       
       <tal:manager condition="python:member.getId() in here.getManagers()">
           <div id="unassigned-issues"

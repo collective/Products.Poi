@@ -1,5 +1,9 @@
 from Products.CMFCore.utils import getToolByName
+from Products.CMFDynamicViewFTI.fti import DynamicViewTypeInformation
+from Products.CMFDynamicViewFTI.migrate import migrateFTI
+
 from StringIO import StringIO
+
 
 def addCatalogMetadata(self, out, catalog, column):
     """Add the given column to the catalog's metadata schema"""
@@ -38,11 +42,15 @@ def install(self):
 
     out = StringIO()
 
+    # Migrate Tracker FTIs to CMFDynamicViewFTI
+
+    migrateFTI(self, 'PoiTracker', 'Poi: PoiTracker (PoiTracker)', DynamicViewTypeInformation.meta_type)
+    migrateFTI(self, 'PoiPscTracker', 'Poi: PoiPscTracker (PoiPscTracker)', DynamicViewTypeInformation.meta_type)
+
     # Add additional workflow mapings
     wftool = getToolByName(self, 'portal_workflow')
     wftool.setChainForPortalTypes(['PoiPscTracker'], 'poi_tracker_workflow')
     wftool.setChainForPortalTypes(['PoiPscIssue'], 'poi_issue_workflow')
-    wftool.setChainForPortalTypes(['PoiResponse', 'PoiPscResponse'], '')
 
     print >> out, "Set additional workflows for types"
 
@@ -60,7 +68,6 @@ def install(self):
 
     addPortalFactoryType(self, out, factory, 'PoiPscTracker')
     addPortalFactoryType(self, out, factory, 'PoiPscIssue')
-    addPortalFactoryType(self, out, factory, 'PoiPscResponse')
 
     # Set parentMetaTypesNotToQuery
     portalProperties = getToolByName(self, 'portal_properties')
@@ -70,12 +77,18 @@ def install(self):
     addToListProperty(self, out, navtreeProps, 'parentMetaTypesNotToQuery', 'PoiPscTracker')
     addToListProperty(self, out, navtreeProps, 'parentMetaTypesNotToQuery', 'PoiPscIssue')
 
+    # Set types_not_searched
+    siteProps = getattr(portalProperties, 'site_properties')
+    addToListProperty(self, out, siteProps, 'types_not_searched', 'PoiTracker')
+    addToListProperty(self, out, siteProps, 'types_not_searched', 'PoiIssue')
+    addToListProperty(self, out, siteProps, 'types_not_searched', 'PoiResponse')
+    addToListProperty(self, out, siteProps, 'types_not_searched', 'PoiPscTracker')
+    addToListProperty(self, out, siteProps, 'types_not_searched', 'PoiPscIssue')
+
     # Give the response types a "save" target to take the use back to the
     # issue itself
     controller = getToolByName(self, 'portal_form_controller')
     addFormControllerAction(self, out, controller, 'validate_integrity',
                             'success', 'PoiResponse', None, 'redirect_to', 'string:../')
-    addFormControllerAction(self, out, controller, 'validate_integrity',
-                            'success', 'PoiPscResponse', None, 'redirect_to', 'string:../')
 
     return out.getvalue()
