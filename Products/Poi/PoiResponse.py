@@ -277,19 +277,29 @@ class PoiResponse(BaseContent):
         mailedIssueContact = False
 
         mailText = self.poi_notify_new_response(self, response = self, fromName = fromName)
-        managers = self.getManagers()
-        for manager in managers:
-            managerUser = portal_membership.getMemberById(manager)
-            if managerUser is not None:
-                managerEmail = managerUser.getProperty('email')
-                if managerEmail:
-                    if managerEmail == issueEmail:
-                        mailedIssueContact = True
-                    mailHost.secureSend(message = mailText,
-                                        mto = managerEmail,
-                                        mfrom = fromAddress,
-                                        subject = "New response to issue '%s' in tracker '%s'" % (issue.Title(), tracker.Title(),),
-                                        subtype = 'html')
+
+        mailingList = self.getMailingList()
+
+        if mailingList:
+            mailHost.secureSend(message = mailText,
+                                mto = mailingList,
+                                mfrom = fromAddress,
+                                subject = "New response to issue '%s' in tracker '%s'" % (issue.Title(), tracker.Title(),),
+                                subtype = 'html')
+        else:
+            managers = self.getManagers()
+            for manager in managers:
+                managerUser = portal_membership.getMemberById(manager)
+                if managerUser is not None:
+                    managerEmail = managerUser.getProperty('email')
+                    if managerEmail:
+                        if managerEmail == issueEmail:
+                            mailedIssueContact = True
+                        mailHost.secureSend(message = mailText,
+                                            mto = managerEmail,
+                                            mfrom = fromAddress,
+                                            subject = "New response to issue '%s' in tracker '%s'" % (issue.Title(), tracker.Title(),),
+                                            subtype = 'html')
 
         if not mailedIssueContact and issueEmail:
             mailHost.secureSend(message = mailText,

@@ -148,6 +148,18 @@ schema=Schema((
         )
     ),
     
+    StringField('mailingList',
+        widget=StringWidget(
+            label="Mailing list",
+            description="""If given, and if "Email tracker managers when there is tracker activity" is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails.""",
+            label_msgid='Poi_label_mailingList',
+            description_msgid='Poi_help_mailingList',
+            i18n_domain='Poi',
+        ),
+        required=False,
+        validators=('isEmail',)
+    ),
+    
 ),
 )
 

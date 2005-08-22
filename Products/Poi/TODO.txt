@@ -1,19 +1,18 @@
 Poi TODO
 --------
-
     Possible features for inclusion:
     --------------------------------
     
 **  o More sophisticated email notification, e.g. based on workflow transitions
         - Should email original author upon 'resolve' at least
-**  o Ability to mail a mailing list instead of individual managers
+
     o Link Topics and Plone groups. This way, all UI postings should fire
         a mail to the UI team, for example.
     
     o In-form transition for Issues in the same way issues are transitioned
         by responses (to make processing a "new" issue a one-step process)
     
-    o More specific role than Manager for tracker managers
+    o Use a more specific role than Manager for tracker managers?
 
     o Possible fields to add:
         - Watchers (list of people to email upon issue activity)
@@ -31,38 +30,35 @@ Poi TODO
 **      o Non-owner/manager can change workflow states (need to set guard roles)
             - Only manager should be allowed to change the state, except
                 change from resolved => closed.
-        o Issue owner can delete responses
+**      o Issue owner can delete responses
             - Only manager should be able to delete responses
+
+**      o Would like to fail gracefully if mailhost can't send notification
+            email.
 
         o No way to specify sort order in issue search form, and no sensible
             way of sorting by severity
-        
+
         o _renameAfterCreation() counter is not thread safe
-    
+
     Security issues:
-    
-        o Consider security settings more carefully
-            - Currently, owner and manager have edit privileges on issues and
-                responses. May wish to disallow owner of issue or response
-                from editing after it has been saved?
-        o Test workflows/security properly
-        
+
         o Max-size validator on uploaded attachments
-    
+
     User interface:
                 
         o Want to have sortable tables, but they look funny without nosort if
             the title makes the item two lines long or more.
-            
+
         o May be confusing to track issue progress if users edit a response
             and change the issue state, e.g. using a response in the middle.
             Workflow history will still work, of course.
-        
+
         o Make new icons
-    
+
     Incomplete:
         
-        o PloneSoftwareCenter integration
+**      o PloneSoftwareCenter integration
             - Should use referenced releases insead of vocab-based ones
             - Consider linking issues/responses to improvement proposals
     

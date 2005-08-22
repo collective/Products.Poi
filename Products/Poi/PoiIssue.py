@@ -403,17 +403,27 @@ class PoiIssue(BaseFolder):
             return None
 
         mailText = self.poi_notify_new_issue(self, issue = self, fromName = fromName)
-        managers = self.getManagers()
-        for manager in managers:
-            managerUser = portal_membership.getMemberById(manager)
-            if managerUser is not None:
-                managerEmail = managerUser.getProperty('email')
-                if managerEmail:
-                    mailHost.secureSend(message = mailText,
-                                        mto = managerEmail,
-                                        mfrom = fromAddress,
-                                        subject = "New issue in tracker '%s'" % tracker.Title(),
-                                        subtype = 'html')
+
+        mailingList = self.getMailingList()
+
+        if mailingList:
+            mailHost.secureSend(message = mailText,
+                                mto = mailingList,
+                                mfrom = fromAddress,
+                                subject = "New issue in tracker '%s'" % tracker.Title(),
+                                subtype = 'html')
+        else:
+            managers = self.getManagers()
+            for manager in managers:
+                managerUser = portal_membership.getMemberById(manager)
+                if managerUser is not None:
+                    managerEmail = managerUser.getProperty('email')
+                    if managerEmail:
+                        mailHost.secureSend(message = mailText,
+                                            mto = managerEmail,
+                                            mfrom = fromAddress,
+                                            subject = "New issue in tracker '%s'" % tracker.Title(),
+                                            subtype = 'html')
 
 
 def modify_fti(fti):
