@@ -86,9 +86,9 @@ def install(self):
     addToListProperty(self, out, siteProps, 'types_not_searched', 'PoiPscIssue')
 
     # Give the response types a "save" target to take the use back to the
-    # issue itself
+    # issue itself, after updating the parent issue
     controller = getToolByName(self, 'portal_form_controller')
     addFormControllerAction(self, out, controller, 'validate_integrity',
-                            'success', 'PoiResponse', None, 'redirect_to', 'string:../')
+                            'success', 'PoiResponse', None, 'traverse_to', 'string:poi_response_update_issue')
 
     return out.getvalue()

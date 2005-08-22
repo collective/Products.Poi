@@ -75,6 +75,7 @@ schema=Schema((
         ),
         allowed_types=('text/structured', 'text/plain', 'text/html', 'text/restructured',),
         default_content_type="text/structured",
+        searchable=True,
         default_output_type="text/html",
         required=True
     ),

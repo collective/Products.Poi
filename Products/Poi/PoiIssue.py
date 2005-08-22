@@ -339,6 +339,14 @@ class PoiIssue(BaseFolder):
         return field.getAsDisplayList(self.aq_parent)
 
 
+    def SearchableText(self):
+        """Include in the SearchableText the text of all responses"""
+        text = BaseObject.SearchableText(self)
+        responses = self.contentValues('PoiResponse')
+        text += ' ' + ' '.join([r.SearchableText() for r in responses])
+        return text
+
+
     def getReleasesVocab(self):
         """
         Get the releases available as a DisplayList. The first item is 'None',

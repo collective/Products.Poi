@@ -29,14 +29,13 @@ Poi TODO
     Bugs/Known issues:
 
 **      o Non-owner/manager can change workflow states (need to set guard roles)
-            - Only manager should be allowed to change the state
+            - Only manager should be allowed to change the state, except
+                change from resolved => closed.
         o Issue owner can delete responses
             - Only manager should be able to delete responses
 
         o No way to specify sort order in issue search form, and no sensible
             way of sorting by severity
-**      o Text search only searches issue, not responses
-            - May be able to append response text to issue SearchableText
         
         o _renameAfterCreation() counter is not thread safe
     
@@ -74,6 +73,7 @@ Poi TODO
                 - setManagers()
                 - setNewIssueState() + getIssueStateBefore/After()
                 - Notification mail logic
-            - PSC vocabs
+                - Issue SearchableText
+            - Vocabulary methods
 
         o Write a README :)
