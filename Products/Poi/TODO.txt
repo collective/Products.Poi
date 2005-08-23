@@ -1,11 +1,11 @@
 Poi TODO
 --------
+
+    Items marked with ** are show-stoppers for beta release 
+
     Possible features for inclusion:
     --------------------------------
     
-**  o More sophisticated email notification, e.g. based on workflow transitions
-        - Should email original author upon 'resolve' at least
-
     o Link Topics and Plone groups. This way, all UI postings should fire
         a mail to the UI team, for example.
     
@@ -27,14 +27,8 @@ Poi TODO
     
     Bugs/Known issues:
 
-**      o Non-owner/manager can change workflow states (need to set guard roles)
-            - Only manager should be allowed to change the state, except
-                change from resolved => closed.
-**      o Issue owner can delete responses
-            - Only manager should be able to delete responses
-
-**      o Would like to fail gracefully if mailhost can't send notification
-            email.
+**      o Automatic transition in response workflow never triggers, hence
+            responses remain deletable and editable by owner
 
         o No way to specify sort order in issue search form, and no sensible
             way of sorting by severity
@@ -54,7 +48,13 @@ Poi TODO
             and change the issue state, e.g. using a response in the middle.
             Workflow history will still work, of course.
 
-        o Make new icons
+**      o Make new icons
+
+        o Verify i18n tags and translations
+        o Email notifications are not internationalised
+        
+        o Email notification is not very generalised, taking place in PoiIssue,
+            PoiTracker and poi_issue_workflow_scripts
 
     Incomplete:
         
@@ -62,7 +62,7 @@ Poi TODO
             - Should use referenced releases insead of vocab-based ones
             - Consider linking issues/responses to improvement proposals
     
-        o Write unit tests
+**      o Write unit tests
             - Setup tests (types, workflow etc.)
             - Custom methods
                 - getFilteredIssues()

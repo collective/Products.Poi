@@ -40,6 +40,18 @@
                        size="30">
             </div>
     
+            <div class="field">
+                
+                <label for="creator" i18n:translate="poi_search_label_creator">Submitter</label>
+
+                <div class="formHelp" i18n:translate="poi_search_help_creator">
+                    Enter the username of the issue submitter,
+                </div>
+    
+                <input id="creator" name="creator" size="15" />
+                
+            </div>
+    
             <div class="field" tal:condition="here/isUsingReleases">
                 
                 <label for="release" i18n:translate="poi_search_label_release">Release</label>

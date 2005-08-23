@@ -64,8 +64,10 @@
                             <div tal:condition="python:item.getRelease == '(UNASSIGNED)'"
                                  style="text-align:center">&mdash;</div>
                         </td>
-                        <td tal:content="python:here.getDataGridRow('availableTopics', item.getTopic)['title']" />
-                        <td tal:content="python:here.getDataGridRow('availableCategories', item.getCategory)['title']" />
+                        <td tal:content="python:here.getDataGridRow('availableTopics', item.getTopic)['title']" 
+                            tal:on-error="item/getTopic"/>
+                        <td tal:content="python:here.getDataGridRow('availableCategories', item.getCategory)['title']"
+                            tal:on-error="item/getCategory" />
                         <td tal:content="item/getSeverity" />
                         <td tal:content="python:here.toPortalTime(item.created)"/>
                         <td>

@@ -31,6 +31,9 @@ import Permissions
 
 from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
+from Products.CMFCore.utils import getToolByName
+from ZODB.POSException import ConflictError
+from Products.CMFPlone.utils import log_exc
 ##/code-section module-header
 
 schema=Schema((
@@ -40,7 +43,6 @@ schema=Schema((
             modes=('view',),
             label='Id',
             label_msgid='Poi_label_id',
-            description='Enter a value for id.',
             description_msgid='Poi_help_id',
             i18n_domain='Poi',
         ),
@@ -202,7 +204,6 @@ schema=Schema((
 
 
 ##code-section after-schema #fill in your manual code here
-from Products.CMFCore.utils import getToolByName
 ##/code-section after-schema
 
 class PoiIssue(BaseFolder):
@@ -387,7 +388,7 @@ class PoiIssue(BaseFolder):
         """
         tracker = self.aq_parent
 
-        if not tracker.getEmailManagers():
+        if not tracker.getSendNotificationEmails():
             return
 
         portal_membership = getToolByName(self, 'portal_membership')
@@ -407,11 +408,17 @@ class PoiIssue(BaseFolder):
         mailingList = self.getMailingList()
 
         if mailingList:
-            mailHost.secureSend(message = mailText,
-                                mto = mailingList,
-                                mfrom = fromAddress,
-                                subject = "New issue in tracker '%s'" % tracker.Title(),
-                                subtype = 'html')
+            try:
+                mailHost.secureSend(message = mailText,
+                                    mto = mailingList,
+                                    mfrom = fromAddress,
+                                    subject = "New issue in tracker '%s'" % tracker.Title(),
+                                    subtype = 'html')
+            except ConflictError:
+                raise
+            except:
+                log_exc('Could not send email from %s to %s regarding creation of issue %s.' % (fromAddress, mailingList, self.absolute_url(),))
+                pass
         else:
             managers = self.getManagers()
             for manager in managers:
@@ -419,11 +426,17 @@ class PoiIssue(BaseFolder):
                 if managerUser is not None:
                     managerEmail = managerUser.getProperty('email')
                     if managerEmail:
-                        mailHost.secureSend(message = mailText,
-                                            mto = managerEmail,
-                                            mfrom = fromAddress,
-                                            subject = "New issue in tracker '%s'" % tracker.Title(),
-                                            subtype = 'html')
+                        try:
+                            mailHost.secureSend(message = mailText,
+                                                mto = managerEmail,
+                                                mfrom = fromAddress,
+                                                subject = "New issue in tracker '%s'" % tracker.Title(),
+                                                subtype = 'html')
+                        except ConflictError:
+                            raise
+                        except:
+                            log_exc('Could not send email from %s to %s regarding creation of issue %s.' % (fromAddress, managerEmail, self.absolute_url(),))
+                            pass
 
 
 def modify_fti(fti):

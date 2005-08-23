@@ -137,13 +137,13 @@ schema=Schema((
         )
     ),
     
-    BooleanField('emailManagers',
+    BooleanField('sendNotificationEmails',
         default=True,
         widget=BooleanWidget(
-            label="Email tracker managers when there is tracker activity",
-            description="If selected, tracker managers will receive an email each time a new issue or response is posted.",
-            label_msgid='Poi_label_emailManagers',
-            description_msgid='Poi_help_emailManagers',
+            label="Send notification emails",
+            description="If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation.",
+            label_msgid='Poi_label_sendNotificationEmails',
+            description_msgid='Poi_help_sendNotificationEmails',
             i18n_domain='Poi',
         )
     ),
@@ -258,11 +258,13 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         if criteria.has_key('severity'):
             query['getSeverity'] = criteria.get('severity')
         if criteria.has_key('state'):
-            query['review_state']  = criteria.get('state')
+            query['review_state'] = criteria.get('state')
         if criteria.has_key('responsible'):
-            query['getResponsibleManager']  = criteria.get('responsible')
+            query['getResponsibleManager'] = criteria.get('responsible')
+        if criteria.has_key('creator'):
+            query['Creator'] = criteria.get('creator')
         if criteria.has_key('text'):
-            query['SearchableText']  = criteria.get('text')
+            query['SearchableText'] = criteria.get('text')
 
         query['sort_on'] = criteria.get('sort_on', 'created')
         query['sort_order'] = criteria.get('sort_order', 'reverse')

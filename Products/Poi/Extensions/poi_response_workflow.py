@@ -1,4 +1,4 @@
-"""Workflow: poi_tracker_workflow
+"""Workflow: poi_response_workflow
 """
 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
@@ -36,26 +36,26 @@ from Products.ExternalMethod.ExternalMethod import ExternalMethod
 
 productname = 'Poi'
 
-def setuppoi_tracker_workflow(self, workflow):
-    """Define the poi_tracker_workflow workflow.
+def setuppoi_response_workflow(self, workflow):
+    """Define the poi_response_workflow workflow.
     """
 
-    workflow.setProperties(title='poi_tracker_workflow')
+    workflow.setProperties(title='poi_response_workflow')
 
     ##code-section create-workflow-setup-method-header #fill in your manual code here
     ##/code-section create-workflow-setup-method-header
 
 
-    for s in ['open', 'closed']:
+    for s in ['published', 'new']:
         workflow.states.addState(s)
 
-    for t in ['close', 'open']:
+    for t in ['post']:
         workflow.transitions.addTransition(t)
 
     for v in ['review_history', 'comments', 'time', 'actor', 'action']:
         workflow.variables.addVariable(v)
 
-    for p in ['Add Poi Issues', 'Add Poi Responses', 'View', 'Modify portal content', 'Access contents information', 'Add portal content', 'Add PoiIssues', 'Add PoiResponses']:
+    for p in ['Modify portal content', 'Delete objects']:
         workflow.addManagedPermission(p)
 
     for l in []:
@@ -64,78 +64,42 @@ def setuppoi_tracker_workflow(self, workflow):
 
     ## Initial State
 
-    workflow.states.setInitialState('closed')
+    workflow.states.setInitialState('new')
 
     ## States initialization
 
-    stateDef = workflow.states['open']
-    stateDef.setProperties(title="""Open for submissions""",
-                           transitions=['close'])
-    stateDef.setPermission('Add Poi Issues',
+    stateDef = workflow.states['published']
+    stateDef.setProperties(title="""published""",
+                           transitions=[])
+    stateDef.setPermission('Modify portal content',
                            0,
-                           ['Member', 'Manager', 'Owner'])
-    stateDef.setPermission('Add Poi Responses',
+                           ['Manager'])
+    stateDef.setPermission('Delete objects',
                            0,
-                           ['Member', 'Manager', 'Owner'])
-    stateDef.setPermission('View',
-                           0,
-                           ['Anonymous', 'Member', 'Manager', 'Owner'])
+                           ['Manager'])
+
+    stateDef = workflow.states['new']
+    stateDef.setProperties(title="""new""",
+                           transitions=['post'])
     stateDef.setPermission('Modify portal content',
                            0,
                            ['Owner', 'Manager'])
-    stateDef.setPermission('Access contents information',
+    stateDef.setPermission('Delete objects',
                            0,
-                           ['Anonymous', 'Member', 'Manager', 'Owner'])
-    stateDef.setPermission('Add portal content',
-                           0,
-                           ['Member', 'Manager', 'Owner'])
-
-    stateDef = workflow.states['closed']
-    stateDef.setProperties(title="""Closed for submissions""",
-                           transitions=['open'])
-    stateDef.setPermission('Add PoiIssues',
-                           0,
-                           ['Manager', 'Owner'])
-    stateDef.setPermission('Add PoiResponses',
-                           0,
-                           ['Manager', 'Owner'])
-    stateDef.setPermission('View',
-                           0,
-                           ['Anonymous', 'Member', 'Manager', 'Owner'])
-    stateDef.setPermission('Modify portal content',
-                           0,
-                           ['Manager', 'Owner'])
-    stateDef.setPermission('Access contents information',
-                           0,
-                           ['Anonymous', 'Member', 'Manager', 'Owner'])
-    stateDef.setPermission('Add portal content',
-                           0,
-                           ['Manager', 'Owner'])
+                           ['Owner', 'Manager'])
 
     ## Transitions initialization
 
-    transitionDef = workflow.transitions['close']
-    transitionDef.setProperties(title="""Close tracker""",
-                                new_state_id="""closed""",
-                                trigger_type=1,
+    transitionDef = workflow.transitions['post']
+    transitionDef.setProperties(title="""Post response on save""",
+                                new_state_id="""published""",
+                                trigger_type=0,
                                 script_name="""""",
                                 after_script_name="""""",
-                                actbox_name="""Close tracker""",
+                                actbox_name="""Post response on save""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
-                                props={'guard_roles': 'Owner; Manager'},
-                                )
-
-    transitionDef = workflow.transitions['open']
-    transitionDef.setProperties(title="""Open tracker""",
-                                new_state_id="""open""",
-                                trigger_type=1,
-                                script_name="""""",
-                                after_script_name="""""",
-                                actbox_name="""Open tracker""",
-                                actbox_url="""""",
-                                actbox_category="""workflow""",
-                                props={'guard_roles': 'Owner; Manager'},
+                                props={'guard_expr': 'here/isValid'},
                                 )
 
     ## State Variable
@@ -198,17 +162,17 @@ def setuppoi_tracker_workflow(self, workflow):
 
 
 
-def createpoi_tracker_workflow(self, id):
+def createpoi_response_workflow(self, id):
     """Create the workflow for Poi.
     """
     
     ob = DCWorkflowDefinition(id)
-    setuppoi_tracker_workflow(self, ob)
+    setuppoi_response_workflow(self, ob)
     return ob
 
-addWorkflowFactory(createpoi_tracker_workflow,
-                   id='poi_tracker_workflow',
-                   title='FirePoi Tracker workflow')
+addWorkflowFactory(createpoi_response_workflow,
+                   id='poi_response_workflow',
+                   title='poi_response_workflow')
 
 ##code-section create-workflow-module-footer #fill in your manual code here
 ##/code-section create-workflow-module-footer

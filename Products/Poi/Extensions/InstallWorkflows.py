@@ -22,5 +22,12 @@ def installWorkflows(self, package, out):
     workflow = ourProductWorkflow(self, 'poi_issue_workflow')
     workflowTool._setObject('poi_issue_workflow', workflow)
     workflowTool.setChainForPortalTypes(['PoiIssue'], workflow.getId())
+    ourProductWorkflow = ExternalMethod('temp',
+                         'temp',
+                         productname+'.'+'poi_response_workflow',
+                         'createpoi_response_workflow')
+    workflow = ourProductWorkflow(self, 'poi_response_workflow')
+    workflowTool._setObject('poi_response_workflow', workflow)
+    workflowTool.setChainForPortalTypes(['PoiResponse'], workflow.getId())
     
     return workflowTool

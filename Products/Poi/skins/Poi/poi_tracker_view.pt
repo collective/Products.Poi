@@ -14,6 +14,7 @@
   <div metal:fill-slot="main">
     <div metal:define-macro="body" 
       tal:define="openStates python:['open', 'in-progress'];
+                  pendingStates python:openStates + ['unconfirmed', 'resolved'];
                   issueQueryString python:'%s/poi_issue_search?state=%s' % (here.absolute_url(), '&state='.join(openStates),)">
 
       <div metal:use-macro="here/document_actions/macros/document_actions">
@@ -59,8 +60,7 @@
           <h3 i18n:translate="poi_heading_by_release">By release</h3>
           <ul>
               <tal:releases repeat="release here/getAvailableReleases">
-                  <li tal:define="issues python:here.getFilteredIssues(release=release, state=openStates)"
-                      tal:condition="nocall:issues">
+                  <li tal:define="issues python:here.getFilteredIssues(release=release, state=openStates)">
                     <a tal:attributes="href string:${issueQueryString}&release=${release}"
                        tal:content="release" /> (<span tal:replace="python:len(issues)" />)
                   </li>
@@ -98,12 +98,12 @@
                
           </div>
           
-          <div id="my-issues"
+          <div id="my-assigned-issues"
                tal:define="issues python:here.getFilteredIssues(state=openStates, responsible=member.getId())"
                tal:condition="nocall:issues">
                
-               <h2 i18n:translate="poi_heading_my_issues">My open issues</h2>
-               <p i18n:translate="poi_help_my_issues">
+               <h2 i18n:translate="poi_heading_my_assigned_issues">Issues assigned to me</h2>
+               <p i18n:translate="poi_help_my_assigned_issues">
                    The following open issues are assigned to you.
                </p>
                
@@ -112,6 +112,19 @@
           </div>
           
       </tal:manager>
+      
+      <div id="my-issues"
+               tal:define="issues python:here.getFilteredIssues(state=pendingStates, creator=member.getId())"
+               tal:condition="nocall:issues">
+               
+               <h2 i18n:translate="poi_heading_my_issues">My open issues</h2>
+               <p i18n:translate="poi_help_my_issues">
+                   The following open issues were submitted by you.
+               </p>
+               
+               <metal:table use-macro="here/poi_issue_search/macros/issue_search_results" />
+               
+          </div>
       
     </div>
 

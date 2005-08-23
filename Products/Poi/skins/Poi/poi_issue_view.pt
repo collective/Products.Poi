@@ -106,15 +106,17 @@
                   
           
             <div class="response-actions"
-                  tal:condition="python:user.has_permission('Modify portal content', response)">
+                  tal:define="canEdit   python:user.has_permission('Modify portal content', response);
+                              canDelete python:user.has_permission('Delete objects', response)"
+                  tal:condition="python:canEdit or canDelete">
               <ul>
-                <li class="edit-response">
+                <li class="edit-response" tal:condition="canEdit">
                   <a href="" title="Edit this response"
                       tal:attributes="href string:${response/absolute_url}/base_edit"
                       i18n:attributes="title"
                       i18n:translate="poi_edit_response">Edit</a>
                 </li>
-                <li class="delete-response">
+                <li class="delete-response" tal:condition="canDelete">
                   <a href="" title="Delete this response"
                       tal:attributes="href string:${response/absolute_url}/poi_response_delete_confirm"
                       i18n:attributes="title"

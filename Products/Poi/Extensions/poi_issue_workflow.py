@@ -55,7 +55,7 @@ def setuppoi_issue_workflow(self, workflow):
     for v in ['review_history', 'comments', 'time', 'actor', 'action']:
         workflow.variables.addVariable(v)
 
-    for p in []:
+    for p in ['Delete objects', 'Poi: Modify issue state']:
         workflow.addManagedPermission(p)
 
     for l in []:
@@ -71,30 +71,72 @@ def setuppoi_issue_workflow(self, workflow):
     stateDef = workflow.states['resolved']
     stateDef.setProperties(title="""Resolved""",
                            transitions=['open-resolved', 'confirm-resolved'])
+    stateDef.setPermission('Delete objects',
+                           0,
+                           ['Manager'])
+    stateDef.setPermission('Poi: Modify issue state',
+                           0,
+                           ['Manager', 'Owner'])
 
     stateDef = workflow.states['in-progress']
     stateDef.setProperties(title="""In progress""",
                            transitions=['resolve-in-progress', 'postpone'])
+    stateDef.setPermission('Delete objects',
+                           0,
+                           ['Manager'])
+    stateDef.setPermission('Poi: Modify issue state',
+                           0,
+                           ['Manager'])
 
     stateDef = workflow.states['postponed']
     stateDef.setProperties(title="""Postponed""",
                            transitions=['re-start', 'open-postponed'])
+    stateDef.setPermission('Delete objects',
+                           0,
+                           ['Manager'])
+    stateDef.setPermission('Poi: Modify issue state',
+                           0,
+                           ['Manager'])
 
     stateDef = workflow.states['rejected']
     stateDef.setProperties(title="""Rejected""",
                            transitions=['open-rejected'])
+    stateDef.setPermission('Delete objects',
+                           0,
+                           ['Manager'])
+    stateDef.setPermission('Poi: Modify issue state',
+                           0,
+                           ['Manager'])
 
     stateDef = workflow.states['open']
     stateDef.setProperties(title="""Open""",
                            transitions=['begin-open', 'hold-open', 'resolve-open'])
+    stateDef.setPermission('Delete objects',
+                           0,
+                           ['Manager'])
+    stateDef.setPermission('Poi: Modify issue state',
+                           0,
+                           ['Manager'])
 
     stateDef = workflow.states['closed']
     stateDef.setProperties(title="""Tested and confirmed closed""",
                            transitions=['open-closed'])
+    stateDef.setPermission('Delete objects',
+                           0,
+                           ['Manager'])
+    stateDef.setPermission('Poi: Modify issue state',
+                           0,
+                           ['Manager', 'Owner'])
 
     stateDef = workflow.states['unconfirmed']
     stateDef.setProperties(title="""Unconfirmed""",
                            transitions=['accept-unconfirmed', 'reject-unconfirmed'])
+    stateDef.setPermission('Delete objects',
+                           0,
+                           ['Manager'])
+    stateDef.setPermission('Poi: Modify issue state',
+                           0,
+                           ['Manager'])
 
     ## Transitions initialization
 
@@ -107,7 +149,7 @@ def setuppoi_issue_workflow(self, workflow):
                                 actbox_name="""Begin work""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
-                                props={},
+                                props={'guard_permissions': 'Poi: Modify issue state'},
                                 )
 
     transitionDef = workflow.transitions['open-rejected']
@@ -119,7 +161,7 @@ def setuppoi_issue_workflow(self, workflow):
                                 actbox_name="""Open""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
-                                props={},
+                                props={'guard_permissions': 'Poi: Modify issue state'},
                                 )
 
     transitionDef = workflow.transitions['open-postponed']
@@ -131,7 +173,7 @@ def setuppoi_issue_workflow(self, workflow):
                                 actbox_name="""Re-open""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
-                                props={},
+                                props={'guard_permissions': 'Poi: Modify issue state'},
                                 )
 
     transitionDef = workflow.transitions['re-start']
@@ -143,7 +185,7 @@ def setuppoi_issue_workflow(self, workflow):
                                 actbox_name="""Begin work""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
-                                props={},
+                                props={'guard_permissions': 'Poi: Modify issue state'},
                                 )
 
     transitionDef = workflow.transitions['reject-unconfirmed']
@@ -155,7 +197,7 @@ def setuppoi_issue_workflow(self, workflow):
                                 actbox_name="""Reject""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
-                                props={},
+                                props={'guard_permissions': 'Poi: Modify issue state'},
                                 )
 
     transitionDef = workflow.transitions['hold-open']
@@ -179,7 +221,7 @@ def setuppoi_issue_workflow(self, workflow):
                                 actbox_name="""Re-open""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
-                                props={},
+                                props={'guard_permissions': 'Poi: Modify issue state'},
                                 )
 
     transitionDef = workflow.transitions['confirm-resolved']
@@ -191,19 +233,26 @@ def setuppoi_issue_workflow(self, workflow):
                                 actbox_name="""Confirm resolved""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
-                                props={},
+                                props={'guard_permissions': 'Poi: Modify issue state'},
                                 )
+
+    ##creation of workflow scripts
+    for wf_scriptname in ['sendResolvedMail']:
+        if not wf_scriptname in workflow.scripts.objectIds():
+            workflow.scripts._setObject(wf_scriptname,ExternalMethod(wf_scriptname, wf_scriptname,
+                productname + '.poi_issue_workflow_scripts',
+                wf_scriptname))
 
     transitionDef = workflow.transitions['resolve-in-progress']
     transitionDef.setProperties(title="""Resolve""",
                                 new_state_id="""resolved""",
                                 trigger_type=1,
-                                script_name="""""",
+                                script_name="""sendResolvedMail""",
                                 after_script_name="""""",
                                 actbox_name="""Resolve""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
-                                props={},
+                                props={'guard_permissions': 'Poi: Modify issue state'},
                                 )
 
     transitionDef = workflow.transitions['postpone']
@@ -215,7 +264,7 @@ def setuppoi_issue_workflow(self, workflow):
                                 actbox_name="""Postpone""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
-                                props={},
+                                props={'guard_permissions': 'Poi: Modify issue state'},
                                 )
 
     transitionDef = workflow.transitions['resolve-open']
@@ -227,19 +276,26 @@ def setuppoi_issue_workflow(self, workflow):
                                 actbox_name="""Resolve""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
-                                props={},
+                                props={'guard_permissions': 'Poi: Modify issue state'},
                                 )
+
+    ##creation of workflow scripts
+    for wf_scriptname in ['sendResolvedMail']:
+        if not wf_scriptname in workflow.scripts.objectIds():
+            workflow.scripts._setObject(wf_scriptname,ExternalMethod(wf_scriptname, wf_scriptname,
+                productname + '.poi_issue_workflow_scripts',
+                wf_scriptname))
 
     transitionDef = workflow.transitions['open-resolved']
     transitionDef.setProperties(title="""Re-open""",
                                 new_state_id="""open""",
                                 trigger_type=1,
-                                script_name="""""",
+                                script_name="""sendResolvedMail""",
                                 after_script_name="""""",
                                 actbox_name="""Re-open""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
-                                props={},
+                                props={'guard_permissions': 'Poi: Modify issue state'},
                                 )
 
     transitionDef = workflow.transitions['accept-unconfirmed']
@@ -251,7 +307,7 @@ def setuppoi_issue_workflow(self, workflow):
                                 actbox_name="""Open""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
-                                props={},
+                                props={'guard_permissions': 'Poi: Modify issue state'},
                                 )
 
     ## State Variable

@@ -33,6 +33,8 @@ from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
 from Acquisition import aq_base
+from ZODB.POSException import ConflictError
+from Products.CMFPlone.utils import log_exc
 ##/code-section module-header
 
 schema=Schema((
@@ -42,7 +44,6 @@ schema=Schema((
             modes=('view',),
             label='Id',
             label_msgid='Poi_label_id',
-            description='Enter a value for id.',
             description_msgid='Poi_help_id',
             i18n_domain='Poi',
         ),
@@ -250,6 +251,17 @@ class PoiResponse(BaseContent):
         return self.getId()
 
 
+    security.declarePublic('isValid')
+    def isValid(self):
+        """Check if the response is valid, that is, a response has been filled in"""
+        errors = {}
+        self.Schema().validate(self, None, errors, 1, 1)
+        if errors:
+            return False
+        else:
+            return True
+
+
     def sendNotificationMail(self):
         """When this response is created, send a notification email to all
         tracker managers, unless emailing is turned off.
@@ -258,7 +270,7 @@ class PoiResponse(BaseContent):
         issue = self.aq_parent
         tracker = issue.aq_parent
 
-        if not tracker.getEmailManagers():
+        if not tracker.getSendNotificationEmails():
             return
 
         portal_membership = getToolByName(self, 'portal_membership')
@@ -281,11 +293,17 @@ class PoiResponse(BaseContent):
         mailingList = self.getMailingList()
 
         if mailingList:
-            mailHost.secureSend(message = mailText,
-                                mto = mailingList,
-                                mfrom = fromAddress,
-                                subject = "New response to issue '%s' in tracker '%s'" % (issue.Title(), tracker.Title(),),
-                                subtype = 'html')
+            try:
+                mailHost.secureSend(message = mailText,
+                                    mto = mailingList,
+                                    mfrom = fromAddress,
+                                    subject = "New response to issue '%s' in tracker '%s'" % (issue.Title(), tracker.Title(),),
+                                    subtype = 'html')
+            except ConflictError:
+                raise
+            except:
+                log_exc('Could not send email from %s to %s regarding creation of response %s.' % (fromAddress, mailingList, self.absolute_url(),))
+                pass
         else:
             managers = self.getManagers()
             for manager in managers:
@@ -295,18 +313,31 @@ class PoiResponse(BaseContent):
                     if managerEmail:
                         if managerEmail == issueEmail:
                             mailedIssueContact = True
-                        mailHost.secureSend(message = mailText,
-                                            mto = managerEmail,
-                                            mfrom = fromAddress,
-                                            subject = "New response to issue '%s' in tracker '%s'" % (issue.Title(), tracker.Title(),),
-                                            subtype = 'html')
+                        try:
+                            mailHost.secureSend(message = mailText,
+                                                mto = managerEmail,
+                                                mfrom = fromAddress,
+                                                subject = "New response to issue '%s' in tracker '%s'" % (issue.Title(), tracker.Title(),),
+                                                subtype = 'html')
+                        except ConflictError:
+                            raise
+                        except:
+                            log_exc('Could not send email from %s to %s regarding creation of response %s.' % (fromAddress, managerEmail, self.absolute_url(),))
+                            pass
+
 
         if not mailedIssueContact and issueEmail:
-            mailHost.secureSend(message = mailText,
-                                mto = issueEmail,
-                                mfrom = fromAddress,
-                                subject = "New response to issue '%s' in tracker '%s'" % (issue.Title(), tracker.Title(),),
-                                subtype = 'html')
+            try:
+                mailHost.secureSend(message = mailText,
+                                    mto = issueEmail,
+                                    mfrom = fromAddress,
+                                    subject = "New response to issue '%s' in tracker '%s'" % (issue.Title(), tracker.Title(),),
+                                    subtype = 'html')
+            except ConflictError:
+                raise
+            except:
+                log_exc('Could not send email from %s to %s regarding creation of response %s.' % (fromAddress, issueEmail, self.absolute_url(),))
+                pass
 
 
 def modify_fti(fti):
