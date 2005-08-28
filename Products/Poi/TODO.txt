@@ -34,9 +34,6 @@ Poi TODO
 **      o Deleting a response will cause issue text to remain in issue
             SearchableText until a re-index (manage_beforeDelete?)
 
-        o No way to specify sort order in issue search form, and no sensible
-            way of sorting by severity
-
         o _renameAfterCreation() counter is not thread safe
 
     Security issues:
@@ -46,8 +43,10 @@ Poi TODO
 
     User interface:
                 
-        o Add INonStructuralFolder to Issue and use a custom Add Response
-            button?
+**      o Combine "My open issues" and "Issues assigned to me" into "My issues"
+            
+        o No way to specify sort order in issue search form, and no sensible
+            way of sorting by severity
                 
         o Want to have sortable tables, but they look funny without nosort if
             the title makes a row two lines long or more.

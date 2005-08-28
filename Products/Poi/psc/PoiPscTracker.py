@@ -25,6 +25,7 @@ from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
 
 from Products.Poi.PoiTracker import PoiTracker
+from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
 
 
 # additional imports from tagged value 'import'
@@ -49,7 +50,7 @@ class PoiPscTracker(PoiTracker,BaseFolder):
     PloneSoftwareCenter. Intended to be added inside a PSCProject.
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(PoiTracker,'__implements__',()),) + (getattr(BaseFolder,'__implements__',()),)
+    __implements__ = (getattr(PoiTracker,'__implements__',()),) + (getattr(BaseFolder,'__implements__',()),) + (INonStructuralFolder,)
 
 
     # This name appears in the 'add' box

@@ -25,6 +25,7 @@ from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
 
 from Products.Poi.interfaces.Tracker import Tracker
+from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
 
 
 # additional imports from tagged value 'import'
@@ -152,7 +153,7 @@ schema=Schema((
     StringField('mailingList',
         widget=StringWidget(
             label="Mailing list",
-            description="""If given, and if "Email tracker managers when there is tracker activity" is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails.""",
+            description="""If given, and if "Send notification emails" is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails.""",
             label_msgid='Poi_label_mailingList',
             description_msgid='Poi_help_mailingList',
             i18n_domain='Poi',
@@ -173,7 +174,7 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
     The default tracker
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseBTreeFolder,'__implements__',()),) + (Tracker,)
+    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseBTreeFolder,'__implements__',()),) + (Tracker,INonStructuralFolder,)
 
 
     # This name appears in the 'add' box

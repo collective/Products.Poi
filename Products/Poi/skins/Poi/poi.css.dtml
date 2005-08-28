@@ -44,10 +44,10 @@
     text-align: right;
 }
 .issue-info-box td {
-    text-align: center;
+    text-align: left;
 }
 .unassigned-field {
-    text-align: center;
+    text-align: left;
 }
 
 .categories {
@@ -126,14 +126,8 @@
   clear: right;
 }
 
-.response-actions ul {
-  margin: 0;
-  line-height: 1em;
-  display: inline;
-}
-
-.response-actions ul li {
-  display: inline;
+.response-actions form {
+    display: inline;
 }
 
 /* Issue states */

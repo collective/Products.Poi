@@ -25,6 +25,7 @@ from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
 
 from Products.Poi.interfaces.Issue import Issue
+from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
 
 
 # additional imports from tagged value 'import'
@@ -175,6 +176,7 @@ schema=Schema((
     ),
     
     StringField('contactEmail',
+        validators=('isEmail',),
         widget=StringWidget(
             label="Contact email address",
             description="Optionally, provide an email address where you can be contacted for further information or when a resolution is available.",
@@ -182,7 +184,7 @@ schema=Schema((
             description_msgid='Poi_help_contactEmail',
             i18n_domain='Poi',
         ),
-        validators=('isEmail',),
+        required=True,
         default_method="getDefaultContactEmail"
     ),
     
@@ -213,7 +215,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
     The default tracker
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseFolder,'__implements__',()),) + (Issue,)
+    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseFolder,'__implements__',()),) + (Issue,INonStructuralFolder,)
 
 
     # This name appears in the 'add' box

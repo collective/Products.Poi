@@ -24,9 +24,24 @@
       <h1 tal:content="here/Title" class="documentFirstHeading">
         Tracker Title
       </h1>
-            
+      
       <div class="documentDescription" tal:content="here/Description">
         Description.
+      </div>
+
+      <div class="formControls">
+          <form action="createObject"
+                 tal:condition="python: user.has_permission('Add Poi Issues', here)">
+            <input name="type_name"
+                   type="hidden"
+                   value="PoiIssue"
+                   />
+            <input class="standalone"
+                   type="submit"
+                   i18n:attributes="value"
+                   value="Submit new issue"
+                   />
+          </form>
       </div>
       
       <h2 i18n:translate="poi_heading_open_issues">Open issues</h2>

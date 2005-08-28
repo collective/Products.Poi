@@ -44,27 +44,27 @@
               </td>
           </tr>
           <tr>
-              <th i18n:translate="poi_label_topic">Topic:</th>
+              <th i18n:translate="poi_label_topic">Topic</th>
               <td tal:content="python:here.aq_parent.getDataGridRow('availableTopics', here.getTopic())['title']" />
           </tr>
           <tr>
-              <th i18n:translate="poi_label_category">Category:</th>
+              <th i18n:translate="poi_label_category">Category</th>
               <td tal:content="python:here.aq_parent.getDataGridRow('availableCategories', here.getCategory())['title']" />
           </tr>
           <tr>
-              <th i18n:translate="poi_label_severity">Severity:</th>
+              <th i18n:translate="poi_label_severity">Severity</th>
               <td tal:content="here/getSeverity" />
           </tr>
           <tr>
-              <th i18n:translate="poi_label_submitted_by">Submitted by:</th>
+              <th i18n:translate="poi_label_submitted_by">Submitted by</th>
               <td tal:content="here/Creator" />
           </tr>
           <tr>
-              <th i18n:translate="poi_label_submitted_on">Submitted on:</th>
+              <th i18n:translate="poi_label_submitted_on">Submitted on</th>
               <td tal:content="python:here.toPortalTime(here.created())" />
           </tr>
           <tr>
-              <th i18n:translate="poi_label_responsible">Responsible:</th>
+              <th i18n:translate="poi_label_responsible">Responsible</th>
               <td>
                   <span tal:condition="python:here.getResponsibleManager() != '(UNASSIGNED)'" 
                          tal:replace="here/getResponsibleManager" />
@@ -74,7 +74,7 @@
               </td>
           </tr>
           <tr tal:define="state python:wftool.getInfoFor(here, 'review_state')">
-              <th i18n:translate="poi_label_state">State:</th>
+              <th i18n:translate="poi_label_state">State</th>
               <td tal:content="state" tal:attributes="class string:issue-${state}"/>
           </tr>
       </table>
@@ -95,6 +95,21 @@
           <metal:attachment use-macro="python:here.widget('attachment')"/>
       </div>
       
+      <div class="formControls">
+          <form action="createObject"
+              tal:condition="python: user.has_permission('Add Poi Responses', here)">
+            <input name="type_name"
+                   type="hidden"
+                   value="PoiResponse"
+                   />
+            <input class="standalone"
+                   type="submit"
+                   i18n:attributes="value"
+                   value="Add response"
+                   />
+          </form>
+      </div>
+      
       <div class="visualClear"><!----></div>
 
       <tal:responses repeat="response python:here.getFolderContents(contentFilter = {'sort_on' : 'getId'}, full_objects = True)">
@@ -110,20 +125,20 @@
                   tal:define="canEdit   python:user.has_permission('Modify portal content', response);
                               canDelete python:user.has_permission('Delete objects', response)"
                   tal:condition="python:canEdit or canDelete">
-              <ul>
-                <li class="edit-response" tal:condition="canEdit">
-                  <a href="" title="Edit this response"
-                      tal:attributes="href string:${response/absolute_url}/base_edit"
-                      i18n:attributes="title"
-                      i18n:translate="poi_edit_response">Edit</a>
-                </li>
-                <li class="delete-response" tal:condition="canDelete">
-                  <a href="" title="Delete this response"
-                      tal:attributes="href string:${response/absolute_url}/poi_response_delete_confirm"
-                      i18n:attributes="title"
-                      i18n:translate="poi_delete_response">Delete</a>
-                </li>
-              </ul>
+              <form tal:attributes="action string:${response/absolute_url}/base_edit">
+                <input class="standalone"
+                       type="submit"
+                       i18n:attributes="value"
+                       value="Edit"
+                       />
+              </form>
+              <form tal:attributes="action string:${response/absolute_url}/poi_response_delete_confirm">
+                <input class="destructive"
+                       type="submit"
+                       i18n:attributes="value"
+                       value="Delete"
+                       />
+              </form>
             </div>
           
             <div class="response-info"
