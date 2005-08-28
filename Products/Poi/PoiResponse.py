@@ -1,7 +1,8 @@
 # File: PoiResponse.py
 # 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.0-beta1 devel http://sf.net/projects/archetypes/
+# Generator: ArchGenXML Version 1.4.0-beta2 devel 
+#            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
 # 
@@ -28,6 +29,7 @@ from Products.Poi.interfaces.Response import Response
 
 # additional imports from tagged value 'import'
 import Permissions
+from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
 from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
@@ -115,14 +117,14 @@ schema=Schema((
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
 
-class PoiResponse(BaseContent):
+class PoiResponse(BrowserDefaultMixin,BaseContent):
     """
     A response to an issue, added by a project manager. When giving
     a response, the workflow state of the parent issue can be set at
     the same time.
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BaseContent,'__implements__',()),) + (Response,)
+    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseContent,'__implements__',()),) + (Response,)
 
 
     # This name appears in the 'add' box
@@ -136,7 +138,8 @@ class PoiResponse(BaseContent):
     allow_discussion           = 0
     content_icon               = 'PoiResponse.gif'
     immediate_view             = 'base_view'
-    default_view               = 'base_view'
+    default_view               = 'poi_response_view'
+    suppl_views                = ()
     typeDescription            = "A project managers' response to an issue."
     typeDescMsgId              = 'description_edit_poiresponse'
 
@@ -163,18 +166,12 @@ class PoiResponse(BaseContent):
 
     )
 
+    _at_rename_after_creation  = True 
+
     schema = BaseSchema + \
              schema
 
     ##code-section class-header #fill in your manual code here
-    _at_rename_after_creation = True
-    aliases = {
-        '(Default)'  : 'poi_response_view',
-        'view'       : 'poi_response_view',
-        'edit'       : 'base_edit',
-        'properties' : 'base_metadata',
-        'sharing'    : 'folder_localrole_form'
-    }
     ##/code-section class-header
 
 

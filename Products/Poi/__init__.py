@@ -70,19 +70,18 @@ def initialize(context):
         print 'Customization policy for Poi installed'
 
     ##code-section custom-init-bottom #fill in your manual code here
-    
+
     # Set up some manual add permissions
 
     import Permissions
-        
+
     # Issues
     for metaType, constructor in \
-        {'PoiIssue' : PoiIssue.addPoiIssue,
-         'PoiPscIssue' : psc.PoiPscIssue.addPoiPscIssue}.items ():
+        {'PoiIssue' : PoiIssue.addPoiIssue,}.items ():
         context.registerClass(meta_type    = metaType,
                               constructors = (constructor,),
                               permission   = Permissions.AddIssue)
-    
+
     # Responses
     for metaType, constructor in \
         {'PoiResponse'    : PoiResponse.addPoiResponse,}.items ():
@@ -90,7 +89,5 @@ def initialize(context):
                               constructors = (constructor,),
                               permission   = Permissions.AddResponse)
 
-    
-                 
     ##/code-section custom-init-bottom
 

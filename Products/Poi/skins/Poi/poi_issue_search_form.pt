@@ -64,11 +64,11 @@
                         size="5"
                         multiple="multiple"
                         name="release:list"
-                        tal:define="releases here/getAvailableReleases">
+                        tal:define="releases here/getReleasesVocab">
                     <option value="(UNASSIGNED)">(Not assigned)</option>
                     <option tal:repeat="item releases"
                             tal:attributes="value item"
-                            tal:content="item" />
+                            tal:content="python:releases.getValue(item)" />
                 </select>
                 
             </div>

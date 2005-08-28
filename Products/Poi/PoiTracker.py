@@ -1,7 +1,8 @@
 # File: PoiTracker.py
 # 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.0-beta1 devel http://sf.net/projects/archetypes/
+# Generator: ArchGenXML Version 1.4.0-beta2 devel 
+#            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
 # 
@@ -58,8 +59,8 @@ schema=Schema((
             description_msgid='Poi_help_description',
             i18n_domain='Poi',
         ),
-        accessor="Description",
-        disable_polymorphing="1"
+        use_portal_factory="1",
+        accessor="Description"
     ),
     
     SimpleDataGridField('availableTopics',
@@ -186,7 +187,8 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
     allow_discussion           = 0
     content_icon               = 'PoiTracker.gif'
     immediate_view             = 'base_view'
-    default_view               = 'base_view'
+    default_view               = 'poi_tracker_view'
+    suppl_views                = ()
     typeDescription            = "An issue tracker"
     typeDescMsgId              = 'description_edit_poitracker'
 
@@ -213,13 +215,12 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
 
     )
 
+    _at_rename_after_creation  = True 
+
     schema = BaseFolderSchema + \
              schema
 
     ##code-section class-header #fill in your manual code here
-    _at_rename_after_creation = True
-    default_view = 'poi_tracker_view'
-    suppl_views = ()
     ##/code-section class-header
 
 
@@ -247,7 +248,7 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
 
         query                = {}
         query['path']        = '/'.join(self.getPhysicalPath())
-        query['portal_type'] = ['PoiIssue', 'PoiPscIssue']
+        query['portal_type'] = ['PoiIssue']
 
         if criteria.has_key('release'):
             query['getRelease'] = criteria.get('release')
@@ -278,6 +279,19 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         """Return a boolean indicating whether this tracker is using releases.
         """
         return len(self.getAvailableReleases()) > 0
+
+
+
+    security.declareProtected(Permissions.View, 'getReleasesVocab')
+    def getReleasesVocab(self):
+        """
+        Get the releases available to the tracker as a DisplayList.
+        """
+        items = self.getAvailableReleases()
+        vocab = DisplayList()
+        for item in items:
+            vocab.add(item, item)
+        return vocab
 
 
     #manually created methods

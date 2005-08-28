@@ -1,6 +1,6 @@
 from Products.CMFCore.utils import getToolByName
 from Products.CMFDynamicViewFTI.fti import DynamicViewTypeInformation
-from Products.CMFDynamicViewFTI.migrate import migrateFTI
+from Products.CMFDynamicViewFTI.migrate import migrateFTIs
 
 from StringIO import StringIO
 
@@ -42,17 +42,8 @@ def install(self):
 
     out = StringIO()
 
-    # Migrate Tracker FTIs to CMFDynamicViewFTI
-
-    migrateFTI(self, 'PoiTracker', 'Poi: PoiTracker (PoiTracker)', DynamicViewTypeInformation.meta_type)
-    migrateFTI(self, 'PoiPscTracker', 'Poi: PoiPscTracker (PoiPscTracker)', DynamicViewTypeInformation.meta_type)
-
-    # Add additional workflow mapings
-    wftool = getToolByName(self, 'portal_workflow')
-    wftool.setChainForPortalTypes(['PoiPscTracker'], 'poi_tracker_workflow')
-    wftool.setChainForPortalTypes(['PoiPscIssue'], 'poi_issue_workflow')
-
-    print >> out, "Set additional workflows for types"
+    # Migrate FTIs to use CMFDynamicViewFTI
+    migrateFTIs(self, 'Poi')
 
     # Add UID to catalog metadata
     catalog = getToolByName(self, 'portal_catalog')
@@ -67,7 +58,6 @@ def install(self):
     addPortalFactoryType(self, out, factory, 'PoiResponse')
 
     addPortalFactoryType(self, out, factory, 'PoiPscTracker')
-    addPortalFactoryType(self, out, factory, 'PoiPscIssue')
 
     # Set parentMetaTypesNotToQuery
     portalProperties = getToolByName(self, 'portal_properties')
@@ -75,7 +65,6 @@ def install(self):
     addToListProperty(self, out, navtreeProps, 'parentMetaTypesNotToQuery', 'PoiTracker')
     addToListProperty(self, out, navtreeProps, 'parentMetaTypesNotToQuery', 'PoiIssue')
     addToListProperty(self, out, navtreeProps, 'parentMetaTypesNotToQuery', 'PoiPscTracker')
-    addToListProperty(self, out, navtreeProps, 'parentMetaTypesNotToQuery', 'PoiPscIssue')
 
     # Set types_not_searched
     siteProps = getattr(portalProperties, 'site_properties')
@@ -83,7 +72,6 @@ def install(self):
     addToListProperty(self, out, siteProps, 'types_not_searched', 'PoiIssue')
     addToListProperty(self, out, siteProps, 'types_not_searched', 'PoiResponse')
     addToListProperty(self, out, siteProps, 'types_not_searched', 'PoiPscTracker')
-    addToListProperty(self, out, siteProps, 'types_not_searched', 'PoiPscIssue')
 
     # Give the response types a "save" target to take the use back to the
     # issue itself, after updating the parent issue

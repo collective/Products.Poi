@@ -34,9 +34,10 @@
       <table class="vertical listing issue-info-box">
           <tr tal:condition="here/isUsingReleases">
               <th i18n:translate="poi_label_release">Release:</th>
-              <td>
-                  <span tal:condition="python:here.getRelease() != '(UNASSIGNED)'" 
-                        tal:replace="here/getRelease" />
+              <td tal:condition="here/isUsingReleases">
+                  <span tal:define="releases here/getReleasesVocab"
+                          tal:condition="python:here.getRelease() != '(UNASSIGNED)'"
+                          tal:replace="python:releases.getValue(here.getRelease())" />
                   <div tal:condition="python:here.getRelease() == '(UNASSIGNED)'" class="unassigned-field">
                       &mdash;
                   </div>

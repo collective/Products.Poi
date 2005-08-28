@@ -3,8 +3,8 @@
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
 #
 # Generated: 
-# Generator: ArchGenXML Version 1.4.0-beta1 devel
-#            http://sf.net/projects/archetypes/
+# Generator: ArchGenXML Version 1.4.0-beta2 devel
+#            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
 # 
@@ -83,7 +83,19 @@ def install(self):
     else:
         print >>out,'no workflow install'
 
+    #bind classes to workflows
+    wft = getToolByName(self,'portal_workflow')
+    wft.setChainForPortalTypes( ['PoiPscTracker'], "poi_tracker_workflow")
 
+    # enable portal_factory for given types
+    factory_tool = getToolByName(self,'portal_factory')
+    factory_types=[
+        "PoiTracker",
+        "PoiIssue",
+        "PoiResponse",
+        "PoiPscTracker",
+        ] + factory_tool.getFactoryTypes().keys()
+    factory_tool.manage_setPortalFactoryTypes(listOfTypeIds=factory_types)
 
     # try to call a custom install method
     # in 'AppInstall.py' method 'install'

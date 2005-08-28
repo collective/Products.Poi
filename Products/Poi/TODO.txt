@@ -27,8 +27,9 @@ Poi TODO
     
     Bugs/Known issues:
 
-**      o Automatic transition in response workflow never triggers, hence
-            responses remain deletable and editable by owner
+**      o Deleting a response will cause issue text to remain in issue
+            SearchableText until a re-index (manage_beforeDelete?)
+**      o Verify that PoiPscTracker gets correct workflow
 
         o No way to specify sort order in issue search form, and no sensible
             way of sorting by severity
@@ -41,14 +42,15 @@ Poi TODO
 
     User interface:
                 
+        o Add INonStructuralFolder to Issue and use a custom Add Response
+            button?
+                
         o Want to have sortable tables, but they look funny without nosort if
             the title makes the item two lines long or more.
 
         o May be confusing to track issue progress if users edit a response
             and change the issue state, e.g. using a response in the middle.
             Workflow history will still work, of course.
-
-**      o Make new icons
 
         o Verify i18n tags and translations
         o Email notifications are not internationalised
@@ -60,9 +62,9 @@ Poi TODO
         
 **      o PloneSoftwareCenter integration
             - Should use referenced releases insead of vocab-based ones
-            - Consider linking issues/responses to improvement proposals
+            - Need to set up allowed content types on PSCProject in AppInstall
     
-**      o Write unit tests
+**      o Write some more unit tests
             - Setup tests (types, workflow etc.)
             - Custom methods
                 - getFilteredIssues()

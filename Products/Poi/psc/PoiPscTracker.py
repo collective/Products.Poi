@@ -1,7 +1,8 @@
 # File: PoiPscTracker.py
 # 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.0-beta1 devel http://sf.net/projects/archetypes/
+# Generator: ArchGenXML Version 1.4.0-beta2 devel 
+#            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
 # 
@@ -56,13 +57,14 @@ class PoiPscTracker(PoiTracker,BaseFolder):
 
     meta_type                  = 'PoiPscTracker' 
     portal_type                = 'PoiPscTracker' 
-    allowed_content_types      = ['PoiPscIssue'] 
+    allowed_content_types      = [] + list(getattr(PoiTracker, 'allowed_content_types', []))
     filter_content_types       = 1
     global_allow               = 0
     allow_discussion           = 0
     content_icon               = 'PoiTracker.gif'
     immediate_view             = 'base_view'
-    default_view               = 'base_view'
+    default_view               = 'poi_tracker_view'
+    suppl_views                = ()
     typeDescription            = "A simple issue tracker"
     typeDescMsgId              = 'description_edit_poipsctracker'
 
@@ -89,20 +91,25 @@ class PoiPscTracker(PoiTracker,BaseFolder):
 
     )
 
+    _at_rename_after_creation  = True 
+
     schema = BaseFolderSchema + \
              getattr(PoiTracker,'schema',Schema(())) + \
              schema
 
     ##code-section class-header #fill in your manual code here
+    schema = schema.copy()
+    del schema['availableReleases']
     ##/code-section class-header
 
 
     #Methods
+    #manually created methods
 
-    security.declareProtected(Permissions.View, 'getAvailableReleases')
-    def getAvailableReleases(self):
+    security.declareProtected(Permissions.View, 'getReleasesVocab')
+    def getReleasesVocab(self):
         """
-        Get the releases available to the tracker
+        Get the releases available to the tracker as a DisplayList
         """
         catalog = getToolByName(self, 'portal_catalog')
         releases = catalog.searchResults(
@@ -112,18 +119,17 @@ class PoiPscTracker(PoiTracker,BaseFolder):
         return DisplayList([(r.UID, r.Title) for r in releases])
 
 
-
-    security.declareProtected(Permissions.View, 'getAvailableProposals')
-    def getAvailableProposals(self):
+    security.declareProtected(Permissions.View, 'getAvailableReleases')
+    def getAvailableReleases(self):
         """
-        Get the improvement proposals available to the tracker.
+        Get the UIDs of the releases available to the tracker
         """
         catalog = getToolByName(self, 'portal_catalog')
-        proposals = catalog.searchResults(
-                        portal_type = 'PSCImprovementProposal',
+        releases = catalog.searchResults(
+                        portal_type = 'PSCRelease',
                         path = '/'.join(self.getPhysicalPath()[:-1]),
                         )
-        return DisplayList([(p.UID, p.Title) for p in proposals])
+        return [r.UID for r in releases]
 
 
 def modify_fti(fti):

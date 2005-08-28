@@ -4,8 +4,8 @@
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
 #
 
-# Generator: ArchGenXML Version 1.4.0-beta1 devel
-#            http://sf.net/projects/archetypes/
+# Generator: ArchGenXML Version 1.4.0-beta2 devel
+#            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
 # 
@@ -93,7 +93,7 @@ def setuppoi_response_workflow(self, workflow):
     transitionDef = workflow.transitions['post']
     transitionDef.setProperties(title="""Post response on save""",
                                 new_state_id="""published""",
-                                trigger_type=0,
+                                trigger_type=1,
                                 script_name="""""",
                                 after_script_name="""""",
                                 actbox_name="""Post response on save""",

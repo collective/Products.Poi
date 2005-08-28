@@ -58,11 +58,11 @@
       <div id="open-issues-by-release" class="issue-quick-search-box"
            tal:condition="here/isUsingReleases">
           <h3 i18n:translate="poi_heading_by_release">By release</h3>
-          <ul>
-              <tal:releases repeat="release here/getAvailableReleases">
+          <ul tal:define="releases here/getReleasesVocab">
+              <tal:releases repeat="release releases">
                   <li tal:define="issues python:here.getFilteredIssues(release=release, state=openStates)">
                     <a tal:attributes="href string:${issueQueryString}&release=${release}"
-                       tal:content="release" /> (<span tal:replace="python:len(issues)" />)
+                       tal:content="python:releases.getValue(release)" /> (<span tal:replace="python:len(issues)" />)
                   </li>
               </tal:releases>
           </ul>

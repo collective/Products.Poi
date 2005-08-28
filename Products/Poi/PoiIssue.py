@@ -1,7 +1,8 @@
 # File: PoiIssue.py
 # 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.0-beta1 devel http://sf.net/projects/archetypes/
+# Generator: ArchGenXML Version 1.4.0-beta2 devel 
+#            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
 # 
@@ -28,6 +29,7 @@ from Products.Poi.interfaces.Issue import Issue
 
 # additional imports from tagged value 'import'
 import Permissions
+from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
 from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
@@ -206,12 +208,12 @@ schema=Schema((
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
 
-class PoiIssue(BaseFolder):
+class PoiIssue(BrowserDefaultMixin,BaseFolder):
     """
     The default tracker
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BaseFolder,'__implements__',()),) + (Issue,)
+    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseFolder,'__implements__',()),) + (Issue,)
 
 
     # This name appears in the 'add' box
@@ -225,7 +227,8 @@ class PoiIssue(BaseFolder):
     allow_discussion           = 0
     content_icon               = 'PoiIssue.gif'
     immediate_view             = 'base_view'
-    default_view               = 'base_view'
+    default_view               = 'poi_issue_view'
+    suppl_views                = ()
     typeDescription            = "An issue. Issues begin in the 'open' state, and can be responded to by project mangers."
     typeDescMsgId              = 'description_edit_poiissue'
 
@@ -252,18 +255,12 @@ class PoiIssue(BaseFolder):
 
     )
 
+    _at_rename_after_creation  = True 
+
     schema = BaseFolderSchema + \
              schema
 
     ##code-section class-header #fill in your manual code here
-    _at_rename_after_creation = True
-    aliases = {
-        '(Default)'  : 'poi_issue_view',
-        'view'       : 'poi_issue_view',
-        'edit'       : 'base_edit',
-        'properties' : 'base_metadata',
-        'sharing'    : 'folder_localrole_form'
-    }
     ##/code-section class-header
 
 
@@ -350,14 +347,14 @@ class PoiIssue(BaseFolder):
 
     def getReleasesVocab(self):
         """
-        Get the releases available as a DisplayList. The first item is 'None',
-        with a key of '(UNASSIGNED)'.
+        Get the vocabulary of available releases, including the item
+        (UNASSIGNED) to denote that a release is not yet assigned.
         """
-        items = self.aq_parent.getAvailableReleases()
         vocab = DisplayList()
         vocab.add('(UNASSIGNED)', 'None', 'poi_voacb_none')
-        for item in items:
-            vocab.add(item, item)
+        parentVocab = self.aq_parent.getReleasesVocab()
+        for k in parentVocab.keys():
+            vocab.add(k, parentVocab.getValue(k), parentVocab.getMsgId(k))
         return vocab
 
 
