@@ -38,6 +38,22 @@ def addFormControllerAction(self, out, controller, template, status,
                                 button, actionType, action)
     print >> out, "Added action %s to %s" % (action, template)
 
+def addAllowedContentType(self, out, typesTool, metaType, allowedType):
+    """Add the given type to the list of allowed content types for the given
+    meta type to portal_types. Fails gracefully if metaType does not exist
+    """
+    fti = getattr(typesTool, metaType, None)
+    if fti is None:
+        print >> out, "Could not add %s to allowed content types of %s - %s not found" % (allowedType, metaType, metaType)
+        return
+    allowedTypes = list(fti.allowed_content_types)
+    if allowedType not in allowedTypes:
+        allowedTypes.append(allowedType)
+        fti.allowed_content_types = tuple(allowedTypes)
+        print >> out, "Added %s to allowed content types of %s" % (allowedType, metaType)
+    else:
+        print >> out, "%s is already in allowed content types of %s" % (allowedType, metaType)
+
 def install(self):
 
     out = StringIO()
@@ -56,7 +72,6 @@ def install(self):
     addPortalFactoryType(self, out, factory, 'PoiTracker')
     addPortalFactoryType(self, out, factory, 'PoiIssue')
     addPortalFactoryType(self, out, factory, 'PoiResponse')
-
     addPortalFactoryType(self, out, factory, 'PoiPscTracker')
 
     # Set parentMetaTypesNotToQuery
@@ -72,6 +87,10 @@ def install(self):
     addToListProperty(self, out, siteProps, 'types_not_searched', 'PoiIssue')
     addToListProperty(self, out, siteProps, 'types_not_searched', 'PoiResponse')
     addToListProperty(self, out, siteProps, 'types_not_searched', 'PoiPscTracker')
+
+    # Add PoiPscTracker to allowed types in PSCProject
+    typesTool = getToolByName(self, 'portal_types')
+    addAllowedContentType(self, out, typesTool, 'PSCProject', 'PoiPscTracker')
 
     # Give the response types a "save" target to take the use back to the
     # issue itself, after updating the parent issue

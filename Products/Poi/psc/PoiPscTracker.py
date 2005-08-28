@@ -116,7 +116,7 @@ class PoiPscTracker(PoiTracker,BaseFolder):
                         portal_type = 'PSCRelease',
                         path = '/'.join(self.getPhysicalPath()[:-1]),
                         )
-        return DisplayList([(r.UID, r.Title) for r in releases])
+        return DisplayList([(r.UID, r.getId) for r in releases])
 
 
     security.declareProtected(Permissions.View, 'getAvailableReleases')
