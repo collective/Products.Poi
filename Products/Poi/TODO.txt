@@ -31,7 +31,7 @@ Poi TODO
     
     Bugs/Known issues:
 
-**      o Deleting a response will cause issue text to remain in issue
+        o Deleting a response will cause issue text to remain in issue
             SearchableText until a re-index (manage_beforeDelete?)
 
         o _renameAfterCreation() counter is not thread safe
@@ -42,8 +42,6 @@ Poi TODO
         o Max-size validator on uploaded attachments
 
     User interface:
-                
-**      o Combine "My open issues" and "Issues assigned to me" into "My issues"
             
         o No way to specify sort order in issue search form, and no sensible
             way of sorting by severity

@@ -10,15 +10,6 @@
 
 /* <dtml-with base_properties> */
 
-/* Borrowed from PloneHelpCenter */
-.link-expand {
-    background: transparent url(&dtml-portal_url;/arrowDown.gif) 4px 5px no-repeat;
-    padding: 1px 0px 1px 16px;
-    display: block;
-    font-size: &dtml-fontSmallSize;;
-    float: right;
-}
-
 /* Tracker front page */
 
 .issue-quick-search-box {
@@ -27,15 +18,14 @@
     padding: 0 1em 1em 0;
 }
 
-
-.issue-search-link {
+#issue-search-link {
     display: block;
     float: right;
     background: &dtml-backgroundColor; url(&dtml-portal_url;/search_icon.gif) 2px 1px no-repeat;
     padding: 1px 1px 1px 18px;
 }
 
-/* Structural elements */
+/* Issue display */
 
 .issue-info-box {
     float: right;
@@ -50,17 +40,23 @@
     text-align: left;
 }
 
-.categories {
-    margin-top: 0.5em;
-    color: &dtml-discreetColor;;
-    font-size: &dtml-fontSmallSize;;
-    font-weight: normal;
+.steps-to-reproduce span {
+    font-style: italic;
 }
 
-.contact-details {
-    color: &dtml-discreetColor;;
-    font-size: &dtml-fontSmallSize;;
-    font-weight: normal;
+.steps-to-reproduce ol {
+    margin: 0.5em 0 1em 3em;
+    line-height: 1em;
+}
+
+.steps-to-reproduce li {
+    margin: 0;
+    line-height: 1em;
+}
+
+
+.issue-attachment-label {
+    margin-bottom: 0.5em;
 }
 
 /* Different response types */
@@ -92,32 +88,6 @@
     color: &dtml-discreetColor;;
     font-size: &dtml-fontSmallSize;;
     font-weight: normal;
-}
-
-
-
-.steps-to-reproduce span {
-    font-style: italic;
-}
-
-.steps-to-reproduce ol {
-    margin: 0.5em 0 1em 3em;
-    line-height: 1em;
-}
-
-.steps-to-reproduce li {
-    margin: 0;
-    line-height: 1em;
-}
-
-.no-issues {
-  margin: 1em 0 1em 1em;
-  font-size: &dtml-fontSmallSize;;
-  color: &dtml-discreetColor;
-}
-
-.issue-attachment-label {
-    margin-bottom: 0.5em;
 }
 
 /* Response actions box */

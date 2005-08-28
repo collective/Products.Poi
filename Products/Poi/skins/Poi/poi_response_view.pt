@@ -19,8 +19,8 @@
         Document actions (print, sendto etc)
       </div>
       
-      <h1 tal:content="here/Title" class="documentFirstHeading">
-        Response Title
+      <h1 class="documentFirstHeading" i18n:translate="poi_response_title">
+        Response #<span i18n:name="responseNumber" tal:content="here/getId"/> to "<span i18n:name="issueTitle" tal:content="here/aq_parent/Title"/>"
       </h1>
      
       <a href=""
