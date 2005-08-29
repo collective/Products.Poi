@@ -353,7 +353,6 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
             vocab.add(id, state.title)
         return vocab.sortedByValue()
 
-
 def modify_fti(fti):
     # hide unnecessary tabs (usability enhancement)
     for a in fti['actions']:

@@ -59,17 +59,9 @@ Poi TODO
 
         o Verify i18n tags and translations
         o Email notifications are not internationalised
-        o Email notification is not very generalised, taking place in PoiIssue,
+**      o Email notification is not very generalised, taking place in PoiIssue,
             PoiTracker and poi_issue_workflow_scripts
 
     Incomplete:
     
-**      o Write some more unit tests
-            - Setup tests (types, workflow, instantiation, factory, PSC etc.)
-            - Custom methods
-                - getFilteredIssues()
-                - setManagers()
-                - setNewIssueState() + getIssueStateBefore/After()
-                - Notification mail logic
-                - Issue SearchableText
-            - Vocabulary methods
+**      o Finish writing unit tests
