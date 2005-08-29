@@ -115,23 +115,24 @@
           </div>
           
       </tal:manager>
-      
-      <div id="my-issues"
-           tal:define="issues python:here.getFilteredIssues(state=openStates, responsible=member.getId()) + here.getFilteredIssues(state=pendingStates, creator=member.getId())"
-           tal:condition="nocall:issues">
+      <tal:loggedIn condition="not:isAnon">
+          <div id="my-issues"
+               tal:define="issues python:here.getFilteredIssues(state=openStates, responsible=member.getId()) + here.getFilteredIssues(state=pendingStates, creator=member.getId())"
+               tal:condition="nocall:issues">
            
-           <h2 i18n:translate="poi_heading_my_issues">My issues</h2>
-           <p tal:condition="isManager" i18n:translate="poi_help_my_issues_manager">
-               The following open issues were either submitted by you, or have been assigned to you.
-           </p>
+               <h2 i18n:translate="poi_heading_my_issues">My issues</h2>
+               <p tal:condition="isManager" i18n:translate="poi_help_my_issues_manager">
+                   The following open issues were either submitted by you, or have been assigned to you.
+               </p>
            
-           <p tal:condition="not:isManager" i18n:translate="poi_help_my_issues_not_manager">
-               The following open issues were either submitted by you.
-           </p>
+               <p tal:condition="not:isManager" i18n:translate="poi_help_my_issues_not_manager">
+                   The following open issues were either submitted by you.
+               </p>
 
-           <metal:table use-macro="here/poi_issue_search/macros/issue_search_results" />
+               <metal:table use-macro="here/poi_issue_search/macros/issue_search_results" />
            
-      </div>
+          </div>
+      </tal:loggedIn>
   
     </div>
 

@@ -115,10 +115,7 @@
       <tal:responses repeat="response python:here.getFolderContents(contentFilter = {'sort_on' : 'getId'}, full_objects = True)">
       
         <div class="response-details" metal:define-macro="response_view"
-                tal:attributes="class python: test(response.Creator() == here.Creator(),
-                                                   'response-clarification',
-                                                   test(response.Creator() in here.getManagers(),
-                                                        'response-reply', 'response-additional'))">
+                tal:attributes="class string:response-${response/determineResponseType}">
                   
           
             <div class="response-actions"

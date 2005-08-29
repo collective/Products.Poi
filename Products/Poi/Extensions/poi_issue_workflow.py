@@ -46,16 +46,16 @@ def setuppoi_issue_workflow(self, workflow):
     ##/code-section create-workflow-setup-method-header
 
 
-    for s in ['resolved', 'in-progress', 'postponed', 'rejected', 'open', 'closed', 'unconfirmed']:
+    for s in ['resolved', 'in-progress', 'postponed', 'rejected', 'open', 'closed', 'unconfirmed', 'new']:
         workflow.states.addState(s)
 
-    for t in ['begin-open', 'open-rejected', 'open-postponed', 're-start', 'reject-unconfirmed', 'hold-open', 'open-closed', 'confirm-resolved', 'resolve-in-progress', 'postpone', 'resolve-open', 'open-resolved', 'accept-unconfirmed']:
+    for t in ['begin-open', 'open-rejected', 'open-postponed', 're-start', 'post', 'reject-unconfirmed', 'hold-open', 'open-closed', 'confirm-resolved', 'resolve-in-progress', 'postpone', 'resolve-open', 'open-resolved', 'accept-unconfirmed']:
         workflow.transitions.addTransition(t)
 
     for v in ['review_history', 'comments', 'time', 'actor', 'action']:
         workflow.variables.addVariable(v)
 
-    for p in ['Delete objects', 'Poi: Modify issue state']:
+    for p in ['Delete objects', 'Poi: Modify issue state', 'Modify portal content']:
         workflow.addManagedPermission(p)
 
     for l in []:
@@ -77,6 +77,9 @@ def setuppoi_issue_workflow(self, workflow):
     stateDef.setPermission('Poi: Modify issue state',
                            0,
                            ['Manager', 'Owner'])
+    stateDef.setPermission('Modify portal content',
+                           0,
+                           ['Owner', 'Manager'])
 
     stateDef = workflow.states['in-progress']
     stateDef.setProperties(title="""In progress""",
@@ -87,6 +90,9 @@ def setuppoi_issue_workflow(self, workflow):
     stateDef.setPermission('Poi: Modify issue state',
                            0,
                            ['Manager'])
+    stateDef.setPermission('Modify portal content',
+                           0,
+                           ['Owner', 'Manager'])
 
     stateDef = workflow.states['postponed']
     stateDef.setProperties(title="""Postponed""",
@@ -97,6 +103,9 @@ def setuppoi_issue_workflow(self, workflow):
     stateDef.setPermission('Poi: Modify issue state',
                            0,
                            ['Manager'])
+    stateDef.setPermission('Modify portal content',
+                           0,
+                           ['Owner', 'Manager'])
 
     stateDef = workflow.states['rejected']
     stateDef.setProperties(title="""Rejected""",
@@ -107,6 +116,9 @@ def setuppoi_issue_workflow(self, workflow):
     stateDef.setPermission('Poi: Modify issue state',
                            0,
                            ['Manager'])
+    stateDef.setPermission('Modify portal content',
+                           0,
+                           ['Owner', 'Manager'])
 
     stateDef = workflow.states['open']
     stateDef.setProperties(title="""Open""",
@@ -117,6 +129,9 @@ def setuppoi_issue_workflow(self, workflow):
     stateDef.setPermission('Poi: Modify issue state',
                            0,
                            ['Manager'])
+    stateDef.setPermission('Modify portal content',
+                           0,
+                           ['Owner', 'Manager'])
 
     stateDef = workflow.states['closed']
     stateDef.setProperties(title="""Tested and confirmed closed""",
@@ -127,6 +142,9 @@ def setuppoi_issue_workflow(self, workflow):
     stateDef.setPermission('Poi: Modify issue state',
                            0,
                            ['Manager', 'Owner'])
+    stateDef.setPermission('Modify portal content',
+                           0,
+                           ['Owner', 'Manager'])
 
     stateDef = workflow.states['unconfirmed']
     stateDef.setProperties(title="""Unconfirmed""",
@@ -137,6 +155,22 @@ def setuppoi_issue_workflow(self, workflow):
     stateDef.setPermission('Poi: Modify issue state',
                            0,
                            ['Manager'])
+    stateDef.setPermission('Modify portal content',
+                           0,
+                           ['Owner', 'Manager'])
+
+    stateDef = workflow.states['new']
+    stateDef.setProperties(title="""Being created""",
+                           transitions=['post'])
+    stateDef.setPermission('Modify portal content',
+                           0,
+                           ['Anonymous', 'Owner', 'Manager'])
+    stateDef.setPermission('Delete objects',
+                           0,
+                           ['Anonymous', 'Owner', 'Manager'])
+    stateDef.setPermission('Poi: Modify issue state',
+                           0,
+                           ['Anonymous', 'Owner', 'Manager'])
 
     ## Transitions initialization
 
@@ -186,6 +220,18 @@ def setuppoi_issue_workflow(self, workflow):
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
                                 props={'guard_permissions': 'Poi: Modify issue state'},
+                                )
+
+    transitionDef = workflow.transitions['post']
+    transitionDef.setProperties(title="""Post issue on save""",
+                                new_state_id="""unconfirmed""",
+                                trigger_type=1,
+                                script_name="""""",
+                                after_script_name="""""",
+                                actbox_name="""Post issue on save""",
+                                actbox_url="""""",
+                                actbox_category="""workflow""",
+                                props={'guard_expr': 'here/isValid'},
                                 )
 
     transitionDef = workflow.transitions['reject-unconfirmed']

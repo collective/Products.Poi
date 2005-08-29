@@ -97,5 +97,7 @@ def install(self):
     controller = getToolByName(self, 'portal_form_controller')
     addFormControllerAction(self, out, controller, 'validate_integrity',
                             'success', 'PoiResponse', None, 'traverse_to', 'string:poi_response_update_issue')
+    addFormControllerAction(self, out, controller, 'validate_integrity',
+                            'success', 'PoiIssue', None, 'traverse_to', 'string:poi_issue_post')
 
     return out.getvalue()

@@ -69,7 +69,7 @@ def setuppoi_response_workflow(self, workflow):
     ## States initialization
 
     stateDef = workflow.states['published']
-    stateDef.setProperties(title="""published""",
+    stateDef.setProperties(title="""Posted""",
                            transitions=[])
     stateDef.setPermission('Modify portal content',
                            0,
@@ -79,14 +79,14 @@ def setuppoi_response_workflow(self, workflow):
                            ['Manager'])
 
     stateDef = workflow.states['new']
-    stateDef.setProperties(title="""new""",
+    stateDef.setProperties(title="""Being created""",
                            transitions=['post'])
     stateDef.setPermission('Modify portal content',
                            0,
-                           ['Owner', 'Manager'])
+                           ['Anonymous', 'Owner', 'Manager'])
     stateDef.setPermission('Delete objects',
                            0,
-                           ['Owner', 'Manager'])
+                           ['Anonymous', 'Owner', 'Manager'])
 
     ## Transitions initialization
 

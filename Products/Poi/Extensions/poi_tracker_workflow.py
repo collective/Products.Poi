@@ -55,7 +55,7 @@ def setuppoi_tracker_workflow(self, workflow):
     for v in ['review_history', 'comments', 'time', 'actor', 'action']:
         workflow.variables.addVariable(v)
 
-    for p in ['Add Poi Issues', 'Add Poi Responses', 'View', 'Modify portal content', 'Access contents information', 'Add portal content', 'Add PoiIssues', 'Add PoiResponses']:
+    for p in ['Add Poi Issues', 'Add Poi Responses', 'View', 'Modify portal content', 'Access contents information', 'Add portal content']:
         workflow.addManagedPermission(p)
 
     for l in []:
@@ -73,10 +73,10 @@ def setuppoi_tracker_workflow(self, workflow):
                            transitions=['close'])
     stateDef.setPermission('Add Poi Issues',
                            0,
-                           ['Member', 'Manager', 'Owner'])
+                           ['Anonymous', 'Member', 'Manager', 'Owner'])
     stateDef.setPermission('Add Poi Responses',
                            0,
-                           ['Member', 'Manager', 'Owner'])
+                           ['Anonymous', 'Member', 'Manager', 'Owner'])
     stateDef.setPermission('View',
                            0,
                            ['Anonymous', 'Member', 'Manager', 'Owner'])
@@ -88,15 +88,15 @@ def setuppoi_tracker_workflow(self, workflow):
                            ['Anonymous', 'Member', 'Manager', 'Owner'])
     stateDef.setPermission('Add portal content',
                            0,
-                           ['Member', 'Manager', 'Owner'])
+                           ['Anonymous', 'Member', 'Manager', 'Owner'])
 
     stateDef = workflow.states['closed']
     stateDef.setProperties(title="""Closed for submissions""",
                            transitions=['open'])
-    stateDef.setPermission('Add PoiIssues',
+    stateDef.setPermission('Add Poi Issues',
                            0,
                            ['Manager', 'Owner'])
-    stateDef.setPermission('Add PoiResponses',
+    stateDef.setPermission('Add Poi Responses',
                            0,
                            ['Manager', 'Owner'])
     stateDef.setPermission('View',

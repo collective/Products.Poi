@@ -330,6 +330,17 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         return self.aq_parent.getDefaultSeverity()
 
 
+    security.declarePublic('isValid')
+    def isValid(self):
+        """Check if the response is valid, that is, a response has been filled in"""
+        errors = {}
+        self.Schema().validate(self, None, errors, 1, 1)
+        if errors:
+            return False
+        else:
+            return True
+
+
     security.declarePublic('getTopicsVocab')
     def getTopicsVocab(self):
         """
@@ -437,6 +448,11 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
                             log_exc('Could not send email from %s to %s regarding creation of issue %s.' % (fromAddress, managerEmail, self.absolute_url(),))
                             pass
 
+    def updateResponses(self):
+        """When a response is added or modified, this method should be
+        called to ensure responses are correctly indexed.
+        """
+        self.reindexObject(('SearchableText'))
 
 def modify_fti(fti):
     # hide unnecessary tabs (usability enhancement)

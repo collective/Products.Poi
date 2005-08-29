@@ -38,14 +38,18 @@ Poi TODO
 
     Security issues:
 
-**      o Allow anonymous to post issues/responses
         o Max-size validator on uploaded attachments
 
     User interface:
-            
+
+        o Turn off editable border in edit responses screen
+        o Collect email addresses for responses and notify respondents?
+
+        o Would be nice to link to releases when in PSC view
+
         o No way to specify sort order in issue search form, and no sensible
             way of sorting by severity
-                
+
         o Want to have sortable tables, but they look funny without nosort if
             the title makes a row two lines long or more.
 

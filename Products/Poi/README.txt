@@ -1,6 +1,7 @@
 Poi: A friendly issue tracker
 
  by Martin Aspeli <optilude@gmx.net>
+ Released under the GNU General Public License, version 2
  
 Poi is an issue tracker product for Plone. It has three overarching aims:
 

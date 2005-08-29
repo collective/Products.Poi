@@ -6,14 +6,10 @@
 ##bind state=state
 ##bind subpath=traverse_subpath
 ##parameters=
-##title=Update the parent issue when a response is saved
+##title=Finalise posting of an issue
 ##
 
 from Products.CMFCore.utils import getToolByName
-
-# Update text
-issue = context.aq_parent
-issue.updateResponses()
 
 # Ensure only manager can edit/delete the response from now on
 portal_workflow = getToolByName(context, 'portal_workflow')
@@ -25,6 +21,7 @@ if portal_workflow.getInfoFor(context, 'review_state') == 'new':
     if portal_membership.isAnonymousUser():
         context.setCreators(('(anonymous)',))
     portal_workflow.doActionFor(context, 'post')
+
 
 return state
 
