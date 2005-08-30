@@ -28,8 +28,8 @@ from Interface import Base
 
 class Tracker(Base):
     """
-    Interface for FirePoi trackers. Trackers can display their
-    contained issues filtered by workflow state and category.
+    Interface for Poi trackers. Trackers can display their
+    contained issues filtered by various categories.
     """
 
     #Methods
@@ -40,11 +40,12 @@ class Tracker(Base):
         
         Valid keys are:
         
-        topic -- A topic or list of topics
-        category -- A category or list of categories
+        area -- An area or list of areas
+        issueType -- An issue type or list of issue types
         severity -- A severity or list of severities
         release -- A release or list of releases
         responsible -- A resonsible manager or list of managers
+        creator -- The user name of the issue submitter
         text -- Free text search
         sort_on -- Index to sort on
         """

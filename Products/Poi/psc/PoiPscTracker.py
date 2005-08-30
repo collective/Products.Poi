@@ -29,7 +29,7 @@ from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolde
 
 
 # additional imports from tagged value 'import'
-from Products.Poi import Permissions
+from Products.Poi import permissions
 
 from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
@@ -54,7 +54,7 @@ class PoiPscTracker(PoiTracker,BaseFolder):
 
 
     # This name appears in the 'add' box
-    archetype_name             = 'Issue tracker'
+    archetype_name             = 'Issue Tracker'
 
     meta_type                  = 'PoiPscTracker'
     portal_type                = 'PoiPscTracker'
@@ -76,19 +76,19 @@ class PoiPscTracker(PoiTracker,BaseFolder):
         'category':    "object",
         'id':          'view',
         'name':        'View',
-        'permissions': (Permissions.View,),
+        'permissions': (permissions.View,),
         'condition'  : 'python:1'
        },
-        
+
 
        {'action':      "string:${object_url}/edit",
         'category':    "object",
         'id':          'edit',
         'name':        'Edit',
-        'permissions': (Permissions.ModifyPortalContent,),
+        'permissions': (permissions.ModifyPortalContent,),
         'condition'  : 'python:1'
        },
-        
+
 
     )
 
@@ -107,20 +107,7 @@ class PoiPscTracker(PoiTracker,BaseFolder):
     #Methods
     #manually created methods
 
-    security.declareProtected(Permissions.View, 'getAvailableReleases')
-    def getAvailableReleases(self):
-        """
-        Get the UIDs of the releases available to the tracker
-        """
-        catalog = getToolByName(self, 'portal_catalog')
-        releases = catalog.searchResults(
-                        portal_type = 'PSCRelease',
-                        path = '/'.join(self.getPhysicalPath()[:-1]),
-                        )
-        return [r.UID for r in releases]
-
-
-    security.declareProtected(Permissions.View, 'getReleasesVocab')
+    security.declareProtected(permissions.View, 'getReleasesVocab')
     def getReleasesVocab(self):
         """
         Get the releases available to the tracker as a DisplayList
@@ -131,6 +118,19 @@ class PoiPscTracker(PoiTracker,BaseFolder):
                         path = '/'.join(self.getPhysicalPath()[:-1]),
                         )
         return DisplayList([(r.UID, r.getId) for r in releases])
+
+
+    security.declareProtected(permissions.View, 'getAvailableReleases')
+    def getAvailableReleases(self):
+        """
+        Get the UIDs of the releases available to the tracker
+        """
+        catalog = getToolByName(self, 'portal_catalog')
+        releases = catalog.searchResults(
+                        portal_type = 'PSCRelease',
+                        path = '/'.join(self.getPhysicalPath()[:-1]),
+                        )
+        return [r.UID for r in releases]
 
 
 def modify_fti(fti):

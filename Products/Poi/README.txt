@@ -34,9 +34,9 @@ Usage
  Add a Tracker, and use the "state" menu to open it for submissions. 
  
 The tracker front pages allows you to browse for issues by release, state or 
-topic, as well as search for issues. Note that if you are not tracking software 
+area, as well as search for issues. Note that if you are not tracking software 
 releases, you can leave the list of "releases" empty, and organisation by 
-release will be turned off. The fields for topics and category come 
+release will be turned off. The fields for areas and issue types come 
 pre-configured with simple values that presume you are tracking software bugs. 
 You can change these to whatever you want. 
 

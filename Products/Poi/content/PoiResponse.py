@@ -28,7 +28,7 @@ from Products.Poi.interfaces.Response import Response
 
 
 # additional imports from tagged value 'import'
-from Products.Poi import Permissions
+from Products.Poi import permissions
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
 from Products.Poi.config import *
@@ -51,7 +51,7 @@ schema=Schema((
         ),
         mode="r"
     ),
-    
+
     StringField('title',
         widget=StringWidget(
             label="Subject",
@@ -65,7 +65,7 @@ schema=Schema((
         accessor="Title",
         mode="r"
     ),
-    
+
     TextField('response',
         allowable_content_types=('text/plain', 'text/structured', 'text/html', 'application/msword',),
         widget=RichWidget(
@@ -82,7 +82,7 @@ schema=Schema((
         default_output_type="text/html",
         required=True
     ),
-    
+
     StringField('issueTransition',
         mutator="setNewIssueState",
         widget=SelectionWidget(
@@ -96,9 +96,9 @@ schema=Schema((
         default='',
         enforceVocabulary=False,
         accessor="getIssueTransition",
-        write_permission=Permissions.ModifyIssueState
+        write_permission=permissions.ModifyIssueState
     ),
-    
+
     FileField('attachment',
         widget=FileWidget(
             label="Attachment",
@@ -109,7 +109,7 @@ schema=Schema((
         ),
         storage=AttributeStorage()
     ),
-    
+
 ),
 )
 
@@ -132,7 +132,7 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
 
     meta_type                  = 'PoiResponse'
     portal_type                = 'PoiResponse'
-    allowed_content_types      = [] 
+    allowed_content_types      = []
     filter_content_types       = 0
     global_allow               = 0
     allow_discussion           = 0
@@ -140,7 +140,7 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
     immediate_view             = 'base_view'
     default_view               = 'poi_response_view'
     suppl_views                = ()
-    typeDescription            = "A project managers' response to an issue."
+    typeDescription            = "A response to an issue."
     typeDescMsgId              = 'description_edit_poiresponse'
 
     actions =  (
@@ -150,19 +150,19 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         'category':    "object",
         'id':          'view',
         'name':        'view',
-        'permissions': (Permissions.View,),
+        'permissions': (permissions.View,),
         'condition'  : 'python:1'
        },
-        
 
-       {'action':      "string:$object_url/edit",
+
+       {'action':      "string:${object_url}/edit",
         'category':    "object",
         'id':          'edit',
         'name':        'Edit',
-        'permissions': ("View",),
+        'permissions': (permissions.ModifyPortalContent,),
         'condition'  : 'python:1'
        },
-        
+
 
     )
 
@@ -177,7 +177,7 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
 
     #Methods
 
-    security.declareProtected(Permissions.ModifyPortalContent, 'setNewIssueState')
+    security.declareProtected(permissions.ModifyPortalContent, 'setNewIssueState')
     def setNewIssueState(self,transition):
         """
         Set a new review state for the parent issue, by executing
@@ -199,7 +199,7 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
 
 
 
-    security.declareProtected(Permissions.View, 'getIssueStateBefore')
+    security.declareProtected(permissions.View, 'getIssueStateBefore')
     def getIssueStateBefore(self):
         """
         Get the state of the parent issue that was set before the

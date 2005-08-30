@@ -29,7 +29,7 @@ from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolde
 
 
 # additional imports from tagged value 'import'
-from Products.Poi import Permissions
+from Products.Poi import permissions
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
 from Products.Poi.config import *
@@ -51,7 +51,7 @@ schema=Schema((
         ),
         mode="r"
     ),
-    
+
     StringField('title',
         widget=StringWidget(
             label="Title",
@@ -64,7 +64,7 @@ schema=Schema((
         accessor="Title",
         searchable=True
     ),
-    
+
     TextField('description',
         widget=TextAreaWidget(
             label="Overview",
@@ -77,7 +77,7 @@ schema=Schema((
         accessor="Description",
         searchable=True
     ),
-    
+
     StringField('release',
         default="(UNASSIGNED)",
         index="FieldIndex:schema",
@@ -92,35 +92,35 @@ schema=Schema((
         required=True,
         vocabulary='getReleasesVocab'
     ),
-    
-    StringField('topic',
+
+    StringField('area',
         index="FieldIndex:schema",
         widget=SelectionWidget(
-            label="Topic",
-            description="Select the topic this issue is relevant to.",
-            label_msgid='Poi_label_topic',
-            description_msgid='Poi_help_topic',
+            label="Area",
+            description="Select the area this issue is relevant to.",
+            label_msgid='Poi_label_area',
+            description_msgid='Poi_help_area',
             i18n_domain='Poi',
         ),
         enforceVocabulary=True,
-        vocabulary='getTopicsVocab',
+        vocabulary='getAreasVocab',
         required=True
     ),
-    
-    StringField('category',
+
+    StringField('issueType',
         index="FieldIndex:schema",
         widget=SelectionWidget(
-            label="Category",
-            description="Select the category this issue corresponds to.",
-            label_msgid='Poi_label_category',
-            description_msgid='Poi_help_category',
+            label="Issue type",
+            description="Select the type of issue.",
+            label_msgid='Poi_label_issueType',
+            description_msgid='Poi_help_issueType',
             i18n_domain='Poi',
         ),
         enforceVocabulary=True,
-        vocabulary='getCategoriesVocab',
+        vocabulary='getIssueTypesVocab',
         required=True
     ),
-    
+
     StringField('severity',
         index="FieldIndex:schema",
         widget=SelectionWidget(
@@ -133,9 +133,9 @@ schema=Schema((
         vocabulary='getAvailableSeverities',
         default_method='getDefaultSeverity',
         required=True,
-        write_permission=Permissions.ModifySeverity
+        write_permission=permissions.ModifySeverity
     ),
-    
+
     TextField('details',
         allowable_content_types=('text/plain', 'text/structured', 'text/html', 'application/msword',),
         widget=RichWidget(
@@ -152,7 +152,7 @@ schema=Schema((
         searchable=True,
         default_output_type="text/html"
     ),
-    
+
     LinesField('steps',
         widget=LinesWidget(
             label="Steps to reproduce",
@@ -163,7 +163,7 @@ schema=Schema((
         ),
         searchable=True
     ),
-    
+
     FileField('attachment',
         widget=FileWidget(
             label="Attachment",
@@ -174,7 +174,7 @@ schema=Schema((
         ),
         storage=AttributeStorage()
     ),
-    
+
     StringField('contactEmail',
         validators=('isEmail',),
         widget=StringWidget(
@@ -187,7 +187,7 @@ schema=Schema((
         required=True,
         default_method="getDefaultContactEmail"
     ),
-    
+
     StringField('responsibleManager',
         index="FieldIndex:schema",
         widget=SelectionWidget(
@@ -200,9 +200,9 @@ schema=Schema((
         vocabulary='getManagersVocab',
         default="(UNASSIGNED)",
         required=True,
-        write_permission=Permissions.ModifyIssueAssignment
+        write_permission=permissions.ModifyIssueAssignment
     ),
-    
+
 ),
 )
 
@@ -223,7 +223,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
 
     meta_type                  = 'PoiIssue'
     portal_type                = 'PoiIssue'
-    allowed_content_types      = ['PoiResponse'] 
+    allowed_content_types      = ['PoiResponse']
     filter_content_types       = 1
     global_allow               = 0
     allow_discussion           = 0
@@ -241,19 +241,19 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         'category':    "object",
         'id':          'view',
         'name':        'View',
-        'permissions': (Permissions.View,),
+        'permissions': (permissions.View,),
         'condition'  : 'python:1'
        },
-        
+
 
        {'action':      "string:${object_url}/edit",
         'category':    "object",
         'id':          'edit',
         'name':        'Edit',
-        'permissions': (Permissions.ModifyPortalContent,),
+        'permissions': (permissions.ModifyPortalContent,),
         'condition'  : 'python:1'
        },
-        
+
 
     )
 
@@ -268,7 +268,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
 
     #Methods
 
-    security.declareProtected(Permissions.View, 'getCurrentIssueState')
+    security.declareProtected(permissions.View, 'getCurrentIssueState')
     def getCurrentIssueState(self):
         """
         Get the current state of the issue.
@@ -282,7 +282,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
 
 
 
-    security.declareProtected(Permissions.View, 'getAvailableIssueTransitions')
+    security.declareProtected(permissions.View, 'getAvailableIssueTransitions')
     def getAvailableIssueTransitions(self):
         """
         Get the available transitions for the issue.
@@ -341,15 +341,6 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
             return True
 
 
-    security.declarePublic('getTopicsVocab')
-    def getTopicsVocab(self):
-        """
-        Get the available topics as a DispayList.
-        """
-        field = self.aq_parent.getField('availableTopics')
-        return field.getAsDisplayList(self.aq_parent)
-
-
     def SearchableText(self):
         """Include in the SearchableText the text of all responses"""
         text = BaseObject.SearchableText(self)
@@ -358,17 +349,12 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         return text
 
 
-    def getReleasesVocab(self):
+    def getIssueTypesVocab(self):
         """
-        Get the vocabulary of available releases, including the item
-        (UNASSIGNED) to denote that a release is not yet assigned.
+        Get the issue types available as a DisplayList.
         """
-        vocab = DisplayList()
-        vocab.add('(UNASSIGNED)', 'None', 'poi_voacb_none')
-        parentVocab = self.aq_parent.getReleasesVocab()
-        for k in parentVocab.keys():
-            vocab.add(k, parentVocab.getValue(k), parentVocab.getMsgId(k))
-        return vocab
+        field = self.aq_parent.getField('availableIssueTypes')
+        return field.getAsDisplayList(self.aq_parent)
 
 
     def getManagersVocab(self):
@@ -391,11 +377,25 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         self.reindexObject(('SearchableText'))
 
 
-    def getCategoriesVocab(self):
+    def getReleasesVocab(self):
         """
-        Get the categories available as a DisplayList.
+        Get the vocabulary of available releases, including the item
+        (UNASSIGNED) to denote that a release is not yet assigned.
         """
-        field = self.aq_parent.getField('availableCategories')
+        vocab = DisplayList()
+        vocab.add('(UNASSIGNED)', 'None', 'poi_voacb_none')
+        parentVocab = self.aq_parent.getReleasesVocab()
+        for k in parentVocab.keys():
+            vocab.add(k, parentVocab.getValue(k), parentVocab.getMsgId(k))
+        return vocab
+
+
+    security.declarePublic('getAreasVocab')
+    def getAreasVocab(self):
+        """
+        Get the available areas as a DispayList.
+        """
+        field = self.aq_parent.getField('availableAreas')
         return field.getAsDisplayList(self.aq_parent)
 
 

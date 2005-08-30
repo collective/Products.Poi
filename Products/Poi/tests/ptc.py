@@ -38,8 +38,8 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         self.app.REQUEST['SESSION'] = self.Session()
 
     def createTracker(self, folder, id, title='', description='',
-                        availableTopics=['ui | User interface | User interface issues', 'functionality | Functionality| Issues with the basic functionality', 'process | Process | Issues relating to the development process itself'],
-                        availableCategories=['bug | Bug | Functionality bugs in the software', 'feature | Feature | Suggested features', 'patch | Patch | Patches to the software'],
+                        availableAreas=['ui | User interface | User interface issues', 'functionality | Functionality| Issues with the basic functionality', 'process | Process | Issues relating to the development process itself'],
+                        availableIssueTypes=['bug | Bug | Functionality bugs in the software', 'feature | Feature | Suggested features', 'patch | Patch | Patches to the software'],
                         availableSeverities=['Critical', 'Important', 'Medium', 'Low'],
                         defaultSeverity='Medium',
                         availableReleases=['2.0', '1.0'],
@@ -52,7 +52,8 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         tracker = getattr(folder, id)
         tracker.setTitle(title)
         tracker.setDescription(description)
-        tracker.setAvailableTopics(availableTopics)
+        tracker.setAvailableAreas(availableAreas)
+        tracker.setAvailableIssueTypes(availableIssueTypes)
         tracker.setAvailableSeverities(availableSeverities)
         tracker.setDefaultSeverity(defaultSeverity)
         tracker.setAvailableReleases(availableReleases)
@@ -64,7 +65,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
 
     def createIssue(self, tracker, title='An issue', 
                     overview='Something is wrong', release='(UNASSIGNED)', 
-                    topic='ui', category='bug', severity='Medium', 
+                    area='ui', issueType='bug', severity='Medium', 
                     details='', steps=(), attachment=None, 
                     contactEmail='submitter@domain.com',
                     responsibleManager='(UNASSIGNED)'):
@@ -77,8 +78,8 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         issue.setTitle(title)
         issue.setDescription(overview)
         issue.setRelease(release)
-        issue.setTopic(topic)
-        issue.setCategory(category)
+        issue.setArea(area)
+        issue.setIssueType(issueType)
         issue.setSeverity(severity)
         issue.setDetails(details)
         issue.setSteps(steps)

@@ -30,7 +30,7 @@ from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolde
 
 # additional imports from tagged value 'import'
 from Products.ArchAddOn.Fields import SimpleDataGridField
-from Products.Poi import Permissions
+from Products.Poi import permissions
 from Products.ArchAddOn.Widgets import SimpleDataGridWidget
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
@@ -51,7 +51,7 @@ schema=Schema((
         required=True,
         accessor="Title"
     ),
-    
+
     TextField('description',
         widget=TextAreaWidget(
             label="Tracker description",
@@ -63,35 +63,35 @@ schema=Schema((
         use_portal_factory="1",
         accessor="Description"
     ),
-    
-    SimpleDataGridField('availableTopics',
+
+    SimpleDataGridField('availableAreas',
         default=['ui | User interface | User interface issues', 'functionality | Functionality| Issues with the basic functionality', 'process | Process | Issues relating to the development process itself'],
         widget=SimpleDataGridWidget(
-            label="Topics",
+            label="Areas",
             description="""Enter the issue topics/areas for this tracker, one specification per line. The format is "Short name | Title | Description".""",
-            label_msgid='Poi_label_availableTopics',
-            description_msgid='Poi_help_availableTopics',
+            label_msgid='Poi_label_availableAreas',
+            description_msgid='Poi_help_availableAreas',
             i18n_domain='Poi',
         ),
         column_names=('id', 'title', 'description',),
         columns=3,
         required=True
     ),
-    
-    SimpleDataGridField('availableCategories',
+
+    SimpleDataGridField('availableIssueTypes',
         default=['bug | Bug | Functionality bugs in the software', 'feature | Feature | Suggested features', 'patch | Patch | Patches to the software'],
         widget=SimpleDataGridWidget(
-            label="Categories",
-            description="""Enter the issue categories for this tracker, one specification per line. The format is "Short name | Title | Description".""",
-            label_msgid='Poi_label_availableCategories',
-            description_msgid='Poi_help_availableCategories',
+            label="Issue types",
+            description="""Enter the issue types for this tracker, one specification per line. The format is "Short name | Title | Description".""",
+            label_msgid='Poi_label_availableIssueTypes',
+            description_msgid='Poi_help_availableIssueTypes',
             i18n_domain='Poi',
         ),
         column_names=('id', 'title', 'description'),
         columns=3,
         required=True
     ),
-    
+
     LinesField('availableSeverities',
         default=['Critical', 'Important', 'Medium', 'Low'],
         widget=LinesWidget(
@@ -103,7 +103,7 @@ schema=Schema((
         ),
         required=True
     ),
-    
+
     StringField('defaultSeverity',
         default='Medium',
         widget=SelectionWidget(
@@ -117,7 +117,7 @@ schema=Schema((
         vocabulary='getAvailableSeverities',
         required=True
     ),
-    
+
     LinesField('availableReleases',
         widget=LinesWidget(
             label="Available releases",
@@ -128,7 +128,7 @@ schema=Schema((
         ),
         required=False
     ),
-    
+
     LinesField('managers',
         widget=LinesWidget(
             label="Tracker managers",
@@ -138,7 +138,7 @@ schema=Schema((
             i18n_domain='Poi',
         )
     ),
-    
+
     BooleanField('sendNotificationEmails',
         default=True,
         widget=BooleanWidget(
@@ -149,7 +149,7 @@ schema=Schema((
             i18n_domain='Poi',
         )
     ),
-    
+
     StringField('mailingList',
         widget=StringWidget(
             label="Mailing list",
@@ -161,7 +161,7 @@ schema=Schema((
         required=False,
         validators=('isEmail',)
     ),
-    
+
 ),
 )
 
@@ -178,11 +178,11 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
 
 
     # This name appears in the 'add' box
-    archetype_name             = 'Tracker'
+    archetype_name             = 'Issue Tracker'
 
     meta_type                  = 'PoiTracker'
     portal_type                = 'PoiTracker'
-    allowed_content_types      = ['PoiIssue'] 
+    allowed_content_types      = ['PoiIssue']
     filter_content_types       = 1
     global_allow               = 1
     allow_discussion           = 0
@@ -200,19 +200,19 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         'category':    "object",
         'id':          'view',
         'name':        'View',
-        'permissions': (Permissions.View,),
+        'permissions': (permissions.View,),
         'condition'  : 'python:1'
        },
-        
+
 
        {'action':      "string:${object_url}/edit",
         'category':    "object",
         'id':          'edit',
         'name':        'Edit',
-        'permissions': (Permissions.ModifyPortalContent,),
+        'permissions': (permissions.ModifyPortalContent,),
         'condition'  : 'python:1'
        },
-        
+
 
     )
 
@@ -227,16 +227,7 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
 
     #Methods
 
-    security.declareProtected(Permissions.View, 'getCategoryIds')
-    def getCategoryIds(self):
-        """
-        Get a list of all category ids in the tracker.
-        """
-        return self.getField('availableCategories').getColumn(self, 0)
-
-
-
-    security.declareProtected(Permissions.View, 'getFilteredIssues')
+    security.declareProtected(permissions.View, 'getFilteredIssues')
     def getFilteredIssues(self, criteria=None, **kwargs):
         """
         Get the contained issues in the given criteria.
@@ -253,10 +244,10 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
 
         if criteria.has_key('release'):
             query['getRelease'] = criteria.get('release')
-        if criteria.has_key('topic'):
-            query['getTopic'] = criteria.get('topic')
-        if criteria.has_key('category'):
-            query['getCategory'] = criteria.get('category')
+        if criteria.has_key('area'):
+            query['getArea'] = criteria.get('area')
+        if criteria.has_key('issueType'):
+            query['getIssueType'] = criteria.get('issueType')
         if criteria.has_key('severity'):
             query['getSeverity'] = criteria.get('severity')
         if criteria.has_key('state'):
@@ -275,7 +266,7 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
 
 
 
-    security.declareProtected(Permissions.View, 'isUsingReleases')
+    security.declareProtected(permissions.View, 'isUsingReleases')
     def isUsingReleases(self):
         """Return a boolean indicating whether this tracker is using releases.
         """
@@ -283,7 +274,7 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
 
 
 
-    security.declareProtected(Permissions.View, 'getReleasesVocab')
+    security.declareProtected(permissions.View, 'getReleasesVocab')
     def getReleasesVocab(self):
         """
         Get the releases available to the tracker as a DisplayList.
@@ -304,7 +295,7 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         to which notifications should be sent. May return an empty list
         if notification is turned off.
         """
-        
+
         pass
 
 
@@ -314,16 +305,21 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         """Explicitly disallow selection of a default-page."""
         return False
 
+    def validate_managers(self, value):
+        """Make sure issue tracker managers are actual user ids"""
+        membership = getToolByName(self, 'portal_membership')
+        notFound = []
+        for userId in value:
+            member = membership.getMemberById(userId)
+            if member is None:
+                notFound.append(userId)
+        if notFound:
+            return "The following user ids could not be found: %s" % ','.join(notFound)
+        else:
+            return None
 
-    security.declareProtected(Permissions.View, 'getTopicIds')
-    def getTopicIds(self):
-        """
-        Get a list of all topic ids in the tracker.
-        """
-        return self.getField('availableTopics').getColumn(self, 0)
 
-
-    security.declareProtected(Permissions.ModifyPortalContent, 'setManagers')
+    security.declareProtected(permissions.ModifyPortalContent, 'setManagers')
     def setManagers(self, managers):
         """
         Set the list of tracker managers, and give them the Manager local role.
@@ -338,20 +334,6 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
             self.manage_delLocalRoles(toRemove)
         for userId in toAdd:
             self.manage_setLocalRoles(userId, ['Manager'])
-
-
-    def validate_managers(self, value):
-        """Make sure issue tracker managers are actual user ids"""
-        membership = getToolByName(self, 'portal_membership')
-        notFound = []
-        for userId in value:
-            member = membership.getMemberById(userId)
-            if member is None:
-                notFound.append(userId)
-        if notFound:
-            return "The following user ids could not be found: %s" % ','.join(notFound)
-        else:
-            return None
 
 
     security.declarePublic('getIssueWorkflowStates')

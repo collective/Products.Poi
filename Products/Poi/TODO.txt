@@ -6,7 +6,7 @@ Poi TODO
     Possible features for inclusion:
     --------------------------------
     
-    o Link Topics and Plone groups. This way, all UI postings should fire
+    o Link Areas and Plone groups. This way, all UI postings should fire
         a mail to the UI team, for example.
     
     o In-form transition for Issues in the same way issues are transitioned

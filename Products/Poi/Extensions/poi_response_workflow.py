@@ -165,7 +165,7 @@ def setuppoi_response_workflow(self, workflow):
 def createpoi_response_workflow(self, id):
     """Create the workflow for Poi.
     """
-    
+
     ob = DCWorkflowDefinition(id)
     setuppoi_response_workflow(self, ob)
     return ob

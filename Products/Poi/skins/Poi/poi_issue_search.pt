@@ -41,8 +41,8 @@
                 <tr>
                     <th>Title</th>
                     <th tal:condition="here/isUsingReleases">Release</th>
-                    <th>Topic</th>
-                    <th>Category</th>
+                    <th>Area</th>
+                    <th>Type</th>
                     <th>Severity</th>
                     <th>Created</th>
                     <th>Responsible</th>
@@ -65,10 +65,10 @@
                             <div tal:condition="python:item.getRelease == '(UNASSIGNED)'"
                                  style="text-align:center">&mdash;</div>
                         </td>
-                        <td tal:content="python:here.getDataGridRow('availableTopics', item.getTopic)['title']" 
-                            tal:on-error="item/getTopic"/>
-                        <td tal:content="python:here.getDataGridRow('availableCategories', item.getCategory)['title']"
-                            tal:on-error="item/getCategory" />
+                        <td tal:content="python:here.getDataGridRow('availableAreas', item.getArea)['title']" 
+                            tal:on-error="item/getArea"/>
+                        <td tal:content="python:here.getDataGridRow('availableIssueTypes', item.getIssueType)['title']"
+                            tal:on-error="item/getIssueType" />
                         <td tal:content="item/getSeverity" />
                         <td tal:content="python:here.toPortalTime(item.created)"/>
                         <td>

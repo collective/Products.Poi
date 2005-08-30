@@ -2,12 +2,12 @@ from Products.CMFCore.utils import getToolByName
 from Products.ExternalMethod.ExternalMethod import ExternalMethod
 
 def installWorkflows(self, package, out):
+    """Install the custom workflows for this product.
     """
-    """
-    
+
     productname = 'Poi'
     workflowTool = getToolByName(self, 'portal_workflow')
-    
+
     ourProductWorkflow = ExternalMethod('temp',
                          'temp',
                          productname+'.'+'poi_tracker_workflow',
@@ -29,5 +29,5 @@ def installWorkflows(self, package, out):
     workflow = ourProductWorkflow(self, 'poi_response_workflow')
     workflowTool._setObject('poi_response_workflow', workflow)
     workflowTool.setChainForPortalTypes(['PoiResponse'], workflow.getId())
-    
+
     return workflowTool

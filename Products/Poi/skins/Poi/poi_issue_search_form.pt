@@ -75,40 +75,40 @@
     
             <div class="field">
                 
-                <label for="topic" i18n:translate="poi_search_label_topic">Topic</label>
+                <label for="area" i18n:translate="poi_search_label_area">Area</label>
 
-                <div class="formHelp" i18n:translate="poi_search_help_topic">
-                    Select the topics you wish to search for.
+                <div class="formHelp" i18n:translate="poi_search_help_area">
+                    Select the areas you wish to search for.
                 </div>
     
-                <select id="topic"
+                <select id="area"
                         size="5"
                         multiple="multiple"
-                        name="topic:list"
-                        tal:define="topics python:here.getWrappedField('availableTopics').getAsDisplayList(here)">
-                    <option tal:repeat="item topics"
+                        name="area:list"
+                        tal:define="areas python:here.getWrappedField('availableAreas').getAsDisplayList(here)">
+                    <option tal:repeat="item areas"
                             tal:attributes="value nocall:item"
-                            tal:content="python:topics.getValue(item)" />
+                            tal:content="python:areas.getValue(item)" />
                 </select>
                 
             </div>
     
             <div class="field">
                 
-                <label for="category" i18n:translate="poi_search_label_category">Category</label>
+                <label for="issueType" i18n:translate="poi_search_label_issue_type">Issue type</label>
 
-                <div class="formHelp" i18n:translate="poi_search_help_category">
-                    Select the categories you wish to search for.
+                <div class="formHelp" i18n:translate="poi_search_help_issue_type">
+                    Select the issue types you wish to search for.
                 </div>
     
-                <select id="category"
+                <select id="issueType"
                         size="5"
                         multiple="multiple"
-                        name="category:list"
-                        tal:define="categories python:here.getWrappedField('availableCategories').getAsDisplayList(here)">
-                    <option tal:repeat="item categories"
+                        name="issueType:list"
+                        tal:define="issueTypes python:here.getWrappedField('availableIssueTypes').getAsDisplayList(here)">
+                    <option tal:repeat="item issueTypes"
                             tal:attributes="value nocall:item"
-                            tal:content="python:categories.getValue(item)" />
+                            tal:content="python:issueTypes.getValue(item)" />
                 </select>
                 
             </div>

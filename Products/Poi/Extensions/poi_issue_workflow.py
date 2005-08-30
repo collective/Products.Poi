@@ -419,7 +419,7 @@ def setuppoi_issue_workflow(self, workflow):
 def createpoi_issue_workflow(self, id):
     """Create the workflow for Poi.
     """
-    
+
     ob = DCWorkflowDefinition(id)
     setuppoi_issue_workflow(self, ob)
     return ob

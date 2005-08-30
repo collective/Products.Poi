@@ -44,12 +44,12 @@
               </td>
           </tr>
           <tr>
-              <th i18n:translate="poi_label_topic">Topic</th>
-              <td tal:content="python:here.aq_parent.getDataGridRow('availableTopics', here.getTopic())['title']" />
+              <th i18n:translate="poi_label_area">Area</th>
+              <td tal:content="python:here.aq_parent.getDataGridRow('availableAreas', here.getArea())['title']" />
           </tr>
           <tr>
-              <th i18n:translate="poi_label_category">Category</th>
-              <td tal:content="python:here.aq_parent.getDataGridRow('availableCategories', here.getCategory())['title']" />
+              <th i18n:translate="poi_label_type">Issue type</th>
+              <td tal:content="python:here.aq_parent.getDataGridRow('availableIssueTypes', here.getIssueType())['title']" />
           </tr>
           <tr>
               <th i18n:translate="poi_label_severity">Severity</th>

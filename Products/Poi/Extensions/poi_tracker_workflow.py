@@ -201,7 +201,7 @@ def setuppoi_tracker_workflow(self, workflow):
 def createpoi_tracker_workflow(self, id):
     """Create the workflow for Poi.
     """
-    
+
     ob = DCWorkflowDefinition(id)
     setuppoi_tracker_workflow(self, ob)
     return ob

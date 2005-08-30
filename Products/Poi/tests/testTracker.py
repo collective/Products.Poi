@@ -43,10 +43,10 @@ class TestTrackerSearch(ptc.PoiTestCase):
     def testGetFilteredIssesByRelease(self):
         pass
 
-    def testGetFilteredIssesByTopic(self):
+    def testGetFilteredIssesByArea(self):
         pass
 
-    def testGetFilteredIssesByCategory(self):
+    def testGetFilteredIssesByIssueType(self):
         pass
 
     def testGetFilteredIssesByState(self):
