@@ -13,6 +13,15 @@ PROJECTNAME = "Poi"
 # Permissions
 DEFAULT_ADD_CONTENT_PERMISSION = "Add portal content"
 setDefaultRoles(DEFAULT_ADD_CONTENT_PERMISSION, ('Manager', 'Owner', 'Member'))
+ADD_CONTENT_PERMISSIONS = {
+    'PoiTracker': 'Poi: Add Tracker',
+    'PoiIssue': 'Poi: Add Issue',
+    'PoiResponse': 'Poi: Add Response',
+}
+
+setDefaultRoles('Poi: Add Tracker', ('Manager',))
+setDefaultRoles('Poi: Add Issue', ('Anonymous', 'Manager', 'Member', 'Owner',))
+setDefaultRoles('Poi: Add Response', ('Anonymous', 'Manager', 'Member', 'Owner',))
 
 product_globals=globals()
 

@@ -32,7 +32,7 @@
 
       <div class="formControls">
           <form action="createObject"
-                 tal:condition="python: user.has_permission('Add Poi Issues', here)">
+                 tal:condition="python: user.has_permission('Poi: Add Issue', here)">
             <input name="type_name"
                    type="hidden"
                    value="PoiIssue"

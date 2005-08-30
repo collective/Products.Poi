@@ -52,17 +52,27 @@ def initialize(context):
     import PoiResponse
 
     # initialize portal content
-    content_types, constructors, ftis = process_types(
+    all_content_types, all_constructors, all_ftis = process_types(
         listTypes(PROJECTNAME),
         PROJECTNAME)
 
     utils.ContentInit(
         PROJECTNAME + ' Content',
-        content_types      = content_types,
+        content_types      = all_content_types,
         permission         = DEFAULT_ADD_CONTENT_PERMISSION,
-        extra_constructors = constructors,
-        fti                = ftis,
+        extra_constructors = all_constructors,
+        fti                = all_ftis,
         ).initialize(context)
+
+    # give it some extra permissions to control them on a per class limit
+    for i in range(0,len(all_content_types)):
+        klassname=all_content_types[i].__name__
+        if not klassname in ADD_CONTENT_PERMISSIONS:
+            continue
+
+        context.registerClass(meta_type   = all_ftis[i]['meta_type'],
+                              constructors= (all_constructors[i],),
+                              permission  = ADD_CONTENT_PERMISSIONS[klassname])
 
     # apply customization-policy, if theres any
     if CustomizationPolicy and hasattr(CustomizationPolicy, 'register'):
@@ -70,24 +80,5 @@ def initialize(context):
         print 'Customization policy for Poi installed'
 
     ##code-section custom-init-bottom #fill in your manual code here
-
-    # Set up some manual add permissions
-
-    import Permissions
-
-    # Issues
-    for metaType, constructor in \
-        {'PoiIssue' : PoiIssue.addPoiIssue,}.items ():
-        context.registerClass(meta_type    = metaType,
-                              constructors = (constructor,),
-                              permission   = Permissions.AddIssue)
-
-    # Responses
-    for metaType, constructor in \
-        {'PoiResponse'    : PoiResponse.addPoiResponse,}.items ():
-        context.registerClass(meta_type    = metaType,
-                              constructors = (constructor,),
-                              permission   = Permissions.AddResponse)
-
     ##/code-section custom-init-bottom
 

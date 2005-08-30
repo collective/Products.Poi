@@ -14,8 +14,7 @@ class TestTracker(ptc.PoiTestCase):
     """Test tracker functionality"""
 
     def afterSetUp(self):
-        self.folder.invokeFactory('PoiTracker', 'tracker')
-        self.tracker = self.folder.tracker()
+        self.tracker = self.createTracker(self.folder, 'issue-tracker')
 
     def testEditTracker(self):
         pass
@@ -37,6 +36,9 @@ class TestTracker(ptc.PoiTestCase):
 
 class TestTrackerSearch(ptc.PoiTestCase):
     """Test tracker search functionality"""
+
+    def afterSetUp(self):
+        self.tracker = self.createTracker(self.folder, 'issue-tracker')
 
     def testGetFilteredIssesByRelease(self):
         pass

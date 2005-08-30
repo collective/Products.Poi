@@ -97,7 +97,7 @@
       
       <div class="formControls">
           <form action="createObject"
-              tal:condition="python: user.has_permission('Add Poi Responses', here)">
+              tal:condition="python: user.has_permission('Poi: Add Response', here)">
             <input name="type_name"
                    type="hidden"
                    value="PoiResponse"

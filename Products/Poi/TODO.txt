@@ -59,7 +59,7 @@ Poi TODO
 
         o Verify i18n tags and translations
         o Email notifications are not internationalised
-**      o Email notification is not very generalised, taking place in PoiIssue,
+        o Email notification is not very generalised, taking place in PoiIssue,
             PoiTracker and poi_issue_workflow_scripts
 
     Incomplete:

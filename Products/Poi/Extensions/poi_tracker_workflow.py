@@ -55,7 +55,7 @@ def setuppoi_tracker_workflow(self, workflow):
     for v in ['review_history', 'comments', 'time', 'actor', 'action']:
         workflow.variables.addVariable(v)
 
-    for p in ['Add Poi Issues', 'Add Poi Responses', 'View', 'Modify portal content', 'Access contents information', 'Add portal content']:
+    for p in ['Poi: Add Issue', 'Poi: Add Response', 'View', 'Modify portal content', 'Access contents information', 'Add portal content']:
         workflow.addManagedPermission(p)
 
     for l in []:
@@ -71,10 +71,10 @@ def setuppoi_tracker_workflow(self, workflow):
     stateDef = workflow.states['open']
     stateDef.setProperties(title="""Open for submissions""",
                            transitions=['close'])
-    stateDef.setPermission('Add Poi Issues',
+    stateDef.setPermission('Poi: Add Issue',
                            0,
                            ['Anonymous', 'Member', 'Manager', 'Owner'])
-    stateDef.setPermission('Add Poi Responses',
+    stateDef.setPermission('Poi: Add Response',
                            0,
                            ['Anonymous', 'Member', 'Manager', 'Owner'])
     stateDef.setPermission('View',
@@ -93,10 +93,10 @@ def setuppoi_tracker_workflow(self, workflow):
     stateDef = workflow.states['closed']
     stateDef.setProperties(title="""Closed for submissions""",
                            transitions=['open'])
-    stateDef.setPermission('Add Poi Issues',
+    stateDef.setPermission('Poi: Add Issue',
                            0,
                            ['Manager', 'Owner'])
-    stateDef.setPermission('Add Poi Responses',
+    stateDef.setPermission('Poi: Add Response',
                            0,
                            ['Manager', 'Owner'])
     stateDef.setPermission('View',

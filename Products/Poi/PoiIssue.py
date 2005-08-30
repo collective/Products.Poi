@@ -384,6 +384,13 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         return vocab
 
 
+    def updateResponses(self):
+        """When a response is added or modified, this method should be
+        called to ensure responses are correctly indexed.
+        """
+        self.reindexObject(('SearchableText'))
+
+
     def getCategoriesVocab(self):
         """
         Get the categories available as a DisplayList.
@@ -448,11 +455,6 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
                             log_exc('Could not send email from %s to %s regarding creation of issue %s.' % (fromAddress, managerEmail, self.absolute_url(),))
                             pass
 
-    def updateResponses(self):
-        """When a response is added or modified, this method should be
-        called to ensure responses are correctly indexed.
-        """
-        self.reindexObject(('SearchableText'))
 
 def modify_fti(fti):
     # hide unnecessary tabs (usability enhancement)

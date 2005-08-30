@@ -64,7 +64,7 @@ def setuppoi_issue_workflow(self, workflow):
 
     ## Initial State
 
-    workflow.states.setInitialState('unconfirmed')
+    workflow.states.setInitialState('new')
 
     ## States initialization
 

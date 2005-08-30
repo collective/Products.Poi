@@ -14,10 +14,8 @@ class TestIssue(ptc.PoiTestCase):
     """Test issue functionality"""
 
     def afterSetUp(self):
-        self.folder.invokeFactory('PoiTracker', 'tracker')
-        self.tracker = self.folder.tracker
-        self.tracker.invokeFactory('PoiIssue', '1')
-        self.issue = self.tracker['1']
+        self.tracker = self.createTracker(self.folder, 'issue-tracker')
+        self.issue = self.createIssue(self.tracker)
 
     def testEditIssue(self):
         pass

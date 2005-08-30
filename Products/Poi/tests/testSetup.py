@@ -59,13 +59,16 @@ class TestContentCreation(ptc.PoiTestCase):
     """Ensure content types can be created"""
 
     def testCreateTracker(self):
-        pass
+        self.createTracker(self.folder, 'tracker')
 
     def testCreateIssue(self):
-        pass
+        self.createTracker(self.folder, 'tracker')
+        self.createIssue(self.folder.tracker)
 
     def testCreateResponse(self):
-        pass
+        self.createTracker(self.folder, 'tracker')
+        self.createIssue(self.folder.tracker)
+        self.createResponse(self.folder.tracker['1'])
 
 
 def test_suite():
