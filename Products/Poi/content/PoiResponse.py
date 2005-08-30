@@ -28,7 +28,7 @@ from Products.Poi.interfaces.Response import Response
 
 
 # additional imports from tagged value 'import'
-import Permissions
+from Products.Poi import Permissions
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
 from Products.Poi.config import *
@@ -130,8 +130,8 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
     # This name appears in the 'add' box
     archetype_name             = 'Response'
 
-    meta_type                  = 'PoiResponse' 
-    portal_type                = 'PoiResponse' 
+    meta_type                  = 'PoiResponse'
+    portal_type                = 'PoiResponse'
     allowed_content_types      = [] 
     filter_content_types       = 0
     global_allow               = 0
@@ -166,7 +166,7 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
 
     )
 
-    _at_rename_after_creation  = True 
+    _at_rename_after_creation  = True
 
     schema = BaseSchema + \
              schema

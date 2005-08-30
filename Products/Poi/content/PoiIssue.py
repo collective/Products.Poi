@@ -29,7 +29,7 @@ from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolde
 
 
 # additional imports from tagged value 'import'
-import Permissions
+from Products.Poi import Permissions
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
 from Products.Poi.config import *
@@ -221,8 +221,8 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
     # This name appears in the 'add' box
     archetype_name             = 'Issue'
 
-    meta_type                  = 'PoiIssue' 
-    portal_type                = 'PoiIssue' 
+    meta_type                  = 'PoiIssue'
+    portal_type                = 'PoiIssue'
     allowed_content_types      = ['PoiResponse'] 
     filter_content_types       = 1
     global_allow               = 0
@@ -257,7 +257,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
 
     )
 
-    _at_rename_after_creation  = True 
+    _at_rename_after_creation  = True
 
     schema = BaseFolderSchema + \
              schema

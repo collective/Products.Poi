@@ -30,7 +30,7 @@ from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolde
 
 # additional imports from tagged value 'import'
 from Products.ArchAddOn.Fields import SimpleDataGridField
-import Permissions
+from Products.Poi import Permissions
 from Products.ArchAddOn.Widgets import SimpleDataGridWidget
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
@@ -180,8 +180,8 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
     # This name appears in the 'add' box
     archetype_name             = 'Tracker'
 
-    meta_type                  = 'PoiTracker' 
-    portal_type                = 'PoiTracker' 
+    meta_type                  = 'PoiTracker'
+    portal_type                = 'PoiTracker'
     allowed_content_types      = ['PoiIssue'] 
     filter_content_types       = 1
     global_allow               = 1
@@ -216,7 +216,7 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
 
     )
 
-    _at_rename_after_creation  = True 
+    _at_rename_after_creation  = True
 
     schema = BaseFolderSchema + \
              schema
@@ -293,6 +293,19 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         for item in items:
             vocab.add(item, item)
         return vocab
+
+
+
+    security.declarePrivate('getNotificationEmailAddresses')
+    def getNotificationEmailAddresses(self,issue):
+        """
+        Upon activity for the given issue, get the list of email
+        addresses
+        to which notifications should be sent. May return an empty list
+        if notification is turned off.
+        """
+        
+        pass
 
 
     #manually created methods

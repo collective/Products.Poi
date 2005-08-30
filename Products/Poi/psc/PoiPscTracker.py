@@ -24,7 +24,7 @@ __docformat__ = 'plaintext'
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
 
-from Products.Poi.PoiTracker import PoiTracker
+from Products.Poi.content.PoiTracker import PoiTracker
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
 
 
@@ -56,8 +56,8 @@ class PoiPscTracker(PoiTracker,BaseFolder):
     # This name appears in the 'add' box
     archetype_name             = 'Issue tracker'
 
-    meta_type                  = 'PoiPscTracker' 
-    portal_type                = 'PoiPscTracker' 
+    meta_type                  = 'PoiPscTracker'
+    portal_type                = 'PoiPscTracker'
     allowed_content_types      = [] + list(getattr(PoiTracker, 'allowed_content_types', []))
     filter_content_types       = 1
     global_allow               = 0
@@ -92,7 +92,7 @@ class PoiPscTracker(PoiTracker,BaseFolder):
 
     )
 
-    _at_rename_after_creation  = True 
+    _at_rename_after_creation  = True
 
     schema = BaseFolderSchema + \
              getattr(PoiTracker,'schema',Schema(())) + \
@@ -107,19 +107,6 @@ class PoiPscTracker(PoiTracker,BaseFolder):
     #Methods
     #manually created methods
 
-    security.declareProtected(Permissions.View, 'getReleasesVocab')
-    def getReleasesVocab(self):
-        """
-        Get the releases available to the tracker as a DisplayList
-        """
-        catalog = getToolByName(self, 'portal_catalog')
-        releases = catalog.searchResults(
-                        portal_type = 'PSCRelease',
-                        path = '/'.join(self.getPhysicalPath()[:-1]),
-                        )
-        return DisplayList([(r.UID, r.getId) for r in releases])
-
-
     security.declareProtected(Permissions.View, 'getAvailableReleases')
     def getAvailableReleases(self):
         """
@@ -131,6 +118,19 @@ class PoiPscTracker(PoiTracker,BaseFolder):
                         path = '/'.join(self.getPhysicalPath()[:-1]),
                         )
         return [r.UID for r in releases]
+
+
+    security.declareProtected(Permissions.View, 'getReleasesVocab')
+    def getReleasesVocab(self):
+        """
+        Get the releases available to the tracker as a DisplayList
+        """
+        catalog = getToolByName(self, 'portal_catalog')
+        releases = catalog.searchResults(
+                        portal_type = 'PSCRelease',
+                        path = '/'.join(self.getPhysicalPath()[:-1]),
+                        )
+        return DisplayList([(r.UID, r.getId) for r in releases])
 
 
 def modify_fti(fti):

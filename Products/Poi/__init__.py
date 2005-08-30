@@ -46,10 +46,8 @@ def initialize(context):
     # imports packages and types for registration
     import interfaces
     import psc
+    import content
 
-    import PoiTracker
-    import PoiIssue
-    import PoiResponse
 
     # initialize portal content
     all_content_types, all_constructors, all_ftis = process_types(

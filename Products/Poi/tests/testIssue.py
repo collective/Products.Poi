@@ -20,9 +20,6 @@ class TestIssue(ptc.PoiTestCase):
     def testEditIssue(self):
         pass
 
-    def testNewWorkflowState(self):
-        pass
-
     def testIsValid(self):
         pass
 
