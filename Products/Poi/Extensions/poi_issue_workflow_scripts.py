@@ -26,7 +26,7 @@ __version__   = '$ Revision 0.0 $'[11:-2]
 ##code-section workflow-script-header #fill in your manual code here
 from ZODB.POSException import ConflictError
 from Products.CMFPlone.utils import log_exc
-from CMFCore.utils import getToolByName
+from Products.CMFCore.utils import getToolByName
 ##/code-section workflow-script-header
 
 ## ['sendResolvedMail']
