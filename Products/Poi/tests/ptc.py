@@ -1,5 +1,7 @@
 from Testing import ZopeTestCase
 
+from DateTime import DateTime
+
 # Make the boring stuff load quietly
 ZopeTestCase.installProduct('CMFCore', quiet=1)
 ZopeTestCase.installProduct('CMFDefault', quiet=1)
@@ -37,6 +39,13 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         PloneTestCase.PloneTestCase._setup(self)
         self.app.REQUEST['SESSION'] = self.Session()
 
+    # Taken from CMFPlone/tests/testMemberDataTool
+    def addMember(self, username, fullname, email, roles, last_login_time):
+        self.portal.portal_membership.addMember(username, 'secret', roles, [])
+        member = self.portal.portal_membership.getMemberById(username)
+        member.setMemberProperties({'fullname': fullname, 'email': email,
+                                    'last_login_time': DateTime(last_login_time),})
+
     def createTracker(self, folder, id, title='', description='',
                         availableAreas=['ui | User interface | User interface issues', 'functionality | Functionality| Issues with the basic functionality', 'process | Process | Issues relating to the development process itself'],
                         availableIssueTypes=['bug | Bug | Functionality bugs in the software', 'feature | Feature | Suggested features', 'patch | Patch | Patches to the software'],
@@ -68,6 +77,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
                     area='ui', issueType='bug', severity='Medium', 
                     details='', steps=(), attachment=None, 
                     contactEmail='submitter@domain.com',
+                    watchers=(),
                     responsibleManager='(UNASSIGNED)'):
         """Create an issue in the given tracker, and perform workflow and
         rename-after-creation initialisation"""
@@ -85,6 +95,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         issue.setSteps(steps)
         issue.setAttachment(attachment)
         issue.setContactEmail(contactEmail)
+        issue.setWatchers(watchers)
         issue.setResponsibleManager(responsibleManager)
         self.portal.portal_workflow.doActionFor(issue, 'post')
         issue._renameAfterCreation()

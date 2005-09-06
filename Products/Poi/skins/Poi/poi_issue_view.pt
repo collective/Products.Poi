@@ -12,7 +12,9 @@
 
 <body>
 <div metal:fill-slot="main"
-        tal:define="wftool here/portal_workflow">
+        tal:define="wftool here/portal_workflow;
+                    isManager python:member.getId() in here.getManagers();
+                    isSubmitter python:member.getId() == here.Creator()">
     
     <div metal:define-macro="body">
 
@@ -96,7 +98,7 @@
       </div>
       
       <div class="formControls">
-          <form action="createObject"
+          <form style="display: inline" action="createObject"
               tal:condition="python: user.has_permission('Poi: Add Response', here)">
             <input name="type_name"
                    type="hidden"
@@ -106,6 +108,21 @@
                    type="submit"
                    i18n:attributes="value"
                    value="Add response"
+                   />
+          </form>
+          <form style="display: inline" action="toggleWatchingIssue"
+              tal:condition="python: not isAnon and not isManager and not isSubmitter">
+              <input tal:condition="here/isWatching"
+                     class="standalone"
+                     type="submit"
+                     i18n:attributes="value"
+                     value="Stop watching this issue"
+                   />
+            <input tal:condition="not:here/isWatching"
+                   class="standalone"
+                   type="submit"
+                   i18n:attributes="value"
+                   value="Watch this issue"
                    />
           </form>
       </div>

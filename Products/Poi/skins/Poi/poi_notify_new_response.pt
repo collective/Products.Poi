@@ -1,7 +1,7 @@
-<div tal:omit-tag="">
-A new response has been given to the issue "<span tal:replace="here/aq_parent/Title" />" in the tracker "<span tal:replace="here/aq_parent/aq_parent/Title" />":
+<div tal:omit-tag="" i18n:translate="poi_notification_new_response">
+A new response has been given to the issue "<span i18n:name="issue_title" tal:replace="here/aq_parent/Title" />" in the tracker "<span i18n:name="tracker_title" tal:replace="here/aq_parent/aq_parent/Title" />":
 
-    <a href="" tal:attributes="href here/aq_parent/absolute_url" tal:content="here/Title" />.
+    <a i18n:name="issue_url" href="" tal:attributes="href here/aq_parent/absolute_url" tal:content="here/Title" />.
 
 </div>
 -- 

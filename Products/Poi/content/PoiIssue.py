@@ -35,8 +35,6 @@ from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
-from ZODB.POSException import ConflictError
-from Products.CMFPlone.utils import log_exc
 ##/code-section module-header
 
 schema=Schema((
@@ -188,6 +186,17 @@ schema=Schema((
         default_method="getDefaultContactEmail"
     ),
 
+    LinesField('watchers',
+        widget=LinesWidget(
+            label="Issue watchers",
+            description="Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers.",
+            label_msgid='Poi_label_watchers',
+            description_msgid='Poi_help_watchers',
+            i18n_domain='Poi',
+        ),
+        write_permission=permissions.ModifyIssueAssignment
+    ),
+
     StringField('responsibleManager',
         index="FieldIndex:schema",
         widget=SelectionWidget(
@@ -276,18 +285,14 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         Used by PoiResponse to select a default for the new issue
         state selector.
         """
-
         wftool = getToolByName(self, 'portal_workflow')
         return wftool.getInfoFor(self, 'review_state')
-
-
 
     security.declareProtected(permissions.View, 'getAvailableIssueTransitions')
     def getAvailableIssueTransitions(self):
         """
         Get the available transitions for the issue.
         """
-
         wftool = getToolByName(self, 'portal_workflow')
         transitions = DisplayList()
         transitions.add('', 'No change')
@@ -295,9 +300,35 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
             transitions.add(tdef['id'], tdef['title_or_id'])
         return transitions
 
+    security.declareProtected(permissions.View, 'toggleWatching')
+    def toggleWatching(self):
+        """
+        Add or remove the current authenticated member from the list of
+        watchers.
+        """
+        portal_membership = getToolByName(self, 'portal_membership')
+        member = portal_membership.getAuthenticatedMember()
+        memberId = member.getId()
+        watchers = list(self.getWatchers())
+        if memberId in watchers:
+            watchers.remove(memberId)
+        else:
+            watchers.append(memberId)
+        self.setWatchers(tuple(watchers))
+
+    security.declareProtected(permissions.View, 'isWatching')
+    def isWatching(self):
+        """
+        Determine if the current user is watching this issue or not.
+        """
+        portal_membership = getToolByName(self, 'portal_membership')
+        member = portal_membership.getAuthenticatedMember()
+        return member.getId() in self.getWatchers()
+
 
     #manually created methods
 
+    security.declarePrivate('getDefaultContactEmail')
     def getDefaultContactEmail(self):
         """Get the default email address, that of the creating user"""
         portal_membership = getToolByName(self, 'portal_membership')
@@ -305,6 +336,66 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         email = member.getProperty('email', '')
         return email
 
+    security.declarePrivate('getDefaultSeverity')
+    def getDefaultSeverity(self):
+        """Get the default severity for new issues"""
+        return self.aq_parent.getDefaultSeverity()
+
+    security.declareProtected(permissions.View, 'getIssueTypesVocab')
+    def getIssueTypesVocab(self):
+        """
+        Get the issue types available as a DisplayList.
+        """
+        field = self.aq_parent.getField('availableIssueTypes')
+        return field.getAsDisplayList(self.aq_parent)
+
+    security.declareProtected(permissions.View, 'getManagerVocab')
+    def getManagersVocab(self):
+        """
+        Get the managers available as a DisplayList. The first item is 'None',
+        with a key of '(UNASSIGNED)'.
+        """
+        items = self.aq_parent.getManagers()
+        vocab = DisplayList()
+        vocab.add('(UNASSIGNED)', 'None', 'poi_voacb_none')
+        for item in items:
+            vocab.add(item, item)
+        return vocab
+
+    security.declareProtected(permissions.View, 'getReleasesVocab')
+    def getReleasesVocab(self):
+        """
+        Get the vocabulary of available releases, including the item
+        (UNASSIGNED) to denote that a release is not yet assigned.
+        """
+        vocab = DisplayList()
+        vocab.add('(UNASSIGNED)', 'None', 'poi_voacb_none')
+        parentVocab = self.aq_parent.getReleasesVocab()
+        for k in parentVocab.keys():
+            vocab.add(k, parentVocab.getValue(k), parentVocab.getMsgId(k))
+        return vocab
+
+    security.declareProtected(permissions.View, 'getAreasVocab')
+    def getAreasVocab(self):
+        """
+        Get the available areas as a DispayList.
+        """
+        field = self.aq_parent.getField('availableAreas')
+        return field.getAsDisplayList(self.aq_parent)
+
+    security.declarePrivate('validate_watchers')
+    def validate_watchers(self, value):
+        """Make sure watchers are actual user ids"""
+        membership = getToolByName(self, 'portal_membership')
+        notFound = []
+        for userId in value:
+            member = membership.getMemberById(userId)
+            if member is None:
+                notFound.append(userId)
+        if notFound:
+            return "The following user ids could not be found: %s" % ','.join(notFound)
+        else:
+            return None
 
     def _renameAfterCreation(self, check_auto_id=False):
         parent = self.aq_inner.aq_parent
@@ -320,15 +411,9 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         # portal_factory!
         get_transaction().commit(1)
         self.setId(newId)
-
-        # Send notification email
-        self.sendNotificationMail()
-
-
-    def getDefaultSeverity(self):
-        """Get the default severity for new issues"""
-        return self.aq_parent.getDefaultSeverity()
-
+        
+        # XXX: Remove when at_post_create_script() bug is fixed
+        # self.sendNotificationMail()
 
     security.declarePublic('isValid')
     def isValid(self):
@@ -340,6 +425,12 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         else:
             return True
 
+    security.declareProtected(permissions.View, 'updateResponses')
+    def updateResponses(self):
+        """When a response is added or modified, this method should be
+        called to ensure responses are correctly indexed.
+        """
+        self.reindexObject(('SearchableText'))
 
     def SearchableText(self):
         """Include in the SearchableText the text of all responses"""
@@ -348,113 +439,33 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         text += ' ' + ' '.join([r.SearchableText() for r in responses])
         return text
 
+    security.declarePrivate('at_post_create_script')
+    def at_post_create_script(self):
+        """Send notification email after issue has been created"""
+        # XXX: When the AT bug causing this to be called each time we
+        # save (as opposed to only after the first save) is fixed, re-enable
+        # this and remove from _renameAfterCreation():
+        # self.sendNotificationMail()
+        pass
 
-    def getIssueTypesVocab(self):
-        """
-        Get the issue types available as a DisplayList.
-        """
-        field = self.aq_parent.getField('availableIssueTypes')
-        return field.getAsDisplayList(self.aq_parent)
-
-
-    def getManagersVocab(self):
-        """
-        Get the managers available as a DisplayList. The first item is 'None',
-        with a key of '(UNASSIGNED)'.
-        """
-        items = self.aq_parent.getManagers()
-        vocab = DisplayList()
-        vocab.add('(UNASSIGNED)', 'None', 'poi_voacb_none')
-        for item in items:
-            vocab.add(item, item)
-        return vocab
-
-
-    def updateResponses(self):
-        """When a response is added or modified, this method should be
-        called to ensure responses are correctly indexed.
-        """
-        self.reindexObject(('SearchableText'))
-
-
-    def getReleasesVocab(self):
-        """
-        Get the vocabulary of available releases, including the item
-        (UNASSIGNED) to denote that a release is not yet assigned.
-        """
-        vocab = DisplayList()
-        vocab.add('(UNASSIGNED)', 'None', 'poi_voacb_none')
-        parentVocab = self.aq_parent.getReleasesVocab()
-        for k in parentVocab.keys():
-            vocab.add(k, parentVocab.getValue(k), parentVocab.getMsgId(k))
-        return vocab
-
-
-    security.declarePublic('getAreasVocab')
-    def getAreasVocab(self):
-        """
-        Get the available areas as a DispayList.
-        """
-        field = self.aq_parent.getField('availableAreas')
-        return field.getAsDisplayList(self.aq_parent)
-
-
+    security.declarePrivate('sendNotificationMail')
     def sendNotificationMail(self):
-        """When this issue is created, send a notification email to all
+        """
+        When this issue is created, send a notification email to all
         tracker managers, unless emailing is turned off.
         """
-        tracker = self.aq_parent
-
-        if not tracker.getSendNotificationEmails():
-            return
-
-        portal_membership = getToolByName(self, 'portal_membership')
-        portal_url        = getToolByName(self, 'portal_url')
-        plone_utils       = getToolByName(self, 'plone_utils')
-
+        portal_url = getToolByName(self, 'portal_url')
         portal = portal_url.getPortalObject()
-        mailHost = plone_utils.getMailHost()
-        fromAddress = portal.getProperty('email_from_address', None)
         fromName = portal.getProperty('email_from_name', None)
-
-        if fromAddress is None or fromName is None:
-            return None
-
+        
+        tracker = self.aq_parent
+        
+        addresses = tracker.getNotificationEmailAddresses()
         mailText = self.poi_notify_new_issue(self, issue = self, fromName = fromName)
-
-        mailingList = self.getMailingList()
-
-        if mailingList:
-            try:
-                mailHost.secureSend(message = mailText,
-                                    mto = mailingList,
-                                    mfrom = fromAddress,
-                                    subject = "New issue in tracker '%s'" % tracker.Title(),
-                                    subtype = 'html')
-            except ConflictError:
-                raise
-            except:
-                log_exc('Could not send email from %s to %s regarding creation of issue %s.' % (fromAddress, mailingList, self.absolute_url(),))
-                pass
-        else:
-            managers = self.getManagers()
-            for manager in managers:
-                managerUser = portal_membership.getMemberById(manager)
-                if managerUser is not None:
-                    managerEmail = managerUser.getProperty('email')
-                    if managerEmail:
-                        try:
-                            mailHost.secureSend(message = mailText,
-                                                mto = managerEmail,
-                                                mfrom = fromAddress,
-                                                subject = "New issue in tracker '%s'" % tracker.Title(),
-                                                subtype = 'html')
-                        except ConflictError:
-                            raise
-                        except:
-                            log_exc('Could not send email from %s to %s regarding creation of issue %s.' % (fromAddress, managerEmail, self.absolute_url(),))
-                            pass
-
+        subject = "New issue in tracker '%s'" % tracker.Title()
+        
+        tracker.sendNotificationEmail(addresses, subject, mailText)
+        
 
 def modify_fti(fti):
     # hide unnecessary tabs (usability enhancement)

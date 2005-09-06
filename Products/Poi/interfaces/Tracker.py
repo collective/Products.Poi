@@ -28,8 +28,8 @@ from Interface import Base
 
 class Tracker(Base):
     """
-    Interface for Poi trackers. Trackers can display their
-    contained issues filtered by various categories.
+    Interface for FirePoi trackers. Trackers can display their
+    contained issues filtered by workflow state and category.
     """
 
     #Methods

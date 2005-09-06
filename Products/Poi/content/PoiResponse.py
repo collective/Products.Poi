@@ -35,7 +35,6 @@ from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
 from Acquisition import aq_base
-from ZODB.POSException import ConflictError
 from Products.CMFPlone.utils import log_exc
 ##/code-section module-header
 
@@ -236,9 +235,9 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         # portal_factory!
         get_transaction().commit(1)
         self.setId(newId)
-
-        # Send notification
-        self.sendNotificationMail()
+        
+        # XXX: Remove when at_post_create_script() bug is fixed
+        # self.sendNotificationMail()
 
 
     def Title(self):
@@ -259,82 +258,31 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
             return True
 
 
+    def at_post_create_script(self):
+        """Send notification email after response has been added"""
+        # XXX: When the AT bug causing this to be called each time we
+        # save (as opposed to only after the first save) is fixed, re-enable
+        # this and remove from _renameAfterCreation():
+        # self.sendNotificationMail()
+        pass
+
+
     def sendNotificationMail(self):
         """When this response is created, send a notification email to all
         tracker managers, unless emailing is turned off.
         """
-
+        portal_url = getToolByName(self, 'portal_url')
+        portal = portal_url.getPortalObject()
+        fromName = portal.getProperty('email_from_name', None)
+        
         issue = self.aq_parent
         tracker = issue.aq_parent
-
-        if not tracker.getSendNotificationEmails():
-            return
-
-        portal_membership = getToolByName(self, 'portal_membership')
-        portal_url        = getToolByName(self, 'portal_url')
-        plone_utils       = getToolByName(self, 'plone_utils')
-
-        portal = portal_url.getPortalObject()
-        mailHost = plone_utils.getMailHost()
-        fromAddress = portal.getProperty('email_from_address', None)
-        fromName = portal.getProperty('email_from_name', None)
-
-        if fromAddress is None or fromName is None:
-            return None
-
-        issueEmail = issue.getContactEmail()
-        mailedIssueContact = False
-
+        
+        addresses = tracker.getNotificationEmailAddresses(issue)
         mailText = self.poi_notify_new_response(self, response = self, fromName = fromName)
-
-        mailingList = self.getMailingList()
-
-        if mailingList:
-            try:
-                mailHost.secureSend(message = mailText,
-                                    mto = mailingList,
-                                    mfrom = fromAddress,
-                                    subject = "New response to issue '%s' in tracker '%s'" % (issue.Title(), tracker.Title(),),
-                                    subtype = 'html')
-            except ConflictError:
-                raise
-            except:
-                log_exc('Could not send email from %s to %s regarding creation of response %s.' % (fromAddress, mailingList, self.absolute_url(),))
-                pass
-        else:
-            managers = self.getManagers()
-            for manager in managers:
-                managerUser = portal_membership.getMemberById(manager)
-                if managerUser is not None:
-                    managerEmail = managerUser.getProperty('email')
-                    if managerEmail:
-                        if managerEmail == issueEmail:
-                            mailedIssueContact = True
-                        try:
-                            mailHost.secureSend(message = mailText,
-                                                mto = managerEmail,
-                                                mfrom = fromAddress,
-                                                subject = "New response to issue '%s' in tracker '%s'" % (issue.Title(), tracker.Title(),),
-                                                subtype = 'html')
-                        except ConflictError:
-                            raise
-                        except:
-                            log_exc('Could not send email from %s to %s regarding creation of response %s.' % (fromAddress, managerEmail, self.absolute_url(),))
-                            pass
-
-
-        if not mailedIssueContact and issueEmail:
-            try:
-                mailHost.secureSend(message = mailText,
-                                    mto = issueEmail,
-                                    mfrom = fromAddress,
-                                    subject = "New response to issue '%s' in tracker '%s'" % (issue.Title(), tracker.Title(),),
-                                    subtype = 'html')
-            except ConflictError:
-                raise
-            except:
-                log_exc('Could not send email from %s to %s regarding creation of response %s.' % (fromAddress, issueEmail, self.absolute_url(),))
-                pass
+        subject = "New response to issue '%s' in tracker '%s'" % (issue.Title(), tracker.Title(),),
+        
+        tracker.sendNotificationEmail(addresses, subject, mailText)
 
 
 def modify_fti(fti):

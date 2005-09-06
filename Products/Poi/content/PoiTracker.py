@@ -37,6 +37,8 @@ from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
+from ZODB.POSException import ConflictError
+from Products.CMFPlone.utils import log_exc, log
 ##/code-section module-header
 
 schema=Schema((
@@ -264,15 +266,11 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
 
         return catalog.searchResults(query)
 
-
-
     security.declareProtected(permissions.View, 'isUsingReleases')
     def isUsingReleases(self):
         """Return a boolean indicating whether this tracker is using releases.
         """
         return len(self.getAvailableReleases()) > 0
-
-
 
     security.declareProtected(permissions.View, 'getReleasesVocab')
     def getReleasesVocab(self):
@@ -285,18 +283,81 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
             vocab.add(item, item)
         return vocab
 
-
-
     security.declarePrivate('getNotificationEmailAddresses')
-    def getNotificationEmailAddresses(self,issue):
+    def getNotificationEmailAddresses(self, issue=None):
         """
         Upon activity for the given issue, get the list of email
-        addresses
-        to which notifications should be sent. May return an empty list
-        if notification is turned off.
+        addresses to which notifications should be sent. May return an 
+        empty list if notification is turned off. If issue is given, the 
+        issue poster and any watchers will also be included.
         """
 
-        pass
+        if not self.getSendNotificationEmails():
+            return []
+        
+        addresses = []
+            
+        portal_membership = getToolByName(self, 'portal_membership')
+        mailingList = self.getMailingList()
+        
+        if mailingList:
+            addresses.append(mailingList)
+        else:
+            managers = self.getManagers()
+            for manager in managers:
+                managerUser = portal_membership.getMemberById(manager)
+                if managerUser is not None:
+                    managerEmail = managerUser.getProperty('email')
+                    if managerEmail and managerEmail not in addresses:
+                        addresses.append(managerEmail)
+        
+        if issue is not None:
+            issueEmail = issue.getContactEmail()
+            if issueEmail and issueEmail not in addresses:
+                addresses.append(issueEmail)
+            watchers = issue.getWatchers()
+            for watcher in watchers:
+                watcherUser = portal_membership.getMemberById(watcher)
+                if watcherUser is not None:
+                    watcherEmail = watcherUser.getProperty('email')
+                    if watcherUser and watcherEmail not in addresses:
+                        addresses.append(watcherEmail)
+
+        return addresses
+        
+
+
+    security.declarePrivate('sendNotificationEmail')
+    def sendNotificationEmail(self, addresses, subject, text, subtype='html'):
+        """
+        Send a notification email to the list of addresses
+        """
+        
+        if not self.getSendNotificationEmails() or not addresses:
+            return
+        
+        portal_url  = getToolByName(self, 'portal_url')
+        plone_utils = getToolByName(self, 'plone_utils')
+
+        portal      = portal_url.getPortalObject()
+        mailHost    = plone_utils.getMailHost()
+        fromAddress = portal.getProperty('email_from_address', None)
+        
+        if fromAddress is None:
+            log('Cannot send notification email: email sender address or name not set')
+            return
+        
+        for address in addresses:
+            try:
+                mailHost.secureSend(message = text,
+                                    mto = address,
+                                    mfrom = fromAddress,
+                                    subject = subject,
+                                    subtype = subtype)
+            except ConflictError:
+                raise
+            except:
+                log_exc('Could not send email from %s to %s regarding issue in tracker %s' % (fromAddress, address, self.absolute_url(),))
 
 
     #manually created methods
@@ -304,19 +365,6 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
     def canSelectDefaultPage(self):
         """Explicitly disallow selection of a default-page."""
         return False
-
-    def validate_managers(self, value):
-        """Make sure issue tracker managers are actual user ids"""
-        membership = getToolByName(self, 'portal_membership')
-        notFound = []
-        for userId in value:
-            member = membership.getMemberById(userId)
-            if member is None:
-                notFound.append(userId)
-        if notFound:
-            return "The following user ids could not be found: %s" % ','.join(notFound)
-        else:
-            return None
 
 
     security.declareProtected(permissions.ModifyPortalContent, 'setManagers')
@@ -347,6 +395,20 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         for id, state in states.items():
             vocab.add(id, state.title)
         return vocab.sortedByValue()
+
+    security.declarePrivate('validate_managers')
+    def validate_managers(self, value):
+        """Make sure issue tracker managers are actual user ids"""
+        membership = getToolByName(self, 'portal_membership')
+        notFound = []
+        for userId in value:
+            member = membership.getMemberById(userId)
+            if member is None:
+                notFound.append(userId)
+        if notFound:
+            return "The following user ids could not be found: %s" % ','.join(notFound)
+        else:
+            return None
 
 
 def modify_fti(fti):
