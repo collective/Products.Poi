@@ -101,6 +101,21 @@
       
       <div class="visualClear"><!----></div>
       
+      <div id="open-issues-by-tag" class="issue-quick-search-box"
+          tal:define="tags here/getTagsInUse"
+          tal:condition="python:isManager and len(tags) > 0">
+          <h3>By tag</h3>
+          <div>
+            <span tal:repeat="tag tags">
+                <a tal:attributes="href string:${issueQueryString}&tags=${tag}"
+                   tal:content="tag" /> 
+                <span tal:condition="not:repeat/tag/end"> ~ </span>
+            </span>
+          </div>
+      </div>
+      
+      <div class="visualClear"><!----></div>
+      
       <tal:manager condition="isManager">
           <div id="unassigned-issues"
                tal:define="issues python:here.getFilteredIssues(state='unconfirmed')"

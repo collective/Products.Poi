@@ -59,6 +59,21 @@
     margin-bottom: 0.5em;
 }
 
+.issue-tags {
+    margin: 0 0 0.5em 0;
+    color: &dtml-discreetColor;;
+    font-size: &dtml-fontSmallSize;;
+}
+
+.issue-tags-label {
+    font-weight: bold;
+}
+
+.issue-tags-tag {
+    font-style: italic;
+}
+
+
 /* Different response types */
 
 .response-clarification {

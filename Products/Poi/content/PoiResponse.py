@@ -184,7 +184,7 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         """
         # XXX: Why are we being called twice if enforceVocabulary=1 (hence)
         #  vocab becomes invalid after first time...
-
+        
         if transition and transition in self.getAvailableIssueTransitions():
             wftool = getToolByName(self, 'portal_workflow')
             self._issueStateBefore = wftool.getInfoFor(self.aq_parent,
@@ -236,9 +236,6 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         get_transaction().commit(1)
         self.setId(newId)
         
-        # XXX: Remove when at_post_create_script() bug is fixed
-        # self.sendNotificationMail()
-
 
     def Title(self):
         """Define title to be the same as response id. Responses have little

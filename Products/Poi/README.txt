@@ -21,10 +21,15 @@ Feedback is very welcome. Yes, we will have a Poi tracker for Poi soon. :)
 
 Installation and dependencies
 
-  Poi requires Plone 2.1 and ArchAddOn, currently from svn. When Poi is 
-released, a release of ArchAddOn will be made as well. For PloneSoftwareCenter
-integration, PloneSoftwareCenter 1.0beta7 (currently from the
-plone2.1-integration branch) is required.
+  Poi requires:
+  
+    - Plone 2.1
+    - ArchAddOn (currently from svn. When Poi is released, a release of
+        ArchAddOn will be made as well). 
+    - AddRemoveWidget
+    
+    - For PloneSoftwareCenter integration, PloneSoftwareCenter 1.0beta7 
+        (currentlyfrom the plone2.1-integration branch) is required.
 
 Install using Add/Remove Products as normal. If you want PloneSoftwareCenter
 configuration to be automatically configured, install PSC *first*.

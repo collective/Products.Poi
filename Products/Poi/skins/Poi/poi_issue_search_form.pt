@@ -173,8 +173,28 @@
                 </select>
                 
             </div>
+            
+            <div class="field">
+                
+                <label for="tags" i18n:translate="poi_search_label_tags">Tags</label>
 
-            <div class="visualClear"><!-- --></div>
+                <div class="formHelp" i18n:translate="poi_search_help_tags">
+                    Tags are keywords assigned by tracker managers to issues to
+                    allow finer-grained organisation of issues. Select the tag
+                    or tags you wish to search for.
+                </div>
+    
+                <select id="tags"
+                        size="5"
+                        multiple="multiple"
+                        name="tags:list"
+                        tal:define="tags here/getTagsInUse">
+                    <option tal:repeat="item tags"
+                            tal:attributes="value item"
+                            tal:content="item" />
+                </select>
+                
+            </div>
 
             <div class="formControls">
                 <input class="context"

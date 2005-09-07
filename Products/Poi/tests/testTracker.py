@@ -106,6 +106,12 @@ class TestEmailNotifications(ptc.PoiTestCase):
         self.failUnless('member2@member.com' in addresses)
         self.failUnless('member3@member.com' in addresses)
 
+    def testGetTagsInUse(self):
+        self.createIssue(self.tracker, tags=('A', 'B',))
+        self.createIssue(self.tracker, tags=('B', 'C',))
+        self.createIssue(self.tracker, tags=('A', 'D',))
+        self.assertEqual(self.tracker.getTagsInUse(), ['A', 'B', 'C', 'D'])
+
 class TestTrackerSearch(ptc.PoiTestCase):
     """Test tracker search functionality"""
 
@@ -161,7 +167,9 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.createIssue(self.tracker)
         self.createIssue(self.tracker)
         self.createIssue(self.tracker)
+        self.setRoles(['Manager'])
         self.workflow.doActionFor(self.tracker['3'], 'accept-unconfirmed')
+        self.setRoles(['Member'])
         issues = [b.getId for b in self.tracker.getFilteredIssues(state='unconfirmed')]
         issues.sort()
         self.assertEqual(issues, ['1', '2'])
@@ -169,30 +177,45 @@ class TestTrackerSearch(ptc.PoiTestCase):
         issues.sort()
         self.assertEqual(issues, ['3'])
 
-    def testGetFilteredIssesBySubmitter(self):
+    def testGetFilteredIssesByCreator(self):
         self.createIssue(self.tracker)
         self.createIssue(self.tracker)
         self.createIssue(self.tracker)
         self.tracker['1'].setCreators(('some_member',))
+        self.tracker['1'].reindexObject()
         self.tracker['2'].setCreators(('some_member',))
+        self.tracker['2'].reindexObject()
         self.tracker['3'].setCreators(('another_member',))
-        issues = [b.getId for b in self.tracker.getFilteredIssues(submitter='some_member')]
+        self.tracker['3'].reindexObject()
+        
+        issues = [b.getId for b in self.tracker.getFilteredIssues(creator='some_member')]
         issues.sort()
         self.assertEqual(issues, ['1', '2'])
-        issues = [b.getId for b in self.tracker.getFilteredIssues(submitter='another_member')]
+        issues = [b.getId for b in self.tracker.getFilteredIssues(creator='another_member')]
         issues.sort()
         self.assertEqual(issues, ['3'])
 
     def testGetFilteredIssesByResponsible(self):
-        self.createIssue(self.tracker, responsibleManager=('manager1', 'manager2',))
-        self.createIssue(self.tracker, responsibleManager=('manager1', 'manager3',))
-        self.createIssue(self.tracker, responsibleManager=('manager2', 'manager3',))
+        self.createIssue(self.tracker, responsibleManager='manager1')
+        self.createIssue(self.tracker, responsibleManager='manager1')
+        self.createIssue(self.tracker, responsibleManager='manager2')
         issues = [b.getId for b in self.tracker.getFilteredIssues(responsible='manager1')]
         issues.sort()
         self.assertEqual(issues, ['1', '2'])
-        issues = [b.getId for b in self.tracker.getFilteredIssues(responsible='manager3')]
+        issues = [b.getId for b in self.tracker.getFilteredIssues(responsible='manager2')]
         issues.sort()
         self.assertEqual(issues, ['3'])
+
+    def testGetFilteredIssesByTags(self):
+        self.createIssue(self.tracker, tags=('A', 'B',))
+        self.createIssue(self.tracker, tags=('B', 'C',))
+        self.createIssue(self.tracker, tags=('A', 'D',))
+        issues = [b.getId for b in self.tracker.getFilteredIssues(tags='B')]
+        issues.sort()
+        self.assertEqual(issues, ['1', '2'])
+        issues = [b.getId for b in self.tracker.getFilteredIssues(tags=('A', 'D',))]
+        issues.sort()
+        self.assertEqual(issues, ['1', '3'])
 
     def testGetFilteredIssesByIssueText(self):
         self.createIssue(self.tracker, overview="foo")
@@ -225,19 +248,19 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.assertEqual(issues, ['3'])
 
     def testGetFilteredIssesComplex(self):
-        self.createIssue(self.tracker, overview="foo", area="ui", category='feature')
-        self.createIssue(self.tracker, area="ui", category="bug")
-        self.createIssue(self.tracker, area="functionality", details="foo", category='bug')
+        self.createIssue(self.tracker, overview="foo", area="ui", issueType='feature')
+        self.createIssue(self.tracker, area="ui", issueType="bug")
+        self.createIssue(self.tracker, area="functionality", details="foo", issueType='bug')
         
         issues = [b.getId for b in self.tracker.getFilteredIssues(text='foo', area='ui')]
         issues.sort()
         self.assertEqual(issues, ['1'])
         
-        issues = [b.getId for b in self.tracker.getFilteredIssues(area='ui', category='feature')]
+        issues = [b.getId for b in self.tracker.getFilteredIssues(area='ui', issueType='feature')]
         issues.sort()
         self.assertEqual(issues, ['1'])
 
-        issues = [b.getId for b in self.tracker.getFilteredIssues(area='ui', category=['feature', 'bug'])]
+        issues = [b.getId for b in self.tracker.getFilteredIssues(area='ui', issueType=['feature', 'bug'])]
         issues.sort()
         self.assertEqual(issues, ['1', '2'])
 

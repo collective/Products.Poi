@@ -43,15 +43,18 @@ class TestResponse(ptc.PoiTestCase):
 
     def testSetNewIssueState(self):
         self.assertEqual(self.workflow.getInfoFor(self.issue, 'review_state'), 'unconfirmed')
-        self.response.setNewIssueState('open')
+        self.setRoles(['Manager'])
+        self.response.setNewIssueState('accept-unconfirmed')
         self.assertEqual(self.workflow.getInfoFor(self.issue, 'review_state'), 'open')
 
     def testGetIssueStateBefore(self):
-        self.response.setNewIssueState('open')
+        self.setRoles(['Manager'])
+        self.response.setNewIssueState('accept-unconfirmed')
         self.assertEqual(self.response.getIssueStateBefore(), 'unconfirmed')
 
     def testGetIssueStateAfter(self):
-        self.response.setNewIssueState('open')
+        self.setRoles(['Manager'])
+        self.response.setNewIssueState('accept-unconfirmed')
         self.assertEqual(self.response.getIssueStateAfter(), 'open')
 
 def test_suite():

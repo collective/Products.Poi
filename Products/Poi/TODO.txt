@@ -17,12 +17,8 @@ Poi TODO
     o In-form transition for Issues in the same way issues are transitioned
         by responses (to make processing a "new" issue a one-step process)
 
-    o Possible fields to add to issues:
-**      - Tagging of issues, so that managers can add a keyword tope, an issue
-            and search for this. Allows more arbitrary organistion than
-            topic/issue type, which is more for the user's benefit. For example,
-            specific araes of the implementation could be used as tags.
-        - Fixed-in version (should be able to set on response and affect issue)
+    o Add fixed-in version to issue schema (should be able to set on response
+        and affect issue)
 
     o Only install PoiPscTracker when PSC is detected (may be difficult with
         current ArchGenXML)
@@ -31,6 +27,11 @@ Poi TODO
         fields on a per-use-case basis (need to retain standard fields
         always; only if it can be done cleanly and with little/no performance
         overhead)
+    
+    o XML import/export of issues
+        - Should look at PCNG's export format in particular
+        - Should allow partial updates, e.g. change issue, add new issue,
+            over XML
     
     Fixes:
     ------
@@ -48,9 +49,16 @@ Poi TODO
 
     Security issues:
 
-        o Max-size validator on uploaded attachments
+        o Add max-size validator on uploaded attachments?
 
     User interface:
+
+        o Issues-by-tag UI on tracker front page needs more thinking
+            - Need a quick and easy way to find issues by tag
+            - Need a quick and easy way to add tags to issues
+            
+        o The edit tab on issues is becoming very long. Consider re-organising
+            it.
 
         o Turn off editable border in edit responses screen
 
@@ -68,10 +76,11 @@ Poi TODO
 
         o Verify i18n tags and translations
 
-    Incomplete:
+    Tests:
     
-**      o Finish writing unit tests
-            - PSC integration
-            - Tests for tracker states/permissions
+        o Functional tests for standard operations
+    
+        o Should increase unit test coverage
+            - Tests for tracker and issue states (permissions)
             - Actual sending of notification emails (need dummy mail host)
             - Vocab + defaults methods

@@ -25,14 +25,7 @@
       <h1 tal:content="here/Title" class="documentFirstHeading">
         Issue Title
       </h1>      
-      
-      <a href=""
-          class="link-parent visualNoPrint"
-          tal:define="parent_url python:here.navigationParent(here, template.getId())"
-          tal:attributes="href parent_url">
-          <span i18n:translate="poi_up_to_tracker">Up to issue tracker</span>
-      </a>
-      
+            
       <table class="vertical listing issue-info-box">
           <tr tal:condition="here/isUsingReleases">
               <th i18n:translate="poi_label_release">Release:</th>
@@ -80,6 +73,11 @@
               <td tal:content="state" tal:attributes="class string:issue-${state}"/>
           </tr>
       </table>
+      
+      <div class="issue-tags" tal:condition="here/Subject">
+          <span class="issue-tags-label" i18n:translate="poi_label_tags">Tags:</span> 
+          <span class="issue-tags-tags" tal:content="python:', '.join(here.Subject())" />
+      </div>
       
       <div class="documentDescription" tal:content="here/Description" />
           

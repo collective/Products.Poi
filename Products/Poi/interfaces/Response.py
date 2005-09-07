@@ -42,5 +42,23 @@ class Response(Base):
         pass
 
 
+
+    def getIssueStateBefore():
+        """
+        Get the state of the parent issue that was set before the
+        response was added.
+        """
+        
+        pass
+
+
+    def getIssueStateAfter():
+        """
+        Get the state of the parent issue that was set before the
+        response was added.
+        """
+        
+        pass
+
 # end of class Response
 

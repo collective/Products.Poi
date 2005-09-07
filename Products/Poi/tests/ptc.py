@@ -16,10 +16,10 @@ ZopeTestCase.installProduct('ZCTextIndex', quiet=1)
 ZopeTestCase.installProduct('TextIndexNG2', quiet=1)
 ZopeTestCase.installProduct('SecureMailHost', quiet=1)
 ZopeTestCase.installProduct('CMFPlone')
-
 ZopeTestCase.installProduct('Archetypes')
 ZopeTestCase.installProduct('PortalTransforms', quiet=1)
 ZopeTestCase.installProduct('MimetypesRegistry', quiet=1)
+
 ZopeTestCase.installProduct('Poi')
 
 from Products.PloneTestCase import PloneTestCase
@@ -69,6 +69,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         tracker.setManagers(managers)
         tracker.setSendNotificationEmails(sendNotificationEmails)
         tracker.setMailingList(mailingList)
+        tracker.reindexObject()
         self.setRoles(['Member'])
         return tracker
 
@@ -78,6 +79,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
                     details='', steps=(), attachment=None, 
                     contactEmail='submitter@domain.com',
                     watchers=(),
+                    tags=(),
                     responsibleManager='(UNASSIGNED)'):
         """Create an issue in the given tracker, and perform workflow and
         rename-after-creation initialisation"""
@@ -96,9 +98,11 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         issue.setAttachment(attachment)
         issue.setContactEmail(contactEmail)
         issue.setWatchers(watchers)
+        issue.setSubject(tags)
         issue.setResponsibleManager(responsibleManager)
         self.portal.portal_workflow.doActionFor(issue, 'post')
         issue._renameAfterCreation()
+        issue.reindexObject()
         return issue
 
     def createResponse(self, issue, text='Respnse text', issueTransition='',
@@ -113,4 +117,5 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         response.setAttachment(attachment)
         self.portal.portal_workflow.doActionFor(response, 'post')
         response._renameAfterCreation()
+        response.reindexObject()
         return response

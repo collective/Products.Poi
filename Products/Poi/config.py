@@ -26,7 +26,7 @@ setDefaultRoles('Poi: Add Response', ('Anonymous', 'Manager', 'Member', 'Owner',
 product_globals=globals()
 
 ##code-section config-bottom #fill in your manual code here
-DEPENDENCIES = ['ArchAddOn']
+DEPENDENCIES = ['ArchAddOn', 'AddRemoveWidget']
 ##/code-section config-bottom
 
 

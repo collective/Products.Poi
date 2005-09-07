@@ -30,6 +30,9 @@ class TestInstallation(ptc.PoiTestCase):
     def testArchAddOnInstalled(self):
         self.failUnless('archaddon' in self.skins.objectIds())
 
+    def testAddRemoveWidgetInstalled(self):
+        self.failUnless('AddRemoveWidget' in self.skins.objectIds())
+
     def testPoiInstalled(self):
         self.failUnless('Poi' in self.skins.objectIds())
         for t in self.poiTypes.keys():

@@ -45,6 +45,7 @@ class Tracker(Base):
         severity -- A severity or list of severities
         release -- A release or list of releases
         responsible -- A resonsible manager or list of managers
+        tags -- An issue tag or list of issue tags
         creator -- The user name of the issue submitter
         text -- Free text search
         sort_on -- Index to sort on
@@ -52,6 +53,41 @@ class Tracker(Base):
 
         pass
 
+
+
+    def isUsingReleases():
+        """
+        Find out if this tracker is organising issues by release or not.
+        """
+        
+        pass
+
+
+    def getNotificationEmailAddresses():
+        """
+        Upon activity for the given issue, get the list of email
+        addresses
+        to which notifications should be sent. May return an empty list
+        if notification is turned off.
+        """
+        
+        pass
+
+
+    def sendNotificationEmail(addresses,subject,text):
+        """
+        Send a notification email
+        """
+        
+        pass
+
+
+    def getTagsInUse():
+        """
+        Get a list of the issue tags in use in this tracker.
+        """
+        
+        pass
 
 # end of class Tracker
 

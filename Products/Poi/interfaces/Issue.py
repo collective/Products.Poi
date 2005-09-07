@@ -32,5 +32,22 @@ class Issue(Base):
     """
 
     #Methods
+
+    def toggleWatching():
+        """
+        Add or remove the current authenticated member from the list of
+        watchers.
+        """
+        
+        pass
+
+
+    def isWatching():
+        """
+        Determine if the current user is watching this issue or not.
+        """
+        
+        pass
+
 # end of class Issue
 

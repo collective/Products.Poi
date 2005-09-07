@@ -254,6 +254,8 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
             query['getSeverity'] = criteria.get('severity')
         if criteria.has_key('state'):
             query['review_state'] = criteria.get('state')
+        if criteria.has_key('tags'):
+            query['Subject'] = criteria.get('tags')
         if criteria.has_key('responsible'):
             query['getResponsibleManager'] = criteria.get('responsible')
         if criteria.has_key('creator'):
@@ -266,11 +268,15 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
 
         return catalog.searchResults(query)
 
+
+
     security.declareProtected(permissions.View, 'isUsingReleases')
     def isUsingReleases(self):
         """Return a boolean indicating whether this tracker is using releases.
         """
         return len(self.getAvailableReleases()) > 0
+
+
 
     security.declareProtected(permissions.View, 'getReleasesVocab')
     def getReleasesVocab(self):
@@ -282,6 +288,8 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         for item in items:
             vocab.add(item, item)
         return vocab
+
+
 
     security.declarePrivate('getNotificationEmailAddresses')
     def getNotificationEmailAddresses(self, issue=None):
@@ -360,6 +368,25 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
                 log_exc('Could not send email from %s to %s regarding issue in tracker %s' % (fromAddress, address, self.absolute_url(),))
 
 
+
+    security.declareProtected(permissions.View, 'getTagsInUse')
+    def getTagsInUse(self):
+        """
+        Get a list of the issue tags in use in this tracker.
+        """
+        catalog = getToolByName(self, 'portal_catalog')
+        issues = catalog.searchResults(portal_type = 'PoiIssue',
+                                       path = '/'.join(self.getPhysicalPath()))
+        tags = {}
+        for i in issues:
+            for s in i.Subject:
+                tags[s] = 1
+        keys = tags.keys()
+        keys.sort(lambda x, y: cmp(x.lower(), y.lower()))
+        return keys
+        
+
+
     #manually created methods
 
     def canSelectDefaultPage(self):
@@ -396,7 +423,7 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
             vocab.add(id, state.title)
         return vocab.sortedByValue()
 
-    security.declarePrivate('validate_managers')
+
     def validate_managers(self, value):
         """Make sure issue tracker managers are actual user ids"""
         membership = getToolByName(self, 'portal_membership')
