@@ -133,28 +133,19 @@
           
       </tal:manager>
       <tal:loggedIn condition="not:isAnon">
-          <div id="my-responsible-issues"
-               tal:define="issues python:here.getFilteredIssues(state=openStates, responsible=member.getId())"
+          <div id="my-issues"
+               tal:define="issues python:here.getFilteredIssues(state=openStates, responsible=member.getId()) + here.getFilteredIssues(state=pendingStates, creator=member.getId())"
                tal:condition="nocall:issues">
            
-               <h2 i18n:translate="poi_heading_my_responsible_issues">My responsible issues</h2>
-               <p i18n:translate="poi_help_my_responsible_issues_manager">
-                   The following issues have been assigned to you.
+               <h2 i18n:translate="poi_heading_my_issues">My issues</h2>
+               <p tal:condition="isManager" i18n:translate="poi_help_my_issues_manager">
+                   The following open issues were either submitted by you, or have been assigned to you.
                </p>
            
-               <metal:table use-macro="here/poi_issue_search/macros/issue_search_results" />
-           
-          </div>
+               <p tal:condition="not:isManager" i18n:translate="poi_help_my_issues_not_manager">
+                   The following open issues were either submitted by you.
+               </p>
 
-          <div id="my-submitted-issues"
-               tal:define="issues python:here.getFilteredIssues(state=pendingStates, creator=member.getId())"
-               tal:condition="nocall:issues">
-           
-               <h2 i18n:translate="poi_heading_my_submitted_issues">My submitted issues</h2>
-               <p i18n:translate="poi_help_my_submitted_issues_manager">
-                   The following issues were submitted by you.
-               </p>
-           
                <metal:table use-macro="here/poi_issue_search/macros/issue_search_results" />
            
           </div>
