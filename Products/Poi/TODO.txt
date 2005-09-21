@@ -11,7 +11,7 @@ Poi TODO
         - Can do this with column in availableAreas grid, but need better
             management of who can do this, or we'll get every project on
             plone.org sending emails to every random team. :)
-        - Perhaps we therefore need to be a bit more discrimating with the
+        - Perhaps we therefore need to be a bit more discriminating with the
             manager role
     
     o In-form transition for Issues in the same way issues are transitioned

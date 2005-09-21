@@ -46,9 +46,10 @@ def sendResolvedMail(self,state_change,**kw):
         return
 
     portal_url = getToolByName(issue, 'portal_url')
+    portal = portal_url.getPortalObject()
     fromName = portal.getProperty('email_from_name', None)
     mailText = issue.poi_notify_issue_resolved(issue, issue = issue, fromName = fromName)
-    subject = "Issue '%s' in tracker '%s' resolved" % (issue.Title(), tracker.Title(),),
+    subject = "Issue '%s' in tracker '%s' resolved" % (issue.Title(), tracker.Title(),)
 
     tracker.sendNotificationEmail([issueEmail], subject, mailText)
 

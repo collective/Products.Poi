@@ -24,8 +24,7 @@ Installation and dependencies
   Poi requires:
   
     - Plone 2.1
-    - ArchAddOn (currently from svn. When Poi is released, a release of
-        ArchAddOn will be made as well). 
+    - ArchAddOn
     - AddRemoveWidget
     
     - For PloneSoftwareCenter integration, PloneSoftwareCenter 1.0beta7 
