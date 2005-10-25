@@ -67,7 +67,7 @@ schema=Schema((
     TextField('description',
         widget=TextAreaWidget(
             label="Overview",
-            description="Enter a brief overview of the issue. As with the title, a consise, meaningful description will make it easier for project managers to assess and respond to the issue.",
+            description="Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue.",
             label_msgid='Poi_label_description',
             description_msgid='Poi_help_description',
             i18n_domain='Poi',
@@ -256,7 +256,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
     immediate_view             = 'base_view'
     default_view               = 'poi_issue_view'
     suppl_views                = ()
-    typeDescription            = "An issue. Issues begin in the 'open' state, and can be responded to by project mangers."
+    typeDescription            = "An issue. Issues begin in the 'open' state, and can be responded to by project managers."
     typeDescMsgId              = 'description_edit_poiissue'
 
     actions =  (
