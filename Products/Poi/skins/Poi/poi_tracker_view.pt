@@ -52,7 +52,7 @@
          i18n:translate="poi_issue_search">Search for issues</a>
       
       <p i18n:translate="poi_help_open_issues">
-          Click an arae, release or issue state to see all open issues in that
+          Click an area, release or issue state to see all open issues in that
           category. For more advanced search options, click "search for issues".
       </p>
 
