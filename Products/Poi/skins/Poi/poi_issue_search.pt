@@ -39,14 +39,15 @@
         <table class="listing nosort" metal:define-macro="issue_search_results">
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th tal:condition="here/isUsingReleases">Release</th>
-                    <th>Area</th>
-                    <th>Type</th>
-                    <th>Severity</th>
-                    <th>Created</th>
-                    <th>Responsible</th>
-                    <th>State</th>
+                    <th i18n:translate="listingheader_title">Title</th>
+                    <th i18n:translate="listingheader_release"
+                        tal:condition="here/isUsingReleases">Release</th>
+                    <th i18n:translate="listingheader_area">Area</th>
+                    <th i18n:translate="listingheader_type">Type</th>
+                    <th i18n:translate="listingheader_severity">Severity</th>
+                    <th i18n:translate="listingheader_created">Created</th>
+                    <th i18n:translate="listingheader_responsible">Responsible</th>
+                    <th i18n:translate="listingheader_state">State</th>
                 </tr>
             </thead>
             <tbody>

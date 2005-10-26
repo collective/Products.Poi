@@ -15,7 +15,8 @@
     <div metal:define-macro="body" 
       tal:define="openStates python:['open', 'in-progress'];
                   pendingStates python:openStates + ['unconfirmed', 'resolved'];
-                  issueQueryString python:'%s/poi_issue_search?state=%s' % (here.absolute_url(), '&state='.join(openStates),);
+                  issueQueryString python:'%s/poi_issue_search?state=%s' %
+                  (here.absolute_url(), '&amp;state='.join(openStates),);
                   isManager python:member.getId() in here.getManagers()">
 
       <div metal:use-macro="here/document_actions/macros/document_actions">
@@ -65,7 +66,7 @@
                                 areaTitle       python:area[1];
                                 areaDescription python:area[2];
                                 issues          python:here.getFilteredIssues(area=areaId, state=openStates)">
-                <a tal:attributes="href string:${issueQueryString}&area=${areaId};
+                <a tal:attributes="href string:${issueQueryString}&amp;area=${areaId};
                                    title areaDescription" 
                    tal:content="areaTitle" /> (<span tal:replace="python:len(issues)" />)
                 </li>
@@ -79,7 +80,7 @@
           <ul tal:define="releases here/getReleasesVocab">
               <tal:releases repeat="release releases">
                   <li tal:define="issues python:here.getFilteredIssues(release=release, state=openStates)">
-                    <a tal:attributes="href string:${issueQueryString}&release=${release}"
+                    <a tal:attributes="href string:${issueQueryString}&amp;release=${release}"
                        tal:content="python:releases.getValue(release)" /> (<span tal:replace="python:len(issues)" />)
                   </li>
               </tal:releases>
@@ -88,7 +89,7 @@
       
       <div id="open-issues-by-state" class="issue-quick-search-box"
            tal:define="issueStates here/getIssueWorkflowStates">
-          <h3 i18n:translate="poi_heading_by_release">By state</h3>
+          <h3 i18n:translate="poi_heading_by_state">By state</h3>
           <ul>
               <tal:releases repeat="state issueStates">
                   <li tal:define="issues python:here.getFilteredIssues(state=state)">
@@ -104,10 +105,10 @@
       <div id="open-issues-by-tag" class="issue-quick-search-box"
           tal:define="tags here/getTagsInUse"
           tal:condition="python:isManager and len(tags) > 0">
-          <h3>By tag</h3>
+          <h3 i18n:translate="poi_heading_by_tag">By tag</h3>
           <div>
             <span tal:repeat="tag tags">
-                <a tal:attributes="href string:${issueQueryString}&tags=${tag}"
+                <a tal:attributes="href string:${issueQueryString}&amp;tags=${tag}"
                    tal:content="tag" /> 
                 <span tal:condition="not:repeat/tag/end"> ~ </span>
             </span>

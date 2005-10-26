@@ -5,7 +5,7 @@
 
 <div metal:fill-slot="main">
 
-    <h1 i18n:translate="poi_issue_search">Issue search</h1>
+    <h1 i18n:translate="poi_heading_issue_search">Issue search</h1>
 
     <a href=""
           class="link-parent visualNoPrint"
@@ -37,7 +37,7 @@
                 <input type="text" 
                        id="text"
                        name="text"
-                       size="30">
+                       size="30" />
             </div>
     
             <div class="field">
@@ -65,7 +65,8 @@
                         multiple="multiple"
                         name="release:list"
                         tal:define="releases here/getReleasesVocab">
-                    <option value="(UNASSIGNED)">(Not assigned)</option>
+                    <option i18n:translate="not_assigned"
+                            value="(UNASSIGNED)">(Not assigned)</option>
                     <option tal:repeat="item releases"
                             tal:attributes="value item"
                             tal:content="python:releases.getValue(item)" />
@@ -166,7 +167,8 @@
                         multiple="multiple"
                         name="responsible:list"
                         tal:define="managers here/getManagers">
-                    <option value="(UNASSIGNED)">(Not assigned)</option>
+                    <option i18n:translate="not_assigned"
+                            value="(UNASSIGNED)">(Not assigned)</option>
                     <option tal:repeat="item managers"
                             tal:attributes="value item"
                             tal:content="item" />

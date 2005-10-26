@@ -1,4 +1,4 @@
-<div tal:omit-tag="" i18n:translate="poi_notification_new_response">
+<div tal:omit-tag="" i18n:translate="poi_notification_new_response" i18n:domain="Poi">
 A new response has been given to the issue "<span i18n:name="issue_title" tal:replace="here/aq_parent/Title" />" in the tracker "<span i18n:name="tracker_title" tal:replace="here/aq_parent/aq_parent/Title" />":
 
     <a i18n:name="issue_url" href="" tal:attributes="href here/aq_parent/absolute_url" tal:content="here/Title" />.

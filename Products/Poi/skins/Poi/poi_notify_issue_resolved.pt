@@ -1,4 +1,4 @@
-<div tal:omit-tag="" i18n:translate="poi_notification_issue_resolved">
+<div tal:omit-tag="" i18n:translate="poi_notification_issue_resolved" i18n:domain="Poi">
 The following issue in the "<span i18n:name="tracker_title" tal:replace="here/aq_parent/Title" />" tracker has been marked as resolved:
 
     <a i18n:name="issue_title" href="" tal:attributes="href here/absolute_url" tal:content="here/Title" />.

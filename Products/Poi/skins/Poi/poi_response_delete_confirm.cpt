@@ -16,7 +16,7 @@
   
     <h1 i18n:translate="poi_heading_delete_response">Delete Response</h1>
 
-    <p i18n:translate="poi_heading_delete_response">
+    <p i18n:translate="desc_poi_heading_delete_response">
         Are you sure you wish to delete this response?
     </p>
     
@@ -27,7 +27,7 @@
           tal:attributes="action string:${here/absolute_url}/${template/getId}">
   
       <input type="hidden" name="form.submitted" value="1" />
-      <input type="hidden" name="ids:list" tal:attributes="value here/getId">
+      <input type="hidden" name="ids:list" tal:attributes="value here/getId"/>
 
       <div class="formControls">
 
