@@ -349,6 +349,7 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
 
         portal      = portal_url.getPortalObject()
         mailHost    = plone_utils.getMailHost()
+        charset     = plone_utils.getSiteEncoding()
         fromAddress = portal.getProperty('email_from_address', None)
         
         if fromAddress is None:
@@ -361,7 +362,8 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
                                     mto = address,
                                     mfrom = fromAddress,
                                     subject = subject,
-                                    subtype = subtype)
+                                    subtype = subtype,
+                                    charset = charset)
             except ConflictError:
                 raise
             except:
