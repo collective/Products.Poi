@@ -401,11 +401,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
 
     def at_post_create_script(self):
         """Send notification email after issue has been created"""
-        # XXX: When the AT bug causing this to be called each time we
-        # save (as opposed to only after the first save) is fixed, re-enable
-        # this and remove from _renameAfterCreation():
-        # self.sendNotificationMail()
-        pass
+        self.sendNotificationMail()
 
 
     security.declareProtected(permissions.View, 'getIssueTypesVocab')
