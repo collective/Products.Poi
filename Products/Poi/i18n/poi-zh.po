@@ -46,7 +46,7 @@ msgstr "停止观察这个问题"
 #. Default: "Submit new issue"
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "Submit new issue"
-msgstr "提交新的问题"
+msgstr "提交新的问题(提案)"
 
 #. Default: "Watch this issue"
 #: ./skins/Poi/poi_issue_view.pt

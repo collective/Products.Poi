@@ -1,0 +1,296 @@
+# pot file for Poi Issue Tracker product.
+# Junyong Pan <panjy@zopechina.com>, 2005.
+msgid ""
+msgstr ""
+"Project-Id-Version: Poi\n"
+"POT-Creation-Date: 2005-10-26 17:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: Poi\n"
+
+#. Default: "Tracker name"
+# ./content/PoiTracker.py
+msgid "Poi_label_tracker_title"
+msgstr ""
+
+#. Default: "Enter a descriptive name for this tracker"
+# ./content/PoiTracker.py
+msgid "Poi_help_tracker_title"
+msgstr ""
+
+#. Default: "Tracker description"
+# ./content/PoiTracker.py
+msgid "Poi_label_description"
+msgstr ""
+
+#. Default: "Areas"
+# ./content/PoiTracker.py
+msgid "Poi_label_availableAreas"
+msgstr ""
+
+#. Default: "Enter the issue topics/areas for this tracker, one specification per line. The format is \"Short name | Title | Description\"."
+# ./content/PoiTracker.py
+msgid "Poi_help_availableAreas"
+msgstr ""
+
+#. Default: "Issue types"
+# ./content/PoiTracker.py
+msgid "Poi_label_availableIssueTypes"
+msgstr ""
+
+#. Default: "Enter the issue types for this tracker, one specification per line.  The format is \"Short name | Title | Description\"."
+# ./content/PoiTracker.py
+msgid "Poi_help_availableIssueTypes"
+msgstr ""
+
+#. Default: "Available severities"
+# ./content/PoiTracker.py
+msgid "Poi_label_availableSeverities"
+msgstr ""
+
+#. Default: "Enter the different type of issue severities that should be available, one per line."
+# ./content/PoiTracker.py
+msgid "Poi_help_availableSeverities"
+msgstr ""
+
+#. Default: "Default severity"
+# ./content/PoiTracker.py
+msgid "Poi_label_defaultSeverity"
+msgstr ""
+
+#. Default: "Select the default severity for new issues."
+# ./content/PoiTracker.py
+msgid "Poi_help_defaultSeverity"
+msgstr ""
+
+#. Default: "Available releases"
+# ./content/PoiTracker.py
+msgid "Poi_label_availableReleases"
+msgstr ""
+
+#. Default: "Enter the releases which issues can be assigned to, one per line.  If no releases are entered, issues will not be organised by release."
+# ./content/PoiTracker.py
+msgid "Poi_help_availableReleases"
+msgstr ""
+
+#. Default: "Tracker managers"
+# ./content/PoiTracker.py
+msgid "Poi_label_managers"
+msgstr ""
+
+#. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
+# ./content/PoiTracker.py
+msgid "Poi_help_managers"
+msgstr ""
+
+#. Default: "Send notification emails"
+# ./content/PoiTracker.py
+msgid "Poi_label_sendNotificationEmails"
+msgstr ""
+
+#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation."
+# ./content/PoiTracker.py
+msgid "Poi_help_sendNotificationEmails"
+msgstr ""
+
+#. Default: "Mailing list"
+# ./content/PoiTracker.py
+msgid "Poi_label_mailingList"
+msgstr ""
+
+#. Default: "If given, and if "Send notification emails" is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails."
+# ./content/PoiTracker.py
+msgid "Poi_help_mailingList"
+msgstr ""
+
+#. Default: "Id"
+# ./content/PoiIssue.py
+msgid "Poi_label_id"
+msgstr ""
+
+
+#. Default: ""
+# ./content/PoiIssue.py
+msgid "Poi_help_id"
+msgstr ""
+
+#. Default: "Title"
+# ./content/PoiIssue.py
+msgid "Poi_label_issue_title"
+msgstr ""
+
+#. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
+# ./content/PoiIssue.py
+msgid "Poi_help_issue_title"
+msgstr ""
+
+#. Default: "Overview"
+# ./content/PoiIssue.py
+msgid "Poi_label_description"
+msgstr ""
+
+#. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
+# ./content/PoiIssue.py
+msgid "Poi_help_description"
+msgstr ""
+
+#. Default: "Release"
+# ./content/PoiIssue.py
+msgid "Poi_label_release"
+msgstr ""
+
+#. Default: "Select the release this issue pertains to."
+# ./content/PoiIssue.py
+msgid "Poi_help_release"
+msgstr ""
+
+#. Default: "Area"
+# ./content/PoiIssue.py
+msgid "Poi_label_area"
+msgstr ""
+
+#. Default: "Select the area this issue is relevant to."
+# ./content/PoiIssue.py
+msgid "Poi_help_area"
+msgstr ""
+
+#. Default: "Issue type"
+# ./content/PoiIssue.py
+msgid "Poi_label_issueType"
+msgstr ""
+
+#. Default: "Select the type of issue."
+# ./content/PoiIssue.py
+msgid "Poi_help_issueType"
+msgstr ""
+
+#. Default: "Severity"
+# ./content/PoiIssue.py
+msgid "Poi_label_severity"
+msgstr ""
+
+#. Default: "Select the severity of this issue."
+# ./content/PoiIssue.py
+msgid "Poi_help_severity"
+msgstr ""
+
+#. Default: "Details"
+# ./content/PoiIssue.py
+msgid "Poi_label_details"
+msgstr ""
+
+#. Default: "Please provide further details"
+# ./content/PoiIssue.py
+msgid "Poi_help_details"
+msgstr ""
+
+#. Default: "Steps to reproduce"
+# ./content/PoiIssue.py
+msgid "Poi_label_steps"
+msgstr ""
+
+#. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
+# ./content/PoiIssue.py
+msgid "Poi_help_steps"
+msgstr ""
+
+#. Default: "Attachment"
+# ./content/PoiIssue.py
+msgid "Poi_label_attachment"
+msgstr ""
+
+#. Default: "You may optionally upload a file attachment to your issue. Please do not upload unnecessarily large files."
+# ./content/PoiIssue.py
+msgid "Poi_help_attachment"
+msgstr ""
+
+#. Default: "Contact email address"
+# ./content/PoiIssue.py
+msgid "Poi_label_contactEmail"
+msgstr ""
+
+#. Default: "Optionally, provide an email address where you can be contacted for further information or when a resolution is available."
+# ./content/PoiIssue.py
+msgid "Poi_help_contactEmail"
+msgstr ""
+
+
+#. Default: "Issue watchers"
+# ./content/PoiIssue.py
+msgid "Poi_label_watchers"
+msgstr ""
+
+#. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+# ./content/PoiIssue.py
+msgid "Poi_help_watchers"
+msgstr ""
+
+#. Default: "Tags"
+# ./content/PoiIssue.py
+msgid "Poi_label_subject"
+msgstr ""
+
+#. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
+# ./content/PoiIssue.py
+msgid "Poi_help_subject"
+msgstr ""
+
+#. Default: "Responsible"
+# ./content/PoiIssue.py
+msgid "Poi_label_responsibleManager"
+msgstr ""
+
+#. Default: "Select which manager, if any, is responsible for this issue."
+# ./content/PoiIssue.py
+msgid "Poi_help_responsibleManager"
+msgstr ""
+
+#. Default: "Subject"
+# ./content/PoiIssue.py
+msgid "Poi_label_response_title"
+msgstr ""
+
+#. Default: "Enter a brief subject for this response, e.g. \"Fixed\" or \"Will be fixed in next release\".""
+# ./content/PoiIssue.py
+msgid "Poi_help_response_title"
+msgstr ""
+
+#. Default: "Response"
+# ./content/PoiIssue.py
+msgid "Poi_label_response"
+msgstr ""
+
+
+#. Default: "Please enter your response below"
+# ./content/PoiIssue.py
+msgid "Poi_help_response"
+msgstr ""
+
+#. Default: "Change issue state"
+# ./content/PoiIssue.py
+msgid "Poi_label_issueTransition"
+msgstr ""
+
+#. Default: "Select a change of state in the issue this response is for, if applicable"
+# ./content/PoiIssue.py
+msgid "Poi_help_issueTransition"
+msgstr ""
+
+#. Default: "Attachment"
+# ./content/PoiIssue.py
+msgid "Poi_label_attachment"
+msgstr ""
+
+#. Default: "You may optionally upload a file attachment to your response.  Please do not upload unnecessarily large files."
+# ./content/PoiIssue.py
+msgid "Poi_help_attachment"
+msgstr ""
+
