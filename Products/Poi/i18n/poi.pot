@@ -11,650 +11,673 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: zh\n"
-"Language-Name: 简体中文\n"
-"Preferred-Encodings: utf-8\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
 "Domain: Poi\n"
-"X-Is-Fallback-For: zh-cn zh-hk zh-mo zh-sg\n"
 
 #. Default: "Add response"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "Add response"
-msgstr "添加答复"
+msgstr ""
 
 #. Default: "Cancel"
 #: ./skins/Poi/poi_response_delete_confirm.cpt
 msgid "Cancel"
-msgstr "取消"
+msgstr ""
 
 #. Default: "Delete"
 #: ./skins/Poi/poi_response_delete_confirm.cpt
 #: ./skins/Poi/poi_issue_view.pt
 msgid "Delete"
-msgstr "删除"
+msgstr ""
 
 #. Default: "Edit"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "Edit"
-msgstr "编辑"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."
 msgid "Poi_help_area"
-msgstr "选择这个问题相关的领域"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment to your issue. Please do not upload unnecessarily large files."
 msgid "Poi_help_attachment"
-msgstr "你可选择上载一个文件附件到这个问题。请注意不要上载过大的文件。"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker, one specification per line. The format is \"Short name | Title | Description\"."
 msgid "Poi_help_availableAreas"
-msgstr "输入跟踪器中问题的主题或者领域，每行输入一个。格式是“代号 | 标题 | 描述”。"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker, one specification per line.  The format is \"Short name | Title | Description\"."
 msgid "Poi_help_availableIssueTypes"
-msgstr "输入这个跟踪器的问题类型，每行输入一个。格式是“代号 | 标题 | 描述”。"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line.  If no releases are entered, issues will not be organised by release."
 msgid "Poi_help_availableReleases"
-msgstr "输入问题可分配的版本号，每行一个。如果没有发行版本，问题就不会按照版本组织。"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
 msgid "Poi_help_availableSeverities"
-msgstr "输入不同类型的问题可选严重性，每行一个。"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Optionally, provide an email address where you can be contacted for further information or when a resolution is available."
 msgid "Poi_help_contactEmail"
-msgstr "可选，提供一个邮件地址，以便联系你更多信息，或者问题解决后能够通知你。"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
 msgid "Poi_help_defaultSeverity"
-msgstr "选择问题的默认严重性"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
 msgid "Poi_help_description"
-msgstr "输入一个问题的简短描述。附加在标题后面，一个简短、有意义的描述将方便项目管理人员评估和响应这个问题。"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Please provide further details"
 msgid "Poi_help_details"
-msgstr "请提供更多详细信息"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: ""
 msgid "Poi_help_id"
-msgstr "代号"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
 msgid "Poi_help_issueTransition"
-msgstr "如果可以，选择答复问题的状态改变"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select the type of issue."
 msgid "Poi_help_issueType"
-msgstr "选择问题的类型"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
 msgid "Poi_help_issue_title"
-msgstr "为这个问题输入一个简短的、描述性的标题。一个好的标题将让项目管理人员更好的识别和答复这个问题。"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if "Send notification emails" is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails."
 msgid "Poi_help_mailingList"
-msgstr "如果提供，而且如果“发送通知邮件”选中，每次张贴新的问题或者答复时，都将有一个通知邮件发送到这个地址。如果没有提供邮件地址，就只有管理人员收到邮件。"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
 msgid "Poi_help_managers"
-msgstr "输入允许管理这个跟踪器的用户代号（登录帐号），每个一行。"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select the release this issue pertains to."
 msgid "Poi_help_release"
-msgstr "选择这个问题属于的版本。"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
 msgid "Poi_help_response"
-msgstr "请在下面填写答复"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Enter a brief subject for this response, e.g. \"Fixed\" or \"Will be fixed in next release\".""
 msgid "Poi_help_response_title"
-msgstr "为这个答复填写一个简短的标题，如“解决”或者“下个版本解决”。"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select which manager, if any, is responsible for this issue."
 msgid "Poi_help_responsibleManager"
-msgstr "选择哪个管理人员，如果有人负责这个问题。"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation."
 msgid "Poi_help_sendNotificationEmails"
-msgstr "如果选中，一旦张贴新的问题或者答复，管理人员将收到一个通知邮件；问题的提交人将在有新的答复，或问题解决、等待确认的时候收到通知邮件。"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select the severity of this issue."
 msgid "Poi_help_severity"
-msgstr "选择问题的严重性"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
 msgid "Poi_help_steps"
-msgstr "如果能够，请提供重现这个错误或者识别这个问题的步骤，每行一个步骤。"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
 msgid "Poi_help_subject"
-msgstr "标记用于添加任意的分类到问题。下面的列表显示了可添加的现存标记，你也可添加一个新的。"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
 msgid "Poi_help_tracker_title"
-msgstr "给跟踪器输入一个描述名"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
 msgid "Poi_help_watchers"
-msgstr "填写观察这个问题的成员用户名。这些成员将在答复添加到这个问题的时候接收到通知邮件。成员也能够把他们自己加做观察人员。"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Area"
 msgid "Poi_label_area"
-msgstr "领域"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
 msgid "Poi_label_attachment"
-msgstr "附件"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Areas"
 msgid "Poi_label_availableAreas"
-msgstr "领域"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Issue types"
 msgid "Poi_label_availableIssueTypes"
-msgstr "问题类型"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Available releases"
 msgid "Poi_label_availableReleases"
-msgstr "可用的版本"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Available severities"
 msgid "Poi_label_availableSeverities"
-msgstr "可用的严重性"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Contact email address"
 msgid "Poi_label_contactEmail"
-msgstr "联系邮件地址"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Default severity"
 msgid "Poi_label_defaultSeverity"
-msgstr "默认严重性"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Overview"
 msgid "Poi_label_description"
-msgstr "概述"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Details"
 msgid "Poi_label_details"
-msgstr "详细说明"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Id"
 msgid "Poi_label_id"
-msgstr "代号"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
 msgid "Poi_label_issueTransition"
-msgstr "改变问题状态"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Issue type"
 msgid "Poi_label_issueType"
-msgstr "问题类型"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Title"
 msgid "Poi_label_issue_title"
-msgstr "标题"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Mailing list"
 msgid "Poi_label_mailingList"
-msgstr "邮件列表"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Tracker managers"
 msgid "Poi_label_managers"
-msgstr "跟踪器管理人员"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Release"
 msgid "Poi_label_release"
-msgstr "版本"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Response"
 msgid "Poi_label_response"
-msgstr "答复"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Subject"
 msgid "Poi_label_response_title"
-msgstr "主题"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Responsible"
 msgid "Poi_label_responsibleManager"
-msgstr "负责人"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Send notification emails"
 msgid "Poi_label_sendNotificationEmails"
-msgstr "发送一个通知邮件"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Severity"
 msgid "Poi_label_severity"
-msgstr "严重性"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Steps to reproduce"
 msgid "Poi_label_steps"
-msgstr "重现步骤"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Tags"
 msgid "Poi_label_subject"
-msgstr "标记"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Tracker name"
 msgid "Poi_label_tracker_title"
-msgstr "跟踪器名"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Issue watchers"
 msgid "Poi_label_watchers"
-msgstr "问题观察人员"
+msgstr ""
 
 #. Default: "Stop watching this issue"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "Stop watching this issue"
-msgstr "停止观察这个问题"
+msgstr ""
 
 #. Default: "Submit new issue"
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "Submit new issue"
-msgstr "提交新的问题(提案)"
+msgstr ""
 
 #. Default: "Watch this issue"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "Watch this issue"
-msgstr "观察这个问题"
+msgstr ""
 
 #. Default: "${number} items matching your criteria."
 #: ./skins/Poi/poi_issue_search.pt
 msgid "batch_x_items_matching_your_criteria"
-msgstr "有${number}个条目满足您的条件。"
+msgstr ""
 
 #. Default: "Are you sure you wish to delete this response?"
 #: ./skins/Poi/poi_response_delete_confirm.cpt
 msgid "desc_poi_heading_delete_response"
-msgstr "您确信要删除这个答复吗？"
+msgstr ""
 
 #. Default: "No results were found."
 #: ./skins/Poi/poi_issue_search.pt
 msgid "description_no_results_found"
-msgstr "没有找到结果。"
+msgstr ""
 
 #. Default: "Search"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "label_search"
-msgstr "查找"
+msgstr ""
 
 #. Default: "Area"
 #: ./skins/Poi/poi_issue_search.pt
 msgid "listingheader_area"
-msgstr "领域"
+msgstr ""
 
 #. Default: "Created"
 #: ./skins/Poi/poi_issue_search.pt
 msgid "listingheader_created"
-msgstr "创建于"
+msgstr ""
 
 #. Default: "Release"
 #: ./skins/Poi/poi_issue_search.pt
 msgid "listingheader_release"
-msgstr "版本"
+msgstr ""
 
 #. Default: "Responsible"
 #: ./skins/Poi/poi_issue_search.pt
 msgid "listingheader_responsible"
-msgstr "责任人"
+msgstr ""
 
 #. Default: "Severity"
 #: ./skins/Poi/poi_issue_search.pt
 msgid "listingheader_severity"
-msgstr "严重性"
+msgstr ""
 
 #. Default: "State"
 #: ./skins/Poi/poi_issue_search.pt
 msgid "listingheader_state"
-msgstr "状态"
+msgstr ""
 
 #. Default: "Title"
 #: ./skins/Poi/poi_issue_search.pt
 msgid "listingheader_title"
-msgstr "标题"
+msgstr ""
 
 #. Default: "Type"
 #: ./skins/Poi/poi_issue_search.pt
 msgid "listingheader_type"
-msgstr "类型"
+msgstr ""
 
 #. Default: "(Not assigned)"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "not_assigned"
-msgstr "(未分配)"
+msgstr ""
 
 #. Default: "Added by"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_added_by"
-msgstr "添加人："
+msgstr ""
 
 #. Default: "on"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_added_on"
-msgstr "时间："
+msgstr ""
 
 #. Default: "By area"
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_heading_by_area"
-msgstr "按“领域”"
+msgstr ""
 
 #. Default: "By release"
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_heading_by_release"
-msgstr "按“版本”"
+msgstr ""
 
 #. Default: "By state"
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_heading_by_state"
-msgstr "按“状态”"
+msgstr ""
 
 #. Default: "By tag"
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_heading_by_tag"
-msgstr "按“标记”"
+msgstr ""
 
 #. Default: "Delete Response"
 #: ./skins/Poi/poi_response_delete_confirm.cpt
 msgid "poi_heading_delete_response"
-msgstr "删除答复"
+msgstr ""
 
 #. Default: "Issue search"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_heading_issue_search"
-msgstr "查找问题"
+msgstr ""
 
 #. Default: "My issues"
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_heading_my_issues"
-msgstr "我的问题"
+msgstr ""
 
 #. Default: "Open issues"
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_heading_open_issues"
-msgstr "开放的问题"
+msgstr ""
 
 #. Default: "Issue search results"
 #: ./skins/Poi/poi_issue_search.pt
 msgid "poi_heading_search_results"
-msgstr "问题查找结果"
+msgstr ""
 
 #. Default: "Unconfirmed issues"
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_heading_unconfirmed_issues"
-msgstr "未确认的问题"
+msgstr ""
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you."
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_help_my_issues_manager"
-msgstr "下面的开放问题要么是你提交的，要么是分配给你的"
+msgstr ""
 
 #. Default: "The following open issues were either submitted by you."
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_help_my_issues_not_manager"
-msgstr "下面的开放问题是你提交的"
+msgstr ""
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_help_open_issues"
-msgstr "点击一个领域、版本或者问题状态，查看所有这个分类的开放问题。要使用更高级的搜索选项，点将继“查找问题”"
+msgstr ""
 
 #. Default: "The following issues have not yet been confirmed or assigned. Please review them and take the appropriate action."
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_help_unconfirmed_issues"
-msgstr "下面的问题还没有确认或者分配。请审查他们，进行适当的处理。"
+msgstr ""
 
 #. Default: "Search for issues"
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_issue_search"
-msgstr "查找问题"
+msgstr ""
 
 #. Default: "This form allows you to search for issue according to a variety of criteria. Please make your selection below and click Search."
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_issue_search_description"
-msgstr "你可在这个表单中查找满足某些条件的问题。请在下面选择，并点击查找。"
+msgstr ""
 
 #. Default: "Area"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_label_area"
-msgstr "领域"
+msgstr ""
 
 #. Default: "Attached:"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_label_attachment"
-msgstr "附件："
+msgstr ""
 
 #. Default: "Release:"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_label_release"
-msgstr "版本："
+msgstr ""
 
 #. Default: "Responsible"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_label_responsible"
-msgstr "负责人"
+msgstr ""
 
 #. Default: "Severity"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_label_severity"
-msgstr "严重性"
+msgstr ""
 
 #. Default: "State"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_label_state"
-msgstr "状态"
+msgstr ""
 
 #. Default: "Steps to reproduce:"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_label_steps"
-msgstr "重现的步骤："
+msgstr ""
 
 #. Default: "Submitted by"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_label_submitted_by"
-msgstr "提交人:"
+msgstr ""
 
 #. Default: "Submitted on"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_label_submitted_on"
-msgstr "提交时间："
+msgstr ""
 
 #. Default: "Tags:"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_label_tags"
-msgstr "标记："
+msgstr ""
 
 #. Default: "Issue type"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_label_type"
-msgstr "问题类型"
+msgstr ""
 
 #. Default: "Search Terms"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_legend_search_terms"
-msgstr "搜索词"
+msgstr ""
 
 #. Default: "The following issue in the \" ${tracker_title} \" tracker has been marked as resolved: ${issue_title}. Please visit the issue and use the \"state\" drop-down to either confirm that it has been satisfactorily resolved or re-open it."
 #: ./skins/Poi/poi_notify_issue_resolved.pt
 msgid "poi_notification_issue_resolved"
-msgstr "下面在跟踪器“${tracker_title}”中的这个问题已经标记为解决了：${issue_title}。请访问这个问题使用“状态”下拉菜单来确认：是否真正解决或者需要重新开放。"
+msgstr ""
 
 #. Default: "A new issue has been submitted to the \" ${tracker_title} \" tracker and awaits confirmation: ${issue_url}."
 #: ./skins/Poi/poi_notify_new_issue.pt
 msgid "poi_notification_new_issue"
-msgstr "一个新的问题已经提交到“${tracker_title}”跟踪器中了，正在等待确认：${issue_url}"
+msgstr ""
 
 #. Default: "A new response has been given to the issue \" ${issue_title} \" in the tracker \" ${tracker_title} \": ${issue_url}."
 #: ./skins/Poi/poi_notify_new_response.pt
 msgid "poi_notification_new_response"
-msgstr "一个新的答复已经给到跟踪器“${tracker_title}”中的问题“${issue_title}”了：${issue_url}"
+msgstr ""
 
 #. Default: "Changed issue state:"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_response_state_change"
-msgstr "改变问题状态："
+msgstr ""
 
 #. Default: "Response # ${responseNumber} to \" ${issueTitle} \""
 #: ./skins/Poi/poi_response_view.pt
 msgid "poi_response_title"
-msgstr "答复 # ${responseNumber}, 问题：${issueTitle}"
+msgstr ""
 
 #. Default: "Return to search"
 #: ./skins/Poi/poi_issue_search.pt
 msgid "poi_return_to_search"
-msgstr "回到查找"
+msgstr ""
 
 #. Default: "Return to issue tracker"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_return_to_tracker"
-msgstr "回到问题跟踪器"
+msgstr ""
 
 #. Default: "Select the areas you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_help_area"
-msgstr "选择你希望搜索的领域"
+msgstr ""
 
 #. Default: "Enter the username of the issue submitter,"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_help_creator"
-msgstr "输入问题提交人的用户名"
+msgstr ""
 
 #. Default: "Select the issue types you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_help_issue_type"
-msgstr "选择你需要查找的问题类型"
+msgstr ""
 
 #. Default: "Select the releases you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_help_release"
-msgstr "选择你希望查找的版本"
+msgstr ""
 
 #. Default: "Select the responsible managers you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_help_responsible"
-msgstr "选择你希望查找的问题负责管理人"
+msgstr ""
 
 #. Default: "Select the severities you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_help_severity"
-msgstr "选择你要查找的严重性"
+msgstr ""
 
 #. Default: "Select the states you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_help_state"
-msgstr "选择你要查找的状态"
+msgstr ""
 
 #. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_help_tags"
-msgstr "标记是有问题跟踪器管理员分配的关键字，用来更细的组织问题。选择你希望查找的标记"
+msgstr ""
 
 #. Default: "Enter any text you wish the issue to include."
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_help_text"
-msgstr "选择你希望问题包含的文字"
+msgstr ""
 
 #. Default: "Area"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_label_area"
-msgstr "领域"
+msgstr ""
 
 #. Default: "Submitter"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_label_creator"
-msgstr "提交人"
+msgstr ""
 
 #. Default: "Issue type"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_label_issue_type"
-msgstr "问题类型"
+msgstr ""
 
 #. Default: "Release"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_label_release"
-msgstr "版本"
+msgstr ""
 
 #. Default: "Responsible tracker managers"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_label_responsible"
-msgstr "负责人"
+msgstr ""
 
 #. Default: "Severity"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_label_severity"
-msgstr "严重性"
+msgstr ""
 
 #. Default: "State"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_label_state"
-msgstr "状态"
+msgstr ""
 
 #. Default: "Tags"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_label_tags"
-msgstr "标记"
+msgstr ""
 
 #. Default: "Issue text"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_label_text"
-msgstr "问题正文"
+msgstr ""
 
 #. Default: "View issue in full"
 #: ./skins/Poi/poi_response_view.pt
 msgid "poi_up_to_issue"
-msgstr "完整查看问题"
+msgstr ""
 
+
+#- Added msgids by merging file poi-manual.pot:
+#  Poi_label_tracker_title Poi_help_tracker_title Poi_label_description
+# Poi_label_availableAreas Poi_help_availableAreas
+# Poi_label_availableIssueTypes Poi_help_availableIssueTypes
+# Poi_label_availableSeverities Poi_help_availableSeverities
+# Poi_label_defaultSeverity Poi_help_defaultSeverity
+# Poi_label_availableReleases Poi_help_availableReleases
+# Poi_label_managers Poi_help_managers Poi_label_sendNotificationEmails
+# Poi_help_sendNotificationEmails Poi_label_mailingList
+# Poi_help_mailingList Poi_label_id Poi_help_id Poi_label_issue_title
+# Poi_help_issue_title Poi_help_description Poi_label_release
+# Poi_help_release Poi_label_area Poi_help_area Poi_label_issueType
+# Poi_help_issueType Poi_label_severity Poi_help_severity
+# Poi_label_details Poi_help_details Poi_label_steps Poi_help_steps
+# Poi_label_attachment Poi_help_attachment Poi_label_contactEmail
+# Poi_help_contactEmail Poi_label_watchers Poi_help_watchers
+# Poi_label_subject Poi_help_subject Poi_label_responsibleManager
+# Poi_help_responsibleManager Poi_label_response_title
+# Poi_help_response_title Poi_label_response Poi_help_response
+# Poi_label_issueTransition Poi_help_issueTransition
+
+#- Added msgids by merging file poi-manual.pot:
+# 
