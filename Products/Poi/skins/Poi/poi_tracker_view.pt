@@ -94,6 +94,8 @@
               <tal:releases repeat="state issueStates">
                   <li tal:define="issues python:here.getFilteredIssues(state=state)">
                     <a tal:attributes="href string:${here/absolute_url}/poi_issue_search?state=${state}"
+                       i18n:translate=""
+                       i18n:domain="plone"
                        tal:content="python:issueStates.getValue(state)" /> (<span tal:replace="python:len(issues)" />)
                   </li>
               </tal:releases>

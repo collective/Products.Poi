@@ -68,9 +68,13 @@
                   </div>
               </td>
           </tr>
-          <tr tal:define="state python:wftool.getInfoFor(here, 'review_state')">
+          <tr tal:define="state python:wftool.getInfoFor(here, 'review_state');
+                          state_title python:wtool.getTitleForStateOnType(state,
+                          here.getPortalTypeName());">
               <th i18n:translate="poi_label_state">State</th>
-              <td tal:content="state" tal:attributes="class string:issue-${state}"/>
+              <td tal:content="state_title" 
+                  i18n:translate="" i18n:domain="plone"
+                  tal:attributes="class string:issue-${state}"/>
           </tr>
       </table>
       

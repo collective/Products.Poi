@@ -36,7 +36,8 @@
         <span i18n:translate="batch_x_items_matching_your_criteria"><span i18n:name="number" tal:content="python:len(issues)">234</span> items matching your criteria.</span>
         </strong>
 
-        <table class="listing nosort" metal:define-macro="issue_search_results">
+        <table class="listing nosort" metal:define-macro="issue_search_results"
+               tal:define="states here/getIssueWorkflowStates">
             <thead>
                 <tr>
                     <th i18n:translate="listingheader_title">Title</th>
@@ -79,7 +80,8 @@
                                  style="text-align:center">&mdash;</div>
                         </td>
                         <td tal:attributes="class string:issue-${item/review_state}"
-                            tal:content="item/review_state" />
+                            i18n:translate="" i18n:domain="plone"
+                            tal:content="python:state.getValue(item.review_state)" />
                     </tr>
                 </tal:issues>
             </tbody>

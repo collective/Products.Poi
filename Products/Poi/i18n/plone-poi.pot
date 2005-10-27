@@ -1,0 +1,120 @@
+# pot file for Poi Issue Tracker product.
+# Junyong Pan <panjy@zopechina.com>, 2005.
+msgid ""
+msgstr ""
+"Project-Id-Version: Poi\n"
+"POT-Creation-Date: 2005-10-26 17:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+# portal type nams
+
+msgid "Issue Tracker"
+msgstr ""
+
+msgid "An issue tracker"
+msgstr ""
+
+msgid "Issue"
+msgstr ""
+
+msgid "An issue. Issues begin in the 'open' state, and can be responded to by project managers."
+msgstr ""
+
+msgid "Response"
+msgstr ""
+
+msgid "A response to an issue."
+msgstr ""
+
+# tracker states
+
+msgid "Open for submissions"
+msgstr ""
+
+msgid "Closed for submissions"
+msgstr ""
+
+# tracker transitions
+
+msgid "Close tracker"
+msgstr ""
+
+msgid "Open tracker"
+msgstr ""
+
+# issue states
+
+msgid "Tested and confirmed closed"
+msgstr ""
+
+msgid "In progress"
+msgstr ""
+
+msgid "Being created"
+msgstr ""
+
+msgid "Open"
+msgstr ""
+
+msgid "Postponed"
+msgstr ""
+
+msgid "Rejected"
+msgstr ""
+
+msgid "Resolved"
+msgstr ""
+
+msgid "Unconfirmed"
+msgstr ""
+
+# issue transitions
+
+msgid " Open"
+msgstr ""
+
+msgid "Begin work"
+msgstr ""
+
+msgid "Confirm resolved"
+msgstr ""
+
+msgid "Put on hold"
+msgstr ""
+
+msgid "Re-open"
+msgstr ""
+
+msgid "Post issue on save"
+msgstr ""
+
+msgid "Postpone"
+msgstr ""
+
+msgid "Reject"
+msgstr ""
+
+msgid "Resolve"
+msgstr ""
+
+# response states
+
+msgid "Being created"
+msgstr ""
+
+msgid "Posted"
+msgstr ""
+
+# response transitions
+msgid "Post response on save"
+msgstr ""

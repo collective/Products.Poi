@@ -149,6 +149,7 @@
                         tal:define="states here/getIssueWorkflowStates">
                     <option tal:repeat="item states"
                             tal:attributes="value item"
+                            i18n:transalte=""
                             tal:content="python:states.getValue(item)" />
                 </select>
                 
