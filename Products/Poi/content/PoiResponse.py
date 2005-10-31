@@ -236,6 +236,8 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         get_transaction().commit(1)
         self.setId(newId)
         
+        self.sendNotificationMail()
+        
 
     def Title(self):
         """Define title to be the same as response id. Responses have little
@@ -274,10 +276,10 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         
         issue = self.aq_parent
         tracker = issue.aq_parent
-        
+
         addresses = tracker.getNotificationEmailAddresses(issue)
         mailText = self.poi_notify_new_response(self, tracker = tracker, issue = issue, response = self, fromName = fromName)
-        subject = "New response to issue '%s' in tracker '%s'" % (issue.Title(), tracker.Title(),),
+        subject = "New response to issue '%s' in tracker '%s'" % (issue.Title(), tracker.Title(),)
         
         tracker.sendNotificationEmail(addresses, subject, mailText)
 

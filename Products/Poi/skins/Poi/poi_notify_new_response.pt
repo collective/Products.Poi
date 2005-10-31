@@ -14,6 +14,13 @@ A new response has been given to the issue "<span i18n:name="issue_title" tal:re
 
 <div style="padding-left: 1em; background-color: #eaeaea" tal:content="structure response/response">response</div>
 
+<p class="discreet"
+   tal:define="before response/getIssueStateBefore;
+               after response/getIssueStateAfter;
+               change python:test(before==after, 'unchanged', before+' -> '+after)">
+State Change: <span tal:replace="change">some state</span>
+</p>
+
 <h2>Issue Details</h2>
 <dl>
   <dt>Tracker</dt>
