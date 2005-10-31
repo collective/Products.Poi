@@ -495,7 +495,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         tracker = self.aq_parent
         
         addresses = tracker.getNotificationEmailAddresses()
-        mailText = self.poi_notify_new_issue(self, issue = self, fromName = fromName)
+        mailText = self.poi_notify_new_issue(self, tracker = tracker, issue = self, fromName = fromName)
         subject = "New issue in tracker '%s'" % tracker.Title()
         
         tracker.sendNotificationEmail(addresses, subject, mailText)

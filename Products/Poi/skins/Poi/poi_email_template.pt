@@ -1,0 +1,46 @@
+<metal:page define-macro="master"><metal:doctype define-slot="doctype"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"></metal:doctype>
+<metal:block use-macro="here/global_defines/macros/defines" />
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      tal:attributes="lang language;
+                      xml:lang language">
+
+  <head>
+    <style type="text/css" media="all">
+<!--
+BODY {
+    font-size: 0.9em;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+.discreet {
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+H2 {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+DT {
+    font-weight: bold;
+}
+-->
+    </style>
+
+  </head>
+  
+  
+  <body>
+
+<metal:bodytext metal:define-slot="main" tal:content="nothing">
+  Email body text
+</metal:bodytext>
+
+  </body>
+</html>
+
+</metal:page>

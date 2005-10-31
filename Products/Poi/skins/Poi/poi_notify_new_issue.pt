@@ -1,8 +1,39 @@
-<div tal:omit-tag="" i18n:translate="poi_notification_new_issue" i18n:domain="Poi">
-A new issue has been submitted to the "<span i18n:name="tracker_title" tal:replace="here/aq_parent/Title" />" tracker and awaits confirmation:
+<html metal:use-macro="here/poi_email_template/macros/master">
+  <body>
+    <div metal:fill-slot="main" omit-tag=""
+         i18n:translate="poi_notify_new_issue"
+         tal:define="issue python:options.get('issue', here);
+                     tracker python:options.get('tracker', issue.aq_parent);
+                     fromName python:options.get('fromName', 'unspecified');
+                     ">
 
-    <a i18n:name="issue_url" href="" tal:attributes="href here/absolute_url" tal:content="here/Title" />.
+<p>
+A new issue has been submitted to the "<span i18n:name="tracker_title" tal:replace="tracker/Title" />" 
+tracker and awaits confirmation.
+</p>
 
-</div>
--- 
-<span tal:replace="options/fromName" />
+<h2>Issue Details</h2>
+<dl>
+  <dt>Tracker</dt>
+  <dd><a tal:content="tracker/title_or_id"
+         tal:attributes="href tracker/absolute_url"
+         href="">tracker</a></dd>
+
+  <dt>Issue</dt>
+  <dd><a tal:content="issue/title_or_id"
+         tal:attributes="href issue/absolute_url"
+         href="">issue</a></dd>
+
+  <dt>Issue Overview</dt>
+  <dd tal:content="issue/Description">issue overview</dd>
+</dl>
+
+
+<p class="discreet">
+* This is an automated email, please do not reply - <span tal:replace="fromName" />
+</p>
+
+    </div>
+
+  </body>
+</html>
