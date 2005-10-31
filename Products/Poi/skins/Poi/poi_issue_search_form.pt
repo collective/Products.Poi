@@ -150,6 +150,7 @@
                     <option tal:repeat="item states"
                             tal:attributes="value item"
                             i18n:translate=""
+                            i18n:domain="plone"
                             tal:content="python:states.getValue(item)" />
                 </select>
                 

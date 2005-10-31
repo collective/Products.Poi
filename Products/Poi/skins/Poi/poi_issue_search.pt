@@ -81,7 +81,7 @@
                         </td>
                         <td tal:attributes="class string:issue-${item/review_state}"
                             i18n:translate="" i18n:domain="plone"
-                            tal:content="python:item.review_state" />
+                            tal:content="python:states.getValue(item.review_state)" />
                     </tr>
                 </tal:issues>
             </tbody>
