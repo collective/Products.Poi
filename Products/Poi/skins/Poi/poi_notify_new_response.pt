@@ -17,7 +17,7 @@ A new response has been given to the issue "<span i18n:name="issue_title" tal:re
 <p class="discreet"
    tal:define="before response/getIssueStateBefore;
                after response/getIssueStateAfter;
-               change python:test(before==after or not before or not after, 'unchanged', before+' -> '+after)">
+               change python:test(before==after or (before is None) or (after is None), 'unchanged', before+' -> '+after)">
 State Change: <span tal:replace="change">some state</span>
 </p>
 
