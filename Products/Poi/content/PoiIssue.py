@@ -55,8 +55,8 @@ schema=Schema((
         widget=StringWidget(
             label="Title",
             description="Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue.",
-            label_msgid='Poi_label_title',
-            description_msgid='Poi_help_title',
+            label_msgid='Poi_label_issue_title',
+            description_msgid='Poi_help_issue_title',
             i18n_domain='Poi',
         ),
         required=True,
