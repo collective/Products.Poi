@@ -31,7 +31,7 @@ from Products.CMFCore.utils import getToolByName
 
 ## ['sendResolvedMail']
 
-def sendResolvedMail(self,state_change,**kw):
+def sendResolvedMail(portal,state_change,**kw):
     """Send an email to the original submitter that the issue was marked
     as resolved, inviting him/her to confirm it.
     """
@@ -45,8 +45,8 @@ def sendResolvedMail(self,state_change,**kw):
     if not issueEmail:
         return
 
-    portal_url = getToolByName(issue, 'portal_url')
-    portal = portal_url.getPortalObject()
+    # XXX: Is there a Message class or anything which we can pass a portal, subject, message text?
+    # XXX: There should be! ;) -jryan
     fromName = portal.getProperty('email_from_name', None)
     mailText = issue.poi_notify_issue_resolved(issue, issue = issue, fromName = fromName)
     subject = "Issue '%s' in tracker '%s' resolved" % (issue.Title(), tracker.Title(),)
