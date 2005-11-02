@@ -1,4 +1,5 @@
-<html metal:use-macro="here/poi_email_template/macros/master">
+<html metal:use-macro="here/poi_email_template/macros/master"
+      i18n:domain="Poi">
   <body>
     <div metal:fill-slot="main" tal:omit-tag=""
          tal:define="response python:options.get('response', here);
@@ -18,7 +19,7 @@ A new response has been given to the issue "<span i18n:name="issue_title" tal:om
                after response/getIssueStateAfter;
                change python:test(before==after or (before is None) or (after is None), 'unchanged', str(before)+' -> '+str(after))"
    i18n:translate="issue_state_change">
-State Change: <span tal:replace="change" i18n:name="change">some state</span>
+State Change: <span tal:omit-tag="" tal:content="change" i18n:name="change">some state</span>
 </p>
 
 <h2 i18n:translate="heading_issue_details">Issue Details</h2>

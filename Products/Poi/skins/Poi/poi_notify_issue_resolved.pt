@@ -1,4 +1,5 @@
-<html metal:use-macro="here/poi_email_template/macros/master">
+<html metal:use-macro="here/poi_email_template/macros/master"
+      i18n:domain="Poi">
   <body>
     <div metal:fill-slot="main" tal:omit-tag=""
          tal:define="issue python:options.get('issue', here);

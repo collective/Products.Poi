@@ -71,7 +71,7 @@ msgstr "输入不同类型的问题可选严重性，每行一个。"
 # ./content/PoiIssue.py
 #. Default: "Optionally, provide an email address where you can be contacted for further information or when a resolution is available."
 msgid "Poi_help_contactEmail"
-msgstr "可选，提供一个邮件地址，以便联系你更多信息，或者问题解决后能够通知你。"
+msgstr "提供一个邮件地址，以便联系你更多信息，或者问题解决后能够通知你。"
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
@@ -451,7 +451,7 @@ msgstr "下面的开放问题是你提交的"
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_help_open_issues"
-msgstr "点击一个领域、版本或者问题状态，查看所有这个分类的开放问题。要使用更高级的搜索选项，点将继“查找问题”"
+msgstr "点击一个领域、版本或者问题状态，查看所有这个分类的开放问题。要使用更高级的搜索选项，点击“查找问题”"
 
 #. Default: "The following issues have not yet been confirmed or assigned. Please review them and take the appropriate action."
 #: ./skins/Poi/poi_tracker_view.pt
@@ -658,3 +658,29 @@ msgstr "问题正文"
 msgid "poi_up_to_issue"
 msgstr "完整查看问题"
 
+msgid "poi_notify_new_issue"
+msgstr "一个新的问题已经提交到问题跟踪器“${tracker_title}”中了，正在等待确认."
+
+msgid "heading_issue_details"
+msgstr "问题详细信息"
+
+msgid "label_tracker"
+msgstr "跟踪器"
+
+msgid "label_issue"
+msgstr "问题"
+
+msgid "label_issue_overview"
+msgstr "问题简介"
+
+msgid "mail_no_reply"
+msgstr "* 这是一个自动生成的邮件，可能不支持回复。 - ${fromName}"
+
+msgid "poi_notify_issue_resolved"
+msgstr "在跟踪器“${tracker_title}”中，下面的这个问题已经标记为解决了。请访问这个问题，使用“状态”下拉菜单来确认：已经真正解决了，或者需要重新开放。"
+
+msgid "poi_notify_new_response"
+msgstr "一个新的答复已经给到跟踪器“${tracker_title}”中的问题“${issue_title}”了."
+
+msgid "issue_state_change"
+msgstr "状态变化：${change}"
