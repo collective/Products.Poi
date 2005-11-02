@@ -15,7 +15,7 @@
                        dummy python:request.RESPONSE.setHeader('Content-Type', contentType)"
            tal:attributes="content contentType" />
 
-    <style type="text/css" medi/a="all">
+    <style type="text/css" media="all">
 <!--
 BODY {
     font-size: 0.9em;
