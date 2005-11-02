@@ -1,45 +1,45 @@
 <html metal:use-macro="here/poi_email_template/macros/master">
   <body>
-    <div metal:fill-slot="main" omit-tag=""
-         i18n:translate="poi_notify_new_issue"
+    <div metal:fill-slot="main" tal:omit-tag=""
          tal:define="response python:options.get('response', here);
                      issue python:options.get('issue', response.aq_parent);
                      tracker python:options.get('tracker', issue.aq_parent);
                      fromName python:options.get('fromName', 'unspecified');
                      ">
 
-<p>
-A new response has been given to the issue "<span i18n:name="issue_title" tal:replace="here/aq_parent/Title" />" in the tracker "<span i18n:name="tracker_title" tal:replace="here/aq_parent/aq_parent/Title" />"
+<p i18n:translate="poi_notify_new_response">
+A new response has been given to the issue "<span i18n:name="issue_title" tal:omit-tag="" tal:content="here/aq_parent/Title" />" in the tracker "<span i18n:name="tracker_title" tal:omit-tag="" tal:content="here/aq_parent/aq_parent/Title" />"
 </p>
 
-<div style="padding-left: 1em; background-color: #eaeaea" tal:content="structure response/response">response</div>
+<div style="padding-left: 1em; background-color: #eaeaea" tal:content="structure response/getResponse">response</div>
 
 <p class="discreet"
    tal:define="before response/getIssueStateBefore;
                after response/getIssueStateAfter;
-               change python:test(before==after or (before is None) or (after is None), 'unchanged', str(before)+' -> '+str(after))">
-State Change: <span tal:replace="change">some state</span>
+               change python:test(before==after or (before is None) or (after is None), 'unchanged', str(before)+' -> '+str(after))"
+   i18n:translate="issue_state_change">
+State Change: <span tal:replace="change" i18n:name="change">some state</span>
 </p>
 
-<h2>Issue Details</h2>
+<h2 i18n:translate="heading_issue_details">Issue Details</h2>
 <dl>
-  <dt>Tracker</dt>
+  <dt i18n:translate="label_tracker">Tracker</dt>
   <dd><a tal:content="tracker/title_or_id"
          tal:attributes="href tracker/absolute_url"
          href="">tracker</a></dd>
 
-  <dt>Issue</dt>
+  <dt i18n:translate="label_issue">Issue</dt>
   <dd><a tal:content="issue/title_or_id"
          tal:attributes="href issue/absolute_url"
          href="">issue</a></dd>
 
-  <dt>Issue Overview</dt>
+  <dt i18n:translate="label_issue_overview">Issue Overview</dt>
   <dd tal:content="issue/Description">issue overview</dd>
 </dl>
 
 
-<p class="discreet">
-* This is an automated email, please do not reply - <span tal:replace="fromName" />
+<p class="discreet" i18n:translate="mail_no_reply">
+* This is an automated email, please do not reply - <span tal:omit-tag="" tal:content="fromName" i18n:name="fromName"/>
 </p>
 
     </div>
