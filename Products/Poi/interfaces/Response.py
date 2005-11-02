@@ -1,7 +1,7 @@
 # File: Response.py
 # 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.0-beta2 devel 
+# Generator: ArchGenXML Version 1.4.0-RC1 devel 
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
@@ -52,6 +52,7 @@ class Response(Base):
         pass
 
 
+
     def getIssueStateAfter():
         """
         Get the state of the parent issue that was set before the
@@ -59,6 +60,7 @@ class Response(Base):
         """
         
         pass
+
 
 # end of class Response
 

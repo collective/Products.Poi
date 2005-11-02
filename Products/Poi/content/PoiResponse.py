@@ -1,7 +1,7 @@
 # File: PoiResponse.py
 # 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.0-beta2 devel 
+# Generator: ArchGenXML Version 1.4.0-RC1 devel 
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
@@ -21,9 +21,9 @@
 __author__  = '''Martin Aspeli <optilude@gmx.net>'''
 __docformat__ = 'plaintext'
 
+
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
-
 from Products.Poi.interfaces.Response import Response
 
 
@@ -57,8 +57,8 @@ schema=Schema((
             description="""Enter a brief subject for this response, e.g. "Fixed" or "Will be fixed in next release".""",
             visible={'edit' : 'invisible', 'view' : 'invisible'},
             modes=('view',),
-            label_msgid='Poi_label_response_title',
-            description_msgid='Poi_help_response_title',
+            label_msgid='Poi_label_title',
+            description_msgid='Poi_help_title',
             i18n_domain='Poi',
         ),
         accessor="Title",
@@ -112,6 +112,12 @@ schema=Schema((
 ),
 )
 
+
+##code-section after-local-schema #fill in your manual code here
+##/code-section after-local-schema
+
+PoiResponse_schema = BaseSchema + \
+    schema
 
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
@@ -167,8 +173,7 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
 
     _at_rename_after_creation  = True
 
-    schema = BaseSchema + \
-             schema
+    schema = PoiResponse_schema
 
     ##code-section class-header #fill in your manual code here
     ##/code-section class-header

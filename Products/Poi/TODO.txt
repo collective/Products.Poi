@@ -38,6 +38,9 @@ Poi TODO
     
     Bugs/Known issues:
 
+**      o Issues show up twice in tracker overview if both creator and owner
+**      o Email notification is not working as expected (?)
+
         o Deleting a response will cause issue text to remain in issue
             SearchableText until a re-index (manage_beforeDelete?)
 

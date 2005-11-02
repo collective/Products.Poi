@@ -10,9 +10,16 @@ from Products.CMFCore.CMFCorePermissions import setDefaultRoles
 
 PROJECTNAME = "Poi"
 
+# Check for Plone 2.1
+try:
+    from Products.CMFPlone.migrations import v2_1
+except ImportError:
+    HAS_PLONE21 = False
+else:
+    HAS_PLONE21 = True
 # Permissions
 DEFAULT_ADD_CONTENT_PERMISSION = "Add portal content"
-setDefaultRoles(DEFAULT_ADD_CONTENT_PERMISSION, ('Manager', 'Owner', 'Member'))
+setDefaultRoles(DEFAULT_ADD_CONTENT_PERMISSION, ('Manager', 'Owner'))
 ADD_CONTENT_PERMISSIONS = {
     'PoiTracker': 'Poi: Add Tracker',
     'PoiIssue': 'Poi: Add Issue',
@@ -37,3 +44,8 @@ except ImportError:
     pass
 
 # End of config.py
+# Things you can do in an AppConfig.py:
+# STYLESHEETS = [{'id': 'my_global_stylesheet.css'},
+#                {'id': 'my_contenttype.css',
+#                 'expression': 'python:object.getTypeInfo().getId() == "MyType"}]
+# You can do the same with JAVASCRIPTS.

@@ -1,7 +1,7 @@
 # File: PoiIssue.py
 # 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.0-beta2 devel 
+# Generator: ArchGenXML Version 1.4.0-RC1 devel 
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
@@ -21,9 +21,9 @@
 __author__  = '''Martin Aspeli <optilude@gmx.net>'''
 __docformat__ = 'plaintext'
 
+
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
-
 from Products.Poi.interfaces.Issue import Issue
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
 
@@ -55,8 +55,8 @@ schema=Schema((
         widget=StringWidget(
             label="Title",
             description="Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue.",
-            label_msgid='Poi_label_issue_title',
-            description_msgid='Poi_help_issue_title',
+            label_msgid='Poi_label_title',
+            description_msgid='Poi_help_title',
             i18n_domain='Poi',
         ),
         required=True,
@@ -67,7 +67,7 @@ schema=Schema((
     TextField('description',
         widget=TextAreaWidget(
             label="Overview",
-            description="Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue.",
+            description="Enter a brief overview of the issue. As with the title, a consise, meaningful description will make it easier for project managers to assess and respond to the issue.",
             label_msgid='Poi_label_description',
             description_msgid='Poi_help_description',
             i18n_domain='Poi',
@@ -232,6 +232,12 @@ schema=Schema((
 )
 
 
+##code-section after-local-schema #fill in your manual code here
+##/code-section after-local-schema
+
+PoiIssue_schema = BaseFolderSchema + \
+    schema
+
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
 
@@ -256,7 +262,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
     immediate_view             = 'base_view'
     default_view               = 'poi_issue_view'
     suppl_views                = ()
-    typeDescription            = "An issue. Issues begin in the 'open' state, and can be responded to by project managers."
+    typeDescription            = "An issue. Issues begin in the 'open' state, and can be responded to by project mangers."
     typeDescMsgId              = 'description_edit_poiissue'
 
     actions =  (
@@ -284,8 +290,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
 
     _at_rename_after_creation  = True
 
-    schema = BaseFolderSchema + \
-             schema
+    schema = PoiIssue_schema
 
     ##code-section class-header #fill in your manual code here
     schema.moveField('subject', after='watchers')
@@ -375,12 +380,18 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         self.setId(newId)
         
 
-    def SearchableText(self):
-        """Include in the SearchableText the text of all responses"""
-        text = BaseObject.SearchableText(self)
-        responses = self.contentValues('PoiResponse')
-        text += ' ' + ' '.join([r.SearchableText() for r in responses])
-        return text
+    def validate_watchers(self, value):
+        """Make sure watchers are actual user ids"""
+        membership = getToolByName(self, 'portal_membership')
+        notFound = []
+        for userId in value:
+            member = membership.getMemberById(userId)
+            if member is None:
+                notFound.append(userId)
+        if notFound:
+            return "The following user ids could not be found: %s" % ','.join(notFound)
+        else:
+            return None
 
 
     def getDefaultSeverity(self):
@@ -460,18 +471,12 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         return vocab
 
 
-    def validate_watchers(self, value):
-        """Make sure watchers are actual user ids"""
-        membership = getToolByName(self, 'portal_membership')
-        notFound = []
-        for userId in value:
-            member = membership.getMemberById(userId)
-            if member is None:
-                notFound.append(userId)
-        if notFound:
-            return "The following user ids could not be found: %s" % ','.join(notFound)
-        else:
-            return None
+    def SearchableText(self):
+        """Include in the SearchableText the text of all responses"""
+        text = BaseObject.SearchableText(self)
+        responses = self.contentValues('PoiResponse')
+        text += ' ' + ' '.join([r.SearchableText() for r in responses])
+        return text
 
 
     security.declareProtected(permissions.View, 'getAreasVocab')

@@ -2,7 +2,7 @@
 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
 #
-# Generator: ArchGenXML Version 1.4.0-beta2 devel
+# Generator: ArchGenXML Version 1.4.0-RC1 devel
 #            http://sf.net/projects/archetypes/
 #
 # GNU General Public Licence (GPL)

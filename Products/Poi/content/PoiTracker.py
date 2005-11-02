@@ -1,7 +1,7 @@
 # File: PoiTracker.py
 # 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.0-beta2 devel 
+# Generator: ArchGenXML Version 1.4.0-RC1 devel 
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
@@ -21,9 +21,9 @@
 __author__  = '''Martin Aspeli <optilude@gmx.net>'''
 __docformat__ = 'plaintext'
 
+
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
-
 from Products.Poi.interfaces.Tracker import Tracker
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
 
@@ -46,8 +46,8 @@ schema=Schema((
         widget=StringWidget(
             label="Tracker name",
             description="Enter a descriptive name for this tracker",
-            label_msgid='Poi_label_tracker_title',
-            description_msgid='Poi_help_tacker_title',
+            label_msgid='Poi_label_title',
+            description_msgid='Poi_help_title',
             i18n_domain='Poi',
         ),
         required=True,
@@ -168,6 +168,12 @@ schema=Schema((
 )
 
 
+##code-section after-local-schema #fill in your manual code here
+##/code-section after-local-schema
+
+PoiTracker_schema = BaseBTreeFolderSchema + \
+    schema
+
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
 
@@ -220,8 +226,7 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
 
     _at_rename_after_creation  = True
 
-    schema = BaseFolderSchema + \
-             schema
+    schema = PoiTracker_schema
 
     ##code-section class-header #fill in your manual code here
     ##/code-section class-header
@@ -387,7 +392,6 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         keys.sort(lambda x, y: cmp(x.lower(), y.lower()))
         return keys
         
-
 
     #manually created methods
 

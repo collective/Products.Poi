@@ -1,7 +1,7 @@
 # File: PoiPscTracker.py
 # 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.0-beta2 devel 
+# Generator: ArchGenXML Version 1.4.0-RC1 devel 
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
@@ -21,9 +21,9 @@
 __author__  = '''Martin Aspeli <optilude@gmx.net>'''
 __docformat__ = 'plaintext'
 
+
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
-
 from Products.Poi.content.PoiTracker import PoiTracker
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
 
@@ -39,6 +39,13 @@ schema=Schema((
 ),
 )
 
+
+##code-section after-local-schema #fill in your manual code here
+##/code-section after-local-schema
+
+PoiPscTracker_schema = BaseFolderSchema + \
+    getattr(PoiTracker,'schema',Schema(())) + \
+    schema
 
 ##code-section after-schema #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
@@ -94,9 +101,7 @@ class PoiPscTracker(PoiTracker,BaseFolder):
 
     _at_rename_after_creation  = True
 
-    schema = BaseFolderSchema + \
-             getattr(PoiTracker,'schema',Schema(())) + \
-             schema
+    schema = PoiPscTracker_schema
 
     ##code-section class-header #fill in your manual code here
     schema = schema.copy()
@@ -106,19 +111,6 @@ class PoiPscTracker(PoiTracker,BaseFolder):
 
     #Methods
     #manually created methods
-
-    security.declareProtected(permissions.View, 'getReleasesVocab')
-    def getReleasesVocab(self):
-        """
-        Get the releases available to the tracker as a DisplayList
-        """
-        catalog = getToolByName(self, 'portal_catalog')
-        releases = catalog.searchResults(
-                        portal_type = 'PSCRelease',
-                        path = '/'.join(self.getPhysicalPath()[:-1]),
-                        )
-        return DisplayList([(r.UID, r.getId) for r in releases])
-
 
     security.declareProtected(permissions.View, 'getAvailableReleases')
     def getAvailableReleases(self):
@@ -131,6 +123,19 @@ class PoiPscTracker(PoiTracker,BaseFolder):
                         path = '/'.join(self.getPhysicalPath()[:-1]),
                         )
         return [r.UID for r in releases]
+
+
+    security.declareProtected(permissions.View, 'getReleasesVocab')
+    def getReleasesVocab(self):
+        """
+        Get the releases available to the tracker as a DisplayList
+        """
+        catalog = getToolByName(self, 'portal_catalog')
+        releases = catalog.searchResults(
+                        portal_type = 'PSCRelease',
+                        path = '/'.join(self.getPhysicalPath()[:-1]),
+                        )
+        return DisplayList([(r.UID, r.getId) for r in releases])
 
 
 def modify_fti(fti):
