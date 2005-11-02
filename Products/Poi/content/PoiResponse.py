@@ -57,8 +57,8 @@ schema=Schema((
             description="""Enter a brief subject for this response, e.g. "Fixed" or "Will be fixed in next release".""",
             visible={'edit' : 'invisible', 'view' : 'invisible'},
             modes=('view',),
-            label_msgid='Poi_label_title',
-            description_msgid='Poi_help_title',
+            label_msgid='Poi_label_response_title',
+            description_msgid='Poi_help_response_title',
             i18n_domain='Poi',
         ),
         accessor="Title",
@@ -236,8 +236,6 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         get_transaction().commit(1)
         self.setId(newId)
         
-        self.sendNotificationMail()
-        
 
     def Title(self):
         """Define title to be the same as response id. Responses have little
@@ -259,11 +257,7 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
 
     def at_post_create_script(self):
         """Send notification email after response has been added"""
-        # XXX: When the AT bug causing this to be called each time we
-        # save (as opposed to only after the first save) is fixed, re-enable
-        # this and remove from _renameAfterCreation():
-        # self.sendNotificationMail()
-        pass
+        self.sendNotificationMail()
 
 
     def sendNotificationMail(self):
