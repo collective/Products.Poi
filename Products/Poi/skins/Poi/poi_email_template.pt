@@ -8,7 +8,11 @@
                       xml:lang language">
 
   <head>
-    <style type="text/css" media="all">
+     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"
+           tal:define="charset site_properties/default_charset|string:utf-8"
+           tal:attributes="content string:text/html;;charset=${charset}" />
+
+    <style type="text/css" medi/a="all">
 <!--
 BODY {
     font-size: 0.9em;
