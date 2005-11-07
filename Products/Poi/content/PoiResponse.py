@@ -240,6 +240,9 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         # portal_factory!
         get_transaction().commit(1)
         self.setId(newId)
+
+        # XXX send notification mail should move to at_post_create_script
+        self.sendNotificationMail()
         
 
     def Title(self):
@@ -262,8 +265,11 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
 
     def at_post_create_script(self):
         """Send notification email after response has been added"""
-        self.sendNotificationMail()
-
+        # XXX: When the AT bug causing this to be called each time we
+        # save (as opposed to only after the first save) is fixed, re-enable
+        # this and remove from _renameAfterCreation():
+        # self.sendNotificationMail()
+        pass
 
     def sendNotificationMail(self):
         """When this response is created, send a notification email to all

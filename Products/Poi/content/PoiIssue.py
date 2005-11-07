@@ -378,6 +378,9 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         # portal_factory!
         get_transaction().commit(1)
         self.setId(newId)
+
+        # XXX send notification mail should move to at_post_create_script
+        self.sendNotificationMail()
         
 
     def validate_watchers(self, value):
@@ -412,8 +415,11 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
 
     def at_post_create_script(self):
         """Send notification email after issue has been created"""
-        self.sendNotificationMail()
-
+        # XXX: When the AT bug causing this to be called each time we
+        # save (as opposed to only after the first save) is fixed, re-enable
+        # this and remove from _renameAfterCreation():
+        # self.sendNotificationMail()
+        pass
 
     security.declareProtected(permissions.View, 'getIssueTypesVocab')
     def getIssueTypesVocab(self):
