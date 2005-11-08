@@ -137,7 +137,7 @@
       </tal:manager>
       <tal:loggedIn condition="not:isAnon">
           <div id="my-issues"
-               tal:define="issues python:here.getFilteredIssues(state=openStates, responsible=member.getId())"
+               tal:define="issues here/getMyIssues"
                tal:condition="nocall:issues">
            
                <h2 i18n:translate="poi_heading_my_issues">My issues</h2>
