@@ -55,8 +55,8 @@ schema=Schema((
         widget=StringWidget(
             label="Title",
             description="Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue.",
-            label_msgid='Poi_label_title',
-            description_msgid='Poi_help_title',
+            label_msgid="Poi_label_issue_title",
+            description_msgid="Poi_help_issue_title",
             i18n_domain='Poi',
         ),
         required=True,
@@ -262,7 +262,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
     immediate_view             = 'base_view'
     default_view               = 'poi_issue_view'
     suppl_views                = ()
-    typeDescription            = "An issue. Issues begin in the 'open' state, and can be responded to by project mangers."
+    typeDescription            = "An issue. Issues begin in the 'open' state, and can be responded to by project managers."
     typeDescMsgId              = 'description_edit_poiissue'
 
     actions =  (
@@ -383,18 +383,12 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         self.sendNotificationMail()
         
 
-    def validate_watchers(self, value):
-        """Make sure watchers are actual user ids"""
-        membership = getToolByName(self, 'portal_membership')
-        notFound = []
-        for userId in value:
-            member = membership.getMemberById(userId)
-            if member is None:
-                notFound.append(userId)
-        if notFound:
-            return "The following user ids could not be found: %s" % ','.join(notFound)
-        else:
-            return None
+    def SearchableText(self):
+        """Include in the SearchableText the text of all responses"""
+        text = BaseObject.SearchableText(self)
+        responses = self.contentValues('PoiResponse')
+        text += ' ' + ' '.join([r.SearchableText() for r in responses])
+        return text
 
 
     def getDefaultSeverity(self):
@@ -420,6 +414,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         # this and remove from _renameAfterCreation():
         # self.sendNotificationMail()
         pass
+
 
     security.declareProtected(permissions.View, 'getIssueTypesVocab')
     def getIssueTypesVocab(self):
@@ -477,12 +472,18 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         return vocab
 
 
-    def SearchableText(self):
-        """Include in the SearchableText the text of all responses"""
-        text = BaseObject.SearchableText(self)
-        responses = self.contentValues('PoiResponse')
-        text += ' ' + ' '.join([r.SearchableText() for r in responses])
-        return text
+    def validate_watchers(self, value):
+        """Make sure watchers are actual user ids"""
+        membership = getToolByName(self, 'portal_membership')
+        notFound = []
+        for userId in value:
+            member = membership.getMemberById(userId)
+            if member is None:
+                notFound.append(userId)
+        if notFound:
+            return "The following user ids could not be found: %s" % ','.join(notFound)
+        else:
+            return None
 
 
     security.declareProtected(permissions.View, 'getAreasVocab')

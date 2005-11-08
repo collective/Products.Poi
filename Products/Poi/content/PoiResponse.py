@@ -57,8 +57,8 @@ schema=Schema((
             description="""Enter a brief subject for this response, e.g. "Fixed" or "Will be fixed in next release".""",
             visible={'edit' : 'invisible', 'view' : 'invisible'},
             modes=('view',),
-            label_msgid='Poi_label_title',
-            description_msgid='Poi_help_title',
+            label_msgid="Poi_label_response_title",
+            description_msgid="Poi_help_response_title",
             i18n_domain='Poi',
         ),
         accessor="Title",
@@ -270,6 +270,7 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         # this and remove from _renameAfterCreation():
         # self.sendNotificationMail()
         pass
+
 
     def sendNotificationMail(self):
         """When this response is created, send a notification email to all

@@ -46,8 +46,8 @@ schema=Schema((
         widget=StringWidget(
             label="Tracker name",
             description="Enter a descriptive name for this tracker",
-            label_msgid='Poi_label_title',
-            description_msgid='Poi_help_title',
+            label_msgid="Poi_label_tracker_title",
+            description_msgid="Poi_help_tracker_title",
             i18n_domain='Poi',
         ),
         required=True,

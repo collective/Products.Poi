@@ -56,14 +56,22 @@ Poi TODO
 
     User interface:
 
+**      o Display issue numbers in listings
+
+        o Let add-response be an add form at the bottom of the issue page
+            - Use a collapsible fieldset
+        o Turn off editable border in edit responses screen
+        
         o Issues-by-tag UI on tracker front page needs more thinking
             - Need a quick and easy way to find issues by tag
             - Need a quick and easy way to add tags to issues
+        
+        o Consider threaded responses (maybe not by default)
+        o Enable quoting other responses/issue text in responses
+            - May be able to plug into Ploneboard?
             
         o The edit tab on issues is becoming very long. Consider re-organising
             it.
-
-        o Turn off editable border in edit responses screen
 
         o Would be nice to link to releases when in PSC view
 
@@ -76,9 +84,7 @@ Poi TODO
         o May be confusing to track issue progress if users edit a response
             and change the issue state, e.g. using a response in the middle.
             Workflow history will still work, of course
-
-        o Verify i18n tags and translations
-
+            
     Tests:
     
         o Functional tests for standard operations
