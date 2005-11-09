@@ -38,8 +38,10 @@ Poi TODO
     
     Bugs/Known issues:
 
-**      o Issues show up twice in tracker overview if both creator and owner
-**      o Set-resolved transition broken
+**      o Set-resolved transition email broken?
+            - "MailHostError: Invalid email address: None"
+            (this may not be the actual error, the code in MailHost that raises
+             this exception is a bit broken)
 
         o Deleting a response will cause issue text to remain in issue
             SearchableText until a re-index (manage_beforeDelete?)
@@ -55,8 +57,6 @@ Poi TODO
         o Add max-size validator on uploaded attachments?
 
     User interface:
-
-**      o Display issue numbers in listings
 
         o Let add-response be an add form at the bottom of the issue page
             - Use a collapsible fieldset

@@ -40,6 +40,7 @@
                tal:define="states here/getIssueWorkflowStates">
             <thead>
                 <tr>
+                    <th i18n:translate="listingheader_number">#</th>
                     <th i18n:translate="listingheader_title">Title</th>
                     <th i18n:translate="listingheader_release"
                         tal:condition="here/isUsingReleases">Release</th>
@@ -55,6 +56,8 @@
                 <tal:issues repeat="item issues">
                     <tr tal:define="oddrow repeat/item/odd"
                         tal:attributes="class python:test(oddrow, 'even', 'odd')">
+                        <td tal:content="item/getId">
+                        </td>
                         <td>
                             <a tal:attributes="href  item/getURL;
                                                title item/Description;" 

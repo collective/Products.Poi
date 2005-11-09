@@ -293,8 +293,8 @@ def setuppoi_issue_workflow(self, workflow):
     transitionDef.setProperties(title="""Resolve""",
                                 new_state_id="""resolved""",
                                 trigger_type=1,
-                                script_name="""sendResolvedMail""",
-                                after_script_name="""""",
+                                script_name="""""",
+                                after_script_name="""sendResolvedMail""",
                                 actbox_name="""Resolve""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
@@ -313,18 +313,6 @@ def setuppoi_issue_workflow(self, workflow):
                                 props={'guard_permissions': 'Poi: Modify issue state'},
                                 )
 
-    transitionDef = workflow.transitions['resolve-open']
-    transitionDef.setProperties(title="""Resolve""",
-                                new_state_id="""resolved""",
-                                trigger_type=1,
-                                script_name="""""",
-                                after_script_name="""""",
-                                actbox_name="""Resolve""",
-                                actbox_url="""""",
-                                actbox_category="""workflow""",
-                                props={'guard_permissions': 'Poi: Modify issue state'},
-                                )
-
     ##creation of workflow scripts
     for wf_scriptname in ['sendResolvedMail']:
         if not wf_scriptname in workflow.scripts.objectIds():
@@ -332,11 +320,23 @@ def setuppoi_issue_workflow(self, workflow):
                 productname + '.poi_issue_workflow_scripts',
                 wf_scriptname))
 
+    transitionDef = workflow.transitions['resolve-open']
+    transitionDef.setProperties(title="""Resolve""",
+                                new_state_id="""resolved""",
+                                trigger_type=1,
+                                script_name="""""",
+                                after_script_name="""sendResolvedMail""",
+                                actbox_name="""Resolve""",
+                                actbox_url="""""",
+                                actbox_category="""workflow""",
+                                props={'guard_permissions': 'Poi: Modify issue state'},
+                                )
+
     transitionDef = workflow.transitions['open-resolved']
     transitionDef.setProperties(title="""Re-open""",
                                 new_state_id="""open""",
                                 trigger_type=1,
-                                script_name="""sendResolvedMail""",
+                                script_name="""""",
                                 after_script_name="""""",
                                 actbox_name="""Re-open""",
                                 actbox_url="""""",
