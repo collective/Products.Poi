@@ -65,7 +65,7 @@ msgstr "Zadejte vydání verzí, ke kterým mohou být úlohy přiřazeny. Každ
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
 msgid "Poi_help_availableSeverities"
-msgstr "Zadejte různé stupně náročnosti úloh, každý na samostatný řádek."
+msgstr "Zadejte různé stupně důležitosti úloh, každý na samostatný řádek."
 
 # ./content/PoiIssue.py
 #. Default: "Optionally, provide an email address where you can be contacted for further information or when a resolution is available."
@@ -75,7 +75,7 @@ msgstr "Můžete poskytnout emailovou adresu, kam vám mohou být v budoucnu pos
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
 msgid "Poi_help_defaultSeverity"
-msgstr "Zvolte výchozí náročnost pro nové úlohy."
+msgstr "Zvolte výchozí důležitost pro nové úlohy."
 
 # ./content/PoiIssue.py
 #. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
@@ -145,7 +145,7 @@ msgstr "Pokud je tato volba aktivní, správci tohoto manažeru úloh obdrží e
 # ./content/PoiIssue.py
 #. Default: "Select the severity of this issue."
 msgid "Poi_help_severity"
-msgstr "Zvolte náročnost této úlohy."
+msgstr "Zvolte důležitost této úlohy."
 
 # ./content/PoiIssue.py
 #. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
@@ -195,7 +195,7 @@ msgstr "Dostupná vydání"
 # ./content/PoiTracker.py
 #. Default: "Available severities"
 msgid "Poi_label_availableSeverities"
-msgstr "Dostupné náročnosti"
+msgstr "Dostupné důležitosti"
 
 # ./content/PoiIssue.py
 #. Default: "Contact email address"
@@ -205,7 +205,7 @@ msgstr "Kontaktní emailová adresa"
 # ./content/PoiTracker.py
 #. Default: "Default severity"
 msgid "Poi_label_defaultSeverity"
-msgstr "Výchozí náročnost"
+msgstr "Výchozí důležitost"
 
 # ./content/PoiIssue.py
 #. Default: "Overview"
@@ -275,7 +275,7 @@ msgstr "Zasílat emailová upozornění"
 # ./content/PoiIssue.py
 #. Default: "Severity"
 msgid "Poi_label_severity"
-msgstr "Náročnost"
+msgstr "Důležitost"
 
 # ./content/PoiIssue.py
 #. Default: "Steps to reproduce"
@@ -355,7 +355,7 @@ msgstr "Odpovědný"
 #. Default: "Severity"
 #: ./skins/Poi/poi_issue_search.pt
 msgid "listingheader_severity"
-msgstr "Náročnost"
+msgstr "Důležitost"
 
 #. Default: "State"
 #: ./skins/Poi/poi_issue_search.pt
@@ -490,7 +490,7 @@ msgstr "Odpovědný"
 #. Default: "Severity"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_label_severity"
-msgstr "Náročnost"
+msgstr "Důležitost"
 
 #. Default: "State"
 #: ./skins/Poi/poi_issue_view.pt
@@ -590,7 +590,7 @@ msgstr "Vyberte odpovědné správce jejichž úlohy si přejete hledat."
 #. Default: "Select the severities you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_help_severity"
-msgstr "Vyberte s jakými stupni náročnosti si přejete úlohy hledat."
+msgstr "Vyberte s jakými stupni důležitosti si přejete úlohy hledat."
 
 #. Default: "Select the states you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt
@@ -635,7 +635,7 @@ msgstr "Odpovědní správci manažeru úloh"
 #. Default: "Severity"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_label_severity"
-msgstr "Náročnost"
+msgstr "Důležitost"
 
 #. Default: "State"
 #: ./skins/Poi/poi_issue_search_form.pt

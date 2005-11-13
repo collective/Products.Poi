@@ -61,10 +61,10 @@ msgid "In progress"
 msgstr "V řešení"
 
 msgid "Being created"
-msgstr "Nové"
+msgstr "Právě vytvářeno"
 
 msgid "Open"
-msgstr "Otevřeno"
+msgstr "Přijato"
 
 msgid "Postponed"
 msgstr "Odloženo"
@@ -76,7 +76,7 @@ msgid "Resolved"
 msgstr "Vyřešeno"
 
 msgid "Unconfirmed"
-msgstr "Nepotvrzeno"
+msgstr "Neodsouhlaseno"
 
 # issue transitions
 
@@ -90,7 +90,7 @@ msgid "Put on hold"
 msgstr "Odložit"
 
 msgid "Re-open"
-msgstr "Znovu otevřít"
+msgstr "Znovu přijmout"
 
 msgid "Post issue on save"
 msgstr "Zadat po uložení"
@@ -107,7 +107,7 @@ msgstr "Vyřešit"
 # response states
 
 msgid "Being created"
-msgstr "Nové"
+msgstr "Právě vytvářeno"
 
 msgid "Posted"
 msgstr "Vytvořeno"
