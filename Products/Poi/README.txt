@@ -66,10 +66,15 @@ defined list.
 Contributing
 
  Poi is maintained using ArchGenXML (current svn or at least 1.4beta2), with
-a Poseidon model found in the model/ directory. Let's keep it that way.
+a Poseidon model found in the model/ directory. Let's keep it that way.  
+
+If you have contributed to Poi in some fashion, be sure to add yourself to 
+the Credits section!
 
 Credits
 
  o Design and development by Martin Aspeli <optilude@gmx.net>
- 
+
+ o Bug fixes and general critiquing by Rocky Burt <rocky@serverzen.com>
+
  o Icons by Vidar Andersen, Black Tar, originally created for CMFCollector.
