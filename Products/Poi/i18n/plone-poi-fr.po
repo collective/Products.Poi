@@ -1,0 +1,117 @@
+# Translation of plone-poi.pot to French
+# Sebastien Douche <sdouche@gmail.com>, 2005.
+msgid ""
+msgstr ""
+"Project-Id-Version: Poi\n"
+"POT-Creation-Date: 2005-10-26 17:00+0000\n"
+"PO-Revision-Date: 2005-11-22 23:12+0100\n"
+"Last-Translator:Sebastien Douche <sdouche@gmail.com>\n"
+"Language-Team: French Translation Team <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: fr\n"
+"Language-Name: French\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+"X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
+
+
+# portal type nams
+msgid "Issue Tracker"
+msgstr "Gestionnaire de bogues"
+
+msgid "An issue tracker"
+msgstr "Un gestionnaire de bogues"
+
+msgid "Issue"
+msgstr "Bogue"
+
+msgid "An issue. Issues begin in the 'open' state, and can be responded to by project managers."
+msgstr "Un bogue. Les bogues  commence avec l'état 'ouvert', et peuvent être gérés par les chefs de projets."
+
+msgid "Response"
+msgstr "Réponse"
+
+msgid "A response to an issue."
+msgstr "Une réponse à un bogue."
+
+# tracker states
+msgid "Open for submissions"
+msgstr "Ouvert pour des demandes"
+
+msgid "Closed for submissions"
+msgstr "Fermé pour des demandes"
+
+# tracker transitions
+msgid "Close tracker"
+msgstr "Fermer le gestionnaire"
+
+msgid "Open tracker"
+msgstr "Ouvrir le gestionnaire"
+
+# issue states
+msgid "Tested and confirmed closed"
+msgstr ""
+
+msgid "In progress"
+msgstr ""
+
+msgid "Being created"
+msgstr ""
+
+msgid "Open"
+msgstr "Ouvert"
+
+msgid "Postponed"
+msgstr "Reporté"
+
+msgid "Rejected"
+msgstr "Rejeté"
+
+msgid "Resolved"
+msgstr "Résolu"
+
+msgid "Unconfirmed"
+msgstr "Non confirmé"
+
+# issue transitions
+msgid " Open"
+msgstr "Ouvert"
+
+msgid "Begin work"
+msgstr ""
+
+msgid "Confirm resolved"
+msgstr ""
+
+msgid "Put on hold"
+msgstr ""
+
+msgid "Re-open"
+msgstr "Ré-ouvert"
+
+msgid "Post issue on save"
+msgstr ""
+
+msgid "Postpone"
+msgstr "Reporter"
+
+msgid "Reject"
+msgstr "Rejeter"
+
+msgid "Resolve"
+msgstr "Résoudre"
+
+# response states
+msgid "Being created"
+msgstr ""
+
+msgid "Posted"
+msgstr "Posté"
+
+# response transitions
+msgid "Post response on save"
+msgstr ""
+
