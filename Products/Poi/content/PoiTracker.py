@@ -361,27 +361,14 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
             log('Cannot send notification email: email sender address or name not set')
             return
         
-        # Added primarily for unit testing so that we could test run the
-        # actual email generation but not really send anything out
-        faked = getattr(self, '_fake_send_email', False)
-        
-        if faked:
-            import sys
-            print >> sys.stdout, \
-                  'PoiTracker.sendNotificationEmail(): not sending ' \
-                  'emails because _fake_send_email was set -- ' \
-                  'subject was "%s"' % subject
-            sys.stdout.flush()
-        
         for address in addresses:
             try:
-                if not faked:
-                    mailHost.secureSend(message = text,
-                                        mto = address,
-                                        mfrom = fromAddress,
-                                        subject = subject,
-                                        subtype = subtype,
-                                        charset = charset)
+                mailHost.secureSend(message = text,
+                                    mto = address,
+                                    mfrom = fromAddress,
+                                    subject = subject,
+                                    subtype = subtype,
+                                    charset = charset)
             except ConflictError:
                 raise
             except:

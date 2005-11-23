@@ -75,8 +75,6 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         tracker.reindexObject()
         self.setRoles(['Member'])
         
-        tracker._fake_send_email = True
-        
         return tracker
 
     def createIssue(self, tracker, title='An issue', 
