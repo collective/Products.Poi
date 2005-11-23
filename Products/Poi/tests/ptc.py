@@ -19,6 +19,9 @@ ZopeTestCase.installProduct('CMFPlone')
 ZopeTestCase.installProduct('Archetypes')
 ZopeTestCase.installProduct('PortalTransforms', quiet=1)
 ZopeTestCase.installProduct('MimetypesRegistry', quiet=1)
+ZopeTestCase.installProduct('Five', quiet=1)
+ZopeTestCase.installProduct('ArchAddOn', quiet=1)
+
 
 ZopeTestCase.installProduct('Poi')
 
@@ -71,6 +74,9 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         tracker.setMailingList(mailingList)
         tracker.reindexObject()
         self.setRoles(['Member'])
+        
+        tracker._fake_send_email = True
+        
         return tracker
 
     def createIssue(self, tracker, title='An issue', 

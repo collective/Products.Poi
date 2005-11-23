@@ -11,6 +11,9 @@ from Products.Poi.tests import ptc
 
 default_user = ZopeTestCase.user_name
 
+class _MockState:
+    pass
+
 class TestTracker(ptc.PoiTestCase):
     """Test tracker functionality"""
 
@@ -111,6 +114,43 @@ class TestEmailNotifications(ptc.PoiTestCase):
         self.createIssue(self.tracker, tags=('B', 'C',))
         self.createIssue(self.tracker, tags=('A', 'D',))
         self.assertEqual(self.tracker.getTagsInUse(), ['A', 'B', 'C', 'D'])
+
+    
+    # The following tests don't map directly to functional methods but are
+    # meant to make sure no errors arise from sending emails
+    # -- begin email tests
+    def testNewIssueEmail(self):
+        self.tracker.setSendNotificationEmails(True)
+        self.tracker.update(title='Random Tracker')
+        issue = self.createIssue(self.tracker,
+                                 contactEmail='submitter@domain.com', 
+                                 watchers=('member1', 'member2',))
+        issue.sendNotificationMail()
+
+    def testNewResponseEmail(self):
+        self.tracker.setSendNotificationEmails(True)
+        self.tracker.update(title='Random Tracker')
+        issue = self.createIssue(self.tracker, 
+                                 contactEmail='submitter@domain.com', 
+                                 watchers=('member1', 'member2',))
+        response = self.createResponse(issue)
+        response.sendNotificationMail()
+
+    def testResolvedEmail(self):
+        self.tracker.setSendNotificationEmails(True)
+        self.tracker.update(title='Random Tracker')
+        
+        issue = self.createIssue(self.tracker, 
+                                 contactEmail='submitter@domain.com', 
+                                 watchers=('member1', 'member2',))
+
+        from Products.Poi.Extensions import poi_issue_workflow_scripts as wfScripts
+        state = _MockState()
+        state.object = issue
+        wfScripts.sendResolvedMail(self.portal, state)
+    
+    # -- end email tests
+
 
 class TestTrackerSearch(ptc.PoiTestCase):
     """Test tracker search functionality"""
