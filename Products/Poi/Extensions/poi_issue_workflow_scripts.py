@@ -45,11 +45,14 @@ def sendResolvedMail(self,state_change,**kw):
     if not issueEmail:
         return
 
+    portal_membership = getToolByName(self, 'portal_membership')
+    member = portal_membership.getAuthenticatedMember()
+
     portal_url = getToolByName(self, 'portal_url')
     portal = portal_url.getPortalObject()
     fromName = portal.getProperty('email_from_name', None)
-    mailText = issue.poi_notify_issue_resolved(issue, issue = issue, fromName = fromName)
-    subject = "Issue '%s' in tracker '%s' resolved" % (issue.Title(), tracker.Title(),)
+    mailText = issue.poi_notify_issue_resolved(issue, issue = issue, fromName = fromName, stateChanger = member.getUserName())
+    subject = "[%s] Issue '%s. %s' resolved" % (tracker.Title(), issue.getId(), issue.Title(),)
 
     tracker.sendNotificationEmail([issueEmail], subject, mailText)
 

@@ -2,12 +2,13 @@
       i18n:domain="Poi">
   <body>
     <div metal:fill-slot="main" tal:omit-tag=""
-         tal:define="issue python:options.get('issue', here);
-                     tracker python:options.get('tracker', issue.aq_parent);
-                     fromName python:options.get('fromName', 'unspecified');
-                     ">
+         tal:define="resolver options/stateChanger;
+                     resolverMember python:mtool.getMemberInfo(resolver);
+                     resolverName python:resolverMember and resolverMember['fullname'] or resolver;
+         ">
 
-<p i18n:translate="poi_notify_issue_resolved"> The following issue in the "<span i18n:name="tracker_title" tal:omit-tag="" tal:content="here/aq_parent/Title" />" tracker has been marked as resolved.
+<p i18n:translate="poi_notify_issue_resolved"> The following issue in the "<span i18n:name="tracker_title" tal:omit-tag="" tal:content="here/aq_parent/Title" />" 
+tracker has been marked as resolved by "<span i18n:name="resolver_name" tal:omit-tag="" tal:content="resolverName" />".
 Please visit the issue and use the "state" drop-down to either confirm that it has been satisfactorily resolved or re-open it.
 </p>
 
@@ -19,18 +20,19 @@ Please visit the issue and use the "state" drop-down to either confirm that it h
          href="">tracker</a></dd>
 
   <dt i18n:translate="label_issue">Issue</dt>
-  <dd><a tal:content="issue/title_or_id"
+  <dd><a tal:content="string:${issue/getId}. ${issue/Title}"
          tal:attributes="href issue/absolute_url"
          href="">issue</a></dd>
 
+  <dt i18n:translate="label_issue_author">Issue Author</dt>
+  <dd tal:content="issueAuthorName">issue author</dd>
+
   <dt i18n:translate="label_issue_overview">Issue Overview</dt>
   <dd tal:content="issue/Description">issue overview</dd>
+
+  <dt i18n:translate="label_resolver">Resolver</dt>
+  <dd tal:content="resolverName">resolver</dd>
 </dl>
-
-
-<p class="discreet" i18n:translate="mail_no_reply">
-* This is an automated email, please do not reply - <span tal:omit-tag="" tal:content="fromName" i18n:name="formName"/>
-</p>
 
     </div>
 

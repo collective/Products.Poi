@@ -3,13 +3,14 @@
   <body>
     <div metal:fill-slot="main" tal:omit-tag=""
          tal:define="response python:options.get('response', here);
-                     issue python:options.get('issue', response.aq_parent);
-                     tracker python:options.get('tracker', issue.aq_parent);
-                     fromName python:options.get('fromName', 'unspecified');
+                     responseCreator response/Creator;
+                     responseAuthor python:mtool.getMemberInfo(responseCreator);
+                     responseAuthorName python:responseAuthor and responseAuthor['fullname'] or responseCreator;
                      ">
 
 <p i18n:translate="poi_notify_new_response">
 A new response has been given to the issue "<span i18n:name="issue_title" tal:omit-tag="" tal:content="here/aq_parent/Title" />" in the tracker "<span i18n:name="tracker_title" tal:omit-tag="" tal:content="here/aq_parent/aq_parent/Title" />"
+by "<span i18n:name="response_author_name" tal:omit-tag="" tal:content="responseAuthorName" />".
 </p>
 
 <div style="padding-left: 1em; background-color: #eaeaea" tal:content="structure response/getResponse">response</div>
@@ -30,19 +31,19 @@ State Change: <span tal:omit-tag="" tal:content="change" i18n:name="change">some
          href="">tracker</a></dd>
 
   <dt i18n:translate="label_issue">Issue</dt>
-  <dd><a tal:content="issue/title_or_id"
+  <dd><a tal:content="string:${issue/getId}. ${issue/Title}"
          tal:attributes="href issue/absolute_url"
          href="">issue</a></dd>
 
+  <dt i18n:translate="label_issue_author">Issue Author</dt>
+  <dd tal:content="issueAuthorName">issue author</dd>
+
   <dt i18n:translate="label_issue_overview">Issue Overview</dt>
   <dd tal:content="issue/Description">issue overview</dd>
+
+  <dt i18n:translate="label_response_author">Response Author</dt>
+  <dd tal:content="responseAuthorName">response author</dd>
 </dl>
-
-
-<p class="discreet" i18n:translate="mail_no_reply">
-* This is an automated email, please do not reply - <span tal:omit-tag="" tal:content="fromName" i18n:name="fromName"/>
-</p>
-
     </div>
 
   </body>

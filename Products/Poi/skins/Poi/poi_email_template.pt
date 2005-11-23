@@ -6,13 +6,22 @@
       lang="en"
       i18n:domain="Poi"
       tal:attributes="lang language;
-                      xml:lang language">
+                      xml:lang language"
+      tal:define="issue python:options.get('issue', here);
+                  tracker python:options.get('tracker', issue.aq_parent);
+                  fromName python:options.get('fromName', 'unspecified');
+                  mtool here/portal_membership;
+                  issueCreator issue/Creator;
+                  issueAuthor python:mtool.getMemberInfo(issueCreator);
+                  issueAuthorName python:issueAuthor and issueAuthor['fullname'] or issueCreator;
+      ">
 
   <head>
      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"
            tal:define="charset site_properties/default_charset|string:utf-8;
                        contentType string:text/html;;charset=${charset};
-                       dummy python:request.RESPONSE.setHeader('Content-Type', contentType)"
+                       dummy python:request.RESPONSE.setHeader('Content-Type', contentType);
+                       "
            tal:attributes="content contentType" />
 
     <style type="text/css" media="all">
@@ -46,6 +55,10 @@ DT {
 <metal:bodytext metal:define-slot="main" tal:content="nothing">
   Email body text
 </metal:bodytext>
+
+<p class="discreet" i18n:translate="mail_no_reply">
+* This is an automated email, please do not reply - <span tal:omit-tag="" tal:content="fromName" i18n:name="formName"/>
+</p>
 
   </body>
 </html>

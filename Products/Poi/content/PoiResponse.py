@@ -285,7 +285,7 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
 
         addresses = tracker.getNotificationEmailAddresses(issue)
         mailText = self.poi_notify_new_response(self, tracker = tracker, issue = issue, response = self, fromName = fromName)
-        subject = "New response to issue '%s' in tracker '%s'" % (issue.Title(), tracker.Title(),)
+        subject = "[%s] New response to issue '%s. %s'" % (tracker.Title(), issue.getId(), issue.Title(),)
         
         tracker.sendNotificationEmail(addresses, subject, mailText)
 

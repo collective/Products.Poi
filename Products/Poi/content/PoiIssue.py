@@ -508,7 +508,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         
         addresses = tracker.getNotificationEmailAddresses()
         mailText = self.poi_notify_new_issue(self, tracker = tracker, issue = self, fromName = fromName)
-        subject = "New issue in tracker '%s'" % tracker.Title()
+        subject = "[%s] New issue" % tracker.Title()
         
         tracker.sendNotificationEmail(addresses, subject, mailText)
         
