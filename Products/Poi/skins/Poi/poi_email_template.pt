@@ -57,7 +57,7 @@ DT {
 </metal:bodytext>
 
 <p class="discreet" i18n:translate="mail_no_reply">
-* This is an automated email, please do not reply - <span tal:omit-tag="" tal:content="fromName" i18n:name="formName"/>
+* This is an automated email, please do not reply - <span tal:omit-tag="" tal:content="fromName" i18n:name="fromName"/>
 </p>
 
   </body>
