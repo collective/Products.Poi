@@ -659,7 +659,7 @@ msgid "poi_up_to_issue"
 msgstr "完整查看问题"
 
 msgid "poi_notify_new_issue"
-msgstr "一个新的问题已经提交到问题跟踪器“${tracker_title}”中了，正在等待确认."
+msgstr "一个新的问题已经提交到了问题跟踪器：“${tracker_title}”，等待确认."
 
 msgid "heading_issue_details"
 msgstr "问题详细信息"
@@ -680,7 +680,17 @@ msgid "poi_notify_issue_resolved"
 msgstr "在跟踪器“${tracker_title}”中，下面的这个问题已经标记为解决了。请访问这个问题，使用“状态”下拉菜单来确认：已经真正解决了，或者需要重新开放。"
 
 msgid "poi_notify_new_response"
-msgstr "一个新的答复已经给到跟踪器“${tracker_title}”中的问题“${issue_title}”了."
+msgstr "一个新的答复已经提交给了跟踪器“${tracker_title}”中的问题：“${issue_title}”"
 
 msgid "issue_state_change"
 msgstr "状态变化：${change}"
+
+msgid "label_issue_author"
+msgstr "问题提交人"
+
+msgid "label_resolver"
+msgstr "问题解决人"
+
+msgid "label_response_author"
+msgstr "问题答复人"
+
