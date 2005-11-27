@@ -29,9 +29,9 @@ from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolde
 
 
 # additional imports from tagged value 'import'
-from Products.ArchAddOn.Fields import SimpleDataGridField
+from Products.DataGridField.DataGridField import DataGridField
 from Products.Poi import permissions
-from Products.ArchAddOn.Widgets import SimpleDataGridWidget
+from Products.DataGridField.DataGridWidget import DataGridWidget
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
 from Products.Poi.config import *
@@ -66,32 +66,32 @@ schema=Schema((
         accessor="Description"
     ),
 
-    SimpleDataGridField('availableAreas',
-        default=['ui | User interface | User interface issues', 'functionality | Functionality| Issues with the basic functionality', 'process | Process | Issues relating to the development process itself'],
-        widget=SimpleDataGridWidget(
+    DataGridField('availableAreas',
+        default=({'id' : 'ui', 'title' : 'User interface', 'description' : 'User interface issues'}, {'id' : 'functionality', 'title' : 'Functionality', 'description' : 'Issues with the basic functionality'}, {'id' : 'process', 'title' : 'Process', 'description' : 'Issues relating to the development process itself'}),
+        widget=DataGridWidget(
             label="Areas",
             description="""Enter the issue topics/areas for this tracker, one specification per line. The format is "Short name | Title | Description".""",
+            column_names=('Short name', 'Title', 'Description',),
             label_msgid='Poi_label_availableAreas',
             description_msgid='Poi_help_availableAreas',
             i18n_domain='Poi',
         ),
-        column_names=('id', 'title', 'description',),
-        columns=3,
-        required=True
+        required=True,
+        columns=('id', 'title', 'description',)
     ),
 
-    SimpleDataGridField('availableIssueTypes',
-        default=['bug | Bug | Functionality bugs in the software', 'feature | Feature | Suggested features', 'patch | Patch | Patches to the software'],
-        widget=SimpleDataGridWidget(
+    DataGridField('availableIssueTypes',
+        default=({'id' : 'bug', 'title' : 'Bug', 'description' : 'Functionality bugs in the software'}, {'id' : 'feature', 'title' : 'Feature', 'description' : 'Suggested features'}, {'id' : 'patch', 'title' : 'Patch', 'description' : 'Patches to the software'}),
+        widget=DataGridWidget(
             label="Issue types",
             description="""Enter the issue types for this tracker, one specification per line. The format is "Short name | Title | Description".""",
+            column_names=('Short name', 'Title', 'Description',),
             label_msgid='Poi_label_availableIssueTypes',
             description_msgid='Poi_help_availableIssueTypes',
             i18n_domain='Poi',
         ),
-        column_names=('id', 'title', 'description'),
-        columns=3,
-        required=True
+        required=True,
+        columns=('id', 'title', 'description')
     ),
 
     LinesField('availableSeverities',

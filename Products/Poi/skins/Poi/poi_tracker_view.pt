@@ -61,10 +61,10 @@
       <div id="open-issues-by-area" class="issue-quick-search-box">
           <h3 i18n:translate="poi_heading_by_area">By area</h3>
           <ul>
-              <tal:areas repeat="area python:here.getWrappedField('availableAreas').getAsGrid(here)">
-                <li tal:define="areaId          python:area[0];
-                                areaTitle       python:area[1];
-                                areaDescription python:area[2];
+              <tal:areas repeat="area here/getAvailableAreas">
+                <li tal:define="areaId          area/id;
+                                areaTitle       area/title;
+                                areaDescription area/description;
                                 issues          python:here.getFilteredIssues(area=areaId, state=openStates)">
                 <a tal:attributes="href string:${issueQueryString}&amp;area=${areaId};
                                    title areaDescription" 

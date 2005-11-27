@@ -1,7 +1,3 @@
-#
-# Skeleton ContextHelpTestCase
-#
-
 import os, sys
 if __name__ == '__main__':
     execfile(os.path.join(sys.path[0], 'framework.py'))
@@ -25,8 +21,8 @@ class TestTracker(ptc.PoiTestCase):
     def testEditTracker(self):
         self.tracker.setTitle('title')
         self.tracker.setDescription('description')
-        self.tracker.setAvailableAreas(('area | Area | Issue area',))
-        self.tracker.setAvailableIssueTypes(('type | Type | Issue type',))
+        self.tracker.setAvailableAreas(({'id' : 'area', 'title' : 'Area', 'description' : 'Issue area'},))
+        self.tracker.setAvailableIssueTypes(({'id' : 'type', 'title' : 'Type', 'description' : 'Issue type'},))
         self.tracker.setAvailableSeverities(('one', 'two',))
         self.tracker.setDefaultSeverity('two')
         self.tracker.setAvailableReleases(('1.0', '2.0',))
@@ -36,8 +32,8 @@ class TestTracker(ptc.PoiTestCase):
         
         self.assertEqual(self.tracker.Title(), 'title')
         self.assertEqual(self.tracker.Description(), 'description')
-        self.assertEqual(self.tracker.getAvailableAreas(), ('area | Area | Issue area',))
-        self.assertEqual(self.tracker.getAvailableIssueTypes(), ('type | Type | Issue type',))
+        self.assertEqual(self.tracker.getAvailableAreas(), ({'id' : 'area', 'title' : 'Area', 'description' : 'Issue area'},))
+        self.assertEqual(self.tracker.getAvailableIssueTypes(), ({'id' : 'type', 'title' : 'Type', 'description' : 'Issue type'},))
         self.assertEqual(self.tracker.getAvailableSeverities(), ('one', 'two',))
         self.assertEqual(self.tracker.getDefaultSeverity(), 'two')
         self.assertEqual(self.tracker.getAvailableReleases(), ('1.0', '2.0',))

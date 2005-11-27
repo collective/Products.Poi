@@ -70,9 +70,9 @@
                             <div tal:condition="python:item.getRelease == '(UNASSIGNED)'"
                                  style="text-align:center">&mdash;</div>
                         </td>
-                        <td tal:content="python:here.getDataGridRow('availableAreas', item.getArea)['title']" 
+                        <td tal:content="python:here.getWrappedField('availableAreas').lookup(here, item.getArea, 'title')" 
                             tal:on-error="item/getArea"/>
-                        <td tal:content="python:here.getDataGridRow('availableIssueTypes', item.getIssueType)['title']"
+                        <td tal:content="python:here.getWrappedField('availableIssueTypes').lookup(here, item.getIssueType, 'title')"
                             tal:on-error="item/getIssueType" />
                         <td tal:content="item/getSeverity" />
                         <td tal:content="python:here.toLocalizedTime(item.created)"/>

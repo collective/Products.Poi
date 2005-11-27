@@ -4,6 +4,7 @@ from Products.CMFDynamicViewFTI.migrate import migrateFTIs
 
 from StringIO import StringIO
 
+from Products.Poi.Extensions.Migrations import migrate
 
 def addCatalogMetadata(self, out, catalog, column):
     """Add the given column to the catalog's metadata schema"""
@@ -99,5 +100,8 @@ def install(self):
                             'success', 'PoiResponse', None, 'traverse_to', 'string:poi_response_update_issue')
     addFormControllerAction(self, out, controller, 'validate_integrity',
                             'success', 'PoiIssue', None, 'traverse_to', 'string:poi_issue_post')
+                            
+    # Run migrations
+    print >> out, migrate(self)
 
     return out.getvalue()

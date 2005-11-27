@@ -1,7 +1,3 @@
-#
-# Skeleton ContextHelpTestCase
-#
-
 import os, sys
 if __name__ == '__main__':
     execfile(os.path.join(sys.path[0], 'framework.py'))
@@ -27,8 +23,8 @@ class TestInstallation(ptc.PoiTestCase):
                          'PoiIssue'      : 'poi_issue_workflow',
                          'PoiResponse'   : 'poi_response_workflow'}
 
-    def testArchAddOnInstalled(self):
-        self.failUnless('archaddon' in self.skins.objectIds())
+    def testDataGridFieldInstalled(self):
+        self.failUnless('DataGridWidget' in self.skins.objectIds())
 
     def testAddRemoveWidgetInstalled(self):
         self.failUnless('AddRemoveWidget' in self.skins.objectIds())

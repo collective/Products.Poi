@@ -20,8 +20,8 @@ ZopeTestCase.installProduct('Archetypes')
 ZopeTestCase.installProduct('PortalTransforms', quiet=1)
 ZopeTestCase.installProduct('MimetypesRegistry', quiet=1)
 ZopeTestCase.installProduct('Five', quiet=1)
-ZopeTestCase.installProduct('ArchAddOn', quiet=1)
-
+ZopeTestCase.installProduct('DataGridField', quiet=1)
+ZopeTestCase.installProduct('contentmigrations', quiet=1)
 
 ZopeTestCase.installProduct('Poi')
 
@@ -50,8 +50,8 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
                                     'last_login_time': DateTime(last_login_time),})
 
     def createTracker(self, folder, id, title='', description='',
-                        availableAreas=['ui | User interface | User interface issues', 'functionality | Functionality| Issues with the basic functionality', 'process | Process | Issues relating to the development process itself'],
-                        availableIssueTypes=['bug | Bug | Functionality bugs in the software', 'feature | Feature | Suggested features', 'patch | Patch | Patches to the software'],
+                        availableAreas=({'id' : 'ui', 'title' : 'User interface', 'description' : 'User interface issues'}, {'id' : 'functionality', 'title' : 'Functionality', 'description' : 'Issues with the basic functionality'}, {'id' : 'process', 'title' : 'Process', 'description' : 'Issues relating to the development process itself'}),
+                        availableIssueTypes=({'id' : 'bug', 'title' : 'Bug', 'description' : 'Functionality bugs in the software'}, {'id' : 'feature', 'title' : 'Feature', 'description' : 'Suggested features'}, {'id' : 'patch', 'title' : 'Patch', 'description' : 'Patches to the software'}),
                         availableSeverities=['Critical', 'Important', 'Medium', 'Low'],
                         defaultSeverity='Medium',
                         availableReleases=['2.0', '1.0'],
