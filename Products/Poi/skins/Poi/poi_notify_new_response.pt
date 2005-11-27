@@ -13,6 +13,8 @@ A new response has been given to the issue "<span i18n:name="issue_title" tal:om
 by "<span i18n:name="response_author_name" tal:omit-tag="" tal:content="responseAuthorName" />".
 </p>
 
+<div tal:content="structure response/Description"> response description </div>
+
 <div style="padding-left: 1em; background-color: #eaeaea" tal:content="structure response/getResponse">response</div>
 
 <p class="discreet"
@@ -43,6 +45,7 @@ State Change: <span tal:omit-tag="" tal:content="change" i18n:name="change">some
 
   <dt i18n:translate="label_response_author">Response Author</dt>
   <dd tal:content="responseAuthorName">response author</dd>
+
 </dl>
     </div>
 
