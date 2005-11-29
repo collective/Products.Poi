@@ -5,7 +5,6 @@ try:
 except ImportError:
     haveContentMigrations = False
     
-import transaction
 import types
 
 from StringIO import StringIO
@@ -50,7 +49,7 @@ def beta2_rc1(self, out):
     portal = getToolByName(self, 'portal_url').getPortalObject()
     walker = CustomQueryWalker(portal, DataFieldMigrator, query = {})
     # Need this to avoid copy errors....
-    transaction.commit(1)
+    get_transaction().commit(1)
     print >> out, "Migrating from SimpleDataGridField to DataGridField"
     walker.go()
     

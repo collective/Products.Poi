@@ -24,11 +24,15 @@ Installation and dependencies
   Poi requires:
   
     - Plone 2.1
-    - ArchAddOn
+    - DataGridField (*)
     - AddRemoveWidget
+
     
     - For PloneSoftwareCenter integration, PloneSoftwareCenter 1.0beta7 
         (currentlyfrom the plone2.1-integration branch) is required.
+
+(*) NOTE: Before version 1.0 beta 2, ArchAddOn was required instead of
+DataGridField.
 
 Install using Add/Remove Products as normal. If you want PloneSoftwareCenter
 configuration to be automatically configured, install PSC *first*.
