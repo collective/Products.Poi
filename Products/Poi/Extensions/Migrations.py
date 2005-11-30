@@ -38,7 +38,7 @@ def beta2_rc1(self, out):
         return
 
     class DataFieldMigrator(InlineFieldActionMigrator):
-        src_portal_type = src_meta_type = 'PoiTracker'
+        src_portal_type = src_meta_type = ('PoiTracker', 'PoiPscTracker',)
         fieldActions = ({ 'fieldName' : 'availableAreas',
                           'transform' : simpleDataGrid2DataGrid,
                         },
@@ -46,6 +46,14 @@ def beta2_rc1(self, out):
                           'transform' : simpleDataGrid2DataGrid,
                         },)
 
+    attool = getToolByName(self, 'archetype_tool')
+
+    # Seriously, people who make these types of APIs should be shot...
+    class FakeRequest:
+        form = {'PoiTracker'    : True, 
+                'PoiPscTracker' : True}
+    attool.manage_updateSchema(REQUEST = FakeRequest())
+    
     portal = getToolByName(self, 'portal_url').getPortalObject()
     walker = CustomQueryWalker(portal, DataFieldMigrator, query = {})
     # Need this to avoid copy errors....
