@@ -126,7 +126,7 @@
                
                <h2 i18n:translate="poi_heading_unconfirmed_issues">Unconfirmed issues</h2>
                <p i18n:translate="poi_help_unconfirmed_issues">
-                   The following issues have not yet been confirmed or assigned. Please
+                   The following issues have not yet been confirmed. Please
                    review them and take the appropriate action.
                </p>
                
@@ -146,7 +146,7 @@
                </p>
            
                <p tal:condition="not:isManager" i18n:translate="poi_help_my_issues_not_manager">
-                   The following open issues were either submitted by you, or have been assigned to you.
+                   The following open issues were submitted by you.
                </p>
 
                <metal:table use-macro="here/poi_issue_search/macros/issue_search_results" />

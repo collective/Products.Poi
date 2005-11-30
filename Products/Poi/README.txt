@@ -26,16 +26,33 @@ Installation and dependencies
     - Plone 2.1
     - DataGridField (*)
     - AddRemoveWidget
+    
+    - For migration from versions before 1.0b2, contentmigration is required.
 
     
     - For PloneSoftwareCenter integration, PloneSoftwareCenter 1.0beta7 
         (currentlyfrom the plone2.1-integration branch) is required.
 
 (*) NOTE: Before version 1.0 beta 2, ArchAddOn was required instead of
-DataGridField.
+DataGridField. 
 
-Install using Add/Remove Products as normal. If you want PloneSoftwareCenter
-configuration to be automatically configured, install PSC *first*.
+If you had a version prior to 1.0 beta 2 installed, you must run migrations
+to avoid losing your old grids (available areas, available issue types). This
+is automatic, but you need to install the 'contentmigration' product. This can
+be found at
+
+    https://svn.plone.org/svn/collective/contentmigration/trunk
+    
+It is also bundled with the release tarball. Simply drop the 'contentmigration'
+product into your Products/ folder and re-install Poi from the Add/Remove 
+Products control panel or portal_quickinstaller in the ZMI.
+
+If you do not have any old Poi trackers around, you do not need to run 
+migrations.
+
+For new installations, install using Add/Remove Products as normal. If you want
+PloneSoftwareCenter configuration to be automatically configured, install PSC
+*first*. 
 
 Usage
 

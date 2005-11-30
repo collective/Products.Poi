@@ -32,16 +32,16 @@ Poi TODO
         - Should look at PCNG's export format in particular
         - Should allow partial updates, e.g. change issue, add new issue,
             over XML
+            
+    o RSS feed of issues
+        - see 
+        
+    o Notification email to manager when assigned to an issue
     
     Fixes:
     ------
     
     Bugs/Known issues:
-
-**      o Set-resolved transition email broken?
-            - "MailHostError: Invalid email address: None"
-            (this may not be the actual error, the code in MailHost that raises
-             this exception is a bit broken)
 
         o Deleting a response will cause issue text to remain in issue
             SearchableText until a re-index (manage_beforeDelete?)
