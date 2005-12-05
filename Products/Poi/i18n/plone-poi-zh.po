@@ -45,6 +45,9 @@ msgstr "允许提交"
 msgid "Closed for submissions"
 msgstr "关闭提交"
 
+msgid "Open to members for submissions"
+msgstr "允许成员提交"
+
 # tracker transitions
 
 msgid "Close tracker"
@@ -52,6 +55,9 @@ msgstr "关闭跟踪器"
 
 msgid "Open tracker"
 msgstr "打开跟踪器"
+
+msgid "Open tracker for members"
+msgstr "仅为成员打开跟踪器"
 
 # issue states
 
