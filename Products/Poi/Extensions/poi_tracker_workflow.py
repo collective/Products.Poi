@@ -70,7 +70,7 @@ def setuppoi_tracker_workflow(self, workflow):
 
     stateDef = workflow.states['open']
     stateDef.setProperties(title="""Open for submissions""",
-                           transitions=['close'])
+                           transitions=['close', 'memberopen'])
     stateDef.setPermission('Poi: Add Issue',
                            0,
                            ['Anonymous', 'Member', 'Manager', 'Owner'])
@@ -114,7 +114,7 @@ def setuppoi_tracker_workflow(self, workflow):
 
     stateDef = workflow.states['memberopen']
     stateDef.setProperties(title="""Open to members for submissions""",
-                           transitions=['close'])
+                           transitions=['close', 'open'])
     stateDef.setPermission('Poi: Add Issue',
                            0,
                            ['Member', 'Manager', 'Owner'])
