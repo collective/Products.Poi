@@ -46,10 +46,10 @@ def setuppoi_tracker_workflow(self, workflow):
     ##/code-section create-workflow-setup-method-header
 
 
-    for s in ['open', 'closed', 'memberopen']:
+    for s in ['open', 'closed']:
         workflow.states.addState(s)
 
-    for t in ['close', 'open', 'memberopen']:
+    for t in ['close', 'open']:
         workflow.transitions.addTransition(t)
 
     for v in ['review_history', 'comments', 'time', 'actor', 'action']:
@@ -70,7 +70,7 @@ def setuppoi_tracker_workflow(self, workflow):
 
     stateDef = workflow.states['open']
     stateDef.setProperties(title="""Open for submissions""",
-                           transitions=['close', 'memberopen'])
+                           transitions=['close'])
     stateDef.setPermission('Poi: Add Issue',
                            0,
                            ['Anonymous', 'Member', 'Manager', 'Owner'])
@@ -92,7 +92,7 @@ def setuppoi_tracker_workflow(self, workflow):
 
     stateDef = workflow.states['closed']
     stateDef.setProperties(title="""Closed for submissions""",
-                           transitions=['open', 'memberopen'])
+                           transitions=['open'])
     stateDef.setPermission('Poi: Add Issue',
                            0,
                            ['Manager', 'Owner'])
@@ -111,28 +111,6 @@ def setuppoi_tracker_workflow(self, workflow):
     stateDef.setPermission('Add portal content',
                            0,
                            ['Manager', 'Owner'])
-
-    stateDef = workflow.states['memberopen']
-    stateDef.setProperties(title="""Open to members for submissions""",
-                           transitions=['close', 'open'])
-    stateDef.setPermission('Poi: Add Issue',
-                           0,
-                           ['Member', 'Manager', 'Owner'])
-    stateDef.setPermission('Poi: Add Response',
-                           0,
-                           ['Member', 'Manager', 'Owner'])
-    stateDef.setPermission('View',
-                           0,
-                           ['Member', 'Manager', 'Owner'])
-    stateDef.setPermission('Modify portal content',
-                           0,
-                           ['Owner', 'Manager'])
-    stateDef.setPermission('Access contents information',
-                           0,
-                           ['Member', 'Manager', 'Owner'])
-    stateDef.setPermission('Add portal content',
-                           0,
-                           ['Member', 'Manager', 'Owner'])
 
     ## Transitions initialization
 
@@ -155,18 +133,6 @@ def setuppoi_tracker_workflow(self, workflow):
                                 script_name="""""",
                                 after_script_name="""""",
                                 actbox_name="""Open tracker""",
-                                actbox_url="""""",
-                                actbox_category="""workflow""",
-                                props={'guard_roles': 'Owner; Manager'},
-                                )
-
-    transitionDef = workflow.transitions['memberopen']
-    transitionDef.setProperties(title="""Open tracker for members""",
-                                new_state_id="""memberopen""",
-                                trigger_type=1,
-                                script_name="""""",
-                                after_script_name="""""",
-                                actbox_name="""Open tracker for members""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
                                 props={'guard_roles': 'Owner; Manager'},
