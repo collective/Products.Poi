@@ -40,11 +40,11 @@
           </tr>
           <tr>
               <th i18n:translate="poi_label_area">Area</th>
-              <td tal:content="python:here.aq_parent.getWrappedField('availableAreas').lookup(here, here.getArea(), 'title')" />
+              <td tal:content="python:here.aq_parent.queryDataGrid('availableAreas', 'lookup', [here.getArea(), 'title'])" />
           </tr>
           <tr>
               <th i18n:translate="poi_label_type">Issue type</th>
-              <td tal:content="python:here.aq_parent.getWrappedField('availableIssueTypes').lookup(here, here.getIssueType(), 'title')" />
+              <td tal:content="python:here.aq_parent.queryDataGrid('availableIssueTypes', 'lookup', [here.getIssueType(), 'title'])" />
           </tr>
           <tr>
               <th i18n:translate="poi_label_severity">Severity</th>

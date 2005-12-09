@@ -120,6 +120,7 @@
       <div class="visualClear"><!----></div>
       
       <tal:manager condition="isManager">
+         
           <div id="unassigned-issues"
                tal:define="issues python:here.getFilteredIssues(state='unconfirmed')"
                tal:condition="nocall:issues">

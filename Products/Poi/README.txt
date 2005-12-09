@@ -47,6 +47,10 @@ It is also bundled with the release tarball. Simply drop the 'contentmigration'
 product into your Products/ folder and re-install Poi from the Add/Remove 
 Products control panel or portal_quickinstaller in the ZMI.
 
+If you are still receiving errors, go to archetype_tool in the ZMI and perform a 
+schema update on PoiTracker and PoiPscTracker before doing the re-install as 
+above.
+
 If you do not have any old Poi trackers around, you do not need to run 
 migrations.
 
