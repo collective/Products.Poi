@@ -137,11 +137,11 @@ schema=Schema((
 
     TextField('details',
         allowable_content_types=('text/plain', 'text/structured', 'text/html', 'application/msword',),
+        allowed_content_types=('text/structured', 'text/plain', 'text/html', 'text/restructured'),
         widget=RichWidget(
             label="Details",
             description="Please provide further details",
-            rows="""6
-            python:('text/structured', 'text/plain', 'text/html', 'text/restructured')""",
+            rows="6",
             label_msgid='Poi_label_details',
             description_msgid='Poi_help_details',
             i18n_domain='Poi',
@@ -383,18 +383,12 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         self.sendNotificationMail()
         
 
-    def validate_watchers(self, value):
-        """Make sure watchers are actual user ids"""
-        membership = getToolByName(self, 'portal_membership')
-        notFound = []
-        for userId in value:
-            member = membership.getMemberById(userId)
-            if member is None:
-                notFound.append(userId)
-        if notFound:
-            return "The following user ids could not be found: %s" % ','.join(notFound)
-        else:
-            return None
+    def SearchableText(self):
+        """Include in the SearchableText the text of all responses"""
+        text = BaseObject.SearchableText(self)
+        responses = self.contentValues('PoiResponse')
+        text += ' ' + ' '.join([r.SearchableText() for r in responses])
+        return text
 
 
     def getDefaultSeverity(self):
@@ -478,12 +472,18 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         return vocab
 
 
-    def SearchableText(self):
-        """Include in the SearchableText the text of all responses"""
-        text = BaseObject.SearchableText(self)
-        responses = self.contentValues('PoiResponse')
-        text += ' ' + ' '.join([r.SearchableText() for r in responses])
-        return text
+    def validate_watchers(self, value):
+        """Make sure watchers are actual user ids"""
+        membership = getToolByName(self, 'portal_membership')
+        notFound = []
+        for userId in value:
+            member = membership.getMemberById(userId)
+            if member is None:
+                notFound.append(userId)
+        if notFound:
+            return "The following user ids could not be found: %s" % ','.join(notFound)
+        else:
+            return None
 
 
     security.declareProtected(permissions.View, 'getAreasVocab')

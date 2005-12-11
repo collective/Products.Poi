@@ -151,7 +151,17 @@
                    The following open issues were submitted by you.
                </p>
 
-               <metal:table use-macro="here/poi_issue_search/macros/issue_search_results" />
+               <metal:table use-macro="here/poi_issue_search/macros/issue_search_results">
+                   <div class="issue-search-rss" metal:fill-slot="rss-button">
+                        <a href="" tal:attributes="href string:${here/absolute_url}/poi-my-issues-rss.xml?memberId=${member/getId}">
+                            <img i18n:attributes="title title_rss_feed; alt label_rss_feed;"
+                                tal:attributes="src string:$portal_url/rss.gif"
+                                src="rss.gif"
+                                alt="RSS Feed"
+                                title="RSS feed of these search results" />
+                        </a>
+                    </div>    
+               </metal:table>
            
           </div>
       </tal:loggedIn>

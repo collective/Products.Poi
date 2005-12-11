@@ -137,17 +137,16 @@ class PoiPscTracker(PoiTracker,BaseFolder):
     #Methods
     #manually created methods
 
-    security.declareProtected(permissions.View, 'getAvailableReleases')
-    def getAvailableReleases(self):
-        """
-        Get the UIDs of the releases available to the tracker
-        """
-        catalog = getToolByName(self, 'portal_catalog')
-        releases = catalog.searchResults(
-                        portal_type = 'PSCRelease',
-                        path = '/'.join(self.getPhysicalPath()[:-1]),
-                        )
-        return [r.UID for r in releases]
+    def getDefaultTitle(self):
+        """Set the default title to <Project Name> Issues"""
+        # we may be inside the portal_factory, so aq_parent may not be
+        # enough
+        parent = self.aq_parent
+        while parent.getTypeInfo().getId() != 'PSCProject':
+            parent = parent.aq_parent
+            if parent is None:
+                return "Issues"
+        return parent.Title() + " Issues"
 
 
     security.declareProtected(permissions.View, 'getReleasesVocab')
@@ -162,16 +161,19 @@ class PoiPscTracker(PoiTracker,BaseFolder):
                         )
         return DisplayList([(r.UID, r.getId) for r in releases])
 
-    def getDefaultTitle(self):
-        """Set the default title to <Project Name> Issues"""
-        # we may be inside the portal_factory, so aq_parent may not be
-        # enough
-        parent = self.aq_parent
-        while parent.getTypeInfo().getId() != 'PSCProject':
-            parent = parent.aq_parent
-            if parent is None:
-                return "Issues"
-        return parent.Title() + " Issues"
+
+    security.declareProtected(permissions.View, 'getAvailableReleases')
+    def getAvailableReleases(self):
+        """
+        Get the UIDs of the releases available to the tracker
+        """
+        catalog = getToolByName(self, 'portal_catalog')
+        releases = catalog.searchResults(
+                        portal_type = 'PSCRelease',
+                        path = '/'.join(self.getPhysicalPath()[:-1]),
+                        )
+        return [r.UID for r in releases]
+
 
 def modify_fti(fti):
     # hide unnecessary tabs (usability enhancement)

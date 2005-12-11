@@ -4,17 +4,19 @@
 ##bind namespace=
 ##bind script=script
 ##bind subpath=traverse_subpath
-##parameters=openStates=['open', 'in-progress']
+##parameters=openStates=['open', 'in-progress'],memberId=None
 ##title=Get a catalog query result set of all issues assigned to or submitted by the current user
 ##
 
 from Products.CMFCore.utils import getToolByName
 
-mtool = getToolByName(context, 'portal_membership')
-member = mtool.getAuthenticatedMember()
+if not memberId:
+    mtool = getToolByName(context, 'portal_membership')
+    member = mtool.getAuthenticatedMember()
+    memberId = member.getId()
 
-created = context.getFilteredIssues(state=openStates, creator=member.getId())
-assigned = context.getFilteredIssues(state=openStates, responsible=member.getId())
+created = context.getFilteredIssues(state=openStates, creator=memberId)
+assigned = context.getFilteredIssues(state=openStates, responsible=memberId)
 
 issues = [i for i in created]
 existingIssues = {}

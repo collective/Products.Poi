@@ -64,7 +64,8 @@ schema=Schema((
             i18n_domain='Poi',
         ),
         use_portal_factory="1",
-        accessor="Description"
+        accessor="Description",
+        searchable=True
     ),
 
     DataGridField('availableAreas',
@@ -245,53 +246,7 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         query = self.buildIssueSearchQuery(criteria, **kwargs)
         return catalog.searchResults(query)
 
-    security.declareProtected(permissions.View, 'getIssueSearchQueryString')
-    def getIssueSearchQueryString(self, criteria=None, **kwargs):
-        """
-        Return a query string (name=value&name=value etc.) for an issue
-        query.
-        """
-        query = self.buildIssueSearchQuery(criteria, **kwargs)
-        return make_query(query)                
 
-    security.declarePrivate('buildIssueSearchQuery')
-    def buildIssueSearchQuery(self, criteria=None, **kwargs):
-        """
-        Build canoical query for issue search
-        """
-
-        if criteria is None:
-            criteria = kwargs
-
-        query                = {}
-        query['path']        = '/'.join(self.getPhysicalPath())
-        query['portal_type'] = ['PoiIssue']
-
-        if criteria.has_key('release'):
-            query['getRelease'] = criteria.get('release')
-        if criteria.has_key('area'):
-            query['getArea'] = criteria.get('area')
-        if criteria.has_key('issueType'):
-            query['getIssueType'] = criteria.get('issueType')
-        if criteria.has_key('severity'):
-            query['getSeverity'] = criteria.get('severity')
-        if criteria.has_key('state'):
-            query['review_state'] = criteria.get('state')
-        if criteria.has_key('tags'):
-            query['Subject'] = criteria.get('tags')
-        if criteria.has_key('responsible'):
-            query['getResponsibleManager'] = criteria.get('responsible')
-        if criteria.has_key('creator'):
-            query['Creator'] = criteria.get('creator')
-        if criteria.has_key('text'):
-            query['SearchableText'] = criteria.get('text')
-
-        query['sort_on'] = criteria.get('sort_on', 'created')
-        query['sort_order'] = criteria.get('sort_order', 'reverse')
-
-        return query
-
-    
 
     security.declareProtected(permissions.View, 'isUsingReleases')
     def isUsingReleases(self):
@@ -418,6 +373,16 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         return False
 
 
+    security.declareProtected(permissions.View, 'getIssueSearchQueryString')
+    def getIssueSearchQueryString(self, criteria=None, **kwargs):
+        """
+        Return a query string (name=value&name=value etc.) for an issue
+        query.
+        """
+        query = self.buildIssueSearchQuery(criteria, **kwargs)
+        return make_query(query)                
+
+
     security.declareProtected(permissions.ModifyPortalContent, 'setManagers')
     def setManagers(self, managers):
         """
@@ -461,9 +426,48 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         else:
             return None
 
+
     def getDefaultManagers(self):
         """The default list of managers should include the tracker owner"""
         return (self.Creator(),)
+
+
+    def buildIssueSearchQuery(self, criteria=None, **kwargs):
+        """
+        Build canoical query for issue search
+        """
+
+        if criteria is None:
+            criteria = kwargs
+
+        query                = {}
+        query['path']        = '/'.join(self.getPhysicalPath())
+        query['portal_type'] = ['PoiIssue']
+
+        if criteria.has_key('release'):
+            query['getRelease'] = criteria.get('release')
+        if criteria.has_key('area'):
+            query['getArea'] = criteria.get('area')
+        if criteria.has_key('issueType'):
+            query['getIssueType'] = criteria.get('issueType')
+        if criteria.has_key('severity'):
+            query['getSeverity'] = criteria.get('severity')
+        if criteria.has_key('state'):
+            query['review_state'] = criteria.get('state')
+        if criteria.has_key('tags'):
+            query['Subject'] = criteria.get('tags')
+        if criteria.has_key('responsible'):
+            query['getResponsibleManager'] = criteria.get('responsible')
+        if criteria.has_key('creator'):
+            query['Creator'] = criteria.get('creator')
+        if criteria.has_key('text'):
+            query['SearchableText'] = criteria.get('text')
+
+        query['sort_on'] = criteria.get('sort_on', 'created')
+        query['sort_order'] = criteria.get('sort_order', 'reverse')
+
+        return query
+
 
 def modify_fti(fti):
     # hide unnecessary tabs (usability enhancement)

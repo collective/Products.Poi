@@ -91,7 +91,8 @@
                     </tal:issues>
                 </tbody>
             </table>
-            <div tal:condition="rssQueryString | nothing" class="issue-search-rss">
+            
+            <div tal:condition="rssQueryString | nothing" class="issue-search-rss" metal:define-slot="rss-button">
                 <a href="" tal:attributes="href string:${here/absolute_url}/poi-issue-search-rss.xml?${rssQueryString}">
                     <img i18n:attributes="title title_rss_feed; alt label_rss_feed;"
                         tal:attributes="src string:$portal_url/rss.gif"
