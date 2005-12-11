@@ -1,7 +1,7 @@
 # File: PoiTracker.py
 # 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.0-RC1 devel 
+# Generator: ArchGenXML Version 1.4.0-RC2 svn/development 
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
@@ -63,7 +63,8 @@ schema=Schema((
             i18n_domain='Poi',
         ),
         use_portal_factory="1",
-        accessor="Description"
+        accessor="Description",
+        searchable=True
     ),
 
     DataGridField('availableAreas',
@@ -138,7 +139,8 @@ schema=Schema((
             label_msgid='Poi_label_managers',
             description_msgid='Poi_help_managers',
             i18n_domain='Poi',
-        )
+        ),
+        default_method="getDefaultManagers"
     ),
 
     BooleanField('sendNotificationEmails',
@@ -442,6 +444,11 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
             return "The following user ids could not be found: %s" % ','.join(notFound)
         else:
             return None
+
+
+    def getDefaultManagers(self):
+        """The default list of managers should include the tracker owner"""
+        return (self.Creator(),)
 
 
 def modify_fti(fti):

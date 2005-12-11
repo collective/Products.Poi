@@ -3,7 +3,7 @@
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
 #
 # Generated: 
-# Generator: ArchGenXML Version 1.4.0-RC1 devel
+# Generator: ArchGenXML Version 1.4.0-RC2 svn/development
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
@@ -96,44 +96,36 @@ def install(self):
         ] + factory_tool.getFactoryTypes().keys()
     factory_tool.manage_setPortalFactoryTypes(listOfTypeIds=factory_types)
 
-    # For plone 2.1, allow the easy registering of stylesheets
-    from Products.Poi.config import HAS_PLONE21
-    if HAS_PLONE21:
-        try:
-            from Products.Poi.config import STYLESHEETS
-        except:
-            STYLESHEETS = []
-        try:
-            from Products.Poi.config import JAVASCRIPTS
-        except:
-            JAVASCRIPTS = []
+    from Products.Poi.config import STYLESHEETS
+    try:
         portal_css = getToolByName(portal, 'portal_css')
-        portal_javascripts = getToolByName(portal, 'portal_javascripts')
         for stylesheet in STYLESHEETS:
             try:
                 portal_css.unregisterResource(stylesheet['id'])
             except:
                 pass
-            defaulttitle = '%s %s' % (PROJECTNAME, stylesheet['id'])
             defaults = {'id': '',
-            'expression': None,
             'media': 'all',
-            'title': defaulttitle,
             'enabled': True}
             defaults.update(stylesheet)
             portal_css.manage_addStylesheet(**defaults)
+    except:
+        # No portal_css registry
+        pass
+    from Products.Poi.config import JAVASCRIPTS
+    try:
+        portal_javascripts = getToolByName(portal, 'portal_javascripts')
         for javascript in JAVASCRIPTS:
             try:
                 portal_javascripts.unregisterResource(stylesheet['id'])
             except:
                 pass
-            defaults = {'id': '',
-            'expression': '', 
-            'inline': False,
-            'enabled': True,
-            'cookable': True}
+            defaults = {'id': ''}
             defaults.update(javascript)
             portal_javascripts.registerScript(**defaults)
+    except:
+        # No portal_javascripts registry
+        pass
 
     # try to call a custom install method
     # in 'AppInstall.py' method 'install'
@@ -158,15 +150,18 @@ def uninstall(self):
 
     # try to call a workflow uninstall method
     # in 'InstallWorkflows.py' method 'uninstallWorkflows'
+    
+    # TODO: this is buggy code. There is no workflow uninstaller in
+    # the generated InstallWorkflows.py.
     try:
-        installWorkflows = ExternalMethod('temp','temp',PROJECTNAME+'.InstallWorkflows', 'uninstallWorkflows').__of__(self)
+        uninstallWorkflows = ExternalMethod('temp','temp',PROJECTNAME+'.InstallWorkflows', 'uninstallWorkflows').__of__(self)
     except NotFound:
-        installWorkflows = None
+        uninstallWorkflows = None
 
-    if installWorkflows:
-        print >>out,'Workflow Uninstall:'
-        res = uninstallWorkflows(self,out)
-        print >>out,res or 'no output'
+    if uninstallWorkflows:
+        print >>out, 'Workflow Uninstall:'
+        res = uninstallWorkflows(self, out)
+        print >>out, res or 'no output'
     else:
         print >>out,'no workflow uninstall'
 

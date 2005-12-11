@@ -1,7 +1,7 @@
 # File: PoiPscTracker.py
 # 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.0-RC1 devel 
+# Generator: ArchGenXML Version 1.4.0-RC2 svn/development 
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
@@ -36,6 +36,31 @@ from Products.Poi.config import *
 ##/code-section module-header
 
 schema=Schema((
+    StringField('id',
+        widget=StringWidget(
+            label="Short name",
+            description="Short name for the tracker - should be 'issues' to comply with the standards.",
+            label_msgid="Poi_label_psctracker_title",
+            description_msgid="Poi_description_psctracker_title",
+            i18n_domain='Poi',
+        ),
+        required=False,
+        mode="r"
+    ),
+
+    StringField('title',
+        widget=StringWidget(
+            label="Title",
+            description="Please enter the title of the tracker, or leave the default as shown below.",
+            label_msgid="Poi_label_psctracker_title",
+            description_msgid="Poi_label_psctracker_description",
+            i18n_domain='Poi',
+        ),
+        required=True,
+        accessor="Title",
+        default_method="getDefaultTitle"
+    ),
+
 ),
 )
 
@@ -99,7 +124,7 @@ class PoiPscTracker(PoiTracker,BaseFolder):
 
     )
 
-    _at_rename_after_creation  = True
+    _at_rename_after_creation  = False
 
     schema = PoiPscTracker_schema
 
@@ -137,6 +162,16 @@ class PoiPscTracker(PoiTracker,BaseFolder):
                         )
         return DisplayList([(r.UID, r.getId) for r in releases])
 
+    def getDefaultTitle(self):
+        """Set the default title to <Project Name> Issues"""
+        # we may be inside the portal_factory, so aq_parent may not be
+        # enough
+        parent = self.aq_parent
+        while parent.getTypeInfo().getId() != 'PSCProject':
+            parent = parent.aq_parent
+            if parent is None:
+                return "Issues"
+        return parent.Title() + " Issues"
 
 def modify_fti(fti):
     # hide unnecessary tabs (usability enhancement)
