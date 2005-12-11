@@ -39,6 +39,7 @@ from Products.Poi.config import *
 from Products.CMFCore.utils import getToolByName
 from ZODB.POSException import ConflictError
 from Products.CMFPlone.utils import log_exc, log
+from ZTUtils import make_query
 ##/code-section module-header
 
 schema=Schema((
@@ -63,8 +64,7 @@ schema=Schema((
             i18n_domain='Poi',
         ),
         use_portal_factory="1",
-        accessor="Description",
-        searchable=True
+        accessor="Description"
     ),
 
     DataGridField('availableAreas',
@@ -241,11 +241,27 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         """
         Get the contained issues in the given criteria.
         """
+        catalog = getToolByName(self, 'portal_catalog')
+        query = self.buildIssueSearchQuery(criteria, **kwargs)
+        return catalog.searchResults(query)
+
+    security.declareProtected(permissions.View, 'getIssueSearchQueryString')
+    def getIssueSearchQueryString(self, criteria=None, **kwargs):
+        """
+        Return a query string (name=value&name=value etc.) for an issue
+        query.
+        """
+        query = self.buildIssueSearchQuery(criteria, **kwargs)
+        return make_query(query)                
+
+    security.declarePrivate('buildIssueSearchQuery')
+    def buildIssueSearchQuery(self, criteria=None, **kwargs):
+        """
+        Build canoical query for issue search
+        """
 
         if criteria is None:
             criteria = kwargs
-
-        catalog = getToolByName(self, 'portal_catalog')
 
         query                = {}
         query['path']        = '/'.join(self.getPhysicalPath())
@@ -273,9 +289,9 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         query['sort_on'] = criteria.get('sort_on', 'created')
         query['sort_order'] = criteria.get('sort_order', 'reverse')
 
-        return catalog.searchResults(query)
+        return query
 
-
+    
 
     security.declareProtected(permissions.View, 'isUsingReleases')
     def isUsingReleases(self):
@@ -445,11 +461,9 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         else:
             return None
 
-
     def getDefaultManagers(self):
         """The default list of managers should include the tracker owner"""
         return (self.Creator(),)
-
 
 def modify_fti(fti):
     # hide unnecessary tabs (usability enhancement)

@@ -25,6 +25,17 @@
     padding: 1px 1px 1px 18px;
 }
 
+/* Search table */
+
+.issue-search-results {
+    float: left;
+    margin-right: 1em;
+}
+
+.issue-search-rss {
+    padding-top: 0.5em;
+}
+
 /* Issue display */
 
 .issue-info-box {

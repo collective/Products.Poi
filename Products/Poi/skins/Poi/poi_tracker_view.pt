@@ -122,7 +122,8 @@
       <tal:manager condition="isManager">
          
           <div id="unassigned-issues"
-               tal:define="issues python:here.getFilteredIssues(state='unconfirmed')"
+               tal:define="issues python:here.getFilteredIssues(state='unconfirmed');
+                           rssQueryString python:here.getIssueSearchQueryString(state='unconfirmed')"
                tal:condition="nocall:issues">
                
                <h2 i18n:translate="poi_heading_unconfirmed_issues">Unconfirmed issues</h2>
