@@ -9,7 +9,7 @@ from Products.Poi.Extensions.Migrations import beta2_rc1
 
 from StringIO import StringIO
 
-class TestSomething(ptc.PoiTestCase):
+class TestMigrations(ptc.PoiTestCase):
 
     def afterSetUp(self):
         self.setRoles(['Manager'])
@@ -27,7 +27,8 @@ class TestSomething(ptc.PoiTestCase):
         beta2_rc1(self.portal, out)
         self.assertEqual(self.old.getAvailableAreas(),
                         ({'id' : 'id1', 'title' : 'title one', 'description' : 'description one'},
-                         {'id' : 'id2', 'title' : 'title two', 'description' : 'description two'}))
+                         {'id' : 'id2', 'title' : 'title two', 'description' : 'description two'}),
+                         "(If this fails, check that contentmigration is installed - its not critical if it is not)")
         self.assertEqual(self.old.getAvailableIssueTypes(),
                         ({'id' : 'id3', 'title' : 'title three', 'description' : 'description three'},
                          {'id' : 'id4', 'title' : 'title four', 'description' : 'description four'}))
@@ -44,7 +45,7 @@ class TestSomething(ptc.PoiTestCase):
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()
-    suite.addTest(makeSuite(TestSomething))
+    suite.addTest(makeSuite(TestMigrations))
     return suite
 
 if __name__ == '__main__':

@@ -440,28 +440,26 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         if criteria is None:
             criteria = kwargs
 
-        query                = criteria
+        allowedCriteria = {'release'     : 'getRelease',
+                           'area'        : 'getArea',
+                           'issueType'   : 'getIssueType',
+                           'severity'    : 'getSeverity',
+                           'state'       : 'review_state',
+                           'tags'        : 'Subject',
+                           'responsible' : 'getResponsibleManager',
+                           'creator'     : 'Creator',
+                           'text'        : 'SearchableText',
+                           }
+
+        query                = {}
         query['path']        = '/'.join(self.getPhysicalPath())
         query['portal_type'] = ['PoiIssue']
 
-        if criteria.has_key('release'):
-            query['getRelease'] = criteria.get('release')
-        if criteria.has_key('area'):
-            query['getArea'] = criteria.get('area')
-        if criteria.has_key('issueType'):
-            query['getIssueType'] = criteria.get('issueType')
-        if criteria.has_key('severity'):
-            query['getSeverity'] = criteria.get('severity')
-        if criteria.has_key('state'):
-            query['review_state'] = criteria.get('state')
-        if criteria.has_key('tags'):
-            query['Subject'] = criteria.get('tags')
-        if criteria.has_key('responsible'):
-            query['getResponsibleManager'] = criteria.get('responsible')
-        if criteria.has_key('creator'):
-            query['Creator'] = criteria.get('creator')
-        if criteria.has_key('text'):
-            query['SearchableText'] = criteria.get('text')
+        for k, v in allowedCriteria.items():
+            if k in criteria:
+                query[v] = criteria[k]
+            elif v in criteria:
+                query[v] = criteria[v]
 
         query['sort_on'] = criteria.get('sort_on', 'created')
         query['sort_order'] = criteria.get('sort_order', 'reverse')

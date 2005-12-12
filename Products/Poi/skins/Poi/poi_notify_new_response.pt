@@ -22,7 +22,7 @@ by <span i18n:name="response_author_name" tal:omit-tag="" tal:content="responseA
                after response/getIssueStateAfter;
                change python:test(before==after or (before is None) or (after is None), 'unchanged', str(before)+' -> '+str(after))"
    i18n:translate="issue_state_change">
-State Change: <strong tal:content="change" i18n:name="change">some state</span>
+State Change: <strong tal:content="change" i18n:name="change">some state</strong>
 </p>
 
 <h2 i18n:translate="heading_issue_details">Issue Details</h2>

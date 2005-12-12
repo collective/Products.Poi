@@ -29,15 +29,14 @@
         <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
     </div>
 
-    <div tal:condition="nocall:results"
-         tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);
+    <div tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);
                      issues batch">
 
-        <strong>
-        <span i18n:translate="batch_x_items_matching_your_criteria"><span i18n:name="number" tal:content="python:len(issues)">234</span> items matching your criteria.</span>
+        <strong tal:condition="nocall:results">
+            <span i18n:translate="batch_x_items_matching_your_criteria"><span i18n:name="number" tal:content="python:len(issues)">234</span> items matching your criteria.</span>
         </strong>
 
-        <div metal:define-macro="issue_search_results">
+        <metal:block define-macro="issue_search_results">
             
             <div tal:condition="rssQueryString | nothing" class="issue-search-rss" metal:define-slot="rss-button">
                 <a href="" tal:attributes="href string:${here/absolute_url}/poi-issue-search-rss.xml?${rssQueryString}">
@@ -49,7 +48,9 @@
                 </a>
             </div>
             
-            <table class="listing nosort issue-search-results" tal:define="states here/getIssueWorkflowStates">
+            <table class="listing nosort issue-search-results" 
+                tal:define="states here/getIssueWorkflowStates"
+                tal:condition="nocall:issues">
                 <thead>
                     <tr>
                         <th i18n:translate="listingheader_number">#</th>
@@ -102,8 +103,7 @@
                 </tbody>
             </table>
             
-            <div class="visualClear"/>
-         </div>
+         </metal:block>
          
         <!-- Navigation -->
         <div metal:use-macro="here/batch_macros/macros/navigation" />

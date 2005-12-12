@@ -146,7 +146,7 @@ class PoiPscTracker(PoiTracker,BaseFolder):
             parent = parent.aq_parent
             if parent is None:
                 return "Issues"
-        return parent.Title() + " Issues"
+        return "Issue tracker for " + parent.Title()
 
 
     security.declareProtected(permissions.View, 'getAvailableReleases')
