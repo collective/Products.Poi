@@ -177,7 +177,12 @@
            
           </div>
       </tal:loggedIn>
-  
+      
+      <div class="poweredBy">
+          Powered by <a class="link-plain"
+                        href="http://plone.org/products/poi">Poi</a>
+      </div>
+      
     </div>
 
   </div>
