@@ -40,15 +40,6 @@ Poi TODO
     
     Bugs/Known issues:
 
-        o RSS feed of "My issues" missing
-            Difficult since getMyIssues does concatenation of two result
-            sets, so RSS template would have to do the same - how can we 
-            keep this generalised?
-            
-            May want to (a) use custom rss button with a slot in 
-            poi_issue_search.pt and (b) have a custom RSS template to do my
-            issues (simplified from the existing one), but this is still messy.
-
         o Deleting a response will cause issue text to remain in issue
             SearchableText until a re-index (manage_beforeDelete?)
 

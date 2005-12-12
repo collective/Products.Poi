@@ -28,12 +28,11 @@
 /* Search table */
 
 .issue-search-results {
-    float: left;
-    margin-right: 1em;
+    
 }
 
 .issue-search-rss {
-    padding-top: 0.5em;
+    text-align: right;
 }
 
 /* Issue display */

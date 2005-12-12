@@ -440,7 +440,7 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         if criteria is None:
             criteria = kwargs
 
-        query                = {}
+        query                = criteria
         query['path']        = '/'.join(self.getPhysicalPath())
         query['portal_type'] = ['PoiIssue']
 

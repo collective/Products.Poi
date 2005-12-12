@@ -4,8 +4,8 @@
     <div metal:fill-slot="main" tal:omit-tag="">
     
 <p i18n:translate="poi_notify_new_issue">
-A new issue has been submitted to the "<span i18n:name="tracker_title" tal:omit-tag="" tal:content="tracker/Title" />" 
-tracker by "<span i18n:name="issue_author_name" tal:omit-tag="" tal:content="issueAuthorName" />" and awaits confirmation.
+A new issue has been submitted to the <strong i18n:name="tracker_title" tal:content="tracker/Title" /> 
+tracker by <strong i18n:name="issue_author_name" tal:content="issueAuthorName" /> and awaits confirmation.
 </p>
 
 <h2 i18n:translate="heading_issue_details">Issue Details</h2>

@@ -9,12 +9,13 @@
         tal:content="string: @import url($portal_url/poi.css);"></style>
     </metal:css>
   </head>
+  
 
 <body>
   <div metal:fill-slot="main">
     <div metal:define-macro="body" 
-      tal:define="openStates python:['open', 'in-progress'];
-                  pendingStates python:openStates + ['unconfirmed', 'resolved'];
+      tal:define="openStates python:['unconfirmed', 'open', 'in-progress'];
+                  pendingStates python:openStates + ['resolved'];
                   issueQueryString python:'%s/poi_issue_search?state=%s' %
                   (here.absolute_url(), '&amp;state='.join(openStates),);
                   isManager python:member.getId() in here.getManagers()">
@@ -45,7 +46,14 @@
                    />
           </form>
       </div>
-      
+
+      <p class="portalMessage"
+         i18n:translate="description_cannot_add_issues_before_opened"
+         tal:condition="python: is_editable and wtool.getInfoFor(here, 'review_state')!='open'">
+         Others cannot submit issues to your tracker until you open it for
+         submissions using the 'state' drop down in the green bar above.
+      </p>
+        
       <h2 i18n:translate="poi_heading_open_issues">Open issues</h2>
       
       <a id="issue-search-link" 
@@ -91,6 +99,10 @@
            tal:define="issueStates here/getIssueWorkflowStates">
           <h3 i18n:translate="poi_heading_by_state">By state</h3>
           <ul>
+             <li tal:define="issues python:here.getFilteredIssues(state=openStates)">
+                 <a tal:attributes="href string:${issueQueryString}"
+                    i18n:translate="poi_all_pending_issues">All pending issues</a> (<span tal:replace="python:len(issues)" />)
+             </li>
               <tal:releases repeat="state issueStates">
                   <li tal:define="issues python:here.getFilteredIssues(state=state)">
                     <a tal:attributes="href string:${here/absolute_url}/poi_issue_search?state=${state}"

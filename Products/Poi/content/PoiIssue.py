@@ -92,6 +92,23 @@ schema=Schema((
         vocabulary='getReleasesVocab'
     ),
 
+    TextField('details',
+        allowable_content_types=('text/plain', 'text/structured', 'text/html', 'application/msword',),
+        allowed_content_types=('text/structured', 'text/plain', 'text/html', 'text/restructured'),
+        widget=RichWidget(
+            label="Details",
+            description="Please provide further details",
+            rows="6",
+            label_msgid='Poi_label_details',
+            description_msgid='Poi_help_details',
+            i18n_domain='Poi',
+        ),
+        required=False,
+        default_content_type="text/structured",
+        searchable=True,
+        default_output_type="text/html"
+    ),
+
     StringField('area',
         index="FieldIndex:schema",
         widget=SelectionWidget(
@@ -135,23 +152,6 @@ schema=Schema((
         write_permission=permissions.ModifyIssueSeverity
     ),
 
-    TextField('details',
-        allowable_content_types=('text/plain', 'text/structured', 'text/html', 'application/msword',),
-        allowed_content_types=('text/structured', 'text/plain', 'text/html', 'text/restructured'),
-        widget=RichWidget(
-            label="Details",
-            description="Please provide further details",
-            rows="6",
-            label_msgid='Poi_label_details',
-            description_msgid='Poi_help_details',
-            i18n_domain='Poi',
-        ),
-        required=False,
-        default_content_type="text/structured",
-        searchable=True,
-        default_output_type="text/html"
-    ),
-
     LinesField('steps',
         widget=LinesWidget(
             label="Steps to reproduce",
@@ -178,7 +178,7 @@ schema=Schema((
         validators=('isEmail',),
         widget=StringWidget(
             label="Contact email address",
-            description="Optionally, provide an email address where you can be contacted for further information or when a resolution is available.",
+            description="Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others.",
             label_msgid='Poi_label_contactEmail',
             description_msgid='Poi_help_contactEmail',
             i18n_domain='Poi',
@@ -383,12 +383,18 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         self.sendNotificationMail()
         
 
-    def SearchableText(self):
-        """Include in the SearchableText the text of all responses"""
-        text = BaseObject.SearchableText(self)
-        responses = self.contentValues('PoiResponse')
-        text += ' ' + ' '.join([r.SearchableText() for r in responses])
-        return text
+    def validate_watchers(self, value):
+        """Make sure watchers are actual user ids"""
+        membership = getToolByName(self, 'portal_membership')
+        notFound = []
+        for userId in value:
+            member = membership.getMemberById(userId)
+            if member is None:
+                notFound.append(userId)
+        if notFound:
+            return "The following user ids could not be found: %s" % ','.join(notFound)
+        else:
+            return None
 
 
     def getDefaultSeverity(self):
@@ -472,18 +478,12 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         return vocab
 
 
-    def validate_watchers(self, value):
-        """Make sure watchers are actual user ids"""
-        membership = getToolByName(self, 'portal_membership')
-        notFound = []
-        for userId in value:
-            member = membership.getMemberById(userId)
-            if member is None:
-                notFound.append(userId)
-        if notFound:
-            return "The following user ids could not be found: %s" % ','.join(notFound)
-        else:
-            return None
+    def SearchableText(self):
+        """Include in the SearchableText the text of all responses"""
+        text = BaseObject.SearchableText(self)
+        responses = self.contentValues('PoiResponse')
+        text += ' ' + ' '.join([r.SearchableText() for r in responses])
+        return text
 
 
     security.declareProtected(permissions.View, 'getAreasVocab')
