@@ -21,6 +21,10 @@
 __author__  = '''Martin Aspeli <optilude@gmx.net>'''
 __docformat__ = 'plaintext'
 
+from email.MIMEText import MIMEText
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEBase import MIMEBase
+from email.Message import Message
 
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
@@ -334,14 +338,29 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
             log('Cannot send notification email: email sender address or name not set')
             return
         
+        if subtype == 'html':
+            transformTool = getToolByName(self, 'portal_transforms')
+            plainText = str(transformTool.convertTo('text/plain', text)).strip()
+            
+            message = MIMEMultipart('alternative')
+            message.epilogue = ''
+            
+            textPart = MIMEText(plainText, 'plain', charset)
+            message.attach(textPart)
+            htmlPart = MIMEText(text, 'html', charset)
+            message.attach(htmlPart)
+        else:
+            message = text
+        
+        if isinstance(message, Message):
+            message = str(message)
+        
         for address in addresses:
             try:
-                mailHost.secureSend(message = text,
-                                    mto = address,
-                                    mfrom = fromAddress,
-                                    subject = subject,
-                                    subtype = subtype,
-                                    charset = charset)
+                mailHost.send(message = message,
+                              mto = address,
+                              mfrom = fromAddress,
+                              subject = subject)
             except ConflictError:
                 raise
             except:
