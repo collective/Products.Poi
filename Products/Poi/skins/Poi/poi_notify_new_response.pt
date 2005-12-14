@@ -9,7 +9,7 @@
                      ">
 
 <p i18n:translate="poi_notify_new_response">
-A new response has been given to the issue <strong i18n:name="issue_title" tal:content="here/aq_parent/Title" />" in the tracker <strong i18n:name="tracker_title" tal:content="here/aq_parent/aq_parent/Title" />
+A new response has been given to the issue <strong i18n:name="issue_title" tal:content="here/aq_parent/Title" /> in the tracker <strong i18n:name="tracker_title" tal:content="here/aq_parent/aq_parent/Title" />
 by <span i18n:name="response_author_name" tal:omit-tag="" tal:content="responseAuthorName" />.
 </p>
 
