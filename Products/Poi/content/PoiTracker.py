@@ -290,13 +290,15 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         portal_membership = getToolByName(self, 'portal_membership')
         mailingList = self.getMailingList()
         
+        member = portal_membership.getAuthenticatedMember()
+        
         if mailingList:
             addresses.append(mailingList)
         else:
             managers = self.getManagers()
             for manager in managers:
                 managerUser = portal_membership.getMemberById(manager)
-                if managerUser is not None:
+                if managerUser is not None and managerUser != member:
                     managerEmail = managerUser.getProperty('email')
                     if managerEmail and managerEmail not in addresses:
                         addresses.append(managerEmail)
@@ -308,7 +310,7 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
             watchers = issue.getWatchers()
             for watcher in watchers:
                 watcherUser = portal_membership.getMemberById(watcher)
-                if watcherUser is not None:
+                if watcherUser is not None and watcherUser != member:
                     watcherEmail = watcherUser.getProperty('email')
                     if watcherUser and watcherEmail not in addresses:
                         addresses.append(watcherEmail)
