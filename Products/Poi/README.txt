@@ -17,7 +17,17 @@ Poi is not and will not be a track-anything-and-everything tracker, a help desk
 product or anything else. If Poi is too simple for your needs, you may want to
 look at something like PloneCollectorNG.
 
-Feedback is very welcome. Yes, we will have a Poi tracker for Poi soon. :)
+Feedback is very welcome. 
+
+Please submit any bugs or feature requests to at: 
+    
+    http://plone.org/products/poi/issues
+    
+(Yes, this is a Poi tracker). Please do search the tracker first, so we can
+avoid unnecessary duplicates.
+    
+See http://plone.org/products/poi for the latest release and the development 
+roadmap.
 
 Installation and dependencies
 
@@ -28,7 +38,6 @@ Installation and dependencies
     - AddRemoveWidget
     
     - For migration from versions before 1.0b2, contentmigration is required.
-
     
     - For PloneSoftwareCenter integration, PloneSoftwareCenter 1.0beta7 
         (currentlyfrom the plone2.1-integration branch) is required.

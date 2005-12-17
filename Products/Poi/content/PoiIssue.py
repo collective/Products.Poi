@@ -109,6 +109,28 @@ schema=Schema((
         default_output_type="text/html"
     ),
 
+    LinesField('steps',
+        widget=LinesWidget(
+            label="Steps to reproduce",
+            description="If applicable, please provide the steps to reproduce the error or identify the issue, one per line.",
+            label_msgid='Poi_label_steps',
+            description_msgid='Poi_help_steps',
+            i18n_domain='Poi',
+        ),
+        searchable=True
+    ),
+
+    FileField('attachment',
+        widget=FileWidget(
+            label="Attachment",
+            description="You may optionally upload a file attachment to your issue. Please do not upload unnecessarily large files.",
+            label_msgid='Poi_label_attachment',
+            description_msgid='Poi_help_attachment',
+            i18n_domain='Poi',
+        ),
+        storage=AttributeStorage()
+    ),
+
     StringField('area',
         index="FieldIndex:schema",
         widget=SelectionWidget(
@@ -152,26 +174,19 @@ schema=Schema((
         write_permission=permissions.ModifyIssueSeverity
     ),
 
-    LinesField('steps',
-        widget=LinesWidget(
-            label="Steps to reproduce",
-            description="If applicable, please provide the steps to reproduce the error or identify the issue, one per line.",
-            label_msgid='Poi_label_steps',
-            description_msgid='Poi_help_steps',
+    StringField('responsibleManager',
+        index="FieldIndex:schema",
+        widget=SelectionWidget(
+            label="Responsible",
+            description="Select which manager, if any, is responsible for this issue.",
+            label_msgid='Poi_label_responsibleManager',
+            description_msgid='Poi_help_responsibleManager',
             i18n_domain='Poi',
         ),
-        searchable=True
-    ),
-
-    FileField('attachment',
-        widget=FileWidget(
-            label="Attachment",
-            description="You may optionally upload a file attachment to your issue. Please do not upload unnecessarily large files.",
-            label_msgid='Poi_label_attachment',
-            description_msgid='Poi_help_attachment',
-            i18n_domain='Poi',
-        ),
-        storage=AttributeStorage()
+        vocabulary='getManagersVocab',
+        default="(UNASSIGNED)",
+        required=True,
+        write_permission=permissions.ModifyIssueAssignment
     ),
 
     StringField('contactEmail',
@@ -211,21 +226,6 @@ schema=Schema((
         enforceVocabulary=False,
         write_permission=permissions.ModifyIssueTags,
         accessor="Subject"
-    ),
-
-    StringField('responsibleManager',
-        index="FieldIndex:schema",
-        widget=SelectionWidget(
-            label="Responsible",
-            description="Select which manager, if any, is responsible for this issue.",
-            label_msgid='Poi_label_responsibleManager',
-            description_msgid='Poi_help_responsibleManager',
-            i18n_domain='Poi',
-        ),
-        vocabulary='getManagersVocab',
-        default="(UNASSIGNED)",
-        required=True,
-        write_permission=permissions.ModifyIssueAssignment
     ),
 
 ),
@@ -383,18 +383,12 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         self.sendNotificationMail()
         
 
-    def validate_watchers(self, value):
-        """Make sure watchers are actual user ids"""
-        membership = getToolByName(self, 'portal_membership')
-        notFound = []
-        for userId in value:
-            member = membership.getMemberById(userId)
-            if member is None:
-                notFound.append(userId)
-        if notFound:
-            return "The following user ids could not be found: %s" % ','.join(notFound)
-        else:
-            return None
+    def SearchableText(self):
+        """Include in the SearchableText the text of all responses"""
+        text = BaseObject.SearchableText(self)
+        responses = self.contentValues('PoiResponse')
+        text += ' ' + ' '.join([r.SearchableText() for r in responses])
+        return text
 
 
     def getDefaultSeverity(self):
@@ -478,12 +472,18 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         return vocab
 
 
-    def SearchableText(self):
-        """Include in the SearchableText the text of all responses"""
-        text = BaseObject.SearchableText(self)
-        responses = self.contentValues('PoiResponse')
-        text += ' ' + ' '.join([r.SearchableText() for r in responses])
-        return text
+    def validate_watchers(self, value):
+        """Make sure watchers are actual user ids"""
+        membership = getToolByName(self, 'portal_membership')
+        notFound = []
+        for userId in value:
+            member = membership.getMemberById(userId)
+            if member is None:
+                notFound.append(userId)
+        if notFound:
+            return "The following user ids could not be found: %s" % ','.join(notFound)
+        else:
+            return None
 
 
     security.declareProtected(permissions.View, 'getAreasVocab')

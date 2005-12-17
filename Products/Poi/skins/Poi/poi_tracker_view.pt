@@ -15,6 +15,7 @@
   <div metal:fill-slot="main">
     <div metal:define-macro="body" 
       tal:define="openStates python:['unconfirmed', 'open', 'in-progress'];
+                  ignoredStates python:['new'];
                   pendingStates python:openStates + ['resolved'];
                   issueQueryString python:'%s/poi_issue_search?state=%s' %
                   (here.absolute_url(), '&amp;state='.join(openStates),);
@@ -104,12 +105,14 @@
                     i18n:translate="poi_all_pending_issues">All pending issues</a> (<span tal:replace="python:len(issues)" />)
              </li>
               <tal:releases repeat="state issueStates">
-                  <li tal:define="issues python:here.getFilteredIssues(state=state)">
-                    <a tal:attributes="href string:${here/absolute_url}/poi_issue_search?state=${state}"
-                       i18n:translate=""
-                       i18n:domain="plone"
-                       tal:content="python:issueStates.getValue(state)" /> (<span tal:replace="python:len(issues)" />)
-                  </li>
+                  <tal:block condition="python:state not in ignoredStates">
+                      <li tal:define="issues python:here.getFilteredIssues(state=state)">
+                        <a tal:attributes="href string:${here/absolute_url}/poi_issue_search?state=${state}"
+                           i18n:translate=""
+                           i18n:domain="plone"
+                           tal:content="python:issueStates.getValue(state)" /> (<span tal:replace="python:len(issues)" />)
+                      </li>
+                  </tal:block>
               </tal:releases>
           </ul>
       </div>
