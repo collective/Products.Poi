@@ -22,8 +22,9 @@
         Document actions (print, sendto etc)
       </div>
       
-      <h1 tal:content="here/Title" class="documentFirstHeading">
-        Issue Title
+      <h1 class="documentFirstHeading">
+          #<span tal:replace="here/getId" /> &mdash;
+          <span tal:replace="here/Title" />
       </h1>      
             
       <table class="vertical listing issue-info-box">
