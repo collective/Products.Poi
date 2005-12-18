@@ -29,6 +29,10 @@
         Tracker Title
       </h1>
       
+      <a id="issue-search-link" 
+         tal:attributes="href string:${here/absolute_url}/poi_issue_search_form" 
+         i18n:translate="poi_issue_search">Search for issues</a>
+      
       <div class="documentDescription" tal:content="here/Description">
         Description.
       </div>
@@ -57,9 +61,7 @@
         
       <h2 i18n:translate="poi_heading_open_issues">Open issues</h2>
       
-      <a id="issue-search-link" 
-         tal:attributes="href string:${here/absolute_url}/poi_issue_search_form" 
-         i18n:translate="poi_issue_search">Search for issues</a>
+      
       
       <p i18n:translate="poi_help_open_issues">
           Click an area, release or issue state to see all open issues in that
