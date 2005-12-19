@@ -9,6 +9,7 @@ import types
 
 from StringIO import StringIO
 from Products.CMFCore.utils import getToolByName
+from Archetypes import transaction
 
 def simpleDataGrid2DataGrid(obj, val, **kwargs):
     
@@ -57,7 +58,7 @@ def beta2_rc1(self, out):
     portal = getToolByName(self, 'portal_url').getPortalObject()
     walker = CustomQueryWalker(portal, DataFieldMigrator, query = {})
     # Need this to avoid copy errors....
-    get_transaction().commit(1)
+    transaction.savepoint(optimistic=True)
     print >> out, "Migrating from SimpleDataGridField to DataGridField"
     walker.go()
     

@@ -36,6 +36,7 @@ from Products.AddRemoveWidget.AddRemoveWidget import AddRemoveWidget
 from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
+from Products.Archetypes import transaction
 ##/code-section module-header
 
 schema=Schema((
@@ -376,13 +377,9 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         newId = str(maxId + 1)
         # Can't rename without a subtransaction commit when using
         # portal_factory!
-        get_transaction().commit(1)
+        transaction.savepoint(optimistic=True)
         self.setId(newId)
-
-        # XXX send notification mail should move to at_post_create_script
-        self.sendNotificationMail()
         
-
     def SearchableText(self):
         """Include in the SearchableText the text of all responses"""
         text = BaseObject.SearchableText(self)
@@ -409,11 +406,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
 
     def at_post_create_script(self):
         """Send notification email after issue has been created"""
-        # XXX: When the AT bug causing this to be called each time we
-        # save (as opposed to only after the first save) is fixed, re-enable
-        # this and remove from _renameAfterCreation():
-        # self.sendNotificationMail()
-        pass
+        self.sendNotificationMail()
 
 
     security.declareProtected(permissions.View, 'getIssueTypesVocab')

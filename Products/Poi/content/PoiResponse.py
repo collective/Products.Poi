@@ -36,6 +36,7 @@ from Products.Poi.config import *
 from Products.CMFCore.utils import getToolByName
 from Acquisition import aq_base
 from Products.CMFPlone.utils import log_exc
+from Products.Archetypes import transaction
 ##/code-section module-header
 
 schema=Schema((
@@ -238,12 +239,8 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         newId = str(maxId + 1)
         # Can't rename without a subtransaction commit when using
         # portal_factory!
-        get_transaction().commit(1)
-        self.setId(newId)
-
-        # XXX send notification mail should move to at_post_create_script
-        self.sendNotificationMail()
-        
+        transaction.savepoint(optimistic=True)
+        self.setId(newId)        
 
     def Title(self):
         """Define title to be the same as response id. Responses have little
@@ -265,11 +262,7 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
 
     def at_post_create_script(self):
         """Send notification email after response has been added"""
-        # XXX: When the AT bug causing this to be called each time we
-        # save (as opposed to only after the first save) is fixed, re-enable
-        # this and remove from _renameAfterCreation():
-        # self.sendNotificationMail()
-        pass
+        self.sendNotificationMail()
 
 
     def sendNotificationMail(self):

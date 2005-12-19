@@ -7,3 +7,4 @@ View=0:Authenticated
 [actions]
 action.success..Delete=traverse_to:string:poi_response_delete
 action.success..Cancel=redirect_to:string:../
+action.success=redirect_to:string:../
