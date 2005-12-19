@@ -9,7 +9,7 @@ import types
 
 from StringIO import StringIO
 from Products.CMFCore.utils import getToolByName
-from Archetypes import transaction
+from Products.Archetypes import transaction
 
 def simpleDataGrid2DataGrid(obj, val, **kwargs):
     
