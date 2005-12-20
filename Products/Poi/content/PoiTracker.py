@@ -21,10 +21,6 @@
 __author__  = '''Martin Aspeli <optilude@gmx.net>'''
 __docformat__ = 'plaintext'
 
-from email.MIMEText import MIMEText
-from email.MIMEMultipart import MIMEMultipart
-from email.MIMEBase import MIMEBase
-from email.Message import Message
 
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
@@ -44,6 +40,11 @@ from Products.CMFCore.utils import getToolByName
 from ZODB.POSException import ConflictError
 from Products.CMFPlone.utils import log_exc, log
 from ZTUtils import make_query
+
+from email.MIMEText import MIMEText
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEBase import MIMEBase
+from email.Message import Message
 ##/code-section module-header
 
 schema=Schema((

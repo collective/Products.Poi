@@ -43,20 +43,33 @@ class Response(Base):
 
 
 
-    def getIssueStateBefore():
+    def setNewResponsibleManager(manager):
         """
-        Get the state of the parent issue that was set before the
-        response was added.
+        Set a new responsible manager for the parent issue
         """
         
         pass
 
 
 
-    def getIssueStateAfter():
+    def setNewSeverity(severity):
         """
-        Get the state of the parent issue that was set before the
-        response was added.
+        Set a new issue severity for the parent issue
+        """
+        
+        pass
+
+
+
+    def getIssueChanges():
+        """
+        Get a list of changes this response has made to the issue.
+        Contains dicts with keys:
+        
+            id: The name of the field that was changed
+            name: A human readable name
+            before: The state of the field before
+            after: The new state of the field
         """
         
         pass

@@ -13,17 +13,12 @@ A new response has been given to the issue <strong i18n:name="issue_title" tal:c
 by <span i18n:name="response_author_name" tal:omit-tag="" tal:content="responseAuthorName" />.
 </p>
 
-<div tal:content="structure response/Description"> response description </div>
+<div class="responseText" tal:content="structure response/getResponse">response</div>
 
-<div style="padding-left: 1em; background-color: #eaeaea" tal:content="structure response/getResponse">response</div>
-
-<p class="discreet"
-   tal:define="before response/getIssueStateBefore;
-               after response/getIssueStateAfter;
-               change python:test(before==after or (before is None) or (after is None), 'unchanged', str(before)+' -> '+str(after))"
-   i18n:translate="issue_state_change">
-State Change: <strong tal:content="change" i18n:name="change">some state</strong>
-</p>
+<div tal:repeat="delta response/getIssueChanges">
+   <span i18n:translate="" tal:content="string:${delta/name}:" />
+   <span class="issueChange" i18n:translate="" tal:content="delta/before" /> &rarr; <span class="issueChange" i18n:translate="" tal:content="delta/after" />
+</div>
 
 <h2 i18n:translate="heading_issue_details">Issue Details</h2>
 <dl>

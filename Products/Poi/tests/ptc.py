@@ -110,7 +110,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         return issue
 
     def createResponse(self, issue, text='Respnse text', issueTransition='',
-                        attachment=None):
+                        newSeverity=None, newResponsibleManager=None, attachment=None):
         """Create a response to the given tracker, and perform workflow and
         rename-after-creation initialisation"""
         newId = self.portal.generateUniqueId('PoiResponse')
@@ -118,6 +118,8 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         response = getattr(issue, newId)
         response.setResponse(text)
         response.setNewIssueState(issueTransition)
+        response.setNewSeverity(newSeverity)
+        response.setNewResponsibleManager(newResponsibleManager)
         response.setAttachment(attachment)
         self.portal.portal_workflow.doActionFor(response, 'post')
         response._renameAfterCreation()

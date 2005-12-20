@@ -10,17 +10,15 @@ class TestResponse(ptc.PoiTestCase):
     """Test response functionality"""
 
     def afterSetUp(self):
-        self.tracker = self.createTracker(self.folder, 'issue-tracker')
-        self.issue = self.createIssue(self.tracker)
-        self.response = self.createResponse(self.issue)
+        self.addMember('member1', 'Member One', 'member1@member.com', ['Member'], '2005-01-01')
+        self.tracker = self.createTracker(self.folder, 'issue-tracker', managers=('member1',))
+        self.issue = self.createIssue(self.tracker, 'an-issue')
+        self.response = self.createResponse(self.issue, 'a-response')
         self.workflow = self.portal.portal_workflow
 
     def testEditResponse(self):
         self.response.setResponse('<p>Response-text</p>')
-        # self.response.setAttachment(None)
-        
         self.assertEqual(self.response.getResponse(), '<p>Response-text</p>')
-        # self.assertEqual(self.response.getAttachment(), None)
 
     def testTitleIsId(self):
         self.assertEqual(self.response.Title(), self.response.getId())
@@ -43,15 +41,28 @@ class TestResponse(ptc.PoiTestCase):
         self.response.setNewIssueState('accept-unconfirmed')
         self.assertEqual(self.workflow.getInfoFor(self.issue, 'review_state'), 'open')
 
-    def testGetIssueStateBefore(self):
+    def testSetNewResponsibleManager(self):
+        self.assertEqual(self.issue.getResponsibleManager(), '(UNASSIGNED)')
+        self.response.setNewResponsibleManager('member1')
+        self.assertEqual(self.issue.getResponsibleManager(), 'member1')
+        
+    def testSetNewSeverity(self):
+        self.assertEqual(self.issue.getSeverity(), 'Medium')
+        self.response.setNewSeverity('Important')
+        self.assertEqual(self.issue.getSeverity(), 'Important')
+        
+    def testGetIssueChanges(self):
+        changes = self.response.getIssueChanges()
+        self.assertEqual(changes, ())
         self.setRoles(['Manager'])
         self.response.setNewIssueState('accept-unconfirmed')
-        self.assertEqual(self.response.getIssueStateBefore(), 'unconfirmed')
-
-    def testGetIssueStateAfter(self):
-        self.setRoles(['Manager'])
-        self.response.setNewIssueState('accept-unconfirmed')
-        self.assertEqual(self.response.getIssueStateAfter(), 'open')
+        self.response.setNewResponsibleManager('member1')
+        self.response.setNewSeverity('Important')
+        changes = changes = self.response.getIssueChanges()
+        self.assertEqual(changes[0], {'id' : 'review_state', 'name' : 'Issue state', 'before' : 'unconfirmed', 'after' : 'open'})
+        self.assertEqual(changes[1], {'id' : 'responsible_manager', 'name' : 'Responsible manager', 'before' : '(UNASSIGNED)', 'after' : 'member1'})
+        self.assertEqual(changes[2], {'id' : 'severity', 'name' : 'Severity', 'before' : 'Medium', 'after' : 'Important'})
+        
 
 def test_suite():
     from unittest import TestSuite, makeSuite

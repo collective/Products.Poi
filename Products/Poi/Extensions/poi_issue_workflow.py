@@ -207,7 +207,7 @@ def setuppoi_issue_workflow(self, workflow):
                                 actbox_name="""Postpone""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
-                                props={},
+                                props={'guard_permissions': 'Poi: Modify issue state'},
                                 )
 
     transitionDef = workflow.transitions['open-postponed']

@@ -83,11 +83,23 @@ schema=Schema((
         required=True
     ),
 
+    FileField('attachment',
+        widget=FileWidget(
+            label="Attachment",
+            description="You may optionally upload a file attachment to your response. Please do not upload unnecessarily large files.",
+            label_msgid='Poi_label_attachment',
+            description_msgid='Poi_help_attachment',
+            i18n_domain='Poi',
+        ),
+        storage=AttributeStorage()
+    ),
+
     StringField('issueTransition',
         mutator="setNewIssueState",
         widget=SelectionWidget(
             label="Change issue state",
             description="Select a change of state in the issue this response is for, if applicable",
+            format="radio",
             label_msgid='Poi_label_issueTransition',
             description_msgid='Poi_help_issueTransition',
             i18n_domain='Poi',
@@ -99,15 +111,38 @@ schema=Schema((
         write_permission=permissions.ModifyIssueState
     ),
 
-    FileField('attachment',
-        widget=FileWidget(
-            label="Attachment",
-            description="You may optionally upload a file attachment to your response. Please do not upload unnecessarily large files.",
-            label_msgid='Poi_label_attachment',
-            description_msgid='Poi_help_attachment',
+    StringField('newResponsibleManager',
+        mutator="setNewResponsibleManager",
+        widget=SelectionWidget(
+            label="Change responsible manager",
+            description="Select the responsible manager for this issue",
+            format="flex",
+            label_msgid='Poi_label_newResponsibleManager',
+            description_msgid='Poi_help_newResponsibleManager',
             i18n_domain='Poi',
         ),
-        storage=AttributeStorage()
+        vocabulary='getManagersVocab',
+        default_method='getCurrentResponsibleManager',
+        enforceVocabulary=True,
+        accessor="getNewResponsibleManager",
+        write_permission=permissions.ModifyIssueAssignment
+    ),
+
+    StringField('newSeverity',
+        mutator="setNewSeverity",
+        widget=SelectionWidget(
+            label="Change issue severity",
+            description="Select the responsible manager for this issue",
+            format="radio",
+            label_msgid='Poi_label_newSeverity',
+            description_msgid='Poi_help_newSeverity',
+            i18n_domain='Poi',
+        ),
+        vocabulary='getAvailableSeverities',
+        default_method='getCurrentIssueSeverity',
+        enforceVocabulary=True,
+        accessor="getNewSeverity",
+        write_permission=permissions.ModifyIssueSeverity
     ),
 
 ),
@@ -193,36 +228,57 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         
         if transition and transition in self.getAvailableIssueTransitions():
             wftool = getToolByName(self, 'portal_workflow')
-            self._issueStateBefore = wftool.getInfoFor(self.aq_parent,
-                                                       'review_state')
+            stateBefore = wftool.getInfoFor(self.aq_parent, 'review_state')
             wftool.doActionFor(self.aq_parent, transition)
-            self._issueStateAfter = wftool.getInfoFor(self.aq_parent,
-                                                      'review_state')
-            self._p_changed = 1
-
+            stateAfter = wftool.getInfoFor(self.aq_parent, 'review_state')
+            self._addIssueChange('review_state', 'Issue state', stateBefore, stateAfter)
+            
         self.getField('issueTransition').set(self, transition)
 
 
 
-    security.declareProtected(permissions.View, 'getIssueStateBefore')
-    def getIssueStateBefore(self):
+    security.declareProtected(permissions.ModifyIssueAssignment, 'setNewResponsibleManager')
+    def setNewResponsibleManager(self,manager):
         """
-        Get the state of the parent issue that was set before the
-        response was added.
+        Set a new responsible manager for the parent issue
         """
-        # Default to None if it was not set
-        return getattr(aq_base(self), '_issueStateBefore', None)
+        currentManager = self.getCurrentResponsibleManager()
+        if manager and manager != currentManager:
+            self._addIssueChange('responsible_manager', 'Responsible manager', currentManager, manager)
+            issue = self.aq_inner.aq_parent
+            issue.setResponsibleManager(manager)
+            issue.reindexObject(('getResponsibleManager',))
+        self.getField('newResponsibleManager').set(self, manager)
 
 
 
-    security.declarePublic('getIssueStateAfter')
-    def getIssueStateAfter(self):
+    security.declareProtected(permissions.ModifyPortalContent, 'setNewSeverity')
+    def setNewSeverity(self,severity):
         """
-        Get the state of the parent issue that was set before the
-        response was added.
+        Set a new issue severity for the parent issue
         """
-        # Default to None if it was not set
-        return getattr(aq_base(self), '_issueStateAfter', None)
+        currentIssueSeverity = self.getCurrentIssueSeverity()
+        if severity and currentIssueSeverity != severity:
+            self._addIssueChange('severity', 'Severity', currentIssueSeverity, severity)
+            issue = self.aq_inner.aq_parent
+            issue.setSeverity(severity)
+            issue.reindexObject(('getSeverity',))
+        self.getField('newSeverity').set(self, severity)
+
+
+
+    security.declareProtected(permissions.View, 'getIssueChanges')
+    def getIssueChanges(self):
+        """
+        Get a list of changes this response has made to the issue.
+        Contains dicts with keys:
+        
+            id: A unique id for this change
+            name: The field name that was changed
+            before: The state of the field before
+            after: The new state of the field
+        """
+        return tuple(getattr(self, '_issueChanges', []))
 
 
     #manually created methods
@@ -242,11 +298,31 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         transaction.savepoint(optimistic=True)
         self.setId(newId)        
 
-    def Title(self):
-        """Define title to be the same as response id. Responses have little
-        value on their own anyway.
-        """
-        return self.getId()
+
+    def _addIssueChange(self, id, name, before, after):
+        """Add a new issue change"""
+        delta = getattr(self, '_issueChanges', None)
+        if not delta:
+            self._issueChanges = []
+            delta = self._issueChanges
+
+        for d in delta:
+            if d['id'] == id:
+                d['name'] = name
+                d['before'] = before
+                d['after'] = after
+                self._p_changed = 1
+                return
+                
+        delta.append({'id' : id,
+                      'name' : name,
+                      'before' : before,
+                      'after' : after})
+        self._p_changed = 1
+                
+
+    def getCurrentIssueSeverity(self):
+        return self.aq_inner.aq_parent.getSeverity()
 
 
     security.declarePublic('isValid')
@@ -263,6 +339,18 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
     def at_post_create_script(self):
         """Send notification email after response has been added"""
         self.sendNotificationMail()
+
+
+    def Title(self):
+        """Define title to be the same as response id. Responses have little
+        value on their own anyway.
+        """
+        return self.getId()
+
+
+    security.declareProtected(permissions.View, 'getCurrentResponsibleManager')
+    def getCurrentResponsibleManager(self):
+        return self.aq_inner.aq_parent.getResponsibleManager()
 
 
     def sendNotificationMail(self):

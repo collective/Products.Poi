@@ -13,12 +13,6 @@ Poi TODO
             plone.org sending emails to every random team. :)
         - Perhaps we therefore need to be a bit more discriminating with the
             manager role
-    
-    o In-form transition for Issues in the same way issues are transitioned
-        by responses (to make processing a "new" issue a one-step process)
-
-    o Add fixed-in version to issue schema (should be able to set on response
-        and affect issue)
 
     o Only install PoiPscTracker when PSC is detected (may be difficult with
         current ArchGenXML)
@@ -32,8 +26,6 @@ Poi TODO
         - Should look at PCNG's export format in particular
         - Should allow partial updates, e.g. change issue, add new issue,
             over XML
-        
-    o Notification email to manager when assigned to an issue
     
     Fixes:
     ------
@@ -44,10 +36,6 @@ Poi TODO
             SearchableText until a re-index (manage_beforeDelete?)
 
         o _renameAfterCreation() counter is not thread safe
-        
-        o Sending notification should happen in at_post_create_script(), not
-            in _renameAfterCreation(), but an Archetypes bug prevents this
-            since the hook is called after each save, not only the first one!
 
     Security issues:
 

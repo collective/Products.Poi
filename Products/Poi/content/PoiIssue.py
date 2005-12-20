@@ -263,7 +263,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
     immediate_view             = 'base_view'
     default_view               = 'poi_issue_view'
     suppl_views                = ()
-    typeDescription            = "An issue. Issues begin in the 'open' state, and can be responded to by project managers."
+    typeDescription            = "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
     typeDescMsgId              = 'description_edit_poiissue'
 
     actions =  (
@@ -380,6 +380,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         transaction.savepoint(optimistic=True)
         self.setId(newId)
         
+
     def SearchableText(self):
         """Include in the SearchableText the text of all responses"""
         text = BaseObject.SearchableText(self)
@@ -436,7 +437,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         """When a response is added or modified, this method should be
         called to ensure responses are correctly indexed.
         """
-        self.reindexObject(('SearchableText'))
+        self.reindexObject(('SearchableText',))
 
 
     security.declareProtected(permissions.View, 'getTagsVocab')

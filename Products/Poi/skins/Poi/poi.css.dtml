@@ -37,6 +37,10 @@
 
 /* Issue display */
 
+.issueDescription {
+    font-size: 105%;
+}
+
 .issue-info-box {
     float: right;
 }
@@ -113,6 +117,11 @@
     color: &dtml-discreetColor;;
     font-size: &dtml-fontSmallSize;;
     font-weight: normal;
+    margin-bottom: 0.5em;
+}
+
+.issueChange {
+    text-transform: lowercase;
 }
 
 /* Response actions box */

@@ -4,6 +4,8 @@
       i18n:domain="Poi">
 
   <head>
+    <metal:block fill-slot="top_slot"
+             tal:define="dummy python:request.set('disable_border',1)" />
     <metal:css fill-slot="css_slot">
       <style type="text/css" media="all"
         tal:content="string: @import url($portal_url/poi.css);"></style>
@@ -84,7 +86,7 @@
           <span class="issue-tags-tags" tal:content="python:', '.join(here.Subject())" />
       </div>
       
-      <div class="documentDescription" tal:content="here/Description" />
+      <div class="issueDescription" tal:content="here/Description" />
           
       <div tal:content="structure here/getDetails" />
   
@@ -111,6 +113,14 @@
                    type="submit"
                    i18n:attributes="value"
                    value="Add response"
+                   />
+          </form>
+          <form style="display: inline" action="edit"
+              tal:condition="python: user.has_permission('Modify Portal Content', here)">
+            <input class="context"
+                   type="submit"
+                   i18n:attributes="value"
+                   value="Edit issue"
                    />
           </form>
           <form style="display: inline" action="toggleWatchingIssue"
@@ -158,18 +168,18 @@
               </form>
             </div>
           
-            <div class="response-info"
-                 tal:define="stateBefore response/getIssueStateBefore;
-                             stateAfter  response/getIssueStateAfter;">
+            <div class="response-info">
               <span i18n:translate="poi_added_by">Added by</span>
               <span class="contact-user" tal:content="response/Creator" />
               <span i18n:translate="poi_added_on">on</span>
               <span class="contact-user" 
                     tal:content="python:here.toLocalizedTime(response.Date(), long_format=True)" />
-              <div tal:condition="python:stateBefore and stateAfter and stateBefore != stateAfter">
-                  <span i18n:translate="poi_response_state_change">Changed issue state:</span>
-                  <span tal:replace="stateBefore" /> &rarr; <span tal:replace="stateAfter" />
+              
+              <div tal:repeat="delta response/getIssueChanges">
+                  <span i18n:translate="" tal:content="string:${delta/name}:" />
+                  <span class="issueChange" i18n:translate="" tal:content="delta/before" /> &rarr; <span class="issueChange" i18n:translate="" tal:content="delta/after" />
               </div>
+
             </div>
       
             <div tal:content="structure response/getResponse" />

@@ -1,5 +1,5 @@
 try:
-    from Products.contentmigration.migrator import InlineFieldActionMigrator
+    from Products.contentmigration.migrator import InlineFieldActionMigrator, BaseInlineMigrator
     from Products.contentmigration.walker import CustomQueryWalker
     haveContentMigrations = True
 except ImportError:
@@ -10,6 +10,7 @@ import types
 from StringIO import StringIO
 from Products.CMFCore.utils import getToolByName
 from Products.Archetypes import transaction
+from Products.CMFPlone.utils import safe_hasattr
 
 def simpleDataGrid2DataGrid(obj, val, **kwargs):
     
@@ -30,6 +31,7 @@ def simpleDataGrid2DataGrid(obj, val, **kwargs):
     
     return tuple(newValue)
 
+    
 def beta2_rc1(self, out):
     """Migrate from beta 1 to rc 1
     """
@@ -47,19 +49,48 @@ def beta2_rc1(self, out):
                           'transform' : simpleDataGrid2DataGrid,
                         },)
 
-    attool = getToolByName(self, 'archetype_tool')
+    class IssueStateChangeMigrator(BaseInlineMigrator):
+        src_portal_type = src_meta_type = 'PoiResponse'
+        
+        def migrate_issueStateChange(self):
+            stateBefore = getattr(self.obj, '_issueStateBefore', None)
+            stateAfter = getattr(self.obj, '_issueStateAfter', None)
+            if stateBefore and stateAfter:
+                issueChanges = getattr(self.obj, '_issueChanges', [])
+                haveStateChange = ('review_state' in [c['id'] for c in issueChanges])
+                if not haveStateChange:
+                    issueChanges.append({'id' : 'review_state',
+                                         'name' : 'Issue state',
+                                         'before' : stateBefore,
+                                         'after' : stateAfter,})
+                    setattr(self.obj, '_issueChanges', issueChanges)
+                delattr(self.obj, '_issueStateBefore')
+                delattr(self.obj, '_issueStateAfter')
 
+    # Attempt to do AT schema migration
+
+    attool = getToolByName(self, 'archetype_tool')
     # Seriously, people who make these types of APIs should be shot...
     class FakeRequest:
         form = {'PoiTracker'    : True, 
                 'PoiPscTracker' : True}
     attool.manage_updateSchema(REQUEST = FakeRequest())
     
+    # Migrate data grid fields
+    
     portal = getToolByName(self, 'portal_url').getPortalObject()
     walker = CustomQueryWalker(portal, DataFieldMigrator, query = {})
     # Need this to avoid copy errors....
     transaction.savepoint(optimistic=True)
     print >> out, "Migrating from SimpleDataGridField to DataGridField"
+    walker.go()
+    
+    # Migrate issue state change
+    
+    walker = CustomQueryWalker(portal, IssueStateChangeMigrator, query = {})
+    # Need this to avoid copy errors....
+    transaction.savepoint(optimistic=True)
+    print >> out, "Migrating issue state change storage in responses"
     walker.go()
     
     

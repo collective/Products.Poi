@@ -15,17 +15,17 @@ if not memberId:
     member = mtool.getAuthenticatedMember()
     memberId = member.getId()
 
-created = context.getFilteredIssues(state=openStates, creator=memberId)
-assigned = context.getFilteredIssues(state=openStates, responsible=memberId)
+isManager = (memberId in context.getManagers())
 
-issues = [i for i in created]
-existingIssues = {}
-for i in issues:
-    existingIssues[i.getURL()] = 1
+open = context.getFilteredIssues(state=openStates)
+issues = []
 
-for a in assigned:
-    if a.getURL() not in existingIssues:
-        issues.append(a)
-        existingIssues[a.getURL()] = 1
+for i in open:
+    responsible = i.getResponsibleManager
+    creator = i.Creator
+    
+    if creator == memberId or \
+        (isManager and (responsible == '(UNASSIGNED)' or responsible == memberId)):
+        issues.append(i)
 
 return issues

@@ -35,6 +35,11 @@ BODY {
     color: #aaaaaa;
 }
 
+.responseText {
+   padding-left: 1em; 
+   background-color: #eaeaea;
+}
+
 H2 {
     font-size: 1.2em;
     font-weight: bold;

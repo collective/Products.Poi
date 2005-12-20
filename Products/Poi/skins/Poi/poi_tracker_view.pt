@@ -162,6 +162,7 @@
                <h2 i18n:translate="poi_heading_my_issues">My issues</h2>
                <p tal:condition="isManager" i18n:translate="poi_help_my_issues_manager">
                    The following open issues were either submitted by you, or have been assigned to you.
+                   Note that open issues not assigned to anybody will also be displayed in this list.
                </p>
            
                <p tal:condition="not:isManager" i18n:translate="poi_help_my_issues_not_manager">
