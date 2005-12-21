@@ -1,7 +1,7 @@
 # File: PoiResponse.py
 # 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.0-RC2 svn/development 
+# Generator: ArchGenXML  
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
@@ -299,27 +299,10 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         self.setId(newId)        
 
 
-    def _addIssueChange(self, id, name, before, after):
-        """Add a new issue change"""
-        delta = getattr(self, '_issueChanges', None)
-        if not delta:
-            self._issueChanges = []
-            delta = self._issueChanges
+    security.declareProtected(permissions.View, 'getCurrentResponsibleManager')
+    def getCurrentResponsibleManager(self):
+        return self.aq_inner.aq_parent.getResponsibleManager()
 
-        for d in delta:
-            if d['id'] == id:
-                d['name'] = name
-                d['before'] = before
-                d['after'] = after
-                self._p_changed = 1
-                return
-                
-        delta.append({'id' : id,
-                      'name' : name,
-                      'before' : before,
-                      'after' : after})
-        self._p_changed = 1
-                
 
     def getCurrentIssueSeverity(self):
         return self.aq_inner.aq_parent.getSeverity()
@@ -348,10 +331,27 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         return self.getId()
 
 
-    security.declareProtected(permissions.View, 'getCurrentResponsibleManager')
-    def getCurrentResponsibleManager(self):
-        return self.aq_inner.aq_parent.getResponsibleManager()
+    def _addIssueChange(self, id, name, before, after):
+        """Add a new issue change"""
+        delta = getattr(self, '_issueChanges', None)
+        if not delta:
+            self._issueChanges = []
+            delta = self._issueChanges
 
+        for d in delta:
+            if d['id'] == id:
+                d['name'] = name
+                d['before'] = before
+                d['after'] = after
+                self._p_changed = 1
+                return
+                
+        delta.append({'id' : id,
+                      'name' : name,
+                      'before' : before,
+                      'after' : after})
+        self._p_changed = 1
+                
 
     def sendNotificationMail(self):
         """When this response is created, send a notification email to all
