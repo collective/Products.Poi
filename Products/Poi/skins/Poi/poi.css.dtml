@@ -37,8 +37,16 @@
 
 /* Issue display */
 
-.issueDescription {
+.issue-description {
     font-size: 105%;
+    margin-bottom: 1em;
+}
+
+.modification-info {
+    margin: 0 0 0.5em 0;
+    color: &dtml-discreetColor;;
+    font-size: &dtml-fontSmallSize;;
+
 }
 
 .issue-info-box {
@@ -75,16 +83,23 @@
 
 .issue-tags {
     margin: 0 0 0.5em 0;
-    color: &dtml-discreetColor;;
-    font-size: &dtml-fontSmallSize;;
 }
 
 .issue-tags-label {
     font-weight: bold;
 }
 
-.issue-tags-tag {
-    font-style: italic;
+ul.issue-tags-tags {
+    display: inline;
+    margin-left: 0;
+}
+
+ul.issue-tags-tags li {
+    display: inline;
+}
+
+ul.issue-tags-tags a {
+
 }
 
 

@@ -202,6 +202,18 @@ class TestTrackerSearch(ptc.PoiTestCase):
         issues.sort()
         self.assertEqual(issues, ['3'])
 
+    def testGetFilteredIssesByTargetRelease(self):
+        self.createIssue(self.tracker, targetRelease='2.0')
+        self.createIssue(self.tracker, targetRelease='2.0')
+        self.createIssue(self.tracker, targetRelease='1.0')
+        issues = [b.getId for b in self.tracker.getFilteredIssues(targetRelease='2.0')]
+        issues.sort()
+        self.assertEqual(issues, ['1', '2'])
+        issues = [b.getId for b in self.tracker.getFilteredIssues(targetRelease='1.0')]
+        issues.sort()
+        self.assertEqual(issues, ['3'])
+
+
     def testGetFilteredIssesByState(self):
         self.createIssue(self.tracker)
         self.createIssue(self.tracker)

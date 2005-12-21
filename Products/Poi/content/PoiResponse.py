@@ -1,7 +1,7 @@
 # File: PoiResponse.py
 # 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.0-RC2 svn/development 
+# Generator: ArchGenXML Version 1.4.1 svn/devel 
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
@@ -111,6 +111,40 @@ schema=Schema((
         write_permission=permissions.ModifyIssueState
     ),
 
+    StringField('newSeverity',
+        mutator="setNewSeverity",
+        widget=SelectionWidget(
+            label="Change issue severity",
+            description="Select the severity for this issue",
+            format="radio",
+            label_msgid='Poi_label_newSeverity',
+            description_msgid='Poi_help_newSeverity',
+            i18n_domain='Poi',
+        ),
+        vocabulary='getAvailableSeverities',
+        default_method='getCurrentIssueSeverity',
+        enforceVocabulary=True,
+        accessor="getNewSeverity",
+        write_permission=permissions.ModifyIssueSeverity
+    ),
+
+    StringField('newTargetRelease',
+        mutator="setNewTargetRelease",
+        widget=SelectionWidget(
+            label="Change target release",
+            description="Set the target release for this issue",
+            format="flex",
+            label_msgid='Poi_label_newTargetRelease',
+            description_msgid='Poi_help_newTargetRelease',
+            i18n_domain='Poi',
+        ),
+        vocabulary='getReleasesVocab',
+        default_method='getCurrentTargetRelease',
+        enforceVocabulary=True,
+        accessor="getNewTargetRelease",
+        write_permission=permissions.ModifyIssueTargetRelease
+    ),
+
     StringField('newResponsibleManager',
         mutator="setNewResponsibleManager",
         widget=SelectionWidget(
@@ -126,23 +160,6 @@ schema=Schema((
         enforceVocabulary=True,
         accessor="getNewResponsibleManager",
         write_permission=permissions.ModifyIssueAssignment
-    ),
-
-    StringField('newSeverity',
-        mutator="setNewSeverity",
-        widget=SelectionWidget(
-            label="Change issue severity",
-            description="Select the responsible manager for this issue",
-            format="radio",
-            label_msgid='Poi_label_newSeverity',
-            description_msgid='Poi_help_newSeverity',
-            i18n_domain='Poi',
-        ),
-        vocabulary='getAvailableSeverities',
-        default_method='getCurrentIssueSeverity',
-        enforceVocabulary=True,
-        accessor="getNewSeverity",
-        write_permission=permissions.ModifyIssueSeverity
     ),
 
 ),
@@ -217,7 +234,7 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
 
     #Methods
 
-    security.declareProtected(permissions.ModifyPortalContent, 'setNewIssueState')
+    security.declareProtected(permissions.ModifyIssueState, 'setNewIssueState')
     def setNewIssueState(self,transition):
         """
         Set a new review state for the parent issue, by executing
@@ -237,6 +254,39 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
 
 
 
+    security.declareProtected(permissions.ModifyIssueSeverity, 'setNewSeverity')
+    def setNewSeverity(self,severity):
+        """
+        Set a new issue severity for the parent issue
+        """
+        currentIssueSeverity = self.getCurrentIssueSeverity()
+        if severity and currentIssueSeverity != severity:
+            self._addIssueChange('severity', 'Severity', currentIssueSeverity, severity)
+            issue = self.aq_inner.aq_parent
+            issue.setSeverity(severity)
+            issue.reindexObject(('getSeverity',))
+        self.getField('newSeverity').set(self, severity)
+
+
+
+    security.declareProtected(permissions.ModifyIssueTargetRelease, 'setNewTargetRelease')
+    def setNewTargetRelease(self,release):
+        """
+        Set a new target release for the parent issue
+        """
+        currentTargetRelease = self.getCurrentTargetRelease()
+        if release and currentTargetRelease != release:
+            vocab = self.getReleasesVocab()
+            current = vocab.getValue(currentTargetRelease)
+            new = vocab.getValue(release)
+            self._addIssueChange('target_release', 'Target release', current, new)
+            issue = self.aq_inner.aq_parent
+            issue.setTargetRelease(release)
+            issue.reindexObject(('getTargetRelease',))
+        self.getField('newTargetRelease').set(self, release)
+
+
+
     security.declareProtected(permissions.ModifyIssueAssignment, 'setNewResponsibleManager')
     def setNewResponsibleManager(self,manager):
         """
@@ -249,21 +299,6 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
             issue.setResponsibleManager(manager)
             issue.reindexObject(('getResponsibleManager',))
         self.getField('newResponsibleManager').set(self, manager)
-
-
-
-    security.declareProtected(permissions.ModifyPortalContent, 'setNewSeverity')
-    def setNewSeverity(self,severity):
-        """
-        Set a new issue severity for the parent issue
-        """
-        currentIssueSeverity = self.getCurrentIssueSeverity()
-        if severity and currentIssueSeverity != severity:
-            self._addIssueChange('severity', 'Severity', currentIssueSeverity, severity)
-            issue = self.aq_inner.aq_parent
-            issue.setSeverity(severity)
-            issue.reindexObject(('getSeverity',))
-        self.getField('newSeverity').set(self, severity)
 
 
 
@@ -299,28 +334,12 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         self.setId(newId)        
 
 
-    def _addIssueChange(self, id, name, before, after):
-        """Add a new issue change"""
-        delta = getattr(self, '_issueChanges', None)
-        if not delta:
-            self._issueChanges = []
-            delta = self._issueChanges
+    security.declareProtected(permissions.View, 'getCurrentResponsibleManager')
+    def getCurrentResponsibleManager(self):
+        return self.aq_inner.aq_parent.getResponsibleManager()
 
-        for d in delta:
-            if d['id'] == id:
-                d['name'] = name
-                d['before'] = before
-                d['after'] = after
-                self._p_changed = 1
-                return
-                
-        delta.append({'id' : id,
-                      'name' : name,
-                      'before' : before,
-                      'after' : after})
-        self._p_changed = 1
-                
 
+    security.declareProtected(permissions.View, 'getCurrentIssueSeverity')
     def getCurrentIssueSeverity(self):
         return self.aq_inner.aq_parent.getSeverity()
 
@@ -348,10 +367,32 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         return self.getId()
 
 
-    security.declareProtected(permissions.View, 'getCurrentResponsibleManager')
-    def getCurrentResponsibleManager(self):
-        return self.aq_inner.aq_parent.getResponsibleManager()
+    security.declareProtected(permissions.View, 'getCurrentTargetRelease')
+    def getCurrentTargetRelease(self):
+        return self.aq_inner.aq_parent.getTargetRelease()
 
+
+    def _addIssueChange(self, id, name, before, after):
+        """Add a new issue change"""
+        delta = getattr(self, '_issueChanges', None)
+        if not delta:
+            self._issueChanges = []
+            delta = self._issueChanges
+
+        for d in delta:
+            if d['id'] == id:
+                d['name'] = name
+                d['before'] = before
+                d['after'] = after
+                self._p_changed = 1
+                return
+                
+        delta.append({'id' : id,
+                      'name' : name,
+                      'before' : before,
+                      'after' : after})
+        self._p_changed = 1
+                
 
     def sendNotificationMail(self):
         """When this response is created, send a notification email to all
@@ -368,7 +409,7 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         mailText = self.poi_notify_new_response(self, tracker = tracker, issue = issue, response = self, fromName = fromName)
         subject = "[%s] New response to issue '%s. %s'" % (tracker.Title(), issue.getId(), issue.Title(),)
         
-        tracker.sendNotificationEmail(addresses, subject, mailText)
+        tracker.sendNotificationEmail(addresses, subject, mailText)        
 
 
 def modify_fti(fti):

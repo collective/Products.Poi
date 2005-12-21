@@ -74,6 +74,28 @@
                 
             </div>
     
+            <div class="field" tal:condition="here/isUsingReleases">
+                
+                <label for="release" i18n:translate="poi_search_label_target_release">Target release</label>
+
+                <div class="formHelp" i18n:translate="poi_search_help_target_release">
+                    Select the assigned target release you wish to search for.
+                </div>
+    
+                <select id="targetRelease"
+                        size="5"
+                        multiple="multiple"
+                        name="targetRelease:list"
+                        tal:define="releases here/getReleasesVocab">
+                    <option i18n:translate="not_assigned"
+                            value="(UNASSIGNED)">(Not assigned)</option>
+                    <option tal:repeat="item releases"
+                            tal:attributes="value item"
+                            tal:content="python:releases.getValue(item)" />
+                </select>
+                
+            </div>
+    
             <div class="field">
                 
                 <label for="area" i18n:translate="poi_search_label_area">Area</label>

@@ -80,6 +80,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
     def createIssue(self, tracker, title='An issue', 
                     overview='Something is wrong', release='(UNASSIGNED)', 
                     area='ui', issueType='bug', severity='Medium', 
+                    targetRelease='(UNASSIGNED)',
                     details='', steps=(), attachment=None, 
                     contactEmail='submitter@domain.com',
                     watchers=(),
@@ -97,6 +98,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         issue.setArea(area)
         issue.setIssueType(issueType)
         issue.setSeverity(severity)
+        issue.setTargetRelease(targetRelease)
         issue.setDetails(details)
         issue.setSteps(steps)
         issue.setAttachment(attachment)
@@ -110,7 +112,8 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         return issue
 
     def createResponse(self, issue, text='Respnse text', issueTransition='',
-                        newSeverity=None, newResponsibleManager=None, attachment=None):
+                        newSeverity=None, newTargetRelease=None,
+                        newResponsibleManager=None, attachment=None):
         """Create a response to the given tracker, and perform workflow and
         rename-after-creation initialisation"""
         newId = self.portal.generateUniqueId('PoiResponse')
@@ -119,9 +122,11 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         response.setResponse(text)
         response.setNewIssueState(issueTransition)
         response.setNewSeverity(newSeverity)
+        response.setNewTargetRelease(newTargetRelease)
         response.setNewResponsibleManager(newResponsibleManager)
         response.setAttachment(attachment)
         self.portal.portal_workflow.doActionFor(response, 'post')
         response._renameAfterCreation()
         response.reindexObject()
+        issue.updateResponses()
         return response

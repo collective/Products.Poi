@@ -1,7 +1,7 @@
 # File: PoiTracker.py
 # 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.0-RC2 svn/development 
+# Generator: ArchGenXML Version 1.4.1 svn/devel 
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
@@ -462,15 +462,16 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         if criteria is None:
             criteria = kwargs
 
-        allowedCriteria = {'release'     : 'getRelease',
-                           'area'        : 'getArea',
-                           'issueType'   : 'getIssueType',
-                           'severity'    : 'getSeverity',
-                           'state'       : 'review_state',
-                           'tags'        : 'Subject',
-                           'responsible' : 'getResponsibleManager',
-                           'creator'     : 'Creator',
-                           'text'        : 'SearchableText',
+        allowedCriteria = {'release'       : 'getRelease',
+                           'area'          : 'getArea',
+                           'issueType'     : 'getIssueType',
+                           'severity'      : 'getSeverity',
+                           'targetRelease' : 'getTargetRelease',
+                           'state'         : 'review_state',
+                           'tags'          : 'Subject',
+                           'responsible'   : 'getResponsibleManager',
+                           'creator'       : 'Creator',
+                           'text'          : 'SearchableText',
                            }
 
         query                = {}

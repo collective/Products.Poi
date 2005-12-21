@@ -6,6 +6,9 @@ Poi TODO
     Possible features for inclusion:
     --------------------------------
     
+    o Use Five events to manage issue searchable text updates when response
+        changes and email notifications
+    
     o Link Areas and Plone groups. This way, all UI postings should fire
         a mail to the UI team, for example.
         - Can do this with column in availableAreas grid, but need better
@@ -24,6 +27,7 @@ Poi TODO
     
     o XML import/export of issues
         - Should look at PCNG's export format in particular
+        - Would like to use xmlio if possible
         - Should allow partial updates, e.g. change issue, add new issue,
             over XML
     
@@ -33,7 +37,9 @@ Poi TODO
     Bugs/Known issues:
 
         o Deleting a response will cause issue text to remain in issue
-            SearchableText until a re-index (manage_beforeDelete?)
+            SearchableText until a re-index. We'll probably need Five
+            events to fix this, as manage_beforeDelete() gets called
+            before the object is deleted (funnily enough)
 
         o _renameAfterCreation() counter is not thread safe
 
@@ -65,10 +71,6 @@ Poi TODO
 
         o Want to have sortable tables, but they look funny without nosort if
             the title makes a row two lines long or more
-
-        o May be confusing to track issue progress if users edit a response
-            and change the issue state, e.g. using a response in the middle.
-            Workflow history will still work, of course
             
     Tests:
     

@@ -27,15 +27,23 @@
       <h1 class="documentFirstHeading">
           #<span tal:replace="here/getId" /> &mdash;
           <span tal:replace="here/Title" />
-      </h1>      
+      </h1> 
             
-      <table class="vertical listing issue-info-box">
+      <table class="vertical listing issue-info-box"
+             tal:define="releases here/getReleasesVocab">
+          <tr tal:define="state python:wftool.getInfoFor(here, 'review_state');
+                          state_title python:wtool.getTitleForStateOnType(state,
+                          here.getPortalTypeName());">
+              <th i18n:translate="poi_label_state">State</th>
+              <td tal:content="state_title" 
+                  i18n:translate="" i18n:domain="plone"
+                  tal:attributes="class string:issue-${state}"/>
+          </tr>
           <tr tal:condition="here/isUsingReleases">
               <th i18n:translate="poi_label_release">Release:</th>
-              <td tal:condition="here/isUsingReleases">
-                  <span tal:define="releases here/getReleasesVocab"
-                          tal:condition="python:here.getRelease() != '(UNASSIGNED)'"
-                          tal:replace="python:releases.getValue(here.getRelease())" />
+              <td>
+                  <span tal:condition="python:here.getRelease() != '(UNASSIGNED)'"
+                        tal:replace="python:releases.getValue(here.getRelease())" />
                   <div tal:condition="python:here.getRelease() == '(UNASSIGNED)'" class="unassigned-field">
                       &mdash;
                   </div>
@@ -71,22 +79,42 @@
                   </div>
               </td>
           </tr>
-          <tr tal:define="state python:wftool.getInfoFor(here, 'review_state');
-                          state_title python:wtool.getTitleForStateOnType(state,
-                          here.getPortalTypeName());">
-              <th i18n:translate="poi_label_state">State</th>
-              <td tal:content="state_title" 
-                  i18n:translate="" i18n:domain="plone"
-                  tal:attributes="class string:issue-${state}"/>
+          <tr tal:condition="here/isUsingReleases">
+              <th i18n:translate="poi_label_target_release">Target release:</th>
+              <td>
+                  <span tal:condition="python:here.getTargetRelease() != '(UNASSIGNED)'"
+                        tal:replace="python:releases.getValue(here.getTargetRelease())" />
+                  <div tal:condition="python:here.getTargetRelease() == '(UNASSIGNED)'" class="unassigned-field">
+                      &mdash;
+                  </div>
+              </td>
           </tr>
       </table>
       
-      <div class="issue-tags" tal:condition="here/Subject">
-          <span class="issue-tags-label" i18n:translate="poi_label_tags">Tags:</span> 
-          <span class="issue-tags-tags" tal:content="python:', '.join(here.Subject())" />
+      <div class="modification-info" 
+           tal:define="user here/getLastModificationUser;
+                       time here/modified">
+         <span tal:condition="nocall:user" i18n:translate="Poi_last_modified_on_by">Last modified on
+            <span i18:name="modification_time" tal:content="python:here.toLocalizedTime(time)" tal:omit-tag=""/>
+            by
+            <span i18:name="modification_actor" tal:content="user" tal:omit-tag=""/>
+         </span>
+         <span tal:condition="not:nocall:user" i18n:translate="Poi_last_modified_on">Last modified on
+            <span i18:name="modification_time" tal:content="python:here.toLocalizedTime(time)" tal:omit-tag=""/>
+         </span>
+
       </div>
       
-      <div class="issueDescription" tal:content="here/Description" />
+      <div class="issue-tags" tal:condition="here/Subject">
+          <span class="issue-tags-label" i18n:translate="poi_label_tags">Tags:</span> 
+          <ul class="issue-tags-tags">
+              <li tal:repeat="tag here/Subject">
+                 <a tal:content="tag" tal:attributes="href string:${here/aq_parent/absolute_url}/poi_issue_search?tags=${tag}"/>
+              </li>
+          </ul>
+      </div>
+      
+      <div class="issue-description" tal:content="here/Description" />
           
       <div tal:content="structure here/getDetails" />
   

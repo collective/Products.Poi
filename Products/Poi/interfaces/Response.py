@@ -1,7 +1,7 @@
 # File: Response.py
 # 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.0-RC2 svn/development 
+# Generator: ArchGenXML Version 1.4.1 svn/devel 
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
@@ -43,18 +43,27 @@ class Response(Base):
 
 
 
-    def setNewResponsibleManager(manager):
+    def setNewSeverity(severity):
         """
-        Set a new responsible manager for the parent issue
+        Set a new issue severity for the parent issue
         """
         
         pass
 
 
 
-    def setNewSeverity(severity):
+    def setNewTargetRelease(release):
         """
-        Set a new issue severity for the parent issue
+        Set a new target release for the parent issue
+        """
+        
+        pass
+
+
+
+    def setNewResponsibleManager(manager):
+        """
+        Set a new responsible manager for the parent issue
         """
         
         pass

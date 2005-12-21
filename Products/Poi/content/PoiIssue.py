@@ -1,7 +1,7 @@
 # File: PoiIssue.py
 # 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.0-RC2 svn/development 
+# Generator: ArchGenXML Version 1.4.1 svn/devel 
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
@@ -165,6 +165,7 @@ schema=Schema((
         widget=SelectionWidget(
             label="Severity",
             description="Select the severity of this issue.",
+            format="radio",
             label_msgid='Poi_label_severity',
             description_msgid='Poi_help_severity',
             i18n_domain='Poi',
@@ -173,6 +174,22 @@ schema=Schema((
         default_method='getDefaultSeverity',
         required=True,
         write_permission=permissions.ModifyIssueSeverity
+    ),
+
+    StringField('targetRelease',
+        index="FieldIndex|schema",
+        widget=SelectionWidget(
+            label="Target release",
+            description="Release this issue is targetted to be fixed in",
+            condition="object/isUsingReleases",
+            label_msgid='Poi_label_targetRelease',
+            description_msgid='Poi_help_targetRelease',
+            i18n_domain='Poi',
+        ),
+        vocabulary='getReleasesVocab',
+        default="(UNASSIGNED)",
+        required=True,
+        write_permission=permissions.ModifyIssueTargetRelease
     ),
 
     StringField('responsibleManager',
@@ -355,6 +372,17 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         return member.getId() in self.getWatchers()
 
 
+
+    security.declareProtected(permissions.View, 'getLastModificationUser')
+    def getLastModificationUser(self):
+        """
+        Get the user id of the user who last modified the issue, either
+        by creating, editing or adding a response to it. May return None if
+        the user is unknown.
+        """
+        return getattr(self, '_lastModificationUser', None)
+
+
     #manually created methods
 
     def getDefaultContactEmail(self):
@@ -381,12 +409,27 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         self.setId(newId)
         
 
-    def SearchableText(self):
-        """Include in the SearchableText the text of all responses"""
-        text = BaseObject.SearchableText(self)
-        responses = self.contentValues('PoiResponse')
-        text += ' ' + ' '.join([r.SearchableText() for r in responses])
-        return text
+    security.declareProtected(permissions.View, 'updateResponses')
+    def updateResponses(self):
+        """When a response is added or modified, this method should be
+        called to ensure responses are correctly indexed.
+        """
+        self.reindexObject(('SearchableText',))
+        self.notifyModified()
+
+
+    def validate_watchers(self, value):
+        """Make sure watchers are actual user ids"""
+        membership = getToolByName(self, 'portal_membership')
+        notFound = []
+        for userId in value:
+            member = membership.getMemberById(userId)
+            if member is None:
+                notFound.append(userId)
+        if notFound:
+            return "The following user ids could not be found: %s" % ','.join(notFound)
+        else:
+            return None
 
 
     def getDefaultSeverity(self):
@@ -432,14 +475,6 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         return vocab
 
 
-    security.declareProtected(permissions.View, 'updateResponses')
-    def updateResponses(self):
-        """When a response is added or modified, this method should be
-        called to ensure responses are correctly indexed.
-        """
-        self.reindexObject(('SearchableText',))
-
-
     security.declareProtected(permissions.View, 'getTagsVocab')
     def getTagsVocab(self):
         """
@@ -466,18 +501,19 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         return vocab
 
 
-    def validate_watchers(self, value):
-        """Make sure watchers are actual user ids"""
-        membership = getToolByName(self, 'portal_membership')
-        notFound = []
-        for userId in value:
-            member = membership.getMemberById(userId)
-            if member is None:
-                notFound.append(userId)
-        if notFound:
-            return "The following user ids could not be found: %s" % ','.join(notFound)
-        else:
-            return None
+    def SearchableText(self):
+        """Include in the SearchableText the text of all responses"""
+        text = BaseObject.SearchableText(self)
+        responses = self.contentValues('PoiResponse')
+        text += ' ' + ' '.join([r.SearchableText() for r in responses])
+        return text
+
+
+    def notifyModified(self):
+        super(PoiIssue, self).notifyModified()
+        mtool = getToolByName(self, 'portal_membership')
+        member = mtool.getAuthenticatedMember()
+        self._lastModificationUser = member.getId()
 
 
     security.declareProtected(permissions.View, 'getAreasVocab')

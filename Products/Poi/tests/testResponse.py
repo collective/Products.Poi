@@ -50,6 +50,12 @@ class TestResponse(ptc.PoiTestCase):
         self.assertEqual(self.issue.getSeverity(), 'Medium')
         self.response.setNewSeverity('Important')
         self.assertEqual(self.issue.getSeverity(), 'Important')
+
+    def testSetNewTargetRelease(self):
+        self.assertEqual(self.issue.getTargetRelease(), '(UNASSIGNED)')
+        self.response.setNewTargetRelease('2.0')
+        self.assertEqual(self.issue.getTargetRelease(), '2.0')
+
         
     def testGetIssueChanges(self):
         changes = self.response.getIssueChanges()
@@ -58,16 +64,37 @@ class TestResponse(ptc.PoiTestCase):
         self.response.setNewIssueState('accept-unconfirmed')
         self.response.setNewResponsibleManager('member1')
         self.response.setNewSeverity('Important')
+        self.response.setNewTargetRelease('2.0')
         changes = changes = self.response.getIssueChanges()
         self.assertEqual(changes[0], {'id' : 'review_state', 'name' : 'Issue state', 'before' : 'unconfirmed', 'after' : 'open'})
         self.assertEqual(changes[1], {'id' : 'responsible_manager', 'name' : 'Responsible manager', 'before' : '(UNASSIGNED)', 'after' : 'member1'})
         self.assertEqual(changes[2], {'id' : 'severity', 'name' : 'Severity', 'before' : 'Medium', 'after' : 'Important'})
+        self.assertEqual(changes[3], {'id' : 'target_release', 'name' : 'Target release', 'before' : 'None', 'after' : '2.0'})
+
+class TestKnownIssues(ptc.PoiTestCase):
+    """Test bugs with responses"""
+
+    def afterSetUp(self):
+        self.addMember('member1', 'Member One', 'member1@member.com', ['Member'], '2005-01-01')
+        self.tracker = self.createTracker(self.folder, 'issue-tracker', managers=('member1',))
+        self.issue = self.createIssue(self.tracker, 'an-issue')
+        self.response = self.createResponse(self.issue, 'a-response')
+        self.catalog = self.portal.portal_catalog
         
+    def testDeleteResponseLeavesStaleDescription(self):
+        found = len(self.catalog.searchResults(portal_type = 'PoiIssue', SearchableText = 'a-response')) >= 1
+        self.failUnless(found)
+        self.issue._delObject('1')
+        self.failIf('a-response' in self.issue.SearchableText())
+        found = len(self.catalog.searchResults(portal_type = 'PoiIssue', SearchableText = 'a-response')) >= 1
+        self.failIf(found, 'KNOWN ISSUE: Deleted response causes stale issue SearchableText')
+
 
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()
     suite.addTest(makeSuite(TestResponse))
+    suite.addTest(makeSuite(TestKnownIssues))
     return suite
 
 if __name__ == '__main__':

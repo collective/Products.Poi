@@ -3,8 +3,7 @@
 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
 #
-
-# Generator: ArchGenXML Version 1.4.0-RC2 svn/development
+# Generator: ArchGenXML Version 1.4.1 svn/devel
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
@@ -29,6 +28,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.WorkflowTool import addWorkflowFactory
 from Products.DCWorkflow.DCWorkflow import DCWorkflowDefinition
 from Products.ExternalMethod.ExternalMethod import ExternalMethod
+from Products.Poi.config import *
 
 ##code-section create-workflow-module-header #fill in your manual code here
 ##/code-section create-workflow-module-header
@@ -55,8 +55,12 @@ def setuppoi_response_workflow(self, workflow):
     for v in ['review_history', 'comments', 'time', 'actor', 'action']:
         workflow.variables.addVariable(v)
 
-    for p in ['Modify portal content', 'Delete objects']:
-        workflow.addManagedPermission(p)
+    workflow.addManagedPermission('Modify portal content')
+    workflow.addManagedPermission('Delete objects')
+    workflow.addManagedPermission('Poi: Modify issue state')
+    workflow.addManagedPermission('Poi: Modify issue severity')
+    workflow.addManagedPermission('Poi: Modify issue assignment')
+    workflow.addManagedPermission('Poi: Modify issue target release')
 
     for l in []:
         if not l in workflow.worklists.objectValues():
@@ -77,6 +81,18 @@ def setuppoi_response_workflow(self, workflow):
     stateDef.setPermission('Delete objects',
                            0,
                            ['Manager'])
+    stateDef.setPermission('Poi: Modify issue state',
+                           0,
+                           [])
+    stateDef.setPermission('Poi: Modify issue severity',
+                           0,
+                           [])
+    stateDef.setPermission('Poi: Modify issue assignment',
+                           0,
+                           [])
+    stateDef.setPermission('Poi: Modify issue target release',
+                           0,
+                           [])
 
     stateDef = workflow.states['new']
     stateDef.setProperties(title="""Being created""",
@@ -87,6 +103,18 @@ def setuppoi_response_workflow(self, workflow):
     stateDef.setPermission('Delete objects',
                            0,
                            ['Anonymous', 'Owner', 'Manager'])
+    stateDef.setPermission('Poi: Modify issue state',
+                           0,
+                           ['Manager'])
+    stateDef.setPermission('Poi: Modify issue assignment',
+                           0,
+                           ['Manager'])
+    stateDef.setPermission('Poi: Modify issue target release',
+                           0,
+                           ['Manager'])
+    stateDef.setPermission('Poi: Modify issue severity',
+                           0,
+                           ['Manager'])
 
     ## Transitions initialization
 
