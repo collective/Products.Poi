@@ -3,7 +3,7 @@
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
 #
 # Generated: 
-# Generator: ArchGenXML Version 1.4.1 svn/devel
+# Generator: ArchGenXML Version 1.4.0-RC2 svn/development
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)

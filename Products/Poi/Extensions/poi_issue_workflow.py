@@ -3,7 +3,8 @@
 
 # Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
 #
-# Generator: ArchGenXML Version 1.4.1 svn/devel
+
+# Generator: ArchGenXML Version 1.4.0-RC2 svn/development
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public Licence (GPL)
@@ -28,7 +29,6 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.WorkflowTool import addWorkflowFactory
 from Products.DCWorkflow.DCWorkflow import DCWorkflowDefinition
 from Products.ExternalMethod.ExternalMethod import ExternalMethod
-from Products.Poi.config import *
 
 ##code-section create-workflow-module-header #fill in your manual code here
 ##/code-section create-workflow-module-header
@@ -55,9 +55,8 @@ def setuppoi_issue_workflow(self, workflow):
     for v in ['review_history', 'comments', 'time', 'actor', 'action']:
         workflow.variables.addVariable(v)
 
-    workflow.addManagedPermission('Delete objects')
-    workflow.addManagedPermission('Poi: Modify issue state')
-    workflow.addManagedPermission('Modify portal content')
+    for p in ['Delete objects', 'Poi: Modify issue state', 'Modify portal content']:
+        workflow.addManagedPermission(p)
 
     for l in []:
         if not l in workflow.worklists.objectValues():

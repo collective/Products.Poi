@@ -1,22 +1,12 @@
-"""config.py, product configuration.
-
-The contents of this module will be imported into __init__.py, the
-workflow configuration and every content type module.
-
-If you wish to perform custom configuration, you may put a file
-AppConfig.py in your product's root directory. This will be included
-in this file if found.
-"""
-
-# Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
 #
-# Generator: ArchGenXML Version 1.4.1 svn/devel
-#            http://plone.org/products/archgenxml
-
+# Product configuration. This contents of this module will be imported into
+# __init__.py and every content type module.
+#
+# If you wish to perform custom configuration, you may put a file AppConfig.py
+# in your product's root directory. This will be included in this file if
+# found.
+#
 from Products.CMFCore.CMFCorePermissions import setDefaultRoles
-##code-section config-head #fill in your manual code here
-##/code-section config-head
-
 
 PROJECTNAME = "Poi"
 
