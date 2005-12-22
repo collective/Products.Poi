@@ -118,12 +118,19 @@ def setuppoi_response_workflow(self, workflow):
 
     ## Transitions initialization
 
+    ##creation of workflow scripts
+    for wf_scriptname in ['sendResponseEmail']:
+        if not wf_scriptname in workflow.scripts.objectIds():
+            workflow.scripts._setObject(wf_scriptname,ExternalMethod(wf_scriptname, wf_scriptname,
+                productname + '.poi_response_workflow_scripts',
+                wf_scriptname))
+
     transitionDef = workflow.transitions['post']
     transitionDef.setProperties(title="""Post response on save""",
                                 new_state_id="""published""",
                                 trigger_type=1,
                                 script_name="""""",
-                                after_script_name="""""",
+                                after_script_name="""sendResponseEmail""",
                                 actbox_name="""Post response on save""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",

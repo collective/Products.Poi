@@ -26,4 +26,9 @@ __version__   = '$ Revision 0.0 $'[11:-2]
 ##code-section workflow-script-header #fill in your manual code here
 ##/code-section workflow-script-header
 
-## []
+## ['sendResponseEmail']
+
+def sendResponseEmail(self,state_change,**kw):
+    self.sendResponseNotificationMail()
+
+

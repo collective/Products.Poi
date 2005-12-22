@@ -355,11 +355,6 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
             return True
 
 
-    def at_post_create_script(self):
-        """Send notification email after response has been added"""
-        self.sendNotificationMail()
-
-
     def Title(self):
         """Define title to be the same as response id. Responses have little
         value on their own anyway.
@@ -394,7 +389,7 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         self._p_changed = 1
                 
 
-    def sendNotificationMail(self):
+    def sendResponseNotificationMail(self):
         """When this response is created, send a notification email to all
         tracker managers, unless emailing is turned off.
         """

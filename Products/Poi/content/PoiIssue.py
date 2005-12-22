@@ -448,11 +448,6 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
             return True
 
 
-    def at_post_create_script(self):
-        """Send notification email after issue has been created"""
-        pass
-    
-
     security.declareProtected(permissions.View, 'getIssueTypesVocab')
     def getIssueTypesVocab(self):
         """
