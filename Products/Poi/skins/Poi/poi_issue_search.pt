@@ -56,11 +56,10 @@
                         <th i18n:translate="listingheader_number">#</th>
                         <th i18n:translate="listingheader_title">Title</th>
                         <th i18n:translate="listingheader_release"
-                            tal:condition="here/isUsingReleases">Release</th>
+                            tal:condition="here/isUsingReleases">Target</th>
                         <th i18n:translate="listingheader_area">Area</th>
                         <th i18n:translate="listingheader_type">Type</th>
                         <th i18n:translate="listingheader_severity">Severity</th>
-                        <th i18n:translate="listingheader_created">Created</th>
                         <th i18n:translate="listingheader_responsible">Responsible</th>
                         <th i18n:translate="listingheader_state">State</th>
                     </tr>
@@ -78,9 +77,9 @@
                             </td>
                             <td tal:condition="here/isUsingReleases">
                                 <span tal:define="releases here/getReleasesVocab"
-                                      tal:condition="python:item.getRelease != '(UNASSIGNED)'"
-                                      tal:replace="python:releases.getValue(item.getRelease)" />
-                                <div tal:condition="python:item.getRelease == '(UNASSIGNED)'"
+                                      tal:condition="python:item.getTargetRelease != '(UNASSIGNED)'"
+                                      tal:replace="python:releases.getValue(item.getTargetRelease)" />
+                                <div tal:condition="python:item.getTargetRelease == '(UNASSIGNED)'"
                                      style="text-align:center">&mdash;</div>
                             </td>
                             <td tal:content="python:here.getWrappedField('availableAreas').lookup(here, item.getArea, 'title')" 
@@ -88,7 +87,6 @@
                             <td tal:content="python:here.getWrappedField('availableIssueTypes').lookup(here, item.getIssueType, 'title')"
                                 tal:on-error="item/getIssueType" />
                             <td tal:content="item/getSeverity" />
-                            <td tal:content="python:here.toLocalizedTime(item.created)"/>
                             <td>
                                 <span tal:condition="python:item.getResponsibleManager != '(UNASSIGNED)'"
                                       tal:replace="item/getResponsibleManager" />

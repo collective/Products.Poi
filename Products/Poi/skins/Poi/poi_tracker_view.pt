@@ -90,8 +90,8 @@
           <h3 i18n:translate="poi_heading_by_release">By release</h3>
           <ul tal:define="releases here/getReleasesVocab">
               <tal:releases repeat="release releases">
-                  <li tal:define="issues python:here.getFilteredIssues(release=release, state=openStates)">
-                    <a tal:attributes="href string:${issueQueryString}&amp;release=${release}"
+                  <li tal:define="issues python:here.getFilteredIssues(targetRelease=release, state=openStates)">
+                    <a tal:attributes="href string:${issueQueryString}&amp;targetRelease=${release}"
                        tal:content="python:releases.getValue(release)" /> (<span tal:replace="python:len(issues)" />)
                   </li>
               </tal:releases>
