@@ -158,6 +158,15 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.tracker = self.createTracker(self.folder, 'issue-tracker')
         self.workflow = self.portal.portal_workflow
 
+    def testGetFilteredIssuesById(self):
+        self.createIssue(self.tracker)
+        self.createIssue(self.tracker)
+        self.createIssue(self.tracker)
+        issues = [b.getId for b in self.tracker.getFilteredIssues(id='1')]
+        self.assertEqual(issues, ['1'])
+        issues = [b.getId for b in self.tracker.getFilteredIssues(id='2')]
+        self.assertEqual(issues, ['2'])
+
     def testGetFilteredIssesByRelease(self):
         self.createIssue(self.tracker, release='2.0')
         self.createIssue(self.tracker, release='2.0')

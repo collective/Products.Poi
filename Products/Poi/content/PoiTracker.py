@@ -472,6 +472,7 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
                            'responsible'   : 'getResponsibleManager',
                            'creator'       : 'Creator',
                            'text'          : 'SearchableText',
+                           'id'            : 'getId',
                            }
 
         query                = {}

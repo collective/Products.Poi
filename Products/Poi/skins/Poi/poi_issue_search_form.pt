@@ -28,6 +28,21 @@
     
             <div class="field">
                 
+                <label for="text" i18n:translate="poi_search_label_id">Issue number</label>
+
+                <div class="formHelp" i18n:translate="poi_search_help_text">
+                    If you wish to search for a particular issue, please
+                    enter its number.
+                </div>
+    
+                <input type="text" 
+                       id="id"
+                       name="id"
+                       size="5" />
+            </div>
+    
+            <div class="field">
+                
                 <label for="text" i18n:translate="poi_search_label_text">Issue text</label>
 
                 <div class="formHelp" i18n:translate="poi_search_help_text">
