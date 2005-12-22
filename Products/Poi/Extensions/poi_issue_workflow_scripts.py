@@ -32,7 +32,7 @@ from Products.CMFCore.utils import getToolByName
 ## ['sendInitialEmail', 'sendResolvedMail']
 
 def sendInitialEmail(self,state_change,**kw):
-    self.sendNotificationMail()
+    state_change.object.sendNotificationMail()
 
 
 

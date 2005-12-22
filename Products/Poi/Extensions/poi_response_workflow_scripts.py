@@ -29,6 +29,6 @@ __version__   = '$ Revision 0.0 $'[11:-2]
 ## ['sendResponseEmail']
 
 def sendResponseEmail(self,state_change,**kw):
-    self.sendResponseNotificationMail()
+    state_change.object.sendResponseNotificationMail()
 
 
