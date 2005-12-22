@@ -29,7 +29,12 @@ from Products.CMFPlone.utils import log_exc
 from Products.CMFCore.utils import getToolByName
 ##/code-section workflow-script-header
 
-## ['sendResolvedMail']
+## ['sendInitialEmail', 'sendResolvedMail']
+
+def sendInitialEmail(self,state_change,**kw):
+    self.sendNotificationMail()
+
+
 
 def sendResolvedMail(self,state_change,**kw):
     """Send an email to the original submitter that the issue was marked
