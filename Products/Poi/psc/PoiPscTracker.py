@@ -149,19 +149,6 @@ class PoiPscTracker(PoiTracker,BaseFolder):
         return "Issue tracker for " + parent.Title()
 
 
-    security.declareProtected(permissions.View, 'getAvailableReleases')
-    def getAvailableReleases(self):
-        """
-        Get the UIDs of the releases available to the tracker
-        """
-        catalog = getToolByName(self, 'portal_catalog')
-        releases = catalog.searchResults(
-                        portal_type = 'PSCRelease',
-                        path = '/'.join(self.getPhysicalPath()[:-1]),
-                        )
-        return [r.UID for r in releases]
-
-
     security.declareProtected(permissions.View, 'getReleasesVocab')
     def getReleasesVocab(self):
         """
@@ -173,6 +160,20 @@ class PoiPscTracker(PoiTracker,BaseFolder):
                         path = '/'.join(self.getPhysicalPath()[:-1]),
                         )
         return DisplayList([(r.UID, r.getId) for r in releases])
+
+
+    security.declareProtected(permissions.View, 'getAvailableReleases')
+    def getAvailableReleases(self):
+        """
+        Get the UIDs of the releases available to the tracker
+        """
+        catalog = getToolByName(self, 'portal_catalog')
+        releases = catalog.searchResults(
+                        portal_type = 'PSCRelease',
+                        path = '/'.join(self.getPhysicalPath()[:-1]),
+                        sort_on = 'created',
+                        )
+        return [r.UID for r in releases]
 
 
 def modify_fti(fti):

@@ -28,7 +28,7 @@
           #<span tal:replace="here/getId" /> &mdash;
           <span tal:replace="here/Title" />
       </h1> 
-            
+                  
       <table class="vertical listing issue-info-box"
              tal:define="releases here/getReleasesVocab">
           <tr tal:define="state python:wftool.getInfoFor(here, 'review_state');
@@ -102,7 +102,6 @@
          <span tal:condition="not:nocall:user" i18n:translate="poi_last_modified_on">Last modified on
             <span i18:name="modification_time" tal:content="python:here.toLocalizedTime(time)" tal:omit-tag=""/>
          </span>
-
       </div>
       
       <div class="issue-tags" tal:condition="here/Subject">
