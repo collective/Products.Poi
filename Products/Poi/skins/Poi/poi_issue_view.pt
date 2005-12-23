@@ -94,12 +94,12 @@
       <div class="modification-info" 
            tal:define="user here/getLastModificationUser;
                        time here/modified">
-         <span tal:condition="nocall:user" i18n:translate="Poi_last_modified_on_by">Last modified on
+         <span tal:condition="nocall:user" i18n:translate="poi_last_modified_on_by">Last modified on
             <span i18:name="modification_time" tal:content="python:here.toLocalizedTime(time)" tal:omit-tag=""/>
             by
             <span i18:name="modification_actor" tal:content="user" tal:omit-tag=""/>
          </span>
-         <span tal:condition="not:nocall:user" i18n:translate="Poi_last_modified_on">Last modified on
+         <span tal:condition="not:nocall:user" i18n:translate="poi_last_modified_on">Last modified on
             <span i18:name="modification_time" tal:content="python:here.toLocalizedTime(time)" tal:omit-tag=""/>
          </span>
 

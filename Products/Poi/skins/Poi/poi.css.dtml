@@ -28,11 +28,13 @@
 /* Search table */
 
 .issue-search-results {
-    
+    width: 100%;
 }
 
 .issue-search-rss {
-    text-align: right;
+    float: right;
+    position: relative;
+    top: 5px;
 }
 
 /* Issue display */

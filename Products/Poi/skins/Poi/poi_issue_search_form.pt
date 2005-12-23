@@ -69,10 +69,11 @@
     
             <div class="field" tal:condition="here/isUsingReleases">
                 
-                <label for="release" i18n:translate="poi_search_label_release">Release</label>
+                <label for="release" i18n:translate="poi_search_label_release">Version</label>
 
                 <div class="formHelp" i18n:translate="poi_search_help_release">
-                    Select the releases you wish to search for.
+                    Select the version for which the bugs you want to find
+                    were reported.
                 </div>
     
                 <select id="release"

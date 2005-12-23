@@ -14,7 +14,8 @@
 <body>
   <div metal:fill-slot="main">
     <div metal:define-macro="body" 
-      tal:define="openStates python:['unconfirmed', 'open', 'in-progress'];
+      tal:define="basicOpenStates python:['open', 'in-progress'];
+                  openStates python:['unconfirmed'] + basicOpenStates;
                   ignoredStates python:['new'];
                   pendingStates python:openStates + ['resolved'];
                   issueQueryString python:'%s/poi_issue_search?state=%s' %
@@ -143,13 +144,19 @@
                            rssQueryString python:here.getIssueSearchQueryString(state='unconfirmed')"
                tal:condition="nocall:issues">
                
-               <h2 i18n:translate="poi_heading_unconfirmed_issues">Unconfirmed issues</h2>
-               <p i18n:translate="poi_help_unconfirmed_issues">
-                   The following issues have not yet been confirmed. Please
-                   review them and take the appropriate action.
-               </p>
-               
-               <metal:table use-macro="here/poi_issue_search/macros/issue_search_results" />
+               <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
+                  
+                  <div metal:fill-slot="intro-text">
+                     
+                     <h2 i18n:translate="poi_heading_unconfirmed_issues">Unconfirmed issues</h2>
+                     <p i18n:translate="poi_help_unconfirmed_issues">
+                         The following issues have not yet been confirmed. Please
+                         review them and take the appropriate action.
+                     </p>
+                     
+                  </div>
+                  
+               </metal:table>
                
           </div>
           
@@ -159,17 +166,20 @@
                tal:define="issues here/getMyIssues"
                tal:condition="nocall:issues">
            
-               <h2 i18n:translate="poi_heading_my_issues">My issues</h2>
-               <p tal:condition="isManager" i18n:translate="poi_help_my_issues_manager">
-                   The following open issues were either submitted by you, or have been assigned to you.
-                   Note that open issues not assigned to anybody will also be displayed in this list.
-               </p>
+               <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
+                  
+                  <div metal:fill-slot="intro-text">
+                     <h2 i18n:translate="poi_heading_my_issues">My issues</h2>
+                     <p tal:condition="isManager" i18n:translate="poi_help_my_issues_manager">
+                         The following open issues were either submitted by you, or have been assigned to you.
+                         Note that open issues not assigned to anybody will also be displayed in this list.
+                     </p>
            
-               <p tal:condition="not:isManager" i18n:translate="poi_help_my_issues_not_manager">
-                   The following open issues were submitted by you.
-               </p>
-
-               <metal:table use-macro="here/poi_issue_search/macros/issue_search_results">
+                     <p tal:condition="not:isManager" i18n:translate="poi_help_my_issues_not_manager">
+                         The following open issues were submitted by you.
+                     </p>
+                  </div>
+                  
                    <div class="issue-search-rss" metal:fill-slot="rss-button">
                         <a href="" tal:attributes="href string:${here/absolute_url}/poi-my-issues-rss.xml?memberId=${member/getId}">
                             <img i18n:attributes="title title_rss_feed; alt label_rss_feed;"
@@ -180,9 +190,34 @@
                         </a>
                     </div>    
                </metal:table>
-           
           </div>
       </tal:loggedIn>
+      <tal:manager condition="isManager">
+          <div id="orphaned-issues"
+               tal:define="issues here/getOrphanedIssues"
+               tal:condition="nocall:issues">
+           
+               <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
+                   
+                   <div metal:fill-slot="intro-text">
+                     <h2 i18n:translate="poi_heading_orphaned_issues">Orphaned issues</h2>
+                     <p i18n:translate="poi_help_orphaned_issues_">
+                         The following open issues are not assigned to anyone.
+                     </p>
+                   </div>
+                   
+                   <div class="issue-search-rss" metal:fill-slot="rss-button">
+                        <a href="" tal:attributes="href string:${here/absolute_url}/poi-orphaned-issues-rss.xml?memberId=${member/getId}">
+                            <img i18n:attributes="title title_rss_feed; alt label_rss_feed;"
+                                tal:attributes="src string:$portal_url/rss.gif"
+                                src="rss.gif"
+                                alt="RSS Feed"
+                                title="RSS feed of these search results" />
+                        </a>
+                    </div>    
+               </metal:table>
+          </div>
+      </tal:manager>
       
       <div class="poweredBy">
           Powered by <a class="link-plain"
