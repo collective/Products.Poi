@@ -56,6 +56,17 @@ class TestPscTracker(ptc.PoiTestCase):
         self.assertEqual(len(releasesVocab), 2)
         self.assertEqual(releasesVocab.values(), ['1.0', '2.0'])
 
+    def testTitle(self):
+        self.project.invokeFactory('PoiPscTracker', 'issues')
+        self.assertEqual(self.project.issues.Title(), "Issue tracker")
+
+    def testExternalTitle(self):
+        self.project.invokeFactory('PoiPscTracker', 'issues')
+        self.project.setTitle("My project")
+        self.assertEqual(self.project.issues.getExternalTitle(), "My project Issue Tracker")
+
+
+
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()

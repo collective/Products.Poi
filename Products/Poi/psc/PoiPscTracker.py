@@ -33,6 +33,7 @@ from Products.Poi import permissions
 
 from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
+from Products.CMFCore.utils import getToolByName
 ##/code-section module-header
 
 schema=Schema((
@@ -48,19 +49,6 @@ schema=Schema((
         mode="r"
     ),
 
-    StringField('title',
-        widget=StringWidget(
-            label="Title",
-            description="Please enter the title of the tracker, or leave the default as shown below.",
-            label_msgid="Poi_label_psctracker_title",
-            description_msgid="Poi_label_psctracker_description",
-            i18n_domain='Poi',
-        ),
-        required=True,
-        accessor="Title",
-        default_method="getDefaultTitle"
-    ),
-
 ),
 )
 
@@ -73,7 +61,9 @@ PoiPscTracker_schema = BaseFolderSchema + \
     schema
 
 ##code-section after-schema #fill in your manual code here
-from Products.CMFCore.utils import getToolByName
+PoiPscTracker_schema = PoiPscTracker_schema.copy()
+del PoiPscTracker_schema['title']
+
 ##/code-section after-schema
 
 class PoiPscTracker(PoiTracker,BaseFolder):
@@ -137,16 +127,26 @@ class PoiPscTracker(PoiTracker,BaseFolder):
     #Methods
     #manually created methods
 
-    def getDefaultTitle(self):
-        """Set the default title to <Project Name> Issues"""
-        # we may be inside the portal_factory, so aq_parent may not be
-        # enough
-        parent = self.aq_parent
-        while parent.getTypeInfo().getId() != 'PSCProject':
-            parent = parent.aq_parent
-            if parent is None:
-                return "Issues"
-        return "Issue tracker for " + parent.Title()
+    security.declareProtected(permissions.View, 'getExternalTitle')
+    def getExternalTitle(self):
+        """
+        The external title of a PSC tracker is <Project> Issue Tracker
+        """
+        return self.aq_inner.aq_parent.Title() + " Issue Tracker"
+
+
+    security.declareProtected(permissions.View, 'getAvailableReleases')
+    def getAvailableReleases(self):
+        """
+        Get the UIDs of the releases available to the tracker
+        """
+        catalog = getToolByName(self, 'portal_catalog')
+        releases = catalog.searchResults(
+                        portal_type = 'PSCRelease',
+                        path = '/'.join(self.getPhysicalPath()[:-1]),
+                        sort_on = 'created',
+                        )
+        return [r.UID for r in releases]
 
 
     security.declareProtected(permissions.View, 'getReleasesVocab')
@@ -162,18 +162,12 @@ class PoiPscTracker(PoiTracker,BaseFolder):
         return DisplayList([(r.UID, r.getId) for r in releases])
 
 
-    security.declareProtected(permissions.View, 'getAvailableReleases')
-    def getAvailableReleases(self):
+    security.declareProtected(permissions.View, 'getExternalTitle')
+    def Title(self):
         """
-        Get the UIDs of the releases available to the tracker
+        The title of an issue tracker is always "Issue tracker"
         """
-        catalog = getToolByName(self, 'portal_catalog')
-        releases = catalog.searchResults(
-                        portal_type = 'PSCRelease',
-                        path = '/'.join(self.getPhysicalPath()[:-1]),
-                        sort_on = 'created',
-                        )
-        return [r.UID for r in releases]
+        return "Issue tracker"
 
 
 def modify_fti(fti):

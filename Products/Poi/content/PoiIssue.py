@@ -218,7 +218,7 @@ schema=Schema((
             i18n_domain='Poi',
         ),
         required=True,
-        default_method="getDefaultContactEmail"
+        default_method='getDefaultContactEmail'
     ),
 
     LinesField('watchers',
@@ -419,12 +419,18 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         self.notifyModified()
 
 
-    def SearchableText(self):
-        """Include in the SearchableText the text of all responses"""
-        text = BaseObject.SearchableText(self)
-        responses = self.contentValues('PoiResponse')
-        text += ' ' + ' '.join([r.SearchableText() for r in responses])
-        return text
+    def validate_watchers(self, value):
+        """Make sure watchers are actual user ids"""
+        membership = getToolByName(self, 'portal_membership')
+        notFound = []
+        for userId in value:
+            member = membership.getMemberById(userId)
+            if member is None:
+                notFound.append(userId)
+        if notFound:
+            return "The following user ids could not be found: %s" % ','.join(notFound)
+        else:
+            return None
 
 
     def getDefaultSeverity(self):
@@ -491,18 +497,12 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         return vocab
 
 
-    def validate_watchers(self, value):
-        """Make sure watchers are actual user ids"""
-        membership = getToolByName(self, 'portal_membership')
-        notFound = []
-        for userId in value:
-            member = membership.getMemberById(userId)
-            if member is None:
-                notFound.append(userId)
-        if notFound:
-            return "The following user ids could not be found: %s" % ','.join(notFound)
-        else:
-            return None
+    def SearchableText(self):
+        """Include in the SearchableText the text of all responses"""
+        text = BaseObject.SearchableText(self)
+        responses = self.contentValues('PoiResponse')
+        text += ' ' + ' '.join([r.SearchableText() for r in responses])
+        return text
 
 
     def notifyModified(self):
@@ -534,7 +534,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         
         addresses = tracker.getNotificationEmailAddresses()
         mailText = self.poi_notify_new_issue(self, tracker = tracker, issue = self, fromName = fromName)
-        subject = "[%s] New issue" % tracker.Title()
+        subject = "[%s] New issue: #%s - %s" % (tracker.getExternalTitle(), self.getId(), self.Title(),)
         
         tracker.sendNotificationEmail(addresses, subject, mailText)
         

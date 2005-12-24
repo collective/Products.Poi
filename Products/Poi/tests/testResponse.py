@@ -25,8 +25,16 @@ class TestResponse(ptc.PoiTestCase):
 
     def testIsValid(self):
         self.failUnless(self.response.isValid())
+
         self.response.setResponse(None)
         self.failIf(self.response.isValid())
+
+        self.response.setResponse('some text')
+        self.failUnless(self.response.isValid())
+        
+        self.response.setResponse(None)
+        self.response.setNewSeverity('Critical')
+        self.failUnless(self.response.isValid())
 
     def testRenameAfterCreation(self):
         self.failUnless(self.response.getId() == '1')

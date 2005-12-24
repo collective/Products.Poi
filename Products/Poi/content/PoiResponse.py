@@ -367,11 +367,14 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         """Check if the response is valid, that is, a response has been filled in"""
         errors = {}
         self.Schema().validate(self, None, errors, 1, 1)
+
         if errors:
             return False
-        else:
-            return True
 
+        if not self.getResponse() and not self.getIssueChanges():
+            return False
+        
+        return True
 
     def Title(self):
         """Define title to be the same as response id. Responses have little
@@ -389,7 +392,7 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
     def getCurrentResponsibleManager(self):
         return self.aq_inner.aq_parent.getResponsibleManager()
 
-
+    security.declarePrivate('sendResponseNotificationMail')
     def sendResponseNotificationMail(self):
         """When this response is created, send a notification email to all
         tracker managers, unless emailing is turned off.
@@ -403,10 +406,44 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
 
         addresses = tracker.getNotificationEmailAddresses(issue)
         mailText = self.poi_notify_new_response(self, tracker = tracker, issue = issue, response = self, fromName = fromName)
-        subject = "[%s] New response to issue '%s. %s'" % (tracker.Title(), issue.getId(), issue.Title(),)
+        subject = "[%s] Response to #%s - %s" % (tracker.getExternalTitle(), issue.getId(), issue.Title(),)
         
         tracker.sendNotificationEmail(addresses, subject, mailText)        
 
+    def post_validate(self, REQUEST=None, errors=None):
+        """Ensure that we have *something* in the response, be it an issue
+        change or some text
+        """
+        
+        if errors or REQUEST.get('_poi_validated', False):
+            return
+        
+        # This is an annoying hack, but because this method gets called twice
+        # by the AT machinery, we can't test for changes below when we get 
+        # called the second time.
+        REQUEST.set('_poi_validated', True)
+        
+        text = REQUEST.get('response', None)
+        if text:
+            return
+        
+        newSeverity = REQUEST.get('newSeverity', None)
+        newTargetRelease = REQUEST.get('newTargetRelease', None)
+        newResponsibleManager = REQUEST.get('newResponsibleManager', None)
+        
+        currentSeverity = self.getCurrentIssueSeverity()
+        currentTargetRelease = self.getCurrentTargetRelease()
+        currentResponsibleManager = self.getCurrentResponsibleManager()
+        
+        if newSeverity and newSeverity != currentSeverity:
+            return
+        if newTargetRelease and newTargetRelease != currentTargetRelease:
+            return
+        if newResponsibleManager and newResponsibleManager != currentResponsibleManager:
+            return
+        
+        # Nothing appears to be set, mark an error
+        errors['response'] = 'Please provide a response'
 
 def modify_fti(fti):
     # hide unnecessary tabs (usability enhancement)

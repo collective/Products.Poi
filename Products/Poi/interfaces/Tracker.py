@@ -93,5 +93,16 @@ class Tracker(Base):
         pass
 
 
+
+    def getExternalTitle():
+        """
+        Get the external title of this tracker. 
+        
+        This will be the name used in outgoing emails, for example.
+        """
+        
+        pass
+
+
 # end of class Tracker
 

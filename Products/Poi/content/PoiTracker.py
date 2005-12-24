@@ -388,6 +388,16 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         return keys
         
 
+
+    security.declareProtected(permissions.View, 'getExternalTitle')
+    def getExternalTitle(self):
+        """
+        Get the external title of this tracker.
+        This will be the name used in outgoing emails, for example.
+        """
+        return self.Title()
+
+
     #manually created methods
 
     def canSelectDefaultPage(self):
