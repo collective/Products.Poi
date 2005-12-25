@@ -30,9 +30,15 @@
         Tracker Title
       </h1>
       
-      <a id="issue-search-link" 
-         tal:attributes="href string:${here/absolute_url}/poi_issue_search_form" 
-         i18n:translate="poi_issue_search">Search for issues</a>
+      <div id="issue-quicksearch-box">
+         <form action="poi_issue_quicksearch">
+            <input type="searchText" name="searchText" size="15" />
+            <input class="searchButton" type="submit" value="Search" i18n:attributes="value"/>
+         </form>
+         <a id="issue-search-link" 
+            tal:attributes="href string:${here/absolute_url}/poi_issue_search_form" 
+            i18n:translate="poi_issue_search">Advanced issue search</a>
+      </div>
       
       <div class="documentDescription" tal:content="here/Description">
         Description.

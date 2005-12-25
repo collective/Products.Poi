@@ -18,9 +18,13 @@
     padding: 0 1em 1em 0;
 }
 
-#issue-search-link {
+#issue-quicksearch-box {
     display: block;
     float: right;
+}
+
+#issue-search-link {
+    display: block;
     background: &dtml-backgroundColor; url(&dtml-portal_url;/search_icon.gif) 2px 1px no-repeat;
     padding: 1px 1px 1px 18px;
 }
