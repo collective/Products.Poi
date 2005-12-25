@@ -55,6 +55,16 @@ def addAllowedContentType(self, out, typesTool, metaType, allowedType):
     else:
         print >> out, "%s is already in allowed content types of %s" % (allowedType, metaType)
 
+def registerTransform(self, out, name, module):
+    transforms = getToolByName(self, 'portal_transforms')
+    transforms.manage_addTransform(name, module)
+    print >> out, "Registered transform", name
+
+def removeTransforms(self, out, name):
+    transforms = getToolByName(self, 'portal_transforms')
+    del transforms[name]
+    print >> out, "Removed transform", name
+
 def install(self):
 
     out = StringIO()
@@ -100,8 +110,20 @@ def install(self):
                             'success', 'PoiResponse', None, 'traverse_to', 'string:poi_response_update_issue')
     addFormControllerAction(self, out, controller, 'validate_integrity',
                             'success', 'PoiIssue', None, 'traverse_to', 'string:poi_issue_post')
+                  
+    # Register transforms
+    registerTransform(self, out, 'intelligent_plain_text', 'Products.Poi.transform.intelligent_plain_text')
                             
     # Run migrations
     print >> out, migrate(self)
 
+    return out.getvalue()
+    
+def uninstall(self):
+    
+    out = StringIO()
+    
+    # Remove transforms
+    removeTransform(self, out, 'intelligent_plain_text')
+    
     return out.getvalue()
