@@ -116,7 +116,7 @@ msgstr "如果提供，而且如果“发送通知邮件”选中，每次张贴
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
 msgid "Poi_help_managers"
-msgstr "输入允许管理这个跟踪器的用户代号（登录帐号），每个一行。"
+msgstr "输入允许管理这个跟踪器的用户代号（登录帐号），每个一行。提交的问题后，可指派由某个管理人员负责处理。"
 
 # ./content/PoiIssue.py
 #. Default: "Select the release this issue pertains to."
@@ -301,7 +301,7 @@ msgstr "问题观察人员"
 #. Default: "Stop watching this issue"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "Stop watching this issue"
-msgstr "停止观察这个问题"
+msgstr "退定这个问题的答复"
 
 #. Default: "Submit new issue"
 #: ./skins/Poi/poi_tracker_view.pt
@@ -311,7 +311,7 @@ msgstr "提交新的问题(提案)"
 #. Default: "Watch this issue"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "Watch this issue"
-msgstr "观察这个问题"
+msgstr "邮件订阅这个问题的答复情况"
 
 #. Default: "${number} items matching your criteria."
 #: ./skins/Poi/poi_issue_search.pt
@@ -343,6 +343,9 @@ msgstr "领域"
 msgid "listingheader_created"
 msgstr "创建于"
 
+msgid "listingheader_author"
+msgstr "提交人"
+
 #. Default: "Release"
 #: ./skins/Poi/poi_issue_search.pt
 msgid "listingheader_release"
@@ -351,7 +354,7 @@ msgstr "版本"
 #. Default: "Responsible"
 #: ./skins/Poi/poi_issue_search.pt
 msgid "listingheader_responsible"
-msgstr "责任人"
+msgstr "负责人"
 
 #. Default: "Severity"
 #: ./skins/Poi/poi_issue_search.pt
@@ -586,7 +589,7 @@ msgstr "选择你希望查找的版本"
 #. Default: "Select the responsible managers you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_help_responsible"
-msgstr "选择你希望查找的问题负责管理人"
+msgstr "选择你希望查找的问题的负责人"
 
 #. Default: "Select the severities you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt
@@ -693,4 +696,40 @@ msgstr "问题解决人"
 
 msgid "label_response_author"
 msgstr "问题答复人"
+
+msgid "poi_all_pending_issues"
+msgstr "全部待决问题"
+
+msgid "poi_search_label_id"
+msgstr "问题编号"
+
+#. Default: "Change issue severity"
+# ./content/PoiResponse.py
+msgid "Poi_label_newSeverity"
+msgstr "更改问题的重要程度"
+
+#. Default: "Select the severity for this issue"
+# ./content/PoiResponse.py
+msgid "Poi_help_newSeverity"
+msgstr "选择这个问题的重要程度"
+
+#. Default: "Change target release"
+# ./content/PoiResponse.py
+msgid "Poi_label_newTargetRelease"
+msgstr "更改目标版本"
+
+#. Default: "Set the target release for this issue"
+# ./content/PoiResponse.py
+msgid "Poi_help_newTargetRelease"
+msgstr "设置解决这个问题的目标版本"
+
+#. Default: "Change responsible manager"
+# ./content/PoiResponse.py
+msgid "Poi_label_newResponsibleManager"
+msgstr "更换负责人"
+
+#. Default: "Select the responsible manager for this issue"
+# ./content/PoiResponse.py
+msgid "Poi_help_newResponsibleManager"
+msgstr "选择处理这个问题的负责人"
 

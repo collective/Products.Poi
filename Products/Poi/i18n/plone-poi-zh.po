@@ -28,8 +28,8 @@ msgstr "一个问题跟踪器"
 msgid "Issue"
 msgstr "问题（提案）"
 
-msgid "An issue. Issues begin in the 'open' state, and can be responded to by project managers."
-msgstr "一个问题（或者提案）。问题起始于“开启”状态，能够被管理人员答复。"
+msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
+msgstr "一个问题（或者提案）。问题起始于“未确认”状态，能够被管理人员答复。"
 
 msgid "Response"
 msgstr "答复"

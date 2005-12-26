@@ -294,3 +294,33 @@ msgstr ""
 msgid "Poi_help_attachment"
 msgstr ""
 
+#. Default: "Change issue severity"
+# ./content/PoiResponse.py
+msgid "Poi_label_newSeverity"
+msgstr ""
+
+#. Default: "Select the severity for this issue"
+# ./content/PoiResponse.py
+msgid "Poi_help_newSeverity"
+msgstr ""
+
+#. Default: "Change target release"
+# ./content/PoiResponse.py
+msgid "Poi_label_newTargetRelease"
+msgstr ""
+
+#. Default: "Set the target release for this issue"
+# ./content/PoiResponse.py
+msgid "Poi_help_newTargetRelease"
+msgstr ""
+
+#. Default: "Change responsible manager"
+# ./content/PoiResponse.py
+msgid "Poi_label_newResponsibleManager"
+msgstr ""
+
+#. Default: "Select the responsible manager for this issue"
+# ./content/PoiResponse.py
+msgid "Poi_help_newResponsibleManager"
+msgstr ""
+

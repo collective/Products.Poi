@@ -27,7 +27,7 @@ msgstr ""
 msgid "Issue"
 msgstr ""
 
-msgid "An issue. Issues begin in the 'open' state, and can be responded to by project managers."
+msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
 msgstr ""
 
 msgid "Response"
