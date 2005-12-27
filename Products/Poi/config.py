@@ -60,7 +60,9 @@ STYLESHEETS = []
 JAVASCRIPTS = []
 
 ##code-section config-bottom #fill in your manual code here
-DEPENDENCIES = ['DataGridField', 'AddRemoveWidget']
+DEPENDENCIES = ['DataGridField', 'AddRemoveWidget', 'intelligenttext']
+DESCRIPTION_LENGTH = 200
+RUN_MIGRATIONS = True
 ##/code-section config-bottom
 
 

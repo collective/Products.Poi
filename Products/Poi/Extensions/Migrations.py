@@ -12,6 +12,8 @@ from Products.CMFCore.utils import getToolByName
 from Products.Archetypes import transaction
 from Products.CMFPlone.utils import safe_hasattr
 
+from Acquisition import aq_base
+
 def simpleDataGrid2DataGrid(obj, val, **kwargs):
     
     if type(val) not in (types.ListType, types.TupleType) or \
@@ -66,7 +68,48 @@ def beta2_rc1(self, out):
                     setattr(self.obj, '_issueChanges', issueChanges)
                 delattr(self.obj, '_issueStateBefore')
                 delattr(self.obj, '_issueStateAfter')
+                
+    class DetailsMigrator(BaseInlineMigrator):
+        src_portal_type = src_meta_type = 'PoiIssue'
+        
+        def migrate_details(self):
+            overview = getattr(aq_base(self.obj), 'description', None)
+            if overview is not None:
+                try:
+                    delattr(aq_base(self.obj), 'description')
+                except AttributeError:
+                    pass
+                if overview:
+                    overview = overview.transform(self.obj, 'text/plain')
 
+            detailsBase = self.obj.getField('details').get(self.obj, raw=True)
+            mimetype = detailsBase.getContentType()
+            
+            if mimetype in ('text/plain', 'text/structured', 'text/reststructured',):
+                self.obj.setDetails(detailsBase.getRaw(), mimetype='text/x-web-intelligent')
+            else:
+                details = detailsBase.transform(self.obj, 'text/html')
+                transforms = getToolByName(self.obj, 'portal_transforms')
+                converted = transforms.convertTo('text/x-web-intelligent', details, context=self.obj, mimetype='text/html').getData()
+                if overview:
+                    converted = overview + '\n\n' + converted
+                self.obj.setDetails(converted, mimetype='text/x-web-intelligent')
+    
+    class ResponseMigrator(BaseInlineMigrator):
+        src_portal_type = src_meta_type = 'PoiResponse'
+        
+        def migrate_response(self):
+            responseBase = self.obj.getField('response').get(self.obj, raw=True)
+            mimetype = responseBase.getContentType()
+            
+            if mimetype in ('text/plain', 'text/structured', 'text/reststructured',):
+                self.obj.setResponse(responseBase.getRaw(), mimetype='text/x-web-intelligent')
+            else:
+                response = responseBase.transform(self.obj, 'text/html')
+                transforms = getToolByName(self.obj, 'portal_transforms')
+                converted = transforms.convertTo('text/x-web-intelligent', response, context=self.obj, mimetype='text/html').getData()
+                self.obj.setResponse(response, mimetype='text/x-web-intelligent')
+        
     # Attempt to do AT schema migration
 
     attool = getToolByName(self, 'archetype_tool')
@@ -77,22 +120,29 @@ def beta2_rc1(self, out):
     attool.manage_updateSchema(REQUEST = FakeRequest())
     
     # Migrate data grid fields
-    
     portal = getToolByName(self, 'portal_url').getPortalObject()
     walker = CustomQueryWalker(portal, DataFieldMigrator, query = {})
-    # Need this to avoid copy errors....
     transaction.savepoint(optimistic=True)
     print >> out, "Migrating from SimpleDataGridField to DataGridField"
     walker.go()
     
     # Migrate issue state change
-    
     walker = CustomQueryWalker(portal, IssueStateChangeMigrator, query = {})
-    # Need this to avoid copy errors....
     transaction.savepoint(optimistic=True)
     print >> out, "Migrating issue state change storage in responses"
     walker.go()
     
+    # Migrate issue details field
+    walker = CustomQueryWalker(portal, DetailsMigrator, query = {})
+    transaction.savepoint(optimistic=True)
+    print >> out, "Migrating issue state change storage in responses"
+    walker.go()
+    
+    # Migrate response field
+    walker = CustomQueryWalker(portal, ResponseMigrator, query = {})
+    transaction.savepoint(optimistic=True)
+    print >> out, "Migrating issue state change storage in responses"
+    walker.go()
     
 def migrate(self):
     """Run migrations

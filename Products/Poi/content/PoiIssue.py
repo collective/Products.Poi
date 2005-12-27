@@ -65,19 +65,6 @@ schema=Schema((
         searchable=True
     ),
 
-    TextField('description',
-        widget=TextAreaWidget(
-            label="Overview",
-            description="Enter a brief overview of the issue. As with the title, a consise, meaningful description will make it easier for project managers to assess and respond to the issue.",
-            label_msgid='Poi_label_description',
-            description_msgid='Poi_help_description',
-            i18n_domain='Poi',
-        ),
-        required=True,
-        accessor="Description",
-        searchable=True
-    ),
-
     StringField('release',
         default="(UNASSIGNED)",
         index="FieldIndex:schema",
@@ -94,30 +81,33 @@ schema=Schema((
     ),
 
     TextField('details',
-        allowable_content_types=('text/plain', 'text/structured', 'text/html', 'application/msword',),
-        allowed_content_types=('text/structured', 'text/plain', 'text/html', 'text/restructured'),
-        widget=RichWidget(
+        allowable_content_types=('text/x-web-intelligent',),
+        widget=TextAreaWidget(
             label="Details",
             description="Please provide further details",
-            rows="6",
+            rows="15",
             label_msgid='Poi_label_details',
             description_msgid='Poi_help_details',
             i18n_domain='Poi',
         ),
-        required=False,
-        default_content_type="text/structured",
+        required=True,
+        default_content_type="text/x-web-intelligent",
         searchable=True,
         default_output_type="text/html"
     ),
 
-    LinesField('steps',
-        widget=LinesWidget(
+    TextField('steps',
+        allowable_content_types=('text/x-web-intelligent',),
+        widget=TextAreaWidget(
             label="Steps to reproduce",
             description="If applicable, please provide the steps to reproduce the error or identify the issue, one per line.",
+            rows="6",
             label_msgid='Poi_label_steps',
             description_msgid='Poi_help_steps',
             i18n_domain='Poi',
         ),
+        default_output_type="text/html",
+        default_content_type="text/x-web-intelligent",
         searchable=True
     ),
 
@@ -408,29 +398,29 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         # portal_factory!
         transaction.savepoint(optimistic=True)
         self.setId(newId)
-        
+    
 
-    security.declareProtected(permissions.View, 'updateResponses')
-    def updateResponses(self):
-        """When a response is added or modified, this method should be
-        called to ensure responses are correctly indexed.
+    def Description(self):
+        """If a description is set manually, return that. Else returns the first
+        200 characters (defined in config.py) of the 'details' field.
         """
-        self.reindexObject(('SearchableText',))
-        self.notifyModified()
-
-
-    def validate_watchers(self, value):
-        """Make sure watchers are actual user ids"""
-        membership = getToolByName(self, 'portal_membership')
-        notFound = []
-        for userId in value:
-            member = membership.getMemberById(userId)
-            if member is None:
-                notFound.append(userId)
-        if notFound:
-            return "The following user ids could not be found: %s" % ','.join(notFound)
+        explicit = super(PoiIssue, self).Description()
+        if explicit:
+            return explicit
         else:
-            return None
+            details = self.getRawDetails()
+            if len(details) > DESCRIPTION_LENGTH:
+                return self.getDetails()[:DESCRIPTION_LENGTH] + "..."
+            else:
+                return details
+
+
+    def SearchableText(self):
+        """Include in the SearchableText the text of all responses"""
+        text = BaseObject.SearchableText(self)
+        responses = self.contentValues('PoiResponse')
+        text += ' ' + ' '.join([r.SearchableText() for r in responses])
+        return text
 
 
     def getDefaultSeverity(self):
@@ -471,6 +461,15 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         return vocab
 
 
+    security.declareProtected(permissions.View, 'updateResponses')
+    def updateResponses(self):
+        """When a response is added or modified, this method should be
+        called to ensure responses are correctly indexed.
+        """
+        self.reindexObject(('SearchableText',))
+        self.notifyModified()
+
+
     security.declareProtected(permissions.View, 'getTagsVocab')
     def getTagsVocab(self):
         """
@@ -497,12 +496,18 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         return vocab
 
 
-    def SearchableText(self):
-        """Include in the SearchableText the text of all responses"""
-        text = BaseObject.SearchableText(self)
-        responses = self.contentValues('PoiResponse')
-        text += ' ' + ' '.join([r.SearchableText() for r in responses])
-        return text
+    def validate_watchers(self, value):
+        """Make sure watchers are actual user ids"""
+        membership = getToolByName(self, 'portal_membership')
+        notFound = []
+        for userId in value:
+            member = membership.getMemberById(userId)
+            if member is None:
+                notFound.append(userId)
+        if notFound:
+            return "The following user ids could not be found: %s" % ','.join(notFound)
+        else:
+            return None
 
 
     def notifyModified(self):

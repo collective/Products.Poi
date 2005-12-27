@@ -17,7 +17,7 @@ class TestResponse(ptc.PoiTestCase):
         self.workflow = self.portal.portal_workflow
 
     def testEditResponse(self):
-        self.response.setResponse('<p>Response-text</p>')
+        self.response.setResponse('<p>Response-text</p>', mimetype='text/x-web-intelligent')
         self.assertEqual(self.response.getResponse(), '<p>Response-text</p>')
 
     def testTitleIsId(self):
@@ -26,13 +26,13 @@ class TestResponse(ptc.PoiTestCase):
     def testIsValid(self):
         self.failUnless(self.response.isValid())
 
-        self.response.setResponse(None)
+        self.response.setResponse(None, mimetype='text/x-web-intelligent')
         self.failIf(self.response.isValid())
 
-        self.response.setResponse('some text')
+        self.response.setResponse('some text', mimetype='text/x-web-intelligent')
         self.failUnless(self.response.isValid())
         
-        self.response.setResponse(None)
+        self.response.setResponse(None, mimetype='text/x-web-intelligent')
         self.response.setNewSeverity('Critical')
         self.failUnless(self.response.isValid())
 
@@ -78,6 +78,10 @@ class TestResponse(ptc.PoiTestCase):
         self.assertEqual(changes[1], {'id' : 'responsible_manager', 'name' : 'Responsible manager', 'before' : '(UNASSIGNED)', 'after' : 'member1'})
         self.assertEqual(changes[2], {'id' : 'severity', 'name' : 'Severity', 'before' : 'Medium', 'after' : 'Important'})
         self.assertEqual(changes[3], {'id' : 'target_release', 'name' : 'Target release', 'before' : 'None', 'after' : '2.0'})
+
+    def testTransform(self):
+        self.response.setResponse('Make this a link http://test.com', mimetype='text/x-web-intelligent')
+        self.assertEqual(self.response.getResponse(), 'Make this a link <a href="http://test.com">http://test.com</a>')
 
 class TestKnownIssues(ptc.PoiTestCase):
     """Test bugs with responses"""

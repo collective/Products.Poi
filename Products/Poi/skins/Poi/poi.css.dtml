@@ -52,9 +52,11 @@
 
 }
 
-.issue-description {
-    font-size: 105%;
-    margin-bottom: 1em;
+.issue-details {
+    font-family: Monaco, "Courier New", Courier, monospace;
+    font-size: 100%;
+    color: &dtml-fontColor;;
+    padding: 0 0.1em;;
 }
 
 .modification-info {
@@ -77,8 +79,12 @@
     text-align: left;
 }
 
-.steps-to-reproduce span {
-    font-style: italic;
+.steps-to-reproduce dd {
+    font-family: Monaco, "Courier New", Courier, monospace;
+    font-size: 100%;
+    color: &dtml-fontColor;;
+    padding: 0 0.1em;;
+    margin: 0.5em 0 0 1em;
 }
 
 .steps-to-reproduce ol {

@@ -67,20 +67,19 @@ schema=Schema((
     ),
 
     TextField('response',
-        allowable_content_types=('text/plain', 'text/structured', 'text/html', 'application/msword',),
-        widget=RichWidget(
+        allowable_content_types=('text/x-web-intelligent',),
+        widget=TextAreaWidget(
             label="Response",
             description="Please enter your response below",
-            rows="6",
+            rows="15",
             label_msgid='Poi_label_response',
             description_msgid='Poi_help_response',
             i18n_domain='Poi',
         ),
-        allowed_types=('text/structured', 'text/plain', 'text/html', 'text/restructured',),
-        default_content_type="text/structured",
+        required=False,
+        default_content_type="text/x-web-intelligent",
         searchable=True,
-        default_output_type="text/html",
-        required=False
+        default_output_type="text/html"
     ),
 
     FileField('attachment',
@@ -335,6 +334,43 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         self.setId(newId)        
 
 
+    security.declareProtected(permissions.View, 'getCurrentResponsibleManager')
+    def getCurrentResponsibleManager(self):
+        return self.aq_inner.aq_parent.getResponsibleManager()
+
+
+    security.declareProtected(permissions.View, 'getCurrentIssueSeverity')
+    def getCurrentIssueSeverity(self):
+        return self.aq_inner.aq_parent.getSeverity()
+
+
+    security.declarePublic('isValid')
+    def isValid(self):
+        """Check if the response is valid, that is, a response has been filled in"""
+        errors = {}
+        self.Schema().validate(self, None, errors, 1, 1)
+
+        if errors:
+            return False
+
+        if not self.getResponse() and not self.getIssueChanges():
+            return False
+        
+        return True
+
+
+    def Title(self):
+        """Define title to be the same as response id. Responses have little
+        value on their own anyway.
+        """
+        return self.getId()
+
+
+    security.declareProtected(permissions.View, 'getCurrentTargetRelease')
+    def getCurrentTargetRelease(self):
+        return self.aq_inner.aq_parent.getTargetRelease()
+
+
     def _addIssueChange(self, id, name, before, after):
         """Add a new issue change"""
         delta = getattr(self, '_issueChanges', None)
@@ -356,59 +392,6 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
                       'after' : after})
         self._p_changed = 1
                 
-
-    security.declareProtected(permissions.View, 'getCurrentIssueSeverity')
-    def getCurrentIssueSeverity(self):
-        return self.aq_inner.aq_parent.getSeverity()
-
-
-    security.declarePublic('isValid')
-    def isValid(self):
-        """Check if the response is valid, that is, a response has been filled in"""
-        errors = {}
-        self.Schema().validate(self, None, errors, 1, 1)
-
-        if errors:
-            return False
-
-        if not self.getResponse() and not self.getIssueChanges():
-            return False
-        
-        return True
-
-    def Title(self):
-        """Define title to be the same as response id. Responses have little
-        value on their own anyway.
-        """
-        return self.getId()
-
-
-    security.declareProtected(permissions.View, 'getCurrentTargetRelease')
-    def getCurrentTargetRelease(self):
-        return self.aq_inner.aq_parent.getTargetRelease()
-
-
-    security.declareProtected(permissions.View, 'getCurrentResponsibleManager')
-    def getCurrentResponsibleManager(self):
-        return self.aq_inner.aq_parent.getResponsibleManager()
-
-    security.declarePrivate('sendResponseNotificationMail')
-    def sendResponseNotificationMail(self):
-        """When this response is created, send a notification email to all
-        tracker managers, unless emailing is turned off.
-        """
-        portal_url = getToolByName(self, 'portal_url')
-        portal = portal_url.getPortalObject()
-        fromName = portal.getProperty('email_from_name', None)
-        
-        issue = self.aq_parent
-        tracker = issue.aq_parent
-
-        addresses = tracker.getNotificationEmailAddresses(issue)
-        mailText = self.poi_notify_new_response(self, tracker = tracker, issue = issue, response = self, fromName = fromName)
-        subject = "[%s] Response to #%s - %s" % (tracker.getExternalTitle(), issue.getId(), issue.Title(),)
-        
-        tracker.sendNotificationEmail(addresses, subject, mailText)        
 
     def post_validate(self, REQUEST=None, errors=None):
         """Ensure that we have *something* in the response, be it an issue
@@ -444,6 +427,25 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         
         # Nothing appears to be set, mark an error
         errors['response'] = 'Please provide a response'
+
+
+    def sendResponseNotificationMail(self):
+        """When this response is created, send a notification email to all
+        tracker managers, unless emailing is turned off.
+        """
+        portal_url = getToolByName(self, 'portal_url')
+        portal = portal_url.getPortalObject()
+        fromName = portal.getProperty('email_from_name', None)
+        
+        issue = self.aq_parent
+        tracker = issue.aq_parent
+
+        addresses = tracker.getNotificationEmailAddresses(issue)
+        mailText = self.poi_notify_new_response(self, tracker = tracker, issue = issue, response = self, fromName = fromName)
+        subject = "[%s] Response to #%s - %s" % (tracker.getExternalTitle(), issue.getId(), issue.Title(),)
+        
+        tracker.sendNotificationEmail(addresses, subject, mailText)        
+
 
 def modify_fti(fti):
     # hide unnecessary tabs (usability enhancement)

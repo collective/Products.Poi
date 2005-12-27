@@ -4,6 +4,7 @@ if __name__ == '__main__':
 
 from Testing import ZopeTestCase
 from Products.Poi.tests import ptc
+from Products.Poi.config import *
 
 default_user = ZopeTestCase.user_name
 
@@ -19,28 +20,26 @@ class TestIssue(ptc.PoiTestCase):
 
     def testEditIssue(self):
         self.issue.setTitle('title')
-        self.issue.setDescription('overview')
         self.issue.setRelease('2.0')
         self.issue.setArea('functionality')
         self.issue.setIssueType('feature')
         self.issue.setSeverity('Critical')
         self.issue.setTargetRelease('2.0')
-        self.issue.setDetails('<p>details</p>')
-        self.issue.setSteps(('step1', 'step2'))
+        self.issue.setDetails('details', mimetype='text/x-web-intelligent')
+        self.issue.setSteps('step1\nstep2', mimetype='text/x-web-intelligent')
         # self.issue.setAttachment(None)
         self.issue.setContactEmail('member1@member.com')
         self.issue.setWatchers(('member1', 'member2'),)
         self.issue.setResponsibleManager('member2')
         
         self.assertEqual(self.issue.Title(), 'title')
-        self.assertEqual(self.issue.Description(), 'overview')
         self.assertEqual(self.issue.getRelease(), '2.0')
         self.assertEqual(self.issue.getArea(), 'functionality')
         self.assertEqual(self.issue.getIssueType(), 'feature')
         self.assertEqual(self.issue.getSeverity(), 'Critical')
         self.assertEqual(self.issue.getTargetRelease(), '2.0')
-        self.assertEqual(self.issue.getDetails(), '<p>details</p>')
-        self.assertEqual(self.issue.getSteps(), ('step1', 'step2'))
+        self.assertEqual(self.issue.getDetails(), 'details')
+        self.assertEqual(self.issue.getSteps(), 'step1<br />step2')
         # self.assertEqual(self.issue.getAttachment(), None)
         self.assertEqual(self.issue.getContactEmail(), 'member1@member.com')
         self.assertEqual(self.issue.getWatchers(), ('member1', 'member2',))
@@ -88,6 +87,27 @@ class TestIssue(ptc.PoiTestCase):
         self.failIf(self.issue.isWatching())
         self.issue.toggleWatching()
         self.failUnless(self.issue.isWatching())
+
+    def testTransformDetails(self):
+        self.issue.setDetails('Make this a link http://test.com', mimetype='text/x-web-intelligent')
+        self.assertEqual(self.issue.getDetails(), 'Make this a link <a href="http://test.com">http://test.com</a>')
+
+    def testTransformSteps(self):
+        self.issue.setSteps('Make this a link http://test.com', mimetype='text/x-web-intelligent')
+        self.assertEqual(self.issue.getSteps(), 'Make this a link <a href="http://test.com">http://test.com</a>')
+
+    def testExplicitDescription(self):
+        self.issue.setDescription('A description')
+        self.assertEqual(self.issue.Description(), 'A description')
+        
+    def testImplicitDescription(self):
+        self.issue.setDetails('A short details section with a link http://test.com', mimetype='text/x-web-intelligent')
+        self.assertEqual(self.issue.Description(), 'A short details section with a link http://test.com')
+        
+    def testImplicitLongDetails(self):
+        text = "The quick brown fox jumped over the lazy dog" * 20
+        self.issue.setDetails(text, mimetype='text/x-web-intelligent')
+        self.assertEqual(self.issue.Description(), text[:DESCRIPTION_LENGTH] + '...')
 
 def test_suite():
     from unittest import TestSuite, makeSuite

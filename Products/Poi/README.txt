@@ -36,6 +36,7 @@ Installation and dependencies
     - Plone 2.1
     - DataGridField (*)
     - AddRemoveWidget
+    - intelligenttext
     
     - For migration from versions before 1.0b2, contentmigration is required.
     
@@ -99,7 +100,7 @@ defined list.
 
 Contributing
 
- Poi is maintained using ArchGenXML (current svn or at least 1.4beta2), with
+ Poi is maintained using ArchGenXML (current svn or at least version 1.4), with
 a Poseidon model found in the model/ directory. Let's keep it that way.  
 
 If you have contributed to Poi in some fashion, be sure to add yourself to 

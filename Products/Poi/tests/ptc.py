@@ -78,10 +78,10 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         return tracker
 
     def createIssue(self, tracker, title='An issue', 
-                    overview='Something is wrong', release='(UNASSIGNED)', 
+                    details='Something is wrong', release='(UNASSIGNED)', 
                     area='ui', issueType='bug', severity='Medium', 
                     targetRelease='(UNASSIGNED)',
-                    details='', steps=(), attachment=None, 
+                    steps='', attachment=None, 
                     contactEmail='submitter@domain.com',
                     watchers=(),
                     tags=(),
@@ -93,14 +93,13 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         tracker.invokeFactory('PoiIssue', newId)
         issue = getattr(tracker, newId)
         issue.setTitle(title)
-        issue.setDescription(overview)
         issue.setRelease(release)
         issue.setArea(area)
         issue.setIssueType(issueType)
         issue.setSeverity(severity)
         issue.setTargetRelease(targetRelease)
         issue.setDetails(details)
-        issue.setSteps(steps)
+        issue.setSteps(steps, mimetype='text/x-web-intelligent')
         issue.setAttachment(attachment)
         issue.setContactEmail(contactEmail)
         issue.setWatchers(watchers)
@@ -119,7 +118,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         newId = self.portal.generateUniqueId('PoiResponse')
         issue.invokeFactory('PoiResponse', newId)
         response = getattr(issue, newId)
-        response.setResponse(text)
+        response.setResponse(text, mimetype='text/x-web-intelligent')
         response.setNewIssueState(issueTransition)
         response.setNewSeverity(newSeverity)
         response.setNewTargetRelease(newTargetRelease)

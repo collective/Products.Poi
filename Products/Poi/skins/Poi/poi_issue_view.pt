@@ -132,16 +132,12 @@
           </ul>
       </div>
       
-      <div class="issue-description" tal:content="here/Description" />
-          
-      <div tal:content="structure here/getDetails" />
+      <div class="issue-details" tal:content="structure here/getDetails" />
   
-      <div class="steps-to-reproduce" tal:condition="here/getSteps">
-          <span i18n:translate="poi_label_steps">Steps to reproduce:</span>
-            <ol>
-                <li tal:repeat="step here/getSteps" tal:content="step" />
-            </ol>
-      </div>
+      <dl class="steps-to-reproduce" tal:define="steps here/getSteps" tal:condition="nocall:steps">
+          <dt i18n:translate="poi_label_steps">Steps to reproduce:</dt>
+          <dd tal:content="structure steps" />
+      </dl>
       
       <div class="issue-attachment" tal:condition="python:here.getAttachment().get_size() &gt; 0">
           <div class="issue-attachment-label" i18n:translate="poi_label_attachment">Attached:</div>
@@ -228,7 +224,7 @@
 
             </div>
       
-            <div tal:content="structure response/getResponse" />
+            <div class="issue-details" tal:content="structure response/getResponse" />
             
             <div class="issue-attachment" tal:condition="python:response.getAttachment().get_size() &gt; 0">
               <div class="issue-attachment-label" i18n:translate="poi_label_attachment">Attached:</div>

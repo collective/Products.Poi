@@ -71,6 +71,7 @@ class TestBetaToRC(ptc.PoiTestCase):
             self.assertEqual(len(changes), 1)
             self.assertEqual(changes[0], {'id' : 'review_state', 'name' : 'Issue state', 'before' : 'unconfirmed', 'after' : 'open'})
 
+
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()

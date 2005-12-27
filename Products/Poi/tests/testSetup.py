@@ -16,6 +16,7 @@ class TestInstallation(ptc.PoiTestCase):
         self.catalog         = self.portal.portal_catalog
         self.workflow        = self.portal.portal_workflow
         self.properties      = self.portal.portal_properties
+        self.transforms      = self.portal.portal_transforms
         self.form_controller = self.portal.portal_form_controller
 
         self.poiTypes = {'PoiTracker'    : 'poi_tracker_workflow',
@@ -38,6 +39,9 @@ class TestInstallation(ptc.PoiTestCase):
         for k, v in self.poiTypes.items():
             self.failUnless(v in self.workflow.objectIds())
             self.failUnless(self.workflow.getChainForPortalType(k) == (v,))
+
+    def testIntelligentTextInstalled(self):
+        self.failUnless('web_intelligent_text_to_html' in self.transforms.objectIds())
 
     def testPortalFactorySetup(self):
         for t in self.poiTypes.keys():

@@ -278,18 +278,15 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.assertEqual(issues, ['1', '3'])
 
     def testGetFilteredIssesByIssueText(self):
-        self.createIssue(self.tracker, overview="foo")
         self.createIssue(self.tracker, details="foo")
-        self.createIssue(self.tracker, overview="bar", details="baz")
         issues = [b.getId for b in self.tracker.getFilteredIssues(text='foo')]
         issues.sort()
-        self.assertEqual(issues, ['1', '2'])
+        self.assertEqual(issues, ['1'])
         issues = [b.getId for b in self.tracker.getFilteredIssues(text='bar')]
-        issues.sort()
-        self.assertEqual(issues, ['3'])
+        self.assertEqual(len(issues), 0)
 
     def testGetFilteredIssesByResponseText(self):
-        self.createIssue(self.tracker, overview="foo")
+        self.createIssue(self.tracker, details="foo")
         self.createIssue(self.tracker)
         self.createIssue(self.tracker)
         
@@ -308,7 +305,7 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.assertEqual(issues, ['3'])
 
     def testGetFilteredIssesComplex(self):
-        self.createIssue(self.tracker, overview="foo", area="ui", issueType='feature')
+        self.createIssue(self.tracker, details="foo", area="ui", issueType='feature')
         self.createIssue(self.tracker, area="ui", issueType="bug")
         self.createIssue(self.tracker, area="functionality", details="foo", issueType='bug')
         
