@@ -168,6 +168,14 @@ class PoiPscTracker(PoiTracker,BaseFolder):
         The title of an issue tracker is always "Issue tracker"
         """
         return "Issue tracker"
+        
+    def _renameAfterCreation(self, check_auto_id=False):
+        parent = self.aq_inner.aq_parent
+        if PSC_TRACKER_ID not in parent.objectIds():            
+            # Can't rename without a subtransaction commit when using
+            # portal_factory!
+            transaction.savepoint(optimistic=True)
+            self.setId(newId)
 
 
 def modify_fti(fti):

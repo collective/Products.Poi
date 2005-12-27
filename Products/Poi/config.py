@@ -63,6 +63,7 @@ JAVASCRIPTS = []
 DEPENDENCIES = ['DataGridField', 'AddRemoveWidget', 'intelligenttext']
 DESCRIPTION_LENGTH = 200
 RUN_MIGRATIONS = True
+PSC_TRACKER_ID = 'issues'
 ##/code-section config-bottom
 
 

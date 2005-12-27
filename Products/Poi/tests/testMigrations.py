@@ -71,6 +71,21 @@ class TestBetaToRC(ptc.PoiTestCase):
             self.assertEqual(len(changes), 1)
             self.assertEqual(changes[0], {'id' : 'review_state', 'name' : 'Issue state', 'before' : 'unconfirmed', 'after' : 'open'})
 
+        def testIssueOverviewAndDetails(self):
+            self.setRoles(['Manager'])
+            self.portal.portal_workflow.doActionFor(self.issue, 'accept-unconfirmed')
+            self.response._issueStateBefore = 'unconfirmed'
+            self.response._issueStateAfter = 'open'
+        
+            out = StringIO()
+            beta2_rc1(self.portal, out)
+        
+            self.failIf(hasattr(self.response, '_issueStateBefore'))
+            self.failIf(hasattr(self.response, '_issueStateAfter'))
+            changes = self.response.getIssueChanges()
+            self.assertEqual(len(changes), 1)
+            self.assertEqual(changes[0], {'id' : 'review_state', 'name' : 'Issue state', 'before' : 'unconfirmed', 'after' : 'open'})
+
 
 def test_suite():
     from unittest import TestSuite, makeSuite
