@@ -5,7 +5,6 @@ from Products.CMFDynamicViewFTI.migrate import migrateFTIs
 from StringIO import StringIO
 from types import InstanceType
 
-from Products.Poi.mimetype import text_web_intelligent
 from Products.Poi.config import RUN_MIGRATIONS
 from Products.Poi.Extensions.Migrations import migrate
 
