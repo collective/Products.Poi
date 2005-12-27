@@ -85,7 +85,7 @@ def beta2_rc1(self, out):
             detailsBase = self.obj.getField('details').get(self.obj, raw=True)
             mimetype = detailsBase.getContentType()
             
-            if mimetype in ('text/plain', 'text/structured', 'text/reststructured',):
+            if mimetype in ('text/plain', 'text/structured', 'text/reststructured', 'text/x-web-intelligent',):
                 self.obj.setDetails(detailsBase.getRaw(), mimetype='text/x-web-intelligent')
             else:
                 details = detailsBase.transform(self.obj, 'text/html')
@@ -102,7 +102,7 @@ def beta2_rc1(self, out):
             responseBase = self.obj.getField('response').get(self.obj, raw=True)
             mimetype = responseBase.getContentType()
             
-            if mimetype in ('text/plain', 'text/structured', 'text/reststructured',):
+            if mimetype in ('text/plain', 'text/structured', 'text/reststructured', 'text/x-web-intelligent',):
                 self.obj.setResponse(responseBase.getRaw(), mimetype='text/x-web-intelligent')
             else:
                 response = responseBase.transform(self.obj, 'text/html')
