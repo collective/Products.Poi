@@ -45,6 +45,7 @@ from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEBase import MIMEBase
 from email.Message import Message
+import sets
 ##/code-section module-header
 
 schema=Schema((
@@ -273,6 +274,22 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         return vocab
 
 
+    security.declarePrivate('_getMemberEmail')
+    def _getMemberEmail(self, username, portal_membership=None):
+        """Query portal_membership to figure out the specified email address
+        for the given user (via the username parameter) or return None if none
+        is present.
+        """
+        
+        if portal_membership is None:
+            portal_membership = getToolByName(self, 'portal_membership')
+            
+        member = portal_membership.getMemberById(username)
+        if member is None:
+            return None
+        
+        return member.getProperty('email')
+
 
     security.declarePrivate('getNotificationEmailAddresses')
     def getNotificationEmailAddresses(self, issue=None):
@@ -286,42 +303,30 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         if not self.getSendNotificationEmails():
             return []
         
-        addresses = []
-            
         portal_membership = getToolByName(self, 'portal_membership')
-        mailingList = self.getMailingList()
         
         member = portal_membership.getAuthenticatedMember()
-        username = member.getUserName()
         email = member.getProperty('email')
         
+        # make sure no duplicates are added
+        addresses = sets.Set()
+        
+        mailingList = self.getMailingList()
         if mailingList:
-            addresses.append(mailingList)
+            addresses.add(mailingList)
         else:
-            managerUsernames = self.getManagers()
-            
-            for managerUsername in managerUsernames:
-                if managerUsername != username:
-                    managerMember = portal_membership.getMemberById(managerUsername)
-                    if managerMember is not None:
-                        managerEmail = managerMember.getProperty('email')
-                        if managerEmail and managerEmail not in addresses:
-                            addresses.append(managerEmail)
+            addresses.union_update([self._getMemberEmail(x, portal_membership) 
+                                    for x in self.getManagers() or []])
         
         if issue is not None:
-            issueEmail = issue.getContactEmail()
-            if issueEmail and issueEmail not in addresses and issueEmail != email:
-                addresses.append(issueEmail)
-            watcherUsernames = issue.getWatchers()
-            for watcherUsername in watcherUsernames:
-                if watcherUsername != username:
-                    watcherMember = portal_membership.getMemberById(watcherUsername)
-                    if watcherMember is not None and watcherUsername != username:
-                        watcherEmail = watcherMember.getProperty('email')
-                        if watcherMember and watcherEmail not in addresses:
-                            addresses.append(watcherEmail)
+            addresses.add(issue.getContactEmail())
+            addresses.union_update([self._getMemberEmail(x, portal_membership)
+                                    for x in issue.getWatchers() or []])
 
-        return addresses
+        addresses.discard(None)
+        addresses.discard(email)
+
+        return tuple(addresses)
         
 
 
