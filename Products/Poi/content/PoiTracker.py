@@ -292,29 +292,34 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         mailingList = self.getMailingList()
         
         member = portal_membership.getAuthenticatedMember()
+        username = member.getUserName()
+        email = member.getProperty('email')
         
         if mailingList:
             addresses.append(mailingList)
         else:
-            managers = self.getManagers()
-            for manager in managers:
-                managerUser = portal_membership.getMemberById(manager)
-                if managerUser is not None and managerUser != member:
-                    managerEmail = managerUser.getProperty('email')
-                    if managerEmail and managerEmail not in addresses:
-                        addresses.append(managerEmail)
+            managerUsernames = self.getManagers()
+            
+            for managerUsername in managerUsernames:
+                if managerUsername != username:
+                    managerMember = portal_membership.getMemberById(managerUsername)
+                    if managerMember is not None:
+                        managerEmail = managerMember.getProperty('email')
+                        if managerEmail and managerEmail not in addresses:
+                            addresses.append(managerEmail)
         
         if issue is not None:
             issueEmail = issue.getContactEmail()
-            if issueEmail and issueEmail not in addresses:
+            if issueEmail and issueEmail not in addresses and issueEmail != email:
                 addresses.append(issueEmail)
-            watchers = issue.getWatchers()
-            for watcher in watchers:
-                watcherUser = portal_membership.getMemberById(watcher)
-                if watcherUser is not None and watcherUser != member:
-                    watcherEmail = watcherUser.getProperty('email')
-                    if watcherUser and watcherEmail not in addresses:
-                        addresses.append(watcherEmail)
+            watcherUsernames = issue.getWatchers()
+            for watcherUsername in watcherUsernames:
+                if watcherUsername != username:
+                    watcherMember = portal_membership.getMemberById(watcherUsername)
+                    if watcherMember is not None and watcherUsername != username:
+                        watcherEmail = watcherMember.getProperty('email')
+                        if watcherMember and watcherEmail not in addresses:
+                            addresses.append(watcherEmail)
 
         return addresses
         
