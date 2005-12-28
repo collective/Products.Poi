@@ -433,6 +433,8 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         """When this response is created, send a notification email to all
         tracker managers, unless emailing is turned off.
         """
+        
+        portal_membership = getToolByName(self, 'portal_membership')
         portal_url = getToolByName(self, 'portal_url')
         portal = portal_url.getPortalObject()
         fromName = portal.getProperty('email_from_name', None)
@@ -440,8 +442,24 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         issue = self.aq_parent
         tracker = issue.aq_parent
 
+        creator = self.Creator()
+        creatorInfo = portal_membership.getMemberInfo(creator);
+        responseAuthor = creator
+        if creatorInfo:
+            responseAuthor = creatorInfo['fullname'] or creator
+
+        responseDetails = '\n'.join(['    '+x for x in (self.getRawResponse() or '').split('\n')])
+        if not responseDetails.strip():
+            responseDetails = None
+
         addresses = tracker.getNotificationEmailAddresses(issue)
-        mailText = self.poi_notify_new_response(self, tracker = tracker, issue = issue, response = self, fromName = fromName)
+        mailText = self.poi_email_new_response(self, 
+                                               tracker = tracker, 
+                                               issue = issue, 
+                                               response = self, 
+                                               responseAuthor = responseAuthor,
+                                               responseDetails = responseDetails,
+                                               fromName = fromName)
         subject = "[%s] Response to #%s - %s" % (tracker.getExternalTitle(), issue.getId(), issue.Title(),)
         
         tracker.sendNotificationEmail(addresses, subject, mailText)        

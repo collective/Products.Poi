@@ -1,0 +1,12 @@
+The issue **<dtml-var "issue.title_or_id()">** in the **<dtml-var "tracker.title_or_id()">**
+tracker has been marked as resolved by **<dtml-var stateChanger>**. Please 
+visit the issue and either confirm that it has been satisfactorily resolved or re-open it.
+
+Response Information
+--------------------
+
+Issue
+  <dtml-var "issue.title_or_id()"> (<dtml-var "issue.absolute_url()">)
+
+
+\* This is an automated email, please do not reply - <dtml-var fromName>

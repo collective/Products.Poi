@@ -46,6 +46,7 @@ from email.MIMEMultipart import MIMEMultipart
 from email.MIMEBase import MIMEBase
 from email.Message import Message
 import sets
+from Products.Poi.htmlrender import renderHTML
 ##/code-section module-header
 
 schema=Schema((
@@ -329,9 +330,8 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         return tuple(addresses)
         
 
-
     security.declarePrivate('sendNotificationEmail')
-    def sendNotificationEmail(self, addresses, subject, text, subtype='html'):
+    def sendNotificationEmail(self, addresses, subject, rstText):
         """
         Send a notification email to the list of addresses
         """
@@ -351,22 +351,15 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
             log('Cannot send notification email: email sender address or name not set')
             return
         
-        if subtype == 'html':
-            transformTool = getToolByName(self, 'portal_transforms')
-            plainText = str(transformTool.convertTo('text/plain', text)).strip()
+        email = MIMEMultipart('alternative')
+        email.epilogue = ''
             
-            message = MIMEMultipart('alternative')
-            message.epilogue = ''
-            
-            textPart = MIMEText(plainText, 'plain', charset)
-            message.attach(textPart)
-            htmlPart = MIMEText(text, 'html', charset)
-            message.attach(htmlPart)
-        else:
-            message = text
-        
-        if isinstance(message, Message):
-            message = str(message)
+        textPart = MIMEText(rstText, 'plain', charset)
+        email.attach(textPart)
+        htmlPart = MIMEText(renderHTML(rstText), 'html', charset)
+        email.attach(htmlPart)
+
+        message = str(email)
         
         for address in addresses:
             try:

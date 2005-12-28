@@ -532,13 +532,27 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         tracker managers, unless emailing is turned off.
         """
         portal_url = getToolByName(self, 'portal_url')
+        portal_membership = getToolByName(self, 'portal_membership')
         portal = portal_url.getPortalObject()
         fromName = portal.getProperty('email_from_name', None)
         
         tracker = self.aq_parent
         
+        issueCreator = self.Creator()
+        issueCreatorInfo = portal_membership.getMemberInfo(issueCreator);
+        issueAuthor = issueCreator
+        if issueCreatorInfo:
+            issueAuthor = issueCreatorInfo['fullname'] or issueCreator
+
+        issueDetails = '\n'.join(['    '+x for x in self.Description().split('\n')])
+        
         addresses = tracker.getNotificationEmailAddresses()
-        mailText = self.poi_notify_new_issue(self, tracker = tracker, issue = self, fromName = fromName)
+        mailText = self.poi_email_new_issue(self, 
+                                            tracker = tracker, 
+                                            issue = self, 
+                                            issueAuthor = issueAuthor, 
+                                            fromName = fromName,
+                                            issueDetails = issueDetails)
         subject = "[%s] New issue: #%s - %s" % (tracker.getExternalTitle(), self.getId(), self.Title(),)
         
         tracker.sendNotificationEmail(addresses, subject, mailText)
