@@ -33,7 +33,7 @@ Installation and dependencies
 
   Poi requires:
   
-    - Plone 2.1
+    - Plone 2.1.2+
     - DataGridField (*)
     - AddRemoveWidget
     - intelligenttext
