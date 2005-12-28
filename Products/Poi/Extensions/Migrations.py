@@ -99,7 +99,7 @@ def beta2_rc1(self, out):
         src_portal_type = src_meta_type = 'PoiResponse'
         
         def migrate_response(self):
-            responseBase = self.obj.getField('response').get(self.obj, raw=True)
+            responseBase = self.obj.getResponse(raw=True)
             mimetype = responseBase.getContentType()
             
             if mimetype in ('text/plain', 'text/structured', 'text/reststructured', 'text/x-web-intelligent',):
@@ -108,7 +108,7 @@ def beta2_rc1(self, out):
                 response = responseBase.transform(self.obj, 'text/html')
                 transforms = getToolByName(self.obj, 'portal_transforms')
                 converted = transforms.convertTo('text/x-web-intelligent', response, context=self.obj, mimetype='text/html').getData()
-                self.obj.setResponse(response, mimetype='text/x-web-intelligent')
+                self.obj.setResponse(converted, mimetype='text/x-web-intelligent')
         
     # Attempt to do AT schema migration
 

@@ -5,6 +5,7 @@ if __name__ == '__main__':
 from Testing import ZopeTestCase
 from Products.Poi.tests import ptc
 
+from Products.Archetypes.BaseUnit import BaseUnit
 from Products.Poi.Extensions.Migrations import beta2_rc1
 
 from StringIO import StringIO
@@ -38,6 +39,8 @@ class TestBetaToRC(ptc.PoiTestCase):
             new = self.createTracker(self.folder, 'new-tracker')
         
             beta2_rc1(self.portal, out)
+            # Make sure we can migrate multiple times, too
+            beta2_rc1(self.portal, out)
         
             self.assertEqual(old.getAvailableAreas(),
                             ({'id' : 'id1', 'title' : 'title one', 'description' : 'description one'},
@@ -64,20 +67,7 @@ class TestBetaToRC(ptc.PoiTestCase):
         
             out = StringIO()
             beta2_rc1(self.portal, out)
-        
-            self.failIf(hasattr(self.response, '_issueStateBefore'))
-            self.failIf(hasattr(self.response, '_issueStateAfter'))
-            changes = self.response.getIssueChanges()
-            self.assertEqual(len(changes), 1)
-            self.assertEqual(changes[0], {'id' : 'review_state', 'name' : 'Issue state', 'before' : 'unconfirmed', 'after' : 'open'})
-
-        def testIssueOverviewAndDetails(self):
-            self.setRoles(['Manager'])
-            self.portal.portal_workflow.doActionFor(self.issue, 'accept-unconfirmed')
-            self.response._issueStateBefore = 'unconfirmed'
-            self.response._issueStateAfter = 'open'
-        
-            out = StringIO()
+            # Make sure we can migrate multiple times, too
             beta2_rc1(self.portal, out)
         
             self.failIf(hasattr(self.response, '_issueStateBefore'))
@@ -86,6 +76,27 @@ class TestBetaToRC(ptc.PoiTestCase):
             self.assertEqual(len(changes), 1)
             self.assertEqual(changes[0], {'id' : 'review_state', 'name' : 'Issue state', 'before' : 'unconfirmed', 'after' : 'open'})
 
+
+        def testIssueOverviewAndDetailsMigration(self):
+            self.issue.description = BaseUnit('description', file='Description', instance=self.issue, mimetype='text/plain')
+            self.issue.setDetails('<p>Foo <b>bar</b></p>', mimetype='text/html')
+            
+            out = StringIO()
+            beta2_rc1(self.portal, out)
+            # Make sure we can migrate multiple times, too
+            beta2_rc1(self.portal, out)
+            
+            self.assertEqual(self.issue.getRawDetails(), 'Description\n\nFoo bar\n\n')
+            
+        def testResponseTextMigration(self):
+            self.response.setResponse('<p>Foo <b>bar</b></p>', mimetype = 'text/html')
+            
+            out = StringIO()
+            beta2_rc1(self.portal, out)
+            # Make sure we can migrate multiple times, too
+            beta2_rc1(self.portal, out)
+            
+            self.assertEqual(self.response.getRawResponse(), 'Foo bar\n\n')
 
 def test_suite():
     from unittest import TestSuite, makeSuite
