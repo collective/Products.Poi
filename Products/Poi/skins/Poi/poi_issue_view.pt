@@ -116,7 +116,9 @@
          <span tal:condition="nocall:user" i18n:translate="poi_last_modified_on_by">Last modified on
             <span i18:name="modification_time" tal:content="python:here.toLocalizedTime(time)" tal:omit-tag=""/>
             by
-            <span i18:name="modification_actor" tal:content="user" tal:omit-tag=""/>
+            <span i18:name="modification_actor" 
+                  tal:content="python:here.poi_niceName(username=user)" 
+                  tal:omit-tag=""/>
          </span>
          <span tal:condition="not:nocall:user" i18n:translate="poi_last_modified_on">Last modified on
             <span i18:name="modification_time" tal:content="python:here.toLocalizedTime(time)" tal:omit-tag=""/>
@@ -212,7 +214,8 @@
           
             <div class="response-info">
               <span i18n:translate="poi_added_by">Added by</span>
-              <span class="contact-user" tal:content="response/Creator" />
+              <span class="contact-user" 
+                    tal:content="python:here.poi_niceName(username=response.Creator())" />
               <span i18n:translate="poi_added_on">on</span>
               <span class="contact-user" 
                     tal:content="python:here.toLocalizedTime(response.Date(), long_format=True)" />
