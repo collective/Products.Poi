@@ -32,7 +32,6 @@ def simpleDataGrid2DataGrid(obj, val, **kwargs):
         newValue.append(newRow)
     
     return tuple(newValue)
-
     
 def beta2_rc1(self, out):
     """Migrate from beta 1 to rc 1
@@ -95,6 +94,18 @@ def beta2_rc1(self, out):
                     converted = overview + '\n\n' + converted
                 self.obj.setDetails(converted, mimetype='text/x-web-intelligent')
     
+    class StepsToReproduceMigrator(BaseInlineMigrator):
+        src_portal_type = src_meta_type = 'PoiIssue'
+        
+        def migrate_steps(self):
+            val = self.obj.getSteps()
+            if type(val) not in (types.ListType, types.TupleType) or \
+               len(val) < 1 or \
+               type(val[0]) not in types.StringTypes:
+               return
+            newVal = '\n'.join(val)
+            self.obj.setSteps(newVal, mimetype='text/x-web-intelligent')
+    
     class ResponseMigrator(BaseInlineMigrator):
         src_portal_type = src_meta_type = 'PoiResponse'
         
@@ -135,13 +146,19 @@ def beta2_rc1(self, out):
     # Migrate issue details field
     walker = CustomQueryWalker(portal, DetailsMigrator, query = {})
     transaction.savepoint(optimistic=True)
-    print >> out, "Migrating issue state change storage in responses"
+    print >> out, "Migrating issue details field to text"
+    walker.go()
+    
+    # Migrate issue steps-to-reproduce field
+    walker = CustomQueryWalker(portal, StepsToReproduceMigrator, query = {})
+    transaction.savepoint(optimistic=True)
+    print >> out, "Migrating issue steps-to-reproduce to text"
     walker.go()
     
     # Migrate response field
     walker = CustomQueryWalker(portal, ResponseMigrator, query = {})
     transaction.savepoint(optimistic=True)
-    print >> out, "Migrating issue state change storage in responses"
+    print >> out, "Migrating response text field to text"
     walker.go()
     
 def migrate(self):
