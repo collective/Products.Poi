@@ -101,9 +101,7 @@ def beta2_rc1(self, out):
         def migrate_steps(self):
             val = getattr(aq_base(self.obj), 'steps', None)
             if val is None or \
-                type(val) not in (types.ListType, types.TupleType) or \
-                len(val) < 1 or \
-                type(val[0]) not in types.StringTypes:
+                type(val) not in (types.ListType, types.TupleType):
                 return
             newVal = '\n'.join(val)
             self.obj.steps = BaseUnit('steps', file=newVal, instance=self.obj, mimetype='text/x-web-intelligent')
