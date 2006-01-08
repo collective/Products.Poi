@@ -88,6 +88,17 @@ class TestBetaToRC(ptc.PoiTestCase):
             
             self.assertEqual(self.issue.getRawDetails(), 'Description\n\nFoo bar\n\n')
             
+        def testIssueStepsMigration(self):
+            self.issue.steps = ('one', 'two')
+            
+            out = StringIO()
+            beta2_rc1(self.portal, out)
+            # Make sure we can migrate multiple times, too
+            beta2_rc1(self.portal, out)
+            
+            self.assertEqual(self.issue.getRawSteps(), 'one\ntwo')
+            
+            
         def testResponseTextMigration(self):
             self.response.setResponse('<p>Foo <b>bar</b></p>', mimetype = 'text/html')
             

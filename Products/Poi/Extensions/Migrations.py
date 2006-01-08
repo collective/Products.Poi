@@ -10,6 +10,7 @@ import types
 from StringIO import StringIO
 from Products.CMFCore.utils import getToolByName
 from Products.Archetypes import transaction
+from Products.Archetypes.BaseUnit import BaseUnit
 from Products.CMFPlone.utils import safe_hasattr
 
 from Acquisition import aq_base
@@ -98,13 +99,14 @@ def beta2_rc1(self, out):
         src_portal_type = src_meta_type = 'PoiIssue'
         
         def migrate_steps(self):
-            val = self.obj.getSteps()
-            if type(val) not in (types.ListType, types.TupleType) or \
-               len(val) < 1 or \
-               type(val[0]) not in types.StringTypes:
-               return
+            val = getattr(aq_base(self.obj), 'steps', None)
+            if val is None or \
+                type(val) not in (types.ListType, types.TupleType) or \
+                len(val) < 1 or \
+                type(val[0]) not in types.StringTypes:
+                return
             newVal = '\n'.join(val)
-            self.obj.setSteps(newVal, mimetype='text/x-web-intelligent')
+            self.obj.steps = BaseUnit('steps', file=newVal, instance=self.obj, mimetype='text/x-web-intelligent')
     
     class ResponseMigrator(BaseInlineMigrator):
         src_portal_type = src_meta_type = 'PoiResponse'
