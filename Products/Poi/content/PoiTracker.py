@@ -370,7 +370,7 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
             except ConflictError:
                 raise
             except:
-                log_exc('Could not send email from %s to %s regarding issue in tracker %s\ntext is:\n%s\n' % (fromAddress, address, self.absolute_url(), text,))
+                log_exc('Could not send email from %s to %s regarding issue in tracker %s\ntext is:\n%s\n' % (fromAddress, address, self.absolute_url(), message,))
 
 
 

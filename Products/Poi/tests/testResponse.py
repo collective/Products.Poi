@@ -17,8 +17,8 @@ class TestResponse(ptc.PoiTestCase):
         self.workflow = self.portal.portal_workflow
 
     def testEditResponse(self):
-        self.response.setResponse('<p>Response-text</p>', mimetype='text/x-web-intelligent')
-        self.assertEqual(self.response.getResponse(), '<p>Response-text</p>')
+        self.response.setResponse('Response-text', mimetype='text/x-web-intelligent')
+        self.assertEqual(self.response.getResponse(), 'Response-text')
 
     def testTitleIsId(self):
         self.assertEqual(self.response.Title(), self.response.getId())
