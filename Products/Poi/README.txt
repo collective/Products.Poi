@@ -46,6 +46,14 @@ Installation and dependencies
 (*) NOTE: Before version 1.0 beta 2, ArchAddOn was required instead of
 DataGridField. 
 
+Upgrading
+
+  Before any upgrade, run an Archetypes schema update, by going to 
+'archetype_tool' in the ZMI, selecting the 'Update Schema' tab, selecting
+all the 'Poi.*' types, and clicking 'Update schema'. It's probably a good idea 
+to choose 'All objects' from the drop-down as well, although this will take
+slightly longer.
+
 If you had a version prior to 1.0 beta 2 installed, you must run migrations
 to avoid losing your old grids (available areas, available issue types). This
 is automatic, but you need to install the 'contentmigration' product. This can
@@ -56,10 +64,6 @@ be found at
 It is also bundled with the release tarball. Simply drop the 'contentmigration'
 product into your Products/ folder and re-install Poi from the Add/Remove 
 Products control panel or portal_quickinstaller in the ZMI.
-
-If you are still receiving errors, go to archetype_tool in the ZMI and perform a 
-schema update on PoiTracker and PoiPscTracker before doing the re-install as 
-above.
 
 If you do not have any old Poi trackers around, you do not need to run 
 migrations.
