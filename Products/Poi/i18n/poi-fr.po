@@ -41,32 +41,32 @@ msgstr "Éditer"
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."
 msgid "Poi_help_area"
-msgstr "Sélectionnez une zone ou ce bogue est approprié."
+msgstr "Sélectionnez une zone ou ce ticket est approprié."
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment to your issue. Please do not upload unnecessarily large files."
 msgid "Poi_help_attachment"
-msgstr "Vous pouvez télécharger vers le serveur un fichier attaché à votre bogue. Veuillez ne pas télécharger inutilement de gros fichiers."
+msgstr "Vous pouvez télécharger vers le serveur un fichier attaché à votre ticket. Veuillez ne pas télécharger inutilement de gros fichiers."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker, one specification per line. The format is \"Short name | Title | Description\"."
 msgid "Poi_help_availableAreas"
-msgstr "Entrer les sujets/zones de bogues pour ce gestionnaire, une spécification par ligne. Le format est \"Nom court | Titre | Description\"."
+msgstr "Entrer les sujets/zones de tickets pour ce gestionnaire, une spécification par ligne. Le format est \"Nom court | Titre | Description\"."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker, one specification per line.  The format is \"Short name | Title | Description\"."
 msgid "Poi_help_availableIssueTypes"
-msgstr "Entrer les types de bogues pour ce gestionnaire, une spécification par ligne. Le format est \"Nom court | Titre | Description\"."
+msgstr "Entrer les types de tickets pour ce gestionnaire, une spécification par ligne. Le format est \"Nom court | Titre | Description\"."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line.  If no releases are entered, issues will not be organised by release."
 msgid "Poi_help_availableReleases"
-msgstr "Entrer les versions où les bogues peuvent être assignés, une par ligne. Si aucune version n'est entrée, les bogues ne seront pas organisés en version."
+msgstr "Entrer les versions où les tickets peuvent être assignés, une par ligne. Si aucune version n'est entrée, les tickets ne seront pas organisés en version."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
 msgid "Poi_help_availableSeverities"
-msgstr "Entrer les différents types de sévérités des bogues disponibles, un par ligne."
+msgstr "Entrer les différents types de sévérités des tickets disponibles, un par ligne."
 
 # ./content/PoiIssue.py
 #. Default: "Optionally, provide an email address where you can be contacted for further information or when a resolution is available."
@@ -76,12 +76,12 @@ msgstr "Optionnellement, fournir une adresse email où vous pouvez être contact
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
 msgid "Poi_help_defaultSeverity"
-msgstr "Sélectionnez une sévérité par défaut pour les nouveaux bogues."
+msgstr "Sélectionnez une sévérité par défaut pour les nouveaux tickets."
 
 # ./content/PoiIssue.py
 #. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
 msgid "Poi_help_description"
-msgstr "Entrer un bref résumé du bogue. Comme avec le titre; une description concise et parlante rendra plus facile pour les chefs de projets de gérer et répondre à un bogue."
+msgstr "Entrer un bref résumé du ticket. Comme avec le titre; une description concise et parlante rendra plus facile pour les chefs de projets de gérer et répondre à un ticket."
 
 # ./content/PoiIssue.py
 #. Default: "Please provide further details"
@@ -101,12 +101,12 @@ msgstr "Sélectionnez un changement d'état pour cette réponse, si cela est app
 # ./content/PoiIssue.py
 #. Default: "Select the type of issue."
 msgid "Poi_help_issueType"
-msgstr "Sélectionnez le type du bogue."
+msgstr "Sélectionnez le type du ticket."
 
 # ./content/PoiIssue.py
 #. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
 msgid "Poi_help_issue_title"
-msgstr "Entrer un titre court et descriptif pour ce bogue. Un bon titre rendra plus facile pour les chefs de projets l'identification et pour réponse à ce bogue."
+msgstr "Entrer un titre court et descriptif pour ce ticket. Un bon titre rendra plus facile pour les chefs de projets l'identification et pour réponse à ce ticket."
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if "Send notification emails" is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails."
@@ -121,7 +121,7 @@ msgstr "Entrer les ids utilisateur des utilisateurs qui sont autorisés à gére
 # ./content/PoiIssue.py
 #. Default: "Select the release this issue pertains to."
 msgid "Poi_help_release"
-msgstr "Sélectionnez la version concernée par ce bogue."
+msgstr "Sélectionnez la version concernée par ce ticket."
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
@@ -136,27 +136,27 @@ msgstr "Entrer un sujet bref pour cette réponse, comme \"Fixé\" ou \"Sera fix�
 # ./content/PoiIssue.py
 #. Default: "Select which manager, if any, is responsible for this issue."
 msgid "Poi_help_responsibleManager"
-msgstr "Sélectionnez le gestionnaire de ce bogue, s'il en existe un."
+msgstr "Sélectionnez le gestionnaire de ce ticket, s'il en existe un."
 
 # ./content/PoiTracker.py
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation."
 msgid "Poi_help_sendNotificationEmails"
-msgstr "Si c'est sélectionné, les responsables du gestionnaire recevront un email chaque fois qu'un nouveau bug ou une nouvelle réponse sera posté, et les submitters recevront un email quand il y aura une nouvelle réponse et quand un bogue a été résolu, attendant la confirmation."
+msgstr "Si c'est sélectionné, les responsables du gestionnaire recevront un email chaque fois qu'un nouveau bug ou une nouvelle réponse sera posté, et les submitters recevront un email quand il y aura une nouvelle réponse et quand un ticket a été résolu, attendant la confirmation."
 
 # ./content/PoiIssue.py
 #. Default: "Select the severity of this issue."
 msgid "Poi_help_severity"
-msgstr "Sélectionnez la sévérité de ce bogue."
+msgstr "Sélectionnez la sévérité de ce ticket."
 
 # ./content/PoiIssue.py
 #. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
 msgid "Poi_help_steps"
-msgstr "Si cela est applicable, veuillez fournir les étapes pour reproduire l'erreur ou identifier le bogue, une par ligne."
+msgstr "Si cela est applicable, veuillez fournir les étapes pour reproduire l'erreur ou un cas d'utilisation type en cas de demande d'évolution."
 
 # ./content/PoiIssue.py
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
 msgid "Poi_help_subject"
-msgstr "Des étiquettes peuvent être employées pour ajouter une catégorisation arbitraire aux bogues. La liste ci dessous montre les étiquettes existantes que vous pouvez choisir, ou vous peut en ajouter des nouvelles."
+msgstr "Des étiquettes peuvent être employées pour ajouter une catégorisation arbitraire aux tickets. La liste ci dessous montre les étiquettes existantes que vous pouvez choisir, ou vous peut en ajouter des nouvelles."
 
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
@@ -166,7 +166,7 @@ msgstr "Entrer un nom descriptif pour ce gestionnaire."
 # ./content/PoiIssue.py
 #. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
 msgid "Poi_help_watchers"
-msgstr "Entrez les noms d'utilisateur des membres qui observent ce bogue, une par la ligne.  Ces membres recevront un email quand une réponse est ajoutée à l'issue.  Les membres peuvent également s'ajouter comme observateurs"
+msgstr "Entrez les noms d'utilisateur des membres qui observent ce ticket, une par la ligne.  Ces membres recevront un email quand une réponse est ajoutée à celui-ci  Les membres peuvent également s'ajouter comme observateurs"
 
 # ./content/PoiIssue.py
 #. Default: "Area"
@@ -186,7 +186,7 @@ msgstr "Zones"
 # ./content/PoiTracker.py
 #. Default: "Issue types"
 msgid "Poi_label_availableIssueTypes"
-msgstr "Types de bogue"
+msgstr "Types de ticket"
 
 # ./content/PoiTracker.py
 #. Default: "Available releases"
@@ -226,12 +226,12 @@ msgstr "Id"
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
 msgid "Poi_label_issueTransition"
-msgstr "Changer l'état du bogue"
+msgstr "Changer l'état du ticket"
 
 # ./content/PoiIssue.py
 #. Default: "Issue type"
 msgid "Poi_label_issueType"
-msgstr "Type du bogue"
+msgstr "Type du ticket"
 
 # ./content/PoiIssue.py
 #. Default: "Title"
@@ -296,22 +296,22 @@ msgstr "Nom du gestionnaire"
 # ./content/PoiIssue.py
 #. Default: "Issue watchers"
 msgid "Poi_label_watchers"
-msgstr "Observateurs du bogue"
+msgstr "Observateurs du ticket"
 
 #. Default: "Stop watching this issue"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "Stop watching this issue"
-msgstr "Arrêter d'obverser ce bogue"
+msgstr "Arrêter d'obverser ce ticket"
 
 #. Default: "Submit new issue"
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "Submit new issue"
-msgstr "Soumettre un nouveau bogue"
+msgstr "Soumettre un nouveau ticket"
 
 #. Default: "Watch this issue"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "Watch this issue"
-msgstr "Voir ce bogue"
+msgstr "Suivre ce ticket"
 
 #. Default: "${number} items matching your criteria."
 #: ./skins/Poi/poi_issue_search.pt
@@ -321,7 +321,7 @@ msgstr "${number} élements correspondent à vos critères."
 #. Default: "Are you sure you wish to delete this response?"
 #: ./skins/Poi/poi_response_delete_confirm.cpt
 msgid "desc_poi_heading_delete_response"
-msgstr "Êtes vous sur de vouloir effacer cette réponse ?"
+msgstr "Êtes vous sûr de vouloir effacer cette réponse ?"
 
 #. Default: "No results were found."
 #: ./skins/Poi/poi_issue_search.pt
@@ -386,7 +386,7 @@ msgstr "Ajouté par"
 #. Default: "on"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_added_on"
-msgstr "sur"
+msgstr "le"
 
 #. Default: "By area"
 #: ./skins/Poi/poi_tracker_view.pt
@@ -416,57 +416,57 @@ msgstr "Effacer les réponses"
 #. Default: "Issue search"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_heading_issue_search"
-msgstr "Recherche de bogue"
+msgstr "Recherche de ticket"
 
 #. Default: "My issues"
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_heading_my_issues"
-msgstr "Mes bogues"
+msgstr "Mes tickets"
 
 #. Default: "Open issues"
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_heading_open_issues"
-msgstr "Bogues ouverts"
+msgstr "Tickets ouverts"
 
 #. Default: "Issue search results"
 #: ./skins/Poi/poi_issue_search.pt
 msgid "poi_heading_search_results"
-msgstr "Résultats de le recherche de bogue"
+msgstr "Résultats de le recherche de ticket"
 
 #. Default: "Unconfirmed issues"
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_heading_unconfirmed_issues"
-msgstr "Bogues non confirmés"
+msgstr "Tickets non confirmés"
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you."
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_help_my_issues_manager"
-msgstr "Les bogues ouverts suivants sont soumis par vous, ou vous sont assignés."
+msgstr "Les tickets ouverts suivants sont soumis par vous, ou vous sont assignés."
 
 #. Default: "The following open issues were either submitted by you."
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_help_my_issues_not_manager"
-msgstr "Les bogues ouverts suivants vous sont assignés."
+msgstr "Les tickets ouverts suivants vous sont assignés."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_help_open_issues"
-msgstr "Cliquez sur une zone, une version ou un état de bogue pour voir tout les bogues ouverts dans cette catégorie. Pour des options de recherche plus avançées, cliquez sur  \"Recherche de bogues\"."
+msgstr "Cliquez sur une zone, une version ou un état de ticket pour voir tout les tickets ouverts dans cette catégorie. Pour des options de recherche plus avançées, cliquez sur  \"Recherche de tickets\"."
 
 #. Default: "The following issues have not yet been confirmed or assigned. Please review them and take the appropriate action."
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_help_unconfirmed_issues"
-msgstr "Les bogues suivants n'ont pas été encore confirmées ou n'ont pas été assignées. Veuillez les passer en revue et prendre une action appropriée."
+msgstr "Les tickets suivants n'ont pas été encore confirmées ou n'ont pas été assignées. Veuillez les passer en revue et prendre une action appropriée."
 
 #. Default: "Search for issues"
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_issue_search"
-msgstr "Recherche de bogues"
+msgstr "Recherche de tickets"
 
 #. Default: "This form allows you to search for issue according to a variety of criteria. Please make your selection below and click Search."
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_issue_search_description"
-msgstr "Ce formulaire vous permet de rechercher des bogues selon une variété de critères. Veuillez faire votre choix ci-dessous et cliquez sur \"Rechercher\"."
+msgstr "Ce formulaire vous permet de rechercher des tickets selon une variété de critères. Veuillez faire votre choix ci-dessous et cliquez sur \"Rechercher\"."
 
 #. Default: "Area"
 #: ./skins/Poi/poi_issue_view.pt
@@ -521,7 +521,7 @@ msgstr "Étiquette :"
 #. Default: "Issue type"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_label_type"
-msgstr "Type du bogue"
+msgstr "Type du ticket"
 
 #. Default: "Search Terms"
 #: ./skins/Poi/poi_issue_search_form.pt
@@ -531,22 +531,22 @@ msgstr "Termes de recherche"
 #. Default: "The following issue in the \" ${tracker_title} \" tracker has been marked as resolved: ${issue_title}. Please visit the issue and use the \"state\" drop-down to either confirm that it has been satisfactorily resolved or re-open it."
 #: ./skins/Poi/poi_notify_issue_resolved.pt
 msgid "poi_notification_issue_resolved"
-msgstr "Le bogue suivant dans le gestionnaire ${tracker_title } a été marqué comme résolu :  ${issue_title }. Veuillez visiter le bogue et employez la liste déroulante \"État\" pour confirmer qu'il a été correctement résolu ou pour le réouvrir."
+msgstr "Le ticket suivant dans le gestionnaire ${tracker_title } a été marqué comme résolu :  ${issue_title }. Veuillez visiter le ticket et employez la liste déroulante \"État\" pour confirmer qu'il a été correctement résolu ou pour le réouvrir."
 
 #. Default: "A new issue has been submitted to the \" ${tracker_title} \" tracker and awaits confirmation: ${issue_url}."
 #: ./skins/Poi/poi_notify_new_issue.pt
 msgid "poi_notification_new_issue"
-msgstr "Un nouveau bogue vient d'être soumis au gestionnaire \"{tracker_title}\" et attend une confirmation : ${issue_url}."
+msgstr "Un nouveau ticket vient d'être soumis au gestionnaire \"{tracker_title}\" et attend une confirmation : ${issue_url}."
 
 #. Default: "A new response has been given to the issue \" ${issue_title} \" in the tracker \" ${tracker_title} \": ${issue_url}."
 #: ./skins/Poi/poi_notify_new_response.pt
 msgid "poi_notification_new_response"
-msgstr "Une nouvelle réponse vient d'être posté pour le bogue \"${issue_title}\" dans le gestionnaire \"${tracker_title}\": ${issue_url}."
+msgstr "Une nouvelle réponse vient d'être posté pour le ticket \"${issue_title}\" dans le gestionnaire \"${tracker_title}\": ${issue_url}."
 
 #. Default: "Changed issue state:"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_response_state_change"
-msgstr "État du bogue modifié :"
+msgstr "État du ticket modifié :"
 
 #. Default: "Response # ${responseNumber} to \" ${issueTitle} \""
 #: ./skins/Poi/poi_response_view.pt
@@ -561,7 +561,7 @@ msgstr "Retour à la recherche"
 #. Default: "Return to issue tracker"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_return_to_tracker"
-msgstr "Retour au gestionnaire de bogue"
+msgstr "Retour au gestionnaire de ticket"
 
 #. Default: "Select the areas you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt
@@ -571,12 +571,12 @@ msgstr "Sélectionnez les zones que vous souhaitez rechercher."
 #. Default: "Enter the username of the issue submitter,"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_help_creator"
-msgstr "Entrez le nom utilisateur du soumetteur du bogue."
+msgstr "Entrez le nom utilisateur du soumetteur du ticket."
 
 #. Default: "Select the issue types you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_help_issue_type"
-msgstr "Sélectionnez les types de bogue que vous souhaitez rechercher."
+msgstr "Sélectionnez les types de ticket que vous souhaitez rechercher."
 
 #. Default: "Select the releases you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt
@@ -601,7 +601,7 @@ msgstr "Sélectionnez les états que vous souhaitez rechercher."
 #. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_help_tags"
-msgstr "Les étiquettes sont des mots-clés assignés par des administrateurs de gestionnaire de bogues pour permettre une organisation plus fine des bogues. Sélectionnez l'étiquette ou les étiquettes que vous souhaitez rechercher."
+msgstr "Les étiquettes sont des mots-clés assignés par des administrateurs de gestionnaire de tickets pour permettre une organisation plus fine des tickets. Sélectionnez l'étiquette ou les étiquettes que vous souhaitez rechercher."
 
 #. Default: "Enter any text you wish the issue to include."
 #: ./skins/Poi/poi_issue_search_form.pt
@@ -621,7 +621,7 @@ msgstr "Soumetteur"
 #. Default: "Issue type"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_label_issue_type"
-msgstr "Type de bogue"
+msgstr "Type de ticket"
 
 #. Default: "Release"
 #: ./skins/Poi/poi_issue_search_form.pt
@@ -651,12 +651,12 @@ msgstr "Étiquettes"
 #. Default: "Issue text"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_label_text"
-msgstr "Texte de bogue"
+msgstr "Texte de ticket"
 
 #. Default: "View issue in full"
 #: ./skins/Poi/poi_response_view.pt
 msgid "poi_up_to_issue"
-msgstr "Voir complètement le bogue"
+msgstr "Voir complètement le ticket"
 
 #- Added msgids by merging file poi-manual.pot:
 #  Poi_label_tracker_title Poi_help_tracker_title Poi_label_description
@@ -680,6 +680,4 @@ msgstr "Voir complètement le bogue"
 # Poi_label_issueTransition Poi_help_issueTransition
 #- Added msgids by merging file poi-manual.pot:
 #
-msgid ""
-msgstr ""
 

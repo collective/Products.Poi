@@ -109,9 +109,6 @@ msgstr ""
 
 # response states
 
-msgid "Being created"
-msgstr ""
-
 msgid "Posted"
 msgstr ""
 

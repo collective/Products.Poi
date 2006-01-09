@@ -17,25 +17,29 @@ msgstr ""
 "Domain: plone\n"
 "X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
 
-
 # portal type nams
 msgid "Issue Tracker"
-msgstr "Gestionnaire de bogues"
+msgstr "Gestionnaire de tickets"
 
 msgid "An issue tracker"
-msgstr "Un gestionnaire de bogues"
+msgstr "Un gestionnaire de tickets"
 
 msgid "Issue"
-msgstr "Bogue"
+msgstr "Ticket"
 
-msgid "An issue. Issues begin in the 'open' state, and can be responded to by project managers."
-msgstr "Un bogue. Les bogues  commence avec l'état 'ouvert', et peuvent être gérés par les chefs de projets."
+#, fuzzy
+msgid ""
+"An issue. Issues begin in the 'unconfirmed' state, and can be responded to "
+"by project managers."
+msgstr ""
+"Un ticket. Les tickets  commence avec l'état 'ouvert', et peuvent être gérés "
+"par les chefs de projets."
 
 msgid "Response"
 msgstr "Réponse"
 
 msgid "A response to an issue."
-msgstr "Une réponse à un bogue."
+msgstr "Une réponse à un ticket."
 
 # tracker states
 msgid "Open for submissions"
@@ -53,13 +57,13 @@ msgstr "Ouvrir le gestionnaire"
 
 # issue states
 msgid "Tested and confirmed closed"
-msgstr ""
+msgstr "Testé et validé par les utilisateurs"
 
 msgid "In progress"
-msgstr ""
+msgstr "En cours de résolution"
 
 msgid "Being created"
-msgstr ""
+msgstr "En cours de création"
 
 msgid "Open"
 msgstr "Ouvert"
@@ -81,16 +85,16 @@ msgid " Open"
 msgstr "Ouvert"
 
 msgid "Begin work"
-msgstr ""
+msgstr "Démarrer le traitement"
 
 msgid "Confirm resolved"
-msgstr ""
+msgstr "Confirmer la résolution"
 
 msgid "Put on hold"
-msgstr ""
+msgstr "Suspendre"
 
 msgid "Re-open"
-msgstr "Ré-ouvert"
+msgstr "Réouvrir"
 
 msgid "Post issue on save"
 msgstr ""
@@ -105,13 +109,9 @@ msgid "Resolve"
 msgstr "Résoudre"
 
 # response states
-msgid "Being created"
-msgstr ""
-
 msgid "Posted"
 msgstr "Posté"
 
 # response transitions
 msgid "Post response on save"
 msgstr ""
-
