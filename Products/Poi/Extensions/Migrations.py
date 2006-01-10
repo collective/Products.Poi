@@ -86,9 +86,11 @@ def beta2_rc1(self, out):
             mimetype = detailsBase.getContentType()
             
             if mimetype in ('text/plain', 'text/structured', 'text/reststructured', 'text/x-web-intelligent',):
-                self.obj.setDetails(detailsBase.getRaw(), mimetype='text/x-web-intelligent')
+                self.obj.setDetails(overview + '\n\n' + detailsBase.getRaw(), mimetype='text/x-web-intelligent')
             else:
                 details = detailsBase.transform(self.obj, 'text/html')
+                if details is None:
+                    details = ''
                 transforms = getToolByName(self.obj, 'portal_transforms')
                 converted = transforms.convertTo('text/x-web-intelligent', details, context=self.obj, mimetype='text/html').getData()
                 if overview:
