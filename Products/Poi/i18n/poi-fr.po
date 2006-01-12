@@ -651,12 +651,12 @@ msgstr "Étiquettes"
 #. Default: "Issue text"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_search_label_text"
-msgstr "Texte de ticket"
+msgstr "Texte du ticket"
 
 #. Default: "View issue in full"
 #: ./skins/Poi/poi_response_view.pt
 msgid "poi_up_to_issue"
-msgstr "Voir complètement le ticket"
+msgstr "Voir l'intégralité le ticket"
 
 #- Added msgids by merging file poi-manual.pot:
 #  Poi_label_tracker_title Poi_help_tracker_title Poi_label_description
@@ -680,4 +680,3 @@ msgstr "Voir complètement le ticket"
 # Poi_label_issueTransition Poi_help_issueTransition
 #- Added msgids by merging file poi-manual.pot:
 #
-
