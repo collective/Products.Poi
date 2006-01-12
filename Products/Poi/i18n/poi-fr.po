@@ -656,7 +656,7 @@ msgstr "Texte du ticket"
 #. Default: "View issue in full"
 #: ./skins/Poi/poi_response_view.pt
 msgid "poi_up_to_issue"
-msgstr "Voir l'intégralité le ticket"
+msgstr "Voir l'intégralité du ticket"
 
 #- Added msgids by merging file poi-manual.pot:
 #  Poi_label_tracker_title Poi_help_tracker_title Poi_label_description
