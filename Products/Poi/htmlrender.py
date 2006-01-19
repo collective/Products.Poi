@@ -63,6 +63,6 @@ def renderHTML(rstText, lang='en', charset='utf-8'):
     
     kwargs = {'lang': lang,
               'charset': charset,
-              'body': rstHTML(rstText)}
+              'body': rstHTML(rstText, input_encoding = charset, output_encoding = charset)}
     
     return htmlTemplate % kwargs
