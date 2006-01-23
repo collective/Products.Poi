@@ -1,0 +1,15 @@
+<div metal:define-macro="topslot">
+   <tal:block define="dummy python:request.set('disable_border', 1)"/>
+</div>
+
+<div metal:define-macro="header"
+     tal:define="issue here/getParentNode">
+   
+   <h2>
+      #<span tal:replace="issue/getId" /> &mdash;
+       <span tal:replace="issue/Title" />
+   </h2> 
+
+   <div class="issue-details" tal:content="structure issue/getDetails" />
+   
+</div>
