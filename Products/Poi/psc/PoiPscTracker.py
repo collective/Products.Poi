@@ -24,6 +24,7 @@ __docformat__ = 'plaintext'
 
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
+from Products.Archetypes import transaction
 from Products.Poi.content.PoiTracker import PoiTracker
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
 
@@ -114,7 +115,7 @@ class PoiPscTracker(PoiTracker,BaseFolder):
 
     )
 
-    _at_rename_after_creation  = False
+    _at_rename_after_creation  = True
 
     schema = PoiPscTracker_schema
 
@@ -175,7 +176,7 @@ class PoiPscTracker(PoiTracker,BaseFolder):
             # Can't rename without a subtransaction commit when using
             # portal_factory!
             transaction.savepoint(optimistic=True)
-            self.setId(newId)
+            self.setId(PSC_TRACKER_ID)
 
 
 def modify_fti(fti):
