@@ -289,7 +289,13 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         if member is None:
             return None
         
-        return member.getProperty('email')
+        try:
+            email = member.getProperty('email')
+        except Unauthorized:
+            # this will happen if CMFMember is installed and the email
+            # property is protected via AT security
+            email = member.getField('email').getAccessor(member)()
+        return email
 
 
     security.declarePrivate('getNotificationEmailAddresses')
