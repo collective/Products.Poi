@@ -86,7 +86,7 @@ class TestBetaToRC(ptc.PoiTestCase):
             # Make sure we can migrate multiple times, too
             beta2_rc1(self.portal, out)
             
-            self.assertEqual(self.issue.getRawDetails(), 'Description\n\nFoo bar\n\n')
+            self.assertEqual(self.issue.getRawDetails(), '\n\nDescription\n\nFoo bar\n\n')
             
         def testIssueStepsMigration(self):
             self.issue.steps = ('one', 'two')

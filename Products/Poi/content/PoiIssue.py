@@ -404,7 +404,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         """If a description is set manually, return that. Else returns the first
         200 characters (defined in config.py) of the 'details' field.
         """
-        explicit = super(PoiIssue, self).Description()
+        explicit = self.getField('description').get(self)
         if explicit:
             return explicit
         else:
@@ -511,7 +511,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
 
 
     def notifyModified(self):
-        super(PoiIssue, self).notifyModified()
+        BaseFolder.notifyModified(self)
         mtool = getToolByName(self, 'portal_membership')
         member = mtool.getAuthenticatedMember()
         self._lastModificationUser = member.getId()
