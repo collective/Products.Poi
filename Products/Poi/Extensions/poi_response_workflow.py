@@ -1,7 +1,7 @@
 """Workflow: poi_response_workflow
 """
 
-# Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
+# Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
 #
 # Generator: ArchGenXML Version 1.4.1 svn/devel
 #            http://plone.org/products/archgenxml

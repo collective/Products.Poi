@@ -1,6 +1,6 @@
 """ Workflow Scripts for: poi_tracker_workflow """
 
-# Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
+# Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
 #
 # Generator: ArchGenXML Version 1.4.1 svn/devel
 #            http://sf.net/projects/archetypes/

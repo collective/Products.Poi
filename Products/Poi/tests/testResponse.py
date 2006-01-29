@@ -35,6 +35,18 @@ class TestResponse(ptc.PoiTestCase):
         self.response.setResponse(None, mimetype='text/x-web-intelligent')
         self.response.setNewSeverity('Critical')
         self.failUnless(self.response.isValid())
+        
+        
+    def testIsValidWithTransition(self):
+        self.failUnless(self.response.isValid())
+
+        self.response.setResponse(None, mimetype='text/x-web-intelligent')
+        self.failIf(self.response.isValid())
+        
+        # The vocabulary function is picky about roles and such
+        self.setRoles(('Manager',)) 
+        self.response.setNewIssueState('accept-unconfirmed')
+        self.failUnless(self.response.isValid())
 
     def testRenameAfterCreation(self):
         self.failUnless(self.response.getId() == '1')

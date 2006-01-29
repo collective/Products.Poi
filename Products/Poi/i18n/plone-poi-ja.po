@@ -1,0 +1,112 @@
+# pot file for Poi Issue Tracker product.
+# Junyong Pan <panjy@zopechina.com>, 2005.
+msgid ""
+msgstr ""
+"Project-Id-Version: Poi\n"
+"POT-Creation-Date: 2005-10-26 17:00+0000\n"
+"PO-Revision-Date: 2006-01-22 17:48+0900\n"
+"Last-Translator: TANIGUCHI Takaki <takaki@asis.media-as.org>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: ja\n"
+"Language-Name: Japanese\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+# issue transitions
+msgid " Open"
+msgstr "未解決"
+
+msgid "A response to an issue."
+msgstr "課題に対する対応"
+
+msgid "An issue tracker"
+msgstr "課題トラッカー"
+
+msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
+msgstr "課題。課題は\"未確認\"から始まります。プロジェクトマネージャによって対応されます。"
+
+msgid "Begin work"
+msgstr "作業を開始"
+
+# response states
+msgid "Being created"
+msgstr "作成中"
+
+# tracker transitions
+msgid "Close tracker"
+msgstr "トラッカーを閉鎖する"
+
+msgid "Closed for submissions"
+msgstr "登録停止中"
+
+msgid "Confirm resolved"
+msgstr "解決を確認"
+
+msgid "In progress"
+msgstr "作業中"
+
+msgid "Issue"
+msgstr "課題"
+
+# portal type nams
+msgid "Issue Tracker"
+msgstr "課題トラッカー"
+
+msgid "Open"
+msgstr "オープン"
+
+# tracker states
+msgid "Open for submissions"
+msgstr "登録可能"
+
+msgid "Open tracker"
+msgstr "トラッカーを公開する"
+
+msgid "Post issue on save"
+msgstr "保存時に課題を提出"
+
+# response transitions
+msgid "Post response on save"
+msgstr "保存時に対応を投稿"
+
+msgid "Posted"
+msgstr "投稿済み"
+
+msgid "Postpone"
+msgstr "延期"
+
+msgid "Postponed"
+msgstr "延期"
+
+msgid "Put on hold"
+msgstr "保留"
+
+msgid "Re-open"
+msgstr "再び未解決にする"
+
+msgid "Reject"
+msgstr "却下"
+
+msgid "Rejected"
+msgstr "却下"
+
+msgid "Resolve"
+msgstr "解決"
+
+msgid "Resolved"
+msgstr "解決済み"
+
+msgid "Response"
+msgstr "対応"
+
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "テスト確認済"
+
+msgid "Unconfirmed"
+msgstr "未確認"
+

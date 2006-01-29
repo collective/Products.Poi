@@ -1,6 +1,6 @@
 """ Extensions/Install.py """
 
-# Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
+# Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
 #
 # Generated: 
 # Generator: ArchGenXML Version 1.4.1 svn/devel

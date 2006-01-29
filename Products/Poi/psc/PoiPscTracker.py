@@ -1,6 +1,6 @@
 # File: PoiPscTracker.py
 # 
-# Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
+# Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
 # Generator: ArchGenXML Version 1.4.1 svn/devel 
 #            http://plone.org/products/archgenxml
 #
@@ -24,7 +24,6 @@ __docformat__ = 'plaintext'
 
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
-from Products.Archetypes import transaction
 from Products.Poi.content.PoiTracker import PoiTracker
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
 
@@ -115,7 +114,7 @@ class PoiPscTracker(PoiTracker,BaseFolder):
 
     )
 
-    _at_rename_after_creation  = True
+    _at_rename_after_creation  = False
 
     schema = PoiPscTracker_schema
 
@@ -134,6 +133,15 @@ class PoiPscTracker(PoiTracker,BaseFolder):
         The external title of a PSC tracker is <Project> Issue Tracker
         """
         return self.aq_inner.aq_parent.Title() + " Issue Tracker"
+
+
+    def _renameAfterCreation(self, check_auto_id=False):
+        parent = self.aq_inner.aq_parent
+        if PSC_TRACKER_ID not in parent.objectIds():            
+            # Can't rename without a subtransaction commit when using
+            # portal_factory!
+            transaction.savepoint(optimistic=True)
+            self.setId(PSC_TRACKER_ID)
 
 
     security.declareProtected(permissions.View, 'getAvailableReleases')
@@ -170,14 +178,6 @@ class PoiPscTracker(PoiTracker,BaseFolder):
         """
         return "Issue tracker"
         
-    def _renameAfterCreation(self, check_auto_id=False):
-        parent = self.aq_inner.aq_parent
-        if PSC_TRACKER_ID not in parent.objectIds():            
-            # Can't rename without a subtransaction commit when using
-            # portal_factory!
-            transaction.savepoint(optimistic=True)
-            self.setId(PSC_TRACKER_ID)
-
 
 def modify_fti(fti):
     # hide unnecessary tabs (usability enhancement)

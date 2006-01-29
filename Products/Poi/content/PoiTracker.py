@@ -1,6 +1,6 @@
 # File: PoiTracker.py
 # 
-# Copyright (c) 2005 by Copyright (c) 2004 Martin Aspeli
+# Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
 # Generator: ArchGenXML Version 1.4.1 svn/devel 
 #            http://plone.org/products/archgenxml
 #
@@ -22,7 +22,7 @@ __author__  = '''Martin Aspeli <optilude@gmx.net>'''
 __docformat__ = 'plaintext'
 
 
-from AccessControl import ClassSecurityInfo, Unauthorized
+from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
 from Products.Poi.interfaces.Tracker import Tracker
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
@@ -36,6 +36,7 @@ from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
 from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
+from AccessControl import Unauthorized
 from Products.CMFCore.utils import getToolByName
 from ZODB.POSException import ConflictError
 from Products.CMFPlone.utils import log_exc, log
@@ -275,28 +276,6 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         return vocab
 
 
-    security.declarePrivate('_getMemberEmail')
-    def _getMemberEmail(self, username, portal_membership=None):
-        """Query portal_membership to figure out the specified email address
-        for the given user (via the username parameter) or return None if none
-        is present.
-        """
-        
-        if portal_membership is None:
-            portal_membership = getToolByName(self, 'portal_membership')
-            
-        member = portal_membership.getMemberById(username)
-        if member is None:
-            return None
-        
-        try:
-            email = member.getProperty('email')
-        except Unauthorized:
-            # this will happen if CMFMember is installed and the email
-            # property is protected via AT security
-            email = member.getField('email').getAccessor(member)()
-        return email
-
 
     security.declarePrivate('getNotificationEmailAddresses')
     def getNotificationEmailAddresses(self, issue=None):
@@ -335,6 +314,7 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
 
         return tuple(addresses)
         
+
 
     security.declarePrivate('sendNotificationEmail')
     def sendNotificationEmail(self, addresses, subject, rstText):
@@ -471,6 +451,28 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
     def getDefaultManagers(self):
         """The default list of managers should include the tracker owner"""
         return (self.Creator(),)
+
+
+    def _getMemberEmail(self, username, portal_membership=None):
+        """Query portal_membership to figure out the specified email address
+        for the given user (via the username parameter) or return None if none
+        is present.
+        """
+        
+        if portal_membership is None:
+            portal_membership = getToolByName(self, 'portal_membership')
+            
+        member = portal_membership.getMemberById(username)
+        if member is None:
+            return None
+        
+        try:
+            email = member.getProperty('email')
+        except Unauthorized:
+            # this will happen if CMFMember is installed and the email
+            # property is protected via AT security
+            email = member.getField('email').getAccessor(member)()
+        return email
 
 
     def buildIssueSearchQuery(self, criteria=None, **kwargs):

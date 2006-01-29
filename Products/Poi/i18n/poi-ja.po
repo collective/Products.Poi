@@ -1,0 +1,659 @@
+# pot file for Poi Issue Tracker product.
+# Junyong Pan <panjy@zopechina.com>, 2005.
+msgid ""
+msgstr ""
+"Project-Id-Version: Poi\n"
+"POT-Creation-Date: 2005-10-27 03:02+0000\n"
+"PO-Revision-Date: 2006-01-22 18:00+0900\n"
+"Last-Translator: TANIGUCHI Takaki <takaki@asis.media-as.org>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: ja\n"
+"Language-Name: Japanese\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: Poi\n"
+
+#. Default: "Add response"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "Add response"
+msgstr "対応を追加"
+
+#. Default: "Cancel"
+#: ./skins/Poi/poi_response_delete_confirm.cpt
+msgid "Cancel"
+msgstr "キャンセル"
+
+#. Default: "Delete"
+#: ./skins/Poi/poi_response_delete_confirm.cpt
+#: ./skins/Poi/poi_issue_view.pt
+msgid "Delete"
+msgstr "削除"
+
+#. Default: "Edit"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "Edit"
+msgstr "編集"
+
+# ./content/PoiIssue.py
+#. Default: "Select the area this issue is relevant to."
+msgid "Poi_help_area"
+msgstr "この課題に関連する領域を選択して下さい。"
+
+# ./content/PoiIssue.py
+#. Default: "You may optionally upload a file attachment to your issue. Please do not upload unnecessarily large files."
+msgid "Poi_help_attachment"
+msgstr "課題に対する添付ファイルをアップロードすることもできます。必要のない大きなファイルをアップロードするのは御遠慮下さい。"
+
+# ./content/PoiTracker.py
+#. Default: "Enter the issue topics/areas for this tracker, one specification per line. The format is \"Short name | Title | Description\"."
+msgid "Poi_help_availableAreas"
+msgstr "このトラッカーのトピック/領域を入力して下さい。一行毎に一つの記述です。形式は\"短縮名 | タイトル  | 説明\" です。"
+
+# ./content/PoiTracker.py
+#. Default: "Enter the issue types for this tracker, one specification per line.  The format is \"Short name | Title | Description\"."
+msgid "Poi_help_availableIssueTypes"
+msgstr "この課題の種類を入力して下さい。一行毎に一つの記述です。形式は\"短縮名 | タイトル  | 説明\" です。"
+
+# ./content/PoiTracker.py
+#. Default: "Enter the releases which issues can be assigned to, one per line.  If no releases are entered, issues will not be organised by release."
+msgid "Poi_help_availableReleases"
+msgstr "利用できる課題の重要度を一行毎に入力して下さい。"
+
+# ./content/PoiTracker.py
+#. Default: "Enter the different type of issue severities that should be available, one per line."
+msgid "Poi_help_availableSeverities"
+msgstr "一行毎に使用する課題の重要度を入力して下さい。"
+
+# ./content/PoiIssue.py
+#. Default: "Optionally, provide an email address where you can be contacted for further information or when a resolution is available."
+msgid "Poi_help_contactEmail"
+msgstr "追加として，さらなる情報を求めるためや解決策が利用できたときに連絡するときのための電子メールアドレスを入力して下さい。"
+
+# ./content/PoiTracker.py
+#. Default: "Select the default severity for new issues."
+msgid "Poi_help_defaultSeverity"
+msgstr "新規の課題のデフォルトの重要度を選択して下さい。"
+
+# ./content/PoiIssue.py
+#. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
+msgid "Poi_help_description"
+msgstr "課題の説明の概略を入力して下さい。タイトルと共に，簡明でわかりやすい記述はプロジェクトマネージャーが課題を評価または対応することを容易にします。"
+
+# ./content/PoiIssue.py
+#. Default: "Please provide further details"
+msgid "Poi_help_details"
+msgstr "詳細をお願いします"
+
+# ./content/PoiIssue.py
+#. Default: ""
+msgid "Poi_help_id"
+msgstr ""
+
+# ./content/PoiIssue.py
+#. Default: "Select a change of state in the issue this response is for, if applicable"
+msgid "Poi_help_issueTransition"
+msgstr "対応によって課題の状態が変更されるならば選択して下さい。"
+
+# ./content/PoiIssue.py
+#. Default: "Select the type of issue."
+msgid "Poi_help_issueType"
+msgstr "課題の種類を選択して下さい。"
+
+# ./content/PoiIssue.py
+#. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
+msgid "Poi_help_issue_title"
+msgstr "短く説明的な課題のタイトルを入力して下さい。良いタイトルはプロジェクトとマネージャーの課題への認識と対応を用意にします。"
+
+# ./content/PoiTracker.py
+#. Default: "If given, and if "Send notification emails" is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails."
+msgid "Poi_help_mailingList"
+msgstr "もし与えられて，「通知メールを送る」が選択されていれば，新しい課題と対応が追加されるごとに電子メールが送信されます。メイリングリストのアドレスが指定されなければ，マネージャーは独立した電子メールを受け取ります。"
+
+# ./content/PoiTracker.py
+#. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
+msgid "Poi_help_managers"
+msgstr "このトラッカーの管理者のユーザーIDを一行に一人ずつ入力して下さい。"
+
+# ./content/PoiIssue.py
+#. Default: "Select the release this issue pertains to."
+msgid "Poi_help_release"
+msgstr "この課題に関連するリリースを選択して下さい。"
+
+# ./content/PoiIssue.py
+#. Default: "Please enter your response below"
+msgid "Poi_help_response"
+msgstr "対応を入力して下さい"
+
+# ./content/PoiIssue.py
+#. Default: "Enter a brief subject for this response, e.g. \"Fixed\" or \"Will be fixed in next release\".""
+msgid "Poi_help_response_title"
+msgstr "対応の簡略な表題を入力して下さい，例えば「修正済」や「次リリースで修正」などです。"
+
+# ./content/PoiIssue.py
+#. Default: "Select which manager, if any, is responsible for this issue."
+msgid "Poi_help_responsibleManager"
+msgstr "この課題の責任者を，もしあれば，管理者から選んで下さい。"
+
+# ./content/PoiTracker.py
+#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation."
+msgid "Poi_help_sendNotificationEmails"
+msgstr "もし選択されたなら，トラッカーマネージャーは新しい課題か対応が送られる毎に電子メールを受け取ります。課題の提出者は新しい対応がされたときと，課題が解決したときに確認を待つために電子メールを受け取ります。"
+
+# ./content/PoiIssue.py
+#. Default: "Select the severity of this issue."
+msgid "Poi_help_severity"
+msgstr "この課題の重要度を選択して下さい。"
+
+# ./content/PoiIssue.py
+#. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
+msgid "Poi_help_steps"
+msgstr "もしできたら，エラーの再現方法もしくは，問題の特定に繋がる手順を一行ごとに提供して下さい。"
+
+# ./content/PoiIssue.py
+#. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
+msgid "Poi_help_subject"
+msgstr "タグは課題に対して任意の分類を追加することができます。以下のリストは選択もしくは追加できるタグのリストです。"
+
+# ./content/PoiTracker.py
+#. Default: "Enter a descriptive name for this tracker"
+msgid "Poi_help_tracker_title"
+msgstr "このトラッカーの名称を入力して下さい。"
+
+# ./content/PoiIssue.py
+#. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+msgid "Poi_help_watchers"
+msgstr "一行毎にこの課題を監視する人の名前を入力して下さい。このメンバーは課題に対応が追加される毎に電子メールを受け取ります。メンバーは自分自身を監視する人に追加できます。"
+
+# ./content/PoiIssue.py
+#. Default: "Area"
+msgid "Poi_label_area"
+msgstr "領域"
+
+# ./content/PoiIssue.py
+#. Default: "Attachment"
+msgid "Poi_label_attachment"
+msgstr "添付物"
+
+# ./content/PoiTracker.py
+#. Default: "Areas"
+msgid "Poi_label_availableAreas"
+msgstr "領域"
+
+# ./content/PoiTracker.py
+#. Default: "Issue types"
+msgid "Poi_label_availableIssueTypes"
+msgstr "課題の種別"
+
+# ./content/PoiTracker.py
+#. Default: "Available releases"
+msgid "Poi_label_availableReleases"
+msgstr "利用可能なリリース"
+
+# ./content/PoiTracker.py
+#. Default: "Available severities"
+msgid "Poi_label_availableSeverities"
+msgstr "利用可能な重要度"
+
+# ./content/PoiIssue.py
+#. Default: "Contact email address"
+msgid "Poi_label_contactEmail"
+msgstr "連絡先emailアドレス"
+
+# ./content/PoiTracker.py
+#. Default: "Default severity"
+msgid "Poi_label_defaultSeverity"
+msgstr "デフォルトの重要度"
+
+# ./content/PoiIssue.py
+#. Default: "Overview"
+msgid "Poi_label_description"
+msgstr "概観"
+
+# ./content/PoiIssue.py
+#. Default: "Details"
+msgid "Poi_label_details"
+msgstr "詳細"
+
+# ./content/PoiIssue.py
+#. Default: "Id"
+msgid "Poi_label_id"
+msgstr "Id"
+
+# ./content/PoiIssue.py
+#. Default: "Change issue state"
+msgid "Poi_label_issueTransition"
+msgstr "課題の状態の変更"
+
+# ./content/PoiIssue.py
+#. Default: "Issue type"
+msgid "Poi_label_issueType"
+msgstr "課題の種別"
+
+# ./content/PoiIssue.py
+#. Default: "Title"
+msgid "Poi_label_issue_title"
+msgstr "タイトル"
+
+# ./content/PoiTracker.py
+#. Default: "Mailing list"
+msgid "Poi_label_mailingList"
+msgstr "メーリングリスト"
+
+# ./content/PoiTracker.py
+#. Default: "Tracker managers"
+msgid "Poi_label_managers"
+msgstr "トラッカー管理者"
+
+# ./content/PoiIssue.py
+#. Default: "Release"
+msgid "Poi_label_release"
+msgstr "リリース"
+
+# ./content/PoiIssue.py
+#. Default: "Response"
+msgid "Poi_label_response"
+msgstr "対応"
+
+# ./content/PoiIssue.py
+#. Default: "Subject"
+msgid "Poi_label_response_title"
+msgstr "題目"
+
+# ./content/PoiIssue.py
+#. Default: "Responsible"
+msgid "Poi_label_responsibleManager"
+msgstr "責任者"
+
+# ./content/PoiTracker.py
+#. Default: "Send notification emails"
+msgid "Poi_label_sendNotificationEmails"
+msgstr "通知メールを送る"
+
+# ./content/PoiIssue.py
+#. Default: "Severity"
+msgid "Poi_label_severity"
+msgstr "重要度"
+
+# ./content/PoiIssue.py
+#. Default: "Steps to reproduce"
+msgid "Poi_label_steps"
+msgstr "再現手順"
+
+# ./content/PoiIssue.py
+#. Default: "Tags"
+msgid "Poi_label_subject"
+msgstr "タグ"
+
+# ./content/PoiTracker.py
+#. Default: "Tracker name"
+msgid "Poi_label_tracker_title"
+msgstr "トラッカー名"
+
+# ./content/PoiIssue.py
+#. Default: "Issue watchers"
+msgid "Poi_label_watchers"
+msgstr "課題の監視者"
+
+#. Default: "Stop watching this issue"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "Stop watching this issue"
+msgstr "この課題の監視の中止"
+
+#. Default: "Submit new issue"
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "Submit new issue"
+msgstr "新しい課題の提出"
+
+#. Default: "Watch this issue"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "Watch this issue"
+msgstr "この課題の監視"
+
+#. Default: "${number} items matching your criteria."
+#: ./skins/Poi/poi_issue_search.pt
+msgid "batch_x_items_matching_your_criteria"
+msgstr "条件に ${number} 個合いました。"
+
+#. Default: "Are you sure you wish to delete this response?"
+#: ./skins/Poi/poi_response_delete_confirm.cpt
+msgid "desc_poi_heading_delete_response"
+msgstr "この対応を本当に削除したいですか?"
+
+#. Default: "No results were found."
+#: ./skins/Poi/poi_issue_search.pt
+msgid "description_no_results_found"
+msgstr "何も見つかりませんでした。"
+
+#. Default: "Search"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "label_search"
+msgstr "検索"
+
+#. Default: "Area"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "listingheader_area"
+msgstr "領域"
+
+#. Default: "Created"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "listingheader_created"
+msgstr "作成時"
+
+#. Default: "Release"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "listingheader_release"
+msgstr "リリース"
+
+#. Default: "Responsible"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "listingheader_responsible"
+msgstr "責任者"
+
+#. Default: "Severity"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "listingheader_severity"
+msgstr "重要度"
+
+#. Default: "State"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "listingheader_state"
+msgstr "状態"
+
+#. Default: "Title"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "listingheader_title"
+msgstr "タイトル"
+
+#. Default: "Type"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "listingheader_type"
+msgstr "種別"
+
+#. Default: "(Not assigned)"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "not_assigned"
+msgstr "(未割り当て)"
+
+#. Default: "Added by"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_added_by"
+msgstr "追記"
+
+#. Default: "on"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_added_on"
+msgstr "日時"
+
+#. Default: "By area"
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_heading_by_area"
+msgstr "領域で絞る"
+
+#. Default: "By release"
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_heading_by_release"
+msgstr "リリースで絞る"
+
+#. Default: "By state"
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_heading_by_state"
+msgstr "状態で絞る"
+
+#. Default: "By tag"
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_heading_by_tag"
+msgstr "タグで絞る"
+
+#. Default: "Delete Response"
+#: ./skins/Poi/poi_response_delete_confirm.cpt
+msgid "poi_heading_delete_response"
+msgstr "対応を削除"
+
+#. Default: "Issue search"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_heading_issue_search"
+msgstr "課題の検索"
+
+#. Default: "My issues"
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_heading_my_issues"
+msgstr "自分の課題"
+
+#. Default: "Open issues"
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_heading_open_issues"
+msgstr "未解決の課題"
+
+#. Default: "Issue search results"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "poi_heading_search_results"
+msgstr "課題の検索結果"
+
+#. Default: "Unconfirmed issues"
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_heading_unconfirmed_issues"
+msgstr "未確認の課題"
+
+#. Default: "The following open issues were either submitted by you, or have been assigned to you."
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_help_my_issues_manager"
+msgstr "以下の未解決の課題は，あなたが報告した，もしくはあなたに割り当てられています。"
+
+#. Default: "The following open issues were either submitted by you."
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_help_my_issues_not_manager"
+msgstr "以下の未解決の課題はあなたが報告しました。"
+
+#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_help_open_issues"
+msgstr "領域またはリリース，課題の状態をクリックすることでこの分類の全ての未解決の課題を見ることができます。さらに詳細な検索をするには「課題を検索」をクリックしてください。"
+
+#. Default: "The following issues have not yet been confirmed or assigned. Please review them and take the appropriate action."
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_help_unconfirmed_issues"
+msgstr "以下の課題は確認も割り当てもされていません。検討したあとに適切な対応をしてください。"
+
+#. Default: "Search for issues"
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_issue_search"
+msgstr "課題の検索"
+
+#. Default: "This form allows you to search for issue according to a variety of criteria. Please make your selection below and click Search."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_issue_search_description"
+msgstr "このフォームでさまざまな条件による課題の検索ができます。指定をして検索をクリックして下さい。"
+
+#. Default: "Area"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_area"
+msgstr "領域"
+
+#. Default: "Attached:"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_attachment"
+msgstr "添付:"
+
+#. Default: "Release:"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_release"
+msgstr "リリース:"
+
+#. Default: "Responsible"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_responsible"
+msgstr "責任者"
+
+#. Default: "Severity"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_severity"
+msgstr "重要度"
+
+#. Default: "State"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_state"
+msgstr "状態"
+
+#. Default: "Steps to reproduce:"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_steps"
+msgstr "再現手順:"
+
+#. Default: "Submitted by"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_submitted_by"
+msgstr "報告者"
+
+#. Default: "Submitted on"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_submitted_on"
+msgstr "報告時"
+
+#. Default: "Tags:"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_tags"
+msgstr "タグ:"
+
+#. Default: "Issue type"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_type"
+msgstr "課題の種類"
+
+#. Default: "Search Terms"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_legend_search_terms"
+msgstr "検索単語"
+
+#. Default: "The following issue in the \" ${tracker_title} \" tracker has been marked as resolved: ${issue_title}. Please visit the issue and use the \"state\" drop-down to either confirm that it has been satisfactorily resolved or re-open it."
+#: ./skins/Poi/poi_notify_issue_resolved.pt
+msgid "poi_notification_issue_resolved"
+msgstr "\" ${tracker_title} \" トラッカーの以下の課題は解決済みになっています:  ${issue_title}。この課題を閲覧して「状態」ドロップダウンを使って，解決済みを満たしているとするか再び未解決にしてください。"
+
+#. Default: "A new issue has been submitted to the \" ${tracker_title} \" tracker and awaits confirmation: ${issue_url}."
+#: ./skins/Poi/poi_notify_new_issue.pt
+msgid "poi_notification_new_issue"
+msgstr "トラッカー \"${tracker_title}\" に新しい課題が登録され，確認を待っています: ${issue_url}"
+
+#. Default: "A new response has been given to the issue \" ${issue_title} \" in the tracker \" ${tracker_title} \": ${issue_url}."
+#: ./skins/Poi/poi_notify_new_response.pt
+msgid "poi_notification_new_response"
+msgstr "トラッカー\"${tracker_title}\" の課題 \"${issue_title}\" に対応がありました : ${issur_url}"
+
+#. Default: "Changed issue state:"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_response_state_change"
+msgstr "poi_response_state_change"
+
+#. Default: "Response # ${responseNumber} to \" ${issueTitle} \""
+#: ./skins/Poi/poi_response_view.pt
+msgid "poi_response_title"
+msgstr "\" ${issueTitle} \" への対応 # ${responseNumber} "
+
+#. Default: "Return to search"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "poi_return_to_search"
+msgstr "検索に戻る"
+
+#. Default: "Return to issue tracker"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_return_to_tracker"
+msgstr "課題トラッカーに戻る"
+
+#. Default: "Select the areas you wish to search for."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_area"
+msgstr "検索対象とする領域を選択して下さい。"
+
+#. Default: "Enter the username of the issue submitter,"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_creator"
+msgstr "課題の報告者のユーザー名を入力する，"
+
+#. Default: "Select the issue types you wish to search for."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_issue_type"
+msgstr "検索対象とする課題の種類を選択して下さい。"
+
+#. Default: "Select the releases you wish to search for."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_release"
+msgstr "検索対象とするリリースを選択して下さい。"
+
+#. Default: "Select the responsible managers you wish to search for."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_responsible"
+msgstr "検索対象とする対応責任者を選択して下さい。"
+
+#. Default: "Select the severities you wish to search for."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_severity"
+msgstr "検索対象とする重要度を選択して下さい。"
+
+#. Default: "Select the states you wish to search for."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_state"
+msgstr "検索対象とする状態を選択して下さい。"
+
+#. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_tags"
+msgstr "タグは課題をトラッカーマネージャーにより割り当てたキーワードで，課題をより良く分類します。検索したいタグを選択して下さい。"
+
+#. Default: "Enter any text you wish the issue to include."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_text"
+msgstr "課題に含まれている文字を入力して下さい。"
+
+#. Default: "Area"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_area"
+msgstr "領域"
+
+#. Default: "Submitter"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_creator"
+msgstr "報告者"
+
+#. Default: "Issue type"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_issue_type"
+msgstr "課題の種類"
+
+#. Default: "Release"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_release"
+msgstr "リリース"
+
+#. Default: "Responsible tracker managers"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_responsible"
+msgstr "トラッカー管理者の責任者"
+
+#. Default: "Severity"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_severity"
+msgstr "重要度"
+
+#. Default: "State"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_state"
+msgstr "状態"
+
+#. Default: "Tags"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_tags"
+msgstr "タグ"
+
+#. Default: "Issue text"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_text"
+msgstr "課題の文章"
+
+#. Default: "View issue in full"
+#: ./skins/Poi/poi_response_view.pt
+msgid "poi_up_to_issue"
+msgstr "課題のフルスクリーンで閲覧"
+
