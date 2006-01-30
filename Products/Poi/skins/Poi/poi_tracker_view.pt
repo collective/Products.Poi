@@ -178,7 +178,9 @@
                      <h2 i18n:translate="poi_heading_my_issues">My issues</h2>
                      <p tal:condition="isManager" i18n:translate="poi_help_my_issues_manager">
                          The following open issues were either submitted by you, or have been assigned to you.
-                         Note that open issues not assigned to anybody will also be displayed in this list.
+                         Note that the RSS feed for this list will include unconfirmed and orphaned issues as well,
+                         to make it possible to subscribe to a single feed with all the issues you may be interested
+                         in.
                      </p>
            
                      <p tal:condition="not:isManager" i18n:translate="poi_help_my_issues_not_manager">
@@ -187,7 +189,7 @@
                   </div>
                   
                    <div class="issue-search-rss" metal:fill-slot="rss-button">
-                        <a href="" tal:attributes="href string:${here/absolute_url}/poi-my-issues-rss.xml?memberId=${member/getId}&isManager=${isManager}">
+                        <a href="" tal:attributes="href string:${here/absolute_url}/poi-my-issues-rss.xml?memberId=${member/getId}&isManager:boolean=${isManager}">
                             <img i18n:attributes="title title_rss_feed; alt label_rss_feed;"
                                 tal:attributes="src string:$portal_url/rss.gif"
                                 src="rss.gif"
