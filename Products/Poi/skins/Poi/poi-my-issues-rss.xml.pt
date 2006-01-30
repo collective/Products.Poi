@@ -8,7 +8,8 @@
                  dummy2 python:request.RESPONSE.setHeader('charset', 'UTF-8');">
                            
   <channel tal:define="memberId request/memberId;
-                       results  python:here.getMyIssues(memberId=memberId);
+                       isManager request/isManager | python:False;
+                       results  python:here.getMyIssues(memberId=memberId, manager=isManager);
                        DateTime python:modules['DateTime'].DateTime;">
     <title  i18n:translate="poi_heading_my_issues">My issues</title>
     <link tal:content="string:${here/absolute_url}/poi-my-issues-rss.xml?memberId=${memberId}"> uri </link>

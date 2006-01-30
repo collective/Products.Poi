@@ -4,7 +4,7 @@
 ##bind namespace=
 ##bind script=script
 ##bind subpath=traverse_subpath
-##parameters=openStates=['open', 'in-progress'],memberId=None
+##parameters=openStates=['open', 'in-progress'],memberId=None,manager=False
 ##title=Get a catalog query result set of all issues assigned to or submitted by the current user
 ##
 
@@ -15,6 +15,10 @@ if not memberId:
     member = mtool.getAuthenticatedMember()
     memberId = member.getId()
 
+if manager:
+    if 'unconfirmed' not in openStates:
+        openStates += ['unconfirmed']
+
 open = context.getFilteredIssues(state=openStates)
 issues = []
 
@@ -22,7 +26,7 @@ for i in open:
     responsible = i.getResponsibleManager
     creator = i.Creator
     
-    if creator == memberId or responsible == memberId:
+    if creator == memberId or responsible == memberId or (manager and responsible == '(UNASSIGNED)'):
         issues.append(i)
 
 return issues
