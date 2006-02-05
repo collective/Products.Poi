@@ -169,7 +169,7 @@
       </tal:manager>
       <tal:loggedIn condition="not:isAnon">
           <div id="my-issues"
-               tal:define="issues here/getMyIssues"
+               tal:define="issues python:here.getMyIssues(manager=False)"
                tal:condition="nocall:issues">
            
                <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
