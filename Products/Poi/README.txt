@@ -46,12 +46,15 @@ Installation and dependencies
 (*) NOTE: Before version 1.0 beta 2, ArchAddOn was required instead of
 DataGridField. 
 
+For new installations, install using Add/Remove Products as normal. If you want
+PloneSoftwareCenter configuration to be automatically configured, install PSC
+*first*. 
+
 Upgrading
 
-If you had a version prior to 1.0 beta 2 installed, you must run migrations
-to avoid losing your old grids (available areas, available issue types). This
-is automatic, but you need to install the 'contentmigration' product. This can
-be found at
+If you had a version prior to 1.0 beta 2 installed, you must run migrations. 
+This is automatic, but you need to install the 'contentmigration' product. This 
+can be found at
 
     https://svn.plone.org/svn/collective/contentmigration/trunk
     
@@ -65,12 +68,12 @@ tab, selecting all the 'Poi.*' types, and clicking 'Update schema'. It's
 probably a good idea to choose 'All objects' from the drop-down as well,
 although this will take slightly longer.
 
+If you get errors about things being 'Missing', try to update your catalog,
+by going to portal_catalog in the ZMI, clicking the Advanced tab, and then
+the 'Update catalog' button.
+
 If you do not have any old Poi trackers around, you do not need to run 
 migrations.
-
-For new installations, install using Add/Remove Products as normal. If you want
-PloneSoftwareCenter configuration to be automatically configured, install PSC
-*first*. 
 
 Usage
 
