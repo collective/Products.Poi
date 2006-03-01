@@ -63,18 +63,26 @@
           </tr>
           <tr>
               <th i18n:translate="poi_label_submitted_by">Submitted by</th>
-              <td tal:content="here/Creator" />
+              <td tal:define="creator here/Creator;
+                              member python:mtool.getMemberInfo(creator);
+                              name python:member and member['fullname'] or creator;"
+                  tal:content="name" />
+
           </tr>
           <tr>
               <th i18n:translate="poi_label_submitted_on">Submitted on</th>
               <td tal:content="python:here.toLocalizedTime(here.created())" />
           </tr>
-          <tr>
+          <tr tal:define="responsibleManager here/getResponsibleManager">
               <th i18n:translate="poi_label_responsible">Responsible</th>
               <td>
-                  <span tal:condition="python:here.getResponsibleManager() != '(UNASSIGNED)'" 
-                         tal:replace="here/getResponsibleManager" />
-                  <div tal:condition="python:here.getResponsibleManager() == '(UNASSIGNED)'" class="unassigned-field">
+                  <tal:condition condition="python:responsibleManager != '(UNASSIGNED)'">
+                        <span tal:define="member python:mtool.getMemberInfo(responsibleManager);
+                                          name python:member and member['fullname'] or responsibleManager"
+                              tal:replace="name" />
+                  </tal:condition>
+
+                  <div tal:condition="python:responsibleManager == '(UNASSIGNED)'" class="unassigned-field">
                       &mdash;
                   </div>
               </td>
@@ -104,6 +112,7 @@
             class="return-to-search"
             tal:condition="not:cameFromTracker"
             tal:define="parentURL python:here.navigationParent(here, template_id)"
+            i18n:translate="Poi_return_to_tracker"
             tal:attributes="href parentURL">
            Return to tracker
          </a>
@@ -223,7 +232,7 @@
                        tal:content="python:here.toLocalizedTime(response.Date(), long_format=True)" />
               
                  <div tal:repeat="delta response/getIssueChanges">
-                     <span i18n:translate="" tal:content="string:${delta/name}:" />
+                     <span i18n:translate="" tal:content="string:${delta/name}" />:
                      <span class="issueChange" i18n:translate="" tal:content="delta/before" /> &rarr; <span class="issueChange" i18n:translate="" tal:content="delta/after" />
                  </div>
 
