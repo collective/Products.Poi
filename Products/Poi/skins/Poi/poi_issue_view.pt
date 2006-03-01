@@ -63,23 +63,18 @@
           </tr>
           <tr>
               <th i18n:translate="poi_label_submitted_by">Submitted by</th>
-              <td tal:define="creator here/Creator;
-                              member python:mtool.getMemberInfo(creator);
-                              name python:member and member['fullname'] or creator;"
-                  tal:content="name" />
+              <td tal:content="python:here.poi_niceName(username=here.Creator())" />
 
           </tr>
           <tr>
               <th i18n:translate="poi_label_submitted_on">Submitted on</th>
               <td tal:content="python:here.toLocalizedTime(here.created())" />
           </tr>
-          <tr tal:define="responsibleManager here/getResponsibleManager">
+          <tr>
               <th i18n:translate="poi_label_responsible">Responsible</th>
-              <td>
+              <td tal:define="responsibleManager here/getResponsibleManager">
                   <tal:condition condition="python:responsibleManager != '(UNASSIGNED)'">
-                        <span tal:define="member python:mtool.getMemberInfo(responsibleManager);
-                                          name python:member and member['fullname'] or responsibleManager"
-                              tal:replace="name" />
+                        <span tal:replace="python:here.poi_niceName(username=responsibleManager)" />
                   </tal:condition>
 
                   <div tal:condition="python:responsibleManager == '(UNASSIGNED)'" class="unassigned-field">
