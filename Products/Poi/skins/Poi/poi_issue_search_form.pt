@@ -30,7 +30,7 @@
                 
                 <label for="text" i18n:translate="poi_search_label_id">Issue number</label>
 
-                <div class="formHelp" i18n:translate="poi_search_help_text">
+                <div class="formHelp" i18n:translate="poi_search_help_id">
                     If you wish to search for a particular issue, please
                     enter its number.
                 </div>
