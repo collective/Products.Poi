@@ -1,29 +1,34 @@
 # File: PoiResponse.py
-# 
+#
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.1 svn/devel 
+# Generator: ArchGenXML Version 1.4.1 svn/devel
 #            http://plone.org/products/archgenxml
 #
-# GNU General Public Licence (GPL)
-# 
-# This program is free software; you can redistribute it and/or modify it under
-# the terms of the GNU General Public License as published by the Free Software
-# Foundation; either version 2 of the License, or (at your option) any later
-# version.
-# This program is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-# FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
-# details.
-# You should have received a copy of the GNU General Public License along with
-# this program; if not, write to the Free Software Foundation, Inc., 59 Temple
-# Place, Suite 330, Boston, MA  02111-1307  USA
+# GNU General Public License (GPL)
 #
-__author__  = '''Martin Aspeli <optilude@gmx.net>'''
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+# 02110-1301, USA.
+#
+
+__author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
 
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
+
 from Products.Poi.interfaces.Response import Response
 
 
@@ -39,20 +44,22 @@ from Products.CMFPlone.utils import log_exc
 from Products.Archetypes import transaction
 ##/code-section module-header
 
-schema=Schema((
-    StringField('id',
+schema = Schema((
+
+    StringField(
+        name='id',
         widget=StringWidget(
             visible={'edit' : 'invisible', 'view' : 'invisible'},
             modes=('view',),
             label='Id',
             label_msgid='Poi_label_id',
-            description_msgid='Poi_help_id',
             i18n_domain='Poi',
         ),
         mode="r"
     ),
 
-    StringField('title',
+    StringField(
+        name='title',
         widget=StringWidget(
             label="Subject",
             description="""Enter a brief subject for this response, e.g. "Fixed" or "Will be fixed in next release".""",
@@ -66,7 +73,8 @@ schema=Schema((
         mode="r"
     ),
 
-    TextField('response',
+    TextField(
+        name='response',
         allowable_content_types=('text/x-web-intelligent',),
         widget=TextAreaWidget(
             label="Response",
@@ -82,7 +90,8 @@ schema=Schema((
         default_output_type="text/html"
     ),
 
-    FileField('attachment',
+    FileField(
+        name='attachment',
         widget=FileWidget(
             label="Attachment",
             description="You may optionally upload a file attachment to your response. Please do not upload unnecessarily large files.",
@@ -94,7 +103,8 @@ schema=Schema((
         write_permission=permissions.UploadAttachment
     ),
 
-    StringField('issueTransition',
+    StringField(
+        name='issueTransition',
         mutator="setNewIssueState",
         widget=SelectionWidget(
             label="Change issue state",
@@ -111,7 +121,8 @@ schema=Schema((
         write_permission=permissions.ModifyIssueState
     ),
 
-    StringField('newSeverity',
+    StringField(
+        name='newSeverity',
         mutator="setNewSeverity",
         widget=SelectionWidget(
             label="Change issue severity",
@@ -128,12 +139,14 @@ schema=Schema((
         write_permission=permissions.ModifyIssueSeverity
     ),
 
-    StringField('newTargetRelease',
+    StringField(
+        name='newTargetRelease',
         mutator="setNewTargetRelease",
         widget=SelectionWidget(
             label="Change target release",
             description="Set the target release for this issue",
             format="flex",
+            condition="object/isUsingReleases",
             label_msgid='Poi_label_newTargetRelease',
             description_msgid='Poi_help_newTargetRelease',
             i18n_domain='Poi',
@@ -145,7 +158,8 @@ schema=Schema((
         write_permission=permissions.ModifyIssueTargetRelease
     ),
 
-    StringField('newResponsibleManager',
+    StringField(
+        name='newResponsibleManager',
         mutator="setNewResponsibleManager",
         widget=SelectionWidget(
             label="Change responsible manager",
@@ -169,8 +183,8 @@ schema=Schema((
 ##code-section after-local-schema #fill in your manual code here
 ##/code-section after-local-schema
 
-PoiResponse_schema = BaseSchema + \
-    schema
+PoiResponse_schema = BaseSchema.copy() + \
+    schema.copy()
 
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
@@ -182,49 +196,49 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
     the same time.
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseContent,'__implements__',()),) + (Response,)
+    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseContent,'__implements__',()),) + (getattr(Response,'__implements__',()),)
 
 
     # This name appears in the 'add' box
-    archetype_name             = 'Response'
+    archetype_name = 'Response'
 
-    meta_type                  = 'PoiResponse'
-    portal_type                = 'PoiResponse'
-    allowed_content_types      = []
-    filter_content_types       = 0
-    global_allow               = 0
-    allow_discussion           = 0
-    content_icon               = 'PoiResponse.gif'
-    immediate_view             = 'base_view'
-    default_view               = 'poi_response_view'
-    suppl_views                = ()
-    typeDescription            = "A response to an issue."
-    typeDescMsgId              = 'description_edit_poiresponse'
+    meta_type = 'PoiResponse'
+    portal_type = 'PoiResponse'
+    allowed_content_types = []
+    filter_content_types = 0
+    global_allow = 0
+    allow_discussion = 0
+    content_icon = 'PoiResponse.gif'
+    immediate_view = 'base_view'
+    default_view = 'poi_response_view'
+    suppl_views = ()
+    typeDescription = "A response to an issue."
+    typeDescMsgId = 'description_edit_poiresponse'
 
     actions =  (
 
 
-       {'action':      "string:${object_url}/view",
-        'category':    "object",
-        'id':          'view',
-        'name':        'view',
+       {'action': "string:${object_url}/view",
+        'category': "object",
+        'id': 'view',
+        'name': 'view',
         'permissions': (permissions.View,),
-        'condition'  : 'python:1'
+        'condition': 'python:1'
        },
 
 
-       {'action':      "string:${object_url}/edit",
-        'category':    "object",
-        'id':          'edit',
-        'name':        'Edit',
+       {'action': "string:${object_url}/edit",
+        'category': "object",
+        'id': 'edit',
+        'name': 'Edit',
         'permissions': (permissions.ModifyPortalContent,),
-        'condition'  : 'python:1'
+        'condition': 'python:1'
        },
 
 
     )
 
-    _at_rename_after_creation  = True
+    _at_rename_after_creation = True
 
     schema = PoiResponse_schema
 
@@ -232,8 +246,7 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
     ##/code-section class-header
 
 
-    #Methods
-
+    # Methods
     security.declareProtected(permissions.ModifyIssueState, 'setNewIssueState')
     def setNewIssueState(self,transition):
         """
@@ -252,8 +265,6 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
             
         self.getField('issueTransition').set(self, transition)
 
-
-
     security.declareProtected(permissions.ModifyIssueSeverity, 'setNewSeverity')
     def setNewSeverity(self,severity):
         """
@@ -266,8 +277,6 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
             issue.setSeverity(severity)
             issue.reindexObject(('getSeverity',))
         self.getField('newSeverity').set(self, severity)
-
-
 
     security.declareProtected(permissions.ModifyIssueTargetRelease, 'setNewTargetRelease')
     def setNewTargetRelease(self,release):
@@ -285,8 +294,6 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
             issue.reindexObject(('getTargetRelease',))
         self.getField('newTargetRelease').set(self, release)
 
-
-
     security.declareProtected(permissions.ModifyIssueAssignment, 'setNewResponsibleManager')
     def setNewResponsibleManager(self,manager):
         """
@@ -299,8 +306,6 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
             issue.setResponsibleManager(manager)
             issue.reindexObject(('getResponsibleManager',))
         self.getField('newResponsibleManager').set(self, manager)
-
-
 
     security.declareProtected(permissions.View, 'getIssueChanges')
     def getIssueChanges(self):
@@ -315,8 +320,7 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         """
         return tuple(getattr(self, '_issueChanges', []))
 
-
-    #manually created methods
+    # Manually created methods
 
     def _renameAfterCreation(self, check_auto_id=False):
         parent = self.aq_inner.aq_parent
@@ -334,10 +338,27 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         self.setId(newId)        
 
 
-    security.declareProtected(permissions.View, 'getCurrentResponsibleManager')
-    def getCurrentResponsibleManager(self):
-        return self.aq_inner.aq_parent.getResponsibleManager()
+    def _addIssueChange(self, id, name, before, after):
+        """Add a new issue change"""
+        delta = getattr(self, '_issueChanges', None)
+        if not delta:
+            self._issueChanges = []
+            delta = self._issueChanges
 
+        for d in delta:
+            if d['id'] == id:
+                d['name'] = name
+                d['before'] = before
+                d['after'] = after
+                self._p_changed = 1
+                return
+                
+        delta.append({'id' : id,
+                      'name' : name,
+                      'before' : before,
+                      'after' : after})
+        self._p_changed = 1
+                
 
     security.declareProtected(permissions.View, 'getCurrentIssueSeverity')
     def getCurrentIssueSeverity(self):
@@ -371,27 +392,10 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         return self.aq_inner.aq_parent.getTargetRelease()
 
 
-    def _addIssueChange(self, id, name, before, after):
-        """Add a new issue change"""
-        delta = getattr(self, '_issueChanges', None)
-        if not delta:
-            self._issueChanges = []
-            delta = self._issueChanges
+    security.declareProtected(permissions.View, 'getCurrentResponsibleManager')
+    def getCurrentResponsibleManager(self):
+        return self.aq_inner.aq_parent.getResponsibleManager()
 
-        for d in delta:
-            if d['id'] == id:
-                d['name'] = name
-                d['before'] = before
-                d['after'] = after
-                self._p_changed = 1
-                return
-                
-        delta.append({'id' : id,
-                      'name' : name,
-                      'before' : before,
-                      'after' : after})
-        self._p_changed = 1
-                
 
     def post_validate(self, REQUEST=None, errors=None):
         """Ensure that we have *something* in the response, be it an issue
@@ -470,7 +474,7 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
 
 
 def modify_fti(fti):
-    # hide unnecessary tabs (usability enhancement)
+    # Hide unnecessary tabs (usability enhancement)
     for a in fti['actions']:
         if a['id'] in ['metadata', 'sharing']:
             a['visible'] = 0

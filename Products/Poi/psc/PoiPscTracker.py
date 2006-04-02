@@ -1,29 +1,34 @@
 # File: PoiPscTracker.py
-# 
+#
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.1 svn/devel 
+# Generator: ArchGenXML Version 1.4.1 svn/devel
 #            http://plone.org/products/archgenxml
 #
-# GNU General Public Licence (GPL)
-# 
-# This program is free software; you can redistribute it and/or modify it under
-# the terms of the GNU General Public License as published by the Free Software
-# Foundation; either version 2 of the License, or (at your option) any later
-# version.
-# This program is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-# FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
-# details.
-# You should have received a copy of the GNU General Public License along with
-# this program; if not, write to the Free Software Foundation, Inc., 59 Temple
-# Place, Suite 330, Boston, MA  02111-1307  USA
+# GNU General Public License (GPL)
 #
-__author__  = '''Martin Aspeli <optilude@gmx.net>'''
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+# 02110-1301, USA.
+#
+
+__author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
 
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
+
 from Products.Poi.content.PoiTracker import PoiTracker
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
 
@@ -36,8 +41,10 @@ from Products.Poi.config import *
 from Products.CMFCore.utils import getToolByName
 ##/code-section module-header
 
-schema=Schema((
-    StringField('id',
+schema = Schema((
+
+    StringField(
+        name='id',
         widget=StringWidget(
             label="Short name",
             description="Short name for the tracker - should be 'issues' to comply with the standards.",
@@ -56,9 +63,9 @@ schema=Schema((
 ##code-section after-local-schema #fill in your manual code here
 ##/code-section after-local-schema
 
-PoiPscTracker_schema = BaseFolderSchema + \
-    getattr(PoiTracker,'schema',Schema(())) + \
-    schema
+PoiPscTracker_schema = BaseFolderSchema.copy() + \
+    getattr(PoiTracker,'schema',Schema(())).copy() + \
+    schema.copy()
 
 ##code-section after-schema #fill in your manual code here
 PoiPscTracker_schema = PoiPscTracker_schema.copy()
@@ -72,49 +79,49 @@ class PoiPscTracker(PoiTracker,BaseFolder):
     PloneSoftwareCenter. Intended to be added inside a PSCProject.
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(PoiTracker,'__implements__',()),) + (getattr(BaseFolder,'__implements__',()),) + (INonStructuralFolder,)
+    __implements__ = (getattr(PoiTracker,'__implements__',()),) + (getattr(BaseFolder,'__implements__',()),) + (getattr(INonStructuralFolder,'__implements__',()),)
 
 
     # This name appears in the 'add' box
-    archetype_name             = 'Issue Tracker'
+    archetype_name = 'Issue Tracker'
 
-    meta_type                  = 'PoiPscTracker'
-    portal_type                = 'PoiPscTracker'
-    allowed_content_types      = [] + list(getattr(PoiTracker, 'allowed_content_types', []))
-    filter_content_types       = 1
-    global_allow               = 0
-    allow_discussion           = 0
-    content_icon               = 'PoiTracker.gif'
-    immediate_view             = 'base_view'
-    default_view               = 'poi_tracker_view'
-    suppl_views                = ()
-    typeDescription            = "A simple issue tracker"
-    typeDescMsgId              = 'description_edit_poipsctracker'
+    meta_type = 'PoiPscTracker'
+    portal_type = 'PoiPscTracker'
+    allowed_content_types = [] + list(getattr(PoiTracker, 'allowed_content_types', []))
+    filter_content_types = 1
+    global_allow = 0
+    allow_discussion = False
+    content_icon = 'PoiTracker.gif'
+    immediate_view = 'base_view'
+    default_view = 'poi_tracker_view'
+    suppl_views = ()
+    typeDescription = "A simple issue tracker"
+    typeDescMsgId = 'description_edit_poipsctracker'
 
     actions =  (
 
 
-       {'action':      "string:${object_url}",
-        'category':    "object",
-        'id':          'view',
-        'name':        'View',
+       {'action': "string:${object_url}",
+        'category': "object",
+        'id': 'view',
+        'name': 'View',
         'permissions': (permissions.View,),
-        'condition'  : 'python:1'
+        'condition': 'python:1'
        },
 
 
-       {'action':      "string:${object_url}/edit",
-        'category':    "object",
-        'id':          'edit',
-        'name':        'Edit',
+       {'action': "string:${object_url}/edit",
+        'category': "object",
+        'id': 'edit',
+        'name': 'Edit',
         'permissions': (permissions.ModifyPortalContent,),
-        'condition'  : 'python:1'
+        'condition': 'python:1'
        },
 
 
     )
 
-    _at_rename_after_creation  = False
+    _at_rename_after_creation = False
 
     schema = PoiPscTracker_schema
 
@@ -124,8 +131,8 @@ class PoiPscTracker(PoiTracker,BaseFolder):
     ##/code-section class-header
 
 
-    #Methods
-    #manually created methods
+    # Methods
+    # Manually created methods
 
     security.declareProtected(permissions.View, 'getExternalTitle')
     def getExternalTitle(self):
@@ -180,7 +187,7 @@ class PoiPscTracker(PoiTracker,BaseFolder):
         
 
 def modify_fti(fti):
-    # hide unnecessary tabs (usability enhancement)
+    # Hide unnecessary tabs (usability enhancement)
     for a in fti['actions']:
         if a['id'] in ['metadata', 'sharing']:
             a['visible'] = 0

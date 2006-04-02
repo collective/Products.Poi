@@ -1,15 +1,40 @@
+# File: Poi.py
 #
-# Initialise the product's module. There are three ways to inject custom code
-# here:
+# Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
+# Generator: ArchGenXML Version 1.4.1 svn/devel
+#            http://plone.org/products/archgenxml
 #
-#   - To set global configuration variables, create a file AppConfig.py. This
-#       will be imported in config.py, which in turn is imported in each
-#       generated class and in this file.
-#   - To perform custom initialisation after types have been registered, use
-#       the protected code section at the bottom of initialize().
+# GNU General Public License (GPL)
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+# 02110-1301, USA.
+#
+
+__author__ = """Martin Aspeli <optilude@gmx.net>"""
+__docformat__ = 'plaintext'
+
+
+# There are three ways to inject custom code here:
+#
+#   - To set global configuration variables, create a file AppConfig.py.
+#       This will be imported in config.py, which in turn is imported in
+#       each generated class and in this file.
+#   - To perform custom initialisation after types have been registered,
+#       use the protected code section at the bottom of initialize().
 #   - To register a customisation policy, create a file CustomizationPolicy.py
-#       with a method register(context) to register the policy
-#
+#       with a method register(context) to register the policy.
 
 from zLOG import LOG, INFO
 
@@ -18,7 +43,7 @@ LOG('Poi',INFO, 'Installing Product')
 try:
     import CustomizationPolicy
 except ImportError:
-    CustomizationPolicy=None
+    CustomizationPolicy = None
 
 from Globals import package_home
 from Products.CMFCore import utils as cmfutils
@@ -51,7 +76,7 @@ def initialize(context):
     import content
 
 
-    # initialize portal content
+    # Initialize portal content
     all_content_types, all_constructors, all_ftis = process_types(
         listTypes(PROJECTNAME),
         PROJECTNAME)
@@ -64,7 +89,7 @@ def initialize(context):
         fti                = all_ftis,
         ).initialize(context)
 
-    # give it some extra permissions to control them on a per class limit
+    # Give it some extra permissions to control them on a per class limit
     for i in range(0,len(all_content_types)):
         klassname=all_content_types[i].__name__
         if not klassname in ADD_CONTENT_PERMISSIONS:
@@ -74,7 +99,7 @@ def initialize(context):
                               constructors= (all_constructors[i],),
                               permission  = ADD_CONTENT_PERMISSIONS[klassname])
 
-    # apply customization-policy, if theres any
+    # Apply customization-policy, if theres any
     if CustomizationPolicy and hasattr(CustomizationPolicy, 'register'):
         CustomizationPolicy.register(context)
         print 'Customization policy for Poi installed'

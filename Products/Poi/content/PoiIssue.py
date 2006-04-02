@@ -1,29 +1,34 @@
 # File: PoiIssue.py
-# 
+#
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.1 svn/devel 
+# Generator: ArchGenXML Version 1.4.1 svn/devel
 #            http://plone.org/products/archgenxml
 #
-# GNU General Public Licence (GPL)
-# 
-# This program is free software; you can redistribute it and/or modify it under
-# the terms of the GNU General Public License as published by the Free Software
-# Foundation; either version 2 of the License, or (at your option) any later
-# version.
-# This program is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-# FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
-# details.
-# You should have received a copy of the GNU General Public License along with
-# this program; if not, write to the Free Software Foundation, Inc., 59 Temple
-# Place, Suite 330, Boston, MA  02111-1307  USA
+# GNU General Public License (GPL)
 #
-__author__  = '''Martin Aspeli <optilude@gmx.net>'''
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+# 02110-1301, USA.
+#
+
+__author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
 
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
+
 from Products.Poi.interfaces.Issue import Issue
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
 
@@ -39,20 +44,22 @@ from Products.CMFCore.utils import getToolByName
 from Products.Archetypes import transaction
 ##/code-section module-header
 
-schema=Schema((
-    StringField('id',
+schema = Schema((
+
+    StringField(
+        name='id',
         widget=StringWidget(
             visible={'view' : 'invisible', 'edit': 'visible'},
             modes=('view',),
             label='Id',
             label_msgid='Poi_label_id',
-            description_msgid='Poi_help_id',
             i18n_domain='Poi',
         ),
         mode="r"
     ),
 
-    StringField('title',
+    StringField(
+        name='title',
         widget=StringWidget(
             label="Title",
             description="Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue.",
@@ -65,7 +72,8 @@ schema=Schema((
         searchable=True
     ),
 
-    StringField('release',
+    StringField(
+        name='release',
         default="(UNASSIGNED)",
         index="FieldIndex:schema",
         widget=SelectionWidget(
@@ -80,7 +88,8 @@ schema=Schema((
         vocabulary='getReleasesVocab'
     ),
 
-    TextField('details',
+    TextField(
+        name='details',
         allowable_content_types=('text/x-web-intelligent',),
         widget=TextAreaWidget(
             label="Details",
@@ -96,7 +105,8 @@ schema=Schema((
         default_output_type="text/html"
     ),
 
-    TextField('steps',
+    TextField(
+        name='steps',
         allowable_content_types=('text/x-web-intelligent',),
         widget=TextAreaWidget(
             label="Steps to reproduce",
@@ -111,7 +121,8 @@ schema=Schema((
         searchable=True
     ),
 
-    FileField('attachment',
+    FileField(
+        name='attachment',
         widget=FileWidget(
             label="Attachment",
             description="You may optionally upload a file attachment to your issue. Please do not upload unnecessarily large files.",
@@ -123,7 +134,8 @@ schema=Schema((
         write_permission=permissions.UploadAttachment
     ),
 
-    StringField('area',
+    StringField(
+        name='area',
         index="FieldIndex:schema",
         widget=SelectionWidget(
             label="Area",
@@ -137,7 +149,8 @@ schema=Schema((
         required=True
     ),
 
-    StringField('issueType',
+    StringField(
+        name='issueType',
         index="FieldIndex:schema",
         widget=SelectionWidget(
             label="Issue type",
@@ -151,7 +164,8 @@ schema=Schema((
         required=True
     ),
 
-    StringField('severity',
+    StringField(
+        name='severity',
         index="FieldIndex:schema",
         widget=SelectionWidget(
             label="Severity",
@@ -167,7 +181,8 @@ schema=Schema((
         write_permission=permissions.ModifyIssueSeverity
     ),
 
-    StringField('targetRelease',
+    StringField(
+        name='targetRelease',
         index="FieldIndex:schema",
         widget=SelectionWidget(
             label="Target release",
@@ -183,7 +198,8 @@ schema=Schema((
         write_permission=permissions.ModifyIssueTargetRelease
     ),
 
-    StringField('responsibleManager',
+    StringField(
+        name='responsibleManager',
         index="FieldIndex:schema",
         widget=SelectionWidget(
             label="Responsible",
@@ -198,7 +214,8 @@ schema=Schema((
         write_permission=permissions.ModifyIssueAssignment
     ),
 
-    StringField('contactEmail',
+    StringField(
+        name='contactEmail',
         validators=('isEmail',),
         widget=StringWidget(
             label="Contact email address",
@@ -211,7 +228,8 @@ schema=Schema((
         default_method='getDefaultContactEmail'
     ),
 
-    LinesField('watchers',
+    LinesField(
+        name='watchers',
         widget=LinesWidget(
             label="Issue watchers",
             description="Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers.",
@@ -222,7 +240,8 @@ schema=Schema((
         write_permission=permissions.ModifyIssueWatchers
     ),
 
-    LinesField('subject',
+    LinesField(
+        name='subject',
         widget=AddRemoveWidget(
             label="Tags",
             description="Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones.",
@@ -244,8 +263,8 @@ schema=Schema((
 ##code-section after-local-schema #fill in your manual code here
 ##/code-section after-local-schema
 
-PoiIssue_schema = BaseFolderSchema + \
-    schema
+PoiIssue_schema = BaseFolderSchema.copy() + \
+    schema.copy()
 
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
@@ -255,49 +274,49 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
     The default tracker
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseFolder,'__implements__',()),) + (Issue,INonStructuralFolder,)
+    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseFolder,'__implements__',()),) + (getattr(Issue,'__implements__',()),) + (getattr(INonStructuralFolder,'__implements__',()),)
 
 
     # This name appears in the 'add' box
-    archetype_name             = 'Issue'
+    archetype_name = 'Issue'
 
-    meta_type                  = 'PoiIssue'
-    portal_type                = 'PoiIssue'
-    allowed_content_types      = ['PoiResponse']
-    filter_content_types       = 1
-    global_allow               = 0
-    allow_discussion           = 0
-    content_icon               = 'PoiIssue.gif'
-    immediate_view             = 'base_view'
-    default_view               = 'poi_issue_view'
-    suppl_views                = ()
-    typeDescription            = "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-    typeDescMsgId              = 'description_edit_poiissue'
+    meta_type = 'PoiIssue'
+    portal_type = 'PoiIssue'
+    allowed_content_types = ['PoiResponse']
+    filter_content_types = 1
+    global_allow = 0
+    allow_discussion = 0
+    content_icon = 'PoiIssue.gif'
+    immediate_view = 'base_view'
+    default_view = 'poi_issue_view'
+    suppl_views = ()
+    typeDescription = "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
+    typeDescMsgId = 'description_edit_poiissue'
 
     actions =  (
 
 
-       {'action':      "string:${object_url}/view",
-        'category':    "object",
-        'id':          'view',
-        'name':        'View',
+       {'action': "string:${object_url}/view",
+        'category': "object",
+        'id': 'view',
+        'name': 'View',
         'permissions': (permissions.View,),
-        'condition'  : 'python:1'
+        'condition': 'python:1'
        },
 
 
-       {'action':      "string:${object_url}/edit",
-        'category':    "object",
-        'id':          'edit',
-        'name':        'Edit',
+       {'action': "string:${object_url}/edit",
+        'category': "object",
+        'id': 'edit',
+        'name': 'Edit',
         'permissions': (permissions.ModifyPortalContent,),
-        'condition'  : 'python:1'
+        'condition': 'python:1'
        },
 
 
     )
 
-    _at_rename_after_creation  = True
+    _at_rename_after_creation = True
 
     schema = PoiIssue_schema
 
@@ -306,8 +325,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
     ##/code-section class-header
 
 
-    #Methods
-
+    # Methods
     security.declareProtected(permissions.View, 'getCurrentIssueState')
     def getCurrentIssueState(self):
         """
@@ -318,8 +336,6 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         """
         wftool = getToolByName(self, 'portal_workflow')
         return wftool.getInfoFor(self, 'review_state')
-
-
 
     security.declareProtected(permissions.View, 'getAvailableIssueTransitions')
     def getAvailableIssueTransitions(self):
@@ -332,8 +348,6 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         for tdef in wftool.getTransitionsFor(self):
             transitions.add(tdef['id'], tdef['title_or_id'])
         return transitions
-
-
 
     security.declareProtected(permissions.View, 'toggleWatching')
     def toggleWatching(self):
@@ -351,8 +365,6 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
             watchers.append(memberId)
         self.setWatchers(tuple(watchers))
 
-
-
     security.declareProtected(permissions.View, 'isWatching')
     def isWatching(self):
         """
@@ -361,8 +373,6 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         portal_membership = getToolByName(self, 'portal_membership')
         member = portal_membership.getAuthenticatedMember()
         return member.getId() in self.getWatchers()
-
-
 
     security.declareProtected(permissions.View, 'getLastModificationUser')
     def getLastModificationUser(self):
@@ -373,8 +383,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         """
         return getattr(self, '_lastModificationUser', None)
 
-
-    #manually created methods
+    # Manually created methods
 
     def getDefaultContactEmail(self):
         """Get the default email address, that of the creating user"""
@@ -415,12 +424,18 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
                 return details
 
 
-    def SearchableText(self):
-        """Include in the SearchableText the text of all responses"""
-        text = BaseObject.SearchableText(self)
-        responses = self.contentValues('PoiResponse')
-        text += ' ' + ' '.join([r.SearchableText() for r in responses])
-        return text
+    def validate_watchers(self, value):
+        """Make sure watchers are actual user ids"""
+        membership = getToolByName(self, 'portal_membership')
+        notFound = []
+        for userId in value:
+            member = membership.getMemberById(userId)
+            if member is None:
+                notFound.append(userId)
+        if notFound:
+            return "The following user ids could not be found: %s" % ','.join(notFound)
+        else:
+            return None
 
 
     def getDefaultSeverity(self):
@@ -496,18 +511,12 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         return vocab
 
 
-    def validate_watchers(self, value):
-        """Make sure watchers are actual user ids"""
-        membership = getToolByName(self, 'portal_membership')
-        notFound = []
-        for userId in value:
-            member = membership.getMemberById(userId)
-            if member is None:
-                notFound.append(userId)
-        if notFound:
-            return "The following user ids could not be found: %s" % ','.join(notFound)
-        else:
-            return None
+    def SearchableText(self):
+        """Include in the SearchableText the text of all responses"""
+        text = BaseObject.SearchableText(self)
+        responses = self.contentValues('PoiResponse')
+        text += ' ' + ' '.join([r.SearchableText() for r in responses])
+        return text
 
 
     def notifyModified(self):
@@ -559,7 +568,7 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         
 
 def modify_fti(fti):
-    # hide unnecessary tabs (usability enhancement)
+    # Hide unnecessary tabs (usability enhancement)
     for a in fti['actions']:
         if a['id'] in ['metadata', 'sharing']:
             a['visible'] = 0

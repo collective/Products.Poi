@@ -13,6 +13,8 @@ from Products.Archetypes import transaction
 from Products.Archetypes.BaseUnit import BaseUnit
 from Products.CMFPlone.utils import safe_hasattr
 
+from Products.Poi.content import PoiTracker 
+
 from Acquisition import aq_base
 
 def simpleDataGrid2DataGrid(obj, val, **kwargs):
@@ -22,7 +24,7 @@ def simpleDataGrid2DataGrid(obj, val, **kwargs):
        type(val[0]) not in types.StringTypes:
        return val
     
-    newColumns = obj.getField(kwargs['fieldName']).columns
+    newColumns = kwargs['newColumns']
     newValue = []
     
     for row in val:
@@ -77,7 +79,7 @@ def beta2_rc1(self, out):
             if overview is not None:
                 try:
                     delattr(aq_base(self.obj), 'description')
-                except AttributeError:
+                except (AttributeError, KeyError,):
                     pass
                 if overview:
                     overview = overview.transform(self.obj, 'text/plain')
@@ -137,7 +139,7 @@ def beta2_rc1(self, out):
     walker = CustomQueryWalker(portal, DataFieldMigrator, query = {})
     transaction.savepoint(optimistic=True)
     print >> out, "Migrating from SimpleDataGridField to DataGridField"
-    walker.go()
+    walker.go(newColumns = PoiTracker.schema['availableAreas'].columns)
     
     # Migrate issue state change
     walker = CustomQueryWalker(portal, IssueStateChangeMigrator, query = {})

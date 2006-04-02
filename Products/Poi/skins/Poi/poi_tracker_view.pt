@@ -141,7 +141,7 @@
           </div>
       </div>
       
-      <div class="visualClear"><!----></div>
+      <div style="clear:both"><!----></div>
       
       <tal:manager condition="isManager">
          
