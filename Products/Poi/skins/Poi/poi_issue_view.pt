@@ -40,7 +40,7 @@
                   tal:attributes="class string:issue-${state}"/>
           </tr>
           <tr tal:condition="here/isUsingReleases">
-              <th i18n:translate="poi_label_release">Release:</th>
+              <th i18n:translate="poi_label_version">Version:</th>
               <td>
                   <span tal:condition="python:here.getRelease() != '(UNASSIGNED)'"
                         tal:replace="python:releases.getValue(here.getRelease())" />

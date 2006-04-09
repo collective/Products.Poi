@@ -29,6 +29,11 @@
     padding: 1px 1px 1px 18px;
 }
 
+.login-suggestion {
+    font-weight: bold;
+    margin-top: 0.5em;
+}
+
 /* Search table */
 
 .issue-search-results {

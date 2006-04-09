@@ -70,7 +70,7 @@ def setuppoi_tracker_workflow(self, workflow):
 
     ## Initial State
 
-    workflow.states.setInitialState('closed')
+    workflow.states.setInitialState('open')
 
     ## States initialization
 

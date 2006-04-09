@@ -84,6 +84,20 @@ schema = Schema((
         searchable=True
     ),
 
+    TextField(
+        name='helpText',
+        allowable_content_types=('text/plain', 'text/structured', 'text/html', 'application/msword',),
+        widget=RichWidget(
+            label="Help text",
+            description="Enter any introductory help text you'd like to display on the tracker front page.",
+            label_msgid='Poi_label_helpText',
+            description_msgid='Poi_help_helpText',
+            i18n_domain='Poi',
+        ),
+        default_output_type='text/html',
+        searchable=True
+    ),
+
     DataGridField(
         name='availableAreas',
         default=({'id' : 'ui', 'title' : 'User interface', 'description' : 'User interface issues'}, {'id' : 'functionality', 'title' : 'Functionality', 'description' : 'Issues with the basic functionality'}, {'id' : 'process', 'title' : 'Process', 'description' : 'Issues relating to the development process itself'}),

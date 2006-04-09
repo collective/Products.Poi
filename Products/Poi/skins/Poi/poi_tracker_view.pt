@@ -57,6 +57,12 @@
                    value="Submit new issue"
                    />
           </form>
+          <div class="login-suggestion" tal:condition="isAnon" i18:translate="login_suggestion">
+             If you can, please <a href="" 
+                                 tal:attributes="href string:${portal/absolute_url}/login_form?came_from=${here/absolute_url}">
+             
+             log in</a> before submitting your issue.
+          </div>
       </div>
 
       <p class="portalMessage"
@@ -65,6 +71,9 @@
          Others cannot submit issues to your tracker until you open it for
          submissions using the 'state' drop down in the green bar above.
       </p>
+        
+      <div tal:content="structure here/getHelpText"/>
+        
         
       <h2 i18n:translate="poi_heading_open_issues">Open issues</h2>
       
@@ -94,7 +103,7 @@
       
       <div id="open-issues-by-release" class="issue-quick-search-box"
            tal:condition="here/isUsingReleases">
-          <h3 i18n:translate="poi_heading_by_release">By release</h3>
+          <h3 i18n:translate="poi_heading_by_release">By target release</h3>
           <ul tal:define="releases here/getReleasesVocab">
               <tal:releases repeat="release releases">
                   <li tal:define="issues python:here.getFilteredIssues(targetRelease=release, state=openStates)">

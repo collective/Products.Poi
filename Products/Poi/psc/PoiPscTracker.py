@@ -39,6 +39,7 @@ from Products.Poi import permissions
 from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
+from Products.Archetypes import transaction
 ##/code-section module-header
 
 schema = Schema((
@@ -121,7 +122,7 @@ class PoiPscTracker(PoiTracker,BaseFolder):
 
     )
 
-    _at_rename_after_creation = False
+    _at_rename_after_creation = True
 
     schema = PoiPscTracker_schema
 

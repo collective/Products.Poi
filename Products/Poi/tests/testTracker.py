@@ -21,6 +21,7 @@ class TestTracker(ptc.PoiTestCase):
     def testEditTracker(self):
         self.tracker.setTitle('title')
         self.tracker.setDescription('description')
+        self.tracker.setHelpText('help text')
         self.tracker.setAvailableAreas(({'id' : 'area', 'title' : 'Area', 'description' : 'Issue area'},))
         self.tracker.setAvailableIssueTypes(({'id' : 'type', 'title' : 'Type', 'description' : 'Issue type'},))
         self.tracker.setAvailableSeverities(('one', 'two',))
@@ -32,6 +33,7 @@ class TestTracker(ptc.PoiTestCase):
         
         self.assertEqual(self.tracker.Title(), 'title')
         self.assertEqual(self.tracker.Description(), 'description')
+        self.assertEqual(self.tracker.getHelpText(), '<p>help text</p>')
         self.assertEqual(self.tracker.getAvailableAreas(), ({'id' : 'area', 'title' : 'Area', 'description' : 'Issue area'},))
         self.assertEqual(self.tracker.getAvailableIssueTypes(), ({'id' : 'type', 'title' : 'Type', 'description' : 'Issue type'},))
         self.assertEqual(self.tracker.getAvailableSeverities(), ('one', 'two',))

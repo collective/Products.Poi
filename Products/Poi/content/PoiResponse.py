@@ -338,27 +338,10 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         self.setId(newId)        
 
 
-    def _addIssueChange(self, id, name, before, after):
-        """Add a new issue change"""
-        delta = getattr(self, '_issueChanges', None)
-        if not delta:
-            self._issueChanges = []
-            delta = self._issueChanges
+    security.declareProtected(permissions.View, 'getCurrentResponsibleManager')
+    def getCurrentResponsibleManager(self):
+        return self.aq_inner.aq_parent.getResponsibleManager()
 
-        for d in delta:
-            if d['id'] == id:
-                d['name'] = name
-                d['before'] = before
-                d['after'] = after
-                self._p_changed = 1
-                return
-                
-        delta.append({'id' : id,
-                      'name' : name,
-                      'before' : before,
-                      'after' : after})
-        self._p_changed = 1
-                
 
     security.declareProtected(permissions.View, 'getCurrentIssueSeverity')
     def getCurrentIssueSeverity(self):
@@ -392,10 +375,27 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         return self.aq_inner.aq_parent.getTargetRelease()
 
 
-    security.declareProtected(permissions.View, 'getCurrentResponsibleManager')
-    def getCurrentResponsibleManager(self):
-        return self.aq_inner.aq_parent.getResponsibleManager()
+    def _addIssueChange(self, id, name, before, after):
+        """Add a new issue change"""
+        delta = getattr(self, '_issueChanges', None)
+        if not delta:
+            self._issueChanges = []
+            delta = self._issueChanges
 
+        for d in delta:
+            if d['id'] == id:
+                d['name'] = name
+                d['before'] = before
+                d['after'] = after
+                self._p_changed = 1
+                return
+                
+        delta.append({'id' : id,
+                      'name' : name,
+                      'before' : before,
+                      'after' : after})
+        self._p_changed = 1
+                
 
     def post_validate(self, REQUEST=None, errors=None):
         """Ensure that we have *something* in the response, be it an issue

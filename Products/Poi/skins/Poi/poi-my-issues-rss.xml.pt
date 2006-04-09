@@ -11,7 +11,7 @@
                        isManager request/isManager | python:False;
                        results  python:here.getMyIssues(memberId=memberId, manager=isManager);
                        DateTime python:modules['DateTime'].DateTime;">
-    <title  i18n:translate="poi_heading_my_issues">My issues</title>
+    <title  i18n:translate="poi_heading_my_issues"><span i18n:name="tracker" tal:omit-tag="" tal:content="here/getExternalTitle" /> - My issues</title>
     <link tal:content="string:${here/absolute_url}/poi-my-issues-rss.xml?memberId=${memberId}"> uri </link>
     <description tal:condition="not:nocall:results" i18n:translate="description_no_results_found"> No results were found </description>
     <description tal:condition="nocall:results" i18n:translate="batch_x_items_matching_your_criteria"> 

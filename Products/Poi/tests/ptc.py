@@ -49,7 +49,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         member.setMemberProperties({'fullname': fullname, 'email': email,
                                     'last_login_time': DateTime(last_login_time),})
 
-    def createTracker(self, folder, id, title='', description='',
+    def createTracker(self, folder, id, title='', description='', helpText='',
                         availableAreas=({'id' : 'ui', 'title' : 'User interface', 'description' : 'User interface issues'}, {'id' : 'functionality', 'title' : 'Functionality', 'description' : 'Issues with the basic functionality'}, {'id' : 'process', 'title' : 'Process', 'description' : 'Issues relating to the development process itself'}),
                         availableIssueTypes=({'id' : 'bug', 'title' : 'Bug', 'description' : 'Functionality bugs in the software'}, {'id' : 'feature', 'title' : 'Feature', 'description' : 'Suggested features'}, {'id' : 'patch', 'title' : 'Patch', 'description' : 'Patches to the software'}),
                         availableSeverities=['Critical', 'Important', 'Medium', 'Low'],
@@ -64,6 +64,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         tracker = getattr(folder, id)
         tracker.setTitle(title)
         tracker.setDescription(description)
+        tracker.setHelpText(helpText)
         tracker.setAvailableAreas(availableAreas)
         tracker.setAvailableIssueTypes(availableIssueTypes)
         tracker.setAvailableSeverities(availableSeverities)

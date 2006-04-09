@@ -18,10 +18,6 @@ class TestFeeds(ptc.PoiTestCase):
         self.addMember('member3', 'Member Three', 'member3@member.com', ['Member'], '2005-01-01')
         self.tracker = self.createTracker(self.folder, 'issue-tracker', managers=('member1', 'member2', default_user))
         self.issues = []
-        self.setRoles(['Manager'])
-        self.workflow.doActionFor(self.tracker, 'open')
-        self.setRoles(['Member'])
-
         
     def addIssue(self, title, responsible='(UNASSIGNED)', transition='accept-unconfirmed'):
         issue = self.createIssue(self.tracker, title, responsibleManager=responsible)

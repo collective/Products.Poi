@@ -51,7 +51,6 @@ Poi TODO
 
         o Let add-response be an add form at the bottom of the issue page?
             - Use a collapsible fieldset
-        o Turn off editable border in edit responses screen?
         
         o Issues-by-tag UI on tracker front page needs more thinking
             - Need a quick and easy way to find issues by tag
