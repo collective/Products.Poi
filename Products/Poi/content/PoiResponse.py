@@ -42,6 +42,9 @@ from Products.CMFCore.utils import getToolByName
 from Acquisition import aq_base
 from Products.CMFPlone.utils import log_exc
 from Products.Archetypes import transaction
+
+import textwrap
+wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 ##/code-section module-header
 
 schema = Schema((
@@ -75,17 +78,18 @@ schema = Schema((
 
     TextField(
         name='response',
-        allowable_content_types=('text/x-web-intelligent',),
-        widget=TextAreaWidget(
+        allowable_content_types=ISSUE_MIME_TYPES,
+        widget=RichWidget(
             label="Response",
             description="Please enter your response below",
             rows="15",
+            allow_file_upload=False,
             label_msgid='Poi_label_response',
             description_msgid='Poi_help_response',
             i18n_domain='Poi',
         ),
         required=False,
-        default_content_type="text/x-web-intelligent",
+        default_content_type=DEFAULT_ISSUE_MIME_TYPE,
         searchable=True,
         default_output_type="text/html"
     ),
@@ -338,10 +342,27 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         self.setId(newId)        
 
 
-    security.declareProtected(permissions.View, 'getCurrentResponsibleManager')
-    def getCurrentResponsibleManager(self):
-        return self.aq_inner.aq_parent.getResponsibleManager()
+    def _addIssueChange(self, id, name, before, after):
+        """Add a new issue change"""
+        delta = getattr(self, '_issueChanges', None)
+        if not delta:
+            self._issueChanges = []
+            delta = self._issueChanges
 
+        for d in delta:
+            if d['id'] == id:
+                d['name'] = name
+                d['before'] = before
+                d['after'] = after
+                self._p_changed = 1
+                return
+                
+        delta.append({'id' : id,
+                      'name' : name,
+                      'before' : before,
+                      'after' : after})
+        self._p_changed = 1
+                
 
     security.declareProtected(permissions.View, 'getCurrentIssueSeverity')
     def getCurrentIssueSeverity(self):
@@ -375,27 +396,10 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         return self.aq_inner.aq_parent.getTargetRelease()
 
 
-    def _addIssueChange(self, id, name, before, after):
-        """Add a new issue change"""
-        delta = getattr(self, '_issueChanges', None)
-        if not delta:
-            self._issueChanges = []
-            delta = self._issueChanges
+    security.declareProtected(permissions.View, 'getCurrentResponsibleManager')
+    def getCurrentResponsibleManager(self):
+        return self.aq_inner.aq_parent.getResponsibleManager()
 
-        for d in delta:
-            if d['id'] == id:
-                d['name'] = name
-                d['before'] = before
-                d['after'] = after
-                self._p_changed = 1
-                return
-                
-        delta.append({'id' : id,
-                      'name' : name,
-                      'before' : before,
-                      'after' : after})
-        self._p_changed = 1
-                
 
     def post_validate(self, REQUEST=None, errors=None):
         """Ensure that we have *something* in the response, be it an issue
@@ -456,7 +460,10 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         if creatorInfo:
             responseAuthor = creatorInfo['fullname'] or creator
 
-        responseDetails = '\n'.join(['    '+x for x in (self.getRawResponse() or '').split('\n')])
+        responseText = self.getResponse(mimetype="text/x-web-intelligent")
+        paras = responseText.split('\n\n')[:2]
+        responseDetails = '\n\n'.join([wrapper.fill(p) for p in paras])
+
         if not responseDetails.strip():
             responseDetails = None
 

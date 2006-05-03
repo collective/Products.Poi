@@ -86,6 +86,16 @@ DEPENDENCIES = ['DataGridField', 'AddRemoveWidget', 'intelligenttext']
 DESCRIPTION_LENGTH = 200
 RUN_MIGRATIONS = True
 PSC_TRACKER_ID = 'issues'
+
+#
+# Support for plain-text/rich-text
+#
+
+# Add text/html to the list of mimetypes to allow HTML/kupu issue/response text.
+ISSUE_MIME_TYPES = ('text/x-web-intelligent',)
+DEFAULT_ISSUE_MIME_TYPE = 'text/x-web-intelligent'
+
+
 ##/code-section config-bottom
 
 

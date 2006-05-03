@@ -15,6 +15,8 @@ from Products.CMFPlone.utils import safe_hasattr
 
 from Products.Poi.content import PoiTracker 
 
+from Products.Poi.config import *
+
 from Acquisition import aq_base
 
 def simpleDataGrid2DataGrid(obj, val, **kwargs):
@@ -147,23 +149,25 @@ def beta2_rc1(self, out):
     print >> out, "Migrating issue state change storage in responses"
     walker.go()
     
-    # Migrate issue details field
-    walker = CustomQueryWalker(portal, DetailsMigrator, query = {})
-    transaction.savepoint(optimistic=True)
-    print >> out, "Migrating issue details field to text"
-    walker.go()
+    # Migrate to plain-text if html isn't allowed but plain-text is
+    if 'text/html' not in ISSUE_MIME_TYPES and 'text/x-web-intelligent' in ISSUE_MIME_TYPES:
+        # Migrate issue details field
+        walker = CustomQueryWalker(portal, DetailsMigrator, query = {})
+        transaction.savepoint(optimistic=True)
+        print >> out, "Migrating issue details field to text"
+        walker.go()
     
-    # Migrate issue steps-to-reproduce field
-    walker = CustomQueryWalker(portal, StepsToReproduceMigrator, query = {})
-    transaction.savepoint(optimistic=True)
-    print >> out, "Migrating issue steps-to-reproduce to text"
-    walker.go()
+        # Migrate issue steps-to-reproduce field
+        walker = CustomQueryWalker(portal, StepsToReproduceMigrator, query = {})
+        transaction.savepoint(optimistic=True)
+        print >> out, "Migrating issue steps-to-reproduce to text"
+        walker.go()
     
-    # Migrate response field
-    walker = CustomQueryWalker(portal, ResponseMigrator, query = {})
-    transaction.savepoint(optimistic=True)
-    print >> out, "Migrating response text field to text"
-    walker.go()
+        # Migrate response field
+        walker = CustomQueryWalker(portal, ResponseMigrator, query = {})
+        transaction.savepoint(optimistic=True)
+        print >> out, "Migrating response text field to text"
+        walker.go()
     
 def migrate(self):
     """Run migrations

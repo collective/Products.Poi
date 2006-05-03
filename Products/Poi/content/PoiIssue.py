@@ -42,6 +42,9 @@ from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
 from Products.Archetypes import transaction
+
+import textwrap
+wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 ##/code-section module-header
 
 schema = Schema((
@@ -90,34 +93,36 @@ schema = Schema((
 
     TextField(
         name='details',
-        allowable_content_types=('text/x-web-intelligent',),
-        widget=TextAreaWidget(
+        allowable_content_types=ISSUE_MIME_TYPES,
+        widget=RichWidget(
             label="Details",
             description="Please provide further details",
             rows="15",
+            allow_file_upload=False,
             label_msgid='Poi_label_details',
             description_msgid='Poi_help_details',
             i18n_domain='Poi',
         ),
         required=True,
-        default_content_type="text/x-web-intelligent",
+        default_content_type=DEFAULT_ISSUE_MIME_TYPE,
         searchable=True,
         default_output_type="text/html"
     ),
 
     TextField(
         name='steps',
-        allowable_content_types=('text/x-web-intelligent',),
-        widget=TextAreaWidget(
+        allowable_content_types=ISSUE_MIME_TYPES,
+        widget=RichWidget(
             label="Steps to reproduce",
             description="If applicable, please provide the steps to reproduce the error or identify the issue, one per line.",
             rows="6",
+            allow_file_upload=False,
             label_msgid='Poi_label_steps',
             description_msgid='Poi_help_steps',
             i18n_domain='Poi',
         ),
         default_output_type="text/html",
-        default_content_type="text/x-web-intelligent",
+        default_content_type=DEFAULT_ISSUE_MIME_TYPE,
         searchable=True
     ),
 
@@ -424,12 +429,18 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
                 return details
 
 
-    def SearchableText(self):
-        """Include in the SearchableText the text of all responses"""
-        text = BaseObject.SearchableText(self)
-        responses = self.contentValues('PoiResponse')
-        text += ' ' + ' '.join([r.SearchableText() for r in responses])
-        return text
+    def validate_watchers(self, value):
+        """Make sure watchers are actual user ids"""
+        membership = getToolByName(self, 'portal_membership')
+        notFound = []
+        for userId in value:
+            member = membership.getMemberById(userId)
+            if member is None:
+                notFound.append(userId)
+        if notFound:
+            return "The following user ids could not be found: %s" % ','.join(notFound)
+        else:
+            return None
 
 
     def getDefaultSeverity(self):
@@ -505,18 +516,12 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         return vocab
 
 
-    def validate_watchers(self, value):
-        """Make sure watchers are actual user ids"""
-        membership = getToolByName(self, 'portal_membership')
-        notFound = []
-        for userId in value:
-            member = membership.getMemberById(userId)
-            if member is None:
-                notFound.append(userId)
-        if notFound:
-            return "The following user ids could not be found: %s" % ','.join(notFound)
-        else:
-            return None
+    def SearchableText(self):
+        """Include in the SearchableText the text of all responses"""
+        text = BaseObject.SearchableText(self)
+        responses = self.contentValues('PoiResponse')
+        text += ' ' + ' '.join([r.SearchableText() for r in responses])
+        return text
 
 
     def notifyModified(self):
@@ -553,8 +558,10 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         if issueCreatorInfo:
             issueAuthor = issueCreatorInfo['fullname'] or issueCreator
 
-        issueDetails = '\n'.join(['    '+x for x in self.Description().split('\n')])
-        
+        issueText = self.getDetails(mimetype="text/x-web-intelligent")
+        paras = issueText.split('\n\n')[:2]
+        issueDetails = '\n\n'.join([wrapper.fill(p) for p in paras])
+
         addresses = tracker.getNotificationEmailAddresses()
         mailText = self.poi_email_new_issue(self, 
                                             tracker = tracker, 

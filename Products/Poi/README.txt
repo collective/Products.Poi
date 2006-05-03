@@ -29,6 +29,34 @@ avoid unnecessary duplicates.
 See http://plone.org/products/poi for the latest release and the development 
 roadmap.
 
+Using HTML/kupu and other markups for issue text:
+
+ **Please see notes about migration below!**
+
+Before version 1.0b2 Poi used to support kupu/rich text fields with HTML in the
+issue and response body. This was removed in favour of "intelligenttext", a
+plain-text markup that preserves whitespace and makes links clickable.
+
+This was found to work very well on plone.org and for the type of simple 
+trackers that Poi was intended for. However, a lot of users wanted kupu back.
+
+To get kupu back, you will need to edit Poi/config.py::
+
+  ISSUE_MIME_TYPES = ('text/x-web-intelligent', 'text/html')
+  DEFAULT_ISSUE_MIME_TYPE = 'text/html'
+
+You may also need to re-install Poi, and perform an Archetypes schema update,
+by going to archetypes_tool, and the Schema Update tab in the ZMI.
+
+Please note two **very important** things:
+
+- If you upgrade Poi, you're likely to have to make this change again!
+ 
+- If you have issue text fields, and you have contentmigration installed, and
+text/html is not in the list of available MIME types above, then a migration 
+will be run which will turn all your HTML fields into plain text! If this
+happens to you by accident - don't complain, you should've had a backup :)
+
 Installation and dependencies
 
   Poi requires:
