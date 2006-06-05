@@ -1,7 +1,9 @@
+# -*- coding: utf-8 -*-
+#
 # File: PoiTracker.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.1 svn/devel
+# Generator: ArchGenXML Version 1.5.0 svn/devel
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -25,13 +27,11 @@
 __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
-
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
-
 from Products.Poi.interfaces.Tracker import Tracker
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
-
+from Products.Poi.config import *
 
 # additional imports from tagged value 'import'
 from Products.DataGridField.DataGridField import DataGridField
@@ -39,7 +39,6 @@ from Products.Poi import permissions
 from Products.DataGridField.DataGridWidget import DataGridWidget
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
-from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
 from AccessControl import Unauthorized
 from Products.CMFCore.utils import getToolByName
@@ -208,7 +207,6 @@ schema = Schema((
 ),
 )
 
-
 ##code-section after-local-schema #fill in your manual code here
 ##/code-section after-local-schema
 
@@ -218,13 +216,11 @@ PoiTracker_schema = BaseBTreeFolderSchema.copy() + \
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
 
-class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
-    """
-    The default tracker
+class PoiTracker(BrowserDefaultMixin, BaseBTreeFolder):
+    """The default tracker
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseBTreeFolder,'__implements__',()),) + (getattr(Tracker,'__implements__',()),) + (getattr(INonStructuralFolder,'__implements__',()),)
-
+    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseBTreeFolder,'__implements__',()),) + (Tracker,) + (INonStructuralFolder,)
 
     # This name appears in the 'add' box
     archetype_name = 'Issue Tracker'
@@ -234,13 +230,13 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
     allowed_content_types = ['PoiIssue']
     filter_content_types = 1
     global_allow = 1
-    allow_discussion = False
     content_icon = 'PoiTracker.gif'
     immediate_view = 'base_view'
     default_view = 'poi_tracker_view'
     suppl_views = ()
     typeDescription = "An issue tracker"
     typeDescMsgId = 'description_edit_poitracker'
+
 
     actions =  (
 
@@ -272,8 +268,8 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
     ##code-section class-header #fill in your manual code here
     ##/code-section class-header
 
-
     # Methods
+
     security.declareProtected(permissions.View, 'getFilteredIssues')
     def getFilteredIssues(self, criteria=None, **kwargs):
         """
@@ -409,7 +405,6 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         """Explicitly disallow selection of a default-page."""
         return False
 
-
     security.declareProtected(permissions.View, 'getIssueSearchQueryString')
     def getIssueSearchQueryString(self, criteria=None, **kwargs):
         """
@@ -418,7 +413,6 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         """
         query = self.buildIssueSearchQuery(criteria, **kwargs)
         return make_query(query)                
-
 
     security.declareProtected(permissions.ModifyPortalContent, 'setManagers')
     def setManagers(self, managers):
@@ -436,7 +430,6 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         for userId in toAdd:
             self.manage_setLocalRoles(userId, ['Manager'])
 
-
     security.declarePublic('getIssueWorkflowStates')
     def getIssueWorkflowStates(self):
         """Get a DisplayList of the workflow states available on issues"""
@@ -448,7 +441,6 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         for id, state in states.items():
             vocab.add(id, state.title)
         return vocab.sortedByValue()
-
 
     def validate_managers(self, value):
         """Make sure issue tracker managers are actual user ids"""
@@ -463,11 +455,9 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
         else:
             return None
 
-
     def getDefaultManagers(self):
         """The default list of managers should include the tracker owner"""
         return (self.Creator(),)
-
 
     def _getMemberEmail(self, username, portal_membership=None):
         """Query portal_membership to figure out the specified email address
@@ -489,7 +479,6 @@ class PoiTracker(BrowserDefaultMixin,BaseBTreeFolder):
             # property is protected via AT security
             email = member.getField('email').getAccessor(member)()
         return email
-
 
     def buildIssueSearchQuery(self, criteria=None, **kwargs):
         """
@@ -537,7 +526,7 @@ def modify_fti(fti):
             a['visible'] = 0
     return fti
 
-registerType(PoiTracker,PROJECTNAME)
+registerType(PoiTracker, PROJECTNAME)
 # end of class PoiTracker
 
 ##code-section module-footer #fill in your manual code here

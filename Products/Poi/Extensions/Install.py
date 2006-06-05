@@ -1,7 +1,9 @@
-# File: Poi.py
+# -*- coding: utf-8 -*-
+#
+# File: Install.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.1 svn/devel
+# Generator: ArchGenXML Version 1.5.0 svn/devel
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -29,7 +31,7 @@ __docformat__ = 'plaintext'
 import os.path
 import sys
 from StringIO import StringIO
-
+from sets import Set
 from App.Common import package_home
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.utils import manage_addTool
@@ -38,10 +40,8 @@ from zExceptions import NotFound, BadRequest
 
 from Products.Archetypes.Extensions.utils import installTypes
 from Products.Archetypes.Extensions.utils import install_subskin
-try:
-    from Products.Archetypes.lib.register import listTypes
-except ImportError:
-    from Products.Archetypes.public import listTypes
+from Products.Archetypes.config import TOOL_NAME as ARCHETYPETOOLNAME
+from Products.Archetypes.atapi import listTypes
 from Products.Poi.config import PROJECTNAME
 from Products.Poi.config import product_globals as GLOBALS
 
@@ -74,7 +74,9 @@ def install(self):
     # try to call a workflow install method
     # in 'InstallWorkflows.py' method 'installWorkflows'
     try:
-        installWorkflows = ExternalMethod('temp','temp',PROJECTNAME+'.InstallWorkflows', 'installWorkflows').__of__(self)
+        installWorkflows = ExternalMethod('temp', 'temp',
+                                          PROJECTNAME+'.InstallWorkflows',
+                                          'installWorkflows').__of__(self)
     except NotFound:
         installWorkflows = None
 
@@ -132,7 +134,8 @@ def install(self):
     # try to call a custom install method
     # in 'AppInstall.py' method 'install'
     try:
-        install = ExternalMethod('temp','temp',PROJECTNAME+'.AppInstall', 'install')
+        install = ExternalMethod('temp', 'temp',
+                                 PROJECTNAME+'.AppInstall', 'install')
     except NotFound:
         install = None
 
@@ -152,11 +155,10 @@ def uninstall(self):
 
     # try to call a workflow uninstall method
     # in 'InstallWorkflows.py' method 'uninstallWorkflows'
-    
-    # TODO: this is buggy code. There is no workflow uninstaller in
-    # the generated InstallWorkflows.py.
     try:
-        uninstallWorkflows = ExternalMethod('temp','temp',PROJECTNAME+'.InstallWorkflows', 'uninstallWorkflows').__of__(self)
+        uninstallWorkflows = ExternalMethod('temp', 'temp',
+                                            PROJECTNAME+'.InstallWorkflows',
+                                            'uninstallWorkflows').__of__(self)
     except NotFound:
         uninstallWorkflows = None
 
@@ -170,7 +172,8 @@ def uninstall(self):
     # try to call a custom uninstall method
     # in 'AppInstall.py' method 'uninstall'
     try:
-        uninstall = ExternalMethod('temp','temp',PROJECTNAME+'.AppInstall', 'uninstall')
+        uninstall = ExternalMethod('temp', 'temp',
+                                   PROJECTNAME+'.AppInstall', 'uninstall')
     except:
         uninstall = None
 
@@ -185,3 +188,50 @@ def uninstall(self):
         print >>out,'no custom uninstall'
 
     return out.getvalue()
+
+def beforeUninstall(self, reinstall, product, cascade):
+    """ try to call a custom beforeUninstall method in 'AppInstall.py'
+        method 'beforeUninstall'
+    """
+    out = StringIO()
+    try:
+        beforeuninstall = ExternalMethod('temp', 'temp',
+                                   PROJECTNAME+'.AppInstall', 'beforeUninstall')
+    except:
+        beforeuninstall = []
+
+    if beforeuninstall:
+        print >>out, 'Custom beforeUninstall:'
+        res = beforeuninstall(self, reinstall=reinstall
+                                  , product=product
+                                  , cascade=cascade)
+        if res:
+            print >>out, res
+        else:
+            print >>out, 'no output'
+    else:
+        print >>out, 'no custom beforeUninstall'
+    return (out,cascade)
+
+def afterInstall(self, reinstall, product):
+    """ try to call a custom afterInstall method in 'AppInstall.py' method
+        'afterInstall'
+    """
+    out = StringIO()
+    try:
+        afterinstall = ExternalMethod('temp', 'temp',
+                                   PROJECTNAME+'.AppInstall', 'afterInstall')
+    except:
+        afterinstall = None
+
+    if afterinstall:
+        print >>out, 'Custom afterInstall:'
+        res = afterinstall(self, product=None
+                               , reinstall=None)
+        if res:
+            print >>out, res
+        else:
+            print >>out, 'no output'
+    else:
+        print >>out, 'no custom afterInstall'
+    return out

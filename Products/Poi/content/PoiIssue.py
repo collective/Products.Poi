@@ -1,7 +1,9 @@
+# -*- coding: utf-8 -*-
+#
 # File: PoiIssue.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.1 svn/devel
+# Generator: ArchGenXML Version 1.5.0 svn/devel
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -25,20 +27,17 @@
 __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
-
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
-
 from Products.Poi.interfaces.Issue import Issue
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
-
+from Products.Poi.config import *
 
 # additional imports from tagged value 'import'
 from Products.Poi import permissions
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 from Products.AddRemoveWidget.AddRemoveWidget import AddRemoveWidget
 
-from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
 from Products.Archetypes import transaction
@@ -264,7 +263,6 @@ schema = Schema((
 ),
 )
 
-
 ##code-section after-local-schema #fill in your manual code here
 ##/code-section after-local-schema
 
@@ -274,13 +272,11 @@ PoiIssue_schema = BaseFolderSchema.copy() + \
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
 
-class PoiIssue(BrowserDefaultMixin,BaseFolder):
-    """
-    The default tracker
+class PoiIssue(BrowserDefaultMixin, BaseFolder):
+    """The default tracker
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseFolder,'__implements__',()),) + (getattr(Issue,'__implements__',()),) + (getattr(INonStructuralFolder,'__implements__',()),)
-
+    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseFolder,'__implements__',()),) + (Issue,) + (INonStructuralFolder,)
 
     # This name appears in the 'add' box
     archetype_name = 'Issue'
@@ -290,13 +286,14 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
     allowed_content_types = ['PoiResponse']
     filter_content_types = 1
     global_allow = 0
-    allow_discussion = 0
     content_icon = 'PoiIssue.gif'
     immediate_view = 'base_view'
     default_view = 'poi_issue_view'
     suppl_views = ()
     typeDescription = "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
     typeDescMsgId = 'description_edit_poiissue'
+    allow_discussion = 0
+
 
     actions =  (
 
@@ -329,8 +326,8 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
     schema.moveField('subject', after='watchers')
     ##/code-section class-header
 
-
     # Methods
+
     security.declareProtected(permissions.View, 'getCurrentIssueState')
     def getCurrentIssueState(self):
         """
@@ -397,7 +394,6 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         email = member.getProperty('email', '')
         return email
 
-
     def _renameAfterCreation(self, check_auto_id=False):
         parent = self.aq_inner.aq_parent
         maxId = 0
@@ -413,7 +409,6 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         transaction.savepoint(optimistic=True)
         self.setId(newId)
     
-
     def Description(self):
         """If a description is set manually, return that. Else returns the first
         200 characters (defined in config.py) of the 'details' field.
@@ -428,25 +423,16 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
             else:
                 return details
 
-
-    def validate_watchers(self, value):
-        """Make sure watchers are actual user ids"""
-        membership = getToolByName(self, 'portal_membership')
-        notFound = []
-        for userId in value:
-            member = membership.getMemberById(userId)
-            if member is None:
-                notFound.append(userId)
-        if notFound:
-            return "The following user ids could not be found: %s" % ','.join(notFound)
-        else:
-            return None
-
+    def SearchableText(self):
+        """Include in the SearchableText the text of all responses"""
+        text = BaseObject.SearchableText(self)
+        responses = self.contentValues('PoiResponse')
+        text += ' ' + ' '.join([r.SearchableText() for r in responses])
+        return text
 
     def getDefaultSeverity(self):
         """Get the default severity for new issues"""
         return self.aq_parent.getDefaultSeverity()
-
 
     security.declarePublic('isValid')
     def isValid(self):
@@ -458,7 +444,6 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         else:
             return True
 
-
     security.declareProtected(permissions.View, 'getIssueTypesVocab')
     def getIssueTypesVocab(self):
         """
@@ -466,7 +451,6 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         """
         field = self.aq_parent.getField('availableIssueTypes')
         return field.getAsDisplayList(self.aq_parent)
-
 
     def getManagersVocab(self):
         """
@@ -480,7 +464,6 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
             vocab.add(item, item)
         return vocab
 
-
     security.declareProtected(permissions.View, 'updateResponses')
     def updateResponses(self):
         """When a response is added or modified, this method should be
@@ -488,7 +471,6 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         """
         self.reindexObject(('SearchableText',))
         self.notifyModified()
-
 
     security.declareProtected(permissions.View, 'getTagsVocab')
     def getTagsVocab(self):
@@ -500,7 +482,6 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         for t in tags:
             vocab.add(t, t)
         return vocab
-
 
     security.declareProtected(permissions.View, 'getReleasesVocab')
     def getReleasesVocab(self):
@@ -515,21 +496,24 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
             vocab.add(k, parentVocab.getValue(k), parentVocab.getMsgId(k))
         return vocab
 
-
-    def SearchableText(self):
-        """Include in the SearchableText the text of all responses"""
-        text = BaseObject.SearchableText(self)
-        responses = self.contentValues('PoiResponse')
-        text += ' ' + ' '.join([r.SearchableText() for r in responses])
-        return text
-
+    def validate_watchers(self, value):
+        """Make sure watchers are actual user ids"""
+        membership = getToolByName(self, 'portal_membership')
+        notFound = []
+        for userId in value:
+            member = membership.getMemberById(userId)
+            if member is None:
+                notFound.append(userId)
+        if notFound:
+            return "The following user ids could not be found: %s" % ','.join(notFound)
+        else:
+            return None
 
     def notifyModified(self):
         BaseFolder.notifyModified(self)
         mtool = getToolByName(self, 'portal_membership')
         member = mtool.getAuthenticatedMember()
         self._lastModificationUser = member.getId()
-
 
     security.declareProtected(permissions.View, 'getAreasVocab')
     def getAreasVocab(self):
@@ -538,7 +522,6 @@ class PoiIssue(BrowserDefaultMixin,BaseFolder):
         """
         field = self.aq_parent.getField('availableAreas')
         return field.getAsDisplayList(self.aq_parent)
-
 
     def sendNotificationMail(self):
         """
@@ -581,7 +564,7 @@ def modify_fti(fti):
             a['visible'] = 0
     return fti
 
-registerType(PoiIssue,PROJECTNAME)
+registerType(PoiIssue, PROJECTNAME)
 # end of class PoiIssue
 
 ##code-section module-footer #fill in your manual code here

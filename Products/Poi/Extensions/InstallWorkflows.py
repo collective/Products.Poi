@@ -1,7 +1,9 @@
+# -*- coding: utf-8 -*-
+#
 # File: Poi.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.1 svn/devel
+# Generator: ArchGenXML Version 1.5.0 svn/devel
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -28,6 +30,9 @@ __docformat__ = 'plaintext'
 
 from Products.CMFCore.utils import getToolByName
 from Products.ExternalMethod.ExternalMethod import ExternalMethod
+
+##code-section module-header #fill in your manual code here
+##/code-section module-header
 
 def installWorkflows(self, package, out):
     """Install the custom workflows for this product."""
@@ -56,4 +61,19 @@ def installWorkflows(self, package, out):
     workflowTool._setObject('poi_response_workflow', workflow)
     workflowTool.setChainForPortalTypes(['PoiResponse'], workflow.getId())
 
+    ##code-section after-workflow-install #fill in your manual code here
+    ##/code-section after-workflow-install
+
     return workflowTool
+
+def uninstallWorkflows(self, package, out):
+    """Deinstall the workflows.
+
+    This code doesn't really do anything, but you can place custom
+    code here in the protected section.
+    """
+
+    ##code-section workflow-uninstall #fill in your manual code here
+    ##/code-section workflow-uninstall
+
+    pass

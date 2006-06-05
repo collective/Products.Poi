@@ -1,7 +1,9 @@
+# -*- coding: utf-8 -*-
+#
 # File: Response.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.1 svn/devel
+# Generator: ArchGenXML Version 1.5.0 svn/devel
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -25,17 +27,15 @@
 __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
-
-
-
 from Interface import Base
 
+
 class Response(Base):
-    """
-    Marker interface for FirePoi issue responses
+    """Marker interface for FirePoi issue responses
     """
 
     # Methods
+
     def setNewIssueState(transition):
         """
         Set a new review state for the parent issue, by executing

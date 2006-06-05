@@ -1,7 +1,9 @@
+# -*- coding: utf-8 -*-
+#
 # File: Poi.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.1 svn/devel
+# Generator: ArchGenXML Version 1.5.0 svn/devel
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -51,7 +53,7 @@ def setuppoi_issue_workflow(self, workflow):
     for s in ['resolved', 'in-progress', 'postponed', 'rejected', 'open', 'closed', 'unconfirmed', 'new']:
         workflow.states.addState(s)
 
-    for t in ['begin-open', 'open-rejected', 'postpone-unconfirmed', 'open-postponed', 're-start', 'reject-open', 'post', 'reject-unconfirmed', 'hold-open', 'open-closed', 'confirm-resolved', 'resolve-in-progress', 'postpone', 'resolve-open', 'open-resolved', 'accept-unconfirmed']:
+    for t in ['begin-open', 'open-rejected', 'postpone-unconfirmed', 'open-postponed', 're-start', 'reject-open', 'post', 'reject-unconfirmed', 'hold-open', 'open-closed', 'confirm-resolved', 'resolve-in-progress', 'postpone', 'resolve-open', 'close-unconfirmed', 'open-resolved', 'accept-unconfirmed']:
         workflow.transitions.addTransition(t)
 
     for v in ['review_history', 'comments', 'time', 'actor', 'action']:
@@ -151,7 +153,7 @@ def setuppoi_issue_workflow(self, workflow):
 
     stateDef = workflow.states['unconfirmed']
     stateDef.setProperties(title="""Unconfirmed""",
-                           transitions=['accept-unconfirmed', 'reject-unconfirmed', 'postpone-unconfirmed'])
+                           transitions=['accept-unconfirmed', 'reject-unconfirmed', 'postpone-unconfirmed', 'close-unconfirmed'])
     stateDef.setPermission('Delete objects',
                            0,
                            ['Manager'])
@@ -364,6 +366,18 @@ def setuppoi_issue_workflow(self, workflow):
                                 script_name="""""",
                                 after_script_name="""sendResolvedMail""",
                                 actbox_name="""Resolve""",
+                                actbox_url="""""",
+                                actbox_category="""workflow""",
+                                props={'guard_permissions': 'Poi: Modify issue state'},
+                                )
+
+    transitionDef = workflow.transitions['close-unconfirmed']
+    transitionDef.setProperties(title="""Close immediately""",
+                                new_state_id="""closed""",
+                                trigger_type=1,
+                                script_name="""""",
+                                after_script_name="""""",
+                                actbox_name="""Close immediately""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
                                 props={'guard_permissions': 'Poi: Modify issue state'},

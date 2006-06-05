@@ -117,8 +117,9 @@ You can change these to whatever you want.
 Once you have set up the tracker, add Issues inside, and Responses inside
 Issues. Anyone can add responses to issues with the default workflow. Responses
 from tracker managers (as configured on the root tracker object) and the 
-original submitter are colour coded to make them easier to pick out. Use the
-"state" drop-down to change the current status of an issue.
+original submitter are colour coded to make them easier to pick out. When adding
+a response as a tracker manager, you can change the state, importance or
+assignment of an issue.
 
 If email notification is enabled in the root tracker object, managers will
 get an email when there are new issues and responses, optionally via a mailing

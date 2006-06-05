@@ -1,7 +1,9 @@
+# -*- coding: utf-8 -*-
+#
 # File: PoiResponse.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.1 svn/devel
+# Generator: ArchGenXML Version 1.5.0 svn/devel
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -25,18 +27,15 @@
 __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
-
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
-
 from Products.Poi.interfaces.Response import Response
-
+from Products.Poi.config import *
 
 # additional imports from tagged value 'import'
 from Products.Poi import permissions
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
-from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
 from Acquisition import aq_base
@@ -183,7 +182,6 @@ schema = Schema((
 ),
 )
 
-
 ##code-section after-local-schema #fill in your manual code here
 ##/code-section after-local-schema
 
@@ -193,15 +191,13 @@ PoiResponse_schema = BaseSchema.copy() + \
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
 
-class PoiResponse(BrowserDefaultMixin,BaseContent):
-    """
-    A response to an issue, added by a project manager. When giving
+class PoiResponse(BrowserDefaultMixin, BaseContent):
+    """A response to an issue, added by a project manager. When giving
     a response, the workflow state of the parent issue can be set at
     the same time.
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseContent,'__implements__',()),) + (getattr(Response,'__implements__',()),)
-
+    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseContent,'__implements__',()),) + (Response,)
 
     # This name appears in the 'add' box
     archetype_name = 'Response'
@@ -211,13 +207,14 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
     allowed_content_types = []
     filter_content_types = 0
     global_allow = 0
-    allow_discussion = 0
     content_icon = 'PoiResponse.gif'
     immediate_view = 'base_view'
     default_view = 'poi_response_view'
     suppl_views = ()
     typeDescription = "A response to an issue."
     typeDescMsgId = 'description_edit_poiresponse'
+    allow_discussion = 0
+
 
     actions =  (
 
@@ -249,8 +246,8 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
     ##code-section class-header #fill in your manual code here
     ##/code-section class-header
 
-
     # Methods
+
     security.declareProtected(permissions.ModifyIssueState, 'setNewIssueState')
     def setNewIssueState(self,transition):
         """
@@ -341,6 +338,37 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         transaction.savepoint(optimistic=True)
         self.setId(newId)        
 
+    security.declareProtected(permissions.View, 'getCurrentResponsibleManager')
+    def getCurrentResponsibleManager(self):
+        return self.aq_inner.aq_parent.getResponsibleManager()
+
+    security.declareProtected(permissions.View, 'getCurrentIssueSeverity')
+    def getCurrentIssueSeverity(self):
+        return self.aq_inner.aq_parent.getSeverity()
+
+    security.declarePublic('isValid')
+    def isValid(self):
+        """Check if the response is valid, that is, a response has been filled in"""
+        errors = {}
+        self.Schema().validate(self, None, errors, 1, 1)
+
+        if errors:
+            return False
+
+        if not self.getResponse() and not self.getIssueChanges():
+            return False
+        
+        return True
+
+    def Title(self):
+        """Define title to be the same as response id. Responses have little
+        value on their own anyway.
+        """
+        return self.getId()
+
+    security.declareProtected(permissions.View, 'getCurrentTargetRelease')
+    def getCurrentTargetRelease(self):
+        return self.aq_inner.aq_parent.getTargetRelease()
 
     def _addIssueChange(self, id, name, before, after):
         """Add a new issue change"""
@@ -363,44 +391,6 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
                       'after' : after})
         self._p_changed = 1
                 
-
-    security.declareProtected(permissions.View, 'getCurrentIssueSeverity')
-    def getCurrentIssueSeverity(self):
-        return self.aq_inner.aq_parent.getSeverity()
-
-
-    security.declarePublic('isValid')
-    def isValid(self):
-        """Check if the response is valid, that is, a response has been filled in"""
-        errors = {}
-        self.Schema().validate(self, None, errors, 1, 1)
-
-        if errors:
-            return False
-
-        if not self.getResponse() and not self.getIssueChanges():
-            return False
-        
-        return True
-
-
-    def Title(self):
-        """Define title to be the same as response id. Responses have little
-        value on their own anyway.
-        """
-        return self.getId()
-
-
-    security.declareProtected(permissions.View, 'getCurrentTargetRelease')
-    def getCurrentTargetRelease(self):
-        return self.aq_inner.aq_parent.getTargetRelease()
-
-
-    security.declareProtected(permissions.View, 'getCurrentResponsibleManager')
-    def getCurrentResponsibleManager(self):
-        return self.aq_inner.aq_parent.getResponsibleManager()
-
-
     def post_validate(self, REQUEST=None, errors=None):
         """Ensure that we have *something* in the response, be it an issue
         change or some text
@@ -439,7 +429,6 @@ class PoiResponse(BrowserDefaultMixin,BaseContent):
         
         # Nothing appears to be set, mark an error
         errors['response'] = 'Please provide a response'
-
 
     def sendResponseNotificationMail(self):
         """When this response is created, send a notification email to all
@@ -487,7 +476,7 @@ def modify_fti(fti):
             a['visible'] = 0
     return fti
 
-registerType(PoiResponse,PROJECTNAME)
+registerType(PoiResponse, PROJECTNAME)
 # end of class PoiResponse
 
 ##code-section module-footer #fill in your manual code here

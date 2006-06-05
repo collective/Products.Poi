@@ -1,7 +1,9 @@
+# -*- coding: utf-8 -*-
+#
 # File: Tracker.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.1 svn/devel
+# Generator: ArchGenXML Version 1.5.0 svn/devel
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -25,18 +27,16 @@
 __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
-
-
-
 from Interface import Base
 
+
 class Tracker(Base):
-    """
-    Interface for FirePoi trackers. Trackers can display their
+    """Interface for FirePoi trackers. Trackers can display their
     contained issues filtered by workflow state and category.
     """
 
     # Methods
+
     def getFilteredIssues(criteria, **kwargs):
         """
         Get the contained issues according to the given criteria.

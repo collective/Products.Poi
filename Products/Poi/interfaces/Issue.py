@@ -1,7 +1,9 @@
+# -*- coding: utf-8 -*-
+#
 # File: Issue.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.1 svn/devel
+# Generator: ArchGenXML Version 1.5.0 svn/devel
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -25,17 +27,15 @@
 __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
-
-
-
 from Interface import Base
 
+
 class Issue(Base):
-    """
-    Marker interface for FirePoi Issues
+    """Marker interface for FirePoi Issues
     """
 
     # Methods
+
     def toggleWatching():
         """
         Add or remove the current authenticated member from the list of

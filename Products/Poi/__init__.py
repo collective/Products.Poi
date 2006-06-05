@@ -1,7 +1,9 @@
+# -*- coding: utf-8 -*-
+#
 # File: Poi.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.1 svn/devel
+# Generator: ArchGenXML Version 1.5.0 svn/devel
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -36,9 +38,9 @@ __docformat__ = 'plaintext'
 #   - To register a customisation policy, create a file CustomizationPolicy.py
 #       with a method register(context) to register the policy.
 
-from zLOG import LOG, INFO
+from zLOG import LOG, INFO, DEBUG
 
-LOG('Poi',INFO, 'Installing Product')
+LOG('Poi', DEBUG, 'Installing Product')
 
 try:
     import CustomizationPolicy
@@ -50,7 +52,7 @@ from Products.CMFCore import utils as cmfutils
 from Products.CMFCore import CMFCorePermissions
 from Products.CMFCore import DirectoryView
 from Products.CMFPlone.PloneUtilities import ToolInit
-from Products.Archetypes.public import *
+from Products.Archetypes.atapi import *
 from Products.Archetypes import listTypes
 from Products.Archetypes.utils import capitalize
 

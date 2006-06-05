@@ -1,7 +1,9 @@
+# -*- coding: utf-8 -*-
+#
 # File: PoiPscTracker.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.4.1 svn/devel
+# Generator: ArchGenXML Version 1.5.0 svn/devel
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -25,18 +27,15 @@
 __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
-
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
-
 from Products.Poi.content.PoiTracker import PoiTracker
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
-
+from Products.Poi.config import *
 
 # additional imports from tagged value 'import'
 from Products.Poi import permissions
 
-from Products.Poi.config import *
 ##code-section module-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
 from Products.Archetypes import transaction
@@ -60,12 +59,11 @@ schema = Schema((
 ),
 )
 
-
 ##code-section after-local-schema #fill in your manual code here
 ##/code-section after-local-schema
 
 PoiPscTracker_schema = BaseFolderSchema.copy() + \
-    getattr(PoiTracker,'schema',Schema(())).copy() + \
+    getattr(PoiTracker, 'schema', Schema(())).copy() + \
     schema.copy()
 
 ##code-section after-schema #fill in your manual code here
@@ -74,14 +72,12 @@ del PoiPscTracker_schema['title']
 
 ##/code-section after-schema
 
-class PoiPscTracker(PoiTracker,BaseFolder):
-    """
-    Version of the PoiTracker which supports the
+class PoiPscTracker(PoiTracker, BaseFolder):
+    """Version of the PoiTracker which supports the
     PloneSoftwareCenter. Intended to be added inside a PSCProject.
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(PoiTracker,'__implements__',()),) + (getattr(BaseFolder,'__implements__',()),) + (getattr(INonStructuralFolder,'__implements__',()),)
-
+    __implements__ = (getattr(PoiTracker,'__implements__',()),) + (getattr(BaseFolder,'__implements__',()),) + (INonStructuralFolder,)
 
     # This name appears in the 'add' box
     archetype_name = 'Issue Tracker'
@@ -91,13 +87,13 @@ class PoiPscTracker(PoiTracker,BaseFolder):
     allowed_content_types = [] + list(getattr(PoiTracker, 'allowed_content_types', []))
     filter_content_types = 1
     global_allow = 0
-    allow_discussion = False
     content_icon = 'PoiTracker.gif'
     immediate_view = 'base_view'
     default_view = 'poi_tracker_view'
     suppl_views = ()
     typeDescription = "A simple issue tracker"
     typeDescMsgId = 'description_edit_poipsctracker'
+
 
     actions =  (
 
@@ -131,8 +127,8 @@ class PoiPscTracker(PoiTracker,BaseFolder):
     del schema['availableReleases']
     ##/code-section class-header
 
-
     # Methods
+
     # Manually created methods
 
     security.declareProtected(permissions.View, 'getExternalTitle')
@@ -142,7 +138,6 @@ class PoiPscTracker(PoiTracker,BaseFolder):
         """
         return self.aq_inner.aq_parent.Title() + " Issue Tracker"
 
-
     def _renameAfterCreation(self, check_auto_id=False):
         parent = self.aq_inner.aq_parent
         if PSC_TRACKER_ID not in parent.objectIds():            
@@ -150,7 +145,6 @@ class PoiPscTracker(PoiTracker,BaseFolder):
             # portal_factory!
             transaction.savepoint(optimistic=True)
             self.setId(PSC_TRACKER_ID)
-
 
     security.declareProtected(permissions.View, 'getAvailableReleases')
     def getAvailableReleases(self):
@@ -165,7 +159,6 @@ class PoiPscTracker(PoiTracker,BaseFolder):
                         )
         return [r.UID for r in releases]
 
-
     security.declareProtected(permissions.View, 'getReleasesVocab')
     def getReleasesVocab(self):
         """
@@ -177,7 +170,6 @@ class PoiPscTracker(PoiTracker,BaseFolder):
                         path = '/'.join(self.getPhysicalPath()[:-1]),
                         )
         return DisplayList([(r.UID, r.getId) for r in releases])
-
 
     security.declareProtected(permissions.View, 'getExternalTitle')
     def Title(self):
@@ -194,7 +186,7 @@ def modify_fti(fti):
             a['visible'] = 0
     return fti
 
-registerType(PoiPscTracker,PROJECTNAME)
+registerType(PoiPscTracker, PROJECTNAME)
 # end of class PoiPscTracker
 
 ##code-section module-footer #fill in your manual code here
