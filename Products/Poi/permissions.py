@@ -4,7 +4,7 @@ from Products.CMFCore import CMFCorePermissions
 
 View                      = CMFCorePermissions.View
 ModifyPortalContent       = CMFCorePermissions.ModifyPortalContent
-AccessContentsInformatino = CMFCorePermissions.AccessContentsInformation
+AccessContentsInformation = CMFCorePermissions.AccessContentsInformation
 
 ModifyIssueSeverity       = "Poi: Modify issue severity"
 ModifyIssueAssignment     = "Poi: Modify issue assignment"
