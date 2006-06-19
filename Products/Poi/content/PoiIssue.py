@@ -324,6 +324,8 @@ class PoiIssue(BrowserDefaultMixin, BaseFolder):
 
     ##code-section class-header #fill in your manual code here
     schema.moveField('subject', after='watchers')
+    
+    RESPONSE_PORTAL_TYPE = 'PoiResponse'
     ##/code-section class-header
 
     # Methods
