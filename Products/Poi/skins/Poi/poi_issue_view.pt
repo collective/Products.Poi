@@ -156,7 +156,6 @@
             <input name="type_name"
                    type="hidden"
                    value="PoiResponse"
-                   tal:attributes="value here/RESPONSE_PORTAL_TYPE"
                    />
             <input class="standalone"
                    type="submit"

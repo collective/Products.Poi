@@ -50,7 +50,6 @@
             <input name="type_name"
                    type="hidden"
                    value="PoiIssue"
-                   tal:attributes="value here/ISSUE_PORTAL_TYPE"
                    />
             <input class="standalone"
                    type="submit"

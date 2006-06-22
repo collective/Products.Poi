@@ -266,7 +266,6 @@ class PoiTracker(BrowserDefaultMixin, BaseBTreeFolder):
     schema = PoiTracker_schema
 
     ##code-section class-header #fill in your manual code here
-    ISSUE_PORTAL_TYPE = 'PoiIssue'
     ##/code-section class-header
 
     # Methods
@@ -382,7 +381,7 @@ class PoiTracker(BrowserDefaultMixin, BaseBTreeFolder):
         Get a list of the issue tags in use in this tracker.
         """
         catalog = getToolByName(self, 'portal_catalog')
-        issues = catalog.searchResults(portal_type = self.ISSUE_PORTAL_TYPE,
+        issues = catalog.searchResults(portal_type = 'PoiIssue',
                                        path = '/'.join(self.getPhysicalPath()))
         tags = {}
         for i in issues:
@@ -435,7 +434,7 @@ class PoiTracker(BrowserDefaultMixin, BaseBTreeFolder):
     def getIssueWorkflowStates(self):
         """Get a DisplayList of the workflow states available on issues"""
         portal_workflow = getToolByName(self, 'portal_workflow')
-        chain = portal_workflow.getChainForPortalType(self.ISSUE_PORTAL_TYPE)
+        chain = portal_workflow.getChainForPortalType('PoiIssue')
         workflow = getattr(portal_workflow, chain[0])
         states = getattr(workflow, 'states')
         vocab = DisplayList()
@@ -506,7 +505,7 @@ class PoiTracker(BrowserDefaultMixin, BaseBTreeFolder):
 
         query                = {}
         query['path']        = '/'.join(self.getPhysicalPath())
-        query['portal_type'] = [self.ISSUE_PORTAL_TYPE]
+        query['portal_type'] = ['PoiIssue']
 
         for k, v in allowedCriteria.items():
             if k in criteria:

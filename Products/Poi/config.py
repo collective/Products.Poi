@@ -97,9 +97,6 @@ PSC_TRACKER_ID = 'issues'
 ISSUE_MIME_TYPES = ('text/x-web-intelligent',)
 DEFAULT_ISSUE_MIME_TYPE = 'text/x-web-intelligent'
 
-# portal types of issues, responses... (makes subclassing easier)
-ISSUE_PORTAL_TYPE = 'PoiIssue'
-
 ##/code-section config-bottom
 
 
