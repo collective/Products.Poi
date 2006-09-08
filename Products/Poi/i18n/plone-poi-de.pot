@@ -1,0 +1,117 @@
+# german po file for Poi Issue Tracker product.
+# Jens Klein <jens@bluedynamics.com>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: Poi\n"
+"POT-Creation-Date: 2005-10-26 17:00+0000\n"
+"PO-Revision-Date: 2006-09-08 21:01 +0200\n"
+"Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
+"Language-Team: DE <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: de\n"
+"Language-Name: German\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+# portal type nams
+
+msgid "Issue Tracker"
+msgstr "Problem Tracker"
+
+msgid "An issue tracker"
+msgstr "Ein System zum Aufspüren und Lösen von Problemstellungen."
+
+msgid "Issue"
+msgstr "Problem"
+
+msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
+msgstr "Eine Problemstellung. Problemstellungen beginnen im Status 'nicht bestätigt' und können nur von Projektmanagern beantwortet werden."
+
+msgid "Response"
+msgstr "Antwort"
+
+msgid "A response to an issue."
+msgstr "Eine Antwort auf eine Problemstellung"
+
+# tracker states
+
+msgid "Open for submissions"
+msgstr "Offen für neue Problemstellungen."
+
+msgid "Closed for submissions"
+msgstr "Keine neuen Problemstellungen einzugeben."
+
+# tracker transitions
+
+msgid "Close tracker"
+msgstr "Schliessen des Trackers"
+
+msgid "Open tracker"
+msgstr "Öffne Tracker"
+
+# issue states
+
+msgid "Tested and confirmed closed"
+msgstr "Getestet und bestätigt geschlossen"
+
+msgid "In progress"
+msgstr "In Arbeit"
+
+msgid "Being created"
+msgstr "Bei der Erstellung"
+
+msgid "Open"
+msgstr "Offen"
+
+msgid "Postponed"
+msgstr "Verschoben"
+
+msgid "Rejected"
+msgstr "Zurückgewiesen"
+
+msgid "Resolved"
+msgstr "Gelöst"
+
+msgid "Unconfirmed"
+msgstr "Unbestätigt"
+
+# issue transitions
+
+msgid " Open"
+msgstr "Eröffnen"
+
+msgid "Begin work"
+msgstr "Arbeit beginnen"
+
+msgid "Confirm resolved"
+msgstr "Bestätige Lösung"
+
+msgid "Put on hold"
+msgstr "Zurückstellen"
+
+msgid "Re-open"
+msgstr "Erneut Öffnen"
+
+msgid "Post issue on save"
+msgstr "Verschicke Problemstellung beim Speichern"
+
+msgid "Postpone"
+msgstr "Verschieben"
+
+msgid "Reject"
+msgstr "Zurückweisen"
+
+msgid "Resolve"
+msgstr "Lösen"
+
+# response states
+
+msgid "Posted"
+msgstr "Verschickt"
+
+# response transitions
+msgid "Post response on save"
+msgstr "Verschicke Antwort beim Speichern"
