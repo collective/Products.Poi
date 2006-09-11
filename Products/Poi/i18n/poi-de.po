@@ -115,12 +115,12 @@ msgstr "Wenn angegeben und 'Sende Benachrichtungs-Mail' ausgewählt wurde, wird 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
 msgid "Poi_help_managers"
-msgstr ""
+msgstr "Geben sie die Anmeldenamen von BenutzerInnen ein, welchen erlaubt ist diesen Tracker zu verwalten. Einer pro Zeile."
 
 # ./content/PoiIssue.py
 #. Default: "Select the release this issue pertains to."
 msgid "Poi_help_release"
-msgstr ""
+msgstr "Wählen sie die von diesem Problem betroffene Version/ Ausgabe."
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
@@ -135,7 +135,7 @@ msgstr ""
 # ./content/PoiIssue.py
 #. Default: "Select which manager, if any, is responsible for this issue."
 msgid "Poi_help_responsibleManager"
-msgstr ""
+msgstr "Wählen sie den verantwortlichen Verwalter dieser Problemstellung."
 
 # ./content/PoiTracker.py
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation."
@@ -160,7 +160,7 @@ msgstr ""
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
 msgid "Poi_help_tracker_title"
-msgstr ""
+msgstr "Geben sie einen beschreibenden Namen für diesen Tracker an."
 
 # ./content/PoiIssue.py
 #. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
@@ -445,12 +445,12 @@ msgstr ""
 #. Default: "The following open issues were either submitted by you."
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_help_my_issues_not_manager"
-msgstr ""
+msgstr "Die folgenden offenen Problemstellungen wurden von ihnen übermittelt oder sind ihnen zugewiesen worden."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_help_open_issues"
-msgstr ""
+msgstr "Wählen einen Bereich, eine Ausgabe/ Version oder einen Status um alle (offenen) Problemstellungen in dieser Kategorie zu sehen. Für feingliederiges Suchen klicken Sie 'Suche nach Problemstellungen'."
 
 #. Default: "The following issues have not yet been confirmed or assigned. Please review them and take the appropriate action."
 #: ./skins/Poi/poi_tracker_view.pt
