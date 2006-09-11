@@ -455,7 +455,7 @@ msgstr "Wählen einen Bereich, eine Ausgabe/ Version oder einen Status um alle (
 #. Default: "The following issues have not yet been confirmed or assigned. Please review them and take the appropriate action."
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_help_unconfirmed_issues"
-msgstr "Folgende Problenmstellungen sind noch nicht bestätigt oder zugewiesen. Bitte um Durchsicht und Antwort!"
+msgstr "Folgende Problemstellungen sind noch nicht bestätigt oder zugewiesen. Bitte um Durchsicht und Antwort!"
 
 #. Default: "Search for issues"
 #: ./skins/Poi/poi_tracker_view.pt
