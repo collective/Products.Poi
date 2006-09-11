@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2005-10-27 03:02+0000\n"
+"POT-Creation-Date: 2005-10-26 17:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Lukas Zdych <lukas.zdych@corenet.cz>\n"
 "Language-Team: SureCase.org <www.surecase.org>\n"
@@ -16,75 +16,72 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin2\n"
 "Domain: plone\n"
 
-# portal type nams
-
-msgid "Issue Tracker"
-msgstr "Manažer úloh"
-
-msgid "An issue tracker"
-msgstr "Manažer úloh"
-
-msgid "Issue"
-msgstr "Úloha"
-
-msgid "An issue. Issues begin in the 'open' state, and can be responded to by project managers."
-msgstr "Úloha. Úlohy začínají ve stavu 'otevřeno', a mohou výt řešeny manažery projektu."
-
-msgid "Response"
-msgstr "Reakce"
+# issue transitions
+msgid " Open"
+msgstr ""
 
 msgid "A response to an issue."
 msgstr "Reakce k úloze."
 
-# tracker states
+msgid "An issue tracker"
+msgstr "Manažer úloh"
 
-msgid "Open for submissions"
-msgstr "Otevřený pro zadávání"
+msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
+msgstr ""
+
+# issue transitions
+msgid "Begin work"
+msgstr "Začít práci"
+
+# response states
+msgid "Being created"
+msgstr "Právě vytvářeno"
+
+# tracker transitions
+msgid "Close tracker"
+msgstr "Uzavřít manažer úloh"
 
 msgid "Closed for submissions"
 msgstr "Uzavřený pro zadávání"
 
-# tracker transitions
-
-msgid "Close tracker"
-msgstr "Uzavřít manažer úloh"
-
-msgid "Open tracker"
-msgstr "Otevřít manažer úloh"
-
-# issue states
-
-msgid "Tested and confirmed closed"
-msgstr "Otestováno, potvrzeno a uzavřeno"
+msgid "Confirm resolved"
+msgstr "Potvrdit vyřešení"
 
 msgid "In progress"
 msgstr "V řešení"
 
-msgid "Being created"
-msgstr "Právě vytvářeno"
+msgid "Issue"
+msgstr "Úloha"
+
+# portal type nams
+msgid "Issue Tracker"
+msgstr "Manažer úloh"
 
 msgid "Open"
 msgstr "Přijato"
 
+# tracker states
+msgid "Open for submissions"
+msgstr "Otevřený pro zadávání"
+
+msgid "Open tracker"
+msgstr "Otevřít manažer úloh"
+
+msgid "Post issue on save"
+msgstr "Zadat po uložení"
+
+# response transitions
+msgid "Post response on save"
+msgstr "Vytvořit po uložení"
+
+msgid "Posted"
+msgstr "Vytvořeno"
+
+msgid "Postpone"
+msgstr "Odložit"
+
 msgid "Postponed"
 msgstr "Odloženo"
-
-msgid "Rejected"
-msgstr "Odmítnuto"
-
-msgid "Resolved"
-msgstr "Vyřešeno"
-
-msgid "Unconfirmed"
-msgstr "Neodsouhlaseno"
-
-# issue transitions
-
-msgid "Begin work"
-msgstr "Začít práci"
-
-msgid "Confirm resolved"
-msgstr "Potvrdit vyřešení"
 
 msgid "Put on hold"
 msgstr "Odložit"
@@ -92,26 +89,25 @@ msgstr "Odložit"
 msgid "Re-open"
 msgstr "Znovu přijmout"
 
-msgid "Post issue on save"
-msgstr "Zadat po uložení"
-
-msgid "Postpone"
-msgstr "Odložit"
-
 msgid "Reject"
 msgstr "Odmítnout"
+
+msgid "Rejected"
+msgstr "Odmítnuto"
 
 msgid "Resolve"
 msgstr "Vyřešit"
 
-# response states
+msgid "Resolved"
+msgstr "Vyřešeno"
 
-msgid "Being created"
-msgstr "Právě vytvářeno"
+msgid "Response"
+msgstr "Reakce"
 
-msgid "Posted"
-msgstr "Vytvořeno"
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "Otestováno, potvrzeno a uzavřeno"
 
-# response transitions
-msgid "Post response on save"
-msgstr "Vytvořit po uložení"
+msgid "Unconfirmed"
+msgstr "Neodsouhlaseno"
+

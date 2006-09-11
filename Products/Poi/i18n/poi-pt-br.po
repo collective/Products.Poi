@@ -658,28 +658,3 @@ msgstr "Texto da ocorrência"
 msgid "poi_up_to_issue"
 msgstr "Ver toda a ocorrência"
 
-#- Added msgids by merging file poi-manual.pot:
-#  Poi_label_tracker_title Poi_help_tracker_title Poi_label_description
-# Poi_label_availableAreas Poi_help_availableAreas
-# Poi_label_availableIssueTypes Poi_help_availableIssueTypes
-# Poi_label_availableSeverities Poi_help_availableSeverities
-# Poi_label_defaultSeverity Poi_help_defaultSeverity
-# Poi_label_availableReleases Poi_help_availableReleases
-# Poi_label_managers Poi_help_managers Poi_label_sendNotificationEmails
-# Poi_help_sendNotificationEmails Poi_label_mailingList
-# Poi_help_mailingList Poi_label_id Poi_help_id Poi_label_issue_title
-# Poi_help_issue_title Poi_help_description Poi_label_release
-# Poi_help_release Poi_label_area Poi_help_area Poi_label_issueType
-# Poi_help_issueType Poi_label_severity Poi_help_severity
-# Poi_label_details Poi_help_details Poi_label_steps Poi_help_steps
-# Poi_label_attachment Poi_help_attachment Poi_label_contactEmail
-# Poi_help_contactEmail Poi_label_watchers Poi_help_watchers
-# Poi_label_subject Poi_help_subject Poi_label_responsibleManager
-# Poi_help_responsibleManager Poi_label_response_title
-# Poi_help_response_title Poi_label_response Poi_help_response
-# Poi_label_issueTransition Poi_help_issueTransition
-#- Added msgids by merging file poi-manual.pot:
-#
-msgid ""
-msgstr ""
-

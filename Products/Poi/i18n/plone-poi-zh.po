@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2005-10-27 03:02+0000\n"
+"POT-Creation-Date: 2005-10-26 17:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,81 +17,72 @@ msgstr ""
 "Domain: plone\n"
 "X-Is-Fallback-For: zh-cn zh-hk zh-mo zh-sg\n"
 
-# portal type nams
-
-msgid "Issue Tracker"
-msgstr "问题跟踪器"
-
-msgid "An issue tracker"
-msgstr "一个问题跟踪器"
-
-msgid "Issue"
-msgstr "问题（提案）"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "一个问题（或者提案）。问题起始于“未确认”状态，能够被管理人员答复。"
-
-msgid "Response"
-msgstr "答复"
+# issue transitions
+msgid " Open"
+msgstr ""
 
 msgid "A response to an issue."
 msgstr "问题的一个答复."
 
-# tracker states
+msgid "An issue tracker"
+msgstr "一个问题跟踪器"
 
-msgid "Open for submissions"
-msgstr "允许提交"
+msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
+msgstr "一个问题（或者提案）。问题起始于“未确认”状态，能够被管理人员答复。"
+
+# issue transitions
+msgid "Begin work"
+msgstr "开始工作"
+
+# response states
+msgid "Being created"
+msgstr "正在创建"
+
+# tracker transitions
+msgid "Close tracker"
+msgstr "关闭跟踪器"
 
 msgid "Closed for submissions"
 msgstr "关闭提交"
 
-msgid "Open to members for submissions"
-msgstr "允许成员提交"
-
-# tracker transitions
-
-msgid "Close tracker"
-msgstr "关闭跟踪器"
-
-msgid "Open tracker"
-msgstr "打开跟踪器"
-
-msgid "Open tracker for members"
-msgstr "仅为成员打开跟踪器"
-
-# issue states
-
-msgid "Tested and confirmed closed"
-msgstr "验证且确认关闭"
+msgid "Confirm resolved"
+msgstr "确认解决"
 
 msgid "In progress"
 msgstr "工作中"
 
-msgid "Being created"
-msgstr "正在创建"
+msgid "Issue"
+msgstr "问题（提案）"
+
+# portal type nams
+msgid "Issue Tracker"
+msgstr "问题跟踪器"
 
 msgid "Open"
 msgstr "开启"
 
+# tracker states
+msgid "Open for submissions"
+msgstr "允许提交"
+
+msgid "Open tracker"
+msgstr "打开跟踪器"
+
+msgid "Post issue on save"
+msgstr "保存的时候发布问题"
+
+# response transitions
+msgid "Post response on save"
+msgstr "保存的时候张贴"
+
+msgid "Posted"
+msgstr "已张贴"
+
+msgid "Postpone"
+msgstr "推延"
+
 msgid "Postponed"
 msgstr "已推延"
-
-msgid "Rejected"
-msgstr "已拒绝"
-
-msgid "Resolved"
-msgstr "已解决"
-
-msgid "Unconfirmed"
-msgstr "未确认"
-
-# issue transitions
-
-msgid "Begin work"
-msgstr "开始工作"
-
-msgid "Confirm resolved"
-msgstr "确认解决"
 
 msgid "Put on hold"
 msgstr "推延"
@@ -99,26 +90,25 @@ msgstr "推延"
 msgid "Re-open"
 msgstr "再次开启"
 
-msgid "Post issue on save"
-msgstr "保存的时候发布问题"
-
-msgid "Postpone"
-msgstr "推延"
-
 msgid "Reject"
 msgstr "拒绝"
+
+msgid "Rejected"
+msgstr "已拒绝"
 
 msgid "Resolve"
 msgstr "解决"
 
-# response states
+msgid "Resolved"
+msgstr "已解决"
 
-msgid "Being created"
-msgstr "正在创建"
+msgid "Response"
+msgstr "答复"
 
-msgid "Posted"
-msgstr "已张贴"
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "验证且确认关闭"
 
-# response transitions
-msgid "Post response on save"
-msgstr "保存的时候张贴"
+msgid "Unconfirmed"
+msgstr "未确认"
+

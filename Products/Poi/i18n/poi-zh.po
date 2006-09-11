@@ -343,9 +343,6 @@ msgstr "领域"
 msgid "listingheader_created"
 msgstr "创建于"
 
-msgid "listingheader_author"
-msgstr "提交人"
-
 #. Default: "Release"
 #: ./skins/Poi/poi_issue_search.pt
 msgid "listingheader_release"
@@ -660,76 +657,4 @@ msgstr "问题正文"
 #: ./skins/Poi/poi_response_view.pt
 msgid "poi_up_to_issue"
 msgstr "完整查看问题"
-
-msgid "poi_notify_new_issue"
-msgstr "一个新的问题已经提交到了问题跟踪器：“${tracker_title}”，等待确认."
-
-msgid "heading_issue_details"
-msgstr "问题详细信息"
-
-msgid "label_tracker"
-msgstr "跟踪器"
-
-msgid "label_issue"
-msgstr "问题"
-
-msgid "label_issue_overview"
-msgstr "问题简介"
-
-msgid "mail_no_reply"
-msgstr "* 这是一个自动生成的邮件，可能不支持回复。 - ${fromName}"
-
-msgid "poi_notify_issue_resolved"
-msgstr "在跟踪器“${tracker_title}”中，下面的这个问题已经标记为解决了。请访问这个问题，使用“状态”下拉菜单来确认：已经真正解决了，或者需要重新开放。"
-
-msgid "poi_notify_new_response"
-msgstr "一个新的答复已经提交给了跟踪器“${tracker_title}”中的问题：“${issue_title}”"
-
-msgid "issue_state_change"
-msgstr "状态变化：${change}"
-
-msgid "label_issue_author"
-msgstr "问题提交人"
-
-msgid "label_resolver"
-msgstr "问题解决人"
-
-msgid "label_response_author"
-msgstr "问题答复人"
-
-msgid "poi_all_pending_issues"
-msgstr "全部待决问题"
-
-msgid "poi_search_label_id"
-msgstr "问题编号"
-
-#. Default: "Change issue severity"
-# ./content/PoiResponse.py
-msgid "Poi_label_newSeverity"
-msgstr "更改问题的重要程度"
-
-#. Default: "Select the severity for this issue"
-# ./content/PoiResponse.py
-msgid "Poi_help_newSeverity"
-msgstr "选择这个问题的重要程度"
-
-#. Default: "Change target release"
-# ./content/PoiResponse.py
-msgid "Poi_label_newTargetRelease"
-msgstr "更改目标版本"
-
-#. Default: "Set the target release for this issue"
-# ./content/PoiResponse.py
-msgid "Poi_help_newTargetRelease"
-msgstr "设置解决这个问题的目标版本"
-
-#. Default: "Change responsible manager"
-# ./content/PoiResponse.py
-msgid "Poi_label_newResponsibleManager"
-msgstr "更换负责人"
-
-#. Default: "Select the responsible manager for this issue"
-# ./content/PoiResponse.py
-msgid "Poi_help_newResponsibleManager"
-msgstr "选择处理这个问题的负责人"
 

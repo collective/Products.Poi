@@ -474,8 +474,8 @@ msgstr "Oblast"
 
 #. Default: "Attached:"
 #: ./skins/Poi/poi_issue_view.pt
-msgid "Přiloženo:"
-msgstr "附件："
+msgid "poi_label_attachment"
+msgstr ""
 
 #. Default: "Release:"
 #: ./skins/Poi/poi_issue_view.pt
@@ -657,29 +657,3 @@ msgstr "Text úlohy"
 msgid "poi_up_to_issue"
 msgstr "Vidět celou úlohu"
 
-msgid "poi_notify_new_issue"
-msgstr "Nová úloha byla zadána do ${tracker_title} manažeru úloh a čeká na potvrzení."
-
-msgid "heading_issue_details"
-msgstr "Podrobnosti úlohy"
-
-msgid "label_tracker"
-msgstr "Manažer úloh"
-
-msgid "label_issue"
-msgstr "Úloha"
-
-msgid "label_issue_overview"
-msgstr "Souhrn úlohy"
-
-msgid "mail_no_reply"
-msgstr "* Toto je emailové upozornění, prosíme neodpovídejte - ${fromName}"
-
-msgid "poi_notify_issue_resolved"
-msgstr "Následující úloha v ${tracker_title} manažeru úloh byla označena jako vyřešená. Prosíme shlédněte úlohu a použijte nabídku změny stavu buď pro potvrzení že úloha byla uspokojivě vyřešena nebo pro její znovu otevření."
-
-msgid "poi_notify_new_response"
-msgstr "Nová reakce byla přidána k úloze ${issue_title} v manažeru úloha ${tracker_title}"
-
-msgid "issue_state_change"
-msgstr "Změna Stavu: ${change}"

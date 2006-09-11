@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2005-10-26 17:00+0000\n"
 "PO-Revision-Date: 2005-11-22 23:12+0100\n"
-"Last-Translator:Sebastien Douche <sdouche@gmail.com>\n"
+"Last-Translator: Sebastien Douche <sdouche@gmail.com>\n"
 "Language-Team: French Translation Team <plone-i18n@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,78 +17,72 @@ msgstr ""
 "Domain: plone\n"
 "X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
 
-# portal type nams
-msgid "Issue Tracker"
-msgstr "Gestionnaire de tickets"
-
-msgid "An issue tracker"
-msgstr "Un gestionnaire de tickets"
-
-msgid "Issue"
-msgstr "Ticket"
-
-#, fuzzy
-msgid ""
-"An issue. Issues begin in the 'unconfirmed' state, and can be responded to "
-"by project managers."
-msgstr ""
-"Un ticket. Les tickets  commence avec l'état 'ouvert', et peuvent être gérés "
-"par les chefs de projets."
-
-msgid "Response"
-msgstr "Réponse"
+# issue transitions
+msgid " Open"
+msgstr "Ouvert"
 
 msgid "A response to an issue."
 msgstr "Une réponse à un ticket."
 
-# tracker states
-msgid "Open for submissions"
-msgstr "Ouvert pour des demandes"
+msgid "An issue tracker"
+msgstr "Un gestionnaire de tickets"
 
-msgid "Closed for submissions"
-msgstr "Fermé pour des demandes"
+#, fuzzy
+msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
+msgstr "Un ticket. Les tickets  commence avec l'état 'ouvert', et peuvent être gérés par les chefs de projets."
+
+msgid "Begin work"
+msgstr "Démarrer le traitement"
+
+msgid "Being created"
+msgstr "En cours de création"
 
 # tracker transitions
 msgid "Close tracker"
 msgstr "Fermer le gestionnaire"
 
-msgid "Open tracker"
-msgstr "Ouvrir le gestionnaire"
+msgid "Closed for submissions"
+msgstr "Fermé pour des demandes"
 
-# issue states
-msgid "Tested and confirmed closed"
-msgstr "Testé et validé par les utilisateurs"
+msgid "Confirm resolved"
+msgstr "Confirmer la résolution"
 
 msgid "In progress"
 msgstr "En cours de résolution"
 
-msgid "Being created"
-msgstr "En cours de création"
+msgid "Issue"
+msgstr "Ticket"
+
+# portal type nams
+msgid "Issue Tracker"
+msgstr "Gestionnaire de tickets"
 
 msgid "Open"
 msgstr "Ouvert"
 
+# tracker states
+msgid "Open for submissions"
+msgstr "Ouvert pour des demandes"
+
+msgid "Open tracker"
+msgstr "Ouvrir le gestionnaire"
+
+msgid "Post issue on save"
+msgstr ""
+
+# response transitions
+msgid "Post response on save"
+msgstr ""
+
+# response states
+msgid "Posted"
+msgstr "Posté"
+
+msgid "Postpone"
+msgstr "Reporter"
+
 msgid "Postponed"
 msgstr "Reporté"
-
-msgid "Rejected"
-msgstr "Rejeté"
-
-msgid "Resolved"
-msgstr "Résolu"
-
-msgid "Unconfirmed"
-msgstr "Non confirmé"
-
-# issue transitions
-msgid " Open"
-msgstr "Ouvert"
-
-msgid "Begin work"
-msgstr "Démarrer le traitement"
-
-msgid "Confirm resolved"
-msgstr "Confirmer la résolution"
 
 msgid "Put on hold"
 msgstr "Suspendre"
@@ -96,22 +90,25 @@ msgstr "Suspendre"
 msgid "Re-open"
 msgstr "Réouvrir"
 
-msgid "Post issue on save"
-msgstr ""
-
-msgid "Postpone"
-msgstr "Reporter"
-
 msgid "Reject"
 msgstr "Rejeter"
+
+msgid "Rejected"
+msgstr "Rejeté"
 
 msgid "Resolve"
 msgstr "Résoudre"
 
-# response states
-msgid "Posted"
-msgstr "Posté"
+msgid "Resolved"
+msgstr "Résolu"
 
-# response transitions
-msgid "Post response on save"
-msgstr ""
+msgid "Response"
+msgstr "Réponse"
+
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "Testé et validé par les utilisateurs"
+
+msgid "Unconfirmed"
+msgstr "Non confirmé"
+
