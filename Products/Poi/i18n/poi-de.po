@@ -455,12 +455,12 @@ msgstr "Wählen einen Bereich, eine Ausgabe/ Version oder einen Status um alle (
 #. Default: "The following issues have not yet been confirmed or assigned. Please review them and take the appropriate action."
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_help_unconfirmed_issues"
-msgstr ""
+msgstr "Folgende Problenmstellungen sind noch nicht bestätigt oder zugewiesen. Bitte um Durchsicht und Antwort!"
 
 #. Default: "Search for issues"
 #: ./skins/Poi/poi_tracker_view.pt
 msgid "poi_issue_search"
-msgstr "suche nach Problemstellungen"
+msgstr "Suche nach Problemstellungen"
 
 #. Default: "This form allows you to search for issue according to a variety of criteria. Please make your selection below and click Search."
 #: ./skins/Poi/poi_issue_search_form.pt
