@@ -70,7 +70,8 @@ class TestPscTracker(ptc.PoiTestCase):
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()
-    suite.addTest(makeSuite(TestPscTracker))
+    if ZopeTestCase.hasProduct('PloneSoftwareCenter'):
+        suite.addTest(makeSuite(TestPscTracker))
     return suite
 
 if __name__ == '__main__':
