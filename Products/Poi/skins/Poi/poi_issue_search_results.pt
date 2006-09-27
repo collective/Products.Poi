@@ -54,7 +54,7 @@
                    <td tal:content="item/getSeverity" />
                    <td>
                        <span tal:condition="python:item.getResponsibleManager != '(UNASSIGNED)'"
-                             tal:replace="item/getResponsibleManager" />
+                             tal:replace="python: context.poi_niceName(item.getResponsibleManager)" />
                        <div tal:condition="python:item.getResponsibleManager == '(UNASSIGNED)'"
                             style="text-align:center">&mdash;</div>
                    </td>
