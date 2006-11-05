@@ -3,7 +3,7 @@
 # File: Install.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.5.0 svn/devel
+# Generator: ArchGenXML Version 1.5.1-svn
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -45,7 +45,7 @@ from Products.Archetypes.atapi import listTypes
 from Products.Poi.config import PROJECTNAME
 from Products.Poi.config import product_globals as GLOBALS
 
-def install(self):
+def install(self, reinstall=False):
     """ External Method to install Poi """
     out = StringIO()
     print >> out, "Installation log of %s:" % PROJECTNAME
@@ -89,6 +89,7 @@ def install(self):
 
     #bind classes to workflows
     wft = getToolByName(self,'portal_workflow')
+
 
     # enable portal_factory for given types
     factory_tool = getToolByName(self,'portal_factory')
@@ -141,7 +142,10 @@ def install(self):
 
     if install:
         print >>out,'Custom Install:'
-        res = install(self)
+        try:
+            res = install(self, reinstall)
+        except TypeError:
+            res = install(self)
         if res:
             print >>out,res
         else:
@@ -150,8 +154,9 @@ def install(self):
         print >>out,'no custom install'
     return out.getvalue()
 
-def uninstall(self):
+def uninstall(self, reinstall=False):
     out = StringIO()
+
 
     # try to call a workflow uninstall method
     # in 'InstallWorkflows.py' method 'uninstallWorkflows'
@@ -179,7 +184,10 @@ def uninstall(self):
 
     if uninstall:
         print >>out,'Custom Uninstall:'
-        res = uninstall(self)
+        try:
+            res = uninstall(self, reinstall)
+        except TypeError:
+            res = uninstall(self)
         if res:
             print >>out,res
         else:

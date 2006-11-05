@@ -3,7 +3,7 @@
 # File: Poi.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.5.0 svn/devel
+# Generator: ArchGenXML Version 1.5.1-svn
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -51,7 +51,7 @@ from Globals import package_home
 from Products.CMFCore import utils as cmfutils
 from Products.CMFCore import CMFCorePermissions
 from Products.CMFCore import DirectoryView
-from Products.CMFPlone.PloneUtilities import ToolInit
+from Products.CMFPlone.utils import ToolInit
 from Products.Archetypes.atapi import *
 from Products.Archetypes import listTypes
 from Products.Archetypes.utils import capitalize

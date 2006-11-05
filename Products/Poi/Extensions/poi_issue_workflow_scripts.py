@@ -3,7 +3,7 @@
 # File: Poi.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.5.0 svn/devel
+# Generator: ArchGenXML Version 1.5.1-svn
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -48,7 +48,7 @@ def sendResolvedMail(self,state_change,**kw):
     """
     issue = state_change.object
     tracker = issue.aq_parent
-    
+
     if not tracker.getSendNotificationEmails():
         return
 
@@ -67,10 +67,10 @@ def sendResolvedMail(self,state_change,**kw):
     portal_url = getToolByName(self, 'portal_url')
     portal = portal_url.getPortalObject()
     fromName = portal.getProperty('email_from_name', None)
-    mailText = issue.poi_email_issue_resolved(issue, 
-                                              tracker = tracker, 
-                                              issue = issue, 
-                                              fromName = fromName, 
+    mailText = issue.poi_email_issue_resolved(issue,
+                                              tracker = tracker,
+                                              issue = issue,
+                                              fromName = fromName,
                                               stateChanger = stateChanger)
     subject = "[%s] Resolved #%s - %s" % (tracker.getExternalTitle(), issue.getId(), issue.Title(),)
 

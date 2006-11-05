@@ -3,7 +3,7 @@
 # File: Poi.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.5.0 svn/devel
+# Generator: ArchGenXML Version 1.5.1-svn
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -41,24 +41,33 @@ def installWorkflows(self, package, out):
     workflowTool = getToolByName(self, 'portal_workflow')
 
     ourProductWorkflow = ExternalMethod('temp', 'temp',
-                         productname+'.'+'poi_tracker_workflow',
-                         'createpoi_tracker_workflow')
+                                        productname+'.'+'poi_tracker_workflow',
+                                        'createpoi_tracker_workflow')
     workflow = ourProductWorkflow(self, 'poi_tracker_workflow')
-    workflowTool._setObject('poi_tracker_workflow', workflow)
+    if 'poi_tracker_workflow' in workflowTool.listWorkflows():
+        print >> out, 'poi_tracker_workflow already in workflows.'
+    else:
+        workflowTool._setObject('poi_tracker_workflow', workflow)
     workflowTool.setChainForPortalTypes(['PoiTracker', 'PoiPscTracker'], workflow.getId())
 
     ourProductWorkflow = ExternalMethod('temp', 'temp',
-                         productname+'.'+'poi_issue_workflow',
-                         'createpoi_issue_workflow')
+                                        productname+'.'+'poi_issue_workflow',
+                                        'createpoi_issue_workflow')
     workflow = ourProductWorkflow(self, 'poi_issue_workflow')
-    workflowTool._setObject('poi_issue_workflow', workflow)
+    if 'poi_issue_workflow' in workflowTool.listWorkflows():
+        print >> out, 'poi_issue_workflow already in workflows.'
+    else:
+        workflowTool._setObject('poi_issue_workflow', workflow)
     workflowTool.setChainForPortalTypes(['PoiIssue'], workflow.getId())
 
     ourProductWorkflow = ExternalMethod('temp', 'temp',
-                         productname+'.'+'poi_response_workflow',
-                         'createpoi_response_workflow')
+                                        productname+'.'+'poi_response_workflow',
+                                        'createpoi_response_workflow')
     workflow = ourProductWorkflow(self, 'poi_response_workflow')
-    workflowTool._setObject('poi_response_workflow', workflow)
+    if 'poi_response_workflow' in workflowTool.listWorkflows():
+        print >> out, 'poi_response_workflow already in workflows.'
+    else:
+        workflowTool._setObject('poi_response_workflow', workflow)
     workflowTool.setChainForPortalTypes(['PoiResponse'], workflow.getId())
 
     ##code-section after-workflow-install #fill in your manual code here

@@ -3,7 +3,7 @@
 # File: Poi.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.5.0 svn/devel
+# Generator: ArchGenXML Version 1.5.1-svn
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -248,7 +248,7 @@ def setuppoi_issue_workflow(self, workflow):
                                 actbox_name="""Reject""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
-                                props={},
+                                props={'guard_permissions': 'Poi: Modify issue state'},
                                 )
 
     ## Creation of workflow scripts
@@ -292,7 +292,7 @@ def setuppoi_issue_workflow(self, workflow):
                                 actbox_name="""Put on hold""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
-                                props={},
+                                props={'guard_permissions': 'Poi: Modify issue state'},
                                 )
 
     transitionDef = workflow.transitions['open-closed']

@@ -3,7 +3,7 @@
 # File: PoiIssue.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.5.0 svn/devel
+# Generator: ArchGenXML Version 1.5.1-svn
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -272,11 +272,11 @@ PoiIssue_schema = BaseFolderSchema.copy() + \
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
 
-class PoiIssue(BrowserDefaultMixin, BaseFolder):
+class PoiIssue(BaseFolder, BrowserDefaultMixin):
     """The default tracker
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseFolder,'__implements__',()),) + (Issue,) + (INonStructuralFolder,)
+    __implements__ = (getattr(BaseFolder,'__implements__',()),) + (getattr(BrowserDefaultMixin,'__implements__',()),) + (Issue,) + (INonStructuralFolder,)
 
     # This name appears in the 'add' box
     archetype_name = 'Issue'
@@ -332,7 +332,7 @@ class PoiIssue(BrowserDefaultMixin, BaseFolder):
     def getCurrentIssueState(self):
         """
         Get the current state of the issue.
-        
+
         Used by PoiResponse to select a default for the new issue
         state selector.
         """
@@ -408,7 +408,7 @@ class PoiIssue(BrowserDefaultMixin, BaseFolder):
         # portal_factory!
         transaction.savepoint(optimistic=True)
         self.setId(newId)
-    
+
     def Description(self):
         """If a description is set manually, return that. Else returns the first
         200 characters (defined in config.py) of the 'details' field.
@@ -532,9 +532,9 @@ class PoiIssue(BrowserDefaultMixin, BaseFolder):
         portal_membership = getToolByName(self, 'portal_membership')
         portal = portal_url.getPortalObject()
         fromName = portal.getProperty('email_from_name', None)
-        
+
         tracker = self.aq_parent
-        
+
         issueCreator = self.Creator()
         issueCreatorInfo = portal_membership.getMemberInfo(issueCreator);
         issueAuthor = issueCreator
@@ -546,16 +546,16 @@ class PoiIssue(BrowserDefaultMixin, BaseFolder):
         issueDetails = '\n\n'.join([wrapper.fill(p) for p in paras])
 
         addresses = tracker.getNotificationEmailAddresses()
-        mailText = self.poi_email_new_issue(self, 
-                                            tracker = tracker, 
-                                            issue = self, 
-                                            issueAuthor = issueAuthor, 
+        mailText = self.poi_email_new_issue(self,
+                                            tracker = tracker,
+                                            issue = self,
+                                            issueAuthor = issueAuthor,
                                             fromName = fromName,
                                             issueDetails = issueDetails)
         subject = "[%s] New issue: #%s - %s" % (tracker.getExternalTitle(), self.getId(), self.Title(),)
-        
+
         tracker.sendNotificationEmail(addresses, subject, mailText)
-        
+
 
 def modify_fti(fti):
     # Hide unnecessary tabs (usability enhancement)

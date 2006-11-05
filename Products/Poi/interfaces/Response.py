@@ -3,7 +3,7 @@
 # File: Response.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.5.0 svn/devel
+# Generator: ArchGenXML Version 1.5.1-svn
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -41,42 +41,32 @@ class Response(Base):
         Set a new review state for the parent issue, by executing
         the given transition.
         """
-        
-        pass
 
     def setNewSeverity(severity):
         """
         Set a new issue severity for the parent issue
         """
-        
-        pass
 
     def setNewTargetRelease(release):
         """
         Set a new target release for the parent issue
         """
-        
-        pass
 
     def setNewResponsibleManager(manager):
         """
         Set a new responsible manager for the parent issue
         """
-        
-        pass
 
     def getIssueChanges():
         """
         Get a list of changes this response has made to the issue.
         Contains dicts with keys:
-        
+
             id: The name of the field that was changed
             name: A human readable name
             before: The state of the field before
             after: The new state of the field
         """
-        
-        pass
 
 
 # end of class Response

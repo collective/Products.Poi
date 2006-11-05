@@ -3,7 +3,7 @@
 # File: PoiResponse.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.5.0 svn/devel
+# Generator: ArchGenXML Version 1.5.1-svn
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -191,13 +191,13 @@ PoiResponse_schema = BaseSchema.copy() + \
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
 
-class PoiResponse(BrowserDefaultMixin, BaseContent):
+class PoiResponse(BaseContent, BrowserDefaultMixin):
     """A response to an issue, added by a project manager. When giving
     a response, the workflow state of the parent issue can be set at
     the same time.
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseContent,'__implements__',()),) + (Response,)
+    __implements__ = (getattr(BaseContent,'__implements__',()),) + (getattr(BrowserDefaultMixin,'__implements__',()),) + (Response,)
 
     # This name appears in the 'add' box
     archetype_name = 'Response'
@@ -256,14 +256,14 @@ class PoiResponse(BrowserDefaultMixin, BaseContent):
         """
         # XXX: Why are we being called twice if enforceVocabulary=1 (hence)
         #  vocab becomes invalid after first time...
-        
+
         if transition and transition in self.getAvailableIssueTransitions():
             wftool = getToolByName(self, 'portal_workflow')
             stateBefore = wftool.getInfoFor(self.aq_parent, 'review_state')
             wftool.doActionFor(self.aq_parent, transition)
             stateAfter = wftool.getInfoFor(self.aq_parent, 'review_state')
             self._addIssueChange('review_state', 'Issue state', stateBefore, stateAfter)
-            
+
         self.getField('issueTransition').set(self, transition)
 
     security.declareProtected(permissions.ModifyIssueSeverity, 'setNewSeverity')
@@ -313,7 +313,7 @@ class PoiResponse(BrowserDefaultMixin, BaseContent):
         """
         Get a list of changes this response has made to the issue.
         Contains dicts with keys:
-        
+
             id: A unique id for this change
             name: The field name that was changed
             before: The state of the field before
@@ -336,7 +336,7 @@ class PoiResponse(BrowserDefaultMixin, BaseContent):
         # Can't rename without a subtransaction commit when using
         # portal_factory!
         transaction.savepoint(optimistic=True)
-        self.setId(newId)        
+        self.setId(newId)
 
     def _addIssueChange(self, id, name, before, after):
         """Add a new issue change"""
@@ -352,13 +352,13 @@ class PoiResponse(BrowserDefaultMixin, BaseContent):
                 d['after'] = after
                 self._p_changed = 1
                 return
-                
+
         delta.append({'id' : id,
                       'name' : name,
                       'before' : before,
                       'after' : after})
         self._p_changed = 1
-                
+
     security.declareProtected(permissions.View, 'getCurrentIssueSeverity')
     def getCurrentIssueSeverity(self):
         return self.aq_inner.aq_parent.getSeverity()
@@ -374,7 +374,7 @@ class PoiResponse(BrowserDefaultMixin, BaseContent):
 
         if not self.getResponse() and not self.getIssueChanges():
             return False
-        
+
         return True
 
     def Title(self):
@@ -395,29 +395,29 @@ class PoiResponse(BrowserDefaultMixin, BaseContent):
         """Ensure that we have *something* in the response, be it an issue
         change or some text
         """
-        
+
         if errors or REQUEST.get('_poi_validated', False):
             return
-        
+
         # This is an annoying hack, but because this method gets called twice
-        # by the AT machinery, we can't test for changes below when we get 
+        # by the AT machinery, we can't test for changes below when we get
         # called the second time.
         REQUEST.set('_poi_validated', True)
-        
+
         text = REQUEST.get('response', None)
         if text:
             return
-        
+
         newSeverity = REQUEST.get('newSeverity', None)
         newTargetRelease = REQUEST.get('newTargetRelease', None)
         newResponsibleManager = REQUEST.get('newResponsibleManager', None)
         transition = REQUEST.get('issueTransition', None)
-        
+
         currentSeverity = self.getCurrentIssueSeverity()
         currentTargetRelease = self.getCurrentTargetRelease()
         currentResponsibleManager = self.getCurrentResponsibleManager()
         currentTransition = self.getIssueTransition()
-        
+
         if newSeverity and newSeverity != currentSeverity:
             return
         if newTargetRelease and newTargetRelease != currentTargetRelease:
@@ -426,7 +426,7 @@ class PoiResponse(BrowserDefaultMixin, BaseContent):
             return
         if transition and transition != currentTransition:
             return
-        
+
         # Nothing appears to be set, mark an error
         errors['response'] = 'Please provide a response'
 
@@ -434,12 +434,12 @@ class PoiResponse(BrowserDefaultMixin, BaseContent):
         """When this response is created, send a notification email to all
         tracker managers, unless emailing is turned off.
         """
-        
+
         portal_membership = getToolByName(self, 'portal_membership')
         portal_url = getToolByName(self, 'portal_url')
         portal = portal_url.getPortalObject()
         fromName = portal.getProperty('email_from_name', None)
-        
+
         issue = self.aq_parent
         tracker = issue.aq_parent
 
@@ -457,16 +457,16 @@ class PoiResponse(BrowserDefaultMixin, BaseContent):
             responseDetails = None
 
         addresses = tracker.getNotificationEmailAddresses(issue)
-        mailText = self.poi_email_new_response(self, 
-                                               tracker = tracker, 
-                                               issue = issue, 
-                                               response = self, 
+        mailText = self.poi_email_new_response(self,
+                                               tracker = tracker,
+                                               issue = issue,
+                                               response = self,
                                                responseAuthor = responseAuthor,
                                                responseDetails = responseDetails,
                                                fromName = fromName)
         subject = "[%s] Response to #%s - %s" % (tracker.getExternalTitle(), issue.getId(), issue.Title(),)
-        
-        tracker.sendNotificationEmail(addresses, subject, mailText)        
+
+        tracker.sendNotificationEmail(addresses, subject, mailText)
 
 
 def modify_fti(fti):

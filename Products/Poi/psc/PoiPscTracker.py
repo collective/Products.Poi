@@ -3,7 +3,7 @@
 # File: PoiPscTracker.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.5.0 svn/devel
+# Generator: ArchGenXML Version 1.5.1-svn
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -72,12 +72,12 @@ del PoiPscTracker_schema['title']
 
 ##/code-section after-schema
 
-class PoiPscTracker(PoiTracker, BaseFolder):
+class PoiPscTracker(BaseFolder, PoiTracker):
     """Version of the PoiTracker which supports the
     PloneSoftwareCenter. Intended to be added inside a PSCProject.
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(PoiTracker,'__implements__',()),) + (getattr(BaseFolder,'__implements__',()),) + (INonStructuralFolder,)
+    __implements__ = (getattr(BaseFolder,'__implements__',()),) + (getattr(PoiTracker,'__implements__',()),) + (INonStructuralFolder,)
 
     # This name appears in the 'add' box
     archetype_name = 'Issue Tracker'
@@ -140,7 +140,7 @@ class PoiPscTracker(PoiTracker, BaseFolder):
 
     def _renameAfterCreation(self, check_auto_id=False):
         parent = self.aq_inner.aq_parent
-        if PSC_TRACKER_ID not in parent.objectIds():            
+        if PSC_TRACKER_ID not in parent.objectIds():
             # Can't rename without a subtransaction commit when using
             # portal_factory!
             transaction.savepoint(optimistic=True)
@@ -177,7 +177,7 @@ class PoiPscTracker(PoiTracker, BaseFolder):
         The title of an issue tracker is always "Issue tracker"
         """
         return "Issue tracker"
-        
+
 
 def modify_fti(fti):
     # Hide unnecessary tabs (usability enhancement)

@@ -3,7 +3,7 @@
 # File: Issue.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.5.0 svn/devel
+# Generator: ArchGenXML Version 1.5.1-svn
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -41,15 +41,11 @@ class Issue(Base):
         Add or remove the current authenticated member from the list of
         watchers.
         """
-        
-        pass
 
     def isWatching():
         """
         Determine if the current user is watching this issue or not.
         """
-        
-        pass
 
     def getLastModificationUser():
         """
@@ -58,8 +54,6 @@ class Issue(Base):
         creating, editing or adding a response to it. May return None if
         the user is unknown.
         """
-        
-        pass
 
 
 # end of class Issue

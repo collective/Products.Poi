@@ -3,7 +3,7 @@
 # File: Tracker.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.5.0 svn/devel
+# Generator: ArchGenXML Version 1.5.1-svn
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -40,9 +40,9 @@ class Tracker(Base):
     def getFilteredIssues(criteria, **kwargs):
         """
         Get the contained issues according to the given criteria.
-        
+
         Valid keys are:
-        
+
         area -- An area or list of areas
         issueType -- An issue type or list of issue types
         severity -- A severity or list of severities
@@ -54,14 +54,10 @@ class Tracker(Base):
         sort_on -- Index to sort on
         """
 
-        pass
-
     def isUsingReleases():
         """
         Find out if this tracker is organising issues by release or not.
         """
-        
-        pass
 
     def getNotificationEmailAddresses():
         """
@@ -70,31 +66,23 @@ class Tracker(Base):
         to which notifications should be sent. May return an empty list
         if notification is turned off.
         """
-        
-        pass
 
     def sendNotificationEmail(addresses,subject,text):
         """
         Send a notification email
         """
-        
-        pass
 
     def getTagsInUse():
         """
         Get a list of the issue tags in use in this tracker.
         """
-        
-        pass
 
     def getExternalTitle():
         """
-        Get the external title of this tracker. 
-        
+        Get the external title of this tracker.
+
         This will be the name used in outgoing emails, for example.
         """
-        
-        pass
 
 
 # end of class Tracker

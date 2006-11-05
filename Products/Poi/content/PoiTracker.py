@@ -3,7 +3,7 @@
 # File: PoiTracker.py
 #
 # Copyright (c) 2006 by Copyright (c) 2004 Martin Aspeli
-# Generator: ArchGenXML Version 1.5.0 svn/devel
+# Generator: ArchGenXML Version 1.5.1-svn
 #            http://plone.org/products/archgenxml
 #
 # GNU General Public License (GPL)
@@ -216,11 +216,11 @@ PoiTracker_schema = BaseBTreeFolderSchema.copy() + \
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
 
-class PoiTracker(BrowserDefaultMixin, BaseBTreeFolder):
+class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
     """The default tracker
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BrowserDefaultMixin,'__implements__',()),) + (getattr(BaseBTreeFolder,'__implements__',()),) + (Tracker,) + (INonStructuralFolder,)
+    __implements__ = (getattr(BaseBTreeFolder,'__implements__',()),) + (getattr(BrowserDefaultMixin,'__implements__',()),) + (Tracker,) + (INonStructuralFolder,)
 
     # This name appears in the 'add' box
     archetype_name = 'Issue Tracker'
@@ -300,29 +300,29 @@ class PoiTracker(BrowserDefaultMixin, BaseBTreeFolder):
     def getNotificationEmailAddresses(self, issue=None):
         """
         Upon activity for the given issue, get the list of email
-        addresses to which notifications should be sent. May return an 
-        empty list if notification is turned off. If issue is given, the 
+        addresses to which notifications should be sent. May return an
+        empty list if notification is turned off. If issue is given, the
         issue poster and any watchers will also be included.
         """
 
         if not self.getSendNotificationEmails():
             return []
-        
+
         portal_membership = getToolByName(self, 'portal_membership')
-        
+
         member = portal_membership.getAuthenticatedMember()
         email = member.getProperty('email')
-        
+
         # make sure no duplicates are added
         addresses = sets.Set()
-        
+
         mailingList = self.getMailingList()
         if mailingList:
             addresses.add(mailingList)
         else:
-            addresses.union_update([self._getMemberEmail(x, portal_membership) 
+            addresses.union_update([self._getMemberEmail(x, portal_membership)
                                     for x in self.getManagers() or []])
-        
+
         if issue is not None:
             addresses.add(issue.getContactEmail())
             addresses.union_update([self._getMemberEmail(x, portal_membership)
@@ -332,16 +332,16 @@ class PoiTracker(BrowserDefaultMixin, BaseBTreeFolder):
         addresses.discard(email)
 
         return tuple(addresses)
-        
+
     security.declarePrivate('sendNotificationEmail')
     def sendNotificationEmail(self, addresses, subject, rstText):
         """
         Send a notification email to the list of addresses
         """
-        
+
         if not self.getSendNotificationEmails() or not addresses:
             return
-        
+
         portal_url  = getToolByName(self, 'portal_url')
         plone_utils = getToolByName(self, 'plone_utils')
 
@@ -349,21 +349,21 @@ class PoiTracker(BrowserDefaultMixin, BaseBTreeFolder):
         mailHost    = plone_utils.getMailHost()
         charset     = plone_utils.getSiteEncoding()
         fromAddress = portal.getProperty('email_from_address', None)
-        
+
         if fromAddress is None:
             log('Cannot send notification email: email sender address or name not set')
             return
-        
+
         email = MIMEMultipart('alternative')
         email.epilogue = ''
-            
+
         textPart = MIMEText(rstText, 'plain', charset)
         email.attach(textPart)
         htmlPart = MIMEText(renderHTML(rstText), 'html', charset)
         email.attach(htmlPart)
 
         message = str(email)
-        
+
         for address in addresses:
             try:
                 mailHost.send(message = message,
@@ -390,7 +390,7 @@ class PoiTracker(BrowserDefaultMixin, BaseBTreeFolder):
         keys = tags.keys()
         keys.sort(lambda x, y: cmp(x.lower(), y.lower()))
         return keys
-        
+
     security.declareProtected(permissions.View, 'getExternalTitle')
     def getExternalTitle(self):
         """
@@ -412,7 +412,7 @@ class PoiTracker(BrowserDefaultMixin, BaseBTreeFolder):
         query.
         """
         query = self.buildIssueSearchQuery(criteria, **kwargs)
-        return make_query(query)                
+        return make_query(query)
 
     security.declareProtected(permissions.ModifyPortalContent, 'setManagers')
     def setManagers(self, managers):
@@ -464,14 +464,14 @@ class PoiTracker(BrowserDefaultMixin, BaseBTreeFolder):
         for the given user (via the username parameter) or return None if none
         is present.
         """
-        
+
         if portal_membership is None:
             portal_membership = getToolByName(self, 'portal_membership')
-            
+
         member = portal_membership.getMemberById(username)
         if member is None:
             return None
-        
+
         try:
             email = member.getProperty('email')
         except Unauthorized:
