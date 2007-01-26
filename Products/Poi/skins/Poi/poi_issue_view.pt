@@ -100,14 +100,14 @@
             class="return-to-search"
             tal:condition="cameFromTracker"
             tal:attributes="href backURL"
-            i18n:translate="Poi_return_to_search">
+            i18n:translate="poi_return_to_search">
            Return to search results
          </a>
          <a href=""
             class="return-to-search"
             tal:condition="not:cameFromTracker"
             tal:define="parentURL python:here.navigationParent(here, template_id)"
-            i18n:translate="Poi_return_to_tracker"
+            i18n:translate="poi_return_to_tracker"
             tal:attributes="href parentURL">
            Return to tracker
          </a>

@@ -31,6 +31,16 @@ msgstr ""
 msgid "Poi_label_description"
 msgstr ""
 
+#. Default: "Help Text"
+# ./content/PoiTracker.py
+msgid "Poi_label_helpText"
+msgstr ""
+
+#. Default: "Enter any introductory help text you'd like to display on the tracker front page."
+# ./content/PoiTracker.py
+msgid "Poi_help_helpText"
+msgstr ""
+
 #. Default: "Areas"
 # ./content/PoiTracker.py
 msgid "Poi_label_availableAreas"
@@ -324,3 +334,39 @@ msgstr ""
 msgid "Poi_help_newResponsibleManager"
 msgstr ""
 
+#. Default: "All pending issues"
+# ./skins/Poi/poi_tracker_view.pt
+msgid "poi_all_pending_issues"
+msgstr ""
+
+#. Default: "Search"
+# ./skins/Poi/poi_tracker_view.pt
+msgid "Search"
+msgstr ""
+
+#. Default: "Confirmed"
+msgid "Confirmed"
+msgstr ""
+
+#. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
+# ./skins/Poi/poi_tracker_view.pt
+msgid "description_cannot_add_issues_before_opened"
+msgstr ""
+
+#. Default: "Issue number"
+# ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_id"
+msgstr ""
+
+#. Default: "If you wish to search for a particular issue, please enter its number."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_id"
+msgstr ""
+
+msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
+msgstr ""
+
+#. Default: "Last modified on"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_last_modified_on_by"
+msgstr ""

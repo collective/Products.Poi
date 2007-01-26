@@ -19,14 +19,21 @@
        <thead>
            <tr>
                <th i18n:translate="listingheader_number">#</th>
-               <th i18n:translate="listingheader_title">Title</th>
+               <th i18n:translate="listingheader_title"
+                   i18n:domain="Poi">Title</th>
                <th i18n:translate="listingheader_release"
+                   i18n:domain="Poi"
                    tal:condition="here/isUsingReleases">Target</th>
-               <th i18n:translate="listingheader_area">Area</th>
-               <th i18n:translate="listingheader_type">Type</th>
-               <th i18n:translate="listingheader_severity">Severity</th>
-               <th i18n:translate="listingheader_responsible">Responsible</th>
-               <th i18n:translate="listingheader_state">State</th>
+               <th i18n:translate="listingheader_area"
+                   i18n:domain="Poi">Area</th>
+               <th i18n:translate="listingheader_type"
+                   i18n:domain="Poi">Type</th>
+               <th i18n:translate="listingheader_severity"
+                   i18n:domain="Poi">Severity</th>
+               <th i18n:translate="listingheader_responsible"
+                   i18n:domain="Poi">Responsible</th>
+               <th i18n:translate="listingheader_state"
+                   i18n:domain="Poi">State</th>
            </tr>
        </thead>
        <tbody>
