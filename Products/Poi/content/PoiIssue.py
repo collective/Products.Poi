@@ -40,7 +40,7 @@ from Products.AddRemoveWidget.AddRemoveWidget import AddRemoveWidget
 
 ##code-section module-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
-from Products.Archetypes import transaction
+import transaction
 
 import textwrap
 wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')

@@ -38,7 +38,7 @@ from Products.Poi import permissions
 
 ##code-section module-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
-from Products.Archetypes import transaction
+import transaction
 ##/code-section module-header
 
 schema = Schema((

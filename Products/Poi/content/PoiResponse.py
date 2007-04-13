@@ -40,7 +40,7 @@ from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 from Products.CMFCore.utils import getToolByName
 from Acquisition import aq_base
 from Products.CMFPlone.utils import log_exc
-from Products.Archetypes import transaction
+import transaction
 
 import textwrap
 wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
