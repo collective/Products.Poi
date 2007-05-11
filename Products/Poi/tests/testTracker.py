@@ -279,6 +279,22 @@ class TestTrackerSearch(ptc.PoiTestCase):
         issues.sort()
         self.assertEqual(issues, ['1', '3'])
 
+    def testGetFilteredIssuesByTagsWithAndOperator(self):
+        self.createIssue(self.tracker, tags=('A', 'B',))
+        self.createIssue(self.tracker, tags=('B', 'C',))
+        self.createIssue(self.tracker, tags=('A', 'B', 'C',))
+        issues = [b.getId for b in
+                  self.tracker.getFilteredIssues(tags=('A', 'B'),
+                                                 tags__operator__='and')]
+        issues.sort()
+        self.assertEqual(issues, ['1', '3'])
+
+        issues = [b.getId for b in
+                  self.tracker.getFilteredIssues(tags=('B', 'C'),
+                                                 tags__operator__='and')]
+        issues.sort()
+        self.assertEqual(issues, ['2', '3'])
+
     def testGetFilteredIssesByIssueText(self):
         self.createIssue(self.tracker, details="foo")
         issues = [b.getId for b in self.tracker.getFilteredIssues(text='foo')]

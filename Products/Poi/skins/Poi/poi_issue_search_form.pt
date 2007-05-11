@@ -235,7 +235,13 @@
                             tal:attributes="value item"
                             tal:content="item" />
                 </select>
-                
+
+            </div>
+
+            <div>
+              <input type="checkbox" name="tags__operator__"
+                     id="and_tags" value="and" checked="checked" />
+              <label for="and_tags">Match all tags</label>
             </div>
 
             <div class="formControls">
