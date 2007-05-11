@@ -3,6 +3,8 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="Poi">
 
+  <metal:override fill-slot="column_two_slot" />
+
   <head>
     <metal:css fill-slot="css_slot">
       <style type="text/css" media="all"
