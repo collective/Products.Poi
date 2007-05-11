@@ -1,6 +1,5 @@
 <metal:block define-macro="issue_search_results">
       
-      
    <div tal:condition="rssQueryString | nothing" class="issue-search-rss" metal:define-slot="rss-button">
        <a href="" tal:attributes="href string:${here/absolute_url}/poi-issue-search-rss.xml?${rssQueryString}">
            <img i18n:attributes="title title_rss_feed; alt label_rss_feed;"
@@ -32,6 +31,8 @@
                    i18n:domain="Poi">Severity</th>
                <th i18n:translate="listingheader_responsible"
                    i18n:domain="Poi">Responsible</th>
+               <th i18n:translate="listingheader_tags"
+                   i18n:domain="Poi">Tags</th>
                <th i18n:translate="listingheader_state"
                    i18n:domain="Poi">State</th>
            </tr>
@@ -65,6 +66,7 @@
                        <div tal:condition="python:item.getResponsibleManager == '(UNASSIGNED)'"
                             style="text-align:center">&mdash;</div>
                    </td>
+                   <td tal:content="python:', '.join(item.Subject)" />
                    <td tal:attributes="class string:issue-${item/review_state}"
                        i18n:translate="" i18n:domain="plone"
                        tal:content="python:states.getValue(item.review_state)" />
