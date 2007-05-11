@@ -229,7 +229,7 @@
                 <select id="tags"
                         size="5"
                         multiple="multiple"
-                        name="tags:list"
+                        name="tags.query:record:list"
                         tal:define="tags here/getTagsInUse">
                     <option tal:repeat="item tags"
                             tal:attributes="value item"
@@ -239,7 +239,7 @@
             </div>
 
             <div>
-              <input type="checkbox" name="tags__operator__"
+              <input type="checkbox" name="tags.operator:record"
                      id="and_tags" value="and" checked="checked" />
               <label for="and_tags">Match all tags</label>
             </div>
