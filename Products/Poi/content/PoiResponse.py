@@ -468,7 +468,7 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
 
         tracker.sendNotificationEmail(addresses, subject, mailText)
 
-    def getResponse(self, **kwargs):
+    def getTaggedResponse(self, **kwargs):
         # perform link detection
         text = self.getField('response').get(self, **kwargs)
         return self.aq_parent.linkDetection(text)

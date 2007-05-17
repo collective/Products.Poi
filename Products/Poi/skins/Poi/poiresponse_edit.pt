@@ -10,6 +10,6 @@
        <span tal:replace="issue/Title" />
    </h2> 
 
-   <div class="issue-details" tal:content="structure issue/getDetails" />
+   <div class="issue-details" tal:content="structure issue/getTaggedDetails" />
    
 </div>

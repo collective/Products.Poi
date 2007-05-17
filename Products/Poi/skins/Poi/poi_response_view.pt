@@ -41,7 +41,7 @@
                                               'issue-details',
                                               'response-details')">          
           
-          <div tal:content="structure here/getResponse" />
+          <div tal:content="structure here/getTaggedResponse" />
       
       </div>
       

@@ -556,7 +556,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
 
         tracker.sendNotificationEmail(addresses, subject, mailText)
 
-    def getDetails(self, **kwargs):
+    def getTaggedDetails(self, **kwargs):
         # perform link detection
         text = self.getField('details').get(self, **kwargs)
         return self.aq_parent.linkDetection(text)
