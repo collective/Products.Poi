@@ -52,6 +52,7 @@ from email.MIMEBase import MIMEBase
 from email.Message import Message
 import sets
 from Products.Poi.htmlrender import renderHTML
+from re import *
 ##/code-section module-header
 
 schema = Schema((
@@ -202,6 +203,18 @@ schema = Schema((
         ),
         required=False,
         validators=('isEmail',)
+    ),
+    StringField(
+        name='svnUrl',
+        widget=StringWidget(
+            label="URL to SVN",
+            description="""Please enter the Url to the related SVN repository. e.g.: /plonesvnaccess.2007-04-12.0378369452/svn_view_log?curRevNo=%(rev)s""",
+            label_msgid='Poi_label_svnurl',
+            description_msgid='Poi_help_svnurl',
+            i18n_domain='Poi',
+	    size = '90',
+        ),
+        required=False,
     ),
 
 ),

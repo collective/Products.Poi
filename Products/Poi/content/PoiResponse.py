@@ -468,6 +468,10 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
 
         tracker.sendNotificationEmail(addresses, subject, mailText)
 
+    def getResponse(self, **kwargs):
+        # perform link detection
+        text = self.getField('response').get(self, **kwargs)
+        return self.aq_parent.linkDetection(text)
 
 def modify_fti(fti):
     # Hide unnecessary tabs (usability enhancement)
