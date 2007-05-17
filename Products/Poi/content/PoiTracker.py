@@ -269,6 +269,46 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
     ##/code-section class-header
 
     # Methods
+    security.declarePrivate('linkDetection')
+    def linkDetection(self, text):
+        """
+        Detects issues and svn revision tags and creates links.
+        """
+        catalog = getToolByName(self, 'portal_catalog')
+        ids = frozenset([issue.id for issue in catalog.searchResults(self.buildIssueSearchQuery(None))])
+
+        pos = 0
+        pattern = compile('#[0-9]+')
+        while True:
+           res = pattern.search(text, pos)
+           if res == None:
+              break;
+           pos = res.start() + 1
+           bug = res.string[pos: res.end()]
+    
+           if bug in ids:
+                link = '<a href="../' + bug + '">#' + bug + '</a>'
+                text = text[0: pos-1] + link + text[res.end():]
+                pos += len(link)
+    
+        svnUrl = self.getSvnUrl()
+        if len(svnUrl) == 0:
+            return text
+    
+        pos = 0
+        pattern = compile('r[0-9]+')
+        while True:
+           res = pattern.search(text, pos)
+           if res == None:
+              break;
+           pos = res.start() + 1
+           rev = res.string[pos: res.end()]
+    
+           link = '<a href="' + svnUrl %{'rev' : rev} + '">r'+rev+'</a>'
+           text = text[0: pos-1] + link + text[res.end():]
+           pos += len(link)
+        
+        return text
 
     security.declareProtected(permissions.View, 'getFilteredIssues')
     def getFilteredIssues(self, criteria=None, **kwargs):
