@@ -90,11 +90,11 @@ class TestIssue(ptc.PoiTestCase):
 
     def testTransformDetails(self):
         self.issue.setDetails('Make this a link http://test.com', mimetype='text/x-web-intelligent')
-        self.assertEqual(self.issue.getDetails(), 'Make this a link <a href="http://test.com">http://test.com</a>')
+        self.assertEqual(self.issue.getDetails(), 'Make this a link <a href="http://test.com" rel="nofollow">http://test.com</a>')
 
     def testTransformSteps(self):
         self.issue.setSteps('Make this a link http://test.com', mimetype='text/x-web-intelligent')
-        self.assertEqual(self.issue.getSteps(), 'Make this a link <a href="http://test.com">http://test.com</a>')
+        self.assertEqual(self.issue.getSteps(), 'Make this a link <a href="http://test.com" rel="nofollow">http://test.com</a>')
 
     def testExplicitDescription(self):
         self.issue.setDescription('A description')

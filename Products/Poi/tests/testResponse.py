@@ -93,7 +93,7 @@ class TestResponse(ptc.PoiTestCase):
 
     def testTransform(self):
         self.response.setResponse('Make this a link http://test.com', mimetype='text/x-web-intelligent')
-        self.assertEqual(self.response.getResponse(), 'Make this a link <a href="http://test.com">http://test.com</a>')
+        self.assertEqual(self.response.getResponse(), 'Make this a link <a href="http://test.com" rel="nofollow">http://test.com</a>')
 
 class TestKnownIssues(ptc.PoiTestCase):
     """Test bugs with responses"""

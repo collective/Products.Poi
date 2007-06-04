@@ -31,6 +31,14 @@ PRODUCTS = ['Poi']
 PloneTestCase.setupPloneSite(products=PRODUCTS)
 
 
+class MockMailHost(object):
+    """Make a mock mail host to avoid sending emails when testing.
+    """
+
+    def send(self, message, mto=None, mfrom=None, subject=None, encode=None):
+        pass
+
+
 class PoiTestCase(PloneTestCase.PloneTestCase):
 
     class Session(dict):
@@ -39,6 +47,8 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
 
     def _setup(self):
         PloneTestCase.PloneTestCase._setup(self)
+        # Replace normal mailhost with mock mailhost
+        self.portal.MailHost = MockMailHost()
         self.app.REQUEST['SESSION'] = self.Session()
 
     # Taken from CMFPlone/tests/testMemberDataTool
