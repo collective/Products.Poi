@@ -43,3 +43,7 @@ import Tracker
 ##code-section init-module-footer #fill in your manual code here
 ##/code-section init-module-footer
 
+from zope.interface import Interface
+
+class ITracker(Interface):
+    """Marker interface for Poi issue tracker."""

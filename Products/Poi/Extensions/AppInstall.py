@@ -8,6 +8,8 @@ from types import InstanceType
 from Products.Poi.config import RUN_MIGRATIONS
 from Products.Poi.Extensions.Migrations import migrate
 
+from Products.Poi.Extensions.utils import addAction, removeAction
+
 def addCatalogMetadata(self, out, catalog, column):
     """Add the given column to the catalog's metadata schema"""
     if column not in catalog.schema():
@@ -107,11 +109,19 @@ def install(self):
     if RUN_MIGRATIONS:
         print >> out, migrate(self)
 
+    # Add log action
+    ttool = getToolByName(self, 'portal_types')
+    removeAction(self, out, ttool, 'log', 'object')
+    addAction(self, out, ttool, 'log', 'Log', 'string:$object_url/log',
+              'nocall: object/@@log|nothing', 'View', 'object', 1)
+    
     return out.getvalue()
     
 def uninstall(self):
-    
     out = StringIO()
-    
+
+    # Remove log action
+    ttool = getToolByName(self, 'portal_types')
+    removeAction(self, out, ttool, 'log', 'object')
     
     return out.getvalue()

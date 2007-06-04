@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="Poi">
+
+  <head>
+    <metal:css fill-slot="css_slot">
+      <style type="text/css" media="all"
+        tal:content="string: @import url($portal_url/poi.css);"></style>
+    </metal:css>
+  </head>
+  
+  
+  <body>
+    <div metal:fill-slot="main">
+      <div metal:define-macro="body">
+	<h2 i18n:translate="poi_heading_log">Tracker log</h2>
+        
+	<p i18n:translate="poi_help_log">
+	  An overview of recent activity in the tracker.
+	</p>
+
+	<dl tal:define="entries view/getLogEntries">
+	  <tal:entries repeat="entry entries">
+	    <dt tal:condition="python: entry['type'] == 'PoiIssue'">
+	      New issue
+	      <a tal:attributes="href entry/url"
+		 tal:content="structure string:&raquo;${entry/title}&laquo;">
+		Issue name
+	      </a>
+	      added by <span tal:replace="entry/author" />
+	    </dt>
+	    <dt tal:condition="python: entry['type'] == 'PoiResponse'">
+	      <span tal:replace="entry/author" />
+	      added a new response to
+	      <a tal:attributes="href entry/url"
+		 tal:content="structure string:&raquo;${entry/parent}&laquo;">
+		Issue name
+	      </a>:
+	    </dt>
+	    <dd>
+	      <p tal:content="structure entry/text" />
+
+	      <p class="discreet">
+
+		<span tal:condition="python: entry['type'] == 'PoiResponse'"
+		      tal:repeat="delta entry/changes">
+                  <span i18n:translate="" tal:content="string:${delta/name}" />:
+                  <span class="issueChange"
+			i18n:translate="" tal:content="delta/before" />
+		  &rarr;
+		  <span class="issueChange"
+			      i18n:translate=""
+			      tal:content="delta/after" />.
+		</span>
+		
+		<span tal:define="delta entry/timedelta">
+		  
+		  <tal:less-than-an-hour condition="delta/minutes">
+		    Added <tal:hours replace="delta/minutes" /> minute(s) ago.
+		  </tal:less-than-an-hour>
+		  
+		  <tal:less-than-a-day condition="delta/hours">
+		    Added <tal:hours replace="delta/hours" /> hour(s) ago.
+		  </tal:less-than-a-day>
+
+		  <tal:more-than-a-day condition="delta/days">
+		    Added <tal:hours replace="delta/days" /> day(s) ago.
+		  </tal:more-than-a-day>
+		</span>
+	      </p>
+	    </dd>
+	  </tal:entries>
+	</dl>
+	
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<configure 
+   xmlns="http://namespaces.zope.org/five"
+   xmlns:browser="http://namespaces.zope.org/browser">
+
+  <browser:page
+     name="log"
+     for="Products.Poi.interfaces.ITracker"
+     permission="zope.Public"
+     class=".log.LogView"
+     template="log.pt"
+     />
+  
+  <implements class="Products.Poi.content.PoiTracker.PoiTracker"
+	      interface="Products.Poi.interfaces.ITracker" />
+			  
+</configure>
