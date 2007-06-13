@@ -72,7 +72,7 @@ del PoiPscTracker_schema['title']
 
 ##/code-section after-schema
 
-class PoiPscTracker(BaseFolder, PoiTracker):
+class PoiPscTracker(PoiTracker):
     """Version of the PoiTracker which supports the
     PloneSoftwareCenter. Intended to be added inside a PSCProject.
     """

@@ -1,5 +1,14 @@
-<configure xmlns="http://namespaces.zope.org/zope">
+<configure xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
 
   <include package=".browser" />
   
+
+  <browser:page
+      name="migrate-poi.html"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      permission="cmf.ManagePortal"
+      class=".migration.Migration"
+      />
+
 </configure>
