@@ -208,7 +208,7 @@ schema = Schema((
         name='svnUrl',
         widget=StringWidget(
             label="URL to SVN",
-            description="""Please enter the Url to the related SVN repository. e.g.: /plonesvnaccess.2007-04-12.0378369452/svn_view_log?curRevNo=%(rev)s""",
+            description="""Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective.""",
             label_msgid='Poi_label_svnurl',
             description_msgid='Poi_help_svnurl',
             i18n_domain='Poi',
