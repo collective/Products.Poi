@@ -1,0 +1,684 @@
+# pot file for Poi Issue Tracker product.
+# Junyong Pan <panjy@zopechina.com>, 2005.
+msgid ""
+msgstr ""
+"Project-Id-Version: Poi\n"
+"POT-Creation-Date: 2005-10-27 03:02+0000\n"
+"PO-Revision-Date: 2007-08-08 14:10 +1\n"
+"Last-Translator: Angel Carballo <angelcarballo@gmail.com>\n"
+"Language-Team: Angel Carballo <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: es\n"
+"Language-Name: Spanish\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: Poi\n"
+
+#. Default: "Add response"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "Add response"
+msgstr "Responder"
+
+#. Default: "Cancel"
+#: ./skins/Poi/poi_response_delete_confirm.cpt
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. Default: "Delete"
+#: ./skins/Poi/poi_response_delete_confirm.cpt
+#: ./skins/Poi/poi_issue_view.pt
+msgid "Delete"
+msgstr "Borrar"
+
+#. Default: "Edit"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "Edit"
+msgstr "Editar"
+
+# ./content/PoiIssue.py
+#. Default: "Select the area this issue is relevant to."
+msgid "Poi_help_area"
+msgstr "Indique el área al que afecta esta incidencia."
+
+# ./content/PoiIssue.py
+#. Default: "You may optionally upload a file attachment to your issue. Please do not upload unnecessarily large files."
+msgid "Poi_help_attachment"
+msgstr "Si lo desea puede agregar un archivo adjunto a esta incidencia. Por favor, no adjunte archivos muy grandes si no es necesario."
+
+# ./content/PoiTracker.py
+#. Default: "Enter the issue topics/areas for this tracker, one specification per line. The format is \"Short name | Title | Description\"."
+msgid "Poi_help_availableAreas"
+msgstr "Indique las categorías de incidencia para este gestor, una por línea. El formato es \"Nombre corto | Título | Descripción\"."
+
+# ./content/PoiTracker.py
+#. Default: "Enter the issue types for this tracker, one specification per line.  The format is \"Short name | Title | Description\"."
+msgid "Poi_help_availableIssueTypes"
+msgstr "Indique los tipos de incidencia para este gestor, uno por línea. El formato es \"Nombre corto | Título | Descripción\"."
+
+# ./content/PoiTracker.py
+#. Default: "Enter the releases which issues can be assigned to, one per line.  If no releases are entered, issues will not be organised by release."
+msgid "Poi_help_availableReleases"
+msgstr "Indique a que versiones a las que se pueden asignar incidencias, una por línea. Si no se indicar versiones, las incidencias no se organizarán por versión."
+
+# ./content/PoiTracker.py
+#. Default: "Enter the different type of issue severities that should be available, one per line."
+msgid "Poi_help_availableSeverities"
+msgstr "Indique los diferentes tipos de importancia, uno por línea."
+
+# ./content/PoiIssue.py
+#. Default: "Optionally, provide an email address where you can be contacted for further information or when a resolution is available."
+msgid "Poi_help_contactEmail"
+msgstr "Opcionalmente, indique un email al que contactar para obtener más información o cuando hay una solución disponible."
+
+# ./content/PoiTracker.py
+#. Default: "Select the default severity for new issues."
+msgid "Poi_help_defaultSeverity"
+msgstr "Seleccione el niver de importancia por defecto."
+
+# ./content/PoiIssue.py
+#. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
+msgid "Poi_help_description"
+msgstr "Escriba una breve descripción de la incidencia. Al igual que con el título, una descripción clara y concinsa permite al gestor del proyecto responder con más rápidez y eficiencia."
+
+# ./content/PoiIssue.py
+#. Default: "Please provide further details"
+msgid "Poi_help_details"
+msgstr "Por favor, aporte más detalles."
+
+# ./content/PoiIssue.py
+#. Default: ""
+msgid "Poi_help_id"
+msgstr ""
+
+# ./content/PoiIssue.py
+#. Default: "Select a change of state in the issue this response is for, if applicable"
+msgid "Poi_help_issueTransition"
+msgstr "Selecciones el cambio de estado de la incidencia al que se refiere esta respuesta, si procede."
+
+# ./content/PoiIssue.py
+#. Default: "Select the type of issue."
+msgid "Poi_help_issueType"
+msgstr "Selecciones el tipo de incidencia."
+
+# ./content/PoiIssue.py
+#. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
+msgid "Poi_help_issue_title"
+msgstr "Escriba un título corto y descriptivo de la incidencia. Un buen título hace más fácil para los gestores identificar y responder a las incidencias."
+
+# ./content/PoiTracker.py
+#. Default: "If given, and if "Send notification emails" is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails."
+msgid "Poi_help_mailingList"
+msgstr "Si se indica, y se selecciona \"Enviar notificaciones\", se enviará un mensaje a esta dirección cada vez que se publique una nueva incidencia o respuesta. Si no se indica un dirección, los gestores recibirán mensajes individuales."
+
+# ./content/PoiTracker.py
+#. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
+msgid "Poi_help_managers"
+msgstr "Indique los nombres de los usuario que pueden administrar este gestor, uno por línea."
+
+# ./content/PoiIssue.py
+#. Default: "Select the release this issue pertains to."
+msgid "Poi_help_release"
+msgstr "Selecciones la versión a la que se aplica esta incidencia."
+
+# ./content/PoiIssue.py
+#. Default: "Please enter your response below"
+msgid "Poi_help_response"
+msgstr "Escriba su respuesta a continuación"
+
+# ./content/PoiIssue.py
+#. Default: "Enter a brief subject for this response, e.g. \"Fixed\" or \"Will be fixed in next release\".""
+msgid "Poi_help_response_title"
+msgstr "Escriba un asunto breve para esta respuesta, p.e. \"Arreglado\" o \"Arreglado en la siguiente versión\"."
+
+# ./content/PoiIssue.py
+#. Default: "Select which manager, if any, is responsible for this issue."
+msgid "Poi_help_responsibleManager"
+msgstr "Selecciones que gestor, si lo hay, es el responsable de esta incidencia."
+
+# ./content/PoiTracker.py
+#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation."
+msgid "Poi_help_sendNotificationEmails"
+msgstr "Si se selecciona, los administradores recibirán un mensaje cada vez que se envíe una nueva incidencia o repuesta, y los que envíen incidencias recibirán un mensaje cuando sean respondidos y cuando se resuelvan las incidencias, esperando confirmación."
+
+# ./content/PoiIssue.py
+#. Default: "Select the severity of this issue."
+msgid "Poi_help_severity"
+msgstr "Selecciones la importancia de la incidencia."
+
+# ./content/PoiIssue.py
+#. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
+msgid "Poi_help_steps"
+msgstr "Si puede, indique los pasos necesario para reproducir el error o identificar la incidencia, uno por línea."
+
+# ./content/PoiIssue.py
+#. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
+msgid "Poi_help_subject"
+msgstr "Las etiquetas se pueden usar para agregar categorías extra a las incidencias. La siguiente lista muestra las existentes, también puede agregar nuevas."
+
+# ./content/PoiTracker.py
+#. Default: "Enter a descriptive name for this tracker"
+msgid "Poi_help_tracker_title"
+msgstr "Escriba un nombre para este gestor."
+
+# ./content/PoiIssue.py
+#. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+msgid "Poi_help_watchers"
+msgstr "Escriba los nombres de los miembros que están siguiendo esta incidencia, uno por línea. Estos miembros recibirán un mensaje cuando se publuque un respuesta. Puede agregarse a sí mismo."
+
+# ./content/PoiIssue.py
+#. Default: "Area"
+msgid "Poi_label_area"
+msgstr "Área"
+
+# ./content/PoiIssue.py
+#. Default: "Attachment"
+msgid "Poi_label_attachment"
+msgstr "Adjunto"
+
+# ./content/PoiTracker.py
+#. Default: "Areas"
+msgid "Poi_label_availableAreas"
+msgstr "Áreas"
+
+# ./content/PoiTracker.py
+#. Default: "Issue types"
+msgid "Poi_label_availableIssueTypes"
+msgstr "Tipos de incidencia"
+
+# ./content/PoiTracker.py
+#. Default: "Available releases"
+msgid "Poi_label_availableReleases"
+msgstr "Versiones disponibles"
+
+# ./content/PoiTracker.py
+#. Default: "Available severities"
+msgid "Poi_label_availableSeverities"
+msgstr "Niveles de importancia"
+
+# ./content/PoiIssue.py
+#. Default: "Contact email address"
+msgid "Poi_label_contactEmail"
+msgstr "Dirección de contacto"
+
+# ./content/PoiTracker.py
+#. Default: "Default severity"
+msgid "Poi_label_defaultSeverity"
+msgstr "Importancia por defecto"
+
+# ./content/PoiIssue.py
+#. Default: "Overview"
+msgid "Poi_label_description"
+msgstr "Resúmen"
+
+# ./content/PoiIssue.py
+#. Default: "Details"
+msgid "Poi_label_details"
+msgstr "Detalles"
+
+# ./content/PoiIssue.py
+#. Default: "Id"
+msgid "Poi_label_id"
+msgstr "Id"
+
+# ./content/PoiIssue.py
+#. Default: "Change issue state"
+msgid "Poi_label_issueTransition"
+msgstr "Cambiar el estado de la incidencia"
+
+# ./content/PoiIssue.py
+#. Default: "Issue type"
+msgid "Poi_label_issueType"
+msgstr "Tipo de incidencia"
+
+# ./content/PoiIssue.py
+#. Default: "Title"
+msgid "Poi_label_issue_title"
+msgstr "Título"
+
+# ./content/PoiTracker.py
+#. Default: "Mailing list"
+msgid "Poi_label_mailingList"
+msgstr "Lista de correo"
+
+# ./content/PoiTracker.py
+#. Default: "Tracker managers"
+msgid "Poi_label_managers"
+msgstr "Administradores del gestor"
+
+# ./content/PoiIssue.py
+#. Default: "Release"
+msgid "Poi_label_release"
+msgstr "Versión"
+
+# ./content/PoiIssue.py
+#. Default: "Response"
+msgid "Poi_label_response"
+msgstr "Respuesta"
+
+# ./content/PoiIssue.py
+#. Default: "Subject"
+msgid "Poi_label_response_title"
+msgstr "Asunto"
+
+# ./content/PoiIssue.py
+#. Default: "Responsible"
+msgid "Poi_label_responsibleManager"
+msgstr "Responsable"
+
+# ./content/PoiTracker.py
+#. Default: "Send notification emails"
+msgid "Poi_label_sendNotificationEmails"
+msgstr "Enviar notificaciones"
+
+# ./content/PoiIssue.py
+#. Default: "Severity"
+msgid "Poi_label_severity"
+msgstr "Importancia"
+
+# ./content/PoiIssue.py
+#. Default: "Steps to reproduce"
+msgid "Poi_label_steps"
+msgstr "Pasos para reproducir"
+
+# ./content/PoiIssue.py
+#. Default: "Tags"
+msgid "Poi_label_subject"
+msgstr "Etiquetas"
+
+# ./content/PoiTracker.py
+#. Default: "Tracker name"
+msgid "Poi_label_tracker_title"
+msgstr "Nombre del gestor"
+
+# ./content/PoiIssue.py
+#. Default: "Issue watchers"
+msgid "Poi_label_watchers"
+msgstr "Usuarios relacionados"
+
+#. Default: "Stop watching this issue"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "Stop watching this issue"
+msgstr "Dejar el seguimiento de esta incidencia"
+
+#. Default: "Submit new issue"
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "Submit new issue"
+msgstr "Notificar nueva incidencia"
+
+#. Default: "Watch this issue"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "Watch this issue"
+msgstr "Seguir esta incidencia"
+
+#. Default: "${number} items matching your criteria."
+#: ./skins/Poi/poi_issue_search.pt
+msgid "batch_x_items_matching_your_criteria"
+msgstr "${number} elementos concuerdan con la búsqueda."
+
+#. Default: "Are you sure you wish to delete this response?"
+#: ./skins/Poi/poi_response_delete_confirm.cpt
+msgid "desc_poi_heading_delete_response"
+msgstr "Está seguro de que desea eliminar esta respuesta?"
+
+#. Default: "No results were found."
+#: ./skins/Poi/poi_issue_search.pt
+msgid "description_no_results_found"
+msgstr "No se encontraron resultados"
+
+#. Default: "Search"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "label_search"
+msgstr "Buscar"
+
+#. Default: "Area"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "listingheader_area"
+msgstr "Área"
+
+#. Default: "Created"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "listingheader_created"
+msgstr "Creado"
+
+#. Default: "Release"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "listingheader_release"
+msgstr "Versión"
+
+#. Default: "Responsible"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "listingheader_responsible"
+msgstr "Responsable"
+
+#. Default: "Severity"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "listingheader_severity"
+msgstr "Importancia"
+
+#. Default: "State"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "listingheader_state"
+msgstr "Estado"
+
+#. Default: "Title"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "listingheader_title"
+msgstr "Título"
+
+#. Default: "Type"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "listingheader_type"
+msgstr "Tipo"
+
+#. Default: "(Not assigned)"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "not_assigned"
+msgstr "(No asignado)"
+
+#. Default: "Added by"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_added_by"
+msgstr "Agregado por"
+
+#. Default: "on"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_added_on"
+msgstr "en"
+
+#. Default: "By area"
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_heading_by_area"
+msgstr "Por área"
+
+#. Default: "By release"
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_heading_by_release"
+msgstr "Por versión"
+
+#. Default: "By state"
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_heading_by_state"
+msgstr "Por estado"
+
+#. Default: "By tag"
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_heading_by_tag"
+msgstr "Por etiqueta"
+
+#. Default: "Delete Response"
+#: ./skins/Poi/poi_response_delete_confirm.cpt
+msgid "poi_heading_delete_response"
+msgstr "Borrar respuesta"
+
+#. Default: "Issue search"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_heading_issue_search"
+msgstr "Buscar incidencias"
+
+#. Default: "My issues"
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_heading_my_issues"
+msgstr "Mis incidencias"
+
+#. Default: "Open issues"
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_heading_open_issues"
+msgstr "Incidencias abiertas"
+
+#. Default: "Issue search results"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "poi_heading_search_results"
+msgstr "Resultados de la búsqueda de incidencias"
+
+#. Default: "Unconfirmed issues"
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_heading_unconfirmed_issues"
+msgstr "Incidencias no confirmadas"
+
+#. Default: "The following open issues were either submitted by you, or have been assigned to you."
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_help_my_issues_manager"
+msgstr "Las siguientes incidencias fueron enviadas por usted, o le han sido asignadas."
+
+#. Default: "The following open issues were either submitted by you."
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_help_my_issues_not_manager"
+msgstr "Las siguientes incidencias fueron enviadas por usted."
+
+#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_help_open_issues"
+msgstr "Haga click en un área, una versión o un estado para ver todas las incidencias abiertas de esa categoría. Para realizar una búsqueda avanzada, haga click en \"Buscar incidencias\""
+
+#. Default: "The following issues have not yet been confirmed or assigned. Please review them and take the appropriate action."
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_help_unconfirmed_issues"
+msgstr "Las siguientes incidencias no han sido confirmadas ni asignadas. Por favor, reviselas y tome la acción oportuna."
+
+#. Default: "Search for issues"
+#: ./skins/Poi/poi_tracker_view.pt
+msgid "poi_issue_search"
+msgstr "Buscar incidencias"
+
+#. Default: "This form allows you to search for issue according to a variety of criteria. Please make your selection below and click Search."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_issue_search_description"
+msgstr "Este formulario le permite buscar incidencias según varios criterios. Por favor, marque las opciones que desee y haga click en Buscar."
+
+#. Default: "Area"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_area"
+msgstr "Área"
+
+#. Default: "Attached:"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_attachment"
+msgstr "Adjunto:"
+
+#. Default: "Release:"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_release"
+msgstr "Versión"
+
+#. Default: "Responsible"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_responsible"
+msgstr "Responsable"
+
+#. Default: "Severity"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_severity"
+msgstr "Importancia"
+
+#. Default: "State"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_state"
+msgstr "Estado"
+
+#. Default: "Steps to reproduce:"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_steps"
+msgstr "Pasos para reproducir"
+
+#. Default: "Submitted by"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_submitted_by"
+msgstr "Enviado por"
+
+#. Default: "Submitted on"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_submitted_on"
+msgstr "Enviado el"
+
+#. Default: "Tags:"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_tags"
+msgstr "Etiquetas"
+
+#. Default: "Issue type"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_label_type"
+msgstr "Tipo de incidencia"
+
+#. Default: "Search Terms"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_legend_search_terms"
+msgstr "Términos de búsqueda"
+
+#. Default: "The following issue in the \" ${tracker_title} \" tracker has been marked as resolved: ${issue_title}. Please visit the issue and use the \"state\" drop-down to either confirm that it has been satisfactorily resolved or re-open it."
+#: ./skins/Poi/poi_notify_issue_resolved.pt
+msgid "poi_notification_issue_resolved"
+msgstr "La siguiente incidencia del gestor \" ${tracker_title} \" se ha marcado como resuelta: ${issue_title}. Por favor, visite la incidencia y use el desplegable \"Estado\" para confirmar la resolución o reabrir la incidencia."
+
+
+#. Default: "A new issue has been submitted to the \" ${tracker_title} \" tracker and awaits confirmation: ${issue_url}."
+#: ./skins/Poi/poi_notify_new_issue.pt
+msgid "poi_notification_new_issue"
+msgstr "Una nueva incidencia ha sido enviada al gestor \" ${tracker_title}\" y espera confirmación: ${issue_url}."
+
+#. Default: "A new response has been given to the issue \" ${issue_title} \" in the tracker \" ${tracker_title} \": ${issue_url}."
+#: ./skins/Poi/poi_notify_new_response.pt
+msgid "poi_notification_new_response"
+msgstr "Esta incidencia tiene una nueva respuesta \" ${issue_title}\" en el gestor \" ${tracker_title} \": ${issue_url}."
+
+#. Default: "Changed issue state:"
+#: ./skins/Poi/poi_issue_view.pt
+msgid "poi_response_state_change"
+msgstr "Cambio de estado de la incidencia:"
+
+#. Default: "Response # ${responseNumber} to \" ${issueTitle} \""
+#: ./skins/Poi/poi_response_view.pt
+msgid "poi_response_title"
+msgstr "Respuesta # ${responseNumber} a \" ${issueTitle} \""
+
+#. Default: "Return to search"
+#: ./skins/Poi/poi_issue_search.pt
+msgid "poi_return_to_search"
+msgstr "Volver a la búsqueda"
+
+#. Default: "Return to issue tracker"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_return_to_tracker"
+msgstr "Volver al gestor de incidencias"
+
+#. Default: "Select the areas you wish to search for."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_area"
+msgstr "Selecciones las áreas que desea buscar."
+
+#. Default: "Enter the username of the issue submitter,"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_creator"
+msgstr "Escriba el nombre de usuario de la persona que notifica la incidencia,"
+
+#. Default: "Select the issue types you wish to search for."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_issue_type"
+msgstr "Seleccione los tipos de incidencia que desea buscar."
+
+#. Default: "Select the releases you wish to search for."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_release"
+msgstr "Seleccione las versiones que desea buscar."
+
+#. Default: "Select the responsible managers you wish to search for."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_responsible"
+msgstr "Selecciones los administradores que desea buscar."
+
+#. Default: "Select the severities you wish to search for."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_severity"
+msgstr "Seleccione la importancia que desea buscar."
+
+#. Default: "Select the states you wish to search for."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_state"
+msgstr "Seleccione los estados que desea incluir en la búsqueda."
+
+#. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_tags"
+msgstr "Las etiquetas son claves asignadas a las incidencias para permitir organizarlas y filtrarlas. Selecciones la(s) etiqueta(s) que desea buscar."
+
+#. Default: "Enter any text you wish the issue to include."
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_help_text"
+msgstr "Escriba un texto para acompañar a la incidencia."
+
+#. Default: "Area"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_area"
+msgstr "Área"
+
+#. Default: "Submitter"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_creator"
+msgstr "Enviado por"
+
+#. Default: "Issue type"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_issue_type"
+msgstr "Tipo de incidencia"
+
+#. Default: "Release"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_release"
+msgstr "Versión"
+
+#. Default: "Responsible tracker managers"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_responsible"
+msgstr "Administradores del gestor"
+
+#. Default: "Severity"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_severity"
+msgstr "Importancia"
+
+#. Default: "State"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_state"
+msgstr "Estado"
+
+#. Default: "Tags"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_tags"
+msgstr "Etiquetas"
+
+#. Default: "Issue text"
+#: ./skins/Poi/poi_issue_search_form.pt
+msgid "poi_search_label_text"
+msgstr "Texto de la incidencia"
+
+#. Default: "View issue in full"
+#: ./skins/Poi/poi_response_view.pt
+msgid "poi_up_to_issue"
+msgstr "Ver incidencia completa"
+
+
+#- Added msgids by merging file poi-manual.pot:
+#  Poi_label_tracker_title Poi_help_tracker_title Poi_label_description
+# Poi_label_availableAreas Poi_help_availableAreas
+# Poi_label_availableIssueTypes Poi_help_availableIssueTypes
+# Poi_label_availableSeverities Poi_help_availableSeverities
+# Poi_label_defaultSeverity Poi_help_defaultSeverity
+# Poi_label_availableReleases Poi_help_availableReleases
+# Poi_label_managers Poi_help_managers Poi_label_sendNotificationEmails
+# Poi_help_sendNotificationEmails Poi_label_mailingList
+# Poi_help_mailingList Poi_label_id Poi_help_id Poi_label_issue_title
+# Poi_help_issue_title Poi_help_description Poi_label_release
+# Poi_help_release Poi_label_area Poi_help_area Poi_label_issueType
+# Poi_help_issueType Poi_label_severity Poi_help_severity
+# Poi_label_details Poi_help_details Poi_label_steps Poi_help_steps
+# Poi_label_attachment Poi_help_attachment Poi_label_contactEmail
+# Poi_help_contactEmail Poi_label_watchers Poi_help_watchers
+# Poi_label_subject Poi_help_subject Poi_label_responsibleManager
+# Poi_help_responsibleManager Poi_label_response_title
+# Poi_help_response_title Poi_label_response Poi_help_response
+# Poi_label_issueTransition Poi_help_issueTransition
+
+#- Added msgids by merging file poi-manual.pot:
+# 

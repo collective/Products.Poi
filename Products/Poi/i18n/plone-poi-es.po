@@ -1,0 +1,121 @@
+# pot file for Poi Issue Tracker product.
+# Junyong Pan <panjy@zopechina.com>, 2005.
+msgid ""
+msgstr ""
+"Project-Id-Version: Poi\n"
+"POT-Creation-Date: 2005-10-26 17:00+0000\n"
+"PO-Revision-Date: 2007-08-09 12:25 +1\n"
+"Last-Translator: Angel Carballo <angelcarballo@gmail.com>\n"
+"Language-Team: ES-es <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: es\n"
+"Language-Name: Spanish\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+# portal type nams
+
+msgid "Issue Tracker"
+msgstr "Gestor de Incidencias"
+
+msgid "An issue tracker"
+msgstr "Un gestor de incidencias"
+
+msgid "Issue"
+msgstr "Incidencia"
+
+msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
+msgstr "Una incidencia. Las incidencias comienzan en el estado 'sin confirmar', y son atendidas por los gestores del proyecto."
+
+msgid "Response"
+msgstr "Respuesta"
+
+msgid "A response to an issue."
+msgstr "Una respuesta a una incidencia."
+
+# tracker states
+
+msgid "Open for submissions"
+msgstr "Abierto"
+
+msgid "Closed for submissions"
+msgstr "Cerrado"
+
+# tracker transitions
+
+msgid "Close tracker"
+msgstr "Cerrar gestor"
+
+msgid "Open tracker"
+msgstr "Abrir gestor"
+
+# issue states
+
+msgid "Tested and confirmed closed"
+msgstr "Chequeada y confirmada"
+
+msgid "In progress"
+msgstr "En curso"
+
+msgid "Being created"
+msgstr "Siendo creada"
+
+msgid "Open"
+msgstr "Abierta"
+
+msgid "Postponed"
+msgstr "Pospuesta"
+
+msgid "Rejected"
+msgstr "Rechazada"
+
+msgid "Resolved"
+msgstr "Resuelta"
+
+msgid "Unconfirmed"
+msgstr "Sin confirmar"
+
+# issue transitions
+
+msgid " Open"
+msgstr "Abrir"
+
+msgid "Begin work"
+msgstr "Comenzar trabajo"
+
+msgid "Confirm resolved"
+msgstr "Confirmar resolución"
+
+msgid "Put on hold"
+msgstr "Dejar en espera"
+
+msgid "Re-open"
+msgstr "Re-abrir"
+
+msgid "Post issue on save"
+msgstr "Publicar incidencia al guardar"
+
+msgid "Postpone"
+msgstr "Posponer"
+
+msgid "Reject"
+msgstr "Rechazar"
+
+msgid "Resolve"
+msgstr "Resolver"
+
+# response states
+
+msgid "Posted"
+msgstr "Publicada"
+
+# response transitions
+msgid "Post response on save"
+msgstr "Publicar respuesta al guardar"
+
+
+
+
