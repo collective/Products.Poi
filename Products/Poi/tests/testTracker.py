@@ -323,6 +323,15 @@ class TestTrackerSearch(ptc.PoiTestCase):
         issues.sort()
         self.assertEqual(issues, ['1', '2'])
 
+    def testSubjectTolerance(self):
+        self.createIssue(self.tracker, details="foo", area="ui", issueType='feature')
+        issues = [b.getId for b in
+                  self.tracker.getFilteredIssues(tags=dict(operator='and'))]
+        self.assertEqual(issues, ['1'])
+
+        issues = [b.getId for b in
+                  self.tracker.getFilteredIssues(Subject=dict(operator='or'))]
+        self.assertEqual(issues, ['1'])
 
 def test_suite():
     from unittest import TestSuite, makeSuite

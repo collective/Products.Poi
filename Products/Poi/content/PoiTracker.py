@@ -569,6 +569,12 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
             elif v in criteria:
                 query[v] = criteria[v]
 
+        # Playing nicely with the form
+        if 'Subject' in query:
+            subject = query['Subject']
+            if 'operator' in subject and 'query' not in subject:
+                del query['Subject']
+        
         query['sort_on'] = criteria.get('sort_on', 'created')
         query['sort_order'] = criteria.get('sort_order', 'reverse')
 
