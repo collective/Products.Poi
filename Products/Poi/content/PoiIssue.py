@@ -505,8 +505,10 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
     def SearchableText(self):
         """Include in the SearchableText the text of all responses"""
         text = BaseObject.SearchableText(self)
-        responses = self.contentValues('PoiResponse')
-        text += ' ' + ' '.join([r.SearchableText() for r in responses])
+        for r in self.contentValues():
+            if not r.portal_type == 'PoiResponse':
+                continue
+            text += ' ' + r.SearchableText()
         return text
 
     def notifyModified(self):
