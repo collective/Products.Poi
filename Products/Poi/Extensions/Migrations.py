@@ -6,18 +6,18 @@ except ImportError:
     haveContentMigrations = False
     
 import types
-
 from StringIO import StringIO
+
+from Acquisition import aq_base
+import transaction
+
 from Products.CMFCore.utils import getToolByName
-from Products.Archetypes import transaction
 from Products.Archetypes.BaseUnit import BaseUnit
 from Products.CMFPlone.utils import safe_hasattr
 
 from Products.Poi.content import PoiTracker 
-
 from Products.Poi.config import *
 
-from Acquisition import aq_base
 
 def simpleDataGrid2DataGrid(obj, val, **kwargs):
     

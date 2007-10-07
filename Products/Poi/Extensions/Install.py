@@ -43,6 +43,8 @@ from Products.Archetypes.Extensions.utils import installTypes
 from Products.Archetypes.Extensions.utils import install_subskin
 from Products.Archetypes.config import TOOL_NAME as ARCHETYPETOOLNAME
 from Products.Archetypes.atapi import listTypes
+from Products.CMFQuickInstallerTool.QuickInstallerTool import AlreadyInstalled
+
 from Products.Poi.config import PROJECTNAME
 from Products.Poi.config import product_globals as GLOBALS
 
@@ -62,8 +64,12 @@ def install(self, reinstall=False):
     quickinstaller = portal.portal_quickinstaller
     for dependency in DEPENDENCIES:
         print >> out, "Installing dependency %s:" % dependency
-        quickinstaller.installProduct(dependency)
-        transaction.commit(1)
+        try:
+            quickinstaller.installProduct(dependency)
+        except AlreadyInstalled:
+            pass
+        else:
+            transaction.commit(1)
 
     classes = listTypes(PROJECTNAME)
     installTypes(self, out,
