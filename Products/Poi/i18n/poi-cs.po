@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2005-10-27 03:02+0000\n"
+"POT-Creation-Date: 2007-11-08 21:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Lukas Zdych <lukas.zdych@corenet.cz>\n"
 "Language-Team: SureCase.org <www.surecase.org>\n"
@@ -17,25 +17,32 @@ msgstr ""
 "Domain: Poi\n"
 
 #. Default: "Add response"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:160
 msgid "Add response"
 msgstr "Přidat reakci"
 
+msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
+msgstr ""
+
 #. Default: "Cancel"
-#: ./skins/Poi/poi_response_delete_confirm.cpt
+#: ../skins/Poi/poi_response_delete_confirm.cpt:41
 msgid "Cancel"
 msgstr "Zrušit"
 
 #. Default: "Delete"
-#: ./skins/Poi/poi_response_delete_confirm.cpt
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:213
 msgid "Delete"
 msgstr "Smazat"
 
 #. Default: "Edit"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:206
 msgid "Edit"
 msgstr "Upravit"
+
+#. Default: "Edit issue"
+#: ../skins/Poi/poi_issue_view.pt:168
+msgid "Edit issue"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."
@@ -43,7 +50,8 @@ msgid "Poi_help_area"
 msgstr "Zvolte oblast, ke které se tato úloha vztahuje."
 
 # ./content/PoiIssue.py
-#. Default: "You may optionally upload a file attachment to your issue. Please do not upload unnecessarily large files."
+#. Default: "You may optionally upload a file attachment to your response.  Please do not upload unnecessarily large files."
+#, fuzzy
 msgid "Poi_help_attachment"
 msgstr "K vaší úloze můžete nahrát soubor jako přílohu. Prosíme nenahrávejte zbytečně velké soubory."
 
@@ -87,6 +95,11 @@ msgstr "Zadejte stručný popis úlohy. Spolu s nadpisem a smysluplným popisem 
 msgid "Poi_help_details"
 msgstr "Prosíme doplňte další informace"
 
+# ./content/PoiTracker.py
+#. Default: "Enter any introductory help text you'd like to display on the tracker front page."
+msgid "Poi_help_helpText"
+msgstr ""
+
 # ./content/PoiIssue.py
 #. Default: ""
 msgid "Poi_help_id"
@@ -116,6 +129,21 @@ msgstr "Pokud byl zadána emailová adresa a zvolena volba \"Zasílat emailová 
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
 msgid "Poi_help_managers"
 msgstr "Zadejte identifikátory (login) uživatelů, kterým bude umožněno spravovat tento manažer úloh, každého na samostatný řádek."
+
+# ./content/PoiResponse.py
+#. Default: "Select the responsible manager for this issue"
+msgid "Poi_help_newResponsibleManager"
+msgstr ""
+
+# ./content/PoiResponse.py
+#. Default: "Select the severity for this issue"
+msgid "Poi_help_newSeverity"
+msgstr ""
+
+# ./content/PoiResponse.py
+#. Default: "Set the target release for this issue"
+msgid "Poi_help_newTargetRelease"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select the release this issue pertains to."
@@ -217,6 +245,11 @@ msgstr "Souhrn"
 msgid "Poi_label_details"
 msgstr "Detaily"
 
+# ./content/PoiTracker.py
+#. Default: "Help Text"
+msgid "Poi_label_helpText"
+msgstr ""
+
 # ./content/PoiIssue.py
 #. Default: "Id"
 msgid "Poi_label_id"
@@ -246,6 +279,21 @@ msgstr "Konference"
 #. Default: "Tracker managers"
 msgid "Poi_label_managers"
 msgstr "Správci manažeru úloh"
+
+# ./content/PoiResponse.py
+#. Default: "Change responsible manager"
+msgid "Poi_label_newResponsibleManager"
+msgstr ""
+
+# ./content/PoiResponse.py
+#. Default: "Change issue severity"
+msgid "Poi_label_newSeverity"
+msgstr ""
+
+# ./content/PoiResponse.py
+#. Default: "Change target release"
+msgid "Poi_label_newTargetRelease"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Release"
@@ -297,363 +345,433 @@ msgstr "Název manažeru úloh"
 msgid "Poi_label_watchers"
 msgstr "Sledující úlohu"
 
+#. Default: "Search"
+#: ../skins/Poi/poi_tracker_view.pt:36
+msgid "Search"
+msgstr ""
+
 #. Default: "Stop watching this issue"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:176
 msgid "Stop watching this issue"
 msgstr "Přestat sledovat tuto úlohu"
 
 #. Default: "Submit new issue"
-#: ./skins/Poi/poi_tracker_view.pt
+#: ../skins/Poi/poi_tracker_view.pt:54
 msgid "Submit new issue"
 msgstr "Zadat novou úlohu"
 
 #. Default: "Watch this issue"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:182
 msgid "Watch this issue"
 msgstr "Sledovat tuto úlohu"
 
 #. Default: "${number} items matching your criteria."
-#: ./skins/Poi/poi_issue_search.pt
+#: ../skins/Poi/poi_issue_search.pt:43
 msgid "batch_x_items_matching_your_criteria"
 msgstr "${number} úloh splňujících vaše kritéria"
 
 #. Default: "Are you sure you wish to delete this response?"
-#: ./skins/Poi/poi_response_delete_confirm.cpt
+#: ../skins/Poi/poi_response_delete_confirm.cpt:19
 msgid "desc_poi_heading_delete_response"
 msgstr "Jste si jisti, že si přejete smazat tuto reakci?"
 
+#. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
+#: ../skins/Poi/poi_tracker_view.pt:68
+msgid "description_cannot_add_issues_before_opened"
+msgstr ""
+
 #. Default: "No results were found."
-#: ./skins/Poi/poi_issue_search.pt
+#: ../skins/Poi/poi_issue_search.pt:39
 msgid "description_no_results_found"
 msgstr "Nebyli nalezeny žádné úlohy."
 
+#. Default: "RSS Feed"
+#: ../skins/Poi/poi_tracker_view.pt:202
+msgid "label_rss_feed"
+msgstr ""
+
 #. Default: "Search"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:248
 msgid "label_search"
 msgstr "Hledat"
 
 #. Default: "Area"
-#: ./skins/Poi/poi_issue_search.pt
+#: ../skins/Poi/poi_issue_search_results.pt:26
 msgid "listingheader_area"
 msgstr "Oblast"
 
-#. Default: "Created"
-#: ./skins/Poi/poi_issue_search.pt
-msgid "listingheader_created"
-msgstr "Vytvořeno"
-
-#. Default: "Release"
-#: ./skins/Poi/poi_issue_search.pt
+#. Default: "Target"
+#: ../skins/Poi/poi_issue_search_results.pt:23
+#, fuzzy
 msgid "listingheader_release"
 msgstr "Vydání"
 
 #. Default: "Responsible"
-#: ./skins/Poi/poi_issue_search.pt
+#: ../skins/Poi/poi_issue_search_results.pt:32
 msgid "listingheader_responsible"
 msgstr "Odpovědný"
 
 #. Default: "Severity"
-#: ./skins/Poi/poi_issue_search.pt
+#: ../skins/Poi/poi_issue_search_results.pt:30
 msgid "listingheader_severity"
 msgstr "Důležitost"
 
 #. Default: "State"
-#: ./skins/Poi/poi_issue_search.pt
+#: ../skins/Poi/poi_issue_search_results.pt:36
 msgid "listingheader_state"
 msgstr "Stav"
 
+#. Default: "Tags"
+#: ../skins/Poi/poi_issue_search_results.pt:34
+msgid "listingheader_tags"
+msgstr ""
+
 #. Default: "Title"
-#: ./skins/Poi/poi_issue_search.pt
+#: ../skins/Poi/poi_issue_search_results.pt:21
 msgid "listingheader_title"
 msgstr "Nadpis"
 
 #. Default: "Type"
-#: ./skins/Poi/poi_issue_search.pt
+#: ../skins/Poi/poi_issue_search_results.pt:28
 msgid "listingheader_type"
 msgstr "Typ"
 
 #. Default: "(Not assigned)"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:84
 msgid "not_assigned"
 msgstr "(Nepřiřazeno)"
 
 #. Default: "Added by"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:222
 msgid "poi_added_by"
 msgstr "Přidal"
 
 #. Default: "on"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:225
 msgid "poi_added_on"
 msgstr "v"
 
+#. Default: "All pending issues"
+#: ../skins/Poi/poi_tracker_view.pt:122
+msgid "poi_all_pending_issues"
+msgstr ""
+
 #. Default: "By area"
-#: ./skins/Poi/poi_tracker_view.pt
+#: ../skins/Poi/poi_tracker_view.pt:89
 msgid "poi_heading_by_area"
 msgstr "Podle oblasti"
 
-#. Default: "By release"
-#: ./skins/Poi/poi_tracker_view.pt
+#. Default: "By target release"
+#: ../skins/Poi/poi_tracker_view.pt:106
+#, fuzzy
 msgid "poi_heading_by_release"
 msgstr "Podle vydání"
 
 #. Default: "By state"
-#: ./skins/Poi/poi_tracker_view.pt
+#: ../skins/Poi/poi_tracker_view.pt:119
 msgid "poi_heading_by_state"
 msgstr "Podle stavu"
 
 #. Default: "By tag"
-#: ./skins/Poi/poi_tracker_view.pt
+#: ../skins/Poi/poi_tracker_view.pt:143
 msgid "poi_heading_by_tag"
 msgstr "Podle značky"
 
 #. Default: "Delete Response"
-#: ./skins/Poi/poi_response_delete_confirm.cpt
+#: ../skins/Poi/poi_response_delete_confirm.cpt:17
 msgid "poi_heading_delete_response"
 msgstr "Smazat reakci"
 
 #. Default: "Issue search"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:8
 msgid "poi_heading_issue_search"
 msgstr "Hledat úlohu"
 
+#. Default: "Tracker log"
+#: ../browser/log.pt:17
+msgid "poi_heading_log"
+msgstr ""
+
 #. Default: "My issues"
-#: ./skins/Poi/poi_tracker_view.pt
+#: ../skins/Poi/poi_tracker_view.pt:187
 msgid "poi_heading_my_issues"
 msgstr "Mé úlohy"
 
 #. Default: "Open issues"
-#: ./skins/Poi/poi_tracker_view.pt
+#: ../skins/Poi/poi_tracker_view.pt:78
 msgid "poi_heading_open_issues"
 msgstr "Otevřené úlohy"
 
+#. Default: "Orphaned issues"
+#: ../skins/Poi/poi_tracker_view.pt:220
+msgid "poi_heading_orphaned_issues"
+msgstr ""
+
 #. Default: "Issue search results"
-#: ./skins/Poi/poi_issue_search.pt
+#: ../skins/Poi/poi_issue_search.pt:30
 msgid "poi_heading_search_results"
 msgstr "Výsledky vyhledávání úloh"
 
 #. Default: "Unconfirmed issues"
-#: ./skins/Poi/poi_tracker_view.pt
+#: ../skins/Poi/poi_tracker_view.pt:166
 msgid "poi_heading_unconfirmed_issues"
 msgstr "Nepotvrzené úlohy"
 
-#. Default: "The following open issues were either submitted by you, or have been assigned to you."
-#: ./skins/Poi/poi_tracker_view.pt
+#. Default: "An overview of recent activity in the tracker."
+#: ../browser/log.pt:19
+msgid "poi_help_log"
+msgstr ""
+
+#. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
+#: ../skins/Poi/poi_tracker_view.pt:188
+#, fuzzy
 msgid "poi_help_my_issues_manager"
 msgstr "Následující otevřené úlohy byli buď vámi zadány nebo vám přiřazeny."
 
-#. Default: "The following open issues were either submitted by you."
-#: ./skins/Poi/poi_tracker_view.pt
+#. Default: "The following open issues were submitted by you."
+#: ../skins/Poi/poi_tracker_view.pt:195
+#, fuzzy
 msgid "poi_help_my_issues_not_manager"
 msgstr "Následující otevřené úlohy byli vámi zadány."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
-#: ./skins/Poi/poi_tracker_view.pt
+#: ../skins/Poi/poi_tracker_view.pt:82
 msgid "poi_help_open_issues"
 msgstr "Klikněte na oblast, vydání nebo stav úlohy, abyste viděli otevřené úlohy ve zvolené kategorii."
 
-#. Default: "The following issues have not yet been confirmed or assigned. Please review them and take the appropriate action."
-#: ./skins/Poi/poi_tracker_view.pt
+#. Default: "The following open issues are not assigned to anyone."
+#: ../skins/Poi/poi_tracker_view.pt:221
+msgid "poi_help_orphaned_issues_"
+msgstr ""
+
+#. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
+#: ../skins/Poi/poi_tracker_view.pt:167
+#, fuzzy
 msgid "poi_help_unconfirmed_issues"
 msgstr "Následující úlohy nebyli zatím potvrzeny nebo přiřazeny. Prosíme prohlédněte si je a zvolte pro ně odpovídající akci."
 
-#. Default: "Search for issues"
-#: ./skins/Poi/poi_tracker_view.pt
+#. Default: "Advanced issue search"
+#: ../skins/Poi/poi_tracker_view.pt:38
+#, fuzzy
 msgid "poi_issue_search"
 msgstr "Hledat úlohy"
 
 #. Default: "This form allows you to search for issue according to a variety of criteria. Please make your selection below and click Search."
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:16
 msgid "poi_issue_search_description"
 msgstr "Tento formulář vám umožňuje hledat úlohy podle různých kritérií. Prosíme níže zadejte váš výběr a klikněte na Hledat."
 
 #. Default: "Area"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:53
 msgid "poi_label_area"
 msgstr "Oblast"
 
 #. Default: "Attached:"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:149
 msgid "poi_label_attachment"
 msgstr ""
 
-#. Default: "Release:"
-#: ./skins/Poi/poi_issue_view.pt
-msgid "poi_label_release"
-msgstr "Vydání："
-
 #. Default: "Responsible"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:74
 msgid "poi_label_responsible"
 msgstr "Odpovědný"
 
 #. Default: "Severity"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:61
 msgid "poi_label_severity"
 msgstr "Důležitost"
 
 #. Default: "State"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:37
 msgid "poi_label_state"
 msgstr "Stav"
 
 #. Default: "Steps to reproduce:"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:144
 msgid "poi_label_steps"
 msgstr "Postup reprodukce："
 
 #. Default: "Submitted by"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:65
 msgid "poi_label_submitted_by"
 msgstr "Přidal"
 
 #. Default: "Submitted on"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:70
 msgid "poi_label_submitted_on"
 msgstr "Přidal v"
 
 #. Default: "Tags:"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:133
 msgid "poi_label_tags"
 msgstr "Značky:"
 
+#. Default: "Target release:"
+#: ../skins/Poi/poi_issue_view.pt:86
+msgid "poi_label_target_release"
+msgstr ""
+
 #. Default: "Issue type"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:57
 msgid "poi_label_type"
 msgstr "Typ úlohy"
 
+#. Default: "Version:"
+#: ../skins/Poi/poi_issue_view.pt:43
+msgid "poi_label_version"
+msgstr ""
+
+#. Default: "Last modified on ${DYNAMIC_CONTENT}"
+#: ../skins/Poi/poi_issue_view.pt:128
+msgid "poi_last_modified_on"
+msgstr ""
+
+#. Default: "Last modified on ${DYNAMIC_CONTENT} by ${DYNAMIC_CONTENT}"
+#: ../skins/Poi/poi_issue_view.pt:123
+msgid "poi_last_modified_on_by"
+msgstr ""
+
 #. Default: "Search Terms"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:27
 msgid "poi_legend_search_terms"
 msgstr "Podmínky Vyhledávání"
 
-#. Default: "The following issue in the \" ${tracker_title} \" tracker has been marked as resolved: ${issue_title}. Please visit the issue and use the \"state\" drop-down to either confirm that it has been satisfactorily resolved or re-open it."
-#: ./skins/Poi/poi_notify_issue_resolved.pt
-msgid "poi_notification_issue_resolved"
-msgstr "Následující úlohy v ${tracker_title} manažeru úloh byli označeny jako vyřešené: ${issue_title}. Prosíme podívejte se na úlohu a použijte nabídku stavů buď pro potvrzení, že úloha byla uspokojivě vyřešena nebo pro její znovu otevření."
-
-#. Default: "A new issue has been submitted to the \" ${tracker_title} \" tracker and awaits confirmation: ${issue_url}."
-#: ./skins/Poi/poi_notify_new_issue.pt
-msgid "poi_notification_new_issue"
-msgstr "Nová úloha byla zadána do \" ${tracker_title} \" manažeru úloh a čeká na potvrzení: ${issue_url}."
-
-#. Default: "A new response has been given to the issue \" ${issue_title} \" in the tracker \" ${tracker_title} \": ${issue_url}."
-#: ./skins/Poi/poi_notify_new_response.pt
-msgid "poi_notification_new_response"
-msgstr "Byla přidána nová reakce na úlohu \" ${issue_title} \" v manažeru úloh \" ${tracker_title} \": ${issue_url}."
-
-#. Default: "Changed issue state:"
-#: ./skins/Poi/poi_issue_view.pt
-msgid "poi_response_state_change"
-msgstr "Změněný stav úlohy:"
-
-#. Default: "Response # ${responseNumber} to \" ${issueTitle} \""
-#: ./skins/Poi/poi_response_view.pt
+#. Default: "Response #${responseNumber} to \"${issueTitle}\""
+#: ../skins/Poi/poi_response_view.pt:23
+#, fuzzy
 msgid "poi_response_title"
 msgstr "Reakce # ${responseNumber} na \" ${issueTitle} \""
 
-#. Default: "Return to search"
-#: ./skins/Poi/poi_issue_search.pt
+#. Default: "Return to search results"
+#: ../skins/Poi/poi_issue_view.pt:99
+#, fuzzy
 msgid "poi_return_to_search"
 msgstr "Zpět na vyhledávání"
 
 #. Default: "Return to issue tracker"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:13
 msgid "poi_return_to_tracker"
 msgstr "Zpět do manažeru úloh"
 
 #. Default: "Select the areas you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:119
 msgid "poi_search_help_area"
 msgstr "Vyberte oblasti, ve kterých si přejete hledat."
 
 #. Default: "Enter the username of the issue submitter,"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:62
 msgid "poi_search_help_creator"
 msgstr "Zadejte uživatelské jméno zadavatele úlohy."
 
+#. Default: "If you wish to search for a particular issue, please enter its number."
+#: ../skins/Poi/poi_issue_search_form.pt:33
+msgid "poi_search_help_id"
+msgstr ""
+
 #. Default: "Select the issue types you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:139
 msgid "poi_search_help_issue_type"
 msgstr "Vyberte jaké typy úloh si přejete hledat."
 
-#. Default: "Select the releases you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt
+#. Default: "Select the version for which the bugs you want to find were reported."
+#: ../skins/Poi/poi_issue_search_form.pt:74
+#, fuzzy
 msgid "poi_search_help_release"
 msgstr "Vyberte pro jaká vydání si přejete úlohy hledat."
 
 #. Default: "Select the responsible managers you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:201
 msgid "poi_search_help_responsible"
 msgstr "Vyberte odpovědné správce jejichž úlohy si přejete hledat."
 
 #. Default: "Select the severities you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:159
 msgid "poi_search_help_severity"
 msgstr "Vyberte s jakými stupni důležitosti si přejete úlohy hledat."
 
 #. Default: "Select the states you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:179
 msgid "poi_search_help_state"
 msgstr "Vyberte v jakých stavech si přejete úlohy hledat."
 
 #. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:223
 msgid "poi_search_help_tags"
 msgstr "Značky jsou klíčová slova přiřazená správci manažeru úloh k jednotlivým úlohám, aby umožnili podrobnější organizaci úloh. Vyberte značku nebo značky, se kterými si přejete úlohy hledat."
 
+#. Default: "Select the assigned target release you wish to search for."
+#: ../skins/Poi/poi_issue_search_form.pt:97
+msgid "poi_search_help_target_release"
+msgstr ""
+
 #. Default: "Enter any text you wish the issue to include."
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:48
 msgid "poi_search_help_text"
 msgstr "Zadejte jaký-koli text, který by měla úloha obsahovat."
 
 #. Default: "Area"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:117
 msgid "poi_search_label_area"
 msgstr "Oblast"
 
 #. Default: "Submitter"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:60
 msgid "poi_search_label_creator"
 msgstr "Zadavatel"
 
+#. Default: "Issue number"
+#: ../skins/Poi/poi_issue_search_form.pt:31
+msgid "poi_search_label_id"
+msgstr ""
+
 #. Default: "Issue type"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:137
 msgid "poi_search_label_issue_type"
 msgstr "Typ úlohy"
 
-#. Default: "Release"
-#: ./skins/Poi/poi_issue_search_form.pt
+#. Default: "Version"
+#: ../skins/Poi/poi_issue_search_form.pt:72
+#, fuzzy
 msgid "poi_search_label_release"
 msgstr "Vydání"
 
 #. Default: "Responsible tracker managers"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:199
 msgid "poi_search_label_responsible"
 msgstr "Odpovědní správci manažeru úloh"
 
 #. Default: "Severity"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:157
 msgid "poi_search_label_severity"
 msgstr "Důležitost"
 
 #. Default: "State"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:177
 msgid "poi_search_label_state"
 msgstr "Stav"
 
 #. Default: "Tags"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:221
 msgid "poi_search_label_tags"
 msgstr "Značky"
 
+#. Default: "Target release"
+#: ../skins/Poi/poi_issue_search_form.pt:95
+msgid "poi_search_label_target_release"
+msgstr ""
+
 #. Default: "Issue text"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:46
 msgid "poi_search_label_text"
 msgstr "Text úlohy"
 
 #. Default: "View issue in full"
-#: ./skins/Poi/poi_response_view.pt
+#: ../skins/Poi/poi_response_view.pt:30
 msgid "poi_up_to_issue"
 msgstr "Vidět celou úlohu"
+
+#. Default: "RSS feed of these search results"
+#: ../skins/Poi/poi_tracker_view.pt:202
+msgid "title_rss_feed"
+msgstr ""
 

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2005-10-27 03:02+0000\n"
+"POT-Creation-Date: 2007-11-08 21:26+0000\n"
 "PO-Revision-Date: 2006-09-08 21:01 +0200\n"
 "Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
 "Language-Team: DE <de@li.org>\n"
@@ -17,25 +17,32 @@ msgstr ""
 "Domain: Poi\n"
 
 #. Default: "Add response"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:160
 msgid "Add response"
 msgstr "Antwort hinzufügen"
 
+msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
+msgstr ""
+
 #. Default: "Cancel"
-#: ./skins/Poi/poi_response_delete_confirm.cpt
+#: ../skins/Poi/poi_response_delete_confirm.cpt:41
 msgid "Cancel"
 msgstr "Abbrechen"
 
 #. Default: "Delete"
-#: ./skins/Poi/poi_response_delete_confirm.cpt
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:213
 msgid "Delete"
 msgstr "Löschen"
 
 #. Default: "Edit"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:206
 msgid "Edit"
 msgstr "Bearbeiten"
+
+#. Default: "Edit issue"
+#: ../skins/Poi/poi_issue_view.pt:168
+msgid "Edit issue"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."
@@ -43,7 +50,8 @@ msgid "Poi_help_area"
 msgstr "Wählen Sie, zu welchem Bereich diese Problemstellung passt."
 
 # ./content/PoiIssue.py
-#. Default: "You may optionally upload a file attachment to your issue. Please do not upload unnecessarily large files."
+#. Default: "You may optionally upload a file attachment to your response.  Please do not upload unnecessarily large files."
+#, fuzzy
 msgid "Poi_help_attachment"
 msgstr "Sie können optional eine Datei als Anhang hochladen. Bitte laden sie keine unnötig großen Dateien hoch."
 
@@ -87,6 +95,11 @@ msgstr "Geben Sie einen groben Überblick der Problemstellung. Zusammen mit dem 
 msgid "Poi_help_details"
 msgstr "Bitte geben sie weitere Details an"
 
+# ./content/PoiTracker.py
+#. Default: "Enter any introductory help text you'd like to display on the tracker front page."
+msgid "Poi_help_helpText"
+msgstr ""
+
 # ./content/PoiIssue.py
 #. Default: ""
 msgid "Poi_help_id"
@@ -116,6 +129,21 @@ msgstr "Wenn angegeben und 'Sende Benachrichtungs-Mail' ausgewählt wurde, wird 
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
 msgid "Poi_help_managers"
 msgstr "Geben sie die Anmeldenamen von BenutzerInnen ein, welchen erlaubt ist diesen Tracker zu verwalten. Einer pro Zeile."
+
+# ./content/PoiResponse.py
+#. Default: "Select the responsible manager for this issue"
+msgid "Poi_help_newResponsibleManager"
+msgstr ""
+
+# ./content/PoiResponse.py
+#. Default: "Select the severity for this issue"
+msgid "Poi_help_newSeverity"
+msgstr ""
+
+# ./content/PoiResponse.py
+#. Default: "Set the target release for this issue"
+msgid "Poi_help_newTargetRelease"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select the release this issue pertains to."
@@ -217,6 +245,11 @@ msgstr "Überblick"
 msgid "Poi_label_details"
 msgstr "Details"
 
+# ./content/PoiTracker.py
+#. Default: "Help Text"
+msgid "Poi_label_helpText"
+msgstr ""
+
 # ./content/PoiIssue.py
 #. Default: "Id"
 msgid "Poi_label_id"
@@ -246,6 +279,21 @@ msgstr "Mailing-Liste"
 #. Default: "Tracker managers"
 msgid "Poi_label_managers"
 msgstr "Tracke Manager"
+
+# ./content/PoiResponse.py
+#. Default: "Change responsible manager"
+msgid "Poi_label_newResponsibleManager"
+msgstr ""
+
+# ./content/PoiResponse.py
+#. Default: "Change issue severity"
+msgid "Poi_label_newSeverity"
+msgstr ""
+
+# ./content/PoiResponse.py
+#. Default: "Change target release"
+msgid "Poi_label_newTargetRelease"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Release"
@@ -297,363 +345,432 @@ msgstr "Name des Trackers"
 msgid "Poi_label_watchers"
 msgstr "Beobachter der Problemstellung"
 
+#. Default: "Search"
+#: ../skins/Poi/poi_tracker_view.pt:36
+msgid "Search"
+msgstr ""
+
 #. Default: "Stop watching this issue"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:176
 msgid "Stop watching this issue"
 msgstr "Diese Problemstellung nicht mehr beobachten"
 
 #. Default: "Submit new issue"
-#: ./skins/Poi/poi_tracker_view.pt
+#: ../skins/Poi/poi_tracker_view.pt:54
 msgid "Submit new issue"
 msgstr "Problemstellung übermitteln"
 
 #. Default: "Watch this issue"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:182
 msgid "Watch this issue"
 msgstr "Problemstellung beobachten"
 
 #. Default: "${number} items matching your criteria."
-#: ./skins/Poi/poi_issue_search.pt
+#: ../skins/Poi/poi_issue_search.pt:43
 msgid "batch_x_items_matching_your_criteria"
 msgstr "${number} Einträge wurden zu ihren Kriterien passend gefunden."
 
 #. Default: "Are you sure you wish to delete this response?"
-#: ./skins/Poi/poi_response_delete_confirm.cpt
+#: ../skins/Poi/poi_response_delete_confirm.cpt:19
 msgid "desc_poi_heading_delete_response"
 msgstr "Möchten sie diese Antwort wirklich löschen?"
 
+#. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
+#: ../skins/Poi/poi_tracker_view.pt:68
+msgid "description_cannot_add_issues_before_opened"
+msgstr ""
+
 #. Default: "No results were found."
-#: ./skins/Poi/poi_issue_search.pt
+#: ../skins/Poi/poi_issue_search.pt:39
 msgid "description_no_results_found"
 msgstr "Keine Ergebnisse gefunden."
 
+#. Default: "RSS Feed"
+#: ../skins/Poi/poi_tracker_view.pt:202
+msgid "label_rss_feed"
+msgstr ""
+
 #. Default: "Search"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:248
 msgid "label_search"
 msgstr "Suche"
 
 #. Default: "Area"
-#: ./skins/Poi/poi_issue_search.pt
+#: ../skins/Poi/poi_issue_search_results.pt:26
 msgid "listingheader_area"
 msgstr "Bereich"
 
-#. Default: "Created"
-#: ./skins/Poi/poi_issue_search.pt
-msgid "listingheader_created"
-msgstr "Erzeugt"
-
-#. Default: "Release"
-#: ./skins/Poi/poi_issue_search.pt
+#. Default: "Target"
+#: ../skins/Poi/poi_issue_search_results.pt:23
+#, fuzzy
 msgid "listingheader_release"
 msgstr "Ausgabe/ Version"
 
 #. Default: "Responsible"
-#: ./skins/Poi/poi_issue_search.pt
+#: ../skins/Poi/poi_issue_search_results.pt:32
 msgid "listingheader_responsible"
 msgstr "Zuständig"
 
 #. Default: "Severity"
-#: ./skins/Poi/poi_issue_search.pt
+#: ../skins/Poi/poi_issue_search_results.pt:30
 msgid "listingheader_severity"
 msgstr "Wichtung"
 
 #. Default: "State"
-#: ./skins/Poi/poi_issue_search.pt
+#: ../skins/Poi/poi_issue_search_results.pt:36
 msgid "listingheader_state"
 msgstr "Status"
 
+#. Default: "Tags"
+#: ../skins/Poi/poi_issue_search_results.pt:34
+msgid "listingheader_tags"
+msgstr ""
+
 #. Default: "Title"
-#: ./skins/Poi/poi_issue_search.pt
+#: ../skins/Poi/poi_issue_search_results.pt:21
 msgid "listingheader_title"
 msgstr "Titel"
 
 #. Default: "Type"
-#: ./skins/Poi/poi_issue_search.pt
+#: ../skins/Poi/poi_issue_search_results.pt:28
 msgid "listingheader_type"
 msgstr "Art"
 
 #. Default: "(Not assigned)"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:84
 msgid "not_assigned"
 msgstr "(Nicht zugewiesen)"
 
 #. Default: "Added by"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:222
 msgid "poi_added_by"
 msgstr "Hinzugefügt von"
 
 #. Default: "on"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:225
 msgid "poi_added_on"
 msgstr "am"
 
+#. Default: "All pending issues"
+#: ../skins/Poi/poi_tracker_view.pt:122
+msgid "poi_all_pending_issues"
+msgstr ""
+
 #. Default: "By area"
-#: ./skins/Poi/poi_tracker_view.pt
+#: ../skins/Poi/poi_tracker_view.pt:89
 msgid "poi_heading_by_area"
 msgstr "Nach Bereich"
 
-#. Default: "By release"
-#: ./skins/Poi/poi_tracker_view.pt
+#. Default: "By target release"
+#: ../skins/Poi/poi_tracker_view.pt:106
+#, fuzzy
 msgid "poi_heading_by_release"
 msgstr "Nach Ausgabe/ Version"
 
 #. Default: "By state"
-#: ./skins/Poi/poi_tracker_view.pt
+#: ../skins/Poi/poi_tracker_view.pt:119
 msgid "poi_heading_by_state"
 msgstr "Nach Status"
 
 #. Default: "By tag"
-#: ./skins/Poi/poi_tracker_view.pt
+#: ../skins/Poi/poi_tracker_view.pt:143
 msgid "poi_heading_by_tag"
 msgstr "Nach Kennzeichnung"
 
 #. Default: "Delete Response"
-#: ./skins/Poi/poi_response_delete_confirm.cpt
+#: ../skins/Poi/poi_response_delete_confirm.cpt:17
 msgid "poi_heading_delete_response"
 msgstr "Lösche Antwort"
 
 #. Default: "Issue search"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:8
 msgid "poi_heading_issue_search"
 msgstr "Suche über Problemstellungen"
 
+#. Default: "Tracker log"
+#: ../browser/log.pt:17
+msgid "poi_heading_log"
+msgstr ""
+
 #. Default: "My issues"
-#: ./skins/Poi/poi_tracker_view.pt
+#: ../skins/Poi/poi_tracker_view.pt:187
 msgid "poi_heading_my_issues"
 msgstr "Meine Problemstellungen"
 
 #. Default: "Open issues"
-#: ./skins/Poi/poi_tracker_view.pt
+#: ../skins/Poi/poi_tracker_view.pt:78
 msgid "poi_heading_open_issues"
 msgstr "Offene Problemstellungen"
 
+#. Default: "Orphaned issues"
+#: ../skins/Poi/poi_tracker_view.pt:220
+msgid "poi_heading_orphaned_issues"
+msgstr ""
+
 #. Default: "Issue search results"
-#: ./skins/Poi/poi_issue_search.pt
+#: ../skins/Poi/poi_issue_search.pt:30
 msgid "poi_heading_search_results"
 msgstr "Suchergebnisse über Problemstellungen"
 
 #. Default: "Unconfirmed issues"
-#: ./skins/Poi/poi_tracker_view.pt
+#: ../skins/Poi/poi_tracker_view.pt:166
 msgid "poi_heading_unconfirmed_issues"
 msgstr "Unbestätigte Problemstellungen"
 
-#. Default: "The following open issues were either submitted by you, or have been assigned to you."
-#: ./skins/Poi/poi_tracker_view.pt
+#. Default: "An overview of recent activity in the tracker."
+#: ../browser/log.pt:19
+msgid "poi_help_log"
+msgstr ""
+
+#. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
+#: ../skins/Poi/poi_tracker_view.pt:188
 msgid "poi_help_my_issues_manager"
 msgstr ""
 
-#. Default: "The following open issues were either submitted by you."
-#: ./skins/Poi/poi_tracker_view.pt
+#. Default: "The following open issues were submitted by you."
+#: ../skins/Poi/poi_tracker_view.pt:195
+#, fuzzy
 msgid "poi_help_my_issues_not_manager"
 msgstr "Die folgenden offenen Problemstellungen wurden von ihnen übermittelt oder sind ihnen zugewiesen worden."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
-#: ./skins/Poi/poi_tracker_view.pt
+#: ../skins/Poi/poi_tracker_view.pt:82
 msgid "poi_help_open_issues"
 msgstr "Wählen einen Bereich, eine Ausgabe/ Version oder einen Status um alle (offenen) Problemstellungen in dieser Kategorie zu sehen. Für feingliederiges Suchen klicken Sie 'Suche nach Problemstellungen'."
 
-#. Default: "The following issues have not yet been confirmed or assigned. Please review them and take the appropriate action."
-#: ./skins/Poi/poi_tracker_view.pt
+#. Default: "The following open issues are not assigned to anyone."
+#: ../skins/Poi/poi_tracker_view.pt:221
+msgid "poi_help_orphaned_issues_"
+msgstr ""
+
+#. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
+#: ../skins/Poi/poi_tracker_view.pt:167
+#, fuzzy
 msgid "poi_help_unconfirmed_issues"
 msgstr "Folgende Problemstellungen sind noch nicht bestätigt oder zugewiesen. Bitte um Durchsicht und Antwort!"
 
-#. Default: "Search for issues"
-#: ./skins/Poi/poi_tracker_view.pt
+#. Default: "Advanced issue search"
+#: ../skins/Poi/poi_tracker_view.pt:38
+#, fuzzy
 msgid "poi_issue_search"
 msgstr "Suche nach Problemstellungen"
 
 #. Default: "This form allows you to search for issue according to a variety of criteria. Please make your selection below and click Search."
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:16
 msgid "poi_issue_search_description"
 msgstr "Dieses Formular befähigt sie zur Suche von Problemstellungen mit einer grossen Auswahl von Kriterien. Bitte wählen sie ihre Einschränkungen aus und klicken sie auf Suchen."
 
 #. Default: "Area"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:53
 msgid "poi_label_area"
 msgstr "Bereich"
 
 #. Default: "Attached:"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:149
 msgid "poi_label_attachment"
 msgstr "Angehängt:"
 
-#. Default: "Release:"
-#: ./skins/Poi/poi_issue_view.pt
-msgid "poi_label_release"
-msgstr "Ausgabe/ Version:"
-
 #. Default: "Responsible"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:74
 msgid "poi_label_responsible"
 msgstr "Zuständig"
 
 #. Default: "Severity"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:61
 msgid "poi_label_severity"
 msgstr "Wichtung"
 
 #. Default: "State"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:37
 msgid "poi_label_state"
 msgstr "Status"
 
 #. Default: "Steps to reproduce:"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:144
 msgid "poi_label_steps"
 msgstr "Schritte zum Nachvollziehen"
 
 #. Default: "Submitted by"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:65
 msgid "poi_label_submitted_by"
 msgstr "Übermittelt von"
 
 #. Default: "Submitted on"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:70
 msgid "poi_label_submitted_on"
 msgstr "Übermittelt am"
 
 #. Default: "Tags:"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:133
 msgid "poi_label_tags"
 msgstr "Kennzeichnungen (Tags)"
 
+#. Default: "Target release:"
+#: ../skins/Poi/poi_issue_view.pt:86
+msgid "poi_label_target_release"
+msgstr ""
+
 #. Default: "Issue type"
-#: ./skins/Poi/poi_issue_view.pt
+#: ../skins/Poi/poi_issue_view.pt:57
 msgid "poi_label_type"
 msgstr "Art der Problemstellung"
 
+#. Default: "Version:"
+#: ../skins/Poi/poi_issue_view.pt:43
+msgid "poi_label_version"
+msgstr ""
+
+#. Default: "Last modified on ${DYNAMIC_CONTENT}"
+#: ../skins/Poi/poi_issue_view.pt:128
+msgid "poi_last_modified_on"
+msgstr ""
+
+#. Default: "Last modified on ${DYNAMIC_CONTENT} by ${DYNAMIC_CONTENT}"
+#: ../skins/Poi/poi_issue_view.pt:123
+msgid "poi_last_modified_on_by"
+msgstr ""
+
 #. Default: "Search Terms"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:27
 msgid "poi_legend_search_terms"
 msgstr "Such-Begriffe"
 
-#. Default: "The following issue in the \" ${tracker_title} \" tracker has been marked as resolved: ${issue_title}. Please visit the issue and use the \"state\" drop-down to either confirm that it has been satisfactorily resolved or re-open it."
-#: ./skins/Poi/poi_notify_issue_resolved.pt
-msgid "poi_notification_issue_resolved"
-msgstr "Die Problemstellung ${issue_title} im Probelm-Tracker \" ${tracker_title} \" wurde als gelöst markiert. Bitte laden sie die Problemstellung und gehen sie in das \"Status\" Aufklapp-Menü und bestätigen sie die Lösung oder Eröffnen sie erneut die Problemstellung."
-
-#. Default: "A new issue has been submitted to the \" ${tracker_title} \" tracker and awaits confirmation: ${issue_url}."
-#: ./skins/Poi/poi_notify_new_issue.pt
-msgid "poi_notification_new_issue"
-msgstr "Ein neues Problem wurde im Problem-Tracker \" ${tracker_title} \" übermittelt und wartet unter der Adresse ${issue_url} auf Bestätigung."
-
-#. Default: "A new response has been given to the issue \" ${issue_title} \" in the tracker \" ${tracker_title} \": ${issue_url}."
-#: ./skins/Poi/poi_notify_new_response.pt
-msgid "poi_notification_new_response"
-msgstr "Eine neue Antwort wurde zur Problemstellung \" ${issue_title}\". Sie finden sie im Problem-Tracker \" ${tracker_title} \" unter der Adresse ${issue_url}."
-
-#. Default: "Changed issue state:"
-#: ./skins/Poi/poi_issue_view.pt
-msgid "poi_response_state_change"
-msgstr "Status der Problemstellung verändert:"
-
-#. Default: "Response # ${responseNumber} to \" ${issueTitle} \""
-#: ./skins/Poi/poi_response_view.pt
+#. Default: "Response #${responseNumber} to \"${issueTitle}\""
+#: ../skins/Poi/poi_response_view.pt:23
+#, fuzzy
 msgid "poi_response_title"
 msgstr "Beantworten von Nr.${responseNumber} zu \" ${issueTitle} \""
 
-#. Default: "Return to search"
-#: ./skins/Poi/poi_issue_search.pt
+#. Default: "Return to search results"
+#: ../skins/Poi/poi_issue_view.pt:99
+#, fuzzy
 msgid "poi_return_to_search"
 msgstr "Zurück zur Suche"
 
 #. Default: "Return to issue tracker"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:13
 msgid "poi_return_to_tracker"
 msgstr "Zurück zum Problem-Tracker"
 
 #. Default: "Select the areas you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:119
 msgid "poi_search_help_area"
 msgstr "Wählen sie die Bereiche, nach denen sie suchen möchten."
 
 #. Default: "Enter the username of the issue submitter,"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:62
 msgid "poi_search_help_creator"
 msgstr "Geben sie den Namen des/der BenutzerIn ein, welche die Problemstellung übermittelt hat."
 
+#. Default: "If you wish to search for a particular issue, please enter its number."
+#: ../skins/Poi/poi_issue_search_form.pt:33
+msgid "poi_search_help_id"
+msgstr ""
+
 #. Default: "Select the issue types you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:139
 msgid "poi_search_help_issue_type"
 msgstr "Wählen sie die Arten der Problemstellung, nach denen sie suchen möchten."
 
-#. Default: "Select the releases you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt
+#. Default: "Select the version for which the bugs you want to find were reported."
+#: ../skins/Poi/poi_issue_search_form.pt:74
+#, fuzzy
 msgid "poi_search_help_release"
 msgstr "Wählen Sie die Ausgabe/ Versionen, nach denen sie suchen möchten."
 
 #. Default: "Select the responsible managers you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:201
 msgid "poi_search_help_responsible"
 msgstr "Wählen sie die verantwortlichen Manager, nach denen sie suchen möchten."
 
 #. Default: "Select the severities you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:159
 msgid "poi_search_help_severity"
 msgstr "Wählen sie die Wichtigkeit, nach der sie suchen möchten."
 
 #. Default: "Select the states you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:179
 msgid "poi_search_help_state"
 msgstr "Wählen sie die Stati, nach den sie suchen möchten."
 
 #. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:223
 msgid "poi_search_help_tags"
 msgstr "Kennzeichungen (engl.: Tags) sind Schlüsselwörter die von Tracker-Managern zu Problemstellungen zugewiesen werden können. Somit ist eine feingranularere Organisation der Problemstellungen möglich. Wählen Sie eine oder mehrere Kennzeichnungen, nach der sie suchen können möchten."
 
+#. Default: "Select the assigned target release you wish to search for."
+#: ../skins/Poi/poi_issue_search_form.pt:97
+msgid "poi_search_help_target_release"
+msgstr ""
+
 #. Default: "Enter any text you wish the issue to include."
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:48
 msgid "poi_search_help_text"
 msgstr "Geben sie jedweden Text ein, welcher in der Problemstellung einbezogen werden soll."
 
 #. Default: "Area"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:117
 msgid "poi_search_label_area"
 msgstr "Bereich"
 
 #. Default: "Submitter"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:60
 msgid "poi_search_label_creator"
 msgstr "Einschreiter"
 
+#. Default: "Issue number"
+#: ../skins/Poi/poi_issue_search_form.pt:31
+msgid "poi_search_label_id"
+msgstr ""
+
 #. Default: "Issue type"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:137
 msgid "poi_search_label_issue_type"
 msgstr "Art der Problemstellung"
 
-#. Default: "Release"
-#: ./skins/Poi/poi_issue_search_form.pt
+#. Default: "Version"
+#: ../skins/Poi/poi_issue_search_form.pt:72
+#, fuzzy
 msgid "poi_search_label_release"
 msgstr "Ausgabe/ Version"
 
 #. Default: "Responsible tracker managers"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:199
 msgid "poi_search_label_responsible"
 msgstr "Verantwortliche Tracker Manager"
 
 #. Default: "Severity"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:157
 msgid "poi_search_label_severity"
 msgstr "Wichtung"
 
 #. Default: "State"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:177
 msgid "poi_search_label_state"
 msgstr "Status"
 
 #. Default: "Tags"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:221
 msgid "poi_search_label_tags"
 msgstr "Kennzeichnungen"
 
+#. Default: "Target release"
+#: ../skins/Poi/poi_issue_search_form.pt:95
+msgid "poi_search_label_target_release"
+msgstr ""
+
 #. Default: "Issue text"
-#: ./skins/Poi/poi_issue_search_form.pt
+#: ../skins/Poi/poi_issue_search_form.pt:46
 msgid "poi_search_label_text"
 msgstr "Problemstellungs-Text"
 
 #. Default: "View issue in full"
-#: ./skins/Poi/poi_response_view.pt
+#: ../skins/Poi/poi_response_view.pt:30
 msgid "poi_up_to_issue"
 msgstr "Vollständige Problemstellung anzeigen"
+
+#. Default: "RSS feed of these search results"
+#: ../skins/Poi/poi_tracker_view.pt:202
+msgid "title_rss_feed"
+msgstr ""
 
