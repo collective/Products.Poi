@@ -20,18 +20,12 @@ msgstr ""
 
 ##. Default: "Last modified on ${modification_time} by ${modification_actor}"
 ##: ./skins/Poi/poi_issue_view.pt
-#msgid "poi_last_modified_on_by"
-#msgstr "Última modificação em ${modification_time} por ${modification_actor}"
-
+# msgid "poi_last_modified_on_by"
+# msgstr "Última modificação em ${modification_time} por ${modification_actor}"
 #. Default: "Add response"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "Add response"
 msgstr "Adicionar resposta"
-
-#. Default: "Edit issue"
-#: ./skins/Poi/poi_issue_view.pt
-msgid "Edit issue"
-msgstr "Editar a ocorrência"
 
 #. Default: "Cancel"
 #: ./skins/Poi/poi_response_delete_confirm.cpt
@@ -50,272 +44,210 @@ msgid "Edit"
 msgstr "Editar"
 
 #. Default: "Select the area this issue is relevant to."
-#: ./content/PoiIssue.py
 msgid "Poi_help_area"
 msgstr "Selecione a área a qual esta ocorrência se refere."
 
 #. Default: "You may optionally upload a file attachment to your issue. Please do not upload unnecessarily large files."
-#: ./content/PoiIssue.py
 msgid "Poi_help_attachment"
 msgstr "Você pode opcionalmente adicionar um arquivo anexo a sua ocorrência. Por favor não adicione desnecessariamente arquivos grandes."
 
-#. Default: "Help Text"\" 
-#: ./content/PoiTracker.py
-msgid "Poi_label_helpText"
-msgstr "Texto de Ajuda"
-
-#. Default: "Enter any introductory help text you'd like to display on the tracker front page."
-#: ./content/PoiTracker.py
-msgid "Poi_help_helpText"
-msgstr "Informe um texto introdutório de ajuda que você queira apresentar na página do gerenciador."
-
 #. Default: "Enter the issue topics/areas for this tracker, one specification per line. The format is \"Short name | Title | Description\"."
-#: ./content/PoiTracker.py
 msgid "Poi_help_availableAreas"
 msgstr "Informe os tópicos/áreas de ocorrências para este gerenciador, uma especificação por linha. O formato é \"NomeCurto | Título | Descrição\". "
 
 #. Default: "Enter the issue types for this tracker, one specification per line.  The format is \"Short name | Title | Description\"."
-#: ./content/PoiTracker.py
 msgid "Poi_help_availableIssueTypes"
 msgstr "Informe os tipos de ocorrências para este gerenciador, uma especificação por linha. O formato é \"NomeCurto | Título | Descrição\". "
 
 #. Default: "Enter the releases which issues can be assigned to, one per line.  If no releases are entered, issues will not be organised by release."
-#: ./content/PoiTracker.py
 msgid "Poi_help_availableReleases"
 msgstr "Informe as versões as quais as ocorrências podem ser relacionadas, uma por linha. Se nenhuma versão for informada, as ocorrência não serão organizadas por versão."
 
 #. Default: "Enter the different type of issue severities that should be available, one per line."
-#: ./content/PoiTracker.py
 msgid "Poi_help_availableSeverities"
 msgstr "Informe os valores distintos possíveis para a gravidade das ocorrências, um por linha."
 
 #. Default: "Optionally, provide an email address where you can be contacted for further information or when a resolution is available."
-#: ./content/PoiIssue.py
 msgid "Poi_help_contactEmail"
 msgstr "Opcionalmente, informe um endereço de email pelo qual você pode ser encontrado para informações adicionais ou quando uma solução estiver disponível."
 
 #. Default: "Select the default severity for new issues."
-#: ./content/PoiTracker.py
 msgid "Poi_help_defaultSeverity"
 msgstr "Selecione a gravidade padrão para novas ocorrências."
 
 #. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
-#: ./content/PoiIssue.py
 msgid "Poi_help_description"
 msgstr "Informe uma breve descrição da ocorrência. Como com o título, uma descrição concisa e significativa ajudará aos responsáveis pelo projeto a avaliar e responder à ocorrência."
 
 #. Default: "Please provide further details"
-#: ./content/PoiIssue.py
 msgid "Poi_help_details"
 msgstr "Por favor, informe detalhes adicionais."
 
 #. Default: ""
-#: ./content/PoiIssue.py
 msgid "Poi_help_id"
 msgstr ""
 
 #. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ./content/PoiIssue.py
 msgid "Poi_help_issueTransition"
 msgstr "Selecione a troca de situação da ocorrência a que esta resposta se refere, se aplicável."
 
 #. Default: "Select the type of issue."
-#: ./content/PoiIssue.py
 msgid "Poi_help_issueType"
 msgstr "Selecione o tipo de ocorrência."
 
 #. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
-#: ./content/PoiIssue.py
 msgid "Poi_help_issue_title"
 msgstr "Informe um título curto e descritivo para a ocorrência. Um bom título facilitará a identificação e resposta da ocorrência pelo responsável pelo projeto."
 
 #. Default: "If given, and if "Send notification emails" is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails."
-#: ./content/PoiTracker.py
 msgid "Poi_help_mailingList"
 msgstr "Se informado, e se \"Enviar emails de notificação\" estiver selecionado, um email será enviado para este endereço cada vez que uma nova ocorrência ou resposta for criada. Se não for informado um endereço de lista, os responsáveis receberão emails individuais."
 
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
-#: ./content/PoiTracker.py
 msgid "Poi_help_managers"
 msgstr "Informe a idendificação dos usuários que terão permissão de administrar este gerenciador, um por linha."
 
 #. Default: "Select the release this issue pertains to."
-#: ./content/PoiIssue.py
 msgid "Poi_help_release"
 msgstr "Selecione a versão a que esta ocorrência pertence."
 
 #. Default: "Please enter your response below"
-#: ./content/PoiIssue.py
 msgid "Poi_help_response"
 msgstr "Por favor, informe a sua resposta abaixo."
 
 #. Default: "Enter a brief subject for this response, e.g. \"Fixed\" or \"Will be fixed in next release\".""
-#: ./content/PoiIssue.py
 msgid "Poi_help_response_title"
 msgstr "Informe brevemente o assunto para esta resposta, por exemplo: \"Resolvido\" ou \"Será resolvido na próxima versão\"."
 
 #. Default: "Select which manager, if any, is responsible for this issue."
-#: ./content/PoiIssue.py
 msgid "Poi_help_responsibleManager"
 msgstr "Selecione qual o gerente, se existir, é responsável por esta ocorrência. "
 
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation."
-#: ./content/PoiTracker.py
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Se selecionado, gerentes de ocorrências receberão um email a cada vez que uma nova ocorrência ou resposta for criada, e os criadores de ocorrências receberão uma mensagem quando tiver uma nova resposta e quando uma ocorrência for resolvida e estiver aguardando confirmação."
 
 #. Default: "Select the severity of this issue."
-#: ./content/PoiIssue.py
 msgid "Poi_help_severity"
 msgstr "Selecione a gravidade desta ocorrência."
 
 #. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
-#: ./content/PoiIssue.py
 msgid "Poi_help_steps"
 msgstr "Se aplicável, por favor informe os passos necessários para reproduzir o erro ou identificar a ocorrência, um por linha."
 
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: ./content/PoiIssue.py
 msgid "Poi_help_subject"
 msgstr "Rótulos podem ser usado para adicionar categorias arbitrárias às ocorrências. A lista abaixo mostra rótulos existentes que você pode selecionar, ou você pode adicionar algum novo."
 
 #. Default: "Enter a descriptive name for this tracker"
-#: ./content/PoiTracker.py
 msgid "Poi_help_tracker_title"
 msgstr "Informe um nome que descreva este gerenciador."
 
 #. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
-#: ./content/PoiIssue.py
 msgid "Poi_help_watchers"
 msgstr "Informe os nomes de usuário das pessoas que estão observando  esta ocorrência, um por linha. Estas pessoas receberão um email a cada vez que uma resposta for adicionada a esta ocorrência. Membros do portal podem eles mesmos se adicionarem como observadores."
 
 #. Default: "Area"
-#: ./content/PoiIssue.py
 msgid "Poi_label_area"
 msgstr "Área"
 
 #. Default: "Attachment"
-#: ./content/PoiIssue.py
 msgid "Poi_label_attachment"
 msgstr "Anexo"
 
 #. Default: "Areas"
-#: ./content/PoiTracker.py
 msgid "Poi_label_availableAreas"
 msgstr "Áreas"
 
 #. Default: "Issue types"
-#: ./content/PoiTracker.py
 msgid "Poi_label_availableIssueTypes"
 msgstr "Tipos de Ocorrências"
 
 #. Default: "Available releases"
-#: ./content/PoiTracker.py
 msgid "Poi_label_availableReleases"
 msgstr "Versões Disponíveis"
 
 #. Default: "Available severities"
-#: ./content/PoiTracker.py
 msgid "Poi_label_availableSeverities"
 msgstr "Gravidades Disponíveis"
 
 #. Default: "Contact email address"
-#: ./content/PoiIssue.py
 msgid "Poi_label_contactEmail"
 msgstr "Email para Contato"
 
 #. Default: "Default severity"
-#: ./content/PoiTracker.py
 msgid "Poi_label_defaultSeverity"
 msgstr "Gravidade Padrão"
 
 #. Default: "Overview"
-#: ./content/PoiIssue.py
 msgid "Poi_label_description"
 msgstr "Visão Geral"
 
 #. Default: "Details"
-#: ./content/PoiIssue.py
 msgid "Poi_label_details"
 msgstr "Detalhes"
 
 #. Default: "Id"
-#: ./content/PoiIssue.py
 msgid "Poi_label_id"
 msgstr "Identificação"
 
 #. Default: "Change issue state"
-#: ./content/PoiIssue.py
 msgid "Poi_label_issueTransition"
 msgstr "Troca da Situação da Ocorrência"
 
 #. Default: "Issue type"
-#: ./content/PoiIssue.py
 msgid "Poi_label_issueType"
 msgstr "Tipo da Ocorrência"
 
 #. Default: "Title"
-#: ./content/PoiIssue.py
 msgid "Poi_label_issue_title"
 msgstr "Título"
 
 #. Default: "Mailing list"
-#: ./content/PoiTracker.py
 msgid "Poi_label_mailingList"
 msgstr "Lista de Emails"
 
 #. Default: "Tracker managers"
-#: ./content/PoiTracker.py
 msgid "Poi_label_managers"
 msgstr "Administradores do Gerenciador"
 
 #. Default: "Release"
-#: ./content/PoiIssue.py
 msgid "Poi_label_release"
 msgstr "Versão"
 
 #. Default: "Response"
-#: ./content/PoiIssue.py
 msgid "Poi_label_response"
 msgstr "Resposta"
 
 #. Default: "Subject"
-#: ./content/PoiIssue.py
 msgid "Poi_label_response_title"
 msgstr "Assunto"
 
 #. Default: "Responsible"
-#: ./content/PoiIssue.py
 msgid "Poi_label_responsibleManager"
 msgstr "Responsável"
 
 #. Default: "Send notification emails"
-#: ./content/PoiTracker.py
 msgid "Poi_label_sendNotificationEmails"
 msgstr "Notificar por Emails"
 
 #. Default: "Severity"
-#: ./content/PoiIssue.py
 msgid "Poi_label_severity"
 msgstr "Gravidade"
 
 #. Default: "Steps to reproduce"
-#: ./content/PoiIssue.py
 msgid "Poi_label_steps"
 msgstr "Passos para Reproduzir o Problema"
 
 #. Default: "Tags"
-#: ./content/PoiIssue.py
 msgid "Poi_label_subject"
 msgstr "Rótulos"
 
 #. Default: "Tracker name"
-#: ./content/PoiTracker.py
 msgid "Poi_label_tracker_title"
 msgstr "Nome do Gerenciador"
 
 #. Default: "Issue watchers"
-#: ./content/PoiIssue.py
 msgid "Poi_label_watchers"
 msgstr "Observadores da Ocorrência"
 
@@ -384,16 +316,6 @@ msgstr "Gravidade"
 msgid "listingheader_state"
 msgstr "Situação"
 
-#. Default: "Issue number"
-#: ./skins/Poi/poi_issue_search_form.pt
-msgid "poi_search_label_id"
-msgstr "Número da Ocorrência"
-
-#. Default: "If you wish to search for a particular issue, please enter its number."
-#: ./skins/Poi/poi_issue_search_form.pt
-msgid "poi_search_help_id"
-msgstr "Se você quiser buscar por uma ocorrência em particular, por favor, informe o seu número."
-
 #. Default: "Title"
 #: ./skins/Poi/poi_issue_search.pt
 msgid "listingheader_title"
@@ -418,21 +340,6 @@ msgstr "Adicionado por"
 #: ./skins/Poi/poi_issue_view.pt
 msgid "poi_added_on"
 msgstr "em"
-
-#. Default: "Search"
-#: ./skins/Poi/poi_tracker_view.pt
-msgid "Search"
-msgstr "Buscar"
-
-#. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ./skins/Poi/poi_tracker_view.pt
-msgid "description_cannot_add_issues_before_opened"
-msgstr "Outros usuários não podem enviar ocorrências para este gerenciador até que ele esteja aberto para envios. Isto é feito trocando o estado na barra verde de estados acima."
-
-#. Default: "All pending issues"
-#: ./skins/Poi/poi_tracker_view.pt
-msgid "poi_all_pending_issues"
-msgstr "Todas as ocorrências pendentes"
 
 #. Default: "By area"
 #: ./skins/Poi/poi_tracker_view.pt
@@ -604,11 +511,6 @@ msgstr "Resposta n. ${responseNumber} to \"${issueTitle}\""
 msgid "poi_return_to_search"
 msgstr "Retorne a busca"
 
-#. Default: "Issue number"
-#: ./skins/Poi/poi_issue_search_form.pt
-msgid "poi_search_label_id"
-msgstr ""
-
 #. Default: "Return to issue tracker"
 #: ./skins/Poi/poi_issue_search_form.pt
 msgid "poi_return_to_tracker"
@@ -709,22 +611,3 @@ msgstr "Texto da Ocorrência"
 msgid "poi_up_to_issue"
 msgstr "Ver toda a ocorrência"
 
-#. Default: "Change issue severity"
-# ./content/PoiResponse.py
-msgid "Poi_label_newSeverity"
-msgstr "Alterar a Severidade da Ocorrência"
-
-#. Default: "Select the severity for this issue"
-# ./content/PoiResponse.py
-msgid "Poi_help_newSeverity"
-msgstr "Selecione a severidade para esta ocorrência."
-
-#. Default: "Change responsible manager"
-# ./content/PoiResponse.py
-msgid "Poi_label_newResponsibleManager"
-msgstr "Alterar o Administrador Responsável"
-
-#. Default: "Select the responsible manager for this issue"
-# ./content/PoiResponse.py
-msgid "Poi_help_newResponsibleManager"
-msgstr "Selecione o administrador responsável para esta ocorrência."
