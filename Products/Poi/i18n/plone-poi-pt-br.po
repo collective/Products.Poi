@@ -29,9 +29,6 @@ msgid "An issue tracker"
 msgstr "Um gerenciador de ocorrência. "
 
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Uma ocorrência. As ocorrêncas, ao serem criadas, sempre estarão no estado 'Não Confirmado', e podem ser respondidas pelos administradores do projeto."
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
 msgstr ""
 
 msgid "Begin work"
@@ -105,9 +102,6 @@ msgstr "Resolver"
 msgid "Resolved"
 msgstr "Resolvido"
 
-msgid "Confirmed"
-msgstr "Confirmado"
-
 msgid "Response"
 msgstr "Resposta"
 
@@ -117,3 +111,4 @@ msgstr "Testado e fechado"
 
 msgid "Unconfirmed"
 msgstr "Não confirmado"
+
