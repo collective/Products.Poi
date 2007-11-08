@@ -72,7 +72,8 @@ schema = Schema((
             i18n_domain='Poi',
         ),
         accessor="Title",
-        mode="r"
+        mode="r",
+        searchable=True
     ),
 
     TextField(

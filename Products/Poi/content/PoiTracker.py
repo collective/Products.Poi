@@ -67,7 +67,8 @@ schema = Schema((
             i18n_domain='Poi',
         ),
         required=True,
-        accessor="Title"
+        accessor="Title",
+        searchable=True
     ),
 
     TextField(
