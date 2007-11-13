@@ -419,7 +419,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         else:
             details = self.getRawDetails()
             if len(details) > DESCRIPTION_LENGTH:
-                return self.getDetails()[:DESCRIPTION_LENGTH] + "..."
+                return details[:DESCRIPTION_LENGTH] + "..."
             else:
                 return details
 
