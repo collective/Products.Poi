@@ -27,7 +27,6 @@ msgstr "Une réponse à un ticket."
 msgid "An issue tracker"
 msgstr "Un gestionnaire de tickets"
 
-#, fuzzy
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
 msgstr "Un ticket. Les tickets  commence avec l'état 'ouvert', et peuvent être gérés par les chefs de projets."
 

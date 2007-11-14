@@ -43,7 +43,7 @@ msgstr "Éditer"
 #. Default: "Edit issue"
 #: ../skins/Poi/poi_issue_view.pt:168
 msgid "Edit issue"
-msgstr ""
+msgstr "Editer le ticket"
 
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."
@@ -99,7 +99,7 @@ msgstr "Veuillez fournir plus détails"
 # ./content/PoiTracker.py
 #. Default: "Enter any introductory help text you'd like to display on the tracker front page."
 msgid "Poi_help_helpText"
-msgstr ""
+msgstr "Entrer une notice d'emploi de votre gestionnaire de ticket qui sera affiché en page d'acceuil de l'outil"
 
 # ./content/PoiIssue.py
 #. Default: ""
@@ -250,7 +250,7 @@ msgstr "Détails"
 # ./content/PoiTracker.py
 #. Default: "Help Text"
 msgid "Poi_label_helpText"
-msgstr ""
+msgstr "Notice d'emploi"
 
 # ./content/PoiIssue.py
 #. Default: "Id"
@@ -350,7 +350,7 @@ msgstr "Observateurs du ticket"
 #. Default: "Search"
 #: ../skins/Poi/poi_tracker_view.pt:36
 msgid "Search"
-msgstr ""
+msgstr "Rechercher"
 
 #. Default: "Stop watching this issue"
 #: ../skins/Poi/poi_issue_view.pt:176
@@ -456,7 +456,7 @@ msgstr "le"
 #. Default: "All pending issues"
 #: ../skins/Poi/poi_tracker_view.pt:122
 msgid "poi_all_pending_issues"
-msgstr ""
+msgstr "Tous les tickets en attente"
 
 #. Default: "By area"
 #: ../skins/Poi/poi_tracker_view.pt:89
@@ -492,7 +492,7 @@ msgstr "Recherche de ticket"
 #. Default: "Tracker log"
 #: ../browser/log.pt:17
 msgid "poi_heading_log"
-msgstr ""
+msgstr "Le journal du gestionnaire de tickets"
 
 #. Default: "My issues"
 #: ../skins/Poi/poi_tracker_view.pt:187
@@ -522,7 +522,7 @@ msgstr "Tickets non confirmés"
 #. Default: "An overview of recent activity in the tracker."
 #: ../browser/log.pt:19
 msgid "poi_help_log"
-msgstr ""
+msgstr "Un aperçu de la récente activité du gestionnaire de ticket"
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
 #: ../skins/Poi/poi_tracker_view.pt:188
@@ -668,7 +668,7 @@ msgstr "Entrez le nom utilisateur du soumetteur du ticket."
 #. Default: "If you wish to search for a particular issue, please enter its number."
 #: ../skins/Poi/poi_issue_search_form.pt:33
 msgid "poi_search_help_id"
-msgstr ""
+msgstr "Si vous désirez faire une recherche que un ticket particulier, s'il vous plait saisissez son numéro"
 
 #. Default: "Select the issue types you wish to search for."
 #: ../skins/Poi/poi_issue_search_form.pt:139
@@ -724,7 +724,7 @@ msgstr "Soumetteur"
 #. Default: "Issue number"
 #: ../skins/Poi/poi_issue_search_form.pt:31
 msgid "poi_search_label_id"
-msgstr ""
+msgstr "Numéro de ticket"
 
 #. Default: "Issue type"
 #: ../skins/Poi/poi_issue_search_form.pt:137
