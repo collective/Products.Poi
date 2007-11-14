@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2007-11-14 18:40+0000\n"
+"POT-Creation-Date: 2007-11-14 19:01+0000\n"
 "PO-Revision-Date: 2007-03-22 11:28+0100\n"
 "Last-Translator: Maurizio Delmonte <maurizio.delmonte@redomino.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgid "Poi_help_area"
 msgstr "Seleziona l'area a cui la richiesta è attinente"
 
 # ./content/PoiIssue.py
-#. Default: "You may optionally upload a file attachment to your response.  Please do not upload unnecessarily large files."
+#. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
 #, fuzzy
 msgid "Poi_help_attachment"
 msgstr "Se necessario, puoi caricare un file allegato alla tua richiesta. Per favore, non caricare file di grandi dimensioni che non siano necessari."
@@ -236,7 +236,8 @@ msgid "Poi_label_defaultSeverity"
 msgstr "Priorità predefinita"
 
 # ./content/PoiIssue.py
-#. Default: "Overview"
+#. Default: "Tracker description"
+#, fuzzy
 msgid "Poi_label_description"
 msgstr "Descrizione"
 

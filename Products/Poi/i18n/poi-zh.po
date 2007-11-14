@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2007-11-08 21:26+0000\n"
+"POT-Creation-Date: 2007-11-14 19:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,7 +51,7 @@ msgid "Poi_help_area"
 msgstr "选择这个问题相关的领域"
 
 # ./content/PoiIssue.py
-#. Default: "You may optionally upload a file attachment to your response.  Please do not upload unnecessarily large files."
+#. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
 #, fuzzy
 msgid "Poi_help_attachment"
 msgstr "你可选择上载一个文件附件到这个问题。请注意不要上载过大的文件。"
@@ -237,7 +237,8 @@ msgid "Poi_label_defaultSeverity"
 msgstr "默认严重性"
 
 # ./content/PoiIssue.py
-#. Default: "Overview"
+#. Default: "Tracker description"
+#, fuzzy
 msgid "Poi_label_description"
 msgstr "概述"
 

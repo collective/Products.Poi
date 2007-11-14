@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2007-11-08 21:29+0000\n"
+"POT-Creation-Date: 2007-11-14 19:01+0000\n"
 "PO-Revision-Date: 2007-11-08 21:29+0000\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgid "Poi_help_area"
 msgstr ""
 
 # ./content/PoiIssue.py
-#. Default: "You may optionally upload a file attachment to your response.  Please do not upload unnecessarily large files."
+#. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
 msgid "Poi_help_attachment"
 msgstr ""
 
@@ -235,7 +235,7 @@ msgid "Poi_label_defaultSeverity"
 msgstr ""
 
 # ./content/PoiIssue.py
-#. Default: "Overview"
+#. Default: "Tracker description"
 msgid "Poi_label_description"
 msgstr ""
 

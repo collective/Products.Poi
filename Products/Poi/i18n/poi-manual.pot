@@ -142,11 +142,6 @@ msgstr ""
 msgid "Poi_help_issue_title"
 msgstr ""
 
-#. Default: "Overview"
-# ./content/PoiIssue.py
-msgid "Poi_label_description"
-msgstr ""
-
 #. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
 # ./content/PoiIssue.py
 msgid "Poi_help_description"
@@ -214,11 +209,13 @@ msgstr ""
 
 #. Default: "Attachment"
 # ./content/PoiIssue.py
+# ./content/PoiResponse.py
 msgid "Poi_label_attachment"
 msgstr ""
 
-#. Default: "You may optionally upload a file attachment to your issue. Please do not upload unnecessarily large files."
+#. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
 # ./content/PoiIssue.py
+# ./content/PoiResponse.py
 msgid "Poi_help_attachment"
 msgstr ""
 
@@ -292,16 +289,6 @@ msgstr ""
 #. Default: "Select a change of state in the issue this response is for, if applicable"
 # ./content/PoiIssue.py
 msgid "Poi_help_issueTransition"
-msgstr ""
-
-#. Default: "Attachment"
-# ./content/PoiIssue.py
-msgid "Poi_label_attachment"
-msgstr ""
-
-#. Default: "You may optionally upload a file attachment to your response.  Please do not upload unnecessarily large files."
-# ./content/PoiIssue.py
-msgid "Poi_help_attachment"
 msgstr ""
 
 #. Default: "Change issue severity"

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2007-11-08 21:26+0000\n"
+"POT-Creation-Date: 2007-11-14 19:01+0000\n"
 "PO-Revision-Date: 2006-01-22 18:00+0900\n"
 "Last-Translator: TANIGUCHI Takaki <takaki@asis.media-as.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgid "Poi_help_area"
 msgstr "この課題に関連する領域を選択して下さい。"
 
 # ./content/PoiIssue.py
-#. Default: "You may optionally upload a file attachment to your response.  Please do not upload unnecessarily large files."
+#. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
 #, fuzzy
 msgid "Poi_help_attachment"
 msgstr "課題に対する添付ファイルをアップロードすることもできます。必要のない大きなファイルをアップロードするのは御遠慮下さい。"
@@ -236,7 +236,8 @@ msgid "Poi_label_defaultSeverity"
 msgstr "デフォルトの重要度"
 
 # ./content/PoiIssue.py
-#. Default: "Overview"
+#. Default: "Tracker description"
+#, fuzzy
 msgid "Poi_label_description"
 msgstr "概観"
 

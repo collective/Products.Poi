@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-pt-br\n"
-"POT-Creation-Date: 2007-11-08 21:26+0000\n"
+"POT-Creation-Date: 2007-11-14 19:01+0000\n"
 "PO-Revision-Date: 2007-01-26 10:34-0300\n"
 "Last-Translator: Rafahela Bazzanella <rafabazzanella@yahoo.com.br>\n"
 "Language-Team: TcheZope <tchezope@yahoogroups.com>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Poi_help_area"
 msgstr "Selecione a área a qual esta ocorrência se refere."
 
-#. Default: "You may optionally upload a file attachment to your response.  Please do not upload unnecessarily large files."
+#. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
 #, fuzzy
 msgid "Poi_help_attachment"
 msgstr "Você pode opcionalmente adicionar um arquivo anexo a sua ocorrência. Por favor não adicione desnecessariamente arquivos grandes."
@@ -207,7 +207,8 @@ msgstr "Email para Contato"
 msgid "Poi_label_defaultSeverity"
 msgstr "Gravidade Padrão"
 
-#. Default: "Overview"
+#. Default: "Tracker description"
+#, fuzzy
 msgid "Poi_label_description"
 msgstr "Visão Geral"
 
