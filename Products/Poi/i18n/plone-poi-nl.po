@@ -16,77 +16,70 @@ msgstr ""
 "Domain: plone\n"
 "X-Is-Fallback-For: nl-be\n"
 
-# portal type nams
-
-msgid "Issue Tracker"
-msgstr ""
-
-msgid "An issue tracker"
-msgstr ""
-
-msgid "Issue"
-msgstr ""
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr ""
-
-msgid "Response"
+# issue transitions
+msgid " Open"
 msgstr ""
 
 msgid "A response to an issue."
 msgstr ""
 
-# tracker states
-
-msgid "Open for submissions"
+msgid "An issue tracker"
 msgstr ""
 
-msgid "Closed for submissions"
-msgstr ""
-
-# tracker transitions
-
-msgid "Close tracker"
-msgstr ""
-
-msgid "Open tracker"
-msgstr ""
-
-# issue states
-
-msgid "Tested and confirmed closed"
-msgstr ""
-
-msgid "In progress"
-msgstr ""
-
-msgid "Being created"
-msgstr ""
-
-msgid "Open"
-msgstr ""
-
-msgid "Postponed"
-msgstr ""
-
-msgid "Rejected"
-msgstr ""
-
-msgid "Resolved"
-msgstr ""
-
-msgid "Unconfirmed"
-msgstr ""
-
-# issue transitions
-
-msgid " Open"
+msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
 msgstr ""
 
 msgid "Begin work"
 msgstr ""
 
+msgid "Being created"
+msgstr ""
+
+# tracker transitions
+msgid "Close tracker"
+msgstr ""
+
+msgid "Closed for submissions"
+msgstr ""
+
 msgid "Confirm resolved"
+msgstr ""
+
+msgid "In progress"
+msgstr ""
+
+msgid "Issue"
+msgstr ""
+
+# portal type nams
+msgid "Issue Tracker"
+msgstr ""
+
+msgid "Open"
+msgstr ""
+
+# tracker states
+msgid "Open for submissions"
+msgstr ""
+
+msgid "Open tracker"
+msgstr ""
+
+msgid "Post issue on save"
+msgstr ""
+
+# response transitions
+msgid "Post response on save"
+msgstr ""
+
+# response states
+msgid "Posted"
+msgstr ""
+
+msgid "Postpone"
+msgstr ""
+
+msgid "Postponed"
 msgstr ""
 
 msgid "Put on hold"
@@ -95,23 +88,25 @@ msgstr ""
 msgid "Re-open"
 msgstr ""
 
-msgid "Post issue on save"
-msgstr ""
-
-msgid "Postpone"
-msgstr ""
-
 msgid "Reject"
+msgstr ""
+
+msgid "Rejected"
 msgstr ""
 
 msgid "Resolve"
 msgstr ""
 
-# response states
-
-msgid "Posted"
+msgid "Resolved"
 msgstr ""
 
-# response transitions
-msgid "Post response on save"
+msgid "Response"
 msgstr ""
+
+# issue states
+msgid "Tested and confirmed closed"
+msgstr ""
+
+msgid "Unconfirmed"
+msgstr ""
+
