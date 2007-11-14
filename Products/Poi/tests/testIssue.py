@@ -117,6 +117,11 @@ class TestIssue(ptc.PoiTestCase):
         self.failUnless(self.issue.Description().startswith("When pasting html you can get:\r\n    - ugly line breaks"))
         self.failIf("&nbsp;" in self.issue.Description())
         self.failIf("<br />" in self.issue.Description())
+
+    def testUnicodeDescription(self):
+        text = u"The Japanese call their country Nippon or in their own characters: ÆüËÜ."
+        self.issue.setDetails(text, mimetype='text/x-web-intelligent')
+        self.failUnless(self.issue.Description() == text)
         
 
 def test_suite():
@@ -127,3 +132,4 @@ def test_suite():
 
 if __name__ == '__main__':
     framework()
+

@@ -40,6 +40,7 @@ from Products.AddRemoveWidget.AddRemoveWidget import AddRemoveWidget
 
 ##code-section module-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import getSiteEncoding
 import transaction
 
 import textwrap
@@ -418,6 +419,9 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
             return explicit
         else:
             details = self.getRawDetails()
+            if not isinstance(details, unicode):
+                encoding = getSiteEncoding(self)
+                details = unicode(details, encoding)
             if len(details) > DESCRIPTION_LENGTH:
                 return details[:DESCRIPTION_LENGTH] + "..."
             else:
