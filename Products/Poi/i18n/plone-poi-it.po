@@ -1,0 +1,112 @@
+# pot file for Poi Issue Tracker product.
+# Junyong Pan <panjy@zopechina.com>, 2005.
+msgid ""
+msgstr ""
+"Project-Id-Version: Poi\n"
+"POT-Creation-Date: 2005-10-26 17:00+0000\n"
+"PO-Revision-Date: 2007-03-19 16:36+0100\n"
+"Last-Translator: Maurizio Delmonte <maurizio.delmonte@redomino.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: it\n"
+"Language-Name: Italian\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+# portal type nams
+msgid "Issue Tracker"
+msgstr "Gestore Attività"
+
+msgid "An issue tracker"
+msgstr "Un gestore attività"
+
+msgid "Issue"
+msgstr "Attività"
+
+msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
+msgstr "Una attività. Le richieste di attività hanno stato iniziale 'da confermare', e possono essere gestite dai project manager."
+
+msgid "Response"
+msgstr "Risposta"
+
+msgid "A response to an issue."
+msgstr "Risposta ad una richiesta attività"
+
+# tracker states
+msgid "Open for submissions"
+msgstr "Invio richieste attivo"
+
+msgid "Closed for submissions"
+msgstr "Invio richieste non attivo"
+
+# tracker transitions
+msgid "Close tracker"
+msgstr "Disattiva gestore richieste"
+
+msgid "Open tracker"
+msgstr "Attiva gestore richieste"
+
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "Test effettuati e chiusura confermata"
+
+msgid "In progress"
+msgstr "In gestione"
+
+msgid "Being created"
+msgstr "Creato"
+
+msgid "Open"
+msgstr "Attiva"
+
+msgid "Postponed"
+msgstr "Posticipato"
+
+msgid "Rejected"
+msgstr "Rifiutato"
+
+msgid "Resolved"
+msgstr "Risolto"
+
+msgid "Unconfirmed"
+msgstr "Da Confermare"
+
+# issue transitions
+msgid " Open"
+msgstr " Open"
+
+msgid "Begin work"
+msgstr "Inizia lavoro"
+
+msgid "Confirm resolved"
+msgstr "Conferma risoluzione"
+
+msgid "Put on hold"
+msgstr "Metti in pausa"
+
+msgid "Re-open"
+msgstr "Ri-attiva"
+
+msgid "Post issue on save"
+msgstr "Invia la richiesta al salvataggio"
+
+msgid "Postpone"
+msgstr "Posticipa"
+
+msgid "Reject"
+msgstr "Rifiuta"
+
+msgid "Resolve"
+msgstr "Risolto"
+
+# response states
+msgid "Posted"
+msgstr "Inviato"
+
+# response transitions
+msgid "Post response on save"
+msgstr "Invia la risposta al salvataggio"
+
