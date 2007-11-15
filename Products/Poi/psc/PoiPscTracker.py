@@ -171,7 +171,7 @@ class PoiPscTracker(PoiTracker):
                         )
         return DisplayList([(r.UID, r.getId) for r in releases])
 
-    security.declareProtected(permissions.View, 'getExternalTitle')
+    security.declareProtected(permissions.View, 'Title')
     def Title(self):
         """
         The title of an issue tracker is always "Issue tracker"
