@@ -92,7 +92,7 @@ class TestIssue(ptc.PoiTestCase):
         self.issue.setDetails('Make this a link http://test.com', mimetype='text/x-web-intelligent')
         self.assertEqual(self.issue.getDetails(), 'Make this a link <a href="http://test.com" rel="nofollow">http://test.com</a>')
         self.issue.setDetails('Make this a more difficult link http://test.com/ask?yes=1&no=0', mimetype='text/x-web-intelligent')
-        self.failIf("&amp;" in self.issue.getDetails(), 'KNOWN ISSUE: intelligenttext does not correctly handle ampersand in links. See http://plone.org/products/poi/issues/101')
+        self.assertEqual(self.issue.getDetails(), 'Make this a more difficult link <a href="http://test.com/ask?yes=1&no=0" rel="nofollow">http://test.com/ask?yes=1&amp;no=0</a>')
 
     def testTransformSteps(self):
         self.issue.setSteps('Make this a link http://test.com', mimetype='text/x-web-intelligent')
