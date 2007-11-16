@@ -570,11 +570,34 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
             elif v in criteria:
                 query[v] = criteria[v]
 
-        # Playing nicely with the form
+        # Playing nicely with the form.
+
+        # Subject can be a string of one tag, a tuple of several tags
+        # or a dict with a required query and an optional operator
+        # 'and/or'.  We must avoid the case of the dict with only the
+        # operator and no actual query, else we will suffer from
+        # KeyErrors.  Actually, when coming from the
+        # poi_issue_search_form, instead of say from a test, its type
+        # is not 'dict', but 'instance', even though it looks like a
+        # dict.  See http://plone.org/products/poi/issues/137
         if 'Subject' in query:
             subject = query['Subject']
-            if 'operator' in subject and 'query' not in subject:
-                del query['Subject']
+            # We cannot use "subject.has_key('operator')" or
+            # "'operator' in subject'" because of the strange
+            # instance.
+            try:
+                op = subject['operator']
+            except TypeError:
+                # Fine: subject is a string or tuple.
+                pass
+            except KeyError:
+                # No operator, so nothing can go wrong.
+                pass
+            else:
+                try:
+                    dummy = subject['query']
+                except KeyError:
+                    del query['Subject']
         
         query['sort_on'] = criteria.get('sort_on', 'created')
         query['sort_order'] = criteria.get('sort_order', 'reverse')

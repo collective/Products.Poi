@@ -278,6 +278,15 @@ class TestTrackerSearch(ptc.PoiTestCase):
         issues = [b.getId for b in self.tracker.getFilteredIssues(tags=('A', 'D',))]
         issues.sort()
         self.assertEqual(issues, ['1', '3'])
+        # Operator is 'or' by default, so this should give the same results.
+        issues = [b.getId for b in self.tracker.getFilteredIssues(
+            tags=dict(query=('A', 'D',), operator='or'))]
+        issues.sort()
+        self.assertEqual(issues, ['1', '3'])
+        # Now try with 'and'
+        issues = [b.getId for b in self.tracker.getFilteredIssues(
+            tags=dict(query=('A', 'D',), operator='and'))]
+        self.assertEqual(issues, ['3'])
 
     def testGetFilteredIssesByIssueText(self):
         self.createIssue(self.tracker, details="foo")
@@ -324,7 +333,7 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.assertEqual(issues, ['1', '2'])
 
     def testSubjectTolerance(self):
-        self.createIssue(self.tracker, details="foo", area="ui", issueType='feature')
+        self.createIssue(self.tracker, details="foo", area="ui", issueType='feature', tags=('A',))
         issues = [b.getId for b in
                   self.tracker.getFilteredIssues(tags=dict(operator='and'))]
         self.assertEqual(issues, ['1'])
@@ -332,6 +341,50 @@ class TestTrackerSearch(ptc.PoiTestCase):
         issues = [b.getId for b in
                   self.tracker.getFilteredIssues(Subject=dict(operator='or'))]
         self.assertEqual(issues, ['1'])
+
+        # When filling in the poi_issue_search_form you do not get a
+        # dict, but an InstanceType, so an old style class.  That can
+        # give problems, so we fake it here.
+        class FakeQuery:
+            def __init__(self, operator=None, query=None):
+                if operator is not None:
+                    self.operator = operator
+                if query is not None:
+                    self.query = query
+            def __getitem__(self, key):
+                return self.__dict__[key]
+
+        # We repeat the previous two tests but now with FakeOperators
+        # instead of dicts.
+        tags = FakeQuery(operator='and')
+        issues = [b.getId for b in
+                  self.tracker.getFilteredIssues(tags=tags)]
+        self.assertEqual(issues, ['1'])
+        tags = FakeQuery(operator='or')
+        issues = [b.getId for b in
+                  self.tracker.getFilteredIssues(tags=tags)]
+        self.assertEqual(issues, ['1'])
+
+        # Might as well throw in a few more tests, as we do not yet
+        # catch all errors.
+
+        tags = FakeQuery(query=['A'])
+        issues = [b.getId for b in
+                  self.tracker.getFilteredIssues(tags=tags)]
+        self.assertEqual(issues, ['1'])
+        tags = FakeQuery(operator='and', query=['A'])
+        issues = [b.getId for b in
+                  self.tracker.getFilteredIssues(tags=tags)]
+        self.assertEqual(issues, ['1'])
+        tags = FakeQuery(operator='and', query=['A', 'B'])
+        issues = [b.getId for b in
+                  self.tracker.getFilteredIssues(tags=tags)]
+        self.assertEqual(issues, [])
+        tags = FakeQuery(operator='or', query=['A', 'B'])
+        issues = [b.getId for b in
+                  self.tracker.getFilteredIssues(tags=tags)]
+        self.assertEqual(issues, ['1'])
+
 
 def test_suite():
     from unittest import TestSuite, makeSuite
