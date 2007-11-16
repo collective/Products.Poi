@@ -110,6 +110,7 @@ schema = Schema((
             description_msgid='Poi_help_availableAreas',
             i18n_domain='Poi',
         ),
+        allow_empty_rows=False,
         required=True,
         columns=('id', 'title', 'description',)
     ),
@@ -125,6 +126,7 @@ schema = Schema((
             description_msgid='Poi_help_availableIssueTypes',
             i18n_domain='Poi',
         ),
+        allow_empty_rows=False,
         required=True,
         columns=('id', 'title', 'description')
     ),
