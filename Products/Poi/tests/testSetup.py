@@ -54,9 +54,6 @@ class TestInstallation(ptc.PoiTestCase):
         for t in ('PoiTracker', 'PoiPscTracker', 'PoiIssue',):
             self.failUnless(t in self.properties.navtree_properties.getProperty('parentMetaTypesNotToQuery'))
 
-    def testTypesNotSearched(self):
-        for t in self.poiTypes.keys():
-            self.failUnless(t in self.properties.site_properties.getProperty('types_not_searched'))
 
 class TestContentCreation(ptc.PoiTestCase):
     """Ensure content types can be created"""

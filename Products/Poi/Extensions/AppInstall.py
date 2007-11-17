@@ -86,13 +86,6 @@ def install(self):
     addToListProperty(self, out, navtreeProps, 'parentMetaTypesNotToQuery', 'PoiIssue')
     addToListProperty(self, out, navtreeProps, 'parentMetaTypesNotToQuery', 'PoiPscTracker')
 
-    # Set types_not_searched
-    siteProps = getattr(portalProperties, 'site_properties')
-    addToListProperty(self, out, siteProps, 'types_not_searched', 'PoiTracker')
-    addToListProperty(self, out, siteProps, 'types_not_searched', 'PoiIssue')
-    addToListProperty(self, out, siteProps, 'types_not_searched', 'PoiResponse')
-    addToListProperty(self, out, siteProps, 'types_not_searched', 'PoiPscTracker')
-
     # Add PoiPscTracker to allowed types in PSCProject
     typesTool = getToolByName(self, 'portal_types')
     addAllowedContentType(self, out, typesTool, 'PSCProject', 'PoiPscTracker')
