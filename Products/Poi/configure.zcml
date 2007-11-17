@@ -2,13 +2,18 @@
     xmlns:browser="http://namespaces.zope.org/browser">
 
   <include package=".browser" />
-  
 
   <browser:page
       name="migrate-poi.html"
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       permission="cmf.ManagePortal"
       class=".migration.Migration"
+      />
+
+  <subscriber
+      for="Products.Poi.interfaces.IResponse
+           zope.app.container.interfaces.IObjectRemovedEvent"
+      handler=".events.removedResponse"
       />
 
 </configure>
