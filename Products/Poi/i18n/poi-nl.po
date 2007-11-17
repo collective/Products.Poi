@@ -762,5 +762,5 @@ msgstr ""
 #. Default: "RSS feed of these search results"
 #: ../skins/Poi/poi_tracker_view.pt:202
 msgid "title_rss_feed"
-msgstr ""
+msgstr "RSS feed van deze zoekresultaten"
 

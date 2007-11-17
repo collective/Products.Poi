@@ -1,4 +1,5 @@
-<metal:block define-macro="issue_search_results">
+<metal:block define-macro="issue_search_results"
+             i18n:domain="Poi">
       
    <div tal:condition="rssQueryString | nothing" class="issue-search-rss" metal:define-slot="rss-button">
        <a href="" tal:attributes="href string:${here/absolute_url}/poi-issue-search-rss.xml?${rssQueryString}">
@@ -18,23 +19,15 @@
        <thead>
            <tr>
                <th i18n:translate="listingheader_number">#</th>
-               <th i18n:translate="listingheader_title"
-                   i18n:domain="Poi">Title</th>
+               <th i18n:translate="listingheader_title">Title</th>
                <th i18n:translate="listingheader_release"
-                   i18n:domain="Poi"
                    tal:condition="here/isUsingReleases">Target</th>
-               <th i18n:translate="listingheader_area"
-                   i18n:domain="Poi">Area</th>
-               <th i18n:translate="listingheader_type"
-                   i18n:domain="Poi">Type</th>
-               <th i18n:translate="listingheader_severity"
-                   i18n:domain="Poi">Severity</th>
-               <th i18n:translate="listingheader_responsible"
-                   i18n:domain="Poi">Responsible</th>
-               <th i18n:translate="listingheader_tags"
-                   i18n:domain="Poi">Tags</th>
-               <th i18n:translate="listingheader_state"
-                   i18n:domain="Poi">State</th>
+               <th i18n:translate="listingheader_area">Area</th>
+               <th i18n:translate="listingheader_type">Type</th>
+               <th i18n:translate="listingheader_severity">Severity</th>
+               <th i18n:translate="listingheader_responsible">Responsible</th>
+               <th i18n:translate="listingheader_tags">Tags</th>
+               <th i18n:translate="listingheader_state">State</th>
            </tr>
        </thead>
        <tbody>
