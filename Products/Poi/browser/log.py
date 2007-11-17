@@ -1,7 +1,7 @@
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
-from datetime import datetime, timedelta
+from datetime import datetime
 
 def convertDate(date):
     return datetime(date.year(), date.month(), date.day(), date.hour(), date.minute())

@@ -28,20 +28,14 @@ __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
 
-import os.path
-import sys
 from StringIO import StringIO
-from sets import Set
 import transaction
-from App.Common import package_home
 from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.utils import manage_addTool
 from Products.ExternalMethod.ExternalMethod import ExternalMethod
-from zExceptions import NotFound, BadRequest
+from zExceptions import NotFound
 
 from Products.Archetypes.Extensions.utils import installTypes
 from Products.Archetypes.Extensions.utils import install_subskin
-from Products.Archetypes.config import TOOL_NAME as ARCHETYPETOOLNAME
 from Products.Archetypes.atapi import listTypes
 from Products.CMFQuickInstallerTool.QuickInstallerTool import AlreadyInstalled
 

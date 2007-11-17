@@ -31,8 +31,6 @@ __docformat__ = 'plaintext'
 # Workflow Scripts for: poi_issue_workflow
 
 ##code-section workflow-script-header #fill in your manual code here
-from ZODB.POSException import ConflictError
-from Products.CMFPlone.utils import log_exc
 from Products.CMFCore.utils import getToolByName
 ##/code-section workflow-script-header
 

@@ -1,9 +1,7 @@
 from Products.CMFCore.utils import getToolByName
-from Products.CMFDynamicViewFTI.fti import DynamicViewTypeInformation
 from Products.CMFDynamicViewFTI.migrate import migrateFTIs
 
 from StringIO import StringIO
-from types import InstanceType
 
 from Products.Poi.config import RUN_MIGRATIONS
 from Products.Poi.Extensions.Migrations import migrate

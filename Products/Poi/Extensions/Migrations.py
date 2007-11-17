@@ -13,7 +13,6 @@ import transaction
 
 from Products.CMFCore.utils import getToolByName
 from Products.Archetypes.BaseUnit import BaseUnit
-from Products.CMFPlone.utils import safe_hasattr
 
 from Products.Poi.content import PoiTracker 
 from Products.Poi.config import *

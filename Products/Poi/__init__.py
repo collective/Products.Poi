@@ -38,7 +38,7 @@ __docformat__ = 'plaintext'
 #   - To register a customisation policy, create a file CustomizationPolicy.py
 #       with a method register(context) to register the policy.
 
-from zLOG import LOG, INFO, DEBUG
+from zLOG import LOG, DEBUG
 
 LOG('Poi', DEBUG, 'Installing Product')
 
@@ -47,7 +47,6 @@ try:
 except ImportError:
     CustomizationPolicy = None
 
-from Globals import package_home
 from Products.CMFCore import utils as cmfutils
 
 try: # New CMF 
@@ -56,12 +55,8 @@ except: # Old CMF
     from Products.CMFCore import CMFCorePermissions
 
 from Products.CMFCore import DirectoryView
-from Products.CMFPlone.utils import ToolInit
 from Products.Archetypes.atapi import *
 from Products.Archetypes import listTypes
-from Products.Archetypes.utils import capitalize
-
-import os, os.path
 
 from Products.Poi.config import *
 

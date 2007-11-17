@@ -5,7 +5,6 @@ if __name__ == '__main__':
 from AccessControl import Unauthorized
 from AccessControl import getSecurityManager
 from AccessControl.SecurityManagement import setSecurityManager
-from AccessControl.SecurityManagement import newSecurityManager
 
 from Testing import ZopeTestCase
 from Products.Poi.tests import ptc

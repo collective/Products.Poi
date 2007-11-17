@@ -38,8 +38,6 @@ from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
 ##code-section module-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
-from Acquisition import aq_base
-from Products.CMFPlone.utils import log_exc
 import transaction
 
 import textwrap
