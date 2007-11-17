@@ -57,7 +57,7 @@
                    value="Submit new issue"
                    />
           </form>
-          <div class="login-suggestion" tal:condition="isAnon" i18:translate="login_suggestion">
+          <div class="login-suggestion" tal:condition="isAnon" i18n:translate="login_suggestion">
              If you can, please <a href="" 
                                  tal:attributes="href string:${portal/absolute_url}/login_form?came_from=${here/absolute_url}">
              
