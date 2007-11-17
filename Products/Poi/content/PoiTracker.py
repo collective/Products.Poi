@@ -53,6 +53,8 @@ from email.Message import Message
 import sets
 from Products.Poi.htmlrender import renderHTML
 from re import *
+from zope.interface import implements
+from Products.Poi.interfaces import ITracker
 from Products.validation.validators.ExpressionValidator import ExpressionValidator
 
 # For the DataGridFields, making them required is not enough as there
@@ -248,6 +250,7 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
     """
     security = ClassSecurityInfo()
     __implements__ = (getattr(BaseBTreeFolder,'__implements__',()),) + (getattr(BrowserDefaultMixin,'__implements__',()),) + (Tracker,) + (INonStructuralFolder,)
+    implements(ITracker)
 
     # This name appears in the 'add' box
     archetype_name = 'Issue Tracker'

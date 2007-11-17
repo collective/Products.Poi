@@ -39,6 +39,8 @@ from Products.Poi import permissions
 ##code-section module-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
 import transaction
+from zope.interface import implements
+from Products.Poi.interfaces import ITracker
 ##/code-section module-header
 
 schema = Schema((
@@ -78,6 +80,7 @@ class PoiPscTracker(PoiTracker):
     """
     security = ClassSecurityInfo()
     __implements__ = (getattr(BaseFolder,'__implements__',()),) + (getattr(PoiTracker,'__implements__',()),) + (INonStructuralFolder,)
+    implements(ITracker)
 
     # This name appears in the 'add' box
     archetype_name = 'Issue Tracker'

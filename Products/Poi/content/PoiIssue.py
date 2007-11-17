@@ -45,6 +45,8 @@ import transaction
 
 import textwrap
 wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
+from zope.interface import implements
+from Products.Poi.interfaces import IIssue
 ##/code-section module-header
 
 schema = Schema((
@@ -278,6 +280,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
     """
     security = ClassSecurityInfo()
     __implements__ = (getattr(BaseFolder,'__implements__',()),) + (getattr(BrowserDefaultMixin,'__implements__',()),) + (Issue,) + (INonStructuralFolder,)
+    implements(IIssue)
 
     # This name appears in the 'add' box
     archetype_name = 'Issue'

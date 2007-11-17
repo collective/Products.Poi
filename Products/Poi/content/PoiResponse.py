@@ -44,6 +44,8 @@ import transaction
 
 import textwrap
 wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
+from zope.interface import implements
+from Products.Poi.interfaces import IResponse
 ##/code-section module-header
 
 schema = Schema((
@@ -199,6 +201,7 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
     """
     security = ClassSecurityInfo()
     __implements__ = (getattr(BaseContent,'__implements__',()),) + (getattr(BrowserDefaultMixin,'__implements__',()),) + (Response,)
+    implements(IResponse)
 
     # This name appears in the 'add' box
     archetype_name = 'Response'

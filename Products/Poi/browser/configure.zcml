@@ -9,8 +9,5 @@
      class=".log.LogView"
      template="log.pt"
      />
-  
-  <implements class="Products.Poi.content.PoiTracker.PoiTracker"
-	      interface="Products.Poi.interfaces.ITracker" />
 			  
 </configure>
