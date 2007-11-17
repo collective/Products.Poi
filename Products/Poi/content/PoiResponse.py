@@ -466,7 +466,7 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
                                                responseAuthor = responseAuthor,
                                                responseDetails = responseDetails,
                                                fromName = fromName)
-        subject = "[%s] Response to #%s - %s" % (tracker.getExternalTitle(), issue.getId(), issue.Title(),)
+        subject = "[%s] #%s - Re: %s" % (tracker.getExternalTitle(), issue.getId(), issue.Title(),)
 
         tracker.sendNotificationEmail(addresses, subject, mailText)
 

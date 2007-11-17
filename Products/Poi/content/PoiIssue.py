@@ -561,7 +561,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
                                             issueAuthor = issueAuthor,
                                             fromName = fromName,
                                             issueDetails = issueDetails)
-        subject = "[%s] New issue: #%s - %s" % (tracker.getExternalTitle(), self.getId(), self.Title(),)
+        subject = "[%s] #%s - New issue: %s" % (tracker.getExternalTitle(), self.getId(), self.Title(),)
 
         tracker.sendNotificationEmail(addresses, subject, mailText)
 
