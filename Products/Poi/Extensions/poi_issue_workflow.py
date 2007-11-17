@@ -52,7 +52,7 @@ def setuppoi_issue_workflow(self, workflow):
     for s in ['resolved', 'in-progress', 'postponed', 'rejected', 'open', 'closed', 'unconfirmed', 'new']:
         workflow.states.addState(s)
 
-    for t in ['begin-open', 'open-rejected', 'postpone-unconfirmed', 'open-postponed', 're-start', 'reject-open', 'post', 'reject-unconfirmed', 'hold-open', 'open-closed', 'confirm-resolved', 'resolve-in-progress', 'resolve-unconfirmed', 'postpone', 'resolve-open', 'open-resolved', 'accept-unconfirmed']:
+    for t in ['begin-open', 'open-rejected', 'postpone-unconfirmed', 'open-postponed', 're-start', 'reject-open', 'post', 'reject-unconfirmed', 'hold-open', 'open-closed', 'confirm-resolved', 'resolve-in-progress', 'resolve-unconfirmed', 'postpone', 'resolve-open', 'open-resolved', 'accept-unconfirmed', 'begin-unconfirmed']:
         workflow.transitions.addTransition(t)
 
     for v in ['review_history', 'comments', 'time', 'actor', 'action']:
@@ -152,7 +152,7 @@ def setuppoi_issue_workflow(self, workflow):
 
     stateDef = workflow.states['unconfirmed']
     stateDef.setProperties(title="""Unconfirmed""",
-                           transitions=['accept-unconfirmed', 'reject-unconfirmed', 'postpone-unconfirmed', 'resolve-unconfirmed'])
+                           transitions=['accept-unconfirmed', 'reject-unconfirmed', 'postpone-unconfirmed', 'resolve-unconfirmed', 'begin-unconfirmed'])
     stateDef.setPermission('Delete objects',
                            0,
                            ['Manager'])
@@ -401,6 +401,18 @@ def setuppoi_issue_workflow(self, workflow):
                                 script_name="""""",
                                 after_script_name="""""",
                                 actbox_name="""Open""",
+                                actbox_url="""""",
+                                actbox_category="""workflow""",
+                                props={'guard_permissions': 'Poi: Modify issue state'},
+                                )
+
+    transitionDef = workflow.transitions['begin-unconfirmed']
+    transitionDef.setProperties(title="""Begin work immediately""",
+                                new_state_id="""in-progress""",
+                                trigger_type=1,
+                                script_name="""""",
+                                after_script_name="""""",
+                                actbox_name="""Begin work immediately""",
                                 actbox_url="""""",
                                 actbox_category="""workflow""",
                                 props={'guard_permissions': 'Poi: Modify issue state'},
