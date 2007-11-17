@@ -43,6 +43,40 @@ class TestTracker(ptc.PoiTestCase):
         self.assertEqual(self.tracker.getSendNotificationEmails(), False)
         self.assertEqual(self.tracker.getMailingList(), 'list@list.com')
 
+    def testDataGridFields(self):
+        """
+        The DataGridFields should have at least one entry, as they are
+        required.  We get problems when adding an Issue if we are not
+        careful.  See http://plone.org/products/poi/issues/139
+
+        """
+        # When adding/editing through the web we always have a hidden
+        # entry:
+        hidden_entry = {'description': '',
+                        'id': '', 'orderindex_':
+                        'template_row_marker', 'title': ''}
+        # This is what a real entry looks like:
+        real_entry = {'description': 'Something nice.',
+                      'id': 'something',
+                      'orderindex_': '1',
+                      'title': 'Something'},
+
+        # Test the availableAreas field.
+        field = self.tracker.getField('availableAreas')
+        input = [hidden_entry]
+        self.assertEqual(field.validate(input, self.tracker),
+                         u'Need at least one entry.')
+        input = [real_entry, hidden_entry]
+        self.assertEqual(field.validate(input, self.tracker), None)
+
+        # Test the availableIssueTypes field.
+        field = self.tracker.getField('availableIssueTypes')
+        input = [hidden_entry]
+        self.assertEqual(field.validate(input, self.tracker),
+                         u'Need at least one entry.')
+        input = [real_entry, hidden_entry]
+        self.assertEqual(field.validate(input, self.tracker), None)
+
     def testValidateTrackerManagers(self):
         self.failUnless(self.tracker.validate_managers(('member1',)) is None)
         self.failIf(self.tracker.validate_managers(('memberX',)) is None)
