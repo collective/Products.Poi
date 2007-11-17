@@ -120,7 +120,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         issue.reindexObject()
         return issue
 
-    def createResponse(self, issue, text='Respnse text', issueTransition='',
+    def createResponse(self, issue, text='Response text', issueTransition='',
                         newSeverity=None, newTargetRelease=None,
                         newResponsibleManager=None, attachment=None):
         """Create a response to the given tracker, and perform workflow and
