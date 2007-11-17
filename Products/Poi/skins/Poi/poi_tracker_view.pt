@@ -158,7 +158,7 @@
                tal:define="issues python:here.getFilteredIssues(state='unconfirmed');
                            rssQueryString python:here.getIssueSearchQueryString(state='unconfirmed')"
                tal:condition="nocall:issues">
-               
+
                <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
                   
                   <div metal:fill-slot="intro-text">
@@ -170,7 +170,17 @@
                      </p>
                      
                   </div>
-                  
+
+                  <div class="issue-search-rss" metal:fill-slot="rss-button">
+                      <a href="" tal:attributes="href string:${here/absolute_url}/poi-issue-search-rss.xml?${rssQueryString}">
+                        <img i18n:attributes="title title_rss_feed_unconfirmed; alt label_rss_feed;"
+                             tal:attributes="src string:$portal_url/rss.gif"
+                             src="rss.gif"
+                             alt="RSS Feed"
+                             title="RSS feed of unconfirmed issues" />
+                      </a>
+                  </div>
+
                </metal:table>
                
           </div>
@@ -199,11 +209,11 @@
                   
                    <div class="issue-search-rss" metal:fill-slot="rss-button">
                         <a href="" tal:attributes="href string:${here/absolute_url}/poi-my-issues-rss.xml?memberId=${member/getId}&isManager:boolean=${isManager}">
-                            <img i18n:attributes="title title_rss_feed; alt label_rss_feed;"
+                            <img i18n:attributes="title title_rss_feed_my_issues; alt label_rss_feed;"
                                 tal:attributes="src string:$portal_url/rss.gif"
                                 src="rss.gif"
                                 alt="RSS Feed"
-                                title="RSS feed of these search results" />
+                                title="RSS feed of my issues" />
                         </a>
                     </div>    
                </metal:table>
@@ -225,11 +235,11 @@
                    
                    <div class="issue-search-rss" metal:fill-slot="rss-button">
                         <a href="" tal:attributes="href string:${here/absolute_url}/poi-orphaned-issues-rss.xml?memberId=${member/getId}">
-                            <img i18n:attributes="title title_rss_feed; alt label_rss_feed;"
+                            <img i18n:attributes="title title_rss_feed_orphaned; alt label_rss_feed;"
                                 tal:attributes="src string:$portal_url/rss.gif"
                                 src="rss.gif"
                                 alt="RSS Feed"
-                                title="RSS feed of these search results" />
+                                title="RSS feed of orphaned issues" />
                         </a>
                     </div>    
                </metal:table>

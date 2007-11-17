@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-pt-br\n"
-"POT-Creation-Date: 2007-11-14 19:01+0000\n"
+"POT-Creation-Date: 2007-11-17 16:45+0000\n"
 "PO-Revision-Date: 2007-01-26 10:34-0300\n"
 "Last-Translator: Rafahela Bazzanella <rafabazzanella@yahoo.com.br>\n"
 "Language-Team: TcheZope <tchezope@yahoogroups.com>\n"
@@ -341,7 +341,7 @@ msgid "description_no_results_found"
 msgstr "Nenhum resultado foi encontrado."
 
 #. Default: "RSS Feed"
-#: ../skins/Poi/poi_tracker_view.pt:202
+#: ../skins/Poi/poi_tracker_view.pt:176
 msgid "label_rss_feed"
 msgstr ""
 
@@ -351,9 +351,14 @@ msgid "label_search"
 msgstr "Procurar"
 
 #. Default: "Area"
-#: ../skins/Poi/poi_issue_search_results.pt:26
+#: ../skins/Poi/poi_issue_search_results.pt:25
 msgid "listingheader_area"
 msgstr "Área"
+
+#. Default: "#"
+#: ../skins/Poi/poi_issue_search_results.pt:21
+msgid "listingheader_number"
+msgstr ""
 
 #. Default: "Target"
 #: ../skins/Poi/poi_issue_search_results.pt:23
@@ -362,34 +367,39 @@ msgid "listingheader_release"
 msgstr "Versão"
 
 #. Default: "Responsible"
-#: ../skins/Poi/poi_issue_search_results.pt:32
+#: ../skins/Poi/poi_issue_search_results.pt:28
 msgid "listingheader_responsible"
 msgstr "Responsável"
 
 #. Default: "Severity"
-#: ../skins/Poi/poi_issue_search_results.pt:30
+#: ../skins/Poi/poi_issue_search_results.pt:27
 msgid "listingheader_severity"
 msgstr "Gravidade"
 
 #. Default: "State"
-#: ../skins/Poi/poi_issue_search_results.pt:36
+#: ../skins/Poi/poi_issue_search_results.pt:30
 msgid "listingheader_state"
 msgstr "Situação"
 
 #. Default: "Tags"
-#: ../skins/Poi/poi_issue_search_results.pt:34
+#: ../skins/Poi/poi_issue_search_results.pt:29
 msgid "listingheader_tags"
 msgstr ""
 
 #. Default: "Title"
-#: ../skins/Poi/poi_issue_search_results.pt:21
+#: ../skins/Poi/poi_issue_search_results.pt:22
 msgid "listingheader_title"
 msgstr "Título"
 
 #. Default: "Type"
-#: ../skins/Poi/poi_issue_search_results.pt:28
+#: ../skins/Poi/poi_issue_search_results.pt:26
 msgid "listingheader_type"
 msgstr "Tipo"
+
+#. Default: "If you can, please <a href=\"${DYNAMIC_CONTENT}\"> log in</a> before submitting your issue."
+#: ../skins/Poi/poi_tracker_view.pt:61
+msgid "login_suggestion"
+msgstr ""
 
 #. Default: "(Not assigned)"
 #: ../skins/Poi/poi_issue_search_form.pt:84
@@ -448,7 +458,7 @@ msgid "poi_heading_log"
 msgstr ""
 
 #. Default: "My issues"
-#: ../skins/Poi/poi_tracker_view.pt:187
+#: ../skins/Poi/poi_tracker_view.pt:197
 msgid "poi_heading_my_issues"
 msgstr "Minhas Ocorrências"
 
@@ -458,7 +468,7 @@ msgid "poi_heading_open_issues"
 msgstr "Ocorrências abertas"
 
 #. Default: "Orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:220
+#: ../skins/Poi/poi_tracker_view.pt:230
 msgid "poi_heading_orphaned_issues"
 msgstr ""
 
@@ -478,13 +488,13 @@ msgid "poi_help_log"
 msgstr ""
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ../skins/Poi/poi_tracker_view.pt:188
+#: ../skins/Poi/poi_tracker_view.pt:198
 #, fuzzy
 msgid "poi_help_my_issues_manager"
 msgstr "As seguintes ocorrências abertas ou foram submetidas por você, ou foram designadas para você."
 
 #. Default: "The following open issues were submitted by you."
-#: ../skins/Poi/poi_tracker_view.pt:195
+#: ../skins/Poi/poi_tracker_view.pt:205
 msgid "poi_help_my_issues_not_manager"
 msgstr ""
 
@@ -494,7 +504,7 @@ msgid "poi_help_open_issues"
 msgstr "Escolha uma área, versão ou situação da ocorrência para ver todas as ocorrências abertas nessa categoria. Para opções mais avançadas de pesquisa. selecione \"Busca de ocorrências\"."
 
 #. Default: "The following open issues are not assigned to anyone."
-#: ../skins/Poi/poi_tracker_view.pt:221
+#: ../skins/Poi/poi_tracker_view.pt:231
 msgid "poi_help_orphaned_issues_"
 msgstr ""
 
@@ -725,7 +735,22 @@ msgid "poi_up_to_issue"
 msgstr "Ver toda a ocorrência"
 
 #. Default: "RSS feed of these search results"
-#: ../skins/Poi/poi_tracker_view.pt:202
+#: ../skins/Poi/poi_issue_search_results.pt:6
 msgid "title_rss_feed"
+msgstr ""
+
+#. Default: "RSS feed of my issues"
+#: ../skins/Poi/poi_tracker_view.pt:212
+msgid "title_rss_feed_my_issues"
+msgstr ""
+
+#. Default: "RSS feed of orphaned issues"
+#: ../skins/Poi/poi_tracker_view.pt:238
+msgid "title_rss_feed_orphaned"
+msgstr ""
+
+#. Default: "RSS feed of unconfirmed issues"
+#: ../skins/Poi/poi_tracker_view.pt:176
+msgid "title_rss_feed_unconfirmed"
 msgstr ""
 

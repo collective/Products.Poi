@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2007-11-14 19:01+0000\n"
+"POT-Creation-Date: 2007-11-17 16:45+0000\n"
 "PO-Revision-Date: 2007-03-22 11:28+0100\n"
 "Last-Translator: Maurizio Delmonte <maurizio.delmonte@redomino.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -387,7 +387,7 @@ msgid "description_no_results_found"
 msgstr "Non sono stati trovati risultati."
 
 #. Default: "RSS Feed"
-#: ../skins/Poi/poi_tracker_view.pt:202
+#: ../skins/Poi/poi_tracker_view.pt:176
 msgid "label_rss_feed"
 msgstr ""
 
@@ -397,9 +397,14 @@ msgid "label_search"
 msgstr "Ricerca"
 
 #. Default: "Area"
-#: ../skins/Poi/poi_issue_search_results.pt:26
+#: ../skins/Poi/poi_issue_search_results.pt:25
 msgid "listingheader_area"
 msgstr "Area"
+
+#. Default: "#"
+#: ../skins/Poi/poi_issue_search_results.pt:21
+msgid "listingheader_number"
+msgstr ""
 
 #. Default: "Target"
 #: ../skins/Poi/poi_issue_search_results.pt:23
@@ -408,34 +413,39 @@ msgid "listingheader_release"
 msgstr "Rilascio"
 
 #. Default: "Responsible"
-#: ../skins/Poi/poi_issue_search_results.pt:32
+#: ../skins/Poi/poi_issue_search_results.pt:28
 msgid "listingheader_responsible"
 msgstr "Responsabile"
 
 #. Default: "Severity"
-#: ../skins/Poi/poi_issue_search_results.pt:30
+#: ../skins/Poi/poi_issue_search_results.pt:27
 msgid "listingheader_severity"
 msgstr "Priorità"
 
 #. Default: "State"
-#: ../skins/Poi/poi_issue_search_results.pt:36
+#: ../skins/Poi/poi_issue_search_results.pt:30
 msgid "listingheader_state"
 msgstr "Stato"
 
 #. Default: "Tags"
-#: ../skins/Poi/poi_issue_search_results.pt:34
+#: ../skins/Poi/poi_issue_search_results.pt:29
 msgid "listingheader_tags"
 msgstr ""
 
 #. Default: "Title"
-#: ../skins/Poi/poi_issue_search_results.pt:21
+#: ../skins/Poi/poi_issue_search_results.pt:22
 msgid "listingheader_title"
 msgstr "Titolo"
 
 #. Default: "Type"
-#: ../skins/Poi/poi_issue_search_results.pt:28
+#: ../skins/Poi/poi_issue_search_results.pt:26
 msgid "listingheader_type"
 msgstr "Tipo"
+
+#. Default: "If you can, please <a href=\"${DYNAMIC_CONTENT}\"> log in</a> before submitting your issue."
+#: ../skins/Poi/poi_tracker_view.pt:61
+msgid "login_suggestion"
+msgstr ""
 
 #. Default: "(Not assigned)"
 #: ../skins/Poi/poi_issue_search_form.pt:84
@@ -494,7 +504,7 @@ msgid "poi_heading_log"
 msgstr ""
 
 #. Default: "My issues"
-#: ../skins/Poi/poi_tracker_view.pt:187
+#: ../skins/Poi/poi_tracker_view.pt:197
 msgid "poi_heading_my_issues"
 msgstr "Le mie richieste"
 
@@ -504,7 +514,7 @@ msgid "poi_heading_open_issues"
 msgstr "Attività in corso"
 
 #. Default: "Orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:220
+#: ../skins/Poi/poi_tracker_view.pt:230
 msgid "poi_heading_orphaned_issues"
 msgstr ""
 
@@ -524,13 +534,13 @@ msgid "poi_help_log"
 msgstr ""
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ../skins/Poi/poi_tracker_view.pt:188
+#: ../skins/Poi/poi_tracker_view.pt:198
 #, fuzzy
 msgid "poi_help_my_issues_manager"
 msgstr "Le seguenti richieste attive sono state generate da te, o ti sono state assegnate."
 
 #. Default: "The following open issues were submitted by you."
-#: ../skins/Poi/poi_tracker_view.pt:195
+#: ../skins/Poi/poi_tracker_view.pt:205
 #, fuzzy
 msgid "poi_help_my_issues_not_manager"
 msgstr "Le seguenti richieste attive sono state generate da te."
@@ -541,7 +551,7 @@ msgid "poi_help_open_issues"
 msgstr "Clicca un'area, un rilascio o uno stato per vedere tutte le richieste attive nella categoria. Per una ricerca avanzata, clicca \"Ricerca richiesta\""
 
 #. Default: "The following open issues are not assigned to anyone."
-#: ../skins/Poi/poi_tracker_view.pt:221
+#: ../skins/Poi/poi_tracker_view.pt:231
 msgid "poi_help_orphaned_issues_"
 msgstr ""
 
@@ -772,7 +782,22 @@ msgid "poi_up_to_issue"
 msgstr "Vedi la scheda completa della richiesta"
 
 #. Default: "RSS feed of these search results"
-#: ../skins/Poi/poi_tracker_view.pt:202
+#: ../skins/Poi/poi_issue_search_results.pt:6
 msgid "title_rss_feed"
+msgstr ""
+
+#. Default: "RSS feed of my issues"
+#: ../skins/Poi/poi_tracker_view.pt:212
+msgid "title_rss_feed_my_issues"
+msgstr ""
+
+#. Default: "RSS feed of orphaned issues"
+#: ../skins/Poi/poi_tracker_view.pt:238
+msgid "title_rss_feed_orphaned"
+msgstr ""
+
+#. Default: "RSS feed of unconfirmed issues"
+#: ../skins/Poi/poi_tracker_view.pt:176
+msgid "title_rss_feed_unconfirmed"
 msgstr ""
 

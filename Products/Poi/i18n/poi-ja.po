@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2007-11-14 19:01+0000\n"
+"POT-Creation-Date: 2007-11-17 16:45+0000\n"
 "PO-Revision-Date: 2006-01-22 18:00+0900\n"
 "Last-Translator: TANIGUCHI Takaki <takaki@asis.media-as.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -387,7 +387,7 @@ msgid "description_no_results_found"
 msgstr "何も見つかりませんでした。"
 
 #. Default: "RSS Feed"
-#: ../skins/Poi/poi_tracker_view.pt:202
+#: ../skins/Poi/poi_tracker_view.pt:176
 msgid "label_rss_feed"
 msgstr ""
 
@@ -397,9 +397,14 @@ msgid "label_search"
 msgstr "検索"
 
 #. Default: "Area"
-#: ../skins/Poi/poi_issue_search_results.pt:26
+#: ../skins/Poi/poi_issue_search_results.pt:25
 msgid "listingheader_area"
 msgstr "領域"
+
+#. Default: "#"
+#: ../skins/Poi/poi_issue_search_results.pt:21
+msgid "listingheader_number"
+msgstr ""
 
 #. Default: "Target"
 #: ../skins/Poi/poi_issue_search_results.pt:23
@@ -408,34 +413,39 @@ msgid "listingheader_release"
 msgstr "リリース"
 
 #. Default: "Responsible"
-#: ../skins/Poi/poi_issue_search_results.pt:32
+#: ../skins/Poi/poi_issue_search_results.pt:28
 msgid "listingheader_responsible"
 msgstr "責任者"
 
 #. Default: "Severity"
-#: ../skins/Poi/poi_issue_search_results.pt:30
+#: ../skins/Poi/poi_issue_search_results.pt:27
 msgid "listingheader_severity"
 msgstr "重要度"
 
 #. Default: "State"
-#: ../skins/Poi/poi_issue_search_results.pt:36
+#: ../skins/Poi/poi_issue_search_results.pt:30
 msgid "listingheader_state"
 msgstr "状態"
 
 #. Default: "Tags"
-#: ../skins/Poi/poi_issue_search_results.pt:34
+#: ../skins/Poi/poi_issue_search_results.pt:29
 msgid "listingheader_tags"
 msgstr ""
 
 #. Default: "Title"
-#: ../skins/Poi/poi_issue_search_results.pt:21
+#: ../skins/Poi/poi_issue_search_results.pt:22
 msgid "listingheader_title"
 msgstr "タイトル"
 
 #. Default: "Type"
-#: ../skins/Poi/poi_issue_search_results.pt:28
+#: ../skins/Poi/poi_issue_search_results.pt:26
 msgid "listingheader_type"
 msgstr "種別"
+
+#. Default: "If you can, please <a href=\"${DYNAMIC_CONTENT}\"> log in</a> before submitting your issue."
+#: ../skins/Poi/poi_tracker_view.pt:61
+msgid "login_suggestion"
+msgstr ""
 
 #. Default: "(Not assigned)"
 #: ../skins/Poi/poi_issue_search_form.pt:84
@@ -494,7 +504,7 @@ msgid "poi_heading_log"
 msgstr ""
 
 #. Default: "My issues"
-#: ../skins/Poi/poi_tracker_view.pt:187
+#: ../skins/Poi/poi_tracker_view.pt:197
 msgid "poi_heading_my_issues"
 msgstr "自分の課題"
 
@@ -504,7 +514,7 @@ msgid "poi_heading_open_issues"
 msgstr "未解決の課題"
 
 #. Default: "Orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:220
+#: ../skins/Poi/poi_tracker_view.pt:230
 msgid "poi_heading_orphaned_issues"
 msgstr ""
 
@@ -524,13 +534,13 @@ msgid "poi_help_log"
 msgstr ""
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ../skins/Poi/poi_tracker_view.pt:188
+#: ../skins/Poi/poi_tracker_view.pt:198
 #, fuzzy
 msgid "poi_help_my_issues_manager"
 msgstr "以下の未解決の課題は，あなたが報告した，もしくはあなたに割り当てられています。"
 
 #. Default: "The following open issues were submitted by you."
-#: ../skins/Poi/poi_tracker_view.pt:195
+#: ../skins/Poi/poi_tracker_view.pt:205
 #, fuzzy
 msgid "poi_help_my_issues_not_manager"
 msgstr "以下の未解決の課題はあなたが報告しました。"
@@ -541,7 +551,7 @@ msgid "poi_help_open_issues"
 msgstr "領域またはリリース，課題の状態をクリックすることでこの分類の全ての未解決の課題を見ることができます。さらに詳細な検索をするには「課題を検索」をクリックしてください。"
 
 #. Default: "The following open issues are not assigned to anyone."
-#: ../skins/Poi/poi_tracker_view.pt:221
+#: ../skins/Poi/poi_tracker_view.pt:231
 msgid "poi_help_orphaned_issues_"
 msgstr ""
 
@@ -772,7 +782,22 @@ msgid "poi_up_to_issue"
 msgstr "課題のフルスクリーンで閲覧"
 
 #. Default: "RSS feed of these search results"
-#: ../skins/Poi/poi_tracker_view.pt:202
+#: ../skins/Poi/poi_issue_search_results.pt:6
 msgid "title_rss_feed"
+msgstr ""
+
+#. Default: "RSS feed of my issues"
+#: ../skins/Poi/poi_tracker_view.pt:212
+msgid "title_rss_feed_my_issues"
+msgstr ""
+
+#. Default: "RSS feed of orphaned issues"
+#: ../skins/Poi/poi_tracker_view.pt:238
+msgid "title_rss_feed_orphaned"
+msgstr ""
+
+#. Default: "RSS feed of unconfirmed issues"
+#: ../skins/Poi/poi_tracker_view.pt:176
+msgid "title_rss_feed_unconfirmed"
 msgstr ""
 
