@@ -477,6 +477,12 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
         text = self.getField('response').get(self, **kwargs)
         return self.aq_parent.linkDetection(text)
 
+    def SearchableText(self):
+        """Make sure we are not storing html escaped stuff.
+        """
+        return self.Title() + " " + self.getRawResponse()
+
+
 def modify_fti(fti):
     # Hide unnecessary tabs (usability enhancement)
     for a in fti['actions']:

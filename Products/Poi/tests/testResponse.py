@@ -95,6 +95,28 @@ class TestResponse(ptc.PoiTestCase):
         self.response.setResponse('Make this a link http://test.com', mimetype='text/x-web-intelligent')
         self.assertEqual(self.response.getResponse(), 'Make this a link <a href="http://test.com" rel="nofollow">http://test.com</a>')
 
+    def testAccentedCharacters(self):
+        catalog = self.portal.portal_catalog
+        issue = self.createIssue(self.tracker,
+                                 title=u"été est belle.",
+                                 details=u"C'est plus belle à Café René.")
+        found = len(catalog.searchResults(portal_type = 'PoiIssue',
+                                          SearchableText = u"été")) >= 1
+        self.failUnless(found)
+        found = len(catalog.searchResults(portal_type = 'PoiIssue',
+                                          SearchableText = u"René")) >= 1
+        self.failUnless(found)
+
+        response = self.createResponse(issue, u"In Dutch 'seas' is 'zeeën'")
+        # That should show up in both the response and the issue.
+        found = len(catalog.searchResults(portal_type = 'PoiResponse',
+                                          SearchableText = u"zeeën")) >= 1
+        self.failUnless(found)
+        found = len(catalog.searchResults(portal_type = 'PoiIssue',
+                                          SearchableText = u"zeeën")) >= 1
+        self.failUnless(found)
+
+
 class TestKnownIssues(ptc.PoiTestCase):
     """Test bugs with responses"""
 
