@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2007-11-17 16:45+0000\n"
+"POT-Creation-Date: 2007-11-19 22:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Domain: Poi\n"
 
 #. Default: "Add response"
-#: ../skins/Poi/poi_issue_view.pt:160
+#: ../skins/Poi/poi_issue_view.pt:156
 msgid "Add response"
 msgstr ""
 
@@ -30,17 +30,17 @@ msgid "Cancel"
 msgstr ""
 
 #. Default: "Delete"
-#: ../skins/Poi/poi_issue_view.pt:213
+#: ../skins/Poi/poi_issue_view.pt:209
 msgid "Delete"
 msgstr ""
 
 #. Default: "Edit"
-#: ../skins/Poi/poi_issue_view.pt:206
+#: ../skins/Poi/poi_issue_view.pt:202
 msgid "Edit"
 msgstr ""
 
 #. Default: "Edit issue"
-#: ../skins/Poi/poi_issue_view.pt:168
+#: ../skins/Poi/poi_issue_view.pt:164
 msgid "Edit issue"
 msgstr ""
 
@@ -347,22 +347,22 @@ msgid "Poi_label_watchers"
 msgstr ""
 
 #. Default: "Search"
-#: ../skins/Poi/poi_tracker_view.pt:36
+#: ../skins/Poi/poi_tracker_view.pt:32
 msgid "Search"
 msgstr ""
 
 #. Default: "Stop watching this issue"
-#: ../skins/Poi/poi_issue_view.pt:176
+#: ../skins/Poi/poi_issue_view.pt:172
 msgid "Stop watching this issue"
 msgstr ""
 
 #. Default: "Submit new issue"
-#: ../skins/Poi/poi_tracker_view.pt:54
+#: ../skins/Poi/poi_tracker_view.pt:50
 msgid "Submit new issue"
 msgstr ""
 
 #. Default: "Watch this issue"
-#: ../skins/Poi/poi_issue_view.pt:182
+#: ../skins/Poi/poi_issue_view.pt:178
 msgid "Watch this issue"
 msgstr ""
 
@@ -377,7 +377,7 @@ msgid "desc_poi_heading_delete_response"
 msgstr ""
 
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ../skins/Poi/poi_tracker_view.pt:68
+#: ../skins/Poi/poi_tracker_view.pt:64
 msgid "description_cannot_add_issues_before_opened"
 msgstr ""
 
@@ -387,7 +387,7 @@ msgid "description_no_results_found"
 msgstr ""
 
 #. Default: "RSS Feed"
-#: ../skins/Poi/poi_tracker_view.pt:176
+#: ../skins/Poi/poi_tracker_view.pt:172
 msgid "label_rss_feed"
 msgstr ""
 
@@ -442,7 +442,7 @@ msgid "listingheader_type"
 msgstr ""
 
 #. Default: "If you can, please <a href=\"${DYNAMIC_CONTENT}\"> log in</a> before submitting your issue."
-#: ../skins/Poi/poi_tracker_view.pt:61
+#: ../skins/Poi/poi_tracker_view.pt:57
 msgid "login_suggestion"
 msgstr ""
 
@@ -452,37 +452,37 @@ msgid "not_assigned"
 msgstr ""
 
 #. Default: "Added by"
-#: ../skins/Poi/poi_issue_view.pt:222
+#: ../skins/Poi/poi_issue_view.pt:218
 msgid "poi_added_by"
 msgstr ""
 
 #. Default: "on"
-#: ../skins/Poi/poi_issue_view.pt:225
+#: ../skins/Poi/poi_issue_view.pt:221
 msgid "poi_added_on"
 msgstr ""
 
 #. Default: "All pending issues"
-#: ../skins/Poi/poi_tracker_view.pt:122
+#: ../skins/Poi/poi_tracker_view.pt:118
 msgid "poi_all_pending_issues"
 msgstr ""
 
 #. Default: "By area"
-#: ../skins/Poi/poi_tracker_view.pt:89
+#: ../skins/Poi/poi_tracker_view.pt:85
 msgid "poi_heading_by_area"
 msgstr ""
 
 #. Default: "By target release"
-#: ../skins/Poi/poi_tracker_view.pt:106
+#: ../skins/Poi/poi_tracker_view.pt:102
 msgid "poi_heading_by_release"
 msgstr ""
 
 #. Default: "By state"
-#: ../skins/Poi/poi_tracker_view.pt:119
+#: ../skins/Poi/poi_tracker_view.pt:115
 msgid "poi_heading_by_state"
 msgstr ""
 
 #. Default: "By tag"
-#: ../skins/Poi/poi_tracker_view.pt:143
+#: ../skins/Poi/poi_tracker_view.pt:139
 msgid "poi_heading_by_tag"
 msgstr ""
 
@@ -502,17 +502,17 @@ msgid "poi_heading_log"
 msgstr ""
 
 #. Default: "My issues"
-#: ../skins/Poi/poi_tracker_view.pt:197
+#: ../skins/Poi/poi_tracker_view.pt:193
 msgid "poi_heading_my_issues"
 msgstr ""
 
 #. Default: "Open issues"
-#: ../skins/Poi/poi_tracker_view.pt:78
+#: ../skins/Poi/poi_tracker_view.pt:74
 msgid "poi_heading_open_issues"
 msgstr ""
 
 #. Default: "Orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:230
+#: ../skins/Poi/poi_tracker_view.pt:226
 msgid "poi_heading_orphaned_issues"
 msgstr ""
 
@@ -522,7 +522,7 @@ msgid "poi_heading_search_results"
 msgstr ""
 
 #. Default: "Unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:166
+#: ../skins/Poi/poi_tracker_view.pt:162
 msgid "poi_heading_unconfirmed_issues"
 msgstr ""
 
@@ -532,32 +532,32 @@ msgid "poi_help_log"
 msgstr ""
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ../skins/Poi/poi_tracker_view.pt:198
+#: ../skins/Poi/poi_tracker_view.pt:194
 msgid "poi_help_my_issues_manager"
 msgstr ""
 
 #. Default: "The following open issues were submitted by you."
-#: ../skins/Poi/poi_tracker_view.pt:205
+#: ../skins/Poi/poi_tracker_view.pt:201
 msgid "poi_help_my_issues_not_manager"
 msgstr ""
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
-#: ../skins/Poi/poi_tracker_view.pt:82
+#: ../skins/Poi/poi_tracker_view.pt:78
 msgid "poi_help_open_issues"
 msgstr ""
 
 #. Default: "The following open issues are not assigned to anyone."
-#: ../skins/Poi/poi_tracker_view.pt:231
+#: ../skins/Poi/poi_tracker_view.pt:227
 msgid "poi_help_orphaned_issues_"
 msgstr ""
 
 #. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
-#: ../skins/Poi/poi_tracker_view.pt:167
+#: ../skins/Poi/poi_tracker_view.pt:163
 msgid "poi_help_unconfirmed_issues"
 msgstr ""
 
 #. Default: "Advanced issue search"
-#: ../skins/Poi/poi_tracker_view.pt:38
+#: ../skins/Poi/poi_tracker_view.pt:34
 msgid "poi_issue_search"
 msgstr ""
 
@@ -567,72 +567,72 @@ msgid "poi_issue_search_description"
 msgstr ""
 
 #. Default: "Area"
-#: ../skins/Poi/poi_issue_view.pt:53
+#: ../skins/Poi/poi_issue_view.pt:49
 msgid "poi_label_area"
 msgstr ""
 
 #. Default: "Attached:"
-#: ../skins/Poi/poi_issue_view.pt:149
+#: ../skins/Poi/poi_issue_view.pt:145
 msgid "poi_label_attachment"
 msgstr ""
 
 #. Default: "Responsible"
-#: ../skins/Poi/poi_issue_view.pt:74
+#: ../skins/Poi/poi_issue_view.pt:70
 msgid "poi_label_responsible"
 msgstr ""
 
 #. Default: "Severity"
-#: ../skins/Poi/poi_issue_view.pt:61
+#: ../skins/Poi/poi_issue_view.pt:57
 msgid "poi_label_severity"
 msgstr ""
 
 #. Default: "State"
-#: ../skins/Poi/poi_issue_view.pt:37
+#: ../skins/Poi/poi_issue_view.pt:33
 msgid "poi_label_state"
 msgstr ""
 
 #. Default: "Steps to reproduce:"
-#: ../skins/Poi/poi_issue_view.pt:144
+#: ../skins/Poi/poi_issue_view.pt:140
 msgid "poi_label_steps"
 msgstr ""
 
 #. Default: "Submitted by"
-#: ../skins/Poi/poi_issue_view.pt:65
+#: ../skins/Poi/poi_issue_view.pt:61
 msgid "poi_label_submitted_by"
 msgstr ""
 
 #. Default: "Submitted on"
-#: ../skins/Poi/poi_issue_view.pt:70
+#: ../skins/Poi/poi_issue_view.pt:66
 msgid "poi_label_submitted_on"
 msgstr ""
 
 #. Default: "Tags:"
-#: ../skins/Poi/poi_issue_view.pt:133
+#: ../skins/Poi/poi_issue_view.pt:129
 msgid "poi_label_tags"
 msgstr ""
 
 #. Default: "Target release:"
-#: ../skins/Poi/poi_issue_view.pt:86
+#: ../skins/Poi/poi_issue_view.pt:82
 msgid "poi_label_target_release"
 msgstr ""
 
 #. Default: "Issue type"
-#: ../skins/Poi/poi_issue_view.pt:57
+#: ../skins/Poi/poi_issue_view.pt:53
 msgid "poi_label_type"
 msgstr ""
 
 #. Default: "Version:"
-#: ../skins/Poi/poi_issue_view.pt:43
+#: ../skins/Poi/poi_issue_view.pt:39
 msgid "poi_label_version"
 msgstr ""
 
 #. Default: "Last modified on ${DYNAMIC_CONTENT}"
-#: ../skins/Poi/poi_issue_view.pt:128
+#: ../skins/Poi/poi_issue_view.pt:124
 msgid "poi_last_modified_on"
 msgstr ""
 
 #. Default: "Last modified on ${DYNAMIC_CONTENT} by ${DYNAMIC_CONTENT}"
-#: ../skins/Poi/poi_issue_view.pt:123
+#: ../skins/Poi/poi_issue_view.pt:119
 msgid "poi_last_modified_on_by"
 msgstr ""
 
@@ -642,12 +642,12 @@ msgid "poi_legend_search_terms"
 msgstr ""
 
 #. Default: "Response #${responseNumber} to \"${issueTitle}\""
-#: ../skins/Poi/poi_response_view.pt:23
+#: ../skins/Poi/poi_response_view.pt:19
 msgid "poi_response_title"
 msgstr ""
 
 #. Default: "Return to search results"
-#: ../skins/Poi/poi_issue_view.pt:99
+#: ../skins/Poi/poi_issue_view.pt:95
 msgid "poi_return_to_search"
 msgstr ""
 
@@ -767,7 +767,7 @@ msgid "poi_search_label_text"
 msgstr ""
 
 #. Default: "View issue in full"
-#: ../skins/Poi/poi_response_view.pt:30
+#: ../skins/Poi/poi_response_view.pt:26
 msgid "poi_up_to_issue"
 msgstr ""
 
@@ -777,17 +777,17 @@ msgid "title_rss_feed"
 msgstr ""
 
 #. Default: "RSS feed of my issues"
-#: ../skins/Poi/poi_tracker_view.pt:212
+#: ../skins/Poi/poi_tracker_view.pt:208
 msgid "title_rss_feed_my_issues"
 msgstr ""
 
 #. Default: "RSS feed of orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:238
+#: ../skins/Poi/poi_tracker_view.pt:234
 msgid "title_rss_feed_orphaned"
 msgstr ""
 
 #. Default: "RSS feed of unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:176
+#: ../skins/Poi/poi_tracker_view.pt:172
 msgid "title_rss_feed_unconfirmed"
 msgstr ""
 
