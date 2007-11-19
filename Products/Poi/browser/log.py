@@ -48,6 +48,9 @@ class LogView(BrowserView):
             portal_membership = getToolByName(self.context, 'portal_membership')
             user = portal_membership.getMemberById(username)
 
+        if user is None:
+            # Anonymous
+            return username
         return user.getProperty('fullname') or user.getUserName()
 
     def getLogEntries(self, count=20):
