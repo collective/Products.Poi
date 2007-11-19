@@ -15,10 +15,6 @@
     
     <div metal:define-macro="body">
 
-      <div metal:use-macro="here/document_actions/macros/document_actions">
-        Document actions (print, sendto etc)
-      </div>
-      
       <h1 class="documentFirstHeading" i18n:translate="poi_response_title">
         Response #<span i18n:name="responseNumber" tal:content="here/getId"/> to "<span i18n:name="issueTitle" tal:content="here/aq_parent/Title"/>"
       </h1>
@@ -27,7 +23,7 @@
           class="link-parent visualNoPrint"
           tal:define="parent_url python:here.navigationParent(here, template.getId())"
           tal:attributes="href parent_url">
-  	    <span i18n:translate="poi_up_to_issue">View issue in full</span>
+          <span i18n:translate="poi_up_to_issue">View issue in full</span>
       </a>
       
       <tal:comment replace="nothing">

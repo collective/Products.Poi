@@ -20,10 +20,6 @@
     
     <div metal:define-macro="body">
 
-      <div metal:use-macro="here/document_actions/macros/document_actions">
-        Document actions (print, sendto etc)
-      </div>
-      
       <h1 class="documentFirstHeading">
           #<span tal:replace="here/getId" /> &mdash;
           <span tal:replace="here/Title" />

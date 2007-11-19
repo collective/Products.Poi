@@ -30,9 +30,11 @@ __docformat__ = 'plaintext'
 
 from StringIO import StringIO
 import transaction
+from App.Common import package_home
 from Products.CMFCore.utils import getToolByName
 from Products.ExternalMethod.ExternalMethod import ExternalMethod
 from zExceptions import NotFound
+from Products.GenericSetup.interfaces import ISetupTool
 
 from Products.Archetypes.Extensions.utils import installTypes
 from Products.Archetypes.Extensions.utils import install_subskin
@@ -41,6 +43,8 @@ from Products.CMFQuickInstallerTool.QuickInstallerTool import AlreadyInstalled
 
 from Products.Poi.config import PROJECTNAME
 from Products.Poi.config import product_globals as GLOBALS
+
+EXTENSION_PROFILES = ('Products.Poi:default',)
 
 def install(self, reinstall=False):
     """ External Method to install Poi """
@@ -56,6 +60,7 @@ def install(self, reinstall=False):
         DEPENDENCIES = []
     portal = getToolByName(self,'portal_url').getPortalObject()
     quickinstaller = portal.portal_quickinstaller
+    portal_setup = getToolByName(portal, 'portal_setup')
     for dependency in DEPENDENCIES:
         print >> out, "Installing dependency %s:" % dependency
         try:
@@ -64,74 +69,6 @@ def install(self, reinstall=False):
             pass
         else:
             transaction.commit(1)
-
-    classes = listTypes(PROJECTNAME)
-    installTypes(self, out,
-                 classes,
-                 PROJECTNAME)
-    install_subskin(self, out, GLOBALS)
-
-
-    # try to call a workflow install method
-    # in 'InstallWorkflows.py' method 'installWorkflows'
-    try:
-        installWorkflows = ExternalMethod('temp', 'temp',
-                                          PROJECTNAME+'.InstallWorkflows',
-                                          'installWorkflows').__of__(self)
-    except NotFound:
-        installWorkflows = None
-
-    if installWorkflows:
-        print >>out,'Workflow Install:'
-        res = installWorkflows(self,out)
-        print >>out,res or 'no output'
-    else:
-        print >>out,'no workflow install'
-
-    #bind classes to workflows
-    wft = getToolByName(self,'portal_workflow')
-
-
-    # enable portal_factory for given types
-    factory_tool = getToolByName(self,'portal_factory')
-    factory_types=[
-        "PoiPscTracker",
-        "PoiTracker",
-        "PoiIssue",
-        "PoiResponse",
-        ] + factory_tool.getFactoryTypes().keys()
-    factory_tool.manage_setPortalFactoryTypes(listOfTypeIds=factory_types)
-
-    from Products.Poi.config import STYLESHEETS
-    try:
-        portal_css = getToolByName(portal, 'portal_css')
-        for stylesheet in STYLESHEETS:
-            try:
-                portal_css.unregisterResource(stylesheet['id'])
-            except:
-                pass
-            defaults = {'id': '',
-            'media': 'all',
-            'enabled': True}
-            defaults.update(stylesheet)
-            portal_css.manage_addStylesheet(**defaults)
-    except:
-        # No portal_css registry
-        pass
-    from Products.Poi.config import JAVASCRIPTS
-    try:
-        portal_javascripts = getToolByName(portal, 'portal_javascripts')
-        for javascript in JAVASCRIPTS:
-            try:
-                portal_javascripts.unregisterResource(javascript['id'])
-            except:
-                pass
-            defaults = {'id': ''}
-            defaults.update(javascript)
-            portal_javascripts.registerScript(**defaults)
-    except:
-        # No portal_javascripts registry
-        pass
 
     # try to call a custom install method
     # in 'AppInstall.py' method 'install'
@@ -153,27 +90,18 @@ def install(self, reinstall=False):
             print >>out,'no output'
     else:
         print >>out,'no custom install'
+
+    # The following section is boilerplate code that can be reused when you
+    # need to invoke a GenericSetup profile from Install.py.
+    for extension_id in EXTENSION_PROFILES:
+        portal_setup.setImportContext('profile-%s' % extension_id)
+        portal_setup.runAllImportSteps(purge_old=False)
+        transaction.savepoint()
+
     return out.getvalue()
 
 def uninstall(self, reinstall=False):
     out = StringIO()
-
-
-    # try to call a workflow uninstall method
-    # in 'InstallWorkflows.py' method 'uninstallWorkflows'
-    try:
-        uninstallWorkflows = ExternalMethod('temp', 'temp',
-                                            PROJECTNAME+'.InstallWorkflows',
-                                            'uninstallWorkflows').__of__(self)
-    except NotFound:
-        uninstallWorkflows = None
-
-    if uninstallWorkflows:
-        print >>out, 'Workflow Uninstall:'
-        res = uninstallWorkflows(self, out)
-        print >>out, res or 'no output'
-    else:
-        print >>out,'no workflow uninstall'
 
     # try to call a custom uninstall method
     # in 'AppInstall.py' method 'uninstall'

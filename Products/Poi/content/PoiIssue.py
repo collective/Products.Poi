@@ -296,7 +296,6 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
     suppl_views = ()
     typeDescription = "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
     typeDescMsgId = 'description_edit_poiissue'
-    allow_discussion = 0
 
 
     actions =  (
@@ -512,10 +511,8 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
     def SearchableText(self):
         """Include in the SearchableText the text of all responses"""
         text = BaseObject.SearchableText(self)
-        for r in self.contentValues():
-            if not r.portal_type == 'PoiResponse':
-                continue
-            text += ' ' + r.SearchableText()
+        responses = self.contentValues(filter={'portal_type' : 'PoiResponse'})
+        text += ' ' + ' '.join([r.SearchableText() for r in responses])
         return text
 
     def notifyModified(self):

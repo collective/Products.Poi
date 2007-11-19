@@ -1,0 +1,344 @@
+<?xml version="1.0"?>
+<dc-workflow workflow_id="poi_issue_workflow"
+             title="poi_issue_workflow"
+             state_variable="review_state"
+             initial_state="new">
+ <permission>Delete objects</permission>
+ <permission>Poi: Modify issue state</permission>
+ <permission>Modify portal content</permission>
+ <state state_id="closed"
+        title="Tested and confirmed closed">
+  <exit-transition transition_id="open-closed"/>
+  <permission-map name="Delete objects" acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Poi: Modify issue state"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+ </state>
+ <state state_id="in-progress" title="In progress">
+  <exit-transition transition_id="resolve-in-progress"/>
+  <exit-transition transition_id="postpone"/>
+  <permission-map name="Delete objects" acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Poi: Modify issue state"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+ </state>
+ <state state_id="new" title="Being created">
+  <exit-transition transition_id="post"/>
+  <permission-map name="Delete objects" acquired="False">
+   <permission-role>Anonymous</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Anonymous</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Poi: Modify issue state"
+                  acquired="False">
+   <permission-role>Anonymous</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+ </state>
+ <state state_id="open" title="Confirmed">
+  <exit-transition transition_id="begin-open"/>
+  <exit-transition transition_id="hold-open"/>
+  <exit-transition transition_id="resolve-open"/>
+  <exit-transition transition_id="reject-open"/>
+  <permission-map name="Delete objects" acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Poi: Modify issue state"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+ </state>
+ <state state_id="postponed" title="Postponed">
+  <exit-transition transition_id="re-start"/>
+  <exit-transition transition_id="open-postponed"/>
+  <permission-map name="Delete objects" acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Poi: Modify issue state"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+ </state>
+ <state state_id="rejected" title="Rejected">
+  <exit-transition transition_id="open-rejected"/>
+  <permission-map name="Delete objects" acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Poi: Modify issue state"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+ </state>
+ <state state_id="resolved" title="Resolved">
+  <exit-transition transition_id="open-resolved"/>
+  <exit-transition transition_id="confirm-resolved"/>
+  <permission-map name="Delete objects" acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Poi: Modify issue state"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+ </state>
+ <state state_id="unconfirmed" title="Unconfirmed">
+  <exit-transition transition_id="accept-unconfirmed"/>
+  <exit-transition transition_id="reject-unconfirmed"/>
+  <exit-transition transition_id="postpone-unconfirmed"/>
+  <exit-transition transition_id="resolve-unconfirmed"/>
+  <permission-map name="Delete objects" acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Poi: Modify issue state"
+                  acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+ </state>
+ <transition transition_id="accept-unconfirmed" title="Open"
+             new_state="open" trigger="USER"
+             before_script="" after_script="">
+  <action url="" category="workflow">Open</action>
+  <guard>
+   <guard-permission>Poi: Modify issue state</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="begin-open" title="Begin work"
+             new_state="in-progress" trigger="USER"
+             before_script="" after_script="">
+  <action url="" category="workflow">Begin work</action>
+  <guard>
+   <guard-permission>Poi: Modify issue state</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="confirm-resolved"
+             title="Confirm resolved" new_state="closed"
+             trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow">Confirm resolved</action>
+  <guard>
+   <guard-permission>Poi: Modify issue state</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="hold-open" title="Put on hold"
+             new_state="postponed" trigger="USER"
+             before_script="" after_script="">
+  <action url="" category="workflow">Put on hold</action>
+  <guard>
+   <guard-permission>Poi: Modify issue state</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="open-closed" title="Re-open"
+             new_state="open" trigger="USER"
+             before_script="" after_script="">
+  <action url="" category="workflow">Re-open</action>
+  <guard>
+   <guard-permission>Poi: Modify issue state</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="open-postponed" title="Re-open"
+             new_state="open" trigger="USER"
+             before_script="" after_script="">
+  <action url="" category="workflow">Re-open</action>
+  <guard>
+   <guard-permission>Poi: Modify issue state</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="open-rejected" title="Open"
+             new_state="open" trigger="USER"
+             before_script="" after_script="">
+  <action url="" category="workflow">Open</action>
+  <guard>
+   <guard-permission>Poi: Modify issue state</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="open-resolved" title="Re-open"
+             new_state="open" trigger="USER"
+             before_script="" after_script="">
+  <action url="" category="workflow">Re-open</action>
+  <guard>
+   <guard-permission>Poi: Modify issue state</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="post" title="Post issue on save"
+             new_state="unconfirmed" trigger="USER"
+             before_script=""
+             after_script="sendInitialEmail">
+  <action url="" category="workflow">Post issue on save</action>
+  <guard>
+   <guard-expression>here/isValid</guard-expression>
+  </guard>
+ </transition>
+ <transition transition_id="postpone" title="Postpone"
+             new_state="postponed" trigger="USER"
+             before_script="" after_script="">
+  <action url="" category="workflow">Postpone</action>
+  <guard>
+   <guard-permission>Poi: Modify issue state</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="postpone-unconfirmed"
+             title="Postpone" new_state="postponed"
+             trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow">Postpone</action>
+  <guard>
+   <guard-permission>Poi: Modify issue state</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="re-start" title="Begin work"
+             new_state="in-progress" trigger="USER"
+             before_script="" after_script="">
+  <action url="" category="workflow">Begin work</action>
+  <guard>
+   <guard-permission>Poi: Modify issue state</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="reject-open" title="Reject"
+             new_state="rejected" trigger="USER"
+             before_script="" after_script="">
+  <action url="" category="workflow">Reject</action>
+  <guard>
+   <guard-permission>Poi: Modify issue state</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="reject-unconfirmed"
+             title="Reject" new_state="rejected"
+             trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow">Reject</action>
+  <guard>
+   <guard-permission>Poi: Modify issue state</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="resolve-in-progress"
+             title="Resolve" new_state="resolved"
+             trigger="USER" before_script=""
+             after_script="sendResolvedMail">
+  <action url="" category="workflow">Resolve</action>
+  <guard>
+   <guard-permission>Poi: Modify issue state</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="resolve-open" title="Resolve"
+             new_state="resolved" trigger="USER"
+             before_script=""
+             after_script="sendResolvedMail">
+  <action url="" category="workflow">Resolve</action>
+  <guard>
+   <guard-permission>Poi: Modify issue state</guard-permission>
+  </guard>
+ </transition>
+ <transition transition_id="resolve-unconfirmed"
+             title="Resolve immediately"
+             new_state="resolved" trigger="USER"
+             before_script="" after_script="">
+  <action url="" category="workflow">Resolve immediately</action>
+  <guard>
+   <guard-permission>Poi: Modify issue state</guard-permission>
+  </guard>
+ </transition>
+ <variable variable_id="action" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>The last transition</description>
+  <default>
+   
+   <expression>transition/getId|nothing</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="actor" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>The ID of the user who performed the last transition</description>
+  <default>
+   
+   <expression>user/getId</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="comments" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>Comments about the last transition</description>
+  <default>
+   
+   <expression>python:state_change.kwargs.get('comment', '')</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="review_history" for_catalog="False"
+           for_status="False" update_always="False">
+  <description>Provides access to workflow history</description>
+  <default>
+   
+   <expression>state_change/getHistory</expression>
+  </default>
+  <guard>
+   <guard-permission>Request review</guard-permission>
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+ </variable>
+ <variable variable_id="time" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>Time of the last transition</description>
+  <default>
+   
+   <expression>state_change/getDateTime</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <script script_id="sendInitialEmail" type="External Method"
+         filename="" module="Poi.poi_issue_workflow_scripts"
+         function="sendInitialEmail"/>
+ <script script_id="sendResolvedMail" type="External Method"
+         filename="" module="Poi.poi_issue_workflow_scripts"
+         function="sendResolvedMail"/>
+</dc-workflow>

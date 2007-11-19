@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<object name="portal_workflow" meta_type="Plone Workflow Tool">
+ <object name="poi_issue_workflow" meta_type="Workflow"/>
+ <object name="poi_response_workflow" meta_type="Workflow"/>
+ <object name="poi_tracker_workflow" meta_type="Workflow"/>
+ <bindings>
+  <type type_id="PoiIssue">
+   <bound-workflow workflow_id="poi_issue_workflow"/>
+  </type>
+  <type type_id="PoiPscTracker">
+   <bound-workflow workflow_id="poi_tracker_workflow"/>
+  </type>
+  <type type_id="PoiResponse">
+   <bound-workflow workflow_id="poi_response_workflow"/>
+  </type>
+  <type type_id="PoiTracker">
+   <bound-workflow workflow_id="poi_tracker_workflow"/>
+  </type>
+ </bindings>
+</object>

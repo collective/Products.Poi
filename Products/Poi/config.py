@@ -55,6 +55,13 @@ except ImportError:
     HAS_PLONE21 = False
 else:
     HAS_PLONE21 = True
+# Check for Plone 3.0
+try:
+    from Products.CMFPlone.migrations import v3_0
+except ImportError:
+    HAS_PLONE30 = False
+else:
+    HAS_PLONE30 = True
 
 # Permissions
 DEFAULT_ADD_CONTENT_PERMISSION = "Add portal content"
@@ -88,7 +95,12 @@ STYLESHEETS = []
 JAVASCRIPTS = []
 
 ##code-section config-bottom #fill in your manual code here
-DEPENDENCIES = ['DataGridField', 'AddRemoveWidget', 'intelligenttext']
+
+DEPENDENCIES = ['DataGridField', 'AddRemoveWidget']
+if not HAS_PLONE30:
+    # Plone 3.0 has plone.intelligenttext already.  Lower versions
+    # need Products.intelligenttext installed as a dependency here.
+    DEPENDENCIES.append('intelligenttext')
 DESCRIPTION_LENGTH = 200
 RUN_MIGRATIONS = True
 PSC_TRACKER_ID = 'issues'

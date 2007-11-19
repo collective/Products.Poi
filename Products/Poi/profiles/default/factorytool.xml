@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="portal_factory" meta_type="Plone Factory Tool">
+ <factorytypes>
+  <type portal_type="PoiResponse"/>
+  <type portal_type="PoiPscTracker"/>
+  <type portal_type="PoiIssue"/>
+  <type portal_type="PoiTracker"/>
+ </factorytypes>
+</object>

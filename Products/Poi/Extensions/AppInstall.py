@@ -1,20 +1,11 @@
 from Products.CMFCore.utils import getToolByName
-from Products.CMFDynamicViewFTI.migrate import migrateFTIs
 
 from StringIO import StringIO
 
 from Products.Poi.config import RUN_MIGRATIONS
 from Products.Poi.Extensions.Migrations import migrate
-
 from Products.Poi.Extensions.utils import addAction, removeAction
 
-def addCatalogMetadata(self, out, catalog, column):
-    """Add the given column to the catalog's metadata schema"""
-    if column not in catalog.schema():
-        catalog.addColumn(column)
-        print >> out, "Added", column, "to catalog metadata"
-    else:
-        print >> out, column, "already in catalog metadata"
 
 def addPortalFactoryType(self, out, factory, metaType):
     """Add the given type to the list of types used by PortalFactory"""
@@ -60,22 +51,6 @@ def addAllowedContentType(self, out, typesTool, metaType, allowedType):
 def install(self):
 
     out = StringIO()
-
-    # Migrate FTIs to use CMFDynamicViewFTI
-    migrateFTIs(self, 'Poi')
-
-    # Add UID to catalog metadata
-    catalog = getToolByName(self, 'portal_catalog')
-    addCatalogMetadata(self, out, catalog, 'UID')
-
-    print >> out, "Added UID to catalog metadata"
-
-    # Add to portal_factory
-    factory = getToolByName(self, 'portal_factory')
-    addPortalFactoryType(self, out, factory, 'PoiTracker')
-    addPortalFactoryType(self, out, factory, 'PoiIssue')
-    addPortalFactoryType(self, out, factory, 'PoiResponse')
-    addPortalFactoryType(self, out, factory, 'PoiPscTracker')
 
     # Set parentMetaTypesNotToQuery
     portalProperties = getToolByName(self, 'portal_properties')

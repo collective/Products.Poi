@@ -215,7 +215,6 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
     suppl_views = ()
     typeDescription = "A response to an issue."
     typeDescMsgId = 'description_edit_poiresponse'
-    allow_discussion = 0
 
 
     actions =  (

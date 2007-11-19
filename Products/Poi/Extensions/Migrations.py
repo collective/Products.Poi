@@ -12,6 +12,7 @@ from Acquisition import aq_base
 import transaction
 
 from Products.CMFCore.utils import getToolByName
+import transaction
 from Products.Archetypes.BaseUnit import BaseUnit
 
 from Products.Poi.content import PoiTracker 

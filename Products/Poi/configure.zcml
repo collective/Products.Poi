@@ -1,5 +1,9 @@
-<configure xmlns="http://namespaces.zope.org/zope"
-    xmlns:browser="http://namespaces.zope.org/browser">
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="poi">
 
   <include package=".browser" />
 
@@ -15,5 +19,24 @@
            zope.app.container.interfaces.IObjectRemovedEvent"
       handler=".events.removedResponse"
       />
+
+  <!-- Register the GenericSetup extension profile so that we can
+       install the product
+  -->
+  <gs:registerProfile
+      name="default"
+      title="Poi"
+      directory="profiles/default"
+      description="A friendly issue tracker"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  
+  <!-- Avoid deprecation warnings for manage_afterAdd and friends. -->
+  <five:deprecatedManageAddDelete
+      class=".content.PoiTracker.PoiTracker" />
+  <five:deprecatedManageAddDelete
+      class=".content.PoiIssue.PoiIssue" />
+  <five:deprecatedManageAddDelete
+      class=".content.PoiResponse.PoiResponse" />
 
 </configure>

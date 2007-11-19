@@ -35,6 +35,9 @@ class MockMailHost(object):
     """Make a mock mail host to avoid sending emails when testing.
     """
 
+    def getId(self):
+        return 'MailHost'
+
     def send(self, message, mto=None, mfrom=None, subject=None, encode=None):
         pass
 
