@@ -1,1 +1,1 @@
-1.1 SVN / unreleased
+1.1 beta 1
