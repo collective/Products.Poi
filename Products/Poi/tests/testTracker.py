@@ -160,6 +160,15 @@ class TestEmailNotifications(ptc.PoiTestCase):
                                  watchers=('member1', 'member2',))
         issue.sendNotificationMail()
 
+    def testUnicodeIssueEmail(self):
+        self.tracker.setSendNotificationEmails(True)
+        self.tracker.update(title='Random Tracker')
+        issue = self.createIssue(self.tracker,
+                                 title="accented vocals: à è ì ò ù",
+                                 contactEmail='submitter@domain.com', 
+                                 watchers=('member1', 'member2',))
+        issue.sendNotificationMail()
+
     def testNewResponseEmail(self):
         self.tracker.setSendNotificationEmails(True)
         self.tracker.update(title='Random Tracker')
@@ -167,6 +176,16 @@ class TestEmailNotifications(ptc.PoiTestCase):
                                  contactEmail='submitter@domain.com', 
                                  watchers=('member1', 'member2',))
         response = self.createResponse(issue)
+        response.sendNotificationMail()
+
+    def testUnicodeResponseEmail(self):
+        self.tracker.setSendNotificationEmails(True)
+        self.tracker.update(title='Random Tracker')
+        issue = self.createIssue(self.tracker, 
+                                 contactEmail='submitter@domain.com', 
+                                 watchers=('member1', 'member2',))
+        response = self.createResponse(issue,
+                                       text="accented vocals: à è ì ò ù" )
         response.sendNotificationMail()
 
     def testResolvedEmail(self):
