@@ -1,9 +1,11 @@
+# -*- coding: utf-8 -*-
 import os, sys
 if __name__ == '__main__':
     execfile(os.path.join(sys.path[0], 'framework.py'))
 
 from Testing import ZopeTestCase
 from Products.Poi.tests import ptc
+from Products.CMFCore.utils import getToolByName
 
 default_user = ZopeTestCase.user_name
 
@@ -160,14 +162,30 @@ class TestEmailNotifications(ptc.PoiTestCase):
                                  watchers=('member1', 'member2',))
         issue.sendNotificationMail()
 
-    def testUnicodeIssueEmail(self):
+    def testSpecialCharacterIssueEmail(self):
         self.tracker.setSendNotificationEmails(True)
         self.tracker.update(title='Random Tracker')
+        issue = self.createIssue(self.tracker,
+                                 title="accented vocals: à è ì",
+                                 contactEmail='submitter@domain.com', 
+                                 watchers=('member1', 'member2',))
+        issue.sendNotificationMail()
+        response = self.createResponse(issue,
+                                       text="more accented vocals: ò ù" )
+        response.sendNotificationMail()
+
+        # Now try a different charset.
+        pprop = getToolByName(self.portal, 'portal_properties')
+        site_props = getToolByName(pprop, 'site_properties')
+        site_props.default_charset = 'iso-8859-1'
         issue = self.createIssue(self.tracker,
                                  title="accented vocals: à è ì ò ù",
                                  contactEmail='submitter@domain.com', 
                                  watchers=('member1', 'member2',))
         issue.sendNotificationMail()
+        response = self.createResponse(issue,
+                                       text="more accented vocals: ò ù" )
+        response.sendNotificationMail()
 
     def testNewResponseEmail(self):
         self.tracker.setSendNotificationEmails(True)
@@ -176,16 +194,6 @@ class TestEmailNotifications(ptc.PoiTestCase):
                                  contactEmail='submitter@domain.com', 
                                  watchers=('member1', 'member2',))
         response = self.createResponse(issue)
-        response.sendNotificationMail()
-
-    def testUnicodeResponseEmail(self):
-        self.tracker.setSendNotificationEmails(True)
-        self.tracker.update(title='Random Tracker')
-        issue = self.createIssue(self.tracker, 
-                                 contactEmail='submitter@domain.com', 
-                                 watchers=('member1', 'member2',))
-        response = self.createResponse(issue,
-                                       text="accented vocals: à è ì ò ù" )
         response.sendNotificationMail()
 
     def testResolvedEmail(self):
