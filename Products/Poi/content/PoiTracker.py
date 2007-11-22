@@ -430,6 +430,9 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         email = MIMEMultipart('alternative')
         email.epilogue = ''
 
+        if isinstance(rstText, unicode):
+            rstText = rstText.encode(charset, 'replace')
+
         textPart = MIMEText(rstText, 'plain', charset)
         email.attach(textPart)
         htmlPart = MIMEText(renderHTML(rstText), 'html', charset)
