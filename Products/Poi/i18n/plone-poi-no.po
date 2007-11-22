@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2005-10-27 03:02+0000\n"
+"POT-Creation-Date: 2005-10-26 17:00+0000\n"
 "PO-Revision-Date: 2007-05-06 17:00+0000\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: None <plone-i18n@lists.sourceforge.net>\n"
@@ -14,79 +14,74 @@ msgstr ""
 "Language-Code: no\n"
 "Language-Name: Norsk\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"X-Is-Fallback-For: nb nb-no no-bok\n"
 "Domain: plone\n"
-# portal type nams
-
-msgid "Issue Tracker"
-msgstr "Emne-sporer"
-
-msgid "An issue tracker"
-msgstr "En emne-sporer"
-
-msgid "Issue"
-msgstr "Emne"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Et emne. Emner begynner i 'ubekreftet' tilstand, og kan bli besvart av prosjekt-managere."
-
-msgid "Response"
-msgstr "Et svar"
-
-msgid "A response to an issue."
-msgstr "Et svar på et emnet."
-
-# tracker states
-
-msgid "Open for submissions"
-msgstr "Åpen"
-
-msgid "Closed for submissions"
-msgstr "Lukket"
-
-# tracker transitions
-
-msgid "Close tracker"
-msgstr "Lukk"
-
-msgid "Open tracker"
-msgstr "Åpne"
-
-# issue states
-
-msgid "Tested and confirmed closed"
-msgstr "Gjennomgått og bekreftet lukket"
-
-msgid "In progress"
-msgstr "I arbeid"
-
-msgid "Being created"
-msgstr "Blir laget"
-
-msgid "Open"
-msgstr "Åpen"
-
-msgid "Postponed"
-msgstr "Utsatt"
-
-msgid "Rejected"
-msgstr "Avvist"
-
-msgid "Resolved"
-msgstr "Løst"
-
-msgid "Unconfirmed"
-msgstr "Ubekreftet"
+"X-Is-Fallback-For: nb nb-no no-bok\n"
 
 # issue transitions
 msgid " Open"
 msgstr "Åpent"
 
+msgid "A response to an issue."
+msgstr "Et svar på et emnet."
+
+msgid "An issue tracker"
+msgstr "En emne-sporer"
+
+msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
+msgstr "Et emne. Emner begynner i 'ubekreftet' tilstand, og kan bli besvart av prosjekt-managere."
+
 msgid "Begin work"
 msgstr "Start arbeid"
 
+msgid "Being created"
+msgstr "Blir laget"
+
+# tracker transitions
+msgid "Close tracker"
+msgstr "Lukk"
+
+msgid "Closed for submissions"
+msgstr "Lukket"
+
 msgid "Confirm resolved"
 msgstr "Bekreftet Løst"
+
+msgid "In progress"
+msgstr "I arbeid"
+
+msgid "Issue"
+msgstr "Emne"
+
+# portal type nams
+msgid "Issue Tracker"
+msgstr "Emne-sporer"
+
+msgid "Open"
+msgstr "Åpen"
+
+# tracker states
+msgid "Open for submissions"
+msgstr "Åpen"
+
+msgid "Open tracker"
+msgstr "Åpne"
+
+msgid "Post issue on save"
+msgstr "Sned ved lagring"
+
+# response transitions
+msgid "Post response on save"
+msgstr "Send svar ved lagring"
+
+# response states
+msgid "Posted"
+msgstr "Sendt"
+
+msgid "Postpone"
+msgstr "Reporter"
+
+msgid "Postponed"
+msgstr "Utsatt"
 
 msgid "Put on hold"
 msgstr "På vent"
@@ -94,22 +89,25 @@ msgstr "På vent"
 msgid "Re-open"
 msgstr "Gjenåpne"
 
-msgid "Post issue on save"
-msgstr "Sned ved lagring"
-
-msgid "Postpone"
-msgstr "Reporter"
-
 msgid "Reject"
 msgstr "Rejeter"
+
+msgid "Rejected"
+msgstr "Avvist"
 
 msgid "Resolve"
 msgstr "L‚àö‚àès"
 
-# response states
-msgid "Posted"
-msgstr "Sendt"
+msgid "Resolved"
+msgstr "Løst"
 
-# response transitions
-msgid "Post response on save"
-msgstr "Send svar ved lagring"
+msgid "Response"
+msgstr "Et svar"
+
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "Gjennomgått og bekreftet lukket"
+
+msgid "Unconfirmed"
+msgstr "Ubekreftet"
+
