@@ -432,6 +432,8 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
 
         if isinstance(rstText, unicode):
             rstText = rstText.encode(charset, 'replace')
+        if isinstance(subject, unicode):
+            subject = subject.encode(charset, 'replace')
 
         textPart = MIMEText(rstText, 'plain', charset)
         email.attach(textPart)
