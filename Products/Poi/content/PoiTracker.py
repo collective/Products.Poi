@@ -435,7 +435,7 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
 
         textPart = MIMEText(rstText, 'plain', charset)
         email.attach(textPart)
-        htmlPart = MIMEText(renderHTML(rstText), 'html', charset)
+        htmlPart = MIMEText(renderHTML(rstText, charset=charset), 'html', charset)
         email.attach(htmlPart)
 
         message = str(email)
