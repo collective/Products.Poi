@@ -72,6 +72,13 @@ def sendResolvedMail(self,state_change,**kw):
                                               stateChanger = stateChanger)
     subject = "[%s] Resolved #%s - %s" % (tracker.getExternalTitle(), issue.getId(), issue.Title(),)
 
+    plone_utils = getToolByName(self, 'plone_utils')
+    charset = plone_utils.getSiteEncoding()
+    if isinstance(subject, unicode):
+        mailText = mailText.encode(charset, 'replace')
+    if isinstance(mailText, unicode):
+        mailText = mailText.encode(charset, 'replace')
+
     tracker.sendNotificationEmail([issueEmail], subject, mailText)
 
 

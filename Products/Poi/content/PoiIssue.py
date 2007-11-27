@@ -559,6 +559,12 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
                                             fromName = fromName,
                                             issueDetails = issueDetails)
         subject = "[%s] #%s - New issue: %s" % (tracker.getExternalTitle(), self.getId(), self.Title(),)
+        plone_utils = getToolByName(self, 'plone_utils')
+        charset = plone_utils.getSiteEncoding()
+        if isinstance(subject, unicode):
+            mailText = mailText.encode(charset, 'replace')
+        if isinstance(mailText, unicode):
+            mailText = mailText.encode(charset, 'replace')
 
         tracker.sendNotificationEmail(addresses, subject, mailText)
 
