@@ -11,7 +11,7 @@
 
 # Borrowed from Plone's folder_delete.cpy
 
-from Products.CMFPlone import transaction_note
+from Products.CMFPlone.utils import transaction_note
 titles=[]
 titles_and_ids=[]
 
