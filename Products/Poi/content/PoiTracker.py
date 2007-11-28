@@ -48,8 +48,6 @@ from ZTUtils import make_query
 
 from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
-from email.MIMEBase import MIMEBase
-from email.Message import Message
 import sets
 from Products.Poi.htmlrender import renderHTML
 from re import *

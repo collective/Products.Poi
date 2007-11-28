@@ -30,19 +30,13 @@ __docformat__ = 'plaintext'
 
 from StringIO import StringIO
 import transaction
-from App.Common import package_home
 from Products.CMFCore.utils import getToolByName
 from Products.ExternalMethod.ExternalMethod import ExternalMethod
 from zExceptions import NotFound
-from Products.GenericSetup.interfaces import ISetupTool
 
-from Products.Archetypes.Extensions.utils import installTypes
-from Products.Archetypes.Extensions.utils import install_subskin
-from Products.Archetypes.atapi import listTypes
 from Products.CMFQuickInstallerTool.QuickInstallerTool import AlreadyInstalled
 
 from Products.Poi.config import PROJECTNAME
-from Products.Poi.config import product_globals as GLOBALS
 
 EXTENSION_PROFILES = ('Products.Poi:default',)
 
