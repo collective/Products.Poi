@@ -418,7 +418,9 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
 
         portal      = portal_url.getPortalObject()
         mailHost    = plone_utils.getMailHost()
-        charset     = plone_utils.getSiteEncoding()
+        charset     = portal.getProperty('email_charset', None)
+        if charset is None or charset == '':
+            charset = plone_utils.getSiteEncoding()
         fromAddress = portal.getProperty('email_from_address', None)
 
         if fromAddress is None:
