@@ -424,8 +424,11 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         fromAddress = portal.getProperty('email_from_address', None)
 
         if fromAddress is None:
-            log('Cannot send notification email: email sender address or name not set')
+            log('Cannot send notification email: email sender address not set')
             return
+        fromName = portal.getProperty('email_from_name', None)
+        if fromName is not None:
+            fromAddress = "%s <%s>" % (fromName, fromAddress)
 
         email = MIMEMultipart('alternative')
         email.epilogue = ''
