@@ -48,6 +48,7 @@ from ZTUtils import make_query
 
 from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
+import base64
 import sets
 from Products.Poi.htmlrender import renderHTML
 from re import *
@@ -435,15 +436,29 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
 
         if isinstance(rstText, unicode):
             rstText = rstText.encode(charset, 'replace')
-        if isinstance(subject, unicode):
-            subject = subject.encode(charset, 'replace')
 
         textPart = MIMEText(rstText, 'plain', charset)
         email.attach(textPart)
         htmlPart = MIMEText(renderHTML(rstText, charset=charset), 'html', charset)
         email.attach(htmlPart)
-
         message = str(email)
+
+        if isinstance(subject, unicode):
+            subject = subject.encode(charset, 'replace')
+
+        # Encode the subject.  Not needed for ascii really.
+        # The form is: "=?charset?encoding?encoded text?=".
+        # An encoding of 'B' stands for base64.
+        # See http://en.wikipedia.org/wiki/MIME
+        # First strip the subject of whitespace.
+        subject = subject.strip()
+        # In case of multiple lines return only the first line.
+        # We do not want newlines here as it messes up encoding.
+        subject = subject.splitlines()[0]
+        # Encode it in base64 and use the same tricks as above.
+        # Yes this can be needed in case of long subjects.
+        subject = base64.encodestring(subject).strip().splitlines()[0]
+        subject = "=?%s?B?%s?=" % (charset, subject)
 
         for address in addresses:
             try:
