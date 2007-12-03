@@ -36,11 +36,6 @@ Poi TODO
     
     Bugs/Known issues:
 
-        o Deleting a response will cause issue text to remain in issue
-            SearchableText until a re-index. We'll probably need Five
-            events to fix this, as manage_beforeDelete() gets called
-            before the object is deleted (funnily enough)
-
         o _renameAfterCreation() counter is not thread safe
 
     Security issues:
@@ -57,6 +52,7 @@ Poi TODO
             - Need a quick and easy way to add tags to issues
         
         o Consider threaded responses (maybe not by default)
+
         o Enable quoting other responses/issue text in responses
             - May be able to plug into Ploneboard?
             
@@ -77,5 +73,4 @@ Poi TODO
     
         o Should increase unit test coverage
             - Tests for tracker and issue states (permissions)
-            - Actual sending of notification emails (need dummy mail host)
             - Vocab + defaults methods
