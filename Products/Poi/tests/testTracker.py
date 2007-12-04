@@ -175,21 +175,11 @@ class TestEmailNotifications(ptc.PoiTestCase):
             issue, text="more accented vocals: ò ù" )
         response.sendNotificationMail()
 
-        # Simply try unicode.
-        issue = self.createIssue(
-            self.tracker,
-            title=u"accented vocals: à è ì ò ù",
-            contactEmail='submitter@domain.com', 
-            watchers=('member1', 'member2',))
-        issue.sendNotificationMail()
-        response = self.createResponse(
-            issue, text=u"more accented vocals: ò ù")
-        response.sendNotificationMail()
-
         # Now try a different charset
         pprop = getToolByName(self.portal, 'portal_properties')
         site_props = getToolByName(pprop, 'site_properties')
         site_props.default_charset = 'iso-8859-1'
+        self.portal.email_charset = 'iso-8859-1'
         issue = self.createIssue(
             self.tracker,
             title=u"accented vocals: à è ì ò ù".encode('iso-8859-1'),
@@ -201,9 +191,6 @@ class TestEmailNotifications(ptc.PoiTestCase):
         response.sendNotificationMail()
 
         # And now try a different charset and unicode
-        pprop = getToolByName(self.portal, 'portal_properties')
-        site_props = getToolByName(pprop, 'site_properties')
-        site_props.default_charset = 'iso-8859-1'
         issue = self.createIssue(
             self.tracker,
             title=u"accented vocals: à è ì ò ù",
