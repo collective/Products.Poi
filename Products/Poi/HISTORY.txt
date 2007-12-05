@@ -1,11 +1,11 @@
 Changelog for Poi
 =================
 
-
     (name of developer listed in brackets)
 
-Poi 1.1 rc 2 (unreleased)
--------------------------
+
+Poi 1.1 rc 2 Released December 5, 2007
+--------------------------------------
 
     - Add our indexes to the catalog with some code in AppInstall.py.
       Doing it there instead of in profiles/default/catalog.xml like
