@@ -78,10 +78,6 @@ setDefaultRoles('Poi: Add Response', ('Anonymous', 'Manager', 'Member', 'Owner',
 
 product_globals = globals()
 
-# Dependencies of Products to be installed by quick-installer
-# override in custom configuration
-DEPENDENCIES = []
-
 # Dependend products - not quick-installed - used in testcase
 # override in custom configuration
 PRODUCT_DEPENDENCIES = []
@@ -96,6 +92,7 @@ JAVASCRIPTS = []
 
 ##code-section config-bottom #fill in your manual code here
 
+# Dependencies of Products to be installed by quick-installer
 DEPENDENCIES = ['DataGridField', 'AddRemoveWidget']
 if not HAS_PLONE30:
     # Plone 3.0 has plone.intelligenttext already.  Lower versions
