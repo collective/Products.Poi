@@ -1,0 +1,80 @@
+Changelog for Poi
+=================
+
+
+    (name of developer listed in brackets)
+
+Poi 1.1 rc 2 (unreleased)
+-------------------------
+
+    - Add our indexes to the catalog with some code in AppInstall.py.
+      Doing it there instead of in profiles/default/catalog.xml like
+      previously means we do not need to reindex those indexes after
+      every reinstall.
+      [maurits]
+
+
+Poi 1.1 rc 1 Released December 4, 2007
+---------------------------------------
+
+    - Use email_from name of portal in the emails.
+      Fixes http://plone.org/products/poi/issues/154
+      [maurits]
+
+    - Fixed error in deleting response to an issue.
+      Fixes http://plone.org/products/poi/issues/151
+      [maurits]
+
+    - Added partial Norwegian translation.
+      [Espen Moe-Nilssen]
+
+    - Fix i18n of email sending:
+      - Improve sending of emails with non-ascii character sets (mostly
+        accented characters).
+      - Use portal property email_charset for email sending if available.
+      - Mime encode the subject of emails.
+      Fixes http://plone.org/products/poi/issues/146
+      [maurits, Stefano Deponti]
+
+    - Register our skin layer for all skins instead of just for Plone
+      Default.
+      [maurits]
+
+
+Poi 1.1 beta 1 Released Movember 19, 2007
+-----------------------------------------
+
+    - This release introduces Plone 3.0 compatibility while keeping
+      compatibility with Plone 2.5.
+      [Alexander Limi and Maurits van Rees]
+
+    - Link detection.  Trackers now have an svnUrl field.  For
+      example, if your product is hosted in the Plone collective you
+      can set this field to
+      ``http://dev.plone.org/collective/changeset/%(rev)s``.  Then you
+      can type 'r42' in an issue/response (any intelligenttext field)
+      and get a link to that changeset.
+      [Daniel Nouri]
+
+    - Advanced issue search form now has a way to search for issues
+      that match *all* tags, not only any, which helps when you're
+      working a lot with tags.
+      [Daniel Nouri]
+
+    - Added a log-view for Poi trackers. This view renders a report on
+      the most recent additions to the tracker; as such it will be
+      similar to what is sent out as e-mail notifications.
+      [Malthe Borch]
+
+    - Cleanup of translations.
+      [Maurits van Rees]
+
+    - Loads of small bug fixes.
+      [Maurits van Rees and others]
+
+
+Poi 1.0 (never officially released)
+-----------------------------------
+
+    - initial version.
+      [optilude, rocky, panjunyong, others]
