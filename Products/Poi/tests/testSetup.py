@@ -53,6 +53,53 @@ class TestInstallation(ptc.PoiTestCase):
         for t in ('PoiTracker', 'PoiPscTracker', 'PoiIssue',):
             self.failUnless(t in self.properties.navtree_properties.getProperty('parentMetaTypesNotToQuery'))
 
+    def testReinstall(self):
+        """Reinstalling should not empty our indexes.
+        """
+        # First of all, we want a few indexes in the catalog.
+        wanted = ("getRelease", "getArea", "getIssueType", "getSeverity",
+                  "getTargetRelease", "getResponsibleManager")
+        indexes = self.catalog.indexes()
+        for idx in wanted:
+            self.failUnless(idx in indexes)
+
+        self.addMember('member1', 'Member One', 'member1@member.com',
+                       ['Member'], '2005-01-01')
+        self.tracker = self.createTracker(self.folder, 'issue-tracker',
+                                          managers=('member1',))
+
+        def results(**kwargs):
+            # Small helper function.
+            return len(self.catalog.searchResults(**kwargs))
+
+        # self.createIssue fills in some default already.
+        # First check that we have no match in the getArea index.
+        self.assertEquals(results(getArea='ui'), 0)
+        self.issue = self.createIssue(
+            self.tracker, 'an-issue', release='0.1',
+            targetRelease='1.0', responsibleManager='member1')
+
+        # After adding we should have a match.
+        self.assertEquals(results(getArea='ui'), 1)
+        # Same for the other indexes.
+        self.assertEquals(results(getIssueType='bug'), 1)
+        self.assertEquals(results(getSeverity='Medium'), 1)
+        self.assertEquals(results(getRelease='0.1'), 1)
+        self.assertEquals(results(getTargetRelease='1.0'), 1)
+        self.assertEquals(results(getResponsibleManager='member1'), 1)
+
+        # Now we reinstall Poi.
+        quickinstaller = self.portal.portal_quickinstaller
+        quickinstaller.reinstallProducts(['Poi'])
+
+        # Now we should still have a match.
+        self.assertEquals(results(getArea='ui'), 1)
+        self.assertEquals(results(getIssueType='bug'), 1)
+        self.assertEquals(results(getSeverity='Medium'), 1)
+        self.assertEquals(results(getRelease='0.1'), 1)
+        self.assertEquals(results(getTargetRelease='1.0'), 1)
+        self.assertEquals(results(getResponsibleManager='member1'), 1)
+
 
 class TestContentCreation(ptc.PoiTestCase):
     """Ensure content types can be created"""

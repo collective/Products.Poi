@@ -48,6 +48,22 @@ def addAllowedContentType(self, out, typesTool, metaType, allowedType):
     else:
         print >> out, "%s is already in allowed content types of %s" % (allowedType, metaType)
 
+def addCatalogIndexes(site, out):
+    """Add our indexes to the catalog.
+
+    Doing it here instead of in profiles/default/catalog.xml means we
+    do not need to reindex those indexes after every reinstall.
+    """
+    catalog = getToolByName(site, 'portal_catalog')
+    indexes = catalog.indexes()
+    wanted = ("getRelease", "getArea", "getIssueType", "getSeverity",
+              "getTargetRelease", "getResponsibleManager")
+
+    for idx in wanted:
+        if idx not in indexes:
+            catalog.addIndex(idx, 'FieldIndex')
+            print >> out, "Added FieldIndex for %s." % idx
+
 def install(self):
 
     out = StringIO()
@@ -71,6 +87,7 @@ def install(self):
     addFormControllerAction(self, out, controller, 'validate_integrity',
                             'success', 'PoiIssue', None, 'traverse_to', 'string:poi_issue_post')
                   
+    addCatalogIndexes(self, out)
     # Run migrations
     if RUN_MIGRATIONS:
         print >> out, migrate(self)
