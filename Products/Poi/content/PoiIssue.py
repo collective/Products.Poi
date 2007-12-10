@@ -567,6 +567,11 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         text = self.getField('details').get(self, **kwargs)
         return self.aq_parent.linkDetection(text)
 
+    def getTaggedSteps(self, **kwargs):
+        # perform link detection
+        text = self.getField('steps').get(self, **kwargs)
+        return self.aq_parent.linkDetection(text)
+
 def modify_fti(fti):
     # Hide unnecessary tabs (usability enhancement)
     for a in fti['actions']:

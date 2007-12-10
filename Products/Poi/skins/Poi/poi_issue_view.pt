@@ -136,7 +136,7 @@
       
       <div class="issue-details" tal:content="structure here/getTaggedDetails" />
   
-      <dl class="steps-to-reproduce" tal:define="steps here/getSteps" tal:condition="nocall:steps">
+      <dl class="steps-to-reproduce" tal:define="steps here/getTaggedSteps" tal:condition="nocall:steps">
           <dt i18n:translate="poi_label_steps">Steps to reproduce:</dt>
           <dd tal:content="structure steps" />
       </dl>
