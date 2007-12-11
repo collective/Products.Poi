@@ -459,12 +459,42 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.assertEqual(issues, ['1'])
 
 
+class TestLinkDetection(ptc.PoiTestCase):
+    """Test link detection functionality"""
+
+    def afterSetUp(self):
+        self.tracker = self.createTracker(self.folder, 'issue-tracker')
+        #self.addMember('member1', 'Member One', 'member1@member.com', ['Member'], '2005-01-01')
+        #self.addMember('member2', 'Member Two', 'member2@member.com', ['Member'], '2005-01-01')
+        url="http://dev.plone.org/collective/changeset/%(rev)s"
+        self.tracker.update(svnUrl=url)
+        self.createIssue(self.tracker)
+
+    def testLinkIssue(self):
+        # Link to an existing issue.
+        self.createIssue(self.tracker, details="#1")
+        issue = self.tracker['2']
+        self.assertEqual(issue.getTaggedDetails(),
+                         '<p><a href="../1">#1</a></p>')
+
+        # Issue #3 does not exist.
+        issue.update(details="#3")
+        self.assertEqual(self.tracker['2'].getTaggedDetails(),
+                         '<p>#3</p>')
+
+        # Link to an existing issue in the steps
+        issue.update(steps="#1")
+        self.assertEqual(self.tracker['2'].getTaggedSteps(),
+                         '<p><a href="../1">#1</a></p>')
+
+
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()
     suite.addTest(makeSuite(TestTracker))
     suite.addTest(makeSuite(TestTrackerSearch))
     suite.addTest(makeSuite(TestEmailNotifications))
+    suite.addTest(makeSuite(TestLinkDetection))
     return suite
 
 if __name__ == '__main__':
