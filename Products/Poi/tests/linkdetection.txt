@@ -7,7 +7,7 @@ is governed by settings in the PoiTracker.
 
 In unit tests we need to provide an adapter to ISchema, otherwise we
 run into an error the moment we create a PoiTracker.  But this is only
-needed with Plone 3, so we use a try/except.
+needed with Plone 3, so we use a try/except::
 
     >>> try:
     ...     from Products.Archetypes.Schema.factory import \
@@ -17,7 +17,7 @@ needed with Plone 3, so we use a try/except.
     ... except ImportError:
     ...     pass
 
-We need create some mock classes as we are unit testing.
+We need create some mock classes as we are unit testing::
 
     >>> class Mock(object):
     ...     def __init__(self, **kwargs):
@@ -34,14 +34,14 @@ We need create some mock classes as we are unit testing.
     ...         return [i for i in self.contents if i.path == query['path']]
 
 To make getToolByName be able to get to the portal catalog with any
-tracker as context, we do this trick:
+tracker as context, we do this trick::
 
     >>> portal_catalog = MockCatalog()
     >>> from Products.Poi.content.PoiTracker import PoiTracker
     >>> PoiTracker.portal_catalog = portal_catalog
 
 We add a helper function that adds an issue to a tracker and to the
-catalog.
+catalog::
 
     >>> def add_issue(tracker, id):
     ...     if isinstance(id, int):
@@ -51,7 +51,7 @@ catalog.
     ...     tracker._setOb(id, issue)
     ...     portal_catalog.add(issue)
 
-Now we can create a tracker.
+Now we can create a tracker::
 
     >>> tracker = PoiTracker('tracker')
 
@@ -59,44 +59,42 @@ Now we can create a tracker.
 Links to issues
 ---------------
 
-Text without anything special will simply be returned unchanged.
+Text without anything special will simply be returned unchanged::
 
     >>> tracker.linkDetection("We are the knights who say 'Ni'!")
     "We are the knights who say 'Ni'!"
 
-Unicode should not give problems.
+Unicode should not give problems::
 
     >>> tracker.linkDetection(u'\xfanicode')
     u'\xfanicode'
 
 We can ask this tracker to detect issues.  But it does nothing with
-non existing issues.
+non existing issues::
 
-    >>> tracker.linkDetection("r100")
-    'r100'
     >>> tracker.linkDetection("#1")
     '#1'
 
 Now we add an issue.  The link detection code searches for issues in
-the portal catalog.  So we add issues there.
+the portal catalog.  So we add issues there::
 
     >>> add_issue(tracker, 1)
     >>> add_issue(tracker, 2)
 
-Now we should get html back when we ask for an issue number.
+Now we should get html back when we ask for an issue number::
 
     >>> tracker.linkDetection("#1")
     '<a href="../1">#1</a>'
     >>> tracker.linkDetection("Links to #1 and #2.")
     'Links to <a href="../1">#1</a> and <a href="../2">#2</a>.'
 
-We are not fooled by a non existing issue.
+We are not fooled by a non existing issue::
 
     >>> tracker.linkDetection("Issue #1 and non-issue #3.")
     'Issue <a href="../1">#1</a> and non-issue #3.'
 
 Issues that are added to a different tracker only show up for that
-tracker.
+tracker::
 
     >>> tracker2 = PoiTracker('tracker2')
     >>> add_issue(tracker2, 22)
@@ -105,7 +103,7 @@ tracker.
     >>> tracker2.linkDetection("#22")
     '<a href="../22">#22</a>'
 
-A combination of unicode and a link number should be possible.
+A combination of unicode and a link number should be possible::
 
     >>> tracker.linkDetection(u'\xfanicode text with a link to #1')
     u'\xfanicode text with a link to <a href="../1">#1</a>'
@@ -114,13 +112,13 @@ A combination of unicode and a link number should be possible.
 Links to revisions/changesets
 -----------------------------
 
-We can link to revisions or changesets.  By default nothing happens.
+We can link to revisions or changesets.  By default nothing happens::
 
     >>> tracker.linkDetection('r42')
     'r42'
 
 We need to specify in the tracker where those links should point to.
-We could point to something silly.
+We could point to something silly::
 
     >>> tracker.setSvnUrl("silly")
     >>> tracker.linkDetection('r42')
@@ -132,19 +130,19 @@ nothing with the revision number.  The *real* idea here is to specify
 a string with "%(rev)s" in it.  At that point the revision number will
 be filled in.
 
-You could point to revisions, for example the collective Trac for Poi:
+You could point to revisions, for example the collective Trac for Poi::
 
     >>> tracker.setSvnUrl("http://dev.plone.org/collective/browser/Poi?%(rev)s")
     >>> tracker.linkDetection('r42')
     '<a href="http://dev.plone.org/collective/browser/Poi?42">r42</a>'
 
-I myself like to point to the changesets:
+I myself like to point to the changesets::
 
     >>> tracker.setSvnUrl("http://dev.plone.org/collective/changeset/%(rev)s")
     >>> tracker.linkDetection('r42')
     '<a href="http://dev.plone.org/collective/changeset/42">r42</a>'
 
-Of course it is fine to combine issues and revisions.
+Of course it is fine to combine issues and revisions::
 
     >>> tracker.linkDetection('Issue #1 is fixed in r42.')
     'Issue <a href="../1">#1</a> is fixed in <a href="http://dev.plone.org/collective/changeset/42">r42</a>.'
