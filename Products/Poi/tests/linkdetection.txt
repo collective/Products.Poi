@@ -1,0 +1,75 @@
+Link Detection
+==============
+
+Some fields of PoiIssues and PoiResponses can have text like #42 to
+point to an issue and r1000 to point to a revision or changeset.  This
+is governed by settings in the PoiTracker.
+
+In unit tests we need to provide an adapter to ISchema, otherwise we
+run into an error the moment we create a PoiTracker.  But this is only
+needed with Plone 3, so we use a try/except.
+
+    >>> try:
+    ...     from Products.Archetypes.Schema.factory import \
+    ...     instanceSchemaFactory
+    ...     from zope.component import provideAdapter
+    ...     provideAdapter(instanceSchemaFactory)
+    ... except ImportError:
+    ...     pass
+
+First we need to create a tracker.
+
+    >>> from Products.Poi.content.PoiTracker import PoiTracker
+    >>> tracker = PoiTracker('tracker')
+
+We need to setup some mock objects as we are unit testing.
+
+    >>> class Mock(object):
+    ...     def __init__(self, **kwargs):
+    ...         for k, v in kwargs.items(): setattr(self, k, v)
+    >>> class MockIssue(Mock):
+    ...     pass
+    >>> class MockCatalog(Mock):
+    ...     contents = []
+    ...     def add(self, issue):
+    ...         self.contents.append(issue)
+    ...     def searchResults(self, query):
+    ...         return self.contents
+    >>> portal_catalog = MockCatalog()
+    >>> tracker.portal_catalog = portal_catalog
+
+Text without anything special will simply be returned unchanged.
+
+    >>> tracker.linkDetection("We are the knights who say 'Ni'!")
+    "We are the knights who say 'Ni'!"
+
+Unicode should not give problems.
+
+    >>> tracker.linkDetection(u'\xfanicode')
+    u'\xfanicode'
+
+We can ask this tracker to detect links.  But it cannot find anything
+by default.
+
+    >>> tracker.linkDetection("r100")
+    'r100'
+    >>> tracker.linkDetection("#1")
+    '#1'
+
+Now we add an issue.  The link detection code searches for issues in
+the portal catalog.  So we add issues there.
+
+    >>> portal_catalog.add(MockIssue(id='1'))
+    >>> portal_catalog.add(MockIssue(id='2'))
+
+Now we should get html back when we ask for an issue number.
+
+    >>> tracker.linkDetection("#1")
+    '<a href="../1">#1</a>'
+    >>> tracker.linkDetection("Links to #1 and #2.")
+    'Links to <a href="../1">#1</a> and <a href="../2">#2</a>.'
+
+We are not fooled by a non existing issue.
+
+    >>> tracker.linkDetection("Issue #1 and non-issue #3.")
+    'Issue <a href="../1">#1</a> and non-issue #3.'
