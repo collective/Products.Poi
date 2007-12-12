@@ -303,8 +303,9 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         """
         Detects issues and svn revision tags and creates links.
         """
-        # In case we get something different as a str, we just return text without change
-        if not isinstance (text, str):
+        # In case we get something not string like, we just return
+        # text without change
+        if not isinstance(text, basestring):
             return text
         catalog = getToolByName(self, 'portal_catalog')
         ids = frozenset([issue.id for issue in catalog.searchResults(self.buildIssueSearchQuery(None))])

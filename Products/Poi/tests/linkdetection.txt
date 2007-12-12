@@ -100,3 +100,8 @@ tracker.
     '#22'
     >>> tracker2.linkDetection("#22")
     '<a href="../22">#22</a>'
+
+A combination of unicode and a link number should be possible.
+
+    >>> tracker.linkDetection(u'\xfanicode text with a link to #1')
+    u'\xfanicode text with a link to <a href="../1">#1</a>'
