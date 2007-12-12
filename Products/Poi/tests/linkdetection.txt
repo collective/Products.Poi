@@ -17,12 +17,7 @@ needed with Plone 3, so we use a try/except.
     ... except ImportError:
     ...     pass
 
-First we need to create a tracker.
-
-    >>> from Products.Poi.content.PoiTracker import PoiTracker
-    >>> tracker = PoiTracker('tracker')
-
-We need to setup some mock objects as we are unit testing.
+We need create some mock classes as we are unit testing.
 
     >>> class Mock(object):
     ...     def __init__(self, **kwargs):
@@ -34,9 +29,31 @@ We need to setup some mock objects as we are unit testing.
     ...     def add(self, issue):
     ...         self.contents.append(issue)
     ...     def searchResults(self, query):
-    ...         return self.contents
+    ...         if not 'path' in query:
+    ...             return self.contents
+    ...         return [i for i in self.contents if i.path == query['path']]
+
+To make getToolByName be able to get to the portal catalog with any
+tracker as context, we do this trick:
+
     >>> portal_catalog = MockCatalog()
-    >>> tracker.portal_catalog = portal_catalog
+    >>> from Products.Poi.content.PoiTracker import PoiTracker
+    >>> PoiTracker.portal_catalog = portal_catalog
+
+We add a helper function that adds an issue to a tracker and to the
+catalog.
+
+    >>> def add_issue(tracker, id):
+    ...     if isinstance(id, int):
+    ...         id = str(id)
+    ...     # Issues can simply have the path of their parent.
+    ...     issue = MockIssue(id=id, path=tracker.id)
+    ...     tracker._setOb(id, issue)
+    ...     portal_catalog.add(issue)
+
+Now we can create a tracker.
+
+    >>> tracker = PoiTracker('tracker')
 
 Text without anything special will simply be returned unchanged.
 
@@ -48,8 +65,8 @@ Unicode should not give problems.
     >>> tracker.linkDetection(u'\xfanicode')
     u'\xfanicode'
 
-We can ask this tracker to detect links.  But it cannot find anything
-by default.
+We can ask this tracker to detect issues.  But it does nothing with
+non existing issues.
 
     >>> tracker.linkDetection("r100")
     'r100'
@@ -59,8 +76,8 @@ by default.
 Now we add an issue.  The link detection code searches for issues in
 the portal catalog.  So we add issues there.
 
-    >>> portal_catalog.add(MockIssue(id='1'))
-    >>> portal_catalog.add(MockIssue(id='2'))
+    >>> add_issue(tracker, 1)
+    >>> add_issue(tracker, 2)
 
 Now we should get html back when we ask for an issue number.
 
@@ -73,3 +90,13 @@ We are not fooled by a non existing issue.
 
     >>> tracker.linkDetection("Issue #1 and non-issue #3.")
     'Issue <a href="../1">#1</a> and non-issue #3.'
+
+Issues that are added to a different tracker only show up for that
+tracker.
+
+    >>> tracker2 = PoiTracker('tracker2')
+    >>> add_issue(tracker2, 22)
+    >>> tracker.linkDetection("#22")
+    '#22'
+    >>> tracker2.linkDetection("#22")
+    '<a href="../22">#22</a>'
