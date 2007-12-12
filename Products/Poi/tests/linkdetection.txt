@@ -55,6 +55,10 @@ Now we can create a tracker.
 
     >>> tracker = PoiTracker('tracker')
 
+
+Links to issues
+---------------
+
 Text without anything special will simply be returned unchanged.
 
     >>> tracker.linkDetection("We are the knights who say 'Ni'!")
@@ -105,3 +109,42 @@ A combination of unicode and a link number should be possible.
 
     >>> tracker.linkDetection(u'\xfanicode text with a link to #1')
     u'\xfanicode text with a link to <a href="../1">#1</a>'
+
+
+Links to revisions/changesets
+-----------------------------
+
+We can link to revisions or changesets.  By default nothing happens.
+
+    >>> tracker.linkDetection('r42')
+    'r42'
+
+We need to specify in the tracker where those links should point to.
+We could point to something silly.
+
+    >>> tracker.setSvnUrl("silly")
+    >>> tracker.linkDetection('r42')
+    '<a href="silly">r42</a>'
+
+This is not very useful, as this is not really a link (unless this is
+a relative link to some content with the id 'silly') and it does
+nothing with the revision number.  The *real* idea here is to specify
+a string with "%(rev)s" in it.  At that point the revision number will
+be filled in.
+
+You could point to revisions, for example the collective Trac for Poi:
+
+    >>> tracker.setSvnUrl("http://dev.plone.org/collective/browser/Poi?%(rev)s")
+    >>> tracker.linkDetection('r42')
+    '<a href="http://dev.plone.org/collective/browser/Poi?42">r42</a>'
+
+I myself like to point to the changesets:
+
+    >>> tracker.setSvnUrl("http://dev.plone.org/collective/changeset/%(rev)s")
+    >>> tracker.linkDetection('r42')
+    '<a href="http://dev.plone.org/collective/changeset/42">r42</a>'
+
+Of course it is fine to combine issues and revisions.
+
+    >>> tracker.linkDetection('Issue #1 is fixed in r42.')
+    'Issue <a href="../1">#1</a> is fixed in <a href="http://dev.plone.org/collective/changeset/42">r42</a>.'
