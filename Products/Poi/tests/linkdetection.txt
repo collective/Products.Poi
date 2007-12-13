@@ -32,13 +32,7 @@ We need create some mock classes as we are unit testing::
     ...         if not 'path' in query:
     ...             return self.contents
     ...         return [i for i in self.contents if i.path == query['path']]
-
-To make getToolByName be able to get to the portal catalog with any
-tracker as context, we do this trick::
-
     >>> portal_catalog = MockCatalog()
-    >>> from Products.Poi.content.PoiTracker import PoiTracker
-    >>> PoiTracker.portal_catalog = portal_catalog
 
 We add a helper function that adds an issue to a tracker and to the
 catalog::
@@ -53,7 +47,9 @@ catalog::
 
 Now we can create a tracker::
 
+    >>> from Products.Poi.content.PoiTracker import PoiTracker
     >>> tracker = PoiTracker('tracker')
+    >>> tracker.portal_catalog = portal_catalog
 
 
 Links to issues
@@ -97,6 +93,7 @@ Issues that are added to a different tracker only show up for that
 tracker::
 
     >>> tracker2 = PoiTracker('tracker2')
+    >>> tracker2.portal_catalog = portal_catalog
     >>> add_issue(tracker2, 22)
     >>> tracker.linkDetection("#22")
     '#22'
