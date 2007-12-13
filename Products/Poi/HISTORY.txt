@@ -4,8 +4,12 @@ Changelog for Poi
     (name of developer listed in brackets)
 
 
-Poi 1.1 rc 3 (unreleased)
--------------------------
+Poi 1.1 (unreleased)
+--------------------
+
+
+Poi 1.1 rc 3 Released December 14, 2007
+---------------------------------------
 
     - Fix Inconsistent linking to other issues and changesets:
         Links in the steps field of an issue are now also detected.
