@@ -7,6 +7,15 @@ Changelog for Poi
 Poi 1.1 rc 3 (unreleased)
 -------------------------
 
+    - Fix Inconsistent linking to other issues and changesets:
+        Links in the steps field of an issue are now also detected.
+      Allow more links to be detected:
+      - issues: #1, issue:1, ticket:1, bug:1.
+      - changesets/revisions: r1, changeset:1, [1].
+      Add lots of tests for the link detection in a tracker.
+      http://plone.org/products/poi/issues/159
+      [Per Erik Strandberg, maurits]
+
 
 Poi 1.1 rc 2 Released December 5, 2007
 --------------------------------------

@@ -51,7 +51,7 @@ from email.MIMEMultipart import MIMEMultipart
 import base64
 import sets
 from Products.Poi.htmlrender import renderHTML
-from re import *
+import re
 from zope.interface import implements
 from Products.Poi.interfaces import ITracker
 from Products.validation.validators.ExpressionValidator import ExpressionValidator
@@ -298,6 +298,75 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
     ##/code-section class-header
 
     # Methods
+
+    security.declarePrivate('getNumberAsString')
+    def getNumberFromString(self, linktext):
+        """
+        Extract the number from a string with a number in it.
+        From 'foo666bar' we get '666'.
+        (From 'foobar' we probably end up with problems.)
+        """
+        pattern = re.compile('[1-9][0-9]*')
+        res = pattern.search(linktext)
+        if res is not None:
+            return linktext[res.start(): res.end()]
+    
+    security.declarePrivate('linkBugs')
+    def linkBugs(self, text, ids, patterns):
+        """
+        Replace patterns with links to other issues in the same tracker.
+        """
+        
+        for raw in patterns:
+            pos = 0
+            pattern = re.compile(raw)
+            while True:
+                res = pattern.search(text, pos)
+                if res == None:
+                    break
+                pos = res.start()
+                
+                linktext = text[res.start(): res.end()]
+                bug = self.getNumberFromString(linktext)
+    
+                if bug is not None and bug in ids:
+                    # XXX/TODO: this is a little too hardcoded for my taste
+                    link = '<a href="../' + bug + '">' + linktext + '</a>'
+                    text = text[0:pos] + link + text[res.end():]
+                    pos += len(link)
+                else:
+                    pos += 1
+    
+        return text
+
+    security.declarePrivate('linkSvn')
+    def linkSvn(self, text, svnUrl, patterns):
+        """
+        Replace patterns with links to changesets in a repository.
+        (What says it has to be svn?)
+        """
+
+        if len(svnUrl) == 0:
+            return text
+
+        for raw in patterns:    
+            pos = 0
+            pattern = re.compile(raw)
+            while True:
+                res = pattern.search(text, pos)
+                if res == None:
+                    break;
+
+                linktext = text[res.start(): res.end()]
+                rev = self.getNumberFromString(linktext)
+
+                pos = res.start()+1
+                link = '<a href="' + svnUrl %{'rev' : rev} + '">'+linktext+'</a>'
+                text = text[0: pos-1] + link + text[res.end():]
+                pos += len(link)
+        
+        return text
+
     security.declarePrivate('linkDetection')
     def linkDetection(self, text):
         """
@@ -310,36 +379,14 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         catalog = getToolByName(self, 'portal_catalog')
         ids = frozenset([issue.id for issue in catalog.searchResults(self.buildIssueSearchQuery(None))])
 
-        pos = 0
-        pattern = compile('#[0-9]+')
-        while True:
-           res = pattern.search(text, pos)
-           if res == None:
-              break;
-           pos = res.start() + 1
-           bug = res.string[pos: res.end()]
-    
-           if bug in ids:
-                link = '<a href="../' + bug + '">#' + bug + '</a>'
-                text = text[0: pos-1] + link + text[res.end():]
-                pos += len(link)
-    
+        # XXX/TODO: should these patterns live in the config file?
+        text = self.linkBugs(text, ids,
+                             ['#[1-9][0-9]*', 'issue:[1-9][0-9]*',
+                              'ticket:[1-9][0-9]*', 'bug:[1-9][0-9]*'])
         svnUrl = self.getSvnUrl()
-        if len(svnUrl) == 0:
-            return text
-    
-        pos = 0
-        pattern = compile('r[0-9]+')
-        while True:
-           res = pattern.search(text, pos)
-           if res == None:
-              break;
-           pos = res.start() + 1
-           rev = res.string[pos: res.end()]
-    
-           link = '<a href="' + svnUrl %{'rev' : rev} + '">r'+rev+'</a>'
-           text = text[0: pos-1] + link + text[res.end():]
-           pos += len(link)
+        text = self.linkSvn(text, svnUrl,
+                            ['r[0-9]+', 'changeset:[0-9]+', '\[[0-9]+\]']
+                            )
         
         return text
 
