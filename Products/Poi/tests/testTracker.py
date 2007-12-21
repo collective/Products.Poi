@@ -66,16 +66,18 @@ class TestTracker(ptc.PoiTestCase):
         # Test the availableAreas field.
         field = self.tracker.getField('availableAreas')
         input = [hidden_entry]
-        self.assertEqual(field.validate(input, self.tracker),
-                         u'Need at least one entry.')
+        self.assertEqual(
+            field.validate(input, self.tracker),
+            'Validation failed(atLeastOne): Need at least one entry.')
         input = [real_entry, hidden_entry]
         self.assertEqual(field.validate(input, self.tracker), None)
 
         # Test the availableIssueTypes field.
         field = self.tracker.getField('availableIssueTypes')
         input = [hidden_entry]
-        self.assertEqual(field.validate(input, self.tracker),
-                         u'Need at least one entry.')
+        self.assertEqual(
+            field.validate(input, self.tracker),
+            'Validation failed(atLeastOne): Need at least one entry.')
         input = [real_entry, hidden_entry]
         self.assertEqual(field.validate(input, self.tracker), None)
 

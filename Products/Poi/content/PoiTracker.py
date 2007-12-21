@@ -54,15 +54,7 @@ from Products.Poi.htmlrender import renderHTML
 import re
 from zope.interface import implements
 from Products.Poi.interfaces import ITracker
-from Products.validation.validators.ExpressionValidator import ExpressionValidator
 
-# For the DataGridFields, making them required is not enough as there
-# is always a hidden entry.  So we check if there are is least one
-# normal entry and one hidden entry, so more than 1 entry in total.
-atLeastOne = ExpressionValidator(
-    'python: len(value) > 1',
-    u"Need at least one entry."
-    )
 ##/code-section module-header
 
 schema = Schema((
@@ -122,7 +114,7 @@ schema = Schema((
         ),
         allow_empty_rows=False,
         required=True,
-        validators=(atLeastOne,),
+        validators=('atLeastOne',),
         columns=('id', 'title', 'description',)
     ),
 
@@ -139,7 +131,7 @@ schema = Schema((
         ),
         allow_empty_rows=False,
         required=True,
-        validators=(atLeastOne,),
+        validators=('atLeastOne',),
         columns=('id', 'title', 'description')
     ),
 

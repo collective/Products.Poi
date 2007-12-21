@@ -65,6 +65,16 @@ DirectoryView.registerDirectory('skins/Poi',
                                     product_globals)
 
 ##code-section custom-init-head #fill in your manual code here
+
+# This code *has* to be run before PoiTracker is imported as it uses
+# this validator.  That means for instance that putting it in the
+# initialize method is too late as content.PoiTracker is already
+# imported when loading the configure.zcml.
+# We could put it in PoiTracker.py itself but I don't like that.
+# This is a candidate for putting in DataGridField.
+from Products.validation import validation
+from Products.Poi.validators import AtLeastOneValidator
+validation.register(AtLeastOneValidator('atLeastOne'))
 ##/code-section custom-init-head
 
 
