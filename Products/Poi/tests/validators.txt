@@ -1,0 +1,40 @@
+We create a DataGridValidator.
+
+    >>> from Products.Poi.validators import isDataGridFilled as val
+
+When we cannot calculate len(value) we get a validation error.
+
+    >>> val(0)
+    'Validation failed(isDataGridFilled): cannot calculate length of 0.'
+    >>> val(object())
+    'Validation failed(isDataGridFilled): cannot calculate length of <object ...>.'
+    >>> val(val)
+    'Validation failed(isDataGridFilled): cannot calculate length of <Products.Poi.validators.DataGridValidator instance at ...>.'
+    >>> val(None)
+    'Validation failed(isDataGridFilled): cannot calculate length of None.'
+
+Let's first check that we get a validation error when we have a length
+of zero.
+
+    >>> val([])
+    'Validation failed(isDataGridFilled): Need at least one entry.'
+    >>> val(())
+    'Validation failed(isDataGridFilled): Need at least one entry.'
+    >>> val({})
+    'Validation failed(isDataGridFilled): Need at least one entry.'
+    >>> val('')
+    'Validation failed(isDataGridFilled): Need at least one entry.'
+
+Now we should get validation successes for values that are long
+enough.
+
+    >>> val([0, 1])
+    True
+    >>> val({'a': 0, 'b': 1})
+    True
+    >>> val((0, 1))
+    True
+    >>> val('QA')
+    True
+    >>> val(range(5))
+    True

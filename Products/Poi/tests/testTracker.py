@@ -68,7 +68,7 @@ class TestTracker(ptc.PoiTestCase):
         input = [hidden_entry]
         self.assertEqual(
             field.validate(input, self.tracker),
-            'Validation failed(atLeastOne): Need at least one entry.')
+            'Validation failed(isDataGridFilled): Need at least one entry.')
         input = [real_entry, hidden_entry]
         self.assertEqual(field.validate(input, self.tracker), None)
 
@@ -77,7 +77,7 @@ class TestTracker(ptc.PoiTestCase):
         input = [hidden_entry]
         self.assertEqual(
             field.validate(input, self.tracker),
-            'Validation failed(atLeastOne): Need at least one entry.')
+            'Validation failed(isDataGridFilled): Need at least one entry.')
         input = [real_entry, hidden_entry]
         self.assertEqual(field.validate(input, self.tracker), None)
 

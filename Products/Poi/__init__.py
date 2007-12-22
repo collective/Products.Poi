@@ -72,9 +72,7 @@ DirectoryView.registerDirectory('skins/Poi',
 # imported when loading the configure.zcml.
 # We could put it in PoiTracker.py itself but I don't like that.
 # This is a candidate for putting in DataGridField.
-from Products.validation import validation
-from Products.Poi.validators import AtLeastOneValidator
-validation.register(AtLeastOneValidator('atLeastOne'))
+import Products.Poi.validators
 ##/code-section custom-init-head
 
 

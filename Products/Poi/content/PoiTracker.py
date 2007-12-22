@@ -114,7 +114,7 @@ schema = Schema((
         ),
         allow_empty_rows=False,
         required=True,
-        validators=('atLeastOne',),
+        validators=('isDataGridFilled',),
         columns=('id', 'title', 'description',)
     ),
 
@@ -131,7 +131,7 @@ schema = Schema((
         ),
         allow_empty_rows=False,
         required=True,
-        validators=('atLeastOne',),
+        validators=('isDataGridFilled',),
         columns=('id', 'title', 'description')
     ),
 

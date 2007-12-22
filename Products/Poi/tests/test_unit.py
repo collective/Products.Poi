@@ -11,4 +11,7 @@ def test_suite():
         doctestunit.DocFileSuite('linkdetection.txt',
                                  package='Products.Poi.tests',
                                  optionflags=OPTIONFLAGS),
+        doctestunit.DocFileSuite('validators.txt',
+                                 package='Products.Poi.tests',
+                                 optionflags=OPTIONFLAGS),
         ])
