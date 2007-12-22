@@ -4,16 +4,20 @@ Changelog for Poi
     (name of developer listed in brackets)
 
 
-Poi 1.1 rc 4 (unreleased)
--------------------------
+Poi 1.1 rc 4 - Released December 22, 2007
+-----------------------------------------
 
     - Fix "TypeError: can't pickle code objects" when updating the
-      schema of PoiTrackers by registering the 'atLeastOne' validator.
+      schema of PoiTrackers by using the new 'isDataGridFilled'
+      validator.
       Fixes http://plone.org/products/poi/issues/160
       [maurits]
 
+    - Added more Norwegian translations.
+      [Espen Moe-Nilssen]
 
-Poi 1.1 rc 3 Released December 14, 2007
+
+Poi 1.1 rc 3 - Released December 14, 2007
 ---------------------------------------
 
     - Fix Inconsistent linking to other issues and changesets:
@@ -26,7 +30,7 @@ Poi 1.1 rc 3 Released December 14, 2007
       [Per Erik Strandberg, maurits]
 
 
-Poi 1.1 rc 2 Released December 5, 2007
+Poi 1.1 rc 2 - Released December 5, 2007
 --------------------------------------
 
     - Add our indexes to the catalog with some code in AppInstall.py.
@@ -36,7 +40,7 @@ Poi 1.1 rc 2 Released December 5, 2007
       [maurits]
 
 
-Poi 1.1 rc 1 Released December 4, 2007
+Poi 1.1 rc 1 - Released December 4, 2007
 ---------------------------------------
 
     - Use email_from name of portal in the emails.
@@ -63,7 +67,7 @@ Poi 1.1 rc 1 Released December 4, 2007
       [maurits]
 
 
-Poi 1.1 beta 1 Released Movember 19, 2007
+Poi 1.1 beta 1 - Released Movember 19, 2007
 -----------------------------------------
 
     - This release introduces Plone 3.0 compatibility while keeping
@@ -95,7 +99,7 @@ Poi 1.1 beta 1 Released Movember 19, 2007
       [Maurits van Rees and others]
 
 
-Poi 1.0 (never officially released)
+Poi 1.0 - (never officially released)
 -----------------------------------
 
     - initial version.
