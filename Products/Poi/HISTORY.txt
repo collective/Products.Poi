@@ -7,6 +7,11 @@ Changelog for Poi
 Poi 1.2 - (Unreleased)
 ----------------------
 
+- Modernize code:
+  - Cleanup imports with pyflakes.
+  - use logging instead of zLOG.
+  [maurits]
+
 - Do not try to apply a CustomizationPolicy.
   [maurits]
 

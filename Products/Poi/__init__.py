@@ -28,33 +28,25 @@ __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
 
-# There are three ways to inject custom code here:
-#
-#   - To set global configuration variables, create a file AppConfig.py.
-#       This will be imported in config.py, which in turn is imported in
-#       each generated class and in this file.
-#   - To perform custom initialisation after types have been registered,
-#       use the protected code section at the bottom of initialize().
-
-from zLOG import LOG, DEBUG
-
-LOG('Poi', DEBUG, 'Installing Product')
+import logging
+log = logging.getLogger("Poi")
+log.debug('Start initialization of product.')
 
 from Products.CMFCore import utils as cmfutils
 
-from Products.CMFCore import permissions as CMFCorePermissions
-
 from Products.CMFCore import DirectoryView
-from Products.Archetypes.atapi import *
+from Products.Archetypes.atapi import process_types
 from Products.Archetypes import listTypes
 
-from Products.Poi.config import *
+from Products.Poi.config import PROJECTNAME
+from Products.Poi.config import DEFAULT_ADD_CONTENT_PERMISSION
+from Products.Poi.config import ADD_CONTENT_PERMISSIONS
+from Products.Poi.config import product_globals
+
 
 DirectoryView.registerDirectory('skins', product_globals)
 DirectoryView.registerDirectory('skins/Poi',
                                     product_globals)
-
-##code-section custom-init-head #fill in your manual code here
 
 # This code *has* to be run before PoiTracker is imported as it uses
 # the validator we are registering here by importing a module.  That
@@ -76,13 +68,8 @@ except AlreadyRegisteredValidatorError:
     # let's be careful and catch this exception.
     pass
 
-##/code-section custom-init-head
-
 
 def initialize(context):
-    ##code-section custom-init-top #fill in your manual code here
-    ##/code-section custom-init-top
-
     # imports packages and types for registration
     import interfaces
     import psc
@@ -111,7 +98,3 @@ def initialize(context):
         context.registerClass(meta_type   = all_ftis[i]['meta_type'],
                               constructors= (all_constructors[i],),
                               permission  = ADD_CONTENT_PERMISSIONS[klassname])
-
-    ##code-section custom-init-bottom #fill in your manual code here
-    ##/code-section custom-init-bottom
-
