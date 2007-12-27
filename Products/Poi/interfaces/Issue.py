@@ -31,7 +31,7 @@ from Interface import Base
 
 
 class Issue(Base):
-    """Marker interface for FirePoi Issues
+    """Marker interface for Poi Issues
     """
 
     # Methods
