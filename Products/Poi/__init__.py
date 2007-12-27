@@ -35,17 +35,10 @@ __docformat__ = 'plaintext'
 #       each generated class and in this file.
 #   - To perform custom initialisation after types have been registered,
 #       use the protected code section at the bottom of initialize().
-#   - To register a customisation policy, create a file CustomizationPolicy.py
-#       with a method register(context) to register the policy.
 
 from zLOG import LOG, DEBUG
 
 LOG('Poi', DEBUG, 'Installing Product')
-
-try:
-    import CustomizationPolicy
-except ImportError:
-    CustomizationPolicy = None
 
 from Products.CMFCore import utils as cmfutils
 
@@ -118,11 +111,6 @@ def initialize(context):
         context.registerClass(meta_type   = all_ftis[i]['meta_type'],
                               constructors= (all_constructors[i],),
                               permission  = ADD_CONTENT_PERMISSIONS[klassname])
-
-    # Apply customization-policy, if theres any
-    if CustomizationPolicy and hasattr(CustomizationPolicy, 'register'):
-        CustomizationPolicy.register(context)
-        print 'Customization policy for Poi installed'
 
     ##code-section custom-init-bottom #fill in your manual code here
     ##/code-section custom-init-bottom
