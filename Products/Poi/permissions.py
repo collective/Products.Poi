@@ -1,9 +1,6 @@
 # Permissions used by Poi
 
-try: # New CMF 
-    from Products.CMFCore import permissions as CMFCorePermissions
-except: # Old CMF 
-    from Products.CMFCore import CMFCorePermissions
+from Products.CMFCore import permissions as CMFCorePermissions
 
 View                      = CMFCorePermissions.View
 ModifyPortalContent       = CMFCorePermissions.ModifyPortalContent
