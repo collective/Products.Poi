@@ -7,6 +7,9 @@ Changelog for Poi
 Poi 1.2 - (Unreleased)
 ----------------------
 
+- Remove backwards compatibility code for old CMFCore permissions.
+  [maurits]
+
 - Remove references to contentmigration, as this was only needed for
   migrations from 1.0 beta 2 to 1.0 rc 1.
   [maurits]
