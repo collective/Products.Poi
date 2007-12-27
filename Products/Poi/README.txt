@@ -51,14 +51,9 @@ To get kupu back, you will need to edit Poi/config.py::
 You may also need to re-install Poi, and perform an Archetypes schema update,
 by going to archetypes_tool, and the Schema Update tab in the ZMI.
 
-Please note two **very important** things:
+Please note one **very important** thing:
 
 - If you upgrade Poi, you're likely to have to make this change again!
- 
-- If you have issue text fields, and you have contentmigration installed, and
-text/html is not in the list of available MIME types above, then a migration 
-will be run which will turn all your HTML fields into plain text! If this
-happens to you by accident - don't complain, you should've had a backup :)
 
 
 Installation and dependencies
@@ -79,8 +74,6 @@ Poi requires:
     run the portal_migration, which will install the new
     plone.intelligenttext library for you.
   
-  - For migration from versions before 1.0b2, contentmigration is required.
-  
   - For PloneSoftwareCenter integration, PloneSoftwareCenter is
     required.  See http://plone.org/products/plonesoftwarecenter
     Tested on Plone 2.5 with: PloneSoftwareCenter-1.0-RC.tgz
@@ -98,30 +91,18 @@ PloneSoftwareCenter configuration to be automatically configured, install PSC
 Upgrading
 ---------
 
-If you had a version prior to 1.0 beta 2 installed, you must run
-migrations.  This is automatic, but you need to install the
-'contentmigration' product. This can be found at
-
-    https://svn.plone.org/svn/collective/contentmigration/trunk
-
-It is also bundled with the release tarball. Simply drop the
-'contentmigration' product into your Products/ folder and re-install
-Poi from the Add/Remove Products control panel or
+Re-install Poi from the Add/Remove Products control panel or
 portal_quickinstaller in the ZMI.
 
-After any upgrade (and after you have run migrations!), run an
-Archetypes schema update, by going to 'archetype_tool' in the ZMI,
-selecting the 'Update Schema' tab, selecting all the 'Poi.*' types,
-and clicking 'Update schema'. It's probably a good idea to choose 'All
-objects' from the drop-down as well, although this will take slightly
-longer.
+After any upgrade, run an Archetypes schema update, by going to
+'archetype_tool' in the ZMI, selecting the 'Update Schema' tab,
+selecting all the 'Poi.*' types, and clicking 'Update schema'. It's
+probably a good idea to choose 'All objects' from the drop-down as
+well, although this will take slightly longer.
 
 If you get errors about things being 'Missing', try to update your catalog,
 by going to portal_catalog in the ZMI, clicking the Advanced tab, and then
 the 'Update catalog' button.
-
-If you do not have any old Poi trackers around, you do not need to run 
-migrations.
 
 
 Usage

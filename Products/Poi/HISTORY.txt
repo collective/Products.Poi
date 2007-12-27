@@ -7,8 +7,13 @@ Changelog for Poi
 Poi 1.2 - (Unreleased)
 ----------------------
 
+- Remove references to contentmigration, as this was only needed for
+  migrations from 1.0 beta 2 to 1.0 rc 1.
+  [maurits]
+
 - Remove UML model as we do not use that anymore.
   [maurits]
+
 
 Poi 1.1 - Released December 27, 2007
 ------------------------------------

@@ -99,7 +99,6 @@ if not HAS_PLONE30:
     # need Products.intelligenttext installed as a dependency here.
     DEPENDENCIES.append('intelligenttext')
 DESCRIPTION_LENGTH = 200
-RUN_MIGRATIONS = True
 PSC_TRACKER_ID = 'issues'
 
 #

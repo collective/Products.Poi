@@ -2,8 +2,6 @@ from Products.CMFCore.utils import getToolByName
 
 from StringIO import StringIO
 
-from Products.Poi.config import RUN_MIGRATIONS
-from Products.Poi.Extensions.Migrations import migrate
 from Products.Poi.Extensions.utils import addAction, removeAction
 
 
@@ -88,9 +86,6 @@ def install(self):
                             'success', 'PoiIssue', None, 'traverse_to', 'string:poi_issue_post')
                   
     addCatalogIndexes(self, out)
-    # Run migrations
-    if RUN_MIGRATIONS:
-        print >> out, migrate(self)
 
     # Add log action
     ttool = getToolByName(self, 'portal_types')
