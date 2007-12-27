@@ -4,6 +4,10 @@ Changelog for Poi
     (name of developer listed in brackets)
 
 
+Poi 1.2 - (Unreleased)
+----------------------
+
+
 Poi 1.1 - Released December 27, 2007
 ------------------------------------
 
