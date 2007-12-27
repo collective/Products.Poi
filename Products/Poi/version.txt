@@ -1,1 +1,1 @@
-1.1 rc 5 (unreleased)
+1.1
