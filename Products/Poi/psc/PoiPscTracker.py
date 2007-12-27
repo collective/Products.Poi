@@ -28,20 +28,26 @@ __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
 from AccessControl import ClassSecurityInfo
-from Products.Archetypes.atapi import *
+
+from Products.Archetypes.atapi import BaseFolder
+from Products.Archetypes.atapi import BaseFolderSchema
+from Products.Archetypes.atapi import DisplayList
+from Products.Archetypes.atapi import registerType
+from Products.Archetypes.atapi import Schema
+from Products.Archetypes.atapi import StringField
+from Products.Archetypes.atapi import StringWidget
+
 from Products.Poi.content.PoiTracker import PoiTracker
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
-from Products.Poi.config import *
+from Products.Poi.config import PROJECTNAME
+from Products.Poi.config import PSC_TRACKER_ID
 
-# additional imports from tagged value 'import'
 from Products.Poi import permissions
 
-##code-section module-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
 import transaction
 from zope.interface import implements
 from Products.Poi.interfaces import ITracker
-##/code-section module-header
 
 schema = Schema((
 
@@ -61,18 +67,13 @@ schema = Schema((
 ),
 )
 
-##code-section after-local-schema #fill in your manual code here
-##/code-section after-local-schema
-
 PoiPscTracker_schema = BaseFolderSchema.copy() + \
     getattr(PoiTracker, 'schema', Schema(())).copy() + \
     schema.copy()
 
-##code-section after-schema #fill in your manual code here
 PoiPscTracker_schema = PoiPscTracker_schema.copy()
 del PoiPscTracker_schema['title']
 
-##/code-section after-schema
 
 class PoiPscTracker(PoiTracker):
     """Version of the PoiTracker which supports the
@@ -125,14 +126,10 @@ class PoiPscTracker(PoiTracker):
 
     schema = PoiPscTracker_schema
 
-    ##code-section class-header #fill in your manual code here
     schema = schema.copy()
     del schema['availableReleases']
-    ##/code-section class-header
 
     # Methods
-
-    # Manually created methods
 
     security.declareProtected(permissions.View, 'getExternalTitle')
     def getExternalTitle(self):
@@ -191,9 +188,3 @@ def modify_fti(fti):
 
 registerType(PoiPscTracker, PROJECTNAME)
 # end of class PoiPscTracker
-
-##code-section module-footer #fill in your manual code here
-##/code-section module-footer
-
-
-
