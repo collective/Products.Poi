@@ -39,26 +39,8 @@ __docformat__ = 'plaintext'
 
 from Products.CMFCore.permissions import setDefaultRoles
 
-##code-section config-head #fill in your manual code here
-##/code-section config-head
-
 
 PROJECTNAME = "Poi"
-
-# Check for Plone 2.1
-try:
-    from Products.CMFPlone.migrations import v2_1
-except ImportError:
-    HAS_PLONE21 = False
-else:
-    HAS_PLONE21 = True
-# Check for Plone 3.0
-try:
-    from Products.CMFPlone.migrations import v3_0
-except ImportError:
-    HAS_PLONE30 = False
-else:
-    HAS_PLONE30 = True
 
 # Permissions
 DEFAULT_ADD_CONTENT_PERMISSION = "Add portal content"
@@ -87,14 +69,9 @@ PRODUCT_DEPENDENCIES = []
 STYLESHEETS = []
 JAVASCRIPTS = []
 
-##code-section config-bottom #fill in your manual code here
 
 # Dependencies of Products to be installed by quick-installer
 DEPENDENCIES = ['DataGridField', 'AddRemoveWidget']
-if not HAS_PLONE30:
-    # Plone 3.0 has plone.intelligenttext already.  Lower versions
-    # need Products.intelligenttext installed as a dependency here.
-    DEPENDENCIES.append('intelligenttext')
 DESCRIPTION_LENGTH = 200
 PSC_TRACKER_ID = 'issues'
 
@@ -105,8 +82,6 @@ PSC_TRACKER_ID = 'issues'
 # Add text/html to the list of mimetypes to allow HTML/kupu issue/response text.
 ISSUE_MIME_TYPES = ('text/x-web-intelligent',)
 DEFAULT_ISSUE_MIME_TYPE = 'text/x-web-intelligent'
-
-##/code-section config-bottom
 
 
 # Load custom configuration not managed by ArchGenXML
