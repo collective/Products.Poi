@@ -28,9 +28,25 @@ __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
 from AccessControl import ClassSecurityInfo
-from Products.Archetypes.atapi import *
+
+from Products.Archetypes.atapi import AttributeStorage
+from Products.Archetypes.atapi import BaseContent
+from Products.Archetypes.atapi import BaseSchema
+from Products.Archetypes.atapi import FileField
+from Products.Archetypes.atapi import FileWidget
+from Products.Archetypes.atapi import registerType
+from Products.Archetypes.atapi import RichWidget
+from Products.Archetypes.atapi import Schema
+from Products.Archetypes.atapi import SelectionWidget
+from Products.Archetypes.atapi import StringField
+from Products.Archetypes.atapi import StringWidget
+from Products.Archetypes.atapi import TextField
+
+
 from Products.Poi.interfaces.Response import Response
-from Products.Poi.config import *
+from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
+from Products.Poi.config import ISSUE_MIME_TYPES
+from Products.Poi.config import PROJECTNAME
 
 from Products.Poi import permissions
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
