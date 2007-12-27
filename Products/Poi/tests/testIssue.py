@@ -1,6 +1,6 @@
 from Testing import ZopeTestCase
 from Products.Poi.tests import ptc
-from Products.Poi.config import *
+from Products.Poi.config import DESCRIPTION_LENGTH
 
 default_user = ZopeTestCase.user_name
 
