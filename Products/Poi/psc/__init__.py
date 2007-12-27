@@ -27,17 +27,4 @@
 __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
-
-##code-section init-module-header #fill in your manual code here
-##/code-section init-module-header
-
-
-# Subpackages
-# Additional
-
-# Classes
 import PoiPscTracker
-
-##code-section init-module-footer #fill in your manual code here
-##/code-section init-module-footer
-
