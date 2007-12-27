@@ -1,4 +1,4 @@
-## Python Script "getMyIssues"
+## Python Script "getOrphanedIssues"
 ##bind container=container
 ##bind context=context
 ##bind namespace=

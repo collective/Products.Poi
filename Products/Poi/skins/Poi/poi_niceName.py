@@ -1,3 +1,4 @@
+## Python Script "poi_niceName"
 ##title=
 ##parameters=username=None,user=None
 

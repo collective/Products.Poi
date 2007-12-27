@@ -1,4 +1,4 @@
-## Controller Python Script "poi_response_update_issue"
+## Controller Python Script "poi_issue_post"
 ##bind container=container
 ##bind context=context
 ##bind namespace=
