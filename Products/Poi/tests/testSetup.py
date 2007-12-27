@@ -1,7 +1,3 @@
-import os, sys
-if __name__ == '__main__':
-    execfile(os.path.join(sys.path[0], 'framework.py'))
-
 from Products.Poi.tests import ptc
 
 
@@ -123,6 +119,3 @@ def test_suite():
     suite.addTest(makeSuite(TestInstallation))
     suite.addTest(makeSuite(TestContentCreation))
     return suite
-
-if __name__ == '__main__':
-    framework()

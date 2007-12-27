@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-import os, sys
-if __name__ == '__main__':
-    execfile(os.path.join(sys.path[0], 'framework.py'))
-
 from Testing import ZopeTestCase
 from Products.Poi.tests import ptc
 from Products.CMFCore.utils import getToolByName
@@ -498,6 +494,3 @@ def test_suite():
     suite.addTest(makeSuite(TestEmailNotifications))
     suite.addTest(makeSuite(TestLinkDetection))
     return suite
-
-if __name__ == '__main__':
-    framework()
