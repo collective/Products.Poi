@@ -32,11 +32,9 @@ from Products.Archetypes.atapi import *
 from Products.Poi.interfaces.Response import Response
 from Products.Poi.config import *
 
-# additional imports from tagged value 'import'
 from Products.Poi import permissions
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
-##code-section module-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
 import transaction
 
@@ -44,7 +42,6 @@ import textwrap
 wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 from zope.interface import implements
 from Products.Poi.interfaces import IResponse
-##/code-section module-header
 
 schema = Schema((
 
@@ -183,14 +180,9 @@ schema = Schema((
 ),
 )
 
-##code-section after-local-schema #fill in your manual code here
-##/code-section after-local-schema
-
 PoiResponse_schema = BaseSchema.copy() + \
     schema.copy()
 
-##code-section after-schema #fill in your manual code here
-##/code-section after-schema
 
 class PoiResponse(BaseContent, BrowserDefaultMixin):
     """A response to an issue, added by a project manager. When giving
@@ -243,9 +235,6 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
     _at_rename_after_creation = True
 
     schema = PoiResponse_schema
-
-    ##code-section class-header #fill in your manual code here
-    ##/code-section class-header
 
     # Methods
 
@@ -489,9 +478,3 @@ def modify_fti(fti):
 
 registerType(PoiResponse, PROJECTNAME)
 # end of class PoiResponse
-
-##code-section module-footer #fill in your manual code here
-##/code-section module-footer
-
-
-

@@ -33,12 +33,10 @@ from Products.Poi.interfaces.Issue import Issue
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
 from Products.Poi.config import *
 
-# additional imports from tagged value 'import'
 from Products.Poi import permissions
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 from Products.AddRemoveWidget.AddRemoveWidget import AddRemoveWidget
 
-##code-section module-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import getSiteEncoding
 import transaction
@@ -47,7 +45,6 @@ import textwrap
 wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 from zope.interface import implements
 from Products.Poi.interfaces import IIssue
-##/code-section module-header
 
 schema = Schema((
 
@@ -266,14 +263,9 @@ schema = Schema((
 ),
 )
 
-##code-section after-local-schema #fill in your manual code here
-##/code-section after-local-schema
-
 PoiIssue_schema = BaseFolderSchema.copy() + \
     schema.copy()
 
-##code-section after-schema #fill in your manual code here
-##/code-section after-schema
 
 class PoiIssue(BaseFolder, BrowserDefaultMixin):
     """The default tracker
@@ -325,9 +317,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
 
     schema = PoiIssue_schema
 
-    ##code-section class-header #fill in your manual code here
     schema.moveField('subject', after='watchers')
-    ##/code-section class-header
 
     # Methods
 
@@ -581,9 +571,3 @@ def modify_fti(fti):
 
 registerType(PoiIssue, PROJECTNAME)
 # end of class PoiIssue
-
-##code-section module-footer #fill in your manual code here
-##/code-section module-footer
-
-
-

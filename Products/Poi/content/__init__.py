@@ -27,11 +27,6 @@
 __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
-
-##code-section init-module-header #fill in your manual code here
-##/code-section init-module-header
-
-
 # Subpackages
 # Additional
 
@@ -39,7 +34,3 @@ __docformat__ = 'plaintext'
 import PoiTracker
 import PoiIssue
 import PoiResponse
-
-##code-section init-module-footer #fill in your manual code here
-##/code-section init-module-footer
-
