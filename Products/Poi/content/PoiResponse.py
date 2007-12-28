@@ -58,6 +58,7 @@ import textwrap
 wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 from zope.interface import implements
 from Products.Poi.interfaces import IResponse
+from plone.memoize import instance 
 
 schema = Schema((
 
@@ -474,6 +475,11 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
 
         tracker.sendNotificationEmail(addresses, subject, mailText)
 
+    @instance.clearbefore
+    def setResponse(self, *args, **kwargs):
+        self.getField('response').set(self, *args, **kwargs)
+
+    @instance.memoize
     def getTaggedResponse(self, **kwargs):
         # perform link detection
         text = self.getField('response').get(self, **kwargs)

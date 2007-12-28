@@ -7,6 +7,10 @@ Changelog for Poi
 Poi 1.2 - (Unreleased)
 ----------------------
 
+- Memoize getTaggedResponse; clear it when setting the response field.
+  This speeds up viewing an issue.
+  [maurits]
+
 - Modernize code:
   - Cleanup imports with pyflakes.
   - use logging instead of zLOG.
