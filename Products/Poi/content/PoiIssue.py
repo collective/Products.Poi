@@ -483,7 +483,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         """
         items = self.aq_parent.getManagers()
         vocab = DisplayList()
-        vocab.add('(UNASSIGNED)', 'None', 'poi_voacb_none')
+        vocab.add('(UNASSIGNED)', 'None', 'poi_vocab_none')
         for item in items:
             vocab.add(item, item)
         return vocab
