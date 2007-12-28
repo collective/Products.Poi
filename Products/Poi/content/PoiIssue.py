@@ -66,6 +66,7 @@ import textwrap
 wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 from zope.interface import implements
 from Products.Poi.interfaces import IIssue
+from plone.memoize import instance 
 
 schema = Schema((
 
@@ -575,11 +576,21 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
 
         tracker.sendNotificationEmail(addresses, subject, mailText)
 
+    @instance.clearbefore
+    def setDetails(self, *args, **kwargs):
+        self.getField('details').set(self, *args, **kwargs)
+
+    @instance.clearbefore
+    def setSteps(self, *args, **kwargs):
+        self.getField('steps').set(self, *args, **kwargs)
+
+    @instance.memoize
     def getTaggedDetails(self, **kwargs):
         # perform link detection
         text = self.getField('details').get(self, **kwargs)
         return self.aq_parent.linkDetection(text)
 
+    @instance.memoize
     def getTaggedSteps(self, **kwargs):
         # perform link detection
         text = self.getField('steps').get(self, **kwargs)
