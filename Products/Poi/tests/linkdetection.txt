@@ -157,39 +157,40 @@ getNumberFromString
 
 This gets a number from a string.  It always returns a string as well::
 
-    >>> tracker.getNumberFromString('#1')
+    >>> from Products.Poi.utils import getNumberFromString
+    >>> getNumberFromString('#1')
     '1'
-    >>> tracker.getNumberFromString('r12')
+    >>> getNumberFromString('r12')
     '12'
-    >>> tracker.getNumberFromString('rev42')
+    >>> getNumberFromString('rev42')
     '42'
-    >>> tracker.getNumberFromString('[42]')
+    >>> getNumberFromString('[42]')
     '42'
-    >>> tracker.getNumberFromString('ticket:399')
+    >>> getNumberFromString('ticket:399')
     '399'
-    >>> tracker.getNumberFromString('changeset:12345.')
+    >>> getNumberFromString('changeset:12345.')
     '12345'
 
 Look for problems::
 
-    >>> tracker.getNumberFromString('') is None
+    >>> getNumberFromString('') is None
     True
-    >>> tracker.getNumberFromString('foobar') is None
+    >>> getNumberFromString('foobar') is None
     True
-    >>> tracker.getNumberFromString('2')
+    >>> getNumberFromString('2')
     '2'
-    >>> tracker.getNumberFromString(u'3')
+    >>> getNumberFromString(u'3')
     u'3'
-    >>> tracker.getNumberFromString('-7')
+    >>> getNumberFromString('-7')
     '7'
-    >>> tracker.getNumberFromString('0') is None
+    >>> getNumberFromString('0') is None
     True
-    >>> tracker.getNumberFromString('#007')
+    >>> getNumberFromString('#007')
     '7'
 
 With more numbers, the first one is taken::
 
-    >>> tracker.getNumberFromString('its13past12')
+    >>> getNumberFromString('its13past12')
     '13'
 
 
@@ -199,29 +200,30 @@ linkBugs
 This links to bugs.  First we give some ids of existing bugs and some
 text with possibly links::
 
+    >>> from Products.Poi.utils import linkBugs
     >>> ids = [str(i) for i in range(12)]
     >>> text = "issue:1 #2 r3 [4] ticket:5."
 
 Now we test this with patterns::
 
     >>> patterns = ['test']
-    >>> tracker.linkBugs(text, ids, patterns)
+    >>> linkBugs(text, ids, patterns)
     'issue:1 #2 r3 [4] ticket:5.'
     >>> patterns = ['#2']
-    >>> tracker.linkBugs(text, ids, patterns)
+    >>> linkBugs(text, ids, patterns)
     'issue:1 <a href="../2">#2</a> r3 [4] ticket:5.'
     >>> patterns = ['#[1-9][0-9]*']
-    >>> tracker.linkBugs(text, ids, patterns)
+    >>> linkBugs(text, ids, patterns)
     'issue:1 <a href="../2">#2</a> r3 [4] ticket:5.'
     >>> patterns = ['[[1-9][0-9]*]']
-    >>> tracker.linkBugs(text, ids, patterns)
+    >>> linkBugs(text, ids, patterns)
     'issue:1 #2 r3 <a href="../4">[4]</a> ticket:5.'
     >>> patterns = ['#[1-9][0-9]*', 'issue:[1-9][0-9]*', 'ticket:[1-9][0-9]*', 'bug:[1-9][0-9]*']
-    >>> tracker.linkBugs(text, ids, patterns)
+    >>> linkBugs(text, ids, patterns)
     '<a href="../1">issue:1</a> <a href="../2">#2</a> r3 [4] <a href="../5">ticket:5</a>.'
-    >>> tracker.linkBugs(text, [], patterns)
+    >>> linkBugs(text, [], patterns)
     'issue:1 #2 r3 [4] ticket:5.'
-    >>> tracker.linkBugs("#9#9#9", ['9'], ["#9"])
+    >>> linkBugs("#9#9#9", ['9'], ["#9"])
     '<a href="../9">#9</a><a href="../9">#9</a><a href="../9">#9</a>'
 
 
@@ -231,22 +233,23 @@ linkSvn
 Replace patterns with links to changesets in a repository.  It does
 not need to be subversion of course.  Specify something to test with::
 
+    >>> from Products.Poi.utils import linkSvn
     >>> text = "r1 #22 changeset:333 [4444]"
     >>> svnUrl = "someurl?rev=%(rev)s"
 
 And test it::
 
     >>> patterns = []
-    >>> tracker.linkSvn(text, svnUrl, patterns)
+    >>> linkSvn(text, svnUrl, patterns)
     'r1 #22 changeset:333 [4444]'
     >>> patterns = ["r1"]
-    >>> tracker.linkSvn(text, svnUrl, patterns)
+    >>> linkSvn(text, svnUrl, patterns)
     '<a href="someurl?rev=1">r1</a> #22 changeset:333 [4444]'
     >>> patterns = ['r[0-9]+', 'changeset:[0-9]+', '\[[0-9]+\]']
-    >>> tracker.linkSvn(text, svnUrl, patterns)
+    >>> linkSvn(text, svnUrl, patterns)
     '<a href="someurl?rev=1">r1</a> #22 <a href="someurl?rev=333">changeset:333</a> <a href="someurl?rev=4444">[4444]</a>'
 
 Of course if you want to be silly, you can::
 
-    >>> tracker.linkSvn(text, "here", patterns)
+    >>> linkSvn(text, "here", patterns)
     '<a href="here">r1</a> #22 <a href="here">changeset:333</a> <a href="here">[4444]</a>'

@@ -7,6 +7,10 @@ Changelog for Poi
 Poi 1.2 - (Unreleased)
 ----------------------
 
+- Move getNumberFromString, linkBugs and linkSvn from
+  content/PoiTracker.py into new utils.py as they need no context.
+  [maurits]
+
 - Memoize the getTagged* values for intelligenttext fields in PoiIssue
   and PoiResponse; clear them when setting those fields.  This speeds
   up viewing an issue or response.
