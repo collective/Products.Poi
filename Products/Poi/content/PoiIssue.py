@@ -491,6 +491,8 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
     def updateResponses(self):
         """When a response is added or modified, this method should be
         called to ensure responses are correctly indexed.
+
+        XXX Make an event subscriber instead.
         """
         self.reindexObject(('SearchableText',))
         self.notifyModified()
