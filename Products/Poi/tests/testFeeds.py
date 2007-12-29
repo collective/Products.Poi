@@ -43,24 +43,25 @@ class TestFeeds(ptc.PoiTestCase):
         # Wrong state
         self.addIssue('S:rejected', default_user, 'reject-unconfirmed') #6: owned by and assigned to default_user, rejected
         
-        myIssues = self.tracker.getMyIssues(memberId=default_user)
+        issuefolder = self.tracker.restrictedTraverse('@@issuefolder')
+        myIssues = issuefolder.getMyIssues(memberId=default_user)
         ids = [int(i.getId) for i in myIssues]
         ids.sort()
         self.assertEqual([1, 2, 4], ids)
         
-        myIssues = self.tracker.getMyIssues(memberId='member1')
+        myIssues = issuefolder.getMyIssues(memberId='member1')
         ids = [int(i.getId) for i in myIssues]
         ids.sort()
         self.assertEqual([1, 3, 4], ids)
         
-        myIssues = self.tracker.getMyIssues(openStates=['closed'], memberId=default_user)
+        myIssues = issuefolder.getMyIssues(openStates=['closed'], memberId=default_user)
         self.assertEqual(len(myIssues), 0)
         
-        myIssues = self.tracker.getMyIssues(memberId='member3')
+        myIssues = issuefolder.getMyIssues(memberId='member3')
         self.assertEqual(len(myIssues), 1)
         self.assertEqual(myIssues[0].getId, '5')
                 
-        myIssues = self.tracker.getMyIssues(openStates=['rejected'])
+        myIssues = issuefolder.getMyIssues(openStates=['rejected'])
         self.assertEqual(len(myIssues), 1)
         self.assertEqual(myIssues[0].getId, '6')      
         
@@ -83,20 +84,21 @@ class TestFeeds(ptc.PoiTestCase):
         # Wrong state
         self.addIssue('S:rejected', default_user, 'reject-unconfirmed') #6: owned by and assigned to default_user, rejected
         
-        myIssues = self.tracker.getOrphanedIssues(memberId=default_user)
+        issuefolder = self.tracker.restrictedTraverse('@@issuefolder')
+        myIssues = issuefolder.getOrphanedIssues(memberId=default_user)
         ids = [int(i.getId) for i in myIssues]
         ids.sort()
         self.assertEqual([3, 5], ids)
         
-        myIssues = self.tracker.getOrphanedIssues(memberId='member1')
+        myIssues = issuefolder.getOrphanedIssues(memberId='member1')
         ids = [int(i.getId) for i in myIssues]
         ids.sort()
         self.assertEqual([5], ids)
         
-        myIssues = self.tracker.getOrphanedIssues(openStates=['closed'], memberId=default_user)
+        myIssues = issuefolder.getOrphanedIssues(openStates=['closed'], memberId=default_user)
         self.assertEqual(len(myIssues), 0)
         
-        myIssues = self.tracker.getOrphanedIssues(memberId='member3')
+        myIssues = issuefolder.getOrphanedIssues(memberId='member3')
         self.assertEqual(len(myIssues), 1)
         self.assertEqual(myIssues[0].getId, '3')
 

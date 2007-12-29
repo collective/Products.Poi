@@ -1,6 +1,6 @@
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
-
+from Acquisition import aq_inner
 from datetime import datetime
 
 def convertDate(date):
@@ -54,7 +54,9 @@ class LogView(BrowserView):
         return user.getProperty('fullname') or user.getUserName()
 
     def getLogEntries(self, count=20):
-        issues = [i.getObject() for i in self.context.getFilteredIssues()]
+        context = aq_inner(self.context)
+        issuefolder = context.restrictedTraverse('@@issuefolder')
+        issues = [i.getObject() for i in issuefolder.getFilteredIssues()]
 
         responses = []
         for issue in issues:

@@ -20,6 +20,7 @@
                   pendingStates python:openStates + ['resolved'];
                   issueQueryString python:'%s/poi_issue_search?state=%s' %
                   (here.absolute_url(), '&amp;state='.join(openStates),);
+                  issuefolder context/@@issuefolder;
                   isManager python:member.getId() in here.getManagers()">
 
       <h1 tal:content="here/Title" class="documentFirstHeading">
@@ -88,7 +89,7 @@
                 <li tal:define="areaId          area/id;
                                 areaTitle       area/title;
                                 areaDescription area/description;
-                                issues          python:here.getFilteredIssues(area=areaId, state=openStates)">
+                                issues          python:issuefolder.getFilteredIssues(area=areaId, state=openStates)">
                 <a tal:attributes="href string:${issueQueryString}&amp;area=${areaId};
                                    title areaDescription" 
                    tal:content="areaTitle" /> (<span tal:replace="python:len(issues)" />)
@@ -100,9 +101,9 @@
       <div id="open-issues-by-release" class="issue-quick-search-box"
            tal:condition="here/isUsingReleases">
           <h3 i18n:translate="poi_heading_by_release">By target release</h3>
-          <ul tal:define="releases here/getReleasesVocab">
+          <ul tal:define="releases here/getReleasesVocab;">
               <tal:releases repeat="release releases">
-                  <li tal:define="issues python:here.getFilteredIssues(targetRelease=release, state=openStates)">
+                  <li tal:define="issues python:issuefolder.getFilteredIssues(targetRelease=release, state=openStates)">
                     <a tal:attributes="href string:${issueQueryString}&amp;targetRelease=${release}"
                        tal:content="python:releases.getValue(release)" /> (<span tal:replace="python:len(issues)" />)
                   </li>
@@ -111,16 +112,16 @@
       </div>
       
       <div id="open-issues-by-state" class="issue-quick-search-box"
-           tal:define="issueStates here/getIssueWorkflowStates">
+           tal:define="issueStates here/getIssueWorkflowStates;">
           <h3 i18n:translate="poi_heading_by_state">By state</h3>
           <ul>
-             <li tal:define="issues python:here.getFilteredIssues(state=openStates)">
+             <li tal:define="issues python:issuefolder.getFilteredIssues(state=openStates)">
                  <a tal:attributes="href string:${issueQueryString}"
                     i18n:translate="poi_all_pending_issues">All pending issues</a> (<span tal:replace="python:len(issues)" />)
              </li>
               <tal:releases repeat="state issueStates">
                   <tal:block condition="python:state not in ignoredStates">
-                      <li tal:define="issues python:here.getFilteredIssues(state=state)">
+                      <li tal:define="issues python:issuefolder.getFilteredIssues(state=state)">
                         <a tal:attributes="href string:${here/absolute_url}/poi_issue_search?state=${state}"
                            i18n:translate=""
                            i18n:domain="plone"
@@ -151,8 +152,8 @@
       <tal:manager condition="isManager">
          
           <div id="unassigned-issues"
-               tal:define="issues python:here.getFilteredIssues(state='unconfirmed');
-                           rssQueryString python:here.getIssueSearchQueryString(state='unconfirmed')"
+               tal:define="issues python:issuefolder.getFilteredIssues(state='unconfirmed');
+                           rssQueryString python:issuefolder.getIssueSearchQueryString(state='unconfirmed')"
                tal:condition="nocall:issues">
 
                <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
@@ -184,7 +185,7 @@
       </tal:manager>
       <tal:loggedIn condition="not:isAnon">
           <div id="my-issues"
-               tal:define="issues python:here.getMyIssues(manager=False)"
+               tal:define="issues python:issuefolder.getMyIssues(manager=False)"
                tal:condition="nocall:issues">
            
                <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
@@ -217,7 +218,7 @@
       </tal:loggedIn>
       <tal:manager condition="isManager">
           <div id="orphaned-issues"
-               tal:define="issues here/getOrphanedIssues"
+               tal:define="issues issuefolder/getOrphanedIssues"
                tal:condition="nocall:issues">
            
                <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">

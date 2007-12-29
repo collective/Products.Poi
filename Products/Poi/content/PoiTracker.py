@@ -58,7 +58,6 @@ from AccessControl import Unauthorized
 from Products.CMFCore.utils import getToolByName
 from ZODB.POSException import ConflictError
 from Products.CMFPlone.utils import log_exc, log
-from ZTUtils import make_query
 
 from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
@@ -306,7 +305,9 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         if not isinstance(text, basestring):
             return text
         catalog = getToolByName(self, 'portal_catalog')
-        ids = frozenset([issue.id for issue in catalog.searchResults(self.buildIssueSearchQuery(None))])
+        issuefolder = self.restrictedTraverse('@@issuefolder')
+        issues = catalog.searchResults(issuefolder.buildIssueSearchQuery(None))
+        ids = frozenset([issue.id for issue in issues])
 
         # XXX/TODO: should these patterns live in the config file?
         text = linkBugs(text, ids,
@@ -318,15 +319,6 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
                        )
         
         return text
-
-    security.declareProtected(permissions.View, 'getFilteredIssues')
-    def getFilteredIssues(self, criteria=None, **kwargs):
-        """
-        Get the contained issues in the given criteria.
-        """
-        catalog = getToolByName(self, 'portal_catalog')
-        query = self.buildIssueSearchQuery(criteria, **kwargs)
-        return catalog.searchResults(query)
 
     security.declareProtected(permissions.View, 'isUsingReleases')
     def isUsingReleases(self):
@@ -478,15 +470,6 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         """Explicitly disallow selection of a default-page."""
         return False
 
-    security.declareProtected(permissions.View, 'getIssueSearchQueryString')
-    def getIssueSearchQueryString(self, criteria=None, **kwargs):
-        """
-        Return a query string (name=value&name=value etc.) for an issue
-        query.
-        """
-        query = self.buildIssueSearchQuery(criteria, **kwargs)
-        return make_query(query)
-
     security.declareProtected(permissions.ModifyPortalContent, 'setManagers')
     def setManagers(self, managers):
         """
@@ -552,73 +535,6 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
             # property is protected via AT security
             email = member.getField('email').getAccessor(member)()
         return email
-
-    def buildIssueSearchQuery(self, criteria=None, **kwargs):
-        """
-        Build canonical query for issue search
-        """
-
-        if criteria is None:
-            criteria = kwargs
-        else:
-            criteria = dict(criteria)
-
-        allowedCriteria = {'release'       : 'getRelease',
-                           'area'          : 'getArea',
-                           'issueType'     : 'getIssueType',
-                           'severity'      : 'getSeverity',
-                           'targetRelease' : 'getTargetRelease',
-                           'state'         : 'review_state',
-                           'tags'          : 'Subject',
-                           'responsible'   : 'getResponsibleManager',
-                           'creator'       : 'Creator',
-                           'text'          : 'SearchableText',
-                           'id'            : 'getId',
-                           }
-
-        query                = {}
-        query['path']        = '/'.join(self.getPhysicalPath())
-        query['portal_type'] = ['PoiIssue']
-
-        for k, v in allowedCriteria.items():
-            if k in criteria:
-                query[v] = criteria[k]
-            elif v in criteria:
-                query[v] = criteria[v]
-
-        # Playing nicely with the form.
-
-        # Subject can be a string of one tag, a tuple of several tags
-        # or a dict with a required query and an optional operator
-        # 'and/or'.  We must avoid the case of the dict with only the
-        # operator and no actual query, else we will suffer from
-        # KeyErrors.  Actually, when coming from the
-        # poi_issue_search_form, instead of say from a test, its type
-        # is not 'dict', but 'instance', even though it looks like a
-        # dict.  See http://plone.org/products/poi/issues/137
-        if 'Subject' in query:
-            subject = query['Subject']
-            # We cannot use "subject.has_key('operator')" or
-            # "'operator' in subject'" because of the strange
-            # instance.
-            try:
-                op = subject['operator']
-            except TypeError:
-                # Fine: subject is a string or tuple.
-                pass
-            except KeyError:
-                # No operator, so nothing can go wrong.
-                pass
-            else:
-                try:
-                    dummy = subject['query']
-                except KeyError:
-                    del query['Subject']
-        
-        query['sort_on'] = criteria.get('sort_on', 'created')
-        query['sort_order'] = criteria.get('sort_order', 'reverse')
-
-        return query
 
 
 def modify_fti(fti):

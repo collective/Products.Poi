@@ -7,6 +7,19 @@ Changelog for Poi
 Poi 1.2 - (Unreleased)
 ----------------------
 
+- Modernization of trackers:
+
+  o Add browser view @@issuefolder that handles the part of PoiTracker
+    that involves being just a folder with issues.
+
+  o Move getFilteredIssues, getIssueSearchQueryString and
+    buildIssueSearchQuery from PoiTracker to browser view.
+
+  o Remove skins/Poi/getOrphanedIssues.py and skins/Poi/getMyIssues.py.
+    Put equivalents in the browser view.
+
+  [maurits]
+
 - Move getNumberFromString, linkBugs and linkSvn from
   content/PoiTracker.py into new utils.py as they need no context.
   [maurits]

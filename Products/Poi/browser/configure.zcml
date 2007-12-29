@@ -9,5 +9,13 @@
      class=".log.LogView"
      template="log.pt"
      />
+
+  <browser:page
+     name="issuefolder"
+     for="Products.Poi.interfaces.ITracker"
+     permission="zope2.View"
+     class=".tracker.IssueFolderView"
+     allowed_interface=".interfaces.IIssueFolderView"
+     />
 			  
 </configure>
