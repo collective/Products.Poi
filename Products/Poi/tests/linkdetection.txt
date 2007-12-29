@@ -6,16 +6,11 @@ point to an issue and r1000 to point to a revision or changeset.  This
 is governed by settings in the PoiTracker.
 
 In unit tests we need to provide an adapter to ISchema, otherwise we
-run into an error the moment we create a PoiTracker.  But this is only
-needed with Plone 3, so we use a try/except::
+run into an error the moment we create a PoiTracker::
 
-    >>> try:
-    ...     from Products.Archetypes.Schema.factory import \
-    ...     instanceSchemaFactory
-    ...     from zope.component import provideAdapter
-    ...     provideAdapter(instanceSchemaFactory)
-    ... except ImportError:
-    ...     pass
+    >>> from Products.Archetypes.Schema.factory import instanceSchemaFactory
+    >>> from zope.component import provideAdapter
+    >>> provideAdapter(instanceSchemaFactory)
 
 We need create some mock classes as we are unit testing::
 
