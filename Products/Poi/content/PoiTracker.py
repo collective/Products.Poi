@@ -378,6 +378,10 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
     def sendNotificationEmail(self, addresses, subject, rstText):
         """
         Send a notification email to the list of addresses
+
+        XXX Note to self [maurits]: look at this blog post from Marius
+        Gedminas, titled "Sending Unicode emails in Python":
+        http://mg.pov.lt/blog/unicode-emails-in-python.html
         """
 
         if not self.getSendNotificationEmails() or not addresses:
