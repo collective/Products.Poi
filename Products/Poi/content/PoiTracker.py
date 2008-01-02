@@ -403,6 +403,8 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         fromName = portal.getProperty('email_from_name', None)
         if fromName is not None:
             fromAddress = "%s <%s>" % (fromName, fromAddress)
+        if isinstance(fromAddress, unicode):
+            fromAddress = fromAddress.encode(charset, 'replace')
 
         email = MIMEMultipart('alternative')
         email.epilogue = ''
@@ -434,6 +436,8 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         subject = "=?%s?B?%s?=" % (charset, subject)
 
         for address in addresses:
+            if isinstance(address, unicode):
+                address = address.encode(charset, 'replace')
             try:
                 mailHost.send(message = message,
                               mto = address,
