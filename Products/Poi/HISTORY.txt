@@ -51,6 +51,13 @@ Poi 1.2 - (Unreleased)
 Poi 1.1.1 - (Unreleased)
 ------------------------
 
+
+    - Fix UnicodeEncodeError in RSS feed by not setting headers in the
+      response.
+      Fixes http://plone.org/products/poi/issues/166
+      [maurits]
+
+
     - Encode unicode names of email addresses using the site encoding.
       Fixes http://plone.org/products/poi/issues/161
       [maurits]
