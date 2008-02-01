@@ -62,7 +62,7 @@ def install(self, reinstall=False):
         except AlreadyInstalled:
             pass
         else:
-            transaction.commit(1)
+            transaction.savepoint()
 
     # try to call a custom install method
     # in 'AppInstall.py' method 'install'
