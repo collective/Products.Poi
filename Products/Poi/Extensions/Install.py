@@ -88,8 +88,7 @@ def install(self, reinstall=False):
     # The following section is boilerplate code that can be reused when you
     # need to invoke a GenericSetup profile from Install.py.
     for extension_id in EXTENSION_PROFILES:
-        portal_setup.setImportContext('profile-%s' % extension_id)
-        portal_setup.runAllImportSteps(purge_old=False)
+        portal_setup.runAllImportStepsFromProfile('profile-%s' % extension_id)
         transaction.savepoint()
 
     return out.getvalue()
