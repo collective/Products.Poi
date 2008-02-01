@@ -7,6 +7,10 @@ Changelog for Poi
 Poi 1.2 - (Unreleased)
 ----------------------
 
+- Eggification: Poi/trunk has been moved to
+  Products.Poi/trunk/Products/Poi
+  [maurits]
+
 - Modernization of trackers:
 
   o Add browser view @@issuefolder that handles the part of PoiTracker
