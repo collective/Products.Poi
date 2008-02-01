@@ -5,11 +5,15 @@ versionfile = open(os.path.join('Products', 'Poi', 'version.txt'))
 version = versionfile.read().strip()
 versionfile.close()
 
+readmefile = open(os.path.join('Products', 'Poi', 'README.txt'))
+readme = readmefile.read().strip()
+readmefile.close()
+
+
 setup(name='Products.Poi',
       version=version,
-      description="",
-      long_description="""\
-""",
+      description="Poi: A friendly issue tracker",
+      long_description=readme,
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
