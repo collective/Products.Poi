@@ -61,10 +61,7 @@ Installation and dependencies
 
 Poi requires:
 
-  - Plone:
-    2.5+ on Zope 2.9
-    OR
-    3.0+ on Zope 2.10
+  - Plone: 3.0+ on Zope 2.10
   - DataGridField (*)
   - AddRemoveWidget
 
