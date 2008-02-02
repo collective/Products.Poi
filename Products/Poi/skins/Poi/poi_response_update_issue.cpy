@@ -11,10 +11,6 @@
 
 from Products.CMFCore.utils import getToolByName
 
-# Update text
-issue = context.aq_parent
-issue.updateResponses()
-
 # Ensure only manager can edit/delete the response from now on
 portal_workflow = getToolByName(context, 'portal_workflow')
 portal_membership = getToolByName(context, 'portal_membership')

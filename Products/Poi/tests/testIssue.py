@@ -57,7 +57,6 @@ class TestIssue(ptc.PoiTestCase):
     def testSearchableText(self):
         self.failIf('Response-text' in self.issue.SearchableText())
         self.createResponse(self.issue, text='Response-text')
-        self.issue.updateResponses()
         self.failUnless('Response-text' in self.issue.SearchableText())
 
     def testManagersVocabContainsUnassigned(self):

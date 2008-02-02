@@ -1,6 +1,10 @@
 from Testing import ZopeTestCase
 
 from DateTime import DateTime
+from zope.event import notify
+from zope.lifecycleevent import ObjectModifiedEvent
+#from Products.Archetypes.event import ObjectInitializedEvent
+
 
 # Make the boring stuff load quietly
 ZopeTestCase.installProduct('CMFCore', quiet=1)
@@ -139,5 +143,6 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         self.portal.portal_workflow.doActionFor(response, 'post')
         response._renameAfterCreation()
         response.reindexObject()
-        issue.updateResponses()
+        # In tests we need to fire this event manually:
+        notify(ObjectModifiedEvent(response))
         return response

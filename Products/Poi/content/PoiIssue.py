@@ -488,16 +488,6 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
             vocab.add(item, item)
         return vocab
 
-    security.declareProtected(permissions.View, 'updateResponses')
-    def updateResponses(self):
-        """When a response is added or modified, this method should be
-        called to ensure responses are correctly indexed.
-
-        XXX Make an event subscriber instead.
-        """
-        self.reindexObject(('SearchableText',))
-        self.notifyModified()
-
     security.declareProtected(permissions.View, 'getTagsVocab')
     def getTagsVocab(self):
         """

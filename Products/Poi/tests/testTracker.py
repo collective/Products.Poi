@@ -376,10 +376,6 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.createResponse(self.tracker['2'], text='foo')
         self.createResponse(self.tracker['3'], text='bar')
         
-        self.tracker['1'].updateResponses()
-        self.tracker['2'].updateResponses()
-        self.tracker['3'].updateResponses()
-        
         issues = [b.getId for b in self.issuefolder.getFilteredIssues(text='foo')]
         issues.sort()
         self.assertEqual(issues, ['1', '2'])
