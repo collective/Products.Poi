@@ -240,6 +240,11 @@
       
          </tal:responses>
       </tal:block>
+      
+      <div class="visualClear"><!----></div>
+
+      <div tal:replace="structure provider:poi.response.add" />
+      
       <div class="visualClear"><!----></div>
   </div>
 </div>

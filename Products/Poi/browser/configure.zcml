@@ -18,4 +18,22 @@
      allowed_interface=".interfaces.IIssueFolderView"
      />
 			  
+  <!-- Add response form -->
+  <!-- XXX: Use other permission "Poi: Add Response" -->
+  <browser:viewletManager
+      name="poi.response.add"
+      provides=".interfaces.IResponseAdder"
+      permission="zope2.View"
+      class=".response.AddForm"
+      template="response.pt"
+      />
+
+  <browser:page
+     name="create_response"
+     for="Products.Poi.interfaces.IIssue"
+     permission="zope2.View"
+     class=".response.Create"
+     allowed_interface=".interfaces.ICreateResponse"
+     />
+
 </configure>

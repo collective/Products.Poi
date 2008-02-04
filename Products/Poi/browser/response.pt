@@ -1,0 +1,84 @@
+<div class="response-adder"
+     i18n:domain="Poi">
+  <h3>Add response</h3>
+  <form method="post" action="@@create_response">
+
+    <div class="field">
+      <label for="response">Response</label>
+      
+      <div class="formHelp" id="response_help">Please enter your response below</div>
+      <div>
+        
+        <textarea cols="40" rows="15" name="response" id="response"></textarea>
+        
+      </div>
+      
+    </div>
+
+    <div class="field">
+      <label for="issueTransition">Change issue state</label>
+      
+      <div class="formHelp"
+           id="issueTransition_help">Select a change of state in the issue this response is for, if applicable</div>
+      
+      <tal:transitions
+          repeat="transition view/getAvailableIssueTransitions">
+        <input class="noborder blurrable" name="issueTransition"
+               value="" id="issueTransition_1" type="radio"
+               tal:attributes="value transition/value;
+                               id transition/value"/>
+
+        <label
+            tal:attributes="for transition/value"
+            tal:content="transition/label">No change</label>
+
+        <br />
+      </tal:transitions>
+    </div>
+
+
+    <div class="field">
+      <label for="newSeverity">Change issue severity</label>
+          
+      <div class="formHelp" id="newSeverity_help">Select the severity for this issue</div>
+      
+      <tal:options
+          repeat="option view/getAvailableSeverities">
+        <input class="noborder blurrable" name="newSeverity"
+               value="" id="" type="radio"
+               tal:attributes="value option/value;
+                               id option/value"/>
+
+        <label
+            tal:attributes="for option/value"
+            tal:content="option/label">No change</label>
+
+        <br />
+      </tal:options>
+    </div>
+
+    <div class="field">
+      <label for="newResponsibleManager">Change responsible manager</label>
+      
+      <div class="formHelp" id="newResponsibleManager_help">Select the responsible manager for this issue</div>
+      
+      <tal:options
+          repeat="option view/getManagersVocab">
+        <input class="noborder blurrable" name="newResponsibleManager"
+               value="" id="" type="radio"
+               tal:attributes="value option/value;
+                               id option/value"/>
+
+        <label
+            tal:attributes="for option/value"
+            tal:content="option/label">No change</label>
+
+        <br />
+      </tal:options>
+    </div>                
+
+    <div class="formControls">
+      <input class="standalone" value="Submit" type="submit" />
+    </div>
+  </form>
+</div>

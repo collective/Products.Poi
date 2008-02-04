@@ -32,3 +32,35 @@ class IIssueFolderView(Interface):
         Meaning: all open issues not assigned to anyone and not owned
         by the given user.
         """
+
+
+import zope.schema
+from zope.interface import directlyProvides
+from zope.viewlet.interfaces import IViewletManager
+from zope.contentprovider.interfaces import ITALNamespaceData
+
+
+class IResponseAdder(IViewletManager):
+
+    def getAvailableIssueTransitions():
+        """Get the available transitions for this issue.
+        """
+
+    def getAvailableSeverities():
+        """Get the available severities for this issue.
+        """
+
+    def getReleasesVocab():
+        """Get the releases from the project.
+        """
+
+    def getManagersVocab():
+        """Get the tracker managers.
+        """
+
+directlyProvides(IResponseAdder, ITALNamespaceData)
+
+
+class ICreateResponse(Interface):
+    pass
+
