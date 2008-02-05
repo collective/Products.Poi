@@ -34,6 +34,10 @@
       handler=".events.removedResponse"
       />
 
+  <adapter
+      factory=".adapters.ResponseContainer"
+      />
+
   <!-- Register the GenericSetup extension profile so that we can
        install the product
   -->

@@ -6,23 +6,38 @@ from Acquisition import Explicit
 from Acquisition import aq_inner
 from Products.Archetypes.atapi import DisplayList
 from Products.Five.browser import BrowserView
+from Products.Poi.adapters import IResponseContainer
+from Products.Poi.adapters import Response
 
 
-class AddForm(Explicit):
-    implements(IResponseAdder)
-    #template = ViewPageTemplateFile('response.pt')
+def voc2dict(vocab):
+    """Make a dictionary from a vocabulary.
 
-    def __init__(self, context, request, view):
+    ('a', "The letter A") -> dict(value='a', label="The letter A")
+    """
+    options = []
+    for value, label in vocab.items():
+        options.append(dict(value=value, label=label))
+    return options
+
+
+class Base(BrowserView):
+    """Base view for PoiIssues.
+
+    Mostly meant as helper for adding a PoiResponse.
+    """
+
+    def __init__(self, context, request):
         self.context = context
         self.request = request
-        self.__parent__ = view
 
-    def update(self):
-        pass
+    def responses(self):
+        folder = IResponseContainer(self.context)
+        return folder.responses
 
-    def render(self):
-        # self.template is defined in zcml
-        return self.template()
+
+    def getCurrentIssueSeverity(self):
+        return self.context.getSeverity()
 
     def getAvailableIssueTransitions(self):
         """Get the available transitions for this issue.
@@ -38,6 +53,7 @@ class AddForm(Explicit):
     def getAvailableSeverities(self):
         """Get the available severities for this issue.
         """
+        # get vocab from tracker so use aq_inner
         context = aq_inner(self.context)
         vocab = context.getAvailableSeverities()
         options = []
@@ -51,22 +67,34 @@ class AddForm(Explicit):
         Usually nothing, unless you use Poi in combination with
         PloneSoftwareCenter.
         """
+        # get vocab from issue
         context = aq_inner(self.context)
         vocab = context.getReleasesVocab()
-        options = []
-        for value, label in vocab.items():
-            options.append(dict(value=value, label=label))
-        return options
+        return voc2dict(vocab)
 
     def getManagersVocab(self):
         """Get the tracker managers.
         """
+        # get vocab from issue
         context = aq_inner(self.context)
         vocab = context.getManagersVocab()
-        options = []
-        for value, label in vocab.items():
-            options.append(dict(value=value, label=label))
-        return options
+        return voc2dict(vocab)
+
+
+class AddForm(Base):
+    implements(IResponseAdder)
+    #template = ViewPageTemplateFile('response.pt')
+
+    def __init__(self, context, request, view):
+        super(Base, self).__init__(context, request)
+        self.__parent__ = view
+
+    def update(self):
+        pass
+
+    def render(self):
+        # self.template is defined in zcml
+        return self.template()
 
 
 def create_response(context, **kwargs):
@@ -76,21 +104,38 @@ def create_response(context, **kwargs):
     idx = 1
     while str(idx) in context.objectIds():
         idx = idx + 1
+
+    """
+    response = Response(kwargs.get('response'))
+    response.add_change(id="test", name="Test", before="bad", after="good")
+    folder = IResponseContainer(context)
+    folder.add_response(response)
+    """
     context.invokeFactory('PoiResponse', id=str(idx), **kwargs)
 
 
-class Create(BrowserView):
+class Create(Base):
+
     def __call__(self):
+        update = {}
         form = self.request.form
-        response = form.get('response', '')
-        issueTransition = form.get('issueTransition', '')
-        newSeverity = form.get('newSeverity', '')
-        newResponsibleManager = form.get('newResponsibleManager', '')
+        response_text = form.get('response', u'')
+        new_response = Response(response_text)
+        issueTransition = form.get('issueTransition', u'')
+        newSeverity = form.get('newSeverity', u'')
+        newResponsibleManager = form.get('newResponsibleManager', u'')
+        if newSeverity:
+            currentIssueSeverity = self.getCurrentIssueSeverity()
+            if currentIssueSeverity != newSeverity:
+                new_response.add_change('severity', 'Severity',
+                                        currentIssueSeverity, newSeverity)
+                update['newSeverity'] = newSeverity
+            
         context = aq_inner(self.context)
-        create_response(context, response=response,
+        folder = IResponseContainer(context)
+        folder.add_response(new_response)
+        create_response(context, response=response_text,
                         issueTransition=issueTransition,
-                        newSeverity=newSeverity,
-                        newResponsibleManager=newResponsibleManager)
+                        newResponsibleManager=newResponsibleManager,
+                        **update)
         self.request.response.redirect(context.absolute_url())
-
-

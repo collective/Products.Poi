@@ -6,6 +6,10 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Start creating zope 3 style lightweight responses instead of big fat
+  Archetypes objects.
+  [maurits]
+
 - Add provider:poi.response.add that gives you a form for adding a
   response when viewing an issue.
   [maurits]
