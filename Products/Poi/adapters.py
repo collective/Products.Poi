@@ -3,6 +3,7 @@ from zope.interface import Attribute
 from zope.interface import Interface
 from zope.component import adapts
 from zope.annotation.interfaces import IAnnotations
+from persistent import Persistent
 from persistent.list import PersistentList
 from Products.Poi.interfaces import IIssue
 
@@ -51,7 +52,7 @@ class ResponseContainer(object):
         self.responses.remove(response)
 
 
-class Response(object):
+class Response(Persistent):
 
     implements(IResponse)
 
