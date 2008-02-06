@@ -35,6 +35,7 @@
       />
 
   <adapter
+      provides=".adapters.IResponseContainer"
       factory=".adapters.ResponseContainer"
       />
 

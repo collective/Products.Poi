@@ -33,8 +33,9 @@ class Base(BrowserView):
 
     def responses(self):
         folder = IResponseContainer(self.context)
-        return folder.responses
-
+        items = folder.items()
+        items.sort()
+        return items
 
     def getCurrentIssueSeverity(self):
         return self.context.getSeverity()
@@ -133,7 +134,7 @@ class Create(Base):
             
         context = aq_inner(self.context)
         folder = IResponseContainer(context)
-        folder.add_response(new_response)
+        folder.add(new_response)
         create_response(context, response=response_text,
                         issueTransition=issueTransition,
                         newResponsibleManager=newResponsibleManager,

@@ -2,7 +2,10 @@
      i18n:domain="Poi">
   <h3>Current new-style responses</h3>
   <ul>
-    <li tal:repeat="response view/responses">
+    <li tal:repeat="response_tuple view/responses">
+      <tal:dummy define="id python:response_tuple[0];
+                         response python:response_tuple[1]">
+      Id: <span tal:content="id" />
       <div class="response-info">
         <span i18n:translate="poi_added_by">Added by</span>
         ...
@@ -19,6 +22,7 @@
 
       </div>
       <span tal:replace="response/text" />
+      </tal:dummy>
     </li>
   </ul>
 

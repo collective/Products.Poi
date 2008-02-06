@@ -2,23 +2,16 @@ from zope.interface import implements
 from zope.interface import Attribute
 from zope.interface import Interface
 from zope.component import adapts
+from zope.app.container.sample import SampleContainer
 from zope.annotation.interfaces import IAnnotations
 from persistent import Persistent
 from persistent.list import PersistentList
+from persistent.mapping import PersistentMapping
 from Products.Poi.interfaces import IIssue
 
 
 class IResponseContainer(Interface):
-
-    responses = Attribute("Responses in this container")
-
-    def add_response(response):
-        """Add a response.
-        """
-
-    def remove_response(response):
-        """Remove a response.
-        """
+    pass
 
 
 class IResponse(Interface):
@@ -31,7 +24,7 @@ class IResponse(Interface):
         """
 
 
-class ResponseContainer(object):
+class ResponseContainer(SampleContainer):
 
     implements(IResponseContainer)
     adapts(IIssue)
@@ -39,17 +32,32 @@ class ResponseContainer(object):
 
     def __init__(self, context):
         self.context = context
-        annotations = IAnnotations(context)
-        self.responses = annotations.get(self.ANNO_KEY, None)
-        if self.responses is None:
-            annotations[self.ANNO_KEY] = PersistentList()
-            self.responses = annotations[self.ANNO_KEY]
+        super(ResponseContainer, self).__init__()
 
-    def add_response(self, response):
-        self.responses.append(response)
+    def _newContainerData(self):
+        """Construct an item-data container
 
-    def remove_response(self, response):
-        self.responses.remove(response)
+        Subclasses should override this if they want different data.
+
+        The value returned is a mapping object that also has `get`,
+        `has_key`, `keys`, `items`, and `values` methods.
+        """
+        annotations = IAnnotations(self.context)
+        responses = annotations.get(self.ANNO_KEY, None)
+        if responses is None:
+            annotations[self.ANNO_KEY] = PersistentMapping()
+            responses = annotations[self.ANNO_KEY]
+        return responses
+
+    def add(self, item):
+        self[self._get_next_id()] = item
+
+    def _get_next_id(self):
+        num = len(self)
+        # for safety:
+        while unicode(num) in self.keys():
+            num += 1
+        return unicode(num)
 
 
 class Response(Persistent):

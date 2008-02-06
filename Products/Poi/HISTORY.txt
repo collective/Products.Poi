@@ -6,6 +6,11 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Use zope.app.container.sample.SampleContainer as base class for
+  ResponseContainer.  Store a PersistentMapping in it.  Show the
+  sorted responses.
+  [maurits]
+
 - Start creating zope 3 style lightweight responses instead of big fat
   Archetypes objects.
   [maurits]
