@@ -6,6 +6,9 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Store creator and creation date of response.
+  [maurits]
+
 - Use an OOBtree instead of a PersistentMapping to store the
   responses.
   [maurits]

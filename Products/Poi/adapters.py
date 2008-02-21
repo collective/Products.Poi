@@ -6,9 +6,10 @@ from zope.app.container.sample import SampleContainer
 from zope.annotation.interfaces import IAnnotations
 from persistent import Persistent
 from persistent.list import PersistentList
-#from persistent.mapping import PersistentMapping
 from Products.Poi.interfaces import IIssue
 from BTrees.OOBTree import OOBTree
+from AccessControl import getSecurityManager
+from DateTime import DateTime
 
 
 class IResponseContainer(Interface):
@@ -19,6 +20,8 @@ class IResponse(Interface):
 
     text = Attribute("Text of this response")
     changes = Attribute("Changes made to the issue in this response.")
+    creator = Attribute("Id of user making this change.")
+    date = Attribute("Date (plus time) this response was made.")
 
     def add_change(id, name, before, after):
         """Add change to the list of changes.
@@ -92,7 +95,10 @@ class Response(Persistent):
     def __init__(self, text):
         self.text = text
         self.changes = PersistentList()
-        # XXX store this: Added by  admin  on  05-02-2008 23:14
+        sm = getSecurityManager()
+        user = sm.getUser()
+        self.creator = user.getId()
+        self.date = DateTime()
 
     def add_change(self, id, name, before, after):
         """Add a new issue change.
