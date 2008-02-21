@@ -6,8 +6,9 @@ from zope.app.container.sample import SampleContainer
 from zope.annotation.interfaces import IAnnotations
 from persistent import Persistent
 from persistent.list import PersistentList
-from persistent.mapping import PersistentMapping
+#from persistent.mapping import PersistentMapping
 from Products.Poi.interfaces import IIssue
+from BTrees.OOBTree import OOBTree
 
 
 class IResponseContainer(Interface):
@@ -24,7 +25,7 @@ class IResponse(Interface):
         """
 
 
-class ResponseContainer(SampleContainer):
+class ResponseContainer(SampleContainer, Persistent):
 
     implements(IResponseContainer)
     adapts(IIssue)
@@ -45,19 +46,43 @@ class ResponseContainer(SampleContainer):
         annotations = IAnnotations(self.context)
         responses = annotations.get(self.ANNO_KEY, None)
         if responses is None:
-            annotations[self.ANNO_KEY] = PersistentMapping()
+            annotations[self.ANNO_KEY] = OOBTree()
             responses = annotations[self.ANNO_KEY]
         return responses
+
+    def __contains__(self, key):
+        '''See interface IReadContainer
+
+        Taken from zope.app.container.btree.
+
+        Reimplement this method, since has_key() returns the key if available,
+        while we expect True or False.
+
+        >>> c = ResponseContainer()
+        >>> "a" in c
+        False
+        >>> c["a"] = 1
+        >>> "a" in c
+        True
+        >>> "A" in c
+        False
+        '''
+        return key in self._SampleContainer__data
+
+    has_key = __contains__
 
     def add(self, item):
         self[self._get_next_id()] = item
 
     def _get_next_id(self):
-        num = len(self)
-        # for safety:
-        while unicode(num) in self.keys():
-            num += 1
-        return unicode(num)
+        try:
+            number = self._SampleContainer__data.maxKey()
+        except ValueError:
+            # No items found yet; start at one.
+            number = u"1"
+        else:
+            number = int(number) + 1
+        return unicode(number)
 
 
 class Response(Persistent):

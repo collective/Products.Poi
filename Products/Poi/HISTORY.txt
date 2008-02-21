@@ -6,6 +6,10 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Use an OOBtree instead of a PersistentMapping to store the
+  responses.
+  [maurits]
+
 - Use zope.app.container.sample.SampleContainer as base class for
   ResponseContainer.  Store a PersistentMapping in it.  Show the
   sorted responses.

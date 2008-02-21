@@ -34,7 +34,6 @@ class Base(BrowserView):
     def responses(self):
         folder = IResponseContainer(self.context)
         items = folder.items()
-        items.sort()
         return items
 
     def getCurrentIssueSeverity(self):
