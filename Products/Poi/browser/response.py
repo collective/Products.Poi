@@ -10,14 +10,16 @@ from Products.Poi.adapters import IResponseContainer
 from Products.Poi.adapters import Response
 
 
-def voc2dict(vocab):
+def voc2dict(vocab, current=None):
     """Make a dictionary from a vocabulary.
 
     ('a', "The letter A") -> dict(value='a', label="The letter A")
     """
     options = []
     for value, label in vocab.items():
-        options.append(dict(value=value, label=label))
+        checked = (value == current) and "checked" or ""
+        options.append(dict(value=value, label=label,
+                            checked=checked))
     return options
 
 
@@ -36,8 +38,17 @@ class Base(BrowserView):
         items = folder.items()
         return items
 
-    def getCurrentIssueSeverity(self):
+    @property
+    def severity(self):
         return self.context.getSeverity()
+
+    @property
+    def targetRelease(self):
+        return self.context.getTargetRelease()
+
+    @property
+    def responsibleManager(self):
+        return self.context.getResponsibleManager()
 
     def getAvailableIssueTransitions(self):
         """Get the available transitions for this issue.
@@ -45,9 +56,10 @@ class Base(BrowserView):
         context = aq_inner(self.context)
         wftool = getToolByName(context, 'portal_workflow')
         transitions = []
-        transitions.append(dict(value='', label='No change'))
+        transitions.append(dict(value='', label='No change', checked="checked"))
         for tdef in wftool.getTransitionsFor(context):
-            transitions.append(dict(value=tdef['id'], label=tdef['title_or_id']))
+            transitions.append(dict(value=tdef['id'], label=tdef['title_or_id'],
+                                    checked=''))
         return transitions
 
     def getAvailableSeverities(self):
@@ -58,7 +70,9 @@ class Base(BrowserView):
         vocab = context.getAvailableSeverities()
         options = []
         for value in vocab:
-            options.append(dict(value=value, label=value))
+            checked = (value == self.severity) and "checked" or ""
+            options.append(dict(value=value, label=value,
+                                checked=checked))
         return options
 
     def getReleasesVocab(self):
@@ -78,7 +92,7 @@ class Base(BrowserView):
         # get vocab from issue
         context = aq_inner(self.context)
         vocab = context.getManagersVocab()
-        return voc2dict(vocab)
+        return voc2dict(vocab, self.responsibleManager)
 
 
 class AddForm(Base):
@@ -97,45 +111,40 @@ class AddForm(Base):
         return self.template()
 
 
-def create_response(context, **kwargs):
-    """Create a response.
-    """
-
-    idx = 1
-    while str(idx) in context.objectIds():
-        idx = idx + 1
-
-    """
-    response = Response(kwargs.get('response'))
-    response.add_change(id="test", name="Test", before="bad", after="good")
-    folder = IResponseContainer(context)
-    folder.add_response(response)
-    """
-    context.invokeFactory('PoiResponse', id=str(idx), **kwargs)
-
-
 class Create(Base):
 
     def __call__(self):
         update = {}
         form = self.request.form
+        context = aq_inner(self.context)
         response_text = form.get('response', u'')
         new_response = Response(response_text)
-        issueTransition = form.get('issueTransition', u'')
-        newSeverity = form.get('newSeverity', u'')
-        newResponsibleManager = form.get('newResponsibleManager', u'')
-        if newSeverity:
-            currentIssueSeverity = self.getCurrentIssueSeverity()
-            if currentIssueSeverity != newSeverity:
-                new_response.add_change('severity', 'Severity',
-                                        currentIssueSeverity, newSeverity)
-                update['newSeverity'] = newSeverity
+
+        transition = form.get('transition', u'')
+        if transition and transition in [x['value'] for x in self.getAvailableIssueTransitions()]:
+            wftool = getToolByName(context, 'portal_workflow')
+            before = wftool.getInfoFor(context, 'review_state')
+            wftool.doActionFor(context, transition)
+            after = wftool.getInfoFor(context, 'review_state')
+            new_response.add_change('review_state', 'Issue state',
+                                    before, after)
+
+        options = [
+            ('severity', 'Severity'),
+            ('targetRelease', 'Target release'),
+            ('responsibleManager', 'Responsible manager'),
+            ]
+        changes = {}
+        for option, title in options:
+            new = form.get(option, u'')
+            if new:
+                current = self.__getattribute__(option)
+                if current != new:
+                    changes[option] = new
+                    new_response.add_change(option, title,
+                                            current, new)
+        context.update(**changes)
             
-        context = aq_inner(self.context)
         folder = IResponseContainer(context)
         folder.add(new_response)
-        create_response(context, response=response_text,
-                        issueTransition=issueTransition,
-                        newResponsibleManager=newResponsibleManager,
-                        **update)
         self.request.response.redirect(context.absolute_url())

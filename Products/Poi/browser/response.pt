@@ -40,17 +40,18 @@
     </div>
 
     <div class="field">
-      <label for="issueTransition">Change issue state</label>
+      <label for="transition">Change issue state</label>
       
       <div class="formHelp"
            id="issueTransition_help">Select a change of state in the issue this response is for, if applicable</div>
       
       <tal:transitions
           repeat="transition view/getAvailableIssueTransitions">
-        <input class="noborder blurrable" name="issueTransition"
-               value="" id="issueTransition_1" type="radio"
+        <input class="noborder blurrable" name="transition"
+               value="" id="transition_1" type="radio"
                tal:attributes="value transition/value;
-                               id transition/value"/>
+                               id transition/value;
+                               checked transition/checked;" />
 
         <label
             tal:attributes="for transition/value"
@@ -62,16 +63,17 @@
 
 
     <div class="field">
-      <label for="newSeverity">Change issue severity</label>
+      <label for="severity">Change issue severity</label>
           
-      <div class="formHelp" id="newSeverity_help">Select the severity for this issue</div>
+      <div class="formHelp" id="severity_help">Select the severity for this issue</div>
       
       <tal:options
           repeat="option view/getAvailableSeverities">
-        <input class="noborder blurrable" name="newSeverity"
+        <input class="noborder blurrable" name="severity"
                value="" id="" type="radio"
                tal:attributes="value option/value;
-                               id option/value"/>
+                               id option/value;
+                               checked option/checked;" />
 
         <label
             tal:attributes="for option/value"
@@ -82,16 +84,17 @@
     </div>
 
     <div class="field">
-      <label for="newResponsibleManager">Change responsible manager</label>
+      <label for="responsibleManager">Change responsible manager</label>
       
-      <div class="formHelp" id="newResponsibleManager_help">Select the responsible manager for this issue</div>
+      <div class="formHelp" id="manager_help">Select the responsible manager for this issue</div>
       
       <tal:options
           repeat="option view/getManagersVocab">
-        <input class="noborder blurrable" name="newResponsibleManager"
+        <input class="noborder blurrable" name="responsibleManager"
                value="" id="" type="radio"
                tal:attributes="value option/value;
-                               id option/value"/>
+                               id option/value;
+                               checked option/checked;" />
 
         <label
             tal:attributes="for option/value"
@@ -100,6 +103,8 @@
         <br />
       </tal:options>
     </div>                
+
+    <!-- Add control for targetRelease -->
 
     <div class="formControls">
       <input class="standalone" value="Submit" type="submit" />

@@ -6,6 +6,11 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Check radio buttons of response based on current status for all
+  options.  Rename options to be in line with the fields of the parent
+  Task.
+  [maurits]
+
 - Store creator and creation date of response.
   [maurits]
 

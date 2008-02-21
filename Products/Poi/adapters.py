@@ -79,10 +79,12 @@ class ResponseContainer(SampleContainer, Persistent):
 
     def _get_next_id(self):
         try:
+            # XXX This fails at the moment item 11 gets added, as item
+            # 9 is the max key then instead of item 10.
             number = self._SampleContainer__data.maxKey()
         except ValueError:
             # No items found yet; start at one.
-            number = u"1"
+            number = 1
         else:
             number = int(number) + 1
         return unicode(number)
