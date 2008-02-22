@@ -1,10 +1,13 @@
 <div class="response-adder"
      i18n:domain="Poi">
   <h3>Current new-style responses</h3>
-  <ul>
-    <li tal:repeat="response_tuple view/responses">
-      <tal:dummy define="id python:response_tuple[0];
-                         response python:response_tuple[1]">
+  <tal:responses repeat="response_tuple view/responses">
+    <!-- XXX Use ./skins/Poi/determineResponseType.py
+         to determine the class. -->
+    <div class="response-reply"
+         tal:define="id python:response_tuple[0];
+                     response python:response_tuple[1]">
+      <!-- XXX Show edit/delete buttons. -->
       Id: <span tal:content="id" />
       <div class="response-info">
         <span i18n:translate="poi_added_by">Added by</span>
@@ -20,9 +23,8 @@
 
       </div>
       <span tal:replace="response/text" />
-      </tal:dummy>
-    </li>
-  </ul>
+    </div>
+  </tal:responses>
 
   <h3>Add response</h3>
   <form method="post" action="@@create_response">

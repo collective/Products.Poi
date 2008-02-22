@@ -6,6 +6,9 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Show border around responses, like in the original layout.
+  [maurits]
+
 - Check that the changes within a response are allowed (new severity
   in available_severities, etc).
   [maurits]
