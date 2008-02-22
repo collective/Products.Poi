@@ -29,7 +29,7 @@ class IResponse(Interface):
         """
 
 
-class ResponseContainer(SampleContainer, Persistent):
+class ResponseContainer(SampleContainer):
 
     implements(IResponseContainer)
     adapts(IIssue)
