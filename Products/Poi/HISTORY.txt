@@ -6,6 +6,9 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Unit test the response browser views.
+  [maurits]
+
 - Use aq_inner.aq_parent to get the parent of an issue.
   [maurits]
 

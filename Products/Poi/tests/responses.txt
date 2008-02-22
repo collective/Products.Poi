@@ -1,6 +1,9 @@
 Responses
 =========
 
+Adapters
+--------
+
 Responses used to be Archetypes objects.  Not anymore.  They are light
 weight Zope 3 objects now.  Before we switch to that we had better
 make sure that they continue to work at least as good as they used to.
@@ -84,3 +87,112 @@ That sort order leaves something to be desired.  We can fix that::
     ...     assert(val in rc.values())
     >>> rc[u'7'].text
     'Response 7.'
+
+
+Browser views
+-------------
+
+We have a browser view that takes care of showing the responses and
+adding a response.  To properly test that, we really need a normal
+PoiIssue within a PoiTracker.  To have this work we also need to load
+a bit of acml::
+
+    >>> import Products.Archetypes.Schema
+    >>> zcml.load_config('configure.zcml', Products.Archetypes.Schema)
+    >>> from Products.Poi.content.PoiTracker import PoiTracker
+    >>> from Products.Poi.content.PoiIssue import PoiIssue
+    >>> tracker = PoiTracker("issues")
+    >>> tracker.issue = PoiIssue("one")
+    >>> issue = tracker.issue
+
+We get some very basic Plone functionality going here.  At least we
+need some tools and set a Creator for this tracker::
+
+    >>> from Products.CMFPlone.WorkflowTool import WorkflowTool
+    >>> from Products.CMFPlone.URLTool import URLTool
+    >>> from Products.CMFPlone.MembershipTool import MembershipTool
+    >>> tracker.portal_workflow = WorkflowTool()
+    >>> tracker.portal_url = URLTool()
+    >>> tracker.portal_membership = MembershipTool()
+    >>> tracker.acl_users = MembershipTool()
+    >>> tracker.Schema()['creators'].set(tracker, "manager")
+    >>> tracker.getManagers()
+    ('manager',)
+
+We want to test some browser views.  So we need some test requests.
+And a test request needs to be annotatable as we use memoize in some
+parts::
+
+    >>> from zope.publisher.browser import TestRequest
+    >>> from zope.annotation.interfaces import IAttributeAnnotatable
+    >>> from zope.interface import classImplements
+    >>> classImplements(TestRequest, IAttributeAnnotatable)
+    >>> request = TestRequest()
+
+We fire up a browser (view) and do some basic checking::
+
+    >>> from Products.Poi.browser.response import Base
+    >>> view = Base(issue, request)
+    >>> view.available_severities
+    ('Critical', 'Important', 'Medium', 'Low')
+    >>> view.available_transitions
+    ['']
+    >>> view.available_releases
+    <DisplayList [('(UNASSIGNED)', 'None')] at ...>
+    >>> view.available_managers
+    <DisplayList [('(UNASSIGNED)', 'None'), ('manager', 'manager')] at ...>
+
+The view has some methods especially for displaying::
+
+    >>> view.transitions_for_display
+    [{'checked': 'checked', 'value': '', 'label': 'No change'}]
+    >>> view.releases_for_display
+    [{'checked': '', 'value': '(UNASSIGNED)', 'label': 'None'}]
+    >>> view.managers_for_display
+    [{'checked': 'checked', 'value': '(UNASSIGNED)', 'label': 'None'}, {'checked': '', 'value': 'manager', 'label': 'manager'}]
+
+And of course the responses are visible.  Well, no response has been
+added yet.  To see that, we need some setup again::
+
+    >>> from zope.component import provideAdapter
+    >>> from Products.Poi.adapters import IResponseContainer
+    >>> provideAdapter(ResponseContainer, adapts=(IIssue,),
+    ...                provides=IResponseContainer)
+    >>> from zope.interface import classImplements
+    >>> classImplements(PoiIssue, IAttributeAnnotatable)
+    >>> view.responses()
+    []
+
+We use a different browser view to add a response::
+
+    >>> from Products.Poi.browser.response import Create
+    >>> Create(issue, request)()
+    >>> view.responses()
+    [(u'1', <Products.Poi.adapters.Response object at ...>)]
+
+We create a slightly more interesting response::
+
+    >>> form = dict(response="This issue misses a shrubbery.",
+    ...             severity='Low')
+    >>> Create(issue, TestRequest(form=form))()
+    >>> view.responses()
+    [(u'1', <...>), (u'2', <...>)]
+    >>> id, res = view.responses()[1]
+    >>> res.text
+    'This issue misses a shrubbery.'
+    >>> res.changes
+    [{'before': 'Medium', 'after': 'Low', 'id': 'severity', 'name': 'Severity'}]
+    >>> res.creator
+    '(anonymous)'
+    >>> res.date
+    DateTime('...')
+    >>> form = dict(response="We are no longer the Knights who say Ni.",
+    ...             severity='Critical', responsibleManager='manager')
+    >>> Create(issue, TestRequest(form=form))()
+    >>> len(view.responses())
+    3
+    >>> id, res = view.responses()[2]
+    >>> res.text
+    'We are no longer the Knights who say Ni.'
+    >>> res.changes
+    [{'before': 'Medium', 'after': 'Critical', 'id': 'severity', 'name': 'Severity'}, {'before': '(UNASSIGNED)', 'after': 'manager', 'id': 'responsibleManager', 'name': 'Responsible manager'}]
