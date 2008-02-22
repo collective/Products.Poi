@@ -6,6 +6,9 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Use aq_inner.aq_parent to get the parent of an issue.
+  [maurits]
+
 - Add unit tests for browser.response.voc2dict.
   [maurits]
 

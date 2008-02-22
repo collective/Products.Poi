@@ -456,7 +456,8 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
 
     def getDefaultSeverity(self):
         """Get the default severity for new issues"""
-        return self.aq_parent.getDefaultSeverity()
+        parent = self.aq_inner.aq_parent
+        return parent.getDefaultSeverity()
 
     security.declarePublic('isValid')
     def isValid(self):
@@ -473,15 +474,17 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         """
         Get the issue types available as a DisplayList.
         """
-        field = self.aq_parent.getField('availableIssueTypes')
-        return field.getAsDisplayList(self.aq_parent)
+        parent = self.aq_inner.aq_parent
+        field = parent.getField('availableIssueTypes')
+        return field.getAsDisplayList(parent)
 
     def getManagersVocab(self):
         """
         Get the managers available as a DisplayList. The first item is 'None',
         with a key of '(UNASSIGNED)'.
         """
-        items = self.aq_parent.getManagers()
+        parent = self.aq_inner.aq_parent
+        items = parent.getManagers()
         vocab = DisplayList()
         vocab.add('(UNASSIGNED)', 'None', 'poi_vocab_none')
         for item in items:
@@ -493,7 +496,8 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         """
         Get the available areas as a DispayList.
         """
-        tags = self.aq_parent.getTagsInUse()
+        parent = self.aq_inner.aq_parent
+        tags = parent.getTagsInUse()
         vocab = DisplayList()
         for t in tags:
             vocab.add(t, t)
@@ -507,7 +511,8 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         """
         vocab = DisplayList()
         vocab.add('(UNASSIGNED)', 'None', 'poi_vocab_none')
-        parentVocab = self.aq_parent.getReleasesVocab()
+        parent = self.aq_inner.aq_parent
+        parentVocab = parent.getReleasesVocab()
         for k in parentVocab.keys():
             vocab.add(k, parentVocab.getValue(k), parentVocab.getMsgId(k))
         return vocab
@@ -530,8 +535,9 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         """
         Get the available areas as a DispayList.
         """
-        field = self.aq_parent.getField('availableAreas')
-        return field.getAsDisplayList(self.aq_parent)
+        parent = self.aq_inner.aq_parent
+        field = parent.getField('availableAreas')
+        return field.getAsDisplayList(parent)
 
     def sendNotificationMail(self):
         """
@@ -543,7 +549,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         portal = portal_url.getPortalObject()
         fromName = portal.getProperty('email_from_name', None)
 
-        tracker = self.aq_parent
+        tracker = self.aq_inner.aq_parent
 
         issueCreator = self.Creator()
         issueCreatorInfo = portal_membership.getMemberInfo(issueCreator);
@@ -578,13 +584,15 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
     def getTaggedDetails(self, **kwargs):
         # perform link detection
         text = self.getField('details').get(self, **kwargs)
-        return self.aq_parent.linkDetection(text)
+        parent = self.aq_inner.aq_parent
+        return parent.linkDetection(text)
 
     @instance.memoize
     def getTaggedSteps(self, **kwargs):
         # perform link detection
         text = self.getField('steps').get(self, **kwargs)
-        return self.aq_parent.linkDetection(text)
+        parent = self.aq_inner.aq_parent
+        return parent.linkDetection(text)
 
 def modify_fti(fti):
     # Hide unnecessary tabs (usability enhancement)
