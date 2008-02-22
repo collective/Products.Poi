@@ -6,6 +6,9 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Add unit tests for browser.response.voc2dict.
+  [maurits]
+
 - Add unit tests for the adapters.
   [maurits]
 
