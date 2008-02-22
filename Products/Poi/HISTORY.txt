@@ -6,6 +6,10 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Store OOBTree and total in a PersistentMapping instead of only the
+  OOBTree directly in the annotations.
+  [maurits]
+
 - Check radio buttons of response based on current status for all
   options.  Rename options to be in line with the fields of the parent
   Task.

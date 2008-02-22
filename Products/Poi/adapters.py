@@ -6,6 +6,7 @@ from zope.app.container.sample import SampleContainer
 from zope.annotation.interfaces import IAnnotations
 from persistent import Persistent
 from persistent.list import PersistentList
+from persistent.mapping import PersistentMapping
 from Products.Poi.interfaces import IIssue
 from BTrees.OOBTree import OOBTree
 from AccessControl import getSecurityManager
@@ -37,6 +38,8 @@ class ResponseContainer(SampleContainer, Persistent):
     def __init__(self, context):
         self.context = context
         super(ResponseContainer, self).__init__()
+        annotations = IAnnotations(self.context)
+        self.mapping = annotations.get(self.ANNO_KEY)
 
     def _newContainerData(self):
         """Construct an item-data container
@@ -47,11 +50,13 @@ class ResponseContainer(SampleContainer, Persistent):
         `has_key`, `keys`, `items`, and `values` methods.
         """
         annotations = IAnnotations(self.context)
-        responses = annotations.get(self.ANNO_KEY, None)
-        if responses is None:
-            annotations[self.ANNO_KEY] = OOBTree()
-            responses = annotations[self.ANNO_KEY]
-        return responses
+        mapping = annotations.get(self.ANNO_KEY, None)
+        if mapping is None:
+            mapping = PersistentMapping()
+            mapping.data = OOBTree()
+            mapping.total = 0
+            annotations[self.ANNO_KEY] = mapping
+        return mapping.data
 
     def __contains__(self, key):
         '''See interface IReadContainer
@@ -74,20 +79,20 @@ class ResponseContainer(SampleContainer, Persistent):
 
     has_key = __contains__
 
-    def add(self, item):
-        self[self._get_next_id()] = item
-
-    def _get_next_id(self):
-        try:
-            # XXX This fails at the moment item 11 gets added, as item
-            # 9 is the max key then instead of item 10.
-            number = self._SampleContainer__data.maxKey()
-        except ValueError:
-            # No items found yet; start at one.
-            number = 1
+    def __set_total(self, total):
+        if isinstance(total, int):
+            self.mapping.total = total
         else:
-            number = int(number) + 1
-        return unicode(number)
+            raise ValueError
+
+    def __get_total(self):
+        return self.mapping.total
+
+    total = property(__get_total, __set_total)
+
+    def add(self, item):
+        self[unicode(self.total + 1)] = item
+        self.total += 1
 
 
 class Response(Persistent):
