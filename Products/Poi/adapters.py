@@ -120,7 +120,7 @@ class Response(Persistent):
         self.changes = PersistentList()
         sm = getSecurityManager()
         user = sm.getUser()
-        self.creator = user.getId()
+        self.creator = user.getId() or '(anonymous)'
         self.date = DateTime()
 
     def add_change(self, id, name, before, after):

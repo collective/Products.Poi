@@ -6,6 +6,9 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Add unit tests for the adapters.
+  [maurits]
+
 - Show border around responses, like in the original layout.
   [maurits]
 

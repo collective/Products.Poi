@@ -1,0 +1,86 @@
+Responses
+=========
+
+Responses used to be Archetypes objects.  Not anymore.  They are light
+weight Zope 3 objects now.  Before we switch to that we had better
+make sure that they continue to work at least as good as they used to.
+So some tests are in order.  First we make a response::
+
+    >>> from Products.Poi.adapters import Response
+    >>> res = Response(u"I cannot reproduce this error.")
+    >>> res.creator
+    '(anonymous)'
+    >>> res.date
+    DateTime('...')
+    >>> res.changes
+    []
+    >>> res.add_change("review_state", "Transition", "unconfirmed", "confirmed")
+    >>> res.changes
+    [{'before': 'unconfirmed', 'after': 'confirmed', 'id': 'review_state', 'name': 'Transition'}]
+
+That is everything we need to know about a response really, so our
+basis is fine this way.
+
+One thing that a PoiIssue does is being a container for responses.  We
+can factor that out into an adapter.  We use annotations to do that,
+so we need to load some zcml so Zope knows how to annotate an
+AttributeAnnotatable object::
+
+    >>> import Products.Five
+    >>> from Products.Five import zcml
+    >>> zcml.load_config('configure.zcml', Products.Five)
+    >>> import zope.annotation
+    >>> zcml.load_config('configure.zcml', zope.annotation)
+    >>> from zope.annotation.interfaces import IAttributeAnnotatable
+
+Now we make a mock issue (just to show that we do not need a full
+blown PoiIssue) and turn it into a response container::
+
+    >>> from Products.Poi.adapters import ResponseContainer
+    >>> from zope.interface import implements
+    >>> from Products.Poi.interfaces import IIssue
+    >>> class MockIssue(object):
+    ...     implements(IIssue, IAttributeAnnotatable)
+    >>> issue = MockIssue()
+    >>> rc = ResponseContainer(issue)
+    >>> rc
+    <Products.Poi.adapters.ResponseContainer object at ...>
+
+This container does not have any responses yet, so let's do something
+about that::
+
+    >>> rc.total == len(rc) == len(rc.items()) == 0
+    True
+    >>> rc.add(res)
+    >>> rc.total == len(rc) == len(rc.items()) == 1
+    True
+
+The keys of the responses are successive numbers turned into unicode::
+
+    >>> [k for k in rc.keys()]
+    [u'1']
+    >>> rc[u'1']
+    <Products.Poi.adapters.Response object at ...>
+    >>> u'1' in rc
+    True
+    >>> u'0' in rc
+    False
+    >>> for i in range(2, 12):
+    ...     rc.add(Response("Response %d." % i))
+    >>> [k for k in rc.keys()]
+    [u'1', u'10', u'11', u'2', u'3', u'4', u'5', u'6', u'7', u'8', u'9']
+
+That sort order leaves something to be desired.  We can fix that::
+
+    >>> rc.sorted_keys()
+    [u'1', u'2', u'3', u'4', u'5', u'6', u'7', u'8', u'9', u'10', u'11']
+    >>> rc.total == len(rc) == len(rc.items()) == 11
+    True
+    >>> rc.sorted_items()
+    [(u'1', <...>), (u'2', <...>), (u'11', <...>)]
+    >>> rc.sorted_values()
+    [<Products.Poi.adapters.Response object at ...>, ...]
+    >>> for val in rc.sorted_values():
+    ...     assert(val in rc.values())
+    >>> rc[u'7'].text
+    'Response 7.'
