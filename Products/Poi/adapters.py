@@ -39,7 +39,7 @@ class ResponseContainer(SampleContainer, Persistent):
         self.context = context
         super(ResponseContainer, self).__init__()
         annotations = IAnnotations(self.context)
-        self.mapping = annotations.get(self.ANNO_KEY)
+        self.__mapping = annotations.get(self.ANNO_KEY)
 
     def _newContainerData(self):
         """Construct an item-data container
@@ -81,12 +81,12 @@ class ResponseContainer(SampleContainer, Persistent):
 
     def __set_total(self, total):
         if isinstance(total, int):
-            self.mapping.total = total
+            self.__mapping.total = total
         else:
             raise ValueError
 
     def __get_total(self):
-        return self.mapping.total
+        return self.__mapping.total
 
     total = property(__get_total, __set_total)
 
