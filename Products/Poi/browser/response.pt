@@ -46,7 +46,7 @@
            id="issueTransition_help">Select a change of state in the issue this response is for, if applicable</div>
       
       <tal:transitions
-          repeat="transition view/getAvailableIssueTransitions">
+          repeat="transition view/transitions_for_display">
         <input class="noborder blurrable" name="transition"
                value="" id="transition_1" type="radio"
                tal:attributes="value transition/value;
@@ -68,7 +68,7 @@
       <div class="formHelp" id="severity_help">Select the severity for this issue</div>
       
       <tal:options
-          repeat="option view/getAvailableSeverities">
+          repeat="option view/severities_for_display">
         <input class="noborder blurrable" name="severity"
                value="" id="" type="radio"
                tal:attributes="value option/value;
@@ -89,7 +89,7 @@
       <div class="formHelp" id="manager_help">Select the responsible manager for this issue</div>
       
       <tal:options
-          repeat="option view/getManagersVocab">
+          repeat="option view/managers_for_display">
         <input class="noborder blurrable" name="responsibleManager"
                value="" id="" type="radio"
                tal:attributes="value option/value;

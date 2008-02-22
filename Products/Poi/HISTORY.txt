@@ -6,6 +6,10 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Make difference between available_transitions and
+  transitions_for_display; also for the other response options.
+  [maurits]
+
 - Add methods sorted_keys/values/items for the ResponseContainer.
   Show the sorted items in the view (so 1, ..., 9, 10 instead of 1,
   10, ..., 9).

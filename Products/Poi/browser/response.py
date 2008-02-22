@@ -8,6 +8,7 @@ from Products.Archetypes.atapi import DisplayList
 from Products.Five.browser import BrowserView
 from Products.Poi.adapters import IResponseContainer
 from Products.Poi.adapters import Response
+from plone.memoize.view import memoize
 
 
 def voc2dict(vocab, current=None):
@@ -50,8 +51,10 @@ class Base(BrowserView):
     def responsibleManager(self):
         return self.context.getResponsibleManager()
 
-    def getAvailableIssueTransitions(self):
-        """Get the available transitions for this issue.
+    @property
+    @memoize
+    def transitions_for_display(self):
+        """Display the available transitions for this issue.
         """
         context = aq_inner(self.context)
         wftool = getToolByName(context, 'portal_workflow')
@@ -62,12 +65,17 @@ class Base(BrowserView):
                                     checked=''))
         return transitions
 
-    def getAvailableSeverities(self):
+    @property
+    def available_transitions(self):
+        """Get the available transitions for this issue.
+        """
+        return [x['value'] for x in self.transitions_for_display]
+
+    @property
+    def severities_for_display(self):
         """Get the available severities for this issue.
         """
-        # get vocab from tracker so use aq_inner
-        context = aq_inner(self.context)
-        vocab = context.getAvailableSeverities()
+        vocab = self.available_severities
         options = []
         for value in vocab:
             checked = (value == self.severity) and "checked" or ""
@@ -75,7 +83,28 @@ class Base(BrowserView):
                                 checked=checked))
         return options
 
-    def getReleasesVocab(self):
+    @property
+    @memoize
+    def available_severities(self):
+        """Get the available severities for this issue.
+        """
+        # get vocab from tracker so use aq_inner
+        context = aq_inner(self.context)
+        return context.getAvailableSeverities()
+
+    @property
+    def releases_for_display(self):
+        """Get the releases from the project.
+
+        Usually nothing, unless you use Poi in combination with
+        PloneSoftwareCenter.
+        """
+        vocab = self.available_releases
+        return voc2dict(vocab)
+
+    @property
+    @memoize
+    def available_releases(self):
         """Get the releases from the project.
 
         Usually nothing, unless you use Poi in combination with
@@ -83,16 +112,23 @@ class Base(BrowserView):
         """
         # get vocab from issue
         context = aq_inner(self.context)
-        vocab = context.getReleasesVocab()
-        return voc2dict(vocab)
+        return context.getReleasesVocab()
 
-    def getManagersVocab(self):
+    @property
+    def managers_for_display(self):
+        """Get the tracker managers.
+        """
+        vocab = self.available_managers
+        return voc2dict(vocab, self.responsibleManager)
+
+    @property
+    @memoize
+    def available_managers(self):
         """Get the tracker managers.
         """
         # get vocab from issue
         context = aq_inner(self.context)
-        vocab = context.getManagersVocab()
-        return voc2dict(vocab, self.responsibleManager)
+        return context.getManagersVocab()
 
 
 class AddForm(Base):
@@ -121,7 +157,7 @@ class Create(Base):
         new_response = Response(response_text)
 
         transition = form.get('transition', u'')
-        if transition and transition in [x['value'] for x in self.getAvailableIssueTransitions()]:
+        if transition and transition in self.available_transitions:
             wftool = getToolByName(context, 'portal_workflow')
             before = wftool.getInfoFor(context, 'review_state')
             wftool.doActionFor(context, transition)

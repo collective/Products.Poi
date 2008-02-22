@@ -42,19 +42,19 @@ from zope.contentprovider.interfaces import ITALNamespaceData
 
 class IResponseAdder(IViewletManager):
 
-    def getAvailableIssueTransitions():
+    def transitions_for_display():
         """Get the available transitions for this issue.
         """
 
-    def getAvailableSeverities():
+    def severities_for_display():
         """Get the available severities for this issue.
         """
 
-    def getReleasesVocab():
+    def releases_for_display():
         """Get the releases from the project.
         """
 
-    def getManagersVocab():
+    def managers_for_display():
         """Get the tracker managers.
         """
 
