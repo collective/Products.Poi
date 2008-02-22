@@ -6,6 +6,10 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Check that the changes within a response are allowed (new severity
+  in available_severities, etc).
+  [maurits]
+
 - Make difference between available_transitions and
   transitions_for_display; also for the other response options.
   [maurits]

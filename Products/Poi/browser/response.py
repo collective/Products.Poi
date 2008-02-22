@@ -166,14 +166,14 @@ class Create(Base):
                                     before, after)
 
         options = [
-            ('severity', 'Severity'),
-            ('targetRelease', 'Target release'),
-            ('responsibleManager', 'Responsible manager'),
+            ('severity', 'Severity', 'available_severities'),
+            ('targetRelease', 'Target release', 'available_releases'),
+            ('responsibleManager', 'Responsible manager', 'available_managers'),
             ]
         changes = {}
-        for option, title in options:
+        for option, title, vocab in options:
             new = form.get(option, u'')
-            if new:
+            if new and new in self.__getattribute__(vocab):
                 current = self.__getattribute__(option)
                 if current != new:
                     changes[option] = new
