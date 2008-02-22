@@ -35,7 +35,7 @@ class Base(BrowserView):
 
     def responses(self):
         folder = IResponseContainer(self.context)
-        items = folder.items()
+        items = folder.sorted_items()
         return items
 
     @property

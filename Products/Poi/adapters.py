@@ -94,6 +94,22 @@ class ResponseContainer(SampleContainer, Persistent):
         self[unicode(self.total + 1)] = item
         self.total += 1
 
+    def sorted_keys(self):
+        # We do not want this:
+        # [u'1', u'10', u'2', u'3', u'4', u'5', u'6', u'7', u'8', u'9']
+        # but this:
+        # [u'1', u'2', u'3', u'4', u'5', u'6', u'7', u'8', u'9', u'10']
+        ints = [int(x) for x in self.keys()]
+        ints.sort()
+        keys = [unicode(x) for x in ints]
+        return keys
+
+    def sorted_items(self):
+        return [(key, self[key]) for key in self.sorted_keys()]
+
+    def sorted_values(self):
+        return [self[key] for key in self.sorted_keys()]
+
 
 class Response(Persistent):
 

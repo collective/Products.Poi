@@ -6,6 +6,11 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Add methods sorted_keys/values/items for the ResponseContainer.
+  Show the sorted items in the view (so 1, ..., 9, 10 instead of 1,
+  10, ..., 9).
+  [maurits]
+
 - Store OOBTree and total in a PersistentMapping instead of only the
   OOBTree directly in the annotations.
   [maurits]
