@@ -196,3 +196,49 @@ We create a slightly more interesting response::
     'We are no longer the Knights who say Ni.'
     >>> res.changes
     [{'before': 'Medium', 'after': 'Critical', 'id': 'severity', 'name': 'Severity'}, {'before': '(UNASSIGNED)', 'after': 'manager', 'id': 'responsibleManager', 'name': 'Responsible manager'}]
+
+
+Type of response
+----------------
+
+Responses have a type.  This can be used for showing them in a
+different colour based on their type.  The default is 'additional'::
+
+    >>> response = Response("text")
+    >>> response.creator
+    '(anonymous)'
+    >>> res.type
+    'additional'
+
+Since we like to test this with fast unit tests, we need to set a
+creator for the issue manually::
+
+    >>> issue.Schema()['creators'].set(issue, "reporter")
+    >>> issue.Creator()
+    'reporter'
+
+Within the Create view there is a method to determine the response
+type.  Since the response was made anonymously, we stick to the
+default::
+
+    >>> createview = Create(issue, TestRequest())
+    >>> createview.determine_response_type(response)
+    'additional'
+
+The original reporter of the issue can make a clarification::
+
+    >>> response.creator = 'reporter'
+    >>> createview.determine_response_type(response)
+    'clarification'
+
+A manager can reply::
+
+    >>> response.creator = 'manager'
+    >>> createview.determine_response_type(response)
+    'reply'
+
+Other persons can give additional information::
+
+    >>> response.creator = 'Maurits'
+    >>> createview.determine_response_type(response)
+    'additional'

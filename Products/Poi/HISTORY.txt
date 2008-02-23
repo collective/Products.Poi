@@ -6,6 +6,9 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Give responses a type additional/clarification/reply.
+  [maurits]
+
 - Add browser test for adding a tracker, issue and response.
   [maurits]
 

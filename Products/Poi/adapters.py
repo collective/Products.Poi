@@ -23,6 +23,7 @@ class IResponse(Interface):
     changes = Attribute("Changes made to the issue in this response.")
     creator = Attribute("Id of user making this change.")
     date = Attribute("Date (plus time) this response was made.")
+    type = Attribute("Type of response (additional/clarification/reply).")
 
     def add_change(id, name, before, after):
         """Add change to the list of changes.
@@ -122,6 +123,7 @@ class Response(Persistent):
         user = sm.getUser()
         self.creator = user.getId() or '(anonymous)'
         self.date = DateTime()
+        self.type = 'additional'
 
     def add_change(self, id, name, before, after):
         """Add a new issue change.

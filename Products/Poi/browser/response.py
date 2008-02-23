@@ -162,12 +162,30 @@ class AddForm(Base):
 
 class Create(Base):
 
+    def determine_response_type(self, response):
+        """Return a string indicating the type of response this is.
+        """
+        responseCreator = response.creator
+        if responseCreator == '(anonymous)':
+            return 'additional'
+
+        issue = aq_inner(self.context)
+        if responseCreator == issue.Creator():
+            return 'clarification'
+
+        if responseCreator in self.available_managers:
+            return 'reply'
+
+        # default:
+        return 'additional'
+
     def __call__(self):
         update = {}
         form = self.request.form
         context = aq_inner(self.context)
         response_text = form.get('response', u'')
         new_response = Response(response_text)
+        new_response.type = self.determine_response_type(new_response)
 
         transition = form.get('transition', u'')
         if transition and transition in self.available_transitions:

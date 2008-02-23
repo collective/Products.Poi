@@ -2,11 +2,10 @@
      i18n:domain="Poi">
   <h3>Current new-style responses</h3>
   <tal:responses repeat="response_tuple view/responses">
-    <!-- XXX Use ./skins/Poi/determineResponseType.py
-         to determine the class. -->
     <div class="response-reply"
          tal:define="id python:response_tuple[0];
-                     response python:response_tuple[1]">
+                     response python:response_tuple[1]"
+         tal:attributes="class string:response-${response/type}">
       <!-- XXX Show edit/delete buttons. -->
       Id: <span tal:content="id" />
       <div class="response-info">
