@@ -146,3 +146,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         # In tests we need to fire this event manually:
         notify(ObjectModifiedEvent(response))
         return response
+
+
+class PoiFunctionalTestCase(PoiTestCase, PloneTestCase.FunctionalTestCase):
+    pass

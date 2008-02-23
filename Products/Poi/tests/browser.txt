@@ -1,0 +1,68 @@
+Test browser tests for Poi
+==========================
+
+Tracker
+-------
+
+We start a test browser::
+
+    >>> from Products.Five.testbrowser import Browser
+    >>> browser = Browser()
+    >>> browser.handleErrors = False
+    >>> browser.addHeader('Accept-Language', 'en-US')
+    >>> self.portal.error_log._ignored_exceptions = ()
+
+We log in::
+
+    >>> browser.open(portal.absolute_url() + '/login_form')
+    >>> browser.getLink('Log in').click()
+    >>> browser.getControl(name='__ac_name').value = 'test_user_1_'
+    >>> browser.getControl(name='__ac_password').value = 'secret'
+    >>> browser.getControl(name='submit').click()
+    >>> 'You are now logged in' in browser.contents
+    True
+
+And make ourselves manager::
+
+    >>> self.setRoles(['Manager'])
+
+We create a tracker::
+
+    >>> url = self.portal.absolute_url()
+    >>> browser.open(url)
+    >>> browser.open(url + '/createObject?type_name=PoiTracker')
+    >>> browser.getControl(name='title').value = 'Issues'
+    >>> browser.getControl(name='form_submit').click()
+    >>> tracker = self.portal.issues
+
+Now we create an issue::
+
+    >>> url = tracker.absolute_url()
+    >>> browser.open(url + '/createObject?type_name=PoiIssue')
+    >>> browser.getControl(name='title').value = 'Something is wrong.'
+    >>> browser.getControl(name='details').value = '#1 is a big issue.'
+    >>> browser.getControl(name='area').value = ('ui',)
+    >>> browser.getControl(name='issueType').value = ('bug',)
+    >>> browser.getControl(name='contactEmail').value = 'maurits@vanrees.org'
+    >>> browser.getControl(name='form_submit').click()
+    >>> 'Changes saved.' in browser.contents
+    True
+
+Now we can add a response::
+
+    >>> browser.getControl(name='response').value = 'Possibly fixed in r99.'
+    >>> browser.getControl(name='transition').value = ('accept-unconfirmed',)
+    >>> browser.getControl(name='severity').value = ('Important',)
+    >>> browser.getControl(name='responsibleManager').value = ('test_user_1_',)
+    >>> browser.getControl('Submit').click()
+
+We check the current status in the browser contents::
+
+    >>> '<td class="issue-open">Confirmed</td>' in browser.contents
+    True
+    >>> '<td>User interface</td>' in browser.contents
+    True
+    >>> '<td>Bug</td>' in browser.contents
+    True
+    >>> '<td>Important</td>' in browser.contents
+    True
