@@ -66,3 +66,8 @@ We check the current status in the browser contents::
     True
     >>> '<td>Important</td>' in browser.contents
     True
+
+This response was a clarification from the original poster::
+
+    >>> 'class="response-clarification"' in browser.contents
+    True
