@@ -40,6 +40,11 @@
       
     </div>
 
+    <!-- XXX Show attachment upload widget. -->
+
+    <!-- XXX Only show these options when the user has permission to
+         use them. -->
+
     <div class="field">
       <label for="transition">Change issue state</label>
       
