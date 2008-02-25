@@ -36,11 +36,15 @@ class IIssueFolderView(Interface):
 
 import zope.schema
 from zope.interface import directlyProvides
+from zope.interface import Attribute
 from zope.viewlet.interfaces import IViewletManager
 from zope.contentprovider.interfaces import ITALNamespaceData
 
 
 class IResponseAdder(IViewletManager):
+
+    mime_type = Attribute("Mime type for response.")
+    use_wysiwyg = Attribute("Boolean: Use kupu-like editor.")
 
     def transitions_for_display():
         """Get the available transitions for this issue.

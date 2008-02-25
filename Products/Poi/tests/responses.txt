@@ -111,10 +111,22 @@ need some tools and set a Creator for this tracker::
     >>> from Products.CMFPlone.WorkflowTool import WorkflowTool
     >>> from Products.CMFPlone.URLTool import URLTool
     >>> from Products.CMFPlone.MembershipTool import MembershipTool
+    >>> from Products.CMFPlone.CatalogTool import CatalogTool
     >>> tracker.portal_workflow = WorkflowTool()
     >>> tracker.portal_url = URLTool()
     >>> tracker.portal_membership = MembershipTool()
     >>> tracker.acl_users = MembershipTool()
+    >>> class MockTransformData(object):
+    ...     def __init__(self, text):
+    ...         self.text = text
+    ...     def getData(self):
+    ...         return self.text
+    >>> class MockTransforms(object):
+    ...     def convertTo(self, target, text, mimetype=''):
+    ...         return MockTransformData(text)
+    >>> tracker.portal_transforms = MockTransforms()
+    >>> tracker.portal_catalog = CatalogTool()
+    >>> tracker.linkDetection = lambda x: x
     >>> tracker.Schema()['creators'].set(tracker, "manager")
     >>> tracker.getManagers()
     ('manager',)
@@ -168,16 +180,16 @@ We use a different browser view to add a response::
     >>> from Products.Poi.browser.response import Create
     >>> Create(issue, request)()
     >>> view.responses()
-    [(u'1', <Products.Poi.adapters.Response object at ...>)]
+    [{'html': u'', 'response': <Products.Poi.adapters.Response object at ...>, 'id': u'1'}]
 
 We create a slightly more interesting response::
 
     >>> form = dict(response="This issue misses a shrubbery.",
     ...             severity='Low')
     >>> Create(issue, TestRequest(form=form))()
-    >>> view.responses()
-    [(u'1', <...>), (u'2', <...>)]
-    >>> id, res = view.responses()[1]
+    >>> len(view.responses())
+    2
+    >>> res = view.responses()[1]['response']
     >>> res.text
     'This issue misses a shrubbery.'
     >>> res.changes
@@ -191,7 +203,7 @@ We create a slightly more interesting response::
     >>> Create(issue, TestRequest(form=form))()
     >>> len(view.responses())
     3
-    >>> id, res = view.responses()[2]
+    >>> res = view.responses()[-1]['response']
     >>> res.text
     'We are no longer the Knights who say Ni.'
     >>> res.changes

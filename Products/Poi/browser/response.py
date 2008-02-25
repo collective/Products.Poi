@@ -9,6 +9,7 @@ from Products.Five.browser import BrowserView
 from Products.Poi.adapters import IResponseContainer
 from Products.Poi.adapters import Response
 from plone.memoize.view import memoize
+from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
 
 
 def voc2dict(vocab, current=None):
@@ -46,10 +47,32 @@ class Base(BrowserView):
     def __init__(self, context, request):
         self.context = context
         self.request = request
+        self.mime_type = DEFAULT_ISSUE_MIME_TYPE
+        if self.mime_type == 'text/html':
+            self.use_wysiwyg = True
+        else:
+            self.use_wysiwyg = False
 
     def responses(self):
-        folder = IResponseContainer(self.context)
-        items = folder.sorted_items()
+        context = aq_inner(self.context)
+        folder = IResponseContainer(context)
+        trans = self.context.portal_transforms
+        items = []
+        linkDetection = context.linkDetection
+        for id, response in folder.sorted_items():
+            if response.mime_type == 'text/html':
+                html = response.text
+            else:
+                html = trans.convertTo('text/html',
+                                       response.text,
+                                       mimetype=response.mime_type)
+                html = html.getData()
+            # Detect links like #1 and r1234
+            html = linkDetection(html)
+            info = dict(id=id,
+                        response=response,
+                        html=html)
+            items.append(info)
         return items
 
     @property
@@ -149,7 +172,7 @@ class AddForm(Base):
     #template = ViewPageTemplateFile('response.pt')
 
     def __init__(self, context, request, view):
-        super(Base, self).__init__(context, request)
+        super(AddForm, self).__init__(context, request)
         self.__parent__ = view
 
     def update(self):
@@ -185,6 +208,7 @@ class Create(Base):
         context = aq_inner(self.context)
         response_text = form.get('response', u'')
         new_response = Response(response_text)
+        new_response.mime_type = self.mime_type
         new_response.type = self.determine_response_type(new_response)
 
         transition = form.get('transition', u'')

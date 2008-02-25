@@ -6,6 +6,11 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- When in config.py DEFAULT_ISSUE_MIME_TYPE is set to text/html, use a
+  wysiwyg field in the add response form.  Tested with kupu.  Haul the
+  responses through portal_transforms and through linkDetection.
+  [maurits]
+
 - Give responses a type additional/clarification/reply.
   [maurits]
 

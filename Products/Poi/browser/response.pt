@@ -1,10 +1,11 @@
 <div class="response-adder"
      i18n:domain="Poi">
   <h3>Current new-style responses</h3>
-  <tal:responses repeat="response_tuple view/responses">
+  <tal:responses repeat="response_info view/responses">
     <div class="response-reply"
-         tal:define="id python:response_tuple[0];
-                     response python:response_tuple[1]"
+         tal:define="id response_info/id;
+                     response nocall:response_info/response;
+                     html response_info/html;"
          tal:attributes="class string:response-${response/type}">
       <!-- XXX Show edit/delete buttons. -->
       Id: <span tal:content="id" />
@@ -21,11 +22,12 @@
         </div>
 
       </div>
-      <span tal:replace="response/text" />
+      <span tal:replace="structure html" />
     </div>
   </tal:responses>
 
   <h3>Add response</h3>
+
   <form method="post" action="@@create_response">
 
     <div class="field">
@@ -33,8 +35,20 @@
       
       <div class="formHelp" id="response_help">Please enter your response below</div>
       <div>
-        
-        <textarea cols="40" rows="15" name="response" id="response"></textarea>
+
+        <tal:wysiwyg
+            tal:condition="view/use_wysiwyg">
+          <tal:block
+              define="inputname string:response;
+                      inputvalue string:;
+                      portal_url context/portal_url;">
+            <metal:block metal:use-macro="context/wysiwyg_support/macros/wysiwygEditorBox" />
+          </tal:block>
+        </tal:wysiwyg>
+
+        <textarea
+            tal:condition="not:view/use_wysiwyg"
+            cols="40" rows="15" name="response" id="response"></textarea>
         
       </div>
       
