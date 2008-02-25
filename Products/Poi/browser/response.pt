@@ -38,10 +38,17 @@
 
         <tal:wysiwyg
             tal:condition="view/use_wysiwyg">
+          <tal:comment replace="nothing">
+            The tal:defines below are here so that both kupu and
+            FCKeditor work.
+          </tal:comment>
           <tal:block
               define="inputname string:response;
                       inputvalue string:;
-                      portal_url context/portal_url;">
+                      editor string:wysiwyg;
+                      member python:context.portal_membership.getAuthenticatedMember();
+                      portal_url context/portal_url;
+                      here_url context/portal_url;">
             <metal:block metal:use-macro="context/wysiwyg_support/macros/wysiwygEditorBox" />
           </tal:block>
         </tal:wysiwyg>
