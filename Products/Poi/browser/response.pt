@@ -40,16 +40,20 @@
             tal:condition="view/use_wysiwyg">
           <tal:comment replace="nothing">
             The tal:defines below are here so that both kupu and
-            FCKeditor work.
+            FCKeditor work.  Partly it is taken from FCKeditor.
           </tal:comment>
           <tal:block
               define="inputname string:response;
                       inputvalue string:;
-                      editor string:wysiwyg;
                       member python:context.portal_membership.getAuthenticatedMember();
+                      editor python:member.getProperty('wysiwyg_editor', 'plone_wysiwyg').lower();
                       portal_url context/portal_url;
-                      here_url context/portal_url;">
-            <metal:block metal:use-macro="context/wysiwyg_support/macros/wysiwygEditorBox" />
+                      here_url context/portal_url;
+                      support python: path('nocall:here/%s_wysiwyg_support|here/%s/wysiwyg_support|here/portal_skins/plone_wysiwyg/wysiwyg_support' % (editor, editor));"
+              on-error="string:$editor not installed correctly: ${error/value}">
+
+
+            <metal:block metal:use-macro="support/macros/wysiwygEditorBox" />
           </tal:block>
         </tal:wysiwyg>
 
