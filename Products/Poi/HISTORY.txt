@@ -6,6 +6,10 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Add buttons for deleting and editing responses.  Not completely
+  hooked up yet.
+  [maurits]
+
 - Add PoiMessageFactory.
   [maurits]
 

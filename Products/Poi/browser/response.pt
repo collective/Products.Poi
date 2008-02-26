@@ -8,6 +8,32 @@
                      html response_info/html;"
          tal:attributes="class string:response-${response/type}">
       <!-- XXX Show edit/delete buttons. -->
+
+      <div class="response-actions"
+           tal:condition="view/can_edit_response|view/can_delete_response">
+        <form method="post"
+              tal:attributes="action string:@@poi_response_edit"
+              tal:condition="view/can_edit_response">
+          <input type="hidden" name="response_id" tal:attributes="value id" />
+          <input class="standalone"
+                 type="submit"
+                 i18n:attributes="value"
+                 value="Edit"
+                 />
+        </form>
+        <form method="post"
+              tal:attributes="action string:@@poi_response_delete"
+              tal:condition="view/can_delete_response">
+          <input type="hidden" name="response_id" tal:attributes="value id" />
+          <input class="destructive"
+                 type="submit"
+                 i18n:attributes="value"
+                 value="Delete"
+                 />
+        </form>
+      </div>
+
+
       Id: <span tal:content="id" />
       <div class="response-info">
         <span i18n:translate="poi_added_by">Added by</span>

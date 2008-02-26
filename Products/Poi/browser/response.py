@@ -10,6 +10,8 @@ from Products.Poi.adapters import IResponseContainer
 from Products.Poi.adapters import Response
 from plone.memoize.view import memoize
 from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
+from Products.Poi import PoiMessageFactory as _
+from Products.statusmessages.interfaces import IStatusMessage
 
 
 def voc2dict(vocab, current=None):
@@ -74,6 +76,21 @@ class Base(BrowserView):
                         html=html)
             items.append(info)
         return items
+
+
+    @property
+    @memoize
+    def can_edit_response(self):
+        context = aq_inner(self.context)
+        memship = getToolByName(context, 'portal_membership')
+        return memship.checkPermission('Modify portal content', context)
+
+    @property
+    @memoize
+    def can_delete_response(self):
+        context = aq_inner(self.context)
+        memship = getToolByName(context, 'portal_membership')
+        return memship.checkPermission('Delete objects', context)
 
     @property
     def severity(self):
@@ -182,7 +199,6 @@ class AddForm(Base):
         # self.template is defined in zcml
         return self.template()
 
-
 class Create(Base):
 
     def determine_response_type(self, response):
@@ -238,4 +254,34 @@ class Create(Base):
             
         folder = IResponseContainer(context)
         folder.add(new_response)
+        self.request.response.redirect(context.absolute_url())
+
+
+class Delete(Base):
+
+    def __call__(self):
+        context = aq_inner(self.context)
+        status = IStatusMessage(self.request)
+        if not self.can_delete_response:
+            status.addStatusMessage(
+                _(u"You are not allowed to delete responses."),
+                type='error')
+        else:
+            response_id = self.request.form.get('response_id', None)
+            if response_id is None:
+                status.addStatusMessage(
+                    _(u"No response selected for removal."),
+                    type='error')
+            else:
+                folder = IResponseContainer(context)
+                if not response_id in folder:
+                    status.addStatusMessage(
+                        _(u"Response id ${response_id} does not exist so it cannot be removed.",
+                          mapping=dict(response_id=response_id)),
+                        type='error')
+                else:
+                    status.addStatusMessage(
+                        _(u"You want to delete response id ${response_id}.",
+                          mapping=dict(response_id=response_id)),
+                        type='info')
         self.request.response.redirect(context.absolute_url())

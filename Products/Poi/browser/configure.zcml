@@ -36,4 +36,11 @@
      allowed_interface=".interfaces.ICreateResponse"
      />
 
+  <browser:page
+     name="poi_response_delete"
+     for="Products.Poi.interfaces.IIssue"
+     permission="zope2.View"
+     class=".response.Delete"
+     />
+
 </configure>
