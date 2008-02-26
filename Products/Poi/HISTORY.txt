@@ -6,6 +6,9 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Add PoiMessageFactory.
+  [maurits]
+
 - Add method delete(id) for deleting responses.
   [maurits]
 
