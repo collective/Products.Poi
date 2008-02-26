@@ -52,10 +52,10 @@ blown PoiIssue) and turn it into a response container::
 This container does not have any responses yet, so let's do something
 about that::
 
-    >>> rc.total == len(rc) == len(rc.items()) == 0
+    >>> rc.highest == len(rc) == len(rc.items()) == 0
     True
     >>> rc.add(res)
-    >>> rc.total == len(rc) == len(rc.items()) == 1
+    >>> rc.highest == len(rc) == len(rc.items()) == 1
     True
 
 The keys of the responses are successive numbers turned into unicode::
@@ -77,7 +77,7 @@ That sort order leaves something to be desired.  We can fix that::
 
     >>> rc.sorted_keys()
     [u'1', u'2', u'3', u'4', u'5', u'6', u'7', u'8', u'9', u'10', u'11']
-    >>> rc.total == len(rc) == len(rc.items()) == 11
+    >>> rc.highest == len(rc) == len(rc.items()) == 11
     True
     >>> rc.sorted_items()
     [(u'1', <...>), (u'2', <...>), (u'11', <...>)]
@@ -87,6 +87,53 @@ That sort order leaves something to be desired.  We can fix that::
     ...     assert(val in rc.values())
     >>> rc[u'7'].text
     'Response 7.'
+
+
+Removing responses
+------------------
+
+Responses can be deleted::
+
+    >>> rc.delete(u'7')
+    >>> len(rc) == len(rc.items()) == 10
+    True
+    >>> rc.highest
+    11
+
+Non existing responses cannot be deleted::
+
+    >>> rc.delete(u'7')
+    Traceback (most recent call last):
+    ...
+    KeyError: u'7'
+
+Deleting the most recent response should lower the highest id::
+
+    >>> rc.delete(u'11')
+    >>> rc.highest
+    10
+
+When the highest number is changed, a response with that id should be
+available::
+
+    >>> rc.delete(u'8')
+    >>> rc.delete(u'9')
+    >>> rc.highest
+    10
+    >>> rc.delete(u'10')
+    >>> rc.highest
+    6
+
+Deleting the last one should not result in an error::
+
+    >>> rc.delete(u'6')
+    >>> rc.delete(u'5')
+    >>> rc.delete(u'4')
+    >>> rc.delete(u'3')
+    >>> rc.delete(u'2')
+    >>> rc.delete(u'1')
+    >>> rc.highest
+    0
 
 
 Browser views

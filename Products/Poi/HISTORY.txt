@@ -6,6 +6,12 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Add method delete(id) for deleting responses.
+  [maurits]
+
+- In response adapter rename total to highest.
+  [maurits]
+
 - When FCKeditor is installed and an anonymous visitor adds a
   response, make sure this works by using the default html text area
   then.  Same change as in the FCKeditor code itself in r59427.

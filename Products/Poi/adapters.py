@@ -56,7 +56,7 @@ class ResponseContainer(SampleContainer):
         if mapping is None:
             mapping = PersistentMapping()
             mapping.data = OOBTree()
-            mapping.total = 0
+            mapping.highest = 0
             annotations[self.ANNO_KEY] = mapping
         return mapping.data
 
@@ -81,20 +81,25 @@ class ResponseContainer(SampleContainer):
 
     has_key = __contains__
 
-    def __set_total(self, total):
-        if isinstance(total, int):
-            self.__mapping.total = total
+    def __set_highest(self, highest):
+        if isinstance(highest, int):
+            self.__mapping.highest = highest
         else:
             raise ValueError
 
-    def __get_total(self):
-        return self.__mapping.total
+    def __get_highest(self):
+        return self.__mapping.highest
 
-    total = property(__get_total, __set_total)
+    highest = property(__get_highest, __set_highest)
 
     def add(self, item):
-        self[unicode(self.total + 1)] = item
-        self.total += 1
+        self[unicode(self.highest + 1)] = item
+        self.highest += 1
+
+    def delete(self, id):
+        del self[id]
+        while unicode(self.highest) not in self and self.highest > 0:
+            self.highest -= 1
 
     def sorted_keys(self):
         # We do not want this:
