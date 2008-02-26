@@ -280,8 +280,9 @@ class Delete(Base):
                           mapping=dict(response_id=response_id)),
                         type='error')
                 else:
+                    folder.delete(response_id)
                     status.addStatusMessage(
-                        _(u"You want to delete response id ${response_id}.",
+                        _(u"Removed response id ${response_id}.",
                           mapping=dict(response_id=response_id)),
                         type='info')
         self.request.response.redirect(context.absolute_url())
