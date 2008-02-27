@@ -31,6 +31,11 @@
 
           <h3>Edit response</h3>
 
+          <p tal:condition="not:view/can_edit_response">
+            You are not allowed to edit this response.
+            Return to <a href=""
+            tal:attributes="href context/absolute_url">issue</a>.</p>
+
           <form method="post" action="@@poi_response_save"
                 tal:condition="view/can_edit_response">
 
