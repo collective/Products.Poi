@@ -30,7 +30,6 @@ def voc2dict(vocab, current=None):
     >>> voc2dict(vocab, current='b')
     [{'checked': '', 'value': 'a', 'label': 'The letter A'}, {'checked': 'checked', 'value': 'b', 'label': 'The letter B'}]
 
-
     """
     options = []
     for value, label in vocab.items():
@@ -50,10 +49,7 @@ class Base(BrowserView):
         self.context = context
         self.request = request
         self.mime_type = DEFAULT_ISSUE_MIME_TYPE
-        if self.mime_type == 'text/html':
-            self.use_wysiwyg = True
-        else:
-            self.use_wysiwyg = False
+        self.use_wysiwyg = (self.mime_type == 'text/html')
 
     def responses(self):
         context = aq_inner(self.context)
