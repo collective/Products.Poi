@@ -7,7 +7,6 @@
                      response nocall:response_info/response;
                      html response_info/html;"
          tal:attributes="class string:response-${response/type}">
-      <!-- XXX Show edit/delete buttons. -->
 
       <div class="response-actions"
            tal:condition="view/can_edit_response|view/can_delete_response">
