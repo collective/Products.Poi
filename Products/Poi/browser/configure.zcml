@@ -48,6 +48,7 @@
      for="Products.Poi.interfaces.IIssue"
      permission="zope2.View"
      class=".response.Edit"
+     template="edit_response.pt"
      />
 
   <browser:page

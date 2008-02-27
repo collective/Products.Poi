@@ -258,7 +258,24 @@ class Create(Base):
 
 
 class Edit(Base):
-    pass
+
+    @property
+    @memoize
+    def response(self):
+        form = self.request.form
+        context = aq_inner(self.context)
+        response_id = form.get('response_id', None)
+        if response_id is None:
+            return None
+        folder = IResponseContainer(context)
+        if response_id not in folder:
+            return None
+        return folder[response_id]
+
+    @property
+    def response_found(self):
+        return self.response is not None
+
 
 class Save(Base):
 
@@ -282,7 +299,7 @@ class Save(Base):
                 response_text = form.get('response', u'')
                 response.text = response_text
                 status.addStatusMessage(
-                    _(u"Changed saved to response id ${response_id}.",
+                    _(u"Changes saved to response id ${response_id}.",
                       mapping=dict(response_id=response_id)),
                     type='info')
         self.request.response.redirect(context.absolute_url())
