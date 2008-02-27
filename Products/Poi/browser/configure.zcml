@@ -43,4 +43,18 @@
      class=".response.Delete"
      />
 
+  <browser:page
+     name="poi_response_edit"
+     for="Products.Poi.interfaces.IIssue"
+     permission="zope2.View"
+     class=".response.Edit"
+     />
+
+  <browser:page
+     name="poi_response_save"
+     for="Products.Poi.interfaces.IIssue"
+     permission="zope2.View"
+     class=".response.Save"
+     />
+
 </configure>

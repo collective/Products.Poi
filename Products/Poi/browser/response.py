@@ -257,6 +257,37 @@ class Create(Base):
         self.request.response.redirect(context.absolute_url())
 
 
+class Edit(Base):
+    pass
+
+class Save(Base):
+
+    def __call__(self):
+        form = self.request.form
+        context = aq_inner(self.context)
+        status = IStatusMessage(self.request)
+        if not self.can_edit_response:
+            status.addStatusMessage(
+                _(u"You are not allowed to edit responses."),
+                type='error')
+        else:
+            response_id = form.get('response_id', None)
+            if response_id is None:
+                status.addStatusMessage(
+                    _(u"No response selected for saving."),
+                    type='error')
+            else:
+                folder = IResponseContainer(context)
+                response = folder[response_id]
+                response_text = form.get('response', u'')
+                response.text = response_text
+                status.addStatusMessage(
+                    _(u"Changed saved to response id ${response_id}.",
+                      mapping=dict(response_id=response_id)),
+                    type='info')
+        self.request.response.redirect(context.absolute_url())
+
+
 class Delete(Base):
 
     def __call__(self):

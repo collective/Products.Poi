@@ -12,9 +12,10 @@
       <div class="response-actions"
            tal:condition="view/can_edit_response|view/can_delete_response">
         <form method="post"
-              tal:attributes="action string:@@poi_response_edit"
+              tal:attributes="action string:@@poi_response_save"
               tal:condition="view/can_edit_response">
           <input type="hidden" name="response_id" tal:attributes="value id" />
+          <input type="hidden" name="response" value="Dummy content #1." />
           <input class="standalone"
                  type="submit"
                  i18n:attributes="value"
