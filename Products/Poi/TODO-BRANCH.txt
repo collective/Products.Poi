@@ -1,0 +1,31 @@
+To do in this branch before merging back to trunk
+=================================================
+
+- Add (browser) tests for deleting or editing a response.
+
+- Add migration (GS upgrade step?) from PoiResponses to new style
+  responses.
+
+- Send email when response is added.
+
+- Update SearchableText of issue when response in
+  added/changed/removed.
+
+- Remove button for adding old style response to issue.
+
+- Add i18n (to avoid problems in merging it is probably best not to
+  actually run ./i18n/rebuildAll.sh).
+
+- Make sure the tests keep running when content/PoiResponse.py is
+  removed.  This file should not *really* be removed though as we need
+  it still during migration.
+
+- Remove skins/Poi/determineResponseType.py
+
+- See if the isValid and post_validate methods from PoiResponse need
+  to be kept in some form.  All others have been sufficiently dealt
+  with (except sendResponseNotificationMail but that is a different
+  point above).
+
+- Add handling for the target releases field (available only when
+  using the PSC tracker).
