@@ -71,3 +71,37 @@ This response was a clarification from the original poster::
 
     >>> 'class="response-clarification"' in browser.contents
     True
+
+We can edit this response::
+
+    >>> browser.getControl('Edit', index=1).click()
+    >>> browser.url
+    'http://nohost/plone/issues/1/@@poi_response_edit'
+    >>> 'Edit response' in browser.contents
+    True
+
+The original response text is there::
+
+    >>> 'Possibly fixed in r99.' in browser.contents
+    True
+
+We change the text and save it::
+
+    >>> browser.getControl(name='response').value = 'Certainly fixed in r100.'
+    >>> browser.getControl('Submit').click()
+    >>> 'Changes saved' in browser.contents
+    True
+    >>> 'Certainly fixed in r100.' in browser.contents
+    True
+    >>> browser.url
+    'http://nohost/plone/issues/1'
+
+Now we delete the response::
+
+    >>> browser.getControl('Delete').click()
+    >>> browser.url
+    'http://nohost/plone/issues/1'
+    >>> 'Removed response' in browser.contents
+    True
+    >>> 'Certainly fixed in r100.' in browser.contents
+    False

@@ -1,8 +1,6 @@
 To do in this branch before merging back to trunk
 =================================================
 
-- Add (browser) tests for deleting or editing a response.
-
 - Add migration (GS upgrade step?) from PoiResponses to new style
   responses.
 
