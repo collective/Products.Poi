@@ -37,7 +37,7 @@
   <subscriber
       for="Products.Poi.adapters.IResponse
            zope.lifecycleevent.interfaces.IObjectModifiedEvent"
-      handler=".events.modifiedResponse"
+      handler=".events.modifiedNewStyleResponse"
       />
 
   <subscriber

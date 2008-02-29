@@ -6,6 +6,11 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- No __parent__ and __name__ for PoiIssue anymore.  Instead pass the
+  issue as descriptions argument when firing the ObjectModifiedEvent
+  for a response.  Works fine and needs no migration.
+  [maurits]
+
 - Use __parent__ and __name__ for responses.
   [maurits]
 

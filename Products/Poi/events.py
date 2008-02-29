@@ -12,12 +12,18 @@ def removedResponse(object, event):
 def modifiedResponse(object, event):
     """A response is modified or created so update its parent.
     """
-    # Old style response:
     parent = aq_parent(object)
-    if parent is None:
-        # New style response:
-        parent = object.__parent__.context
-
     if IIssue.providedBy(parent):
         parent.reindexObject(idxs=['SearchableText'])
         parent.notifyModified()
+
+def modifiedNewStyleResponse(object, event):
+    """A response is modified or created so update its parent.
+    """
+
+    if len(event.descriptions) > 0:
+        parent = event.descriptions[0]
+        if IIssue.providedBy(parent):
+            parent.reindexObject(idxs=['SearchableText'])
+            parent.notifyModified()
+

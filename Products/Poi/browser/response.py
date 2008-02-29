@@ -296,8 +296,14 @@ class Save(Base):
                     _(u"Changes saved to response id ${response_id}.",
                       mapping=dict(response_id=response_id)),
                     type='info')
-                # Fire event
-                modified(response)
+                # Fire event.  We put the context in the descriptions
+                # so event handlers can use this fully acquisition
+                # wrapped object to do their thing.  Feels like
+                # cheating, but it gets the job done.  Arguably we
+                # could turn the two arguments around and signal that
+                # the issue has changed, with the response in the
+                # event descriptions.
+                modified(response, context)
         self.request.response.redirect(context.absolute_url())
 
 
