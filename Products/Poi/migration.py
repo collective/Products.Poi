@@ -2,6 +2,14 @@ from StringIO import StringIO
 from zope import interface
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
+from Products.Poi.interfaces import IIssue
+from Products.Poi.adapters import Response
+from Products.Poi.adapters import IResponseContainer
+from Products.Poi.browser.response import Create
+from zope.publisher.browser import TestRequest
+import logging
+log = logging.getLogger("Poi")
+
 
 class IMigration(interface.Interface):
     def fix_btrees():
@@ -25,3 +33,40 @@ class Migration(BrowserView):
                 out.write('Fixed BTreeFolder at %s\n' %
                           '/'.join(tracker.getPhysicalPath()))
         return out.getvalue()
+
+
+def replace_responses(issue):
+    if not IIssue.providedBy(issue):
+        return
+    responses = issue.contentValues(filter={'portal_type' : 'PoiResponse'})
+    folder = IResponseContainer(issue)
+    request = TestRequest()
+    createview = Create(issue, request)
+    path = '/'.join(issue.getPhysicalPath())
+    log.info("Will migrate %s responses for issue at %s.",
+             len(responses), path)
+    for old_response in responses:
+        field = old_response.getField('response')
+        text = field.getRaw(old_response)
+        new_response = Response(text)
+        new_response.mime_type = field.getContentType(old_response)
+        new_response.creator = old_response.Creator()
+        new_response.date = old_response.CreationDate()
+        new_response.type = createview.determine_response_type(new_response)
+        changes = old_response.getIssueChanges()
+        for change in changes:
+            new_response.add_change(**change)
+        folder.add(new_response)
+        issue._delObject(old_response.getId())
+    # This seems a good time to reindex the issue for good measure.
+    issue.reindexObject()
+
+def migrate_responses(context):
+    log.info("Starting migration of old style to new style responses.")
+    catalog = getToolByName(context, 'portal_catalog')
+    brains = catalog.searchResults(portal_type='PoiIssue')
+    log.info("Found %s PoiIssues that will be checked for responses.",
+             len(brains))
+    for brain in brains:
+        issue = brain.getObject()
+        replace_responses(issue)

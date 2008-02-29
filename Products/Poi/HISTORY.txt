@@ -6,6 +6,10 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Add migration (GenericSetup upgrade step) from old to new style
+  responses.
+  [maurits]
+
 - Use the text of new style responses too for the SearchableText of an
   issue.
   [maurits]
