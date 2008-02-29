@@ -53,6 +53,8 @@ from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
 from Products.Poi.config import DESCRIPTION_LENGTH
 from Products.Poi.config import ISSUE_MIME_TYPES
 from Products.Poi.config import PROJECTNAME
+from Products.Poi.adapters import IResponseContainer
+
 
 from Products.Poi import permissions
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
@@ -520,8 +522,15 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
     def SearchableText(self):
         """Include in the SearchableText the text of all responses"""
         text = BaseObject.SearchableText(self)
+        folder = IResponseContainer(self, None)
+        if folder is None:
+            return text
+        # old style:
         responses = self.contentValues(filter={'portal_type' : 'PoiResponse'})
         text += ' ' + ' '.join([r.SearchableText() for r in responses])
+        # new style:
+        responses = folder.values()
+        text += ' ' + ' '.join([r.text for r in responses])
         return text
 
     def notifyModified(self):
