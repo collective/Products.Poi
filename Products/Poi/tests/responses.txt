@@ -58,6 +58,13 @@ about that::
     >>> rc.highest == len(rc) == len(rc.items()) == 1
     True
 
+Adding something that is not an IResponse should fail::
+
+    >>> rc.add("Bogus response.")
+    Traceback (most recent call last):
+    ...
+    UnaddableError: Bogus response. cannot be added to <Products.Poi.adapters.ResponseContainer object at ...>: IResponse interface not provided.
+
 The keys of the responses are successive numbers turned into unicode::
 
     >>> [k for k in rc.keys()]

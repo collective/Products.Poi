@@ -6,6 +6,22 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Use __parent__ and __name__ for responses.
+  [maurits]
+
+- Add "self.__parent__ = self.__name__ = None" to __init__() of
+  PoiIssue.  Needs migration.  Not sure if that is the best solution
+  to the problem that in the event handler for modified responses the
+  issue has no acquisition context.
+
+- Fire ObjectRemovedEvent when deleting a response and
+  ObjectModifiedEvent when modifying it.
+  [maurits]
+
+- When adding something to an issue check that it really is an
+  IResponse.
+  [maurits]
+
 - Add buttons and browser views for deleting and editing responses.
   [maurits]
 

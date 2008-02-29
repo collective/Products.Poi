@@ -9,6 +9,7 @@ from plone.memoize.view import memoize
 from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
 from Products.Poi import PoiMessageFactory as _
 from Products.statusmessages.interfaces import IStatusMessage
+from zope.lifecycleevent import modified
 
 
 def voc2dict(vocab, current=None):
@@ -295,6 +296,8 @@ class Save(Base):
                     _(u"Changes saved to response id ${response_id}.",
                       mapping=dict(response_id=response_id)),
                     type='info')
+                # Fire event
+                modified(response)
         self.request.response.redirect(context.absolute_url())
 
 

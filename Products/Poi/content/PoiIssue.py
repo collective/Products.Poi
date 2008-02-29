@@ -342,6 +342,9 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
     schema.moveField('subject', after='watchers')
 
     # Methods
+    def __init__(self, oid, **kwargs):
+        self.__parent__ = self.__name__ = None
+        super(PoiIssue, self).__init__(oid, **kwargs)
 
     security.declareProtected(permissions.View, 'getCurrentIssueState')
     def getCurrentIssueState(self):

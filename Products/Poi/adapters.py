@@ -11,6 +11,10 @@ from Products.Poi.interfaces import IIssue
 from BTrees.OOBTree import OOBTree
 from AccessControl import getSecurityManager
 from DateTime import DateTime
+from zope.app.container.contained import ObjectRemovedEvent
+from zope.app.container.contained import ObjectAddedEvent
+from zope.app.container.interfaces import UnaddableError
+from zope.event import notify
 
 
 class IResponseContainer(Interface):
@@ -93,11 +97,23 @@ class ResponseContainer(SampleContainer):
     highest = property(__get_highest, __set_highest)
 
     def add(self, item):
+        if not IResponse.providedBy(item):
+            raise UnaddableError(self, item,
+                                 "IResponse interface not provided.")
         self[unicode(self.highest + 1)] = item
         self.highest += 1
 
     def delete(self, id):
+        # We need to fire an ObjectRemovedEvent ourselves here because
+        # self[id].__parent__ is not exactly the same as self, which
+        # in the end means that __delitem__ does not fire an
+        # ObjectRemovedEvent for us.
+        #
+        # Also, now we can say the oldParent is the issue instead of
+        # this adapter.
+        event = ObjectRemovedEvent(self[id], oldParent=self.context, oldName=id)
         del self[id]
+        notify(event)
         while unicode(self.highest) not in self and self.highest > 0:
             self.highest -= 1
 
@@ -123,6 +139,7 @@ class Response(Persistent):
     implements(IResponse)
 
     def __init__(self, text):
+        self.__parent__ = self.__name__ = None
         self.text = text
         self.changes = PersistentList()
         sm = getSecurityManager()
