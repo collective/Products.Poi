@@ -1,0 +1,47 @@
+Migration
+---------
+
+Old style responses can be migrated to new style responses.  We create
+some content::
+
+    >>> self.loginAsPortalOwner()
+    >>> self.portal.invokeFactory('PoiTracker', 'issues')
+    'issues'
+    >>> tracker = self.portal.issues
+    >>> tracker.invokeFactory('PoiIssue', 'one')
+    'one'
+    >>> tracker.invokeFactory('PoiIssue', 'two')
+    'two'
+    >>> issue1 = tracker.one
+    >>> issue2 = tracker.two
+    >>> issue1.invokeFactory('PoiResponse', 'one')
+    'one'
+
+The first issue has one oldstyle response and no new style responses::
+
+    >>> len(issue1.contentValues(filter={'portal_type' : 'PoiResponse'}))
+    1
+    >>> from Products.Poi.adapters import IResponseContainer
+    >>> rc = IResponseContainer(issue1)
+    >>> len(rc)
+    0
+
+We call the migrator on the first issue::
+
+    >>> from Products.Poi.migration import replace_responses
+    >>> replace_responses(issue1)
+
+Now the numbers of old and new style responses have flipped::
+
+    >>> len(issue1.contentValues(filter={'portal_type' : 'PoiResponse'}))
+    0
+    >>> len(rc)
+    1
+
+Calling the migrator a second time has no ill effect::
+
+    >>> replace_responses(issue1)
+    >>> len(issue1.contentValues(filter={'portal_type' : 'PoiResponse'}))
+    0
+    >>> len(rc)
+    1

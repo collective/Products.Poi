@@ -6,6 +6,9 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Add first tests for migration of individual issue.
+  [maurits]
+
 - Add migration (GenericSetup upgrade step) from old to new style
   responses.
   [maurits]

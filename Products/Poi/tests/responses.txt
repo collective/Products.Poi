@@ -308,3 +308,10 @@ Other persons can give additional information::
     >>> response.creator = 'Maurits'
     >>> createview.determine_response_type(response)
     'additional'
+
+
+Migration
+---------
+
+For tests of the migration from old style to new style responses, see
+migration.txt.
