@@ -35,7 +35,7 @@ class Migration(BrowserView):
         return out.getvalue()
 
 
-def replace_responses(issue):
+def replace_old_with_new_responses(issue):
     if not IIssue.providedBy(issue):
         return
     responses = issue.contentValues(filter={'portal_type' : 'PoiResponse'})
@@ -64,9 +64,14 @@ def replace_responses(issue):
 def migrate_responses(context):
     log.info("Starting migration of old style to new style responses.")
     catalog = getToolByName(context, 'portal_catalog')
-    brains = catalog.searchResults(portal_type='PoiIssue')
-    log.info("Found %s PoiIssues that will be checked for responses.",
-             len(brains))
-    for brain in brains:
-        issue = brain.getObject()
-        replace_responses(issue)
+    tracker_brains = catalog.searchResults(portal_type='PoiTracker')
+    log.info("Found %s PoiTrackers.", len(tracker_brains))
+    for brain in tracker_brains:
+        tracker = brain.getObject()
+        # We definitely do not want to send any emails for responses
+        # added or removed during this migration.
+        original_send_emails = tracker.getSendNotificationEmails()
+        tracker.setSendNotificationEmails(False)
+        for issue in tracker.contentValues():
+            replace_old_with_new_responses(issue)
+        tracker.setSendNotificationEmails(original_send_emails)

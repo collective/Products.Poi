@@ -5,43 +5,73 @@ Old style responses can be migrated to new style responses.  We create
 some content::
 
     >>> self.loginAsPortalOwner()
-    >>> self.portal.invokeFactory('PoiTracker', 'issues')
-    'issues'
-    >>> tracker = self.portal.issues
-    >>> tracker.invokeFactory('PoiIssue', 'one')
-    'one'
-    >>> tracker.invokeFactory('PoiIssue', 'two')
-    'two'
-    >>> issue1 = tracker.one
-    >>> issue2 = tracker.two
-    >>> issue1.invokeFactory('PoiResponse', 'one')
-    'one'
+    >>> for x in ('foo', 'bar'):
+    ...     dummy = self.portal.invokeFactory('PoiTracker', x)
+    ...     for y in ('foo', 'bar' , 'baz'):
+    ...         dummy = self.portal[x].invokeFactory('PoiIssue', y)
+    ...         for z in ('foo', 'bar' , 'baz', 'quux'):
+    ...             dummy = self.portal[x][y].invokeFactory('PoiResponse', z)
+    >>> catalog = self.portal.portal_catalog
+    >>> len(catalog(portal_type='PoiTracker'))
+    2
+    >>> len(catalog(portal_type='PoiIssue'))
+    6
+    >>> len(catalog(portal_type='PoiResponse'))
+    24
 
-The first issue has one oldstyle response and no new style responses::
+We look at the first issue created.  Like all the others it has five
+oldstyle response and no new style responses::
 
-    >>> len(issue1.contentValues(filter={'portal_type' : 'PoiResponse'}))
-    1
+    >>> tracker = self.portal.foo
+    >>> issue = tracker.foo
+    >>> len(issue.contentValues(filter={'portal_type' : 'PoiResponse'}))
+    4
     >>> from Products.Poi.adapters import IResponseContainer
-    >>> rc = IResponseContainer(issue1)
+    >>> rc = IResponseContainer(issue)
     >>> len(rc)
     0
 
-We call the migrator on the first issue::
+We call the migrator on this issue::
 
-    >>> from Products.Poi.migration import replace_responses
-    >>> replace_responses(issue1)
+    >>> from Products.Poi.migration import replace_old_with_new_responses
+    >>> replace_old_with_new_responses(issue)
 
 Now the numbers of old and new style responses have flipped::
 
-    >>> len(issue1.contentValues(filter={'portal_type' : 'PoiResponse'}))
+    >>> len(issue.contentValues(filter={'portal_type' : 'PoiResponse'}))
     0
     >>> len(rc)
-    1
+    4
 
 Calling the migrator a second time has no ill effect::
 
-    >>> replace_responses(issue1)
-    >>> len(issue1.contentValues(filter={'portal_type' : 'PoiResponse'}))
+    >>> replace_old_with_new_responses(issue)
+    >>> len(issue.contentValues(filter={'portal_type' : 'PoiResponse'}))
     0
     >>> len(rc)
-    1
+    4
+
+Calling the migrator on something that is not a PoiIssue (actually not
+implementing IIssue), gives no errors::
+
+    >>> replace_old_with_new_responses(self.portal)
+
+Calling migrate_responses searches for all PoiTrackers and migrates
+all responses::
+
+    >>> from Products.Poi.migration import migrate_responses
+    >>> migrate_responses(self.portal)
+
+
+All PoiResponses are gone after migration and they have been added as
+new style responses::
+
+    >>> len(catalog(portal_type='PoiResponse'))
+    0
+    >>> issues = catalog(portal_type='PoiIssue')
+    >>> len(issues)
+    6
+    >>> for issue in issues:
+    ...     issue = issue.getObject()
+    ...     rc = IResponseContainer(issue)
+    ...     self.assertEqual(len(rc), 4)
