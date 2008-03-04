@@ -7,8 +7,18 @@ from Products.Poi.adapters import Response
 from Products.Poi.adapters import IResponseContainer
 from Products.Poi.browser.response import Create
 from zope.publisher.browser import TestRequest
+from zope.annotation.interfaces import IAttributeAnnotatable
+from zope.interface import classImplements
 import logging
 log = logging.getLogger("Poi")
+
+
+# Helper class for calling a browser view with a fake request.  It
+# needs to be annotatable so memoize can do its work.
+class HelperRequest(TestRequest):
+    pass
+
+classImplements(HelperRequest, IAttributeAnnotatable)
 
 
 class IMigration(interface.Interface):
@@ -40,7 +50,7 @@ def replace_old_with_new_responses(issue):
         return
     responses = issue.contentValues(filter={'portal_type' : 'PoiResponse'})
     folder = IResponseContainer(issue)
-    request = TestRequest()
+    request = HelperRequest()
     createview = Create(issue, request)
     path = '/'.join(issue.getPhysicalPath())
     log.info("Will migrate %s responses for issue at %s.",
