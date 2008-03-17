@@ -46,16 +46,16 @@ class Base(BrowserView):
     def __init__(self, context, request):
         self.context = context
         self.request = request
+        self.folder = IResponseContainer(context)
         self.mime_type = DEFAULT_ISSUE_MIME_TYPE
         self.use_wysiwyg = (self.mime_type == 'text/html')
 
     def responses(self):
         context = aq_inner(self.context)
-        folder = IResponseContainer(context)
-        trans = self.context.portal_transforms
+        trans = context.portal_transforms
         items = []
         linkDetection = context.linkDetection
-        for id, response in folder.sorted_items():
+        for id, response in self.folder.sorted_items():
             if response.mime_type == 'text/html':
                 html = response.text
             else:
@@ -246,8 +246,7 @@ class Create(Base):
                                             current, new)
         context.update(**changes)
             
-        folder = IResponseContainer(context)
-        folder.add(new_response)
+        self.folder.add(new_response)
         self.request.response.redirect(context.absolute_url())
 
 
@@ -261,10 +260,9 @@ class Edit(Base):
         response_id = form.get('response_id', None)
         if response_id is None:
             return None
-        folder = IResponseContainer(context)
-        if response_id not in folder:
+        if response_id not in self.folder:
             return None
-        return folder[response_id]
+        return self.folder[response_id]
 
     @property
     def response_found(self):
@@ -288,8 +286,7 @@ class Save(Base):
                     _(u"No response selected for saving."),
                     type='error')
             else:
-                folder = IResponseContainer(context)
-                response = folder[response_id]
+                response = self.folder[response_id]
                 response_text = form.get('response', u'')
                 response.text = response_text
                 status.addStatusMessage(
@@ -323,14 +320,13 @@ class Delete(Base):
                     _(u"No response selected for removal."),
                     type='error')
             else:
-                folder = IResponseContainer(context)
-                if not response_id in folder:
+                if not response_id in self.folder:
                     status.addStatusMessage(
                         _(u"Response id ${response_id} does not exist so it cannot be removed.",
                           mapping=dict(response_id=response_id)),
                         type='error')
                 else:
-                    folder.delete(response_id)
+                    self.folder.delete(response_id)
                     status.addStatusMessage(
                         _(u"Removed response id ${response_id}.",
                           mapping=dict(response_id=response_id)),

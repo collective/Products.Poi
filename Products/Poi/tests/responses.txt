@@ -195,6 +195,15 @@ parts::
     >>> classImplements(TestRequest, IAttributeAnnotatable)
     >>> request = TestRequest()
 
+We need to have an adapter for our issues::
+
+    >>> from zope.component import provideAdapter
+    >>> from Products.Poi.adapters import IResponseContainer
+    >>> provideAdapter(ResponseContainer, adapts=(IIssue,),
+    ...                provides=IResponseContainer)
+    >>> from zope.interface import classImplements
+    >>> classImplements(PoiIssue, IAttributeAnnotatable)
+
 We fire up a browser (view) and do some basic checking::
 
     >>> from Products.Poi.browser.response import Base
@@ -218,14 +227,8 @@ The view has some methods especially for displaying::
     [{'checked': 'checked', 'value': '(UNASSIGNED)', 'label': 'None'}, {'checked': '', 'value': 'manager', 'label': 'manager'}]
 
 And of course the responses are visible.  Well, no response has been
-added yet.  To see that, we need some setup again::
+added yet.
 
-    >>> from zope.component import provideAdapter
-    >>> from Products.Poi.adapters import IResponseContainer
-    >>> provideAdapter(ResponseContainer, adapts=(IIssue,),
-    ...                provides=IResponseContainer)
-    >>> from zope.interface import classImplements
-    >>> classImplements(PoiIssue, IAttributeAnnotatable)
     >>> view.responses()
     []
 
