@@ -1,0 +1,39 @@
+From Archetypes to Zope 3
+=========================
+
+
+Case study: Poi Responses
+-------------------------
+
+https://svn.plone.org/svn/collective/Products.Poi/buildout/poi30/branches/maurits-inline-response-adding
+
+
+
+Archetypes
+----------
+
++ Well known solution
+
+- big, fat objects
+
+- lots of overhead
+
+
+Zope 3 content objects
+----------------------
+
+- Less well known.
+
++ smaller objects
+
++ less overhead
+
+
+Adding 100 responses
+--------------------
+
+- Creation is much faster with zope 3 objects.
+
+- Data.fs increase: 1 MB for Archetypes, 0.5 MB for zope 3.
+
+- But viewing is 2 times slower for zope 3. (!?) -> TODO!
