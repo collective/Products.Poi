@@ -34,7 +34,11 @@ Code: `maurits-inline-response-adding branch`_.
 Archetypes
 ----------
 
+Good:
+
 + Well known solution
+
+Bad:
 
 - big, fat objects
 
@@ -44,7 +48,11 @@ Archetypes
 Zope 3 content objects
 ----------------------
 
+Bad:
+
 - Less well known.
+
+Good:
 
 + smaller objects
 
