@@ -32,3 +32,6 @@ To do in this branch before merging back to trunk
 
 - Only show options like changing state when the user has permission
   to use them.
+
+- Use memoize or similar to get html responses.  Makes views faster.
+  It works for old style responses.
