@@ -26,7 +26,9 @@ Why Zope 3?
 
 - Adding a response while viewing the complete issue
 
-https://svn.plone.org/svn/collective/Products.Poi/buildout/poi30/branches/maurits-inline-response-adding
+Code: `maurits-inline-response-adding branch`_.
+
+.. _`maurits-inline-response-adding branch`: https://svn.plone.org/svn/collective/Products.Poi/buildout/poi30/branches/maurits-inline-response-adding
 
 
 Archetypes
@@ -220,7 +222,8 @@ Kupu and Zope 3 (or anything)
               editor python:member.getProperty('wysiwyg_editor', 'plone_wysiwyg').lower();
               portal_url context/portal_url;
               here_url context/portal_url;
-              support python: path('nocall:here/%s_wysiwyg_support|here/%s/wysiwyg_support|here/portal_skins/plone_wysiwyg/wysiwyg_support' % (editor, editor));"
+              support python: path('nocall:here/%s_wysiwyg_support|here/%s/wysiwyg_support|
+              here/portal_skins/plone_wysiwyg/wysiwyg_support' % (editor, editor));"
       on-error="string:$editor not installed correctly: ${error/value}">
 
 
