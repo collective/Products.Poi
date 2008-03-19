@@ -6,6 +6,10 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Use PersistentList instead of the combination of PersistentMapping
+  and self.highest in ResponseContainer.  Works just as well and feels
+  easier. [maurits]
+
 - Add first tests for migration of individual issue.
   [maurits]
 

@@ -35,7 +35,7 @@ class IResponse(Interface):
         """
 
 
-class ResponseContainer(SampleContainer):
+class ResponseContainer(Persistent):
 
     implements(IResponseContainer)
     adapts(IIssue)
@@ -43,26 +43,11 @@ class ResponseContainer(SampleContainer):
 
     def __init__(self, context):
         self.context = context
-        super(ResponseContainer, self).__init__()
         annotations = IAnnotations(self.context)
-        self.__mapping = annotations.get(self.ANNO_KEY)
-
-    def _newContainerData(self):
-        """Construct an item-data container
-
-        Subclasses should override this if they want different data.
-
-        The value returned is a mapping object that also has `get`,
-        `has_key`, `keys`, `items`, and `values` methods.
-        """
-        annotations = IAnnotations(self.context)
-        mapping = annotations.get(self.ANNO_KEY, None)
-        if mapping is None:
-            mapping = PersistentMapping()
-            mapping.data = OOBTree()
-            mapping.highest = 0
-            annotations[self.ANNO_KEY] = mapping
-        return mapping.data
+        self.__mapping = annotations.get(self.ANNO_KEY, None)
+        if self.__mapping is None:
+            self.__mapping = PersistentList()
+            annotations[self.ANNO_KEY] = self.__mapping
 
     def __contains__(self, key):
         '''See interface IReadContainer
@@ -81,27 +66,34 @@ class ResponseContainer(SampleContainer):
         >>> "A" in c
         False
         '''
-        return key in self._SampleContainer__data
+        return key in self.__mapping
 
     has_key = __contains__
 
-    def __set_highest(self, highest):
-        if isinstance(highest, int):
-            self.__mapping.highest = highest
-        else:
-            raise ValueError
+    def __getitem__(self, i):
+        i = int(i)
+        return self.__mapping.__getitem__(i)
 
-    def __get_highest(self):
-        return self.__mapping.highest
+    def __delitem__(self, item):
+        self.__mapping.__delitem__(item)
 
-    highest = property(__get_highest, __set_highest)
+    def __len__(self):
+        return self.__mapping.__len__()
+
+    def __setitem__(self, i, y):
+        self.__mapping.__setitem__(i, y)
+
+    def append(self, item):
+        self.__mapping.append(item)
+
+    def remove(self, item):
+        self.__mapping.remove(item)
 
     def add(self, item):
         if not IResponse.providedBy(item):
             raise UnaddableError(self, item,
                                  "IResponse interface not provided.")
-        self[unicode(self.highest + 1)] = item
-        self.highest += 1
+        self.append(item)
 
     def delete(self, id):
         # We need to fire an ObjectRemovedEvent ourselves here because
@@ -112,26 +104,8 @@ class ResponseContainer(SampleContainer):
         # Also, now we can say the oldParent is the issue instead of
         # this adapter.
         event = ObjectRemovedEvent(self[id], oldParent=self.context, oldName=id)
-        del self[id]
+        self.remove(self[id])
         notify(event)
-        while unicode(self.highest) not in self and self.highest > 0:
-            self.highest -= 1
-
-    def sorted_keys(self):
-        # We do not want this:
-        # [u'1', u'10', u'2', u'3', u'4', u'5', u'6', u'7', u'8', u'9']
-        # but this:
-        # [u'1', u'2', u'3', u'4', u'5', u'6', u'7', u'8', u'9', u'10']
-        ints = [int(x) for x in self.keys()]
-        ints.sort()
-        keys = [unicode(x) for x in ints]
-        return keys
-
-    def sorted_items(self):
-        return [(key, self[key]) for key in self.sorted_keys()]
-
-    def sorted_values(self):
-        return [self[key] for key in self.sorted_keys()]
 
 
 class Response(Persistent):

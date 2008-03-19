@@ -55,7 +55,7 @@ class Base(BrowserView):
         trans = context.portal_transforms
         items = []
         linkDetection = context.linkDetection
-        for id, response in self.folder.sorted_items():
+        for id, response in enumerate(self.folder):
             if response.mime_type == 'text/html':
                 html = response.text
             else:
@@ -260,7 +260,11 @@ class Edit(Base):
         response_id = form.get('response_id', None)
         if response_id is None:
             return None
-        if response_id not in self.folder:
+        try:
+            response_id = int(response_id)
+        except ValueError:
+            return None
+        if response_id >= len(self.folder):
             return None
         return self.folder[response_id]
 
@@ -320,7 +324,14 @@ class Delete(Base):
                     _(u"No response selected for removal."),
                     type='error')
             else:
-                if not response_id in self.folder:
+                try:
+                    response_id = int(response_id)
+                except ValueError:
+                    status.addStatusMessage(
+                        _(u"Response id ${response_id} is no integer so it cannot be removed.",
+                          mapping=dict(response_id=response_id)),
+                        type='error')
+                if response_id >= len(self.folder):
                     status.addStatusMessage(
                         _(u"Response id ${response_id} does not exist so it cannot be removed.",
                           mapping=dict(response_id=response_id)),

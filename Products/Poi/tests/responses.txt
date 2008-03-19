@@ -52,10 +52,12 @@ blown PoiIssue) and turn it into a response container::
 This container does not have any responses yet, so let's do something
 about that::
 
-    >>> rc.highest == len(rc) == len(rc.items()) == 0
+    >>> len(rc) == 0
     True
     >>> rc.add(res)
-    >>> rc.highest == len(rc) == len(rc.items()) == 1
+    >>> len(rc) == 1
+    True
+    >>> res in rc
     True
 
 Adding something that is not an IResponse should fail::
@@ -65,82 +67,29 @@ Adding something that is not an IResponse should fail::
     ...
     UnaddableError: Bogus response. cannot be added to <Products.Poi.adapters.ResponseContainer object at ...>: IResponse interface not provided.
 
-The keys of the responses are successive numbers turned into unicode::
-
-    >>> [k for k in rc.keys()]
-    [u'1']
-    >>> rc[u'1']
-    <Products.Poi.adapters.Response object at ...>
-    >>> u'1' in rc
-    True
-    >>> u'0' in rc
-    False
-    >>> for i in range(2, 12):
-    ...     rc.add(Response("Response %d." % i))
-    >>> [k for k in rc.keys()]
-    [u'1', u'10', u'11', u'2', u'3', u'4', u'5', u'6', u'7', u'8', u'9']
-
-That sort order leaves something to be desired.  We can fix that::
-
-    >>> rc.sorted_keys()
-    [u'1', u'2', u'3', u'4', u'5', u'6', u'7', u'8', u'9', u'10', u'11']
-    >>> rc.highest == len(rc) == len(rc.items()) == 11
-    True
-    >>> rc.sorted_items()
-    [(u'1', <...>), (u'2', <...>), (u'11', <...>)]
-    >>> rc.sorted_values()
-    [<Products.Poi.adapters.Response object at ...>, ...]
-    >>> for val in rc.sorted_values():
-    ...     assert(val in rc.values())
-    >>> rc[u'7'].text
-    'Response 7.'
-
 
 Removing responses
 ------------------
 
+We add a few more responses::
+
+    >>> for i in range(2, 12):
+    ...     rc.add(Response("Response %d." % i))
+    >>> len(rc)
+    11
+
 Responses can be deleted::
 
-    >>> rc.delete(u'7')
-    >>> len(rc) == len(rc.items()) == 10
+    >>> rc.delete(7)
+    >>> len(rc) == 10
     True
-    >>> rc.highest
-    11
 
 Non existing responses cannot be deleted::
 
-    >>> rc.delete(u'7')
+    >>> rc.delete(20)
     Traceback (most recent call last):
     ...
-    KeyError: u'7'
-
-Deleting the most recent response should lower the highest id::
-
-    >>> rc.delete(u'11')
-    >>> rc.highest
-    10
-
-When the highest number is changed, a response with that id should be
-available::
-
-    >>> rc.delete(u'8')
-    >>> rc.delete(u'9')
-    >>> rc.highest
-    10
-    >>> rc.delete(u'10')
-    >>> rc.highest
-    6
-
-Deleting the last one should not result in an error::
-
-    >>> rc.delete(u'6')
-    >>> rc.delete(u'5')
-    >>> rc.delete(u'4')
-    >>> rc.delete(u'3')
-    >>> rc.delete(u'2')
-    >>> rc.delete(u'1')
-    >>> rc.highest
-    0
+    IndexError: list index out of range
 
 
 Browser views
@@ -149,7 +98,7 @@ Browser views
 We have a browser view that takes care of showing the responses and
 adding a response.  To properly test that, we really need a normal
 PoiIssue within a PoiTracker.  To have this work we also need to load
-a bit of acml::
+a bit of zcml::
 
     >>> import Products.Archetypes.Schema
     >>> zcml.load_config('configure.zcml', Products.Archetypes.Schema)
@@ -237,7 +186,7 @@ We use a different browser view to add a response::
     >>> from Products.Poi.browser.response import Create
     >>> Create(issue, request)()
     >>> view.responses()
-    [{'html': u'', 'response': <Products.Poi.adapters.Response object at ...>, 'id': u'1'}]
+    [{'html': u'', 'response': <Products.Poi.adapters.Response object at ...>, 'id': 0}]
 
 We create a slightly more interesting response::
 
