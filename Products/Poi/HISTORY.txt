@@ -60,6 +60,9 @@ Poi 1.2 - (Unreleased)
 Poi 1.1.1 - (Unreleased)
 ------------------------
 
+    - In issue view show CreationDate instead of (modification) Date
+      of the PoiResponse, as the template states this is the date the
+      response was added. [maurits]
 
     - Fix UnicodeEncodeError in RSS feed by not setting headers in the
       response.

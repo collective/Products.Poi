@@ -220,7 +220,7 @@
                        tal:content="python:here.poi_niceName(username=response.Creator())" />
                  <span i18n:translate="poi_added_on">on</span>
                  <span class="contact-user" 
-                       tal:content="python:here.toLocalizedTime(response.Date(), long_format=True)" />
+                       tal:content="python:here.toLocalizedTime(response.CreationDate(), long_format=True)" />
               
                  <div tal:repeat="delta response/getIssueChanges">
                      <span i18n:translate="" tal:content="string:${delta/name}" />:
