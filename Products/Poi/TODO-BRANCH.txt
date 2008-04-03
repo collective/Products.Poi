@@ -1,8 +1,11 @@
 To do in this branch before merging back to trunk
 =================================================
 
-- Add migration (GS upgrade step?) from PoiResponses to new style
-  responses.
+- Add migration (GS upgrade step) to update string Descriptions to
+  unicode.  This is unrelated to this branch really, but running the
+  responses migration step can trigger errors caused by descriptions
+  that were first strings to now be unicode; see the Description
+  method in PoiIssue.py.
 
 - Send email when response is added.
 
