@@ -9,7 +9,7 @@
 
 <metal:css fill-slot="css_slot">
       <style type="text/css" media="all"
-        tal:content="string: @import url($portal_url/poi.css);"></style>
+        tal:content="string:@import url($portal_url/poi.css);"></style>
 </metal:css>
 
 <div metal:fill-slot="main">

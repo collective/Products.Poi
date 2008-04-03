@@ -17,7 +17,7 @@ class IssueFolderView(BrowserView):
     def getIssueSearchQueryString(self, criteria=None, **kwargs):
         """Return a query string for an issue query.
 
-        Form of return string: name1=value1&name2=value2
+        Form of return string:name1=value1&name2=value2
         """
         query = self.buildIssueSearchQuery(criteria, **kwargs)
         return make_query(query)
