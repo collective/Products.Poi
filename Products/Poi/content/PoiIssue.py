@@ -427,21 +427,26 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         self.setId(newId)
 
     def Description(self):
-        """If a description is set manually, return that. Else returns the first
-        200 characters (defined in config.py) of the 'details' field.
+        """Return the explicit description or the details.
+
+        If a description is set manually, return that.  Else returns
+        the first 200 characters (defined in config.py) of the
+        'details' field.
+
+        We must avoid returning a string in one case and a unicode in
+        a different case.  So we always return unicode.
+        See http://plone.org/products/poi/issues/135
         """
-        explicit = self.getField('description').get(self)
-        if explicit:
-            return explicit
-        else:
-            details = self.getRawDetails()
-            if not isinstance(details, unicode):
-                encoding = getSiteEncoding(self)
-                details = unicode(details, encoding)
-            if len(details) > DESCRIPTION_LENGTH:
-                return details[:DESCRIPTION_LENGTH] + "..."
-            else:
-                return details
+        value = self.getField('description').get(self)
+        if not value:
+            value = self.getRawDetails()
+            if len(value) > DESCRIPTION_LENGTH:
+                value = value[:DESCRIPTION_LENGTH] + "..."
+        # Always return unicode.
+        if not isinstance(value, unicode):
+            encoding = getSiteEncoding(self)
+            value = unicode(value, encoding)
+        return value
 
     def validate_watchers(self, value):
         """Make sure watchers are actual user ids"""

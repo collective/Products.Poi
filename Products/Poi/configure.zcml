@@ -71,12 +71,21 @@
       class=".content.PoiResponse.PoiResponse" />
 
   <gs:upgradeStep
+      title="Issue descriptions"
+      description="Fix description of issues."
+      source="1.1"
+      destination="1.2"
+      handler="Products.Poi.migration.fix_descriptions"
+      sortkey="1"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
       title="Poi responses"
       description="Migrate old style to new style Poi responses."
       source="1.1"
       destination="1.2"
       handler="Products.Poi.migration.migrate_responses"
-      sortkey="1"
+      sortkey="2"
       profile="Products.Poi:default" />
 
 </configure>

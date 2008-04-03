@@ -6,6 +6,12 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Add migration step for making sure that the Description of all
+  PoiIssues in the portal_catalog is of type unicode instead of
+  string, just like the real objects. [maurits]
+
+- For the Description of a PoiIssue always return unicode. [maurits]
+
 - Use PersistentList instead of the combination of PersistentMapping
   and self.highest in ResponseContainer.  Works just as well and feels
   easier. [maurits]
