@@ -42,7 +42,7 @@ def replace_old_with_new_responses(issue):
     request = issue.REQUEST
     createview = Create(issue, request)
     path = '/'.join(issue.getPhysicalPath())
-    log.debug("Migrating %s responses for issue at %s.",
+    log.debug("Migrating %s responses for issue at %s",
               len(responses), path)
     for old_response in responses:
         field = old_response.getField('response')
@@ -71,7 +71,7 @@ def migrate_responses(context):
         # added or removed during this migration.
         original_send_emails = tracker.getSendNotificationEmails()
         tracker.setSendNotificationEmails(False)
-        log.info("Migrating %s issues in tracker %s.",
+        log.info("Migrating %s issues in tracker %s",
                  len(tracker.contentIds()), tracker.absolute_url())
         for issue in tracker.contentValues():
             replace_old_with_new_responses(issue)
