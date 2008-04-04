@@ -17,11 +17,6 @@ To do in this branch before merging back to trunk
 
 - Remove skins/Poi/determineResponseType.py
 
-- See if the isValid and post_validate methods from PoiResponse need
-  to be kept in some form.  All others have been sufficiently dealt
-  with (except sendResponseNotificationMail but that is a different
-  point above).
-
 - Add handling for the target releases field (available only when
   using the PSC tracker).
 

@@ -6,6 +6,9 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- In the creation view, test that a response is valid before adding
+  it. [maurits]
+
 - Let unit tests pass on Plone 3.1 by providing an IWorkflowChain
   adapter. [maurits]
 

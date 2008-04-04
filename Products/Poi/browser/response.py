@@ -244,9 +244,16 @@ class Create(Base):
                     changes[option] = new
                     new_response.add_change(option, title,
                                             current, new)
-        context.update(**changes)
-            
-        self.folder.add(new_response)
+        if len(response_text) + len(changes) == 0:
+            status = IStatusMessage(self.request)
+            status.addStatusMessage(
+                _(u"No response text added and no issue changes made."),
+                type='error')
+        else:
+            # Apply changes to issue
+            context.update(**changes)
+            # Add response
+            self.folder.add(new_response)
         self.request.response.redirect(context.absolute_url())
 
 
