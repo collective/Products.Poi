@@ -80,7 +80,7 @@ IResponse Interface
     creator = Attribute("Id of user making this change.")
     date = Attribute("Date (plus time) this response was made.")
     type = Attribute("Type of response (additional/clarification/reply).")
-    mime_type = Attribute("Mime type of the response.")
+    mimetype = Attribute("Mime type of the response.")
 
     def add_change(id, name, before, after):
         """Add change to the list of changes.
@@ -106,7 +106,7 @@ Response class
             self.creator = user.getId() or '(anonymous)'
             self.date = DateTime()
             self.type = 'additional'
-            self.mime_type = ''
+            self.mimetype = ''
 
         def add_change(self, id, name, before, after):
             """Add a new issue change.
@@ -302,7 +302,7 @@ GS Upgrade steps (3)
         field = old_response.getField('response')
         text = field.getRaw(old_response)
         new_response = Response(text)
-        new_response.mime_type = field.getContentType(old_response)
+        new_response.mimetype = field.getContentType(old_response)
         new_response.creator = old_response.Creator()
         changes = old_response.getIssueChanges()
         for change in changes:

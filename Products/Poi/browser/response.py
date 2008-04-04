@@ -47,8 +47,8 @@ class Base(BrowserView):
         self.context = context
         self.request = request
         self.folder = IResponseContainer(context)
-        self.mime_type = DEFAULT_ISSUE_MIME_TYPE
-        self.use_wysiwyg = (self.mime_type == 'text/html')
+        self.mimetype = DEFAULT_ISSUE_MIME_TYPE
+        self.use_wysiwyg = (self.mimetype == 'text/html')
 
     def responses(self):
         context = aq_inner(self.context)
@@ -56,12 +56,12 @@ class Base(BrowserView):
         items = []
         linkDetection = context.linkDetection
         for id, response in enumerate(self.folder):
-            if response.mime_type == 'text/html':
+            if response.mimetype == 'text/html':
                 html = response.text
             else:
                 html = trans.convertTo('text/html',
                                        response.text,
-                                       mimetype=response.mime_type)
+                                       mimetype=response.mimetype)
                 html = html.getData()
             # Detect links like #1 and r1234
             html = linkDetection(html)
@@ -218,7 +218,7 @@ class Create(Base):
         context = aq_inner(self.context)
         response_text = form.get('response', u'')
         new_response = Response(response_text)
-        new_response.mime_type = self.mime_type
+        new_response.mimetype = self.mimetype
         new_response.type = self.determine_response_type(new_response)
 
         transition = form.get('transition', u'')

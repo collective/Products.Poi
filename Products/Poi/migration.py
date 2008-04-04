@@ -48,7 +48,7 @@ def replace_old_with_new_responses(issue):
         field = old_response.getField('response')
         text = field.getRaw(old_response)
         new_response = Response(text)
-        new_response.mime_type = field.getContentType(old_response)
+        new_response.mimetype = field.getContentType(old_response)
         new_response.creator = old_response.Creator()
         new_response.date = old_response.CreationDate()
         new_response.type = createview.determine_response_type(new_response)

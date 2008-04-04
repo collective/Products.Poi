@@ -43,7 +43,7 @@ from zope.contentprovider.interfaces import ITALNamespaceData
 
 class IResponseAdder(IViewletManager):
 
-    mime_type = Attribute("Mime type for response.")
+    mimetype = Attribute("Mime type for response.")
     use_wysiwyg = Attribute("Boolean: Use kupu-like editor.")
 
     def transitions_for_display():
