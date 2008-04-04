@@ -6,6 +6,9 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Let unit tests pass on Plone 3.1 by providing an IWorkflowChain
+  adapter. [maurits]
+
 - Add migration step for making sure that the Description of all
   PoiIssues in the portal_catalog is of type unicode instead of
   string, just like the real objects. [maurits]

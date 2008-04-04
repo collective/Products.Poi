@@ -153,6 +153,19 @@ We need to have an adapter for our issues::
     >>> from zope.interface import classImplements
     >>> classImplements(PoiIssue, IAttributeAnnotatable)
 
+And for Plone 3.1 we need an IWorkflowChain adapter::
+
+    >>> try:
+    ...     from Products.CMFPlone.interfaces import IWorkflowChain
+    ... except ImportError:
+    ...     pass
+    ... else:
+    ...     from Products.CMFCore.interfaces import IWorkflowTool
+    ...     from Products.CMFPlone.workflow import ToolWorkflowChain
+    ...     provideAdapter(ToolWorkflowChain,
+    ...                    adapts=(IIssue, IWorkflowTool),
+    ...                    provides=IWorkflowChain)
+
 We fire up a browser (view) and do some basic checking::
 
     >>> from Products.Poi.browser.response import Base
