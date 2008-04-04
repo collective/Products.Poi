@@ -142,11 +142,21 @@ parts::
     >>> from zope.annotation.interfaces import IAttributeAnnotatable
     >>> from zope.interface import classImplements
     >>> classImplements(TestRequest, IAttributeAnnotatable)
+
+And browser views can add status messages to a request, so we need
+some more setup code::
+
+    >>> from zope.component import provideAdapter
+    >>> from Products.statusmessages.interfaces import IStatusMessage
+    >>> from Products.statusmessages.adapter import StatusMessage
+    >>> from zope.publisher.interfaces.browser import IBrowserRequest
+    >>> provideAdapter(StatusMessage, adapts=(IBrowserRequest,),
+    ...                provides=IStatusMessage)
+    >>> TestRequest.RESPONSE = TestRequest.response
     >>> request = TestRequest()
 
 We need to have an adapter for our issues::
 
-    >>> from zope.component import provideAdapter
     >>> from Products.Poi.adapters import IResponseContainer
     >>> provideAdapter(ResponseContainer, adapts=(IIssue,),
     ...                provides=IResponseContainer)
@@ -199,16 +209,17 @@ We use a different browser view to add a response::
     >>> from Products.Poi.browser.response import Create
     >>> Create(issue, request)()
     >>> view.responses()
-    [{'html': u'', 'response': <Products.Poi.adapters.Response object at ...>, 'id': 0}]
+    []
 
-We create a slightly more interesting response::
+Okay, that failed as we added no response text did not make any issue
+changes.  So we create a slightly more interesting response::
 
     >>> form = dict(response="This issue misses a shrubbery.",
     ...             severity='Low')
     >>> Create(issue, TestRequest(form=form))()
     >>> len(view.responses())
-    2
-    >>> res = view.responses()[1]['response']
+    1
+    >>> res = view.responses()[-1]['response']
     >>> res.text
     'This issue misses a shrubbery.'
     >>> res.changes
@@ -221,7 +232,7 @@ We create a slightly more interesting response::
     ...             severity='Critical', responsibleManager='manager')
     >>> Create(issue, TestRequest(form=form))()
     >>> len(view.responses())
-    3
+    2
     >>> res = view.responses()[-1]['response']
     >>> res.text
     'We are no longer the Knights who say Ni.'
@@ -252,7 +263,8 @@ Within the Create view there is a method to determine the response
 type.  Since the response was made anonymously, we stick to the
 default::
 
-    >>> createview = Create(issue, TestRequest())
+    >>> form = dict(response="Please help.")
+    >>> createview = Create(issue, TestRequest(form=form))
     >>> createview.determine_response_type(response)
     'additional'
 

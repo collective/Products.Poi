@@ -47,6 +47,19 @@ Now we create an issue::
     >>> browser.getControl(name='form_submit').click()
     >>> 'Changes saved.' in browser.contents
     True
+    >>> issue = tracker['1']
+
+We check some values of the issue before adding a response::
+
+    >>> from Products.CMFCore.utils import getToolByName
+    >>> workflow = getToolByName(self.portal, 'portal_workflow')
+    >>> workflow.getInfoFor(issue, 'review_state')
+    'unconfirmed'
+    >>> issue.getResponsibleManager()
+    '(UNASSIGNED)'
+    >>> issue.getSeverity()
+    'Medium'
+
 
 If we just click the submit button without filling in text, an error
 occurs::
@@ -55,18 +68,43 @@ occurs::
     >>> "No response text added and no issue changes made." in browser.contents
     True
 
-Leaving the text empty but changing a value is fine::
+Leaving the text empty but changing a value is fine.  We test setting
+the severity::
 
     >>> '<td>Important</td>' in browser.contents
     False
     >>> browser.getControl(name='severity').value = ('Important',)
     >>> browser.getControl('Submit').click()
+    >>> issue.getSeverity()
+    'Important'
     >>> '<td>Important</td>' in browser.contents
     True
     >>> "No response text added and no issue changes made." in browser.contents
     False
 
-Now we can add a bigger response::
+We check the values of this response::
+
+    >>> from Products.Poi.adapters import IResponseContainer
+    >>> folder = IResponseContainer(issue)
+    >>> response = folder[0]
+    >>> response.text
+    ''
+    >>> response.text
+    ''
+    >>> len(response.changes)
+    1
+    >>> response.changes[0]
+    {'before': 'Medium', 'after': 'Important', 'id': 'severity', 'name': 'Severity'}
+    >>> response.creator
+    'test_user_1_'
+    >>> response.date
+    DateTime(...)
+    >>> response.type
+    'clarification'
+    >>> response.mimetype
+    'text/x-web-intelligent'
+
+Now we add a response::
 
     >>> browser.getControl(name='response').value = 'Possibly fixed in r99.'
     >>> browser.getControl(name='transition').value = ('accept-unconfirmed',)
@@ -84,10 +122,38 @@ We check the current status in the browser contents::
     >>> '<td>Important</td>' in browser.contents
     True
 
+And we check the issue to be sure:
+
+    >>> workflow.getInfoFor(issue, 'review_state')
+    'open'
+    >>> issue.getResponsibleManager()
+    'test_user_1_'
+
 This response was a clarification from the original poster::
 
     >>> 'class="response-clarification"' in browser.contents
     True
+
+We check the values of the response::
+
+    >>> response = folder[1]
+    >>> response.text
+    'Possibly fixed in r99.'
+    >>> len(response.changes)
+    2
+    >>> response.changes[0]
+    {'before': 'unconfirmed', 'after': 'open', 'id': 'review_state', 'name': 'Issue state'}
+    >>> response.changes[1]
+    {'before': '(UNASSIGNED)', 'after': 'test_user_1_', 'id': 'responsibleManager', 'name': 'Responsible manager'}
+    >>> response.creator
+    'test_user_1_'
+    >>> response.date
+    DateTime(...)
+    >>> response.type
+    'clarification'
+    >>> response.mimetype
+    'text/x-web-intelligent'
+
 
 We can edit this second response::
 
