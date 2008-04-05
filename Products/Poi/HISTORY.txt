@@ -6,6 +6,9 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Store rendered html on the response; remove that after editing.
+  Makes views faster.  Basically a memoize variant. [maurits]
+
 - In the creation view, test that a response is valid before adding
   it. [maurits]
 

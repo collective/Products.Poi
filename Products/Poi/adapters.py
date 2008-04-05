@@ -24,6 +24,7 @@ class IResponseContainer(Interface):
 class IResponse(Interface):
 
     text = Attribute("Text of this response")
+    rendered_text = Attribute("Rendered text (html) for caching")
     changes = Attribute("Changes made to the issue in this response.")
     creator = Attribute("Id of user making this change.")
     date = Attribute("Date (plus time) this response was made.")
@@ -122,6 +123,7 @@ class Response(Persistent):
         self.date = DateTime()
         self.type = 'additional'
         self.mimetype = ''
+        self.rendered_text = None
 
     def add_change(self, id, name, before, after):
         """Add a new issue change.

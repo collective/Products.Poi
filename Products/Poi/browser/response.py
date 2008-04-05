@@ -56,15 +56,19 @@ class Base(BrowserView):
         items = []
         linkDetection = context.linkDetection
         for id, response in enumerate(self.folder):
-            if response.mimetype == 'text/html':
-                html = response.text
-            else:
-                html = trans.convertTo('text/html',
-                                       response.text,
-                                       mimetype=response.mimetype)
-                html = html.getData()
-            # Detect links like #1 and r1234
-            html = linkDetection(html)
+            # Use the already rendered response when available
+            if response.rendered_text is None:
+                if response.mimetype == 'text/html':
+                    html = response.text
+                else:
+                    html = trans.convertTo('text/html',
+                                           response.text,
+                                           mimetype=response.mimetype)
+                    html = html.getData()
+                # Detect links like #1 and r1234
+                html = linkDetection(html)
+                response.rendered_text = html
+            html = response.rendered_text
             info = dict(id=id,
                         response=response,
                         html=html)
@@ -300,6 +304,8 @@ class Save(Base):
                 response = self.folder[response_id]
                 response_text = form.get('response', u'')
                 response.text = response_text
+                # Remove cached rendered response.
+                response.rendered_text = None
                 status.addStatusMessage(
                     _(u"Changes saved to response id ${response_id}.",
                       mapping=dict(response_id=response_id)),
