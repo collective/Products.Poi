@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2007-11-19 22:28+0000\n"
-"PO-Revision-Date: 2005-11-22 23:12+0100\n"
-"Last-Translator: Sebastien Douche <sdouche@gmail.com>\n"
+"PO-Revision-Date: 2008-04-14 23:12+0100\n"
+"Last-Translator: Gilles Lenfant <gilles.lenfant@ingeniweb.com>\n"
 "Language-Team: French Translation Team <plone-i18n@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgid "Add response"
 msgstr "Ajouter une réponse"
 
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr ""
+msgstr "Un ticket. Les tickets sont créés en état 'non confirmé', et peuvent être traités par les gesionnaires du projet."
 
 #. Default: "Cancel"
 #: ../skins/Poi/poi_response_delete_confirm.cpt:41
@@ -74,7 +74,7 @@ msgstr "Entrer les versions où les tickets peuvent être assignés, une par lig
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
 msgid "Poi_help_availableSeverities"
-msgstr "Entrer les différents types de sévérités des tickets disponibles, un par ligne."
+msgstr "Entrer les différents types de criticités des tickets disponibles, un par ligne."
 
 # ./content/PoiIssue.py
 #. Default: "Optionally, provide an email address where you can be contacted for further information or when a resolution is available."
@@ -84,7 +84,7 @@ msgstr "Optionnellement, fournir une adresse email où vous pouvez être contact
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
 msgid "Poi_help_defaultSeverity"
-msgstr "Sélectionnez une sévérité par défaut pour les nouveaux tickets."
+msgstr "Sélectionnez une criticité par défaut pour les nouveaux tickets."
 
 # ./content/PoiIssue.py
 #. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
@@ -104,7 +104,7 @@ msgstr "Entrer une notice d'emploi de votre gestionnaire de ticket qui sera affi
 # ./content/PoiIssue.py
 #. Default: ""
 msgid "Poi_help_id"
-msgstr ""
+msgstr "Identificateur du ticket."
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
@@ -134,17 +134,17 @@ msgstr "Entrer les ids utilisateur des utilisateurs qui sont autorisés à gére
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
 msgid "Poi_help_newResponsibleManager"
-msgstr ""
+msgstr "Sélectionnez le gestionnaire responsable du suivi de ce ticket."
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
 msgid "Poi_help_newSeverity"
-msgstr ""
+msgstr "Sélectionnez la criticité de ce ticket"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
 msgid "Poi_help_newTargetRelease"
-msgstr ""
+msgstr "Assignez la version cible pour ce ticket"
 
 # ./content/PoiIssue.py
 #. Default: "Select the release this issue pertains to."
@@ -174,7 +174,7 @@ msgstr "Si c'est sélectionné, les responsables du gestionnaire recevront un em
 # ./content/PoiIssue.py
 #. Default: "Select the severity of this issue."
 msgid "Poi_help_severity"
-msgstr "Sélectionnez la sévérité de ce ticket."
+msgstr "Sélectionnez la criticité de ce ticket."
 
 # ./content/PoiIssue.py
 #. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
@@ -234,7 +234,7 @@ msgstr "Adresse email de contact"
 # ./content/PoiTracker.py
 #. Default: "Default severity"
 msgid "Poi_label_defaultSeverity"
-msgstr "Sévérité par défaut"
+msgstr "Criticité par défaut"
 
 # ./content/PoiIssue.py
 #. Default: "Tracker description"
@@ -285,17 +285,17 @@ msgstr "Responsables du gestionnaire"
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
 msgid "Poi_label_newResponsibleManager"
-msgstr ""
+msgstr "Changer le gestionnaire responsable"
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
 msgid "Poi_label_newSeverity"
-msgstr ""
+msgstr "Changer la citicité du ticket"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
 msgid "Poi_label_newTargetRelease"
-msgstr ""
+msgstr "Changer la version cible"
 
 # ./content/PoiIssue.py
 #. Default: "Release"
@@ -325,7 +325,7 @@ msgstr "Envoyer des emails de notification"
 # ./content/PoiIssue.py
 #. Default: "Severity"
 msgid "Poi_label_severity"
-msgstr "Sévérité"
+msgstr "Criticité"
 
 # ./content/PoiIssue.py
 #. Default: "Steps to reproduce"
@@ -380,7 +380,7 @@ msgstr "Êtes vous sûr de vouloir effacer cette réponse ?"
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
 #: ../skins/Poi/poi_tracker_view.pt:64
 msgid "description_cannot_add_issues_before_opened"
-msgstr ""
+msgstr "Les utilisateurs ne peuvent pas enregistrer d'informations dans ce tracker tant que vous ne l'avez pas ouvert en utilisant le menu de workflow."
 
 #. Default: "No results were found."
 #: ../skins/Poi/poi_issue_search.pt:39
@@ -390,7 +390,7 @@ msgstr "Pas de résultat trouvé."
 #. Default: "RSS Feed"
 #: ../skins/Poi/poi_tracker_view.pt:172
 msgid "label_rss_feed"
-msgstr ""
+msgstr "Canal RSS"
 
 #. Default: "Search"
 #: ../skins/Poi/poi_issue_search_form.pt:248
@@ -405,7 +405,7 @@ msgstr "Zone"
 #. Default: "#"
 #: ../skins/Poi/poi_issue_search_results.pt:21
 msgid "listingheader_number"
-msgstr ""
+msgstr "#"
 
 #. Default: "Target"
 #: ../skins/Poi/poi_issue_search_results.pt:23
@@ -421,7 +421,7 @@ msgstr "Responsable"
 #. Default: "Severity"
 #: ../skins/Poi/poi_issue_search_results.pt:27
 msgid "listingheader_severity"
-msgstr "Sévérité"
+msgstr "Criticité"
 
 #. Default: "State"
 #: ../skins/Poi/poi_issue_search_results.pt:30
@@ -431,7 +431,7 @@ msgstr "État"
 #. Default: "Tags"
 #: ../skins/Poi/poi_issue_search_results.pt:29
 msgid "listingheader_tags"
-msgstr ""
+msgstr "Mots clé"
 
 #. Default: "Title"
 #: ../skins/Poi/poi_issue_search_results.pt:22
@@ -446,7 +446,7 @@ msgstr "Type"
 #. Default: "If you can, please <a href=\"${DYNAMIC_CONTENT}\"> log in</a> before submitting your issue."
 #: ../skins/Poi/poi_tracker_view.pt:57
 msgid "login_suggestion"
-msgstr ""
+msgstr "Si vous le poouvez, veuillez vous <a href=\"${DYNAMIC_CONTENT}\">identifier</a> avant d'intervenir dans ce tracker."
 
 #. Default: "(Not assigned)"
 #: ../skins/Poi/poi_issue_search_form.pt:84
@@ -517,7 +517,7 @@ msgstr "Tickets ouverts"
 #. Default: "Orphaned issues"
 #: ../skins/Poi/poi_tracker_view.pt:226
 msgid "poi_heading_orphaned_issues"
-msgstr ""
+msgstr "Tickets orphelins"
 
 #. Default: "Issue search results"
 #: ../skins/Poi/poi_issue_search.pt:30
@@ -554,7 +554,7 @@ msgstr "Cliquez sur une zone, une version ou un état de ticket pour voir tout l
 #. Default: "The following open issues are not assigned to anyone."
 #: ../skins/Poi/poi_tracker_view.pt:227
 msgid "poi_help_orphaned_issues_"
-msgstr ""
+msgstr "Les tickets ouverts suivants sont orphelins (assignés à aucun gestionnaire)."
 
 #. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
 #: ../skins/Poi/poi_tracker_view.pt:163
@@ -591,7 +591,7 @@ msgstr "Responsable"
 #. Default: "Severity"
 #: ../skins/Poi/poi_issue_view.pt:57
 msgid "poi_label_severity"
-msgstr "Sévérité"
+msgstr "Criticité"
 
 #. Default: "State"
 #: ../skins/Poi/poi_issue_view.pt:33
@@ -621,7 +621,7 @@ msgstr "Étiquette :"
 #. Default: "Target release:"
 #: ../skins/Poi/poi_issue_view.pt:82
 msgid "poi_label_target_release"
-msgstr ""
+msgstr "Version cible:"
 
 #. Default: "Issue type"
 #: ../skins/Poi/poi_issue_view.pt:53
@@ -631,17 +631,17 @@ msgstr "Type du ticket"
 #. Default: "Version:"
 #: ../skins/Poi/poi_issue_view.pt:39
 msgid "poi_label_version"
-msgstr ""
+msgstr "Version:"
 
 #. Default: "Last modified on ${DYNAMIC_CONTENT}"
 #: ../skins/Poi/poi_issue_view.pt:124
 msgid "poi_last_modified_on"
-msgstr ""
+msgstr "Dernière modification sur ${DYNAMIC_CONTENT}"
 
 #. Default: "Last modified on ${DYNAMIC_CONTENT} by ${DYNAMIC_CONTENT}"
 #: ../skins/Poi/poi_issue_view.pt:119
 msgid "poi_last_modified_on_by"
-msgstr ""
+msgstr "Dernière modification sur ${DYNAMIC_CONTENT} par ${DYNAMIC_CONTENT}"
 
 #. Default: "Search Terms"
 #: ../skins/Poi/poi_issue_search_form.pt:27
@@ -699,7 +699,7 @@ msgstr "Sélectionnez les responsables que vous souhaitez rechercher."
 #. Default: "Select the severities you wish to search for."
 #: ../skins/Poi/poi_issue_search_form.pt:159
 msgid "poi_search_help_severity"
-msgstr "Sélectionnez les sévérités que vous souhaitez rechercher."
+msgstr "Sélectionnez les criticités que vous souhaitez rechercher."
 
 #. Default: "Select the states you wish to search for."
 #: ../skins/Poi/poi_issue_search_form.pt:179
@@ -714,7 +714,7 @@ msgstr "Les étiquettes sont des mots-clés assignés par des administrateurs de
 #. Default: "Select the assigned target release you wish to search for."
 #: ../skins/Poi/poi_issue_search_form.pt:97
 msgid "poi_search_help_target_release"
-msgstr ""
+msgstr "Choisissez la version cible pour cette recherche."
 
 #. Default: "Enter any text you wish the issue to include."
 #: ../skins/Poi/poi_issue_search_form.pt:48
@@ -755,7 +755,7 @@ msgstr "Administrateurs du gestionnaire"
 #. Default: "Severity"
 #: ../skins/Poi/poi_issue_search_form.pt:157
 msgid "poi_search_label_severity"
-msgstr "Sévérité"
+msgstr "Criticité"
 
 #. Default: "State"
 #: ../skins/Poi/poi_issue_search_form.pt:177
@@ -770,7 +770,7 @@ msgstr "Étiquettes"
 #. Default: "Target release"
 #: ../skins/Poi/poi_issue_search_form.pt:95
 msgid "poi_search_label_target_release"
-msgstr ""
+msgstr "Version cible"
 
 #. Default: "Issue text"
 #: ../skins/Poi/poi_issue_search_form.pt:46
@@ -785,20 +785,20 @@ msgstr "Voir l'intégralité du ticket"
 #. Default: "RSS feed of these search results"
 #: ../skins/Poi/poi_issue_search_results.pt:6
 msgid "title_rss_feed"
-msgstr ""
+msgstr "Canal RSS de ce résultat de recherche"
 
 #. Default: "RSS feed of my issues"
 #: ../skins/Poi/poi_tracker_view.pt:208
 msgid "title_rss_feed_my_issues"
-msgstr ""
+msgstr "Canal RSS de mes tickets"
 
 #. Default: "RSS feed of orphaned issues"
 #: ../skins/Poi/poi_tracker_view.pt:234
 msgid "title_rss_feed_orphaned"
-msgstr ""
+msgstr "Canal RSS dest tickets orphelins"
 
 #. Default: "RSS feed of unconfirmed issues"
 #: ../skins/Poi/poi_tracker_view.pt:172
 msgid "title_rss_feed_unconfirmed"
-msgstr ""
+msgstr "Canal RSS des tickets non confirmés"
 
