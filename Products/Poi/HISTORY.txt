@@ -6,6 +6,8 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Allow adding and downloading an attachment in a response.  [maurits]
+
 - Store rendered html on the response; remove that after editing.
   Makes views faster.  Basically a memoize variant. [maurits]
 

@@ -30,6 +30,7 @@ class IResponse(Interface):
     date = Attribute("Date (plus time) this response was made.")
     type = Attribute("Type of response (additional/clarification/reply).")
     mimetype = Attribute("Mime type of the response.")
+    attachment = Attribute("File attachment.")
 
     def add_change(id, name, before, after):
         """Add change to the list of changes.
@@ -124,6 +125,7 @@ class Response(Persistent):
         self.type = 'additional'
         self.mimetype = ''
         self.rendered_text = None
+        self.attachment = None
 
     def add_change(self, id, name, before, after):
         """Add a new issue change.

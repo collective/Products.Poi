@@ -58,4 +58,11 @@
      class=".response.Save"
      />
 
+  <browser:page
+     name="poi_response_attachment"
+     for="Products.Poi.interfaces.IIssue"
+     permission="zope2.View"
+     class=".response.Download"
+     />
+
 </configure>

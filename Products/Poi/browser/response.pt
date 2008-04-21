@@ -5,6 +5,7 @@
     <div class="response-reply"
          tal:define="id response_info/id;
                      response nocall:response_info/response;
+                     attachment nocall:response_info/attachment;
                      html response_info/html;"
          tal:attributes="class string:response-${response/type}">
 
@@ -48,12 +49,26 @@
 
       </div>
       <span tal:replace="structure html" />
+
+      <div class="issue-attachment" tal:condition="attachment">
+        <div class="issue-attachment-label" i18n:translate="poi_label_attachment">Attached:</div>
+        <img tal:attributes="src attachment/icon" />
+        <a tal:attributes="href attachment/url"
+           tal:content="response/attachment/id" />
+        <span class="discreet">
+          &mdash;
+          <tal:type content="attachment/content_type" />,
+          <tal:size content="attachment/size" />
+        </span>
+      </div>
+
     </div>
   </tal:responses>
 
   <h3>Add response</h3>
 
-  <form method="post" action="@@create_response">
+  <form method="post" action="@@create_response"
+        enctype="multipart/form-data">
 
     <div class="field">
       <label for="response">Response</label>
@@ -91,7 +106,27 @@
     </div>
 
     <!-- XXX Show attachment upload widget. -->
+      
+    <div class="field" id="poi-fieldname-attachment">
+      <label for="attachment">Attachment</label>
+      
+      <div class="formHelp" id="attachment_help">You may optionally upload a file attachment. Please do not upload unnecessarily large files.</div>
 
+      
+      <div style="padding-top: 1em;">
+        
+        <div style="padding-left: 1.5em; padding-top: 0.5em;">
+          
+          <input size="30" name="attachment" id="attachment" type="file">
+          
+        </div>
+
+      </div>
+      
+
+      
+      
+    </div>
     <!-- XXX Only show these options when the user has permission to
          use them. -->
 

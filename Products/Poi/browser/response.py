@@ -10,6 +10,27 @@ from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
 from Products.Poi import PoiMessageFactory as _
 from Products.statusmessages.interfaces import IStatusMessage
 from zope.lifecycleevent import modified
+from OFS.Image import File
+from Products.Archetypes.utils import contentDispositionHeader
+try:
+    from plone.i18n.normalizer.interfaces import IUserPreferredFileNameNormalizer
+    FILE_NORMALIZER = True
+except ImportError:
+    FILE_NORMALIZER = False
+
+
+def pretty_size(size):
+    if size <= 0:
+        return "0 Kb"
+    kb = size / 1024
+    size = "%d Kb" % kb 
+    if kb > 999:
+        mb = kb / 1024
+        size = "%d Mb" % mb 
+        if mb > 999:
+            gb = mb / 1024
+            size = "%d Gb" % gb 
+    return size
 
 
 def voc2dict(vocab, current=None):
@@ -71,9 +92,55 @@ class Base(BrowserView):
             html = response.rendered_text
             info = dict(id=id,
                         response=response,
+                        attachment=self.attachment_info(id),
                         html=html)
             items.append(info)
         return items
+
+
+    @property
+    @memoize
+    def portal_url(self):
+        context = aq_inner(self.context)
+        plone = context.restrictedTraverse('@@plone_portal_state')
+        return plone.portal_url()
+
+    def attachment_info(self, id):
+        """Get icon and other info for attachment
+
+        Taken partly from Archetypes/skins/archetypes/getBestIcon.py
+        """
+        context = aq_inner(self.context)
+        response = self.folder[id]
+        attachment = response.attachment
+        if attachment is None:
+            return None
+
+        from Products.CMFCore.utils import getToolByName
+        from zExceptions import NotFound
+
+        icon = None
+        mtr = getToolByName(context, 'mimetypes_registry', None)
+        if mtr is None:
+            icon = context.getIcon()
+        lookup = mtr.lookup(attachment.content_type)
+        if lookup:
+            mti = lookup[0]
+            try:
+                context.restrictedTraverse(mti.icon_path)
+                icon = mti.icon_path
+            except (NotFound, KeyError, AttributeError):
+                pass
+        if icon is None:
+            icon = context.getIcon()
+        info = dict(
+            icon = self.portal_url + '/' + icon,
+            url = context.absolute_url() +\
+                '/@@poi_response_attachment?response_id=' + str(id),
+            content_type = attachment.content_type,
+            size = pretty_size(attachment.size),
+            )
+        return info
 
 
     @property
@@ -89,6 +156,42 @@ class Base(BrowserView):
         context = aq_inner(self.context)
         memship = getToolByName(context, 'portal_membership')
         return memship.checkPermission('Delete objects', context)
+
+
+    def validate_response_id(self):
+        """Validate the response id from the request.
+
+        Return -1 if for example the response id does not exist.
+        Return the response id otherwise.
+
+        Side effect: an informative status message is set.
+        """
+        status = IStatusMessage(self.request)
+        response_id = self.request.form.get('response_id', None)
+        if response_id is None:
+            status.addStatusMessage(
+                _(u"No response selected."),
+                type='error')
+            return -1
+        else:
+            try:
+                response_id = int(response_id)
+            except ValueError:
+                status.addStatusMessage(
+                    _(u"Response id ${response_id} is no integer.",
+                      mapping=dict(response_id=response_id)),
+                    type='error')
+                return -1
+            if response_id >= len(self.folder):
+                status.addStatusMessage(
+                    _(u"Response id ${response_id} does not exist.",
+                      mapping=dict(response_id=response_id)),
+                    type='error')
+                return -1
+            else:
+                return response_id
+        # fallback
+        return -1
 
     @property
     def severity(self):
@@ -248,6 +351,13 @@ class Create(Base):
                     changes[option] = new
                     new_response.add_change(option, title,
                                             current, new)
+
+        attachment = form.get('attachment')
+        if attachment:
+            # File(id, title, file)
+            data = File(attachment.filename, attachment.filename, attachment)
+            new_response.attachment = data
+
         if len(response_text) + len(changes) == 0:
             status = IStatusMessage(self.request)
             status.addStatusMessage(
@@ -356,3 +466,40 @@ class Delete(Base):
                           mapping=dict(response_id=response_id)),
                         type='info')
         self.request.response.redirect(context.absolute_url())
+
+
+class Download(Base):
+    """Download the attachment of a response.
+    """
+
+    def __call__(self):
+        context = aq_inner(self.context)
+        request = self.request
+        response_id = self.validate_response_id()
+        file = None
+        if response_id != -1:
+            response = self.folder[response_id]
+            file = response.attachment
+            if file is None:
+                status = IStatusMessage(request)
+                status.addStatusMessage(
+                    _(u"Response id ${response_id} has no attachment.",
+                          mapping=dict(response_id=response_id)),
+                        type='error')
+        if file is None:
+            request.response.redirect(context.absolute_url())
+
+        # From now on file exists.
+        # Code mostly taken from Archetypes/Field.py:FileField.download
+        filename = file.id()
+        if filename is not None:
+            if FILE_NORMALIZER:
+                filename = IUserPreferredFileNameNormalizer(request).normalize(
+                    unicode(filename, context.getCharset()))
+            else:
+                filename = unicode(filename, context.getCharset())
+            header_value = contentDispositionHeader(
+                disposition='attachment',
+                filename=filename)
+            request.response.setHeader("Content-disposition", header_value)
+        return file.index_html(request, request.response)
