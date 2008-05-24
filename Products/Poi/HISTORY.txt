@@ -7,6 +7,9 @@ Changelog for Poi
 Poi 1.2 - (Unreleased)
 ----------------------
 
+- List Products.AddRemoveWidget and Products.DataGridField as
+  dependencies in setup.py.  [maurits]
+
 - Use event handlers for keeping the SearchableText of an issue in
   sync with its responses.  This comes in place of the updateResponses
   method of an issue that was called by poi_response_update_issue.cpy.
