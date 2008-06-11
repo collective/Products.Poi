@@ -1,9 +1,6 @@
 To do in this branch before merging back to trunk
 =================================================
 
-- Add handling for the target releases field (available only when
-  using the PSC tracker).
-
 - Send email when response is added.
 
 - Update SearchableText of issue when response in

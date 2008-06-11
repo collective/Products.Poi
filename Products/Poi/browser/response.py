@@ -263,7 +263,9 @@ class Base(BrowserView):
         PloneSoftwareCenter.
         """
         vocab = self.available_releases
-        return voc2dict(vocab)
+        # id -> uid
+        current = self.available_releases.getKey(self.targetRelease)
+        return voc2dict(vocab, current)
 
     @property
     @memoize
@@ -371,6 +373,9 @@ class Create(Base):
             new = form.get(option, u'')
             if new and new in self.__getattribute__(vocab):
                 current = self.__getattribute__(option)
+                # Special handling for target release: from uid to id.
+                if option == 'targetRelease':
+                    new = self.available_releases.getValue(new)
                 if current != new:
                     changes[option] = new
                     new_response.add_change(option, title,

@@ -6,6 +6,9 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Add handling for the target releases field (available only when
+  using the PSC tracker).  [maurits]
+
 - Only show options like changing state when the user has permission
   to use them.  [maurits]
 
