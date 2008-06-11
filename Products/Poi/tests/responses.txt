@@ -181,6 +181,25 @@ We fire up a browser (view) and do some basic checking::
     >>> from Products.Poi.browser.response import Base
     >>> view = Base(issue, request)
     >>> view.available_severities
+    []
+    >>> view.available_transitions
+    []
+    >>> view.available_releases
+    <DisplayList [] at ...>
+    >>> view.available_managers
+    <DisplayList [] at ...>
+    >>> bool(view.upload_allowed)
+    False
+
+
+We give ourselves all permissions.  This should mean there are more
+available options for us now::
+
+    >>> checkPermission = lambda perm, context: True
+    >>> tracker.portal_membership.checkPermission = checkPermission
+    >>> request = TestRequest()
+    >>> view = Base(issue, request)
+    >>> view.available_severities
     ('Critical', 'Important', 'Medium', 'Low')
     >>> view.available_transitions
     ['']
@@ -188,6 +207,8 @@ We fire up a browser (view) and do some basic checking::
     <DisplayList [('(UNASSIGNED)', 'None')] at ...>
     >>> view.available_managers
     <DisplayList [('(UNASSIGNED)', 'None'), ('manager', 'manager')] at ...>
+    >>> view.upload_allowed
+    True
 
 The view has some methods especially for displaying::
 
@@ -211,8 +232,8 @@ We use a different browser view to add a response::
     >>> view.responses()
     []
 
-Okay, that failed as we added no response text did not make any issue
-changes.  So we create a slightly more interesting response::
+Okay, that failed as we added no response text and did not make any
+issue changes.  So we create a slightly more interesting response::
 
     >>> form = dict(response="This issue misses a shrubbery.",
     ...             severity='Low')

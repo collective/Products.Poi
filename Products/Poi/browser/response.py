@@ -1,13 +1,16 @@
 from Products.CMFCore.utils import getToolByName
 from Products.Poi.browser.interfaces import IResponseAdder
 from zope.interface import implements
+from zope.cachedescriptors.property import Lazy
 from Acquisition import aq_inner
 from Products.Five.browser import BrowserView
 from Products.Poi.adapters import IResponseContainer
 from Products.Poi.adapters import Response
 from plone.memoize.view import memoize
+from Products.Archetypes.atapi import DisplayList
 from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
 from Products.Poi import PoiMessageFactory as _
+from Products.Poi import permissions
 from Products.statusmessages.interfaces import IStatusMessage
 from zope.lifecycleevent import modified
 from OFS.Image import File
@@ -116,7 +119,6 @@ class Base(BrowserView):
         if attachment is None:
             return None
 
-        from Products.CMFCore.utils import getToolByName
         from zExceptions import NotFound
 
         icon = None
@@ -142,21 +144,22 @@ class Base(BrowserView):
             )
         return info
 
+    @Lazy
+    def memship(self):
+        context = aq_inner(self.context)
+        return getToolByName(context, 'portal_membership')
 
     @property
     @memoize
     def can_edit_response(self):
         context = aq_inner(self.context)
-        memship = getToolByName(context, 'portal_membership')
-        return memship.checkPermission('Modify portal content', context)
+        return self.memship.checkPermission('Modify portal content', context)
 
     @property
     @memoize
     def can_delete_response(self):
         context = aq_inner(self.context)
-        memship = getToolByName(context, 'portal_membership')
-        return memship.checkPermission('Delete objects', context)
-
+        return self.memship.checkPermission('Delete objects', context)
 
     def validate_response_id(self):
         """Validate the response id from the request.
@@ -211,6 +214,9 @@ class Base(BrowserView):
         """Display the available transitions for this issue.
         """
         context = aq_inner(self.context)
+        if not self.memship.checkPermission(permissions.ModifyIssueState,
+                                            context):
+            return []
         wftool = getToolByName(context, 'portal_workflow')
         transitions = []
         transitions.append(dict(value='', label='No change', checked="checked"))
@@ -244,6 +250,9 @@ class Base(BrowserView):
         """
         # get vocab from tracker so use aq_inner
         context = aq_inner(self.context)
+        if not self.memship.checkPermission(
+            permissions.ModifyIssueSeverity, context):
+            return []
         return context.getAvailableSeverities()
 
     @property
@@ -266,6 +275,9 @@ class Base(BrowserView):
         """
         # get vocab from issue
         context = aq_inner(self.context)
+        if not self.memship.checkPermission(
+            permissions.ModifyIssueTargetRelease, context):
+            return DisplayList()
         return context.getReleasesVocab()
 
     @property
@@ -282,7 +294,19 @@ class Base(BrowserView):
         """
         # get vocab from issue
         context = aq_inner(self.context)
+        if not self.memship.checkPermission(
+            permissions.ModifyIssueAssignment, context):
+            return DisplayList()
         return context.getManagersVocab()
+
+    @property
+    @memoize
+    def upload_allowed(self):
+        """Is the user allowed to upload on attachment?
+        """
+        context = aq_inner(self.context)
+        return self.memship.checkPermission(
+            permissions.UploadAttachment, context)
 
 
 class AddForm(Base):

@@ -6,6 +6,9 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Only show options like changing state when the user has permission
+  to use them.  [maurits]
+
 - Allow adding and downloading an attachment in a response.  [maurits]
 
 - Store rendered html on the response; remove that after editing.

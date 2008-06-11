@@ -105,9 +105,8 @@
       
     </div>
 
-    <!-- XXX Show attachment upload widget. -->
-      
-    <div class="field" id="poi-fieldname-attachment">
+    <div class="field" id="poi-fieldname-attachment"
+         tal:condition="view/upload_allowed">
       <label for="attachment">Attachment</label>
       
       <div class="formHelp" id="attachment_help">You may optionally upload a file attachment. Please do not upload unnecessarily large files.</div>
@@ -123,14 +122,10 @@
 
       </div>
       
-
-      
-      
     </div>
-    <!-- XXX Only show these options when the user has permission to
-         use them. -->
 
-    <div class="field">
+    <div class="field"
+         tal:condition="view/transitions_for_display">
       <label for="transition">Change issue state</label>
       
       <div class="formHelp"
@@ -153,7 +148,8 @@
     </div>
 
 
-    <div class="field">
+    <div class="field"
+         tal:condition="view/severities_for_display">
       <label for="severity">Change issue severity</label>
           
       <div class="formHelp" id="severity_help">Select the severity for this issue</div>
@@ -174,7 +170,8 @@
       </tal:options>
     </div>
 
-    <div class="field">
+    <div class="field"
+         tal:condition="view/managers_for_display">
       <label for="responsibleManager">Change responsible manager</label>
       
       <div class="formHelp" id="manager_help">Select the responsible manager for this issue</div>
