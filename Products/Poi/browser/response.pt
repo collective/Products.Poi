@@ -117,7 +117,7 @@
         
         <div style="padding-left: 1.5em; padding-top: 0.5em;">
           
-          <input size="30" name="attachment" id="attachment" type="file">
+          <input size="30" name="attachment" id="attachment" type="file" />
           
         </div>
 
