@@ -6,6 +6,8 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Update SearchableText of issue when response is added.  [maurits]
+
 - Add handling for the target releases field (available only when
   using the PSC tracker).  [maurits]
 

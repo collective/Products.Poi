@@ -27,3 +27,10 @@ def modifiedNewStyleResponse(object, event):
             parent.reindexObject(idxs=['SearchableText'])
             parent.notifyModified()
 
+def addedNewStyleResponse(object, event):
+    """A response has been added.
+    """
+    issue = event.newParent
+    if IIssue.providedBy(issue):
+        issue.reindexObject(idxs=['SearchableText'])
+        issue.notifyModified()

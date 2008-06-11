@@ -42,6 +42,12 @@
 
   <subscriber
       for="Products.Poi.adapters.IResponse
+           zope.app.container.interfaces.IObjectAddedEvent"
+      handler=".events.addedNewStyleResponse"
+      />
+
+  <subscriber
+      for="Products.Poi.adapters.IResponse
            zope.app.container.interfaces.IObjectRemovedEvent"
       handler=".events.removedResponse"
       />

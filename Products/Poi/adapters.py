@@ -96,6 +96,9 @@ class ResponseContainer(Persistent):
             raise UnaddableError(self, item,
                                  "IResponse interface not provided.")
         self.append(item)
+        id = str(len(self))
+        event = ObjectAddedEvent(item, newParent=self.context, newName=id)
+        notify(event)
 
     def delete(self, id):
         # We need to fire an ObjectRemovedEvent ourselves here because
