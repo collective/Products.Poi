@@ -1,8 +1,6 @@
 To do in this branch before merging back to trunk
 =================================================
 
-- Send email when response is added.
-
 - Add i18n (to avoid problems in merging it is probably best not to
   actually run ./i18n/rebuildAll.sh).
 

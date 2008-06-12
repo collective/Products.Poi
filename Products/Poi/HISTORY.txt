@@ -6,6 +6,8 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Send email when response is added.  [maurits]
+
 - Update SearchableText of issue when response is added.  [maurits]
 
 - Add handling for the target releases field (available only when
