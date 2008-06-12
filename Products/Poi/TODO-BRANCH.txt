@@ -1,9 +1,6 @@
 To do in this branch before merging back to trunk
 =================================================
 
-- Add i18n (to avoid problems in merging it is probably best not to
-  actually run ./i18n/rebuildAll.sh).
-
 - Make sure the tests keep running when content/PoiResponse.py is
   removed.  This file should not *really* be removed though as we need
   it still during migration.

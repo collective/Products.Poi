@@ -34,10 +34,10 @@
 
       <div class="response-info">
         <span i18n:translate="poi_added_by">Added by</span>
-        <span class="contact-user" 
+        <span class="contact-user"
               tal:content="python:here.poi_niceName(username=response.creator)" />
         <span i18n:translate="poi_added_on">on</span>
-        <span class="contact-user" 
+        <span class="contact-user"
               tal:content="python:here.toLocalizedTime(response.date, long_format=True)" />
         <div tal:repeat="delta response/changes">
           <span i18n:translate="" tal:content="string:${delta/name}" />:
@@ -68,9 +68,13 @@
         enctype="multipart/form-data">
 
     <div class="field">
-      <label for="response">Response</label>
-      
-      <div class="formHelp" id="response_help">Please enter your response below</div>
+      <label for="response"
+             i18n:translate="Poi_label_response">Response</label>
+
+      <div class="formHelp" id="response_help"
+           i18n:translate="Poi_help_response">
+        Please enter your response below
+      </div>
       <div>
 
         <tal:wysiwyg
@@ -97,37 +101,47 @@
         <textarea
             tal:condition="not:view/use_wysiwyg"
             cols="40" rows="15" name="response" id="response"></textarea>
-        
+
       </div>
-      
+
     </div>
 
     <div class="field" id="poi-fieldname-attachment"
          tal:condition="view/upload_allowed">
-      <label for="attachment">Attachment</label>
-      
-      <div class="formHelp" id="attachment_help">You may optionally upload a file attachment. Please do not upload unnecessarily large files.</div>
+      <label for="attachment"
+             i18n:translate="Poi_label_attachment">Attachment</label>
 
-      
+      <div class="formHelp" id="attachment_help"
+           i18n:translate="Poi_help_attachment">
+        You may optionally upload a file attachment. Please do not
+        upload unnecessarily large files.
+      </div>
+
       <div style="padding-top: 1em;">
-        
+
         <div style="padding-left: 1.5em; padding-top: 0.5em;">
-          
+
           <input size="30" name="attachment" id="attachment" type="file" />
-          
+
         </div>
 
       </div>
-      
+
     </div>
 
     <div class="field"
          tal:condition="view/transitions_for_display">
-      <label for="transition">Change issue state</label>
-      
+      <label for="transition"
+             i18n:translate="Poi_label_issueTransition">
+        Change issue state
+      </label>
+
       <div class="formHelp"
-           id="issueTransition_help">Select a change of state in the issue this response is for, if applicable</div>
-      
+           id="issueTransition_help"
+           i18n:translate="Poi_help_issueTransition">
+        Select a change of state in the issue this response is for, if applicable
+      </div>
+
       <tal:transitions
           repeat="transition view/transitions_for_display">
         <input class="noborder blurrable" name="transition"
@@ -147,10 +161,16 @@
 
     <div class="field"
          tal:condition="view/severities_for_display">
-      <label for="severity">Change issue severity</label>
-          
-      <div class="formHelp" id="severity_help">Select the severity for this issue</div>
-      
+      <label for="severity"
+           i18n:translate="Poi_label_newSeverity">
+        Change issue severity
+      </label>
+
+      <div class="formHelp" id="severity_help"
+           i18n:translate="Poi_help_newSeverity">
+        Select the severity for this issue
+      </div>
+
       <tal:options
           repeat="option view/severities_for_display">
         <input class="noborder blurrable" name="severity"
@@ -169,10 +189,16 @@
 
     <div class="field"
          tal:condition="view/releases_for_display">
-      <label for="newTargetRelease">Change target release</label>
+      <label for="newTargetRelease"
+           i18n:translate="Poi_label_newTargetRelease">
+        Change target release
+      </label>
 
-      <div class="formHelp" id="newTargetRelease_help">Set the target release for this issue</div>
-      
+      <div class="formHelp" id="newTargetRelease_help"
+           i18n:translate="Poi_help_newTargetRelease">
+        Set the target release for this issue
+      </div>
+
       <tal:options
           repeat="option view/releases_for_display">
         <input class="noborder blurrable" name="targetRelease"
@@ -187,14 +213,20 @@
 
         <br />
       </tal:options>
-    </div>                
+    </div>
 
     <div class="field"
          tal:condition="view/managers_for_display">
-      <label for="responsibleManager">Change responsible manager</label>
-      
-      <div class="formHelp" id="manager_help">Select the responsible manager for this issue</div>
-      
+      <label for="responsibleManager"
+             i18n:translate="Poi_label_newResponsibleManager">
+        Change responsible manager
+      </label>
+
+      <div class="formHelp" id="manager_help"
+           i18n:translate="Poi_help_newResponsibleManager">
+        Select the responsible manager for this issue
+      </div>
+
       <tal:options
           repeat="option view/managers_for_display">
         <input class="noborder blurrable" name="responsibleManager"
@@ -209,7 +241,7 @@
 
         <br />
       </tal:options>
-    </div>                
+    </div>
 
     <div class="formControls">
       <input class="standalone" value="Submit" type="submit" />
