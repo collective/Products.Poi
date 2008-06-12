@@ -77,11 +77,8 @@ def install(self):
     typesTool = getToolByName(self, 'portal_types')
     addAllowedContentType(self, out, typesTool, 'PSCProject', 'PoiPscTracker')
 
-    # Give the response types a "save" target to take the use back to the
-    # issue itself, after updating the parent issue
+    # Control what happens when posting a new issue.
     controller = getToolByName(self, 'portal_form_controller')
-    addFormControllerAction(self, out, controller, 'validate_integrity',
-                            'success', 'PoiResponse', None, 'traverse_to', 'string:poi_response_update_issue')
     addFormControllerAction(self, out, controller, 'validate_integrity',
                             'success', 'PoiIssue', None, 'traverse_to', 'string:poi_issue_post')
                   

@@ -6,6 +6,9 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Removed skins/Poi/poi_response_update_issue.cpy and related code.
+  [maurits]
+
 - Add i18n to browser/response.pt  [maurits]
 
 - Removed button for adding old style response to issue.  [maurits]
