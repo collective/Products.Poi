@@ -6,6 +6,10 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Removed button for adding old style response to issue.  [maurits]
+
+- Removed skins/Poi/determineResponseType.py  [maurits]
+
 - Send email when response is added.  [maurits]
 
 - Update SearchableText of issue when response is added.  [maurits]

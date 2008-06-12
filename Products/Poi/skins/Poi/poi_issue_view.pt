@@ -147,18 +147,6 @@
       </div>
       
       <div class="formControls">
-          <form style="display: inline" action="createObject"
-              tal:condition="python: user.has_permission('Poi: Add Response', here)">
-            <input name="type_name"
-                   type="hidden"
-                   value="PoiResponse"
-                   />
-            <input class="standalone"
-                   type="submit"
-                   i18n:attributes="value"
-                   value="Add response"
-                   />
-          </form>
           <form style="display: inline" action="edit"
               tal:condition="python: user.has_permission('Modify Portal Content', here)">
             <input class="context"
@@ -183,63 +171,6 @@
                    />
           </form>
       </div>
-      
-      <div class="visualClear"><!----></div>
-
-      <tal:block define="responses python:here.getFolderContents(full_objects = True);
-                         dummy python:responses.sort(lambda x, y: cmp(int(x.getId()), int(y.getId())));">
-         <tal:responses repeat="response responses">
-      
-           <div class="response-details" metal:define-macro="response_view"
-                   tal:attributes="class string:response-${response/determineResponseType}">
-                  
-          
-               <div class="response-actions"
-                     tal:define="canEdit   python:user.has_permission('Modify portal content', response);
-                                 canDelete python:user.has_permission('Delete objects', response)"
-                     tal:condition="python:canEdit or canDelete">
-                 <form tal:attributes="action string:${response/absolute_url}/base_edit">
-                   <input class="standalone"
-                          type="submit"
-                          i18n:attributes="value"
-                          value="Edit"
-                          />
-                 </form>
-                 <form tal:attributes="action string:${response/absolute_url}/poi_response_delete_confirm">
-                   <input class="destructive"
-                          type="submit"
-                          i18n:attributes="value"
-                          value="Delete"
-                          />
-                 </form>
-               </div>
-          
-               <div class="response-info">
-                 <span i18n:translate="poi_added_by">Added by</span>
-                 <span class="contact-user" 
-                       tal:content="python:here.poi_niceName(username=response.Creator())" />
-                 <span i18n:translate="poi_added_on">on</span>
-                 <span class="contact-user" 
-                       tal:content="python:here.toLocalizedTime(response.Date(), long_format=True)" />
-              
-                 <div tal:repeat="delta response/getIssueChanges">
-                     <span i18n:translate="" tal:content="string:${delta/name}" />:
-                     <span class="issueChange" i18n:translate="" tal:content="delta/before" /> &rarr; <span class="issueChange" i18n:translate="" tal:content="delta/after" />
-                 </div>
-
-               </div>
-      
-               <div class="issue-details" tal:content="structure response/getTaggedResponse" />
-            
-               <div class="issue-attachment" tal:condition="python:response.getAttachment().get_size() &gt; 0">
-                 <div class="issue-attachment-label" i18n:translate="poi_label_attachment">Attached:</div>
-                 <metal:attachment use-macro="python:response.widget('attachment')"/>
-               </div>
-      
-           </div>
-      
-         </tal:responses>
-      </tal:block>
       
       <div class="visualClear"><!----></div>
 
