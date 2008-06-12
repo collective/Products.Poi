@@ -16,8 +16,7 @@ class TestInstallation(ptc.PoiTestCase):
 
         self.poiTypes = {'PoiTracker'    : 'poi_tracker_workflow',
                          'PoiPscTracker' : 'poi_tracker_workflow',
-                         'PoiIssue'      : 'poi_issue_workflow',
-                         'PoiResponse'   : 'poi_response_workflow'}
+                         'PoiIssue'      : 'poi_issue_workflow'}
 
     def testDataGridFieldInstalled(self):
         self.failUnless('DataGridWidget' in self.skins.objectIds())

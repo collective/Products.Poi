@@ -1,6 +1,0 @@
-To do in this branch before merging back to trunk
-=================================================
-
-- Make sure the tests keep running when content/PoiResponse.py is
-  removed.  This file should not *really* be removed though as we need
-  it still during migration.

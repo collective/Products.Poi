@@ -3,6 +3,7 @@ from Testing import ZopeTestCase
 from DateTime import DateTime
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
+from Products.Poi.adapters import IResponseContainer
 #from Products.Archetypes.event import ObjectInitializedEvent
 
 
@@ -131,18 +132,26 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
                         newResponsibleManager=None, attachment=None):
         """Create a response to the given tracker, and perform workflow and
         rename-after-creation initialisation"""
-        newId = self.portal.generateUniqueId('PoiResponse')
-        issue.invokeFactory('PoiResponse', newId)
-        response = getattr(issue, newId)
-        response.setResponse(text, mimetype='text/x-web-intelligent')
-        response.setNewIssueState(issueTransition)
-        response.setNewSeverity(newSeverity)
-        response.setNewTargetRelease(newTargetRelease)
-        response.setNewResponsibleManager(newResponsibleManager)
-        response.setAttachment(attachment)
-        self.portal.portal_workflow.doActionFor(response, 'post')
-        response._renameAfterCreation()
-        response.reindexObject()
+        from Products.Poi.browser.response import Create
+        request = issue.REQUEST
+        request.form['response'] = text
+        request.form['transition'] = issueTransition
+        if newSeverity is not None:
+            request.form['severity'] = newSeverity
+        if newTargetRelease is not None:
+            request.form['targetRelease'] = newTargetRelease
+        if newResponsibleManager is not None:
+            request.form['responsibleManager'] = newResponsibleManager
+        if attachment is not None:
+            request.form['attachment'] = attachment
+        create_view = Create(issue, request)
+        # A response is created by calling this view:
+        create_view()
+
+        container = IResponseContainer(issue)
+        id = str(len(container) -1)
+        response = container[id]
+
         # In tests we need to fire this event manually:
         notify(ObjectModifiedEvent(response))
         return response

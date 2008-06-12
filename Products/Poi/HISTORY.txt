@@ -6,6 +6,10 @@ Changelog for Poi
 Poi branch maurits-inline-response-adding
 -----------------------------------------
 
+- Adapted the tests to use new style responses everywhere, except in
+  the tests for migrating from old to new style responses.
+  [maurits]
+
 - Removed skins/Poi/poi_response_update_issue.cpy and related code.
   [maurits]
 

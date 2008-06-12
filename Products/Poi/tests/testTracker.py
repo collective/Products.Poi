@@ -2,6 +2,7 @@
 from Testing import ZopeTestCase
 from Products.Poi.tests import ptc
 from Products.CMFCore.utils import getToolByName
+from Products.Poi.events import sendResponseNotificationMail
 
 default_user = ZopeTestCase.user_name
 
@@ -171,7 +172,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
         issue.sendNotificationMail()
         response = self.createResponse(
             issue, text="more accented vocals: ò ù" )
-        response.sendNotificationMail()
+        sendResponseNotificationMail(issue, response)
 
         # Now try a different charset
         pprop = getToolByName(self.portal, 'portal_properties')
@@ -186,18 +187,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
         issue.sendNotificationMail()
         response = self.createResponse(
             issue, text=u"more accented vocals: ò ù".encode('iso-8859-1'))
-        response.sendNotificationMail()
-
-        # And now try a different charset and unicode
-        issue = self.createIssue(
-            self.tracker,
-            title=u"accented vocals: à è ì ò ù",
-            contactEmail='submitter@domain.com', 
-            watchers=('member1', 'member2',))
-        issue.sendNotificationMail()
-        response = self.createResponse(
-            issue, text=u"more accented vocals: ò ù")
-        response.sendNotificationMail()
+        sendResponseNotificationMail(issue, response)
 
     def testNewResponseEmail(self):
         self.tracker.setSendNotificationEmails(True)
@@ -206,7 +196,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
                                  contactEmail='submitter@domain.com', 
                                  watchers=('member1', 'member2',))
         response = self.createResponse(issue)
-        response.sendNotificationMail()
+        sendResponseNotificationMail(issue, response)
 
     def testResolvedEmail(self):
         self.tracker.setSendNotificationEmails(True)
