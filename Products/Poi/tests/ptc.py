@@ -24,7 +24,8 @@ ZopeTestCase.installProduct('CMFPlone')
 ZopeTestCase.installProduct('Archetypes')
 ZopeTestCase.installProduct('PortalTransforms', quiet=1)
 ZopeTestCase.installProduct('MimetypesRegistry', quiet=1)
-ZopeTestCase.installProduct('DataGridField', quiet=1)
+ZopeTestCase.installProduct('DataGridField')
+ZopeTestCase.installProduct('AddRemoveWidget')
 
 ZopeTestCase.installProduct('Poi')
 
