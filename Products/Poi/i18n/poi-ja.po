@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2007-11-19 22:28+0000\n"
+"POT-Creation-Date: 2008-06-13 00:33+0000\n"
 "PO-Revision-Date: 2006-01-22 18:00+0900\n"
 "Last-Translator: TANIGUCHI Takaki <takaki@asis.media-as.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,11 +16,6 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: Poi\n"
 
-#. Default: "Add response"
-#: ../skins/Poi/poi_issue_view.pt:156
-msgid "Add response"
-msgstr "対応を追加"
-
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
 msgstr ""
 
@@ -29,19 +24,39 @@ msgstr ""
 msgid "Cancel"
 msgstr "キャンセル"
 
+#: ../browser/response.py:473
+msgid "Changes saved to response id ${response_id}."
+msgstr ""
+
 #. Default: "Delete"
-#: ../skins/Poi/poi_issue_view.pt:209
+#: ../skins/Poi/poi_response_delete_confirm.cpt:34
 msgid "Delete"
 msgstr "削除"
 
 #. Default: "Edit"
-#: ../skins/Poi/poi_issue_view.pt:202
+#: ../browser/response.pt:17
 msgid "Edit"
 msgstr "編集"
 
 #. Default: "Edit issue"
-#: ../skins/Poi/poi_issue_view.pt:164
+#: ../skins/Poi/poi_issue_view.pt:152
 msgid "Edit issue"
+msgstr ""
+
+#: ../browser/response.py:500
+msgid "No response selected for removal."
+msgstr ""
+
+#: ../browser/response.py:464
+msgid "No response selected for saving."
+msgstr ""
+
+#: ../browser/response.py:176
+msgid "No response selected."
+msgstr ""
+
+#: ../browser/response.py:417
+msgid "No response text added and no issue changes made."
 msgstr ""
 
 # ./content/PoiIssue.py
@@ -51,6 +66,7 @@ msgstr "この課題に関連する領域を選択して下さい。"
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
+#: ../browser/response.pt:114
 #, fuzzy
 msgid "Poi_help_attachment"
 msgstr "課題に対する添付ファイルをアップロードすることもできます。必要のない大きなファイルをアップロードするのは御遠慮下さい。"
@@ -107,6 +123,7 @@ msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
+#: ../browser/response.pt:139
 msgid "Poi_help_issueTransition"
 msgstr "対応によって課題の状態が変更されるならば選択して下さい。"
 
@@ -132,16 +149,19 @@ msgstr "このトラッカーの管理者のユーザーIDを一行に一人ず�
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
+#: ../browser/response.pt:225
 msgid "Poi_help_newResponsibleManager"
 msgstr ""
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
+#: ../browser/response.pt:169
 msgid "Poi_help_newSeverity"
 msgstr ""
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
+#: ../browser/response.pt:197
 msgid "Poi_help_newTargetRelease"
 msgstr ""
 
@@ -152,6 +172,7 @@ msgstr "この課題に関連するリリースを選択して下さい。"
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
+#: ../browser/response.pt:74
 msgid "Poi_help_response"
 msgstr "対応を入力して下さい"
 
@@ -202,6 +223,7 @@ msgstr "領域"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
+#: ../browser/response.pt:111
 msgid "Poi_label_attachment"
 msgstr "添付物"
 
@@ -258,6 +280,7 @@ msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
+#: ../browser/response.pt:134
 msgid "Poi_label_issueTransition"
 msgstr "課題の状態の変更"
 
@@ -283,16 +306,19 @@ msgstr "トラッカー管理者"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
+#: ../browser/response.pt:220
 msgid "Poi_label_newResponsibleManager"
 msgstr ""
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
+#: ../browser/response.pt:164
 msgid "Poi_label_newSeverity"
 msgstr ""
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
+#: ../browser/response.pt:192
 msgid "Poi_label_newTargetRelease"
 msgstr ""
 
@@ -303,6 +329,7 @@ msgstr "リリース"
 
 # ./content/PoiIssue.py
 #. Default: "Response"
+#: ../browser/response.pt:71
 msgid "Poi_label_response"
 msgstr "対応"
 
@@ -346,28 +373,60 @@ msgstr "トラッカー名"
 msgid "Poi_label_watchers"
 msgstr "課題の監視者"
 
+#: ../browser/response.py:518
+msgid "Removed response id ${response_id}."
+msgstr ""
+
+#: ../browser/response.py:512
+msgid "Response id ${response_id} does not exist so it cannot be removed."
+msgstr ""
+
+#: ../browser/response.py:190
+msgid "Response id ${response_id} does not exist."
+msgstr ""
+
+#: ../browser/response.py:539
+msgid "Response id ${response_id} has no attachment."
+msgstr ""
+
+#: ../browser/response.py:507
+msgid "Response id ${response_id} is no integer so it cannot be removed."
+msgstr ""
+
+#: ../browser/response.py:184
+msgid "Response id ${response_id} is no integer."
+msgstr ""
+
 #. Default: "Search"
-#: ../skins/Poi/poi_tracker_view.pt:32
+#: ../skins/Poi/poi_tracker_view.pt:33
 msgid "Search"
 msgstr ""
 
 #. Default: "Stop watching this issue"
-#: ../skins/Poi/poi_issue_view.pt:172
+#: ../skins/Poi/poi_issue_view.pt:160
 msgid "Stop watching this issue"
 msgstr "この課題の監視の中止"
 
 #. Default: "Submit new issue"
-#: ../skins/Poi/poi_tracker_view.pt:50
+#: ../skins/Poi/poi_tracker_view.pt:51
 msgid "Submit new issue"
 msgstr "新しい課題の提出"
 
 #. Default: "Watch this issue"
-#: ../skins/Poi/poi_issue_view.pt:178
+#: ../skins/Poi/poi_issue_view.pt:166
 msgid "Watch this issue"
 msgstr "この課題の監視"
 
+#: ../browser/response.py:494
+msgid "You are not allowed to delete responses."
+msgstr ""
+
+#: ../browser/response.py:458
+msgid "You are not allowed to edit responses."
+msgstr ""
+
 #. Default: "${number} items matching your criteria."
-#: ../skins/Poi/poi_issue_search.pt:43
+#: ../skins/Poi/poi_issue_search.pt:44
 msgid "batch_x_items_matching_your_criteria"
 msgstr "条件に ${number} 個合いました。"
 
@@ -377,17 +436,17 @@ msgid "desc_poi_heading_delete_response"
 msgstr "この対応を本当に削除したいですか?"
 
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ../skins/Poi/poi_tracker_view.pt:64
+#: ../skins/Poi/poi_tracker_view.pt:65
 msgid "description_cannot_add_issues_before_opened"
 msgstr ""
 
 #. Default: "No results were found."
-#: ../skins/Poi/poi_issue_search.pt:39
+#: ../skins/Poi/poi_issue_search.pt:40
 msgid "description_no_results_found"
 msgstr "何も見つかりませんでした。"
 
 #. Default: "RSS Feed"
-#: ../skins/Poi/poi_tracker_view.pt:172
+#: ../skins/Poi/poi_issue_search_results.pt:6
 msgid "label_rss_feed"
 msgstr ""
 
@@ -443,7 +502,7 @@ msgid "listingheader_type"
 msgstr "種別"
 
 #. Default: "If you can, please <a href=\"${DYNAMIC_CONTENT}\"> log in</a> before submitting your issue."
-#: ../skins/Poi/poi_tracker_view.pt:57
+#: ../skins/Poi/poi_tracker_view.pt:58
 msgid "login_suggestion"
 msgstr ""
 
@@ -453,38 +512,38 @@ msgid "not_assigned"
 msgstr "(未割り当て)"
 
 #. Default: "Added by"
-#: ../skins/Poi/poi_issue_view.pt:218
+#: ../browser/response.pt:36
 msgid "poi_added_by"
 msgstr "追記"
 
 #. Default: "on"
-#: ../skins/Poi/poi_issue_view.pt:221
+#: ../browser/response.pt:39
 msgid "poi_added_on"
 msgstr "日時"
 
 #. Default: "All pending issues"
-#: ../skins/Poi/poi_tracker_view.pt:118
+#: ../skins/Poi/poi_tracker_view.pt:119
 msgid "poi_all_pending_issues"
 msgstr ""
 
 #. Default: "By area"
-#: ../skins/Poi/poi_tracker_view.pt:85
+#: ../skins/Poi/poi_tracker_view.pt:86
 msgid "poi_heading_by_area"
 msgstr "領域で絞る"
 
 #. Default: "By target release"
-#: ../skins/Poi/poi_tracker_view.pt:102
+#: ../skins/Poi/poi_tracker_view.pt:103
 #, fuzzy
 msgid "poi_heading_by_release"
 msgstr "リリースで絞る"
 
 #. Default: "By state"
-#: ../skins/Poi/poi_tracker_view.pt:115
+#: ../skins/Poi/poi_tracker_view.pt:116
 msgid "poi_heading_by_state"
 msgstr "状態で絞る"
 
 #. Default: "By tag"
-#: ../skins/Poi/poi_tracker_view.pt:139
+#: ../skins/Poi/poi_tracker_view.pt:140
 msgid "poi_heading_by_tag"
 msgstr "タグで絞る"
 
@@ -504,27 +563,27 @@ msgid "poi_heading_log"
 msgstr ""
 
 #. Default: "My issues"
-#: ../skins/Poi/poi_tracker_view.pt:193
+#: ../skins/Poi/poi_tracker_view.pt:194
 msgid "poi_heading_my_issues"
 msgstr "自分の課題"
 
 #. Default: "Open issues"
-#: ../skins/Poi/poi_tracker_view.pt:74
+#: ../skins/Poi/poi_tracker_view.pt:75
 msgid "poi_heading_open_issues"
 msgstr "未解決の課題"
 
 #. Default: "Orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:226
+#: ../skins/Poi/poi_tracker_view.pt:227
 msgid "poi_heading_orphaned_issues"
 msgstr ""
 
 #. Default: "Issue search results"
-#: ../skins/Poi/poi_issue_search.pt:30
+#: ../skins/Poi/poi_issue_search.pt:31
 msgid "poi_heading_search_results"
 msgstr "課題の検索結果"
 
 #. Default: "Unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:162
+#: ../skins/Poi/poi_tracker_view.pt:163
 msgid "poi_heading_unconfirmed_issues"
 msgstr "未確認の課題"
 
@@ -534,35 +593,35 @@ msgid "poi_help_log"
 msgstr ""
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ../skins/Poi/poi_tracker_view.pt:194
+#: ../skins/Poi/poi_tracker_view.pt:195
 #, fuzzy
 msgid "poi_help_my_issues_manager"
 msgstr "以下の未解決の課題は，あなたが報告した，もしくはあなたに割り当てられています。"
 
 #. Default: "The following open issues were submitted by you."
-#: ../skins/Poi/poi_tracker_view.pt:201
+#: ../skins/Poi/poi_tracker_view.pt:202
 #, fuzzy
 msgid "poi_help_my_issues_not_manager"
 msgstr "以下の未解決の課題はあなたが報告しました。"
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
-#: ../skins/Poi/poi_tracker_view.pt:78
+#: ../skins/Poi/poi_tracker_view.pt:79
 msgid "poi_help_open_issues"
 msgstr "領域またはリリース，課題の状態をクリックすることでこの分類の全ての未解決の課題を見ることができます。さらに詳細な検索をするには「課題を検索」をクリックしてください。"
 
 #. Default: "The following open issues are not assigned to anyone."
-#: ../skins/Poi/poi_tracker_view.pt:227
+#: ../skins/Poi/poi_tracker_view.pt:228
 msgid "poi_help_orphaned_issues_"
 msgstr ""
 
 #. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
-#: ../skins/Poi/poi_tracker_view.pt:163
+#: ../skins/Poi/poi_tracker_view.pt:164
 #, fuzzy
 msgid "poi_help_unconfirmed_issues"
 msgstr "以下の課題は確認も割り当てもされていません。検討したあとに適切な対応をしてください。"
 
 #. Default: "Advanced issue search"
-#: ../skins/Poi/poi_tracker_view.pt:34
+#: ../skins/Poi/poi_tracker_view.pt:35
 #, fuzzy
 msgid "poi_issue_search"
 msgstr "課題の検索"
@@ -659,8 +718,9 @@ msgstr "\" ${issueTitle} \" への対応 # ${responseNumber} "
 msgid "poi_return_to_search"
 msgstr "検索に戻る"
 
-#. Default: "Return to issue tracker"
-#: ../skins/Poi/poi_issue_search_form.pt:13
+#. Default: "Return to tracker"
+#: ../skins/Poi/poi_issue_view.pt:102
+#, fuzzy
 msgid "poi_return_to_tracker"
 msgstr "課題トラッカーに戻る"
 
@@ -787,17 +847,17 @@ msgid "title_rss_feed"
 msgstr ""
 
 #. Default: "RSS feed of my issues"
-#: ../skins/Poi/poi_tracker_view.pt:208
+#: ../skins/Poi/poi_tracker_view.pt:209
 msgid "title_rss_feed_my_issues"
 msgstr ""
 
 #. Default: "RSS feed of orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:234
+#: ../skins/Poi/poi_tracker_view.pt:235
 msgid "title_rss_feed_orphaned"
 msgstr ""
 
 #. Default: "RSS feed of unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:172
+#: ../skins/Poi/poi_tracker_view.pt:173
 msgid "title_rss_feed_unconfirmed"
 msgstr ""
 
