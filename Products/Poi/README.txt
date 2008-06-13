@@ -136,6 +136,10 @@ inside a project in the software center. The trackers will function in
 the same way as regular trackers, but will use releases from the
 software center project instead of a manually defined list.
 
+For a look at how the various workflow states of an issue are
+connected, take a look at the attachment added by bethor to this
+issue: http://plone.org/products/poi/issues/179
+
 
 Credits
 -------

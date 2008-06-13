@@ -53,6 +53,8 @@ from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
 from Products.Poi.config import DESCRIPTION_LENGTH
 from Products.Poi.config import ISSUE_MIME_TYPES
 from Products.Poi.config import PROJECTNAME
+from Products.Poi.adapters import IResponseContainer
+
 
 from Products.Poi import permissions
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
@@ -425,21 +427,26 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         self.setId(newId)
 
     def Description(self):
-        """If a description is set manually, return that. Else returns the first
-        200 characters (defined in config.py) of the 'details' field.
+        """Return the explicit description or the details.
+
+        If a description is set manually, return that.  Else returns
+        the first 200 characters (defined in config.py) of the
+        'details' field.
+
+        We must avoid returning a string in one case and a unicode in
+        a different case.  So we always return unicode.
+        See http://plone.org/products/poi/issues/135
         """
-        explicit = self.getField('description').get(self)
-        if explicit:
-            return explicit
-        else:
-            details = self.getRawDetails()
-            if not isinstance(details, unicode):
-                encoding = getSiteEncoding(self)
-                details = unicode(details, encoding)
-            if len(details) > DESCRIPTION_LENGTH:
-                return details[:DESCRIPTION_LENGTH] + "..."
-            else:
-                return details
+        value = self.getField('description').get(self)
+        if not value:
+            value = self.getRawDetails()
+            if len(value) > DESCRIPTION_LENGTH:
+                value = value[:DESCRIPTION_LENGTH] + "..."
+        # Always return unicode.
+        if not isinstance(value, unicode):
+            encoding = getSiteEncoding(self)
+            value = unicode(value, encoding)
+        return value
 
     def validate_watchers(self, value):
         """Make sure watchers are actual user ids"""
@@ -456,7 +463,8 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
 
     def getDefaultSeverity(self):
         """Get the default severity for new issues"""
-        return self.aq_parent.getDefaultSeverity()
+        parent = self.aq_inner.aq_parent
+        return parent.getDefaultSeverity()
 
     security.declarePublic('isValid')
     def isValid(self):
@@ -473,15 +481,17 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         """
         Get the issue types available as a DisplayList.
         """
-        field = self.aq_parent.getField('availableIssueTypes')
-        return field.getAsDisplayList(self.aq_parent)
+        parent = self.aq_inner.aq_parent
+        field = parent.getField('availableIssueTypes')
+        return field.getAsDisplayList(parent)
 
     def getManagersVocab(self):
         """
         Get the managers available as a DisplayList. The first item is 'None',
         with a key of '(UNASSIGNED)'.
         """
-        items = self.aq_parent.getManagers()
+        parent = self.aq_inner.aq_parent
+        items = parent.getManagers()
         vocab = DisplayList()
         vocab.add('(UNASSIGNED)', 'None', 'poi_vocab_none')
         for item in items:
@@ -493,7 +503,8 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         """
         Get the available areas as a DispayList.
         """
-        tags = self.aq_parent.getTagsInUse()
+        parent = self.aq_inner.aq_parent
+        tags = parent.getTagsInUse()
         vocab = DisplayList()
         for t in tags:
             vocab.add(t, t)
@@ -507,7 +518,8 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         """
         vocab = DisplayList()
         vocab.add('(UNASSIGNED)', 'None', 'poi_vocab_none')
-        parentVocab = self.aq_parent.getReleasesVocab()
+        parent = self.aq_inner.aq_parent
+        parentVocab = parent.getReleasesVocab()
         for k in parentVocab.keys():
             vocab.add(k, parentVocab.getValue(k), parentVocab.getMsgId(k))
         return vocab
@@ -515,8 +527,14 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
     def SearchableText(self):
         """Include in the SearchableText the text of all responses"""
         text = BaseObject.SearchableText(self)
+        folder = IResponseContainer(self, None)
+        if folder is None:
+            return text
+        # old style:
         responses = self.contentValues(filter={'portal_type' : 'PoiResponse'})
         text += ' ' + ' '.join([r.SearchableText() for r in responses])
+        # new style:
+        text += ' ' + ' '.join([r.text for r in folder])
         return text
 
     def notifyModified(self):
@@ -530,8 +548,9 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         """
         Get the available areas as a DispayList.
         """
-        field = self.aq_parent.getField('availableAreas')
-        return field.getAsDisplayList(self.aq_parent)
+        parent = self.aq_inner.aq_parent
+        field = parent.getField('availableAreas')
+        return field.getAsDisplayList(parent)
 
     def sendNotificationMail(self):
         """
@@ -543,7 +562,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         portal = portal_url.getPortalObject()
         fromName = portal.getProperty('email_from_name', None)
 
-        tracker = self.aq_parent
+        tracker = self.aq_inner.aq_parent
 
         issueCreator = self.Creator()
         issueCreatorInfo = portal_membership.getMemberInfo(issueCreator);
@@ -578,13 +597,15 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
     def getTaggedDetails(self, **kwargs):
         # perform link detection
         text = self.getField('details').get(self, **kwargs)
-        return self.aq_parent.linkDetection(text)
+        parent = self.aq_inner.aq_parent
+        return parent.linkDetection(text)
 
     @instance.memoize
     def getTaggedSteps(self, **kwargs):
         # perform link detection
         text = self.getField('steps').get(self, **kwargs)
-        return self.aq_parent.linkDetection(text)
+        parent = self.aq_inner.aq_parent
+        return parent.linkDetection(text)
 
 def modify_fti(fti):
     # Hide unnecessary tabs (usability enhancement)

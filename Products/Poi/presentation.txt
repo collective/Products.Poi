@@ -1,0 +1,313 @@
+From Archetypes to Zope 3
+=========================
+
+
+Goals
+-----
+
+- See some examples/patterns for Zope 3 use
+
+- Feedback on Poi
+
+- Inspiration for xm.booking
+
+- Extras: kupu and zope 3, upgrade steps
+
+
+Case study: Poi Responses
+-------------------------
+
+Why Zope 3 here?
+
+- A lot of code for basically just some text
+
+- Hardly a separate object
+
+- Hopefully faster
+
+- Adding a response while viewing the complete issue
+
+Code: `maurits-inline-response-adding branch`_.
+
+.. _`maurits-inline-response-adding branch`: https://svn.plone.org/svn/collective/Products.Poi/buildout/poi30/branches/maurits-inline-response-adding
+
+
+Archetypes
+----------
+
+Good:
+
++ Well known solution
+
+Bad:
+
+- big, fat objects
+
+- lots of overhead
+
+
+Zope 3 content objects
+----------------------
+
+Bad:
+
+- Less well known.
+
+Good:
+
++ smaller objects
+
++ less overhead
+
+
+Adding 100 responses
+--------------------
+
+- Creation is much faster with zope 3 objects.
+
+- Data.fs increase: 1 MB for Archetypes, 0.5 MB for zope 3.
+
+- But viewing is 2 times slower for zope 3 ?! -> memoize
+
+
+IResponse Interface
+-------------------
+
+::
+
+    text = Attribute("Text of this response")
+    changes = Attribute("Changes made to the issue in this response.")
+    creator = Attribute("Id of user making this change.")
+    date = Attribute("Date (plus time) this response was made.")
+    type = Attribute("Type of response (additional/clarification/reply).")
+    mimetype = Attribute("Mime type of the response.")
+
+    def add_change(id, name, before, after):
+        """Add change to the list of changes.
+        """
+
+
+Response class
+--------------
+
+::
+
+    from persistent import Persistent
+    class Response(Persistent):
+
+        implements(IResponse)
+
+        def __init__(self, text):
+            self.__parent__ = self.__name__ = None
+            self.text = text
+            self.changes = PersistentList()
+            sm = getSecurityManager()
+            user = sm.getUser()
+            self.creator = user.getId() or '(anonymous)'
+            self.date = DateTime()
+            self.type = 'additional'
+            self.mimetype = ''
+
+        def add_change(self, id, name, before, after):
+            """Add a new issue change.
+            """
+            delta = dict(
+                id = id,
+                name = name,
+                before = before,
+                after = after)
+            self.changes.append(delta)
+
+
+Issue = Response Container (1)
+------------------------------
+
+::
+
+    from zope.app.container.sample import SampleContainer
+    from Products.Poi.interfaces import IIssue
+
+    class IResponseContainer(Interface):
+        pass
+
+    class ResponseContainer(SampleContainer):
+
+        implements(IResponseContainer)
+        adapts(IIssue)
+        ANNO_KEY = 'poi.responses'
+
+
+Interlude: SampleContainer
+--------------------------
+
+::
+
+  from zope.app.container.contained import Contained
+
+  class SampleContainer(Contained):
+
+      def __init__(self):
+          self.__data = self._newContainerData()
+
+      def _newContainerData(self):
+          return {}
+
+      def items(self):
+          return self.__data.items()
+
+
+Issue = Response Container (2)
+------------------------------
+
+::
+
+    from zope.annotation.interfaces import IAnnotations
+    from persistent.mapping import PersistentMapping
+    from BTrees.OOBTree import OOBTree
+
+    def _newContainerData(self):
+        """Construct an item-data container
+        """
+        annotations = IAnnotations(self.context)
+        mapping = annotations.get(self.ANNO_KEY, None)
+        if mapping is None:
+            mapping = PersistentMapping()
+            mapping.data = OOBTree()
+            mapping.highest = 0
+            annotations[self.ANNO_KEY] = mapping
+        return mapping.data
+
+
+Adding a response
+-----------------
+
+::
+
+    def add(self, item):
+        if not IResponse.providedBy(item):
+            raise UnaddableError(self, item,
+                "IResponse interface not provided.")
+        self[unicode(self.highest + 1)] = item
+        self.highest += 1
+
+
+Deleting a response
+-------------------
+
+::
+
+    def delete(self, id):
+        event = ObjectRemovedEvent(self[id],
+                  oldParent=self.context, oldName=id)
+        del self[id]
+        notify(event)
+        while unicode(self.highest) not in self and \
+              self.highest > 0:
+            self.highest -= 1
+
+
+In the browser
+--------------
+
+Browser views registered for Products.Poi.interfaces.IIssue::
+
+    class Base(BrowserView):
+        ...
+
+Adding::
+
+    class AddForm(Base):
+        ...
+    class Create(Base):
+        def __call__(self):
+            ...
+
+Editing::
+
+    class Edit(Base):
+        def response(self):
+            ...
+    class Save(Base):
+        def __call__(self):
+            ...
+
+Deleting::
+
+    class Delete(Base):
+        def __call__(self):
+            ...
+
+
+Kupu and Zope 3 (or anything)
+-----------------------------
+
+::
+
+  <tal:block
+      define="inputname string:response;
+              inputvalue view/response/text;
+              member python:context.portal_membership.getAuthenticatedMember();
+              editor python:member.getProperty('wysiwyg_editor', 'plone_wysiwyg').lower();
+              portal_url context/portal_url;
+              here_url context/portal_url;
+              support python: path('nocall:here/%s_wysiwyg_support|here/%s/wysiwyg_support|
+              here/portal_skins/plone_wysiwyg/wysiwyg_support' % (editor, editor));"
+      on-error="string:$editor not installed correctly: ${error/value}">
+
+
+    <metal:block metal:use-macro="support/macros/wysiwygEditorBox" />
+  </tal:block>
+
+
+GS Upgrade steps (1)
+--------------------
+
+::
+
+  <configure
+      xmlns:gs="http://namespaces.zope.org/genericsetup"
+      i18n_domain="poi">
+    <gs:upgradeStep
+        title="Poi responses"
+        description="Migrate old style to new style Poi responses."
+        source="1.1"
+        destination="1.2"
+        handler="Products.Poi.migration.migrate_responses"
+        sortkey="1"
+        profile="Products.Poi:default" />
+  </configure>
+
+
+GS Upgrade steps (2)
+--------------------
+
+::
+
+  def migrate_responses(context):
+      log.info("Starting migration of old style to new style responses.")
+      catalog = getToolByName(context, 'portal_catalog')
+      tracker_brains = catalog.searchResults(portal_type='PoiTracker')
+      log.info("Found %s PoiTrackers.", len(tracker_brains))
+      for brain in tracker_brains:
+          tracker = brain.getObject()
+          ...
+
+
+GS Upgrade steps (3)
+--------------------
+
+::
+
+    for old_response in responses:
+        field = old_response.getField('response')
+        text = field.getRaw(old_response)
+        new_response = Response(text)
+        new_response.mimetype = field.getContentType(old_response)
+        new_response.creator = old_response.Creator()
+        changes = old_response.getIssueChanges()
+        for change in changes:
+            new_response.add_change(**change)
+        folder.add(new_response)
+        issue._delObject(old_response.getId())
+    # This seems a good time to reindex the issue for good measure.
+    issue.reindexObject()

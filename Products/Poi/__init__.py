@@ -42,6 +42,8 @@ from Products.Poi.config import PROJECTNAME
 from Products.Poi.config import DEFAULT_ADD_CONTENT_PERMISSION
 from Products.Poi.config import ADD_CONTENT_PERMISSIONS
 from Products.Poi.config import product_globals
+from zope.i18nmessageid import MessageFactory
+PoiMessageFactory = MessageFactory('Poi')
 
 
 DirectoryView.registerDirectory('skins', product_globals)

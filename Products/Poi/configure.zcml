@@ -34,6 +34,29 @@
       handler=".events.removedResponse"
       />
 
+  <subscriber
+      for="Products.Poi.adapters.IResponse
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+      handler=".events.modifiedNewStyleResponse"
+      />
+
+  <subscriber
+      for="Products.Poi.adapters.IResponse
+           zope.app.container.interfaces.IObjectAddedEvent"
+      handler=".events.addedNewStyleResponse"
+      />
+
+  <subscriber
+      for="Products.Poi.adapters.IResponse
+           zope.app.container.interfaces.IObjectRemovedEvent"
+      handler=".events.removedResponse"
+      />
+
+  <adapter
+      provides=".adapters.IResponseContainer"
+      factory=".adapters.ResponseContainer"
+      />
+
   <!-- Register the GenericSetup extension profile so that we can
        install the product
   -->
@@ -52,5 +75,23 @@
       class=".content.PoiIssue.PoiIssue" />
   <five:deprecatedManageAddDelete
       class=".content.PoiResponse.PoiResponse" />
+
+  <gs:upgradeStep
+      title="Issue descriptions"
+      description="Fix description of issues."
+      source="1.1"
+      destination="1.2"
+      handler="Products.Poi.migration.fix_descriptions"
+      sortkey="1"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Poi responses"
+      description="Migrate old style to new style Poi responses."
+      source="1.1"
+      destination="1.2"
+      handler="Products.Poi.migration.migrate_responses"
+      sortkey="2"
+      profile="Products.Poi:default" />
 
 </configure>

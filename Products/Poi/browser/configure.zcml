@@ -18,4 +18,51 @@
      allowed_interface=".interfaces.IIssueFolderView"
      />
 			  
+  <!-- Add response form -->
+  <!-- XXX: Use other permission "Poi: Add Response" -->
+  <browser:viewletManager
+      name="poi.response.add"
+      provides=".interfaces.IResponseAdder"
+      permission="zope2.View"
+      class=".response.AddForm"
+      template="response.pt"
+      />
+
+  <browser:page
+     name="create_response"
+     for="Products.Poi.interfaces.IIssue"
+     permission="zope2.View"
+     class=".response.Create"
+     allowed_interface=".interfaces.ICreateResponse"
+     />
+
+  <browser:page
+     name="poi_response_delete"
+     for="Products.Poi.interfaces.IIssue"
+     permission="zope2.View"
+     class=".response.Delete"
+     />
+
+  <browser:page
+     name="poi_response_edit"
+     for="Products.Poi.interfaces.IIssue"
+     permission="zope2.View"
+     class=".response.Edit"
+     template="edit_response.pt"
+     />
+
+  <browser:page
+     name="poi_response_save"
+     for="Products.Poi.interfaces.IIssue"
+     permission="zope2.View"
+     class=".response.Save"
+     />
+
+  <browser:page
+     name="poi_response_attachment"
+     for="Products.Poi.interfaces.IIssue"
+     permission="zope2.View"
+     class=".response.Download"
+     />
+
 </configure>

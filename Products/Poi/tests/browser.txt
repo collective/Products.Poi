@@ -1,0 +1,191 @@
+Test browser tests for Poi
+==========================
+
+Tracker
+-------
+
+We start a test browser::
+
+    >>> from Products.Five.testbrowser import Browser
+    >>> browser = Browser()
+    >>> browser.handleErrors = False
+    >>> browser.addHeader('Accept-Language', 'en-US')
+    >>> self.portal.error_log._ignored_exceptions = ()
+
+We log in::
+
+    >>> browser.open(portal.absolute_url() + '/login_form')
+    >>> browser.getLink('Log in').click()
+    >>> browser.getControl(name='__ac_name').value = 'test_user_1_'
+    >>> browser.getControl(name='__ac_password').value = 'secret'
+    >>> browser.getControl(name='submit').click()
+    >>> 'You are now logged in' in browser.contents
+    True
+
+And make ourselves manager::
+
+    >>> self.setRoles(['Manager'])
+
+We create a tracker::
+
+    >>> url = self.portal.absolute_url()
+    >>> browser.open(url)
+    >>> browser.open(url + '/createObject?type_name=PoiTracker')
+    >>> browser.getControl(name='title').value = 'Issues'
+    >>> browser.getControl(name='form_submit').click()
+    >>> tracker = self.portal.issues
+
+Now we create an issue::
+
+    >>> url = tracker.absolute_url()
+    >>> browser.open(url + '/createObject?type_name=PoiIssue')
+    >>> browser.getControl(name='title').value = 'Something is wrong.'
+    >>> browser.getControl(name='details').value = '#1 is a big issue.'
+    >>> browser.getControl(name='area').value = ('ui',)
+    >>> browser.getControl(name='issueType').value = ('bug',)
+    >>> browser.getControl(name='contactEmail').value = 'maurits@vanrees.org'
+    >>> browser.getControl(name='form_submit').click()
+    >>> 'Changes saved.' in browser.contents
+    True
+    >>> issue = tracker['1']
+
+We check some values of the issue before adding a response::
+
+    >>> from Products.CMFCore.utils import getToolByName
+    >>> workflow = getToolByName(self.portal, 'portal_workflow')
+    >>> workflow.getInfoFor(issue, 'review_state')
+    'unconfirmed'
+    >>> issue.getResponsibleManager()
+    '(UNASSIGNED)'
+    >>> issue.getSeverity()
+    'Medium'
+
+
+If we just click the submit button without filling in text, an error
+occurs::
+
+    >>> browser.getControl('Submit').click()
+    >>> "No response text added and no issue changes made." in browser.contents
+    True
+
+Leaving the text empty but changing a value is fine.  We test setting
+the severity::
+
+    >>> '<td>Important</td>' in browser.contents
+    False
+    >>> browser.getControl(name='severity').value = ('Important',)
+    >>> browser.getControl('Submit').click()
+    >>> issue.getSeverity()
+    'Important'
+    >>> '<td>Important</td>' in browser.contents
+    True
+    >>> "No response text added and no issue changes made." in browser.contents
+    False
+
+We check the values of this response::
+
+    >>> from Products.Poi.adapters import IResponseContainer
+    >>> folder = IResponseContainer(issue)
+    >>> response = folder[0]
+    >>> response.text
+    ''
+    >>> response.text
+    ''
+    >>> len(response.changes)
+    1
+    >>> response.changes[0]
+    {'before': 'Medium', 'after': 'Important', 'id': 'severity', 'name': 'Severity'}
+    >>> response.creator
+    'test_user_1_'
+    >>> response.date
+    DateTime(...)
+    >>> response.type
+    'clarification'
+    >>> response.mimetype
+    'text/x-web-intelligent'
+
+Now we add a response::
+
+    >>> browser.getControl(name='response').value = 'Possibly fixed in r99.'
+    >>> browser.getControl(name='transition').value = ('accept-unconfirmed',)
+    >>> browser.getControl(name='responsibleManager').value = ('test_user_1_',)
+    >>> browser.getControl('Submit').click()
+
+We check the current status in the browser contents::
+
+    >>> '<td class="issue-open">Confirmed</td>' in browser.contents
+    True
+    >>> '<td>User interface</td>' in browser.contents
+    True
+    >>> '<td>Bug</td>' in browser.contents
+    True
+    >>> '<td>Important</td>' in browser.contents
+    True
+
+And we check the issue to be sure:
+
+    >>> workflow.getInfoFor(issue, 'review_state')
+    'open'
+    >>> issue.getResponsibleManager()
+    'test_user_1_'
+
+This response was a clarification from the original poster::
+
+    >>> 'class="response-clarification"' in browser.contents
+    True
+
+We check the values of the response::
+
+    >>> response = folder[1]
+    >>> response.text
+    'Possibly fixed in r99.'
+    >>> len(response.changes)
+    2
+    >>> response.changes[0]
+    {'before': 'unconfirmed', 'after': 'open', 'id': 'review_state', 'name': 'Issue state'}
+    >>> response.changes[1]
+    {'before': '(UNASSIGNED)', 'after': 'test_user_1_', 'id': 'responsibleManager', 'name': 'Responsible manager'}
+    >>> response.creator
+    'test_user_1_'
+    >>> response.date
+    DateTime(...)
+    >>> response.type
+    'clarification'
+    >>> response.mimetype
+    'text/x-web-intelligent'
+
+
+We can edit this second response::
+
+    >>> browser.getControl('Edit', index=2).click()
+    >>> browser.url
+    'http://nohost/plone/issues/1/@@poi_response_edit'
+    >>> 'Edit response' in browser.contents
+    True
+
+The original response text is there::
+
+    >>> 'Possibly fixed in r99.' in browser.contents
+    True
+
+We change the text and save it::
+
+    >>> browser.getControl(name='response').value = 'Certainly fixed in r100.'
+    >>> browser.getControl('Submit').click()
+    >>> 'Changes saved' in browser.contents
+    True
+    >>> 'Certainly fixed in r100.' in browser.contents
+    True
+    >>> browser.url
+    'http://nohost/plone/issues/1'
+
+Now we delete the response::
+
+    >>> open('/tmp/test.html', 'w').write(browser.contents)
+    >>> browser.getControl('Delete', index=1).click()
+    >>> browser.url
+    'http://nohost/plone/issues/1'
+    >>> 'Removed response' in browser.contents
+    True
+    >>> 'Certainly fixed in r100.' in browser.contents
+    False

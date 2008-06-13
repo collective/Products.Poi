@@ -3,9 +3,182 @@ Changelog for Poi
 
     (name of developer listed in brackets)
 
-
 Poi 1.2 - (Unreleased)
 ----------------------
+
+- Handle target release better -- there was some confusion between
+  values and labels.  [maurits]
+
+- Made sure that just an issue state change or an attachment upload
+  is also accepted as a change.  [maurits]
+
+- Only show the target release option when there is more than one
+  option (as None is always an option).  [maurits]
+
+- Adapted the tests to use new style responses everywhere, except in
+  the tests for migrating from old to new style responses.
+  [maurits]
+
+- Removed skins/Poi/poi_response_update_issue.cpy and related code.
+  [maurits]
+
+- Add i18n to browser/response.pt  [maurits]
+
+- Removed button for adding old style response to issue.  [maurits]
+
+- Removed skins/Poi/determineResponseType.py  [maurits]
+
+- Send email when response is added.  [maurits]
+
+- Update SearchableText of issue when response is added.  [maurits]
+
+- Add handling for the target releases field (available only when
+  using the PSC tracker).  [maurits]
+
+- Only show options like changing state when the user has permission
+  to use them.  [maurits]
+
+- Allow adding and downloading an attachment in a response.  [maurits]
+
+- Store rendered html on the response; remove that after editing.
+  Makes views faster.  Basically a memoize variant. [maurits]
+
+- In the creation view, test that a response is valid before adding
+  it. [maurits]
+
+- Let unit tests pass on Plone 3.1 by providing an IWorkflowChain
+  adapter. [maurits]
+
+- Add migration step for making sure that the Description of all
+  PoiIssues in the portal_catalog is of type unicode instead of
+  string, just like the real objects. [maurits]
+
+- For the Description of a PoiIssue always return unicode. [maurits]
+
+- Use PersistentList instead of the combination of PersistentMapping
+  and self.highest in ResponseContainer.  Works just as well and feels
+  easier. [maurits]
+
+- Add first tests for migration of individual issue.
+  [maurits]
+
+- Add migration (GenericSetup upgrade step) from old to new style
+  responses.
+  [maurits]
+
+- Use the text of new style responses too for the SearchableText of an
+  issue.
+  [maurits]
+
+- No __parent__ and __name__ for PoiIssue anymore.  Instead pass the
+  issue as descriptions argument when firing the ObjectModifiedEvent
+  for a response.  Works fine and needs no migration.
+  [maurits]
+
+- Use __parent__ and __name__ for responses.
+  [maurits]
+
+- Add "self.__parent__ = self.__name__ = None" to __init__() of
+  PoiIssue.  Needs migration.  Not sure if that is the best solution
+  to the problem that in the event handler for modified responses the
+  issue has no acquisition context.
+
+- Fire ObjectRemovedEvent when deleting a response and
+  ObjectModifiedEvent when modifying it.
+  [maurits]
+
+- When adding something to an issue check that it really is an
+  IResponse.
+  [maurits]
+
+- Add buttons and browser views for deleting and editing responses.
+  [maurits]
+
+- Add PoiMessageFactory.
+  [maurits]
+
+- Add method delete(id) for deleting responses.
+  [maurits]
+
+- In response adapter rename total to highest.
+  [maurits]
+
+- When FCKeditor is installed and an anonymous visitor adds a
+  response, make sure this works by using the default html text area
+  then.  Same change as in the FCKeditor code itself in r59427.
+  [maurits]
+
+- When in config.py DEFAULT_ISSUE_MIME_TYPE is set to text/html, use a
+  wysiwyg field in the add response form.  Tested with kupu.  Haul the
+  responses through portal_transforms and through linkDetection.
+  [maurits]
+
+- Give responses a type additional/clarification/reply.
+  [maurits]
+
+- Add browser test for adding a tracker, issue and response.
+  [maurits]
+
+- Unit test the response browser views.
+  [maurits]
+
+- Use aq_inner.aq_parent to get the parent of an issue.
+  [maurits]
+
+- Add unit tests for browser.response.voc2dict.
+  [maurits]
+
+- Add unit tests for the adapters.
+  [maurits]
+
+- Show border around responses, like in the original layout.
+  [maurits]
+
+- Check that the changes within a response are allowed (new severity
+  in available_severities, etc).
+  [maurits]
+
+- Make difference between available_transitions and
+  transitions_for_display; also for the other response options.
+  [maurits]
+
+- Add methods sorted_keys/values/items for the ResponseContainer.
+  Show the sorted items in the view (so 1, ..., 9, 10 instead of 1,
+  10, ..., 9).
+  [maurits]
+
+- Store OOBTree and total in a PersistentMapping instead of only the
+  OOBTree directly in the annotations.
+  [maurits]
+
+- Check radio buttons of response based on current status for all
+  options.  Rename options to be in line with the fields of the parent
+  Task.
+  [maurits]
+
+- Store creator and creation date of response.
+  [maurits]
+
+- Use an OOBtree instead of a PersistentMapping to store the
+  responses.
+  [maurits]
+
+- Use zope.app.container.sample.SampleContainer as base class for
+  ResponseContainer.  Store a PersistentMapping in it.  Show the
+  sorted responses.
+  [maurits]
+
+- Start creating zope 3 style lightweight responses instead of big fat
+  Archetypes objects.
+  [maurits]
+
+- Add provider:poi.response.add that gives you a form for adding a
+  response when viewing an issue.
+  [maurits]
+
+- Add browser view @@create_response that creates a response in the
+  current issue, based on the request form.
+  [maurits]
 
 - List Products.AddRemoveWidget and Products.DataGridField as
   dependencies in setup.py.  [maurits]
