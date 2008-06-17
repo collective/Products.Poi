@@ -3,8 +3,8 @@ Changelog for Poi
 
     (name of developer listed in brackets)
 
-Poi 1.2 - (Unreleased)
-----------------------
+Poi 1.2 alpha 1 - (17 June 2008)
+--------------------------------
 
 - Handle target release better -- there was some confusion between
   values and labels.  [maurits]
