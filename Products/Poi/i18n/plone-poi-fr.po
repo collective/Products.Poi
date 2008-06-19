@@ -1,87 +1,96 @@
-# Translation of plone-poi.pot to French
+# translation of plone-poi-fr.po to French
 # Sebastien Douche <sdouche@gmail.com>, 2005.
+# Encolpe Degoute <encolpe@gmail.com>, 2008.
+# Translation of plone-poi.pot to French
 msgid ""
 msgstr ""
-"Project-Id-Version: Poi\n"
+"Project-Id-Version: plone-poi-fr\n"
 "POT-Creation-Date: 2005-10-26 17:00+0000\n"
-"PO-Revision-Date: 2008-04-14 23:12+0100\n"
-"Last-Translator: Gilles Lenfant <gilles.lenfant@ingeniweb.com>\n"
-"Language-Team: French Translation Team <plone-i18n@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2008-06-19 15:46+0200\n"
+"Last-Translator: Encolpe Degoute <encolpe@gmail.com>\n"
+"Language-Team: French <membres@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms:  nplurals=2; plural=(n > 1);\n"
 "Language-Code: fr\n"
 "Language-Name: French\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 "X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
-
-# issue transitions
-msgid " Open"
-msgstr "Ouvert"
-
-msgid "A response to an issue."
-msgstr "Une réponse à un ticket."
-
-msgid "An issue tracker"
-msgstr "Un gestionnaire de tickets"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Un ticket. Les tickets  commence avec l'état 'ouvert', et peuvent être gérés par les chefs de projets."
-
-msgid "Begin work"
-msgstr "Démarrer le traitement"
-
-msgid "Being created"
-msgstr "En cours de création"
-
-# tracker transitions
-msgid "Close tracker"
-msgstr "Fermer le gestionnaire"
-
-msgid "Closed for submissions"
-msgstr "Fermé pour des demandes"
-
-msgid "Confirm resolved"
-msgstr "Confirmer la résolution"
-
-msgid "In progress"
-msgstr "En cours de résolution"
-
-msgid "Issue"
-msgstr "Ticket"
+"X-Generator: KBabel 1.11.4\n"
 
 # portal type nams
 msgid "Issue Tracker"
 msgstr "Gestionnaire de tickets"
 
-msgid "Open"
-msgstr "Ouvert"
+msgid "An issue tracker"
+msgstr "Un gestionnaire de tickets"
+
+msgid "Issue"
+msgstr "Ticket"
+
+msgid ""
+"An issue. Issues begin in the 'unconfirmed' state, and can be responded to "
+"by project managers."
+msgstr ""
+"Un ticket. Les tickets commencent dans l'état « ouvert », et peuvent être gérés "
+"par les chefs de projets."
+
+msgid "Response"
+msgstr "Réponse"
+
+msgid "A response to an issue."
+msgstr "Une réponse à un ticket."
 
 # tracker states
 msgid "Open for submissions"
 msgstr "Ouvert pour des demandes"
 
+msgid "Closed for submissions"
+msgstr "Fermé aux demandes"
+
+# tracker transitions
+msgid "Close tracker"
+msgstr "Désactiver le gestionnaire"
+
 msgid "Open tracker"
-msgstr "Ouvrir le gestionnaire"
+msgstr "Activer le gestionnaire"
 
-msgid "Post issue on save"
-msgstr "Diffuser par mail le ticket à l'enregistrement"
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "Testé et validé par les utilisateurs"
 
-# response transitions
-msgid "Post response on save"
-msgstr "Diffuser par mail le ticket à l'enregistrement"
+msgid "In progress"
+msgstr "En cours de résolution"
 
-# response states
-msgid "Posted"
-msgstr "Posté"
+msgid "Being created"
+msgstr "En cours de création"
 
-msgid "Postpone"
-msgstr "Reporter"
+msgid "Open"
+msgstr "Ouvert"
 
 msgid "Postponed"
 msgstr "Reporté"
+
+msgid "Rejected"
+msgstr "Rejeté"
+
+msgid "Resolved"
+msgstr "Résolu"
+
+msgid "Unconfirmed"
+msgstr "Non confirmé"
+
+# issue transitions
+msgid " Open"
+msgstr "Ouvert"
+
+msgid "Begin work"
+msgstr "Démarrer le traitement"
+
+msgid "Confirm resolved"
+msgstr "Confirmer la résolution"
 
 msgid "Put on hold"
 msgstr "Suspendre"
@@ -89,25 +98,23 @@ msgstr "Suspendre"
 msgid "Re-open"
 msgstr "Réouvrir"
 
+msgid "Post issue on save"
+msgstr "Diffuser le ticket par courriel à l'enregistrement"
+
+msgid "Postpone"
+msgstr "Reporter"
+
 msgid "Reject"
 msgstr "Rejeter"
-
-msgid "Rejected"
-msgstr "Rejeté"
 
 msgid "Resolve"
 msgstr "Résoudre"
 
-msgid "Resolved"
-msgstr "Résolu"
+# response states
+msgid "Posted"
+msgstr "Posté"
 
-msgid "Response"
-msgstr "Réponse"
-
-# issue states
-msgid "Tested and confirmed closed"
-msgstr "Testé et validé par les utilisateurs"
-
-msgid "Unconfirmed"
-msgstr "Non confirmé"
+# response transitions
+msgid "Post response on save"
+msgstr "Diffuser le ticket par courriel à l'enregistrement"
 
