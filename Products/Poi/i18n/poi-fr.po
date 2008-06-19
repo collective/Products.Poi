@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
 "POT-Creation-Date: 2008-06-13 00:33+0000\n"
-"PO-Revision-Date: 2008-06-19 18:07+0200\n"
+"PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Encolpe Degoute <encolpe@gmail.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -253,7 +253,7 @@ msgstr "Sévérités disponibles"
 # ./content/PoiIssue.py
 #. Default: "Contact email address"
 msgid "Poi_label_contactEmail"
-msgstr "Adresse couriel de contact"
+msgstr "Adresse courriel de contact"
 
 # ./content/PoiTracker.py
 #. Default: "Default severity"
@@ -348,7 +348,7 @@ msgstr "Responsable"
 # ./content/PoiTracker.py
 #. Default: "Send notification emails"
 msgid "Poi_label_sendNotificationEmails"
-msgstr "Envoyer des couriels de notification"
+msgstr "Envoyer des courriels de notification"
 
 # ./content/PoiIssue.py
 #. Default: "Severity"
