@@ -6,6 +6,12 @@ Changelog for Poi
 Poi 1.2 - (Unreleased)
 ----------------------
 
+- Made PoiTracker translatable with LinguaPlone.  Does not make sense
+  for the other content types.  (Change merged from 1.1)
+  Fixes http://plone.org/products/poi/issues/177
+  [maurits]
+
+
 Poi 1.2 alpha 1 - (17 June 2008)
 --------------------------------
 
@@ -20,6 +26,8 @@ Poi 1.2 alpha 1 - (17 June 2008)
 
 - Adapted the tests to use new style responses everywhere, except in
   the tests for migrating from old to new style responses.
+
+- Made Poi migrations available with a form at migrate-poi.html.
   [maurits]
 
 - Removed skins/Poi/poi_response_update_issue.cpy and related code.

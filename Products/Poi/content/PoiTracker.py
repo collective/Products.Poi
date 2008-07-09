@@ -28,23 +28,11 @@ __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
 from AccessControl import ClassSecurityInfo
-
-from Products.Archetypes.atapi import BaseBTreeFolder
-from Products.Archetypes.atapi import BaseBTreeFolderSchema
-from Products.Archetypes.atapi import BooleanField
-from Products.Archetypes.atapi import BooleanWidget
-from Products.Archetypes.atapi import DisplayList
-from Products.Archetypes.atapi import LinesField
-from Products.Archetypes.atapi import LinesWidget
-from Products.Archetypes.atapi import registerType
-from Products.Archetypes.atapi import RichWidget
-from Products.Archetypes.atapi import Schema
-from Products.Archetypes.atapi import SelectionWidget
-from Products.Archetypes.atapi import StringField
-from Products.Archetypes.atapi import StringWidget
-from Products.Archetypes.atapi import TextAreaWidget
-from Products.Archetypes.atapi import TextField
-
+try:
+    from Products.LinguaPlone.public import *
+except ImportError:
+    # No multilingual support
+    from Products.Archetypes.atapi import *
 from Products.Poi.interfaces.Tracker import Tracker
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
 from Products.Poi.config import PROJECTNAME
