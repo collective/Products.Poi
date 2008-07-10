@@ -6,6 +6,12 @@ Changelog for Poi
 Poi 1.2 - (Unreleased)
 ----------------------
 
+- Merged r68220 and r68223 from branches/1.1:
+  Fixed typo that messed up a few translations.  
+  And fixed untranslatable login suggestion.
+  Fixes http://plone.org/products/poi/issues/191
+  [maurits]
+
 - When getting information from the parent tracker of an issue, guard
   against having a temporary folder (from the portal factory) as a
   direct parent.  Fixes errors like this:

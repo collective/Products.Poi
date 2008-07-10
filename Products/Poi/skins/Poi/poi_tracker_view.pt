@@ -42,24 +42,42 @@
       </div>
 
       <div class="formControls">
-          <form action="createObject"
-                 tal:condition="python: user.has_permission('Poi: Add Issue', here)">
-            <input name="type_name"
-                   type="hidden"
-                   value="PoiIssue"
-                   />
-            <input class="standalone"
-                   type="submit"
-                   i18n:attributes="value"
-                   value="Submit new issue"
-                   />
-          </form>
-          <div class="login-suggestion" tal:condition="isAnon" i18n:translate="login_suggestion">
-             If you can, please <a href="" 
-                                 tal:attributes="href string:${portal/absolute_url}/login_form?came_from=${here/absolute_url}">
-             
-             log in</a> before submitting your issue.
-          </div>
+        <div class="login-suggestion" tal:condition="isAnon">
+          <tal:block i18n:translate="login_suggestion">
+            If you can, please log in before submitting your issue.
+          </tal:block>
+
+        </div>
+        <table>
+          <tr>
+            <td>
+              <form action="createObject"
+                    tal:condition="python: user.has_permission('Poi: Add Issue', here)">
+                <input name="type_name"
+                       type="hidden"
+                       value="PoiIssue"
+                       />
+                <input class="standalone"
+                       type="submit"
+                       i18n:attributes="value"
+                       value="Submit new issue"
+                       />
+              </form>
+            </td>
+            <td>
+              <form
+                  tal:condition="isAnon"
+                  tal:attributes="href string:${portal/absolute_url}/login_form?came_from=${here/absolute_url}">
+                <input class="standalone"
+                       type="submit"
+                       value="Log in"
+                       i18n:domain="plone"
+                       i18n:attributes="value label_log_in;"
+                       />
+              </form>
+            </td>
+          </tr>
+        </table>
       </div>
 
       <p class="portalMessage"

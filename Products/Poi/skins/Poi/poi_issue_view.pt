@@ -114,14 +114,13 @@
            tal:define="user here/getLastModificationUser;
                        time here/modified">
          <span tal:condition="nocall:user" i18n:translate="poi_last_modified_on_by">Last modified on
-            <span i18:name="modification_time" tal:content="python:here.toLocalizedTime(time)" tal:omit-tag=""/>
+            <tal:block i18n:name="modification_time" tal:content="python:here.toLocalizedTime(time)" />
             by
-            <span i18:name="modification_actor" 
-                  tal:content="python:here.poi_niceName(username=user)" 
-                  tal:omit-tag=""/>
+            <tal:block i18n:name="modification_actor" 
+                  tal:content="python:here.poi_niceName(username=user)"  />
          </span>
          <span tal:condition="not:nocall:user" i18n:translate="poi_last_modified_on">Last modified on
-            <span i18:name="modification_time" tal:content="python:here.toLocalizedTime(time)" tal:omit-tag=""/>
+            <tal:block i18n:name="modification_time" tal:content="python:here.toLocalizedTime(time)"/>
          </span>
       </div>
       
