@@ -28,6 +28,7 @@ __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
 from AccessControl import ClassSecurityInfo
+from Acquisition import aq_chain
 
 from Products.Archetypes.atapi import AttributeStorage
 from Products.Archetypes.atapi import BaseFolder
@@ -68,6 +69,7 @@ import textwrap
 wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 from zope.interface import implements
 from Products.Poi.interfaces import IIssue
+from Products.Poi.interfaces import ITracker
 from plone.memoize import instance 
 
 schema = Schema((
@@ -412,7 +414,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         return email
 
     def _renameAfterCreation(self, check_auto_id=False):
-        parent = self.aq_inner.aq_parent
+        parent = self.getTracker()
         maxId = 0
         for id in parent.objectIds():
             try:
@@ -463,8 +465,8 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
 
     def getDefaultSeverity(self):
         """Get the default severity for new issues"""
-        parent = self.aq_inner.aq_parent
-        return parent.getDefaultSeverity()
+        tracker = self.getTracker()
+        return tracker.getDefaultSeverity()
 
     security.declarePublic('isValid')
     def isValid(self):
@@ -481,17 +483,17 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         """
         Get the issue types available as a DisplayList.
         """
-        parent = self.aq_inner.aq_parent
-        field = parent.getField('availableIssueTypes')
-        return field.getAsDisplayList(parent)
+        tracker = self.getTracker()
+        field = tracker.getField('availableIssueTypes')
+        return field.getAsDisplayList(tracker)
 
     def getManagersVocab(self):
         """
         Get the managers available as a DisplayList. The first item is 'None',
         with a key of '(UNASSIGNED)'.
         """
-        parent = self.aq_inner.aq_parent
-        items = parent.getManagers()
+        tracker = self.getTracker()
+        items = tracker.getManagers()
         vocab = DisplayList()
         vocab.add('(UNASSIGNED)', 'None', 'poi_vocab_none')
         for item in items:
@@ -503,8 +505,8 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         """
         Get the available areas as a DispayList.
         """
-        parent = self.aq_inner.aq_parent
-        tags = parent.getTagsInUse()
+        tracker = self.getTracker()
+        tags = tracker.getTagsInUse()
         vocab = DisplayList()
         for t in tags:
             vocab.add(t, t)
@@ -518,10 +520,10 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         """
         vocab = DisplayList()
         vocab.add('(UNASSIGNED)', 'None', 'poi_vocab_none')
-        parent = self.aq_inner.aq_parent
-        parentVocab = parent.getReleasesVocab()
-        for k in parentVocab.keys():
-            vocab.add(k, parentVocab.getValue(k), parentVocab.getMsgId(k))
+        tracker = self.getTracker()
+        trackerVocab = tracker.getReleasesVocab()
+        for k in trackerVocab.keys():
+            vocab.add(k, trackerVocab.getValue(k), trackerVocab.getMsgId(k))
         return vocab
 
     def SearchableText(self):
@@ -548,9 +550,9 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         """
         Get the available areas as a DispayList.
         """
-        parent = self.aq_inner.aq_parent
-        field = parent.getField('availableAreas')
-        return field.getAsDisplayList(parent)
+        tracker = self.getTracker()
+        field = tracker.getField('availableAreas')
+        return field.getAsDisplayList(tracker)
 
     def sendNotificationMail(self):
         """
@@ -562,7 +564,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         portal = portal_url.getPortalObject()
         fromName = portal.getProperty('email_from_name', None)
 
-        tracker = self.aq_inner.aq_parent
+        tracker = self.getTracker()
 
         issueCreator = self.Creator()
         issueCreatorInfo = portal_membership.getMemberInfo(issueCreator);
@@ -597,15 +599,30 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
     def getTaggedDetails(self, **kwargs):
         # perform link detection
         text = self.getField('details').get(self, **kwargs)
-        parent = self.aq_inner.aq_parent
-        return parent.linkDetection(text)
+        tracker = self.getTracker()
+        return tracker.linkDetection(text)
 
     @instance.memoize
     def getTaggedSteps(self, **kwargs):
         # perform link detection
         text = self.getField('steps').get(self, **kwargs)
-        parent = self.aq_inner.aq_parent
-        return parent.linkDetection(text)
+        tracker = self.getTracker()
+        return tracker.linkDetection(text)
+
+    def getTracker(self):
+        """Return the tracker.
+
+        This gets around the problem that the aq_parent of an issue
+        that is being created is not the tracker, but a temporary
+        folder.
+        """
+        for parent in aq_chain(self):
+            if ITracker.providedBy(parent):
+                return parent
+        raise Exception(
+            "Could not find PoiTracker in acquisition chain of %r" %
+            self)
+
 
 def modify_fti(fti):
     # Hide unnecessary tabs (usability enhancement)

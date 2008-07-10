@@ -198,15 +198,18 @@ class Base(BrowserView):
 
     @property
     def severity(self):
-        return self.context.getSeverity()
+        context = aq_inner(self.context)
+        return context.getSeverity()
 
     @property
     def targetRelease(self):
-        return self.context.getTargetRelease()
+        context = aq_inner(self.context)
+        return context.getTargetRelease()
 
     @property
     def responsibleManager(self):
-        return self.context.getResponsibleManager()
+        context = aq_inner(self.context)
+        return context.getResponsibleManager()
 
     @property
     @memoize

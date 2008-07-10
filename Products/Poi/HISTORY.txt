@@ -1,10 +1,17 @@
 Changelog for Poi
 =================
 
-    (name of developer listed in brackets)
+(name of developer listed in brackets)
 
 Poi 1.2 - (Unreleased)
 ----------------------
+
+- When getting information from the parent tracker of an issue, guard
+  against having a temporary folder (from the portal factory) as a
+  direct parent.  Fixes errors like this:
+  "Value ... is not allowed for vocabulary of element ${label}."
+  Fixes http://plone.org/products/poi/issues/180
+  [maurits]
 
 - Made PoiTracker translatable with LinguaPlone.  Does not make sense
   for the other content types.  (Change merged from 1.1)
