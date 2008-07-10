@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-pt-br\n"
-"POT-Creation-Date: 2008-06-13 00:33+0000\n"
+"POT-Creation-Date: 2008-07-10 22:38+0000\n"
 "PO-Revision-Date: 2007-01-26 10:34-0300\n"
 "Last-Translator: Rafahela Bazzanella <rafabazzanella@yahoo.com.br>\n"
 "Language-Team: TcheZope <tchezope@yahoogroups.com>\n"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../browser/response.py:473
+#: ../browser/response.py:476
 msgid "Changes saved to response id ${response_id}."
 msgstr ""
 
@@ -41,15 +41,15 @@ msgid "Edit"
 msgstr "Editar"
 
 #. Default: "Edit issue"
-#: ../skins/Poi/poi_issue_view.pt:152
+#: ../skins/Poi/poi_issue_view.pt:151
 msgid "Edit issue"
 msgstr ""
 
-#: ../browser/response.py:500
+#: ../browser/response.py:503
 msgid "No response selected for removal."
 msgstr ""
 
-#: ../browser/response.py:464
+#: ../browser/response.py:467
 msgid "No response selected for saving."
 msgstr ""
 
@@ -57,7 +57,7 @@ msgstr ""
 msgid "No response selected."
 msgstr ""
 
-#: ../browser/response.py:417
+#: ../browser/response.py:420
 msgid "No response text added and no issue changes made."
 msgstr ""
 
@@ -323,11 +323,11 @@ msgstr "Nome do Gerenciador"
 msgid "Poi_label_watchers"
 msgstr "Observadores da Ocorrência"
 
-#: ../browser/response.py:518
+#: ../browser/response.py:521
 msgid "Removed response id ${response_id}."
 msgstr ""
 
-#: ../browser/response.py:512
+#: ../browser/response.py:515
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr ""
 
@@ -335,11 +335,11 @@ msgstr ""
 msgid "Response id ${response_id} does not exist."
 msgstr ""
 
-#: ../browser/response.py:539
+#: ../browser/response.py:542
 msgid "Response id ${response_id} has no attachment."
 msgstr ""
 
-#: ../browser/response.py:507
+#: ../browser/response.py:510
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr ""
 
@@ -353,25 +353,25 @@ msgid "Search"
 msgstr ""
 
 #. Default: "Stop watching this issue"
-#: ../skins/Poi/poi_issue_view.pt:160
+#: ../skins/Poi/poi_issue_view.pt:159
 msgid "Stop watching this issue"
 msgstr "Parar de Observar esta Ocorrência"
 
 #. Default: "Submit new issue"
-#: ../skins/Poi/poi_tracker_view.pt:51
+#: ../skins/Poi/poi_tracker_view.pt:60
 msgid "Submit new issue"
 msgstr "Submeter nova ocorrência "
 
 #. Default: "Watch this issue"
-#: ../skins/Poi/poi_issue_view.pt:166
+#: ../skins/Poi/poi_issue_view.pt:165
 msgid "Watch this issue"
 msgstr "Observar a Ocorrência"
 
-#: ../browser/response.py:494
+#: ../browser/response.py:497
 msgid "You are not allowed to delete responses."
 msgstr ""
 
-#: ../browser/response.py:458
+#: ../browser/response.py:461
 msgid "You are not allowed to edit responses."
 msgstr ""
 
@@ -386,7 +386,7 @@ msgid "desc_poi_heading_delete_response"
 msgstr "Você tem certeza que deseja apagar esta resposta?"
 
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ../skins/Poi/poi_tracker_view.pt:65
+#: ../skins/Poi/poi_tracker_view.pt:83
 msgid "description_cannot_add_issues_before_opened"
 msgstr ""
 
@@ -451,8 +451,8 @@ msgstr "Título"
 msgid "listingheader_type"
 msgstr "Tipo"
 
-#. Default: "If you can, please <a href=\"${DYNAMIC_CONTENT}\"> log in</a> before submitting your issue."
-#: ../skins/Poi/poi_tracker_view.pt:58
+#. Default: "If you can, please log in before submitting your issue."
+#: ../skins/Poi/poi_tracker_view.pt:46
 msgid "login_suggestion"
 msgstr ""
 
@@ -472,28 +472,28 @@ msgid "poi_added_on"
 msgstr "em"
 
 #. Default: "All pending issues"
-#: ../skins/Poi/poi_tracker_view.pt:119
+#: ../skins/Poi/poi_tracker_view.pt:137
 msgid "poi_all_pending_issues"
 msgstr ""
 
 #. Default: "By area"
-#: ../skins/Poi/poi_tracker_view.pt:86
+#: ../skins/Poi/poi_tracker_view.pt:104
 msgid "poi_heading_by_area"
 msgstr "Por área"
 
 #. Default: "By target release"
-#: ../skins/Poi/poi_tracker_view.pt:103
+#: ../skins/Poi/poi_tracker_view.pt:121
 #, fuzzy
 msgid "poi_heading_by_release"
 msgstr "Por versão"
 
 #. Default: "By state"
-#: ../skins/Poi/poi_tracker_view.pt:116
+#: ../skins/Poi/poi_tracker_view.pt:134
 msgid "poi_heading_by_state"
 msgstr "Por situação"
 
 #. Default: "By tag"
-#: ../skins/Poi/poi_tracker_view.pt:140
+#: ../skins/Poi/poi_tracker_view.pt:158
 msgid "poi_heading_by_tag"
 msgstr "Por rótulo"
 
@@ -513,17 +513,17 @@ msgid "poi_heading_log"
 msgstr ""
 
 #. Default: "My issues"
-#: ../skins/Poi/poi_tracker_view.pt:194
+#: ../skins/Poi/poi_tracker_view.pt:212
 msgid "poi_heading_my_issues"
 msgstr "Minhas Ocorrências"
 
 #. Default: "Open issues"
-#: ../skins/Poi/poi_tracker_view.pt:75
+#: ../skins/Poi/poi_tracker_view.pt:93
 msgid "poi_heading_open_issues"
 msgstr "Ocorrências abertas"
 
 #. Default: "Orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:227
+#: ../skins/Poi/poi_tracker_view.pt:245
 msgid "poi_heading_orphaned_issues"
 msgstr ""
 
@@ -533,7 +533,7 @@ msgid "poi_heading_search_results"
 msgstr "Resultado da busca de ocorrências"
 
 #. Default: "Unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:163
+#: ../skins/Poi/poi_tracker_view.pt:181
 msgid "poi_heading_unconfirmed_issues"
 msgstr "Ocorrências não confirmadas"
 
@@ -543,28 +543,28 @@ msgid "poi_help_log"
 msgstr ""
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ../skins/Poi/poi_tracker_view.pt:195
+#: ../skins/Poi/poi_tracker_view.pt:213
 #, fuzzy
 msgid "poi_help_my_issues_manager"
 msgstr "As seguintes ocorrências abertas ou foram submetidas por você, ou foram designadas para você."
 
 #. Default: "The following open issues were submitted by you."
-#: ../skins/Poi/poi_tracker_view.pt:202
+#: ../skins/Poi/poi_tracker_view.pt:220
 msgid "poi_help_my_issues_not_manager"
 msgstr ""
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
-#: ../skins/Poi/poi_tracker_view.pt:79
+#: ../skins/Poi/poi_tracker_view.pt:97
 msgid "poi_help_open_issues"
 msgstr "Escolha uma área, versão ou situação da ocorrência para ver todas as ocorrências abertas nessa categoria. Para opções mais avançadas de pesquisa. selecione \"Busca de ocorrências\"."
 
 #. Default: "The following open issues are not assigned to anyone."
-#: ../skins/Poi/poi_tracker_view.pt:228
+#: ../skins/Poi/poi_tracker_view.pt:246
 msgid "poi_help_orphaned_issues_"
 msgstr ""
 
 #. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
-#: ../skins/Poi/poi_tracker_view.pt:164
+#: ../skins/Poi/poi_tracker_view.pt:182
 #, fuzzy
 msgid "poi_help_unconfirmed_issues"
 msgstr "As ocorrências seguintes não foram ainda confirmadas ou designadas. Por favor revise-as e tome a ação apropriada."
@@ -586,7 +586,7 @@ msgid "poi_label_area"
 msgstr "Área "
 
 #. Default: "Attached:"
-#: ../skins/Poi/poi_issue_view.pt:145
+#: ../skins/Poi/poi_issue_view.pt:144
 msgid "poi_label_attachment"
 msgstr "Anexado:"
 
@@ -606,7 +606,7 @@ msgid "poi_label_state"
 msgstr "Situação"
 
 #. Default: "Steps to reproduce:"
-#: ../skins/Poi/poi_issue_view.pt:140
+#: ../skins/Poi/poi_issue_view.pt:139
 msgid "poi_label_steps"
 msgstr "Passos para Reproduzir:"
 
@@ -621,7 +621,7 @@ msgid "poi_label_submitted_on"
 msgstr "Submetido em"
 
 #. Default: "Tags:"
-#: ../skins/Poi/poi_issue_view.pt:129
+#: ../skins/Poi/poi_issue_view.pt:128
 msgid "poi_label_tags"
 msgstr "Rótulos:"
 
@@ -640,12 +640,12 @@ msgstr "Tipo de Ocorrência"
 msgid "poi_label_version"
 msgstr ""
 
-#. Default: "Last modified on ${DYNAMIC_CONTENT}"
-#: ../skins/Poi/poi_issue_view.pt:124
+#. Default: "Last modified on ${modification_time}"
+#: ../skins/Poi/poi_issue_view.pt:123
 msgid "poi_last_modified_on"
 msgstr ""
 
-#. Default: "Last modified on ${DYNAMIC_CONTENT} by ${DYNAMIC_CONTENT}"
+#. Default: "Last modified on ${modification_time} by ${modification_actor}"
 #: ../skins/Poi/poi_issue_view.pt:119
 msgid "poi_last_modified_on_by"
 msgstr ""
@@ -796,17 +796,17 @@ msgid "title_rss_feed"
 msgstr ""
 
 #. Default: "RSS feed of my issues"
-#: ../skins/Poi/poi_tracker_view.pt:209
+#: ../skins/Poi/poi_tracker_view.pt:227
 msgid "title_rss_feed_my_issues"
 msgstr ""
 
 #. Default: "RSS feed of orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:235
+#: ../skins/Poi/poi_tracker_view.pt:253
 msgid "title_rss_feed_orphaned"
 msgstr ""
 
 #. Default: "RSS feed of unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:173
+#: ../skins/Poi/poi_tracker_view.pt:191
 msgid "title_rss_feed_unconfirmed"
 msgstr ""
 
