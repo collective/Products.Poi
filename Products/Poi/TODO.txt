@@ -44,9 +44,6 @@ Poi TODO
 
     User interface:
 
-        o Let add-response be an add form at the bottom of the issue page?
-            - Use a collapsible fieldset
-        
         o Issues-by-tag UI on tracker front page needs more thinking
             - Need a quick and easy way to find issues by tag
             - Need a quick and easy way to add tags to issues
