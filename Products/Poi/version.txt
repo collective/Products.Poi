@@ -1,1 +1,1 @@
-1.2a2 (unreleased)
+1.2b1

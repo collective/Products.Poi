@@ -3,8 +3,8 @@ Changelog for Poi
 
 (name of developer listed in brackets)
 
-Poi 1.2 - (Unreleased)
-----------------------
+Poi 1.2 beta 1 - (12 July 2008)
+------------------------------
 
 - Merged r68220 and r68223 from branches/1.1:
   Fixed typo that messed up a few translations.  
