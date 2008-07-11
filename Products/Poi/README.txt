@@ -2,6 +2,7 @@ Poi: A friendly issue tracker
 =============================
 
  by Martin Aspeli <optilude@gmx.net>
+ current maintainer: Maurits van Rees <maurits@vanrees.org>
  Released under the GNU General Public License, version 2
  
 Poi is an issue tracker product for Plone. It has three overarching aims:
@@ -160,4 +161,5 @@ yourself in the hall of fame here!
 
  o Plone 3 support by Alexander Limi and Maurits van Rees.
 
- o Bug fixes by Maurits van Rees
+ o Bug fixes, modernizing of responses, maintenance by Maurits van
+   Rees
