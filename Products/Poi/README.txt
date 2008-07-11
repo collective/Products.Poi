@@ -92,6 +92,11 @@ Upgrading
 Re-install Poi from the Add/Remove Products control panel or
 portal_quickinstaller in the ZMI.
 
+Poi 1.2 gets rid of old Archetypes based PoiResponses and introduces
+new light weight zope-3-style responses; this needs a migration.  In
+the ZMI go to portal_setup, then the Upgrades tab and run any upgrade
+steps that are available for Poi.  Backup your Data.fs first!
+
 After any upgrade, run an Archetypes schema update, by going to
 'archetype_tool' in the ZMI, selecting the 'Update Schema' tab,
 selecting all the 'Poi.*' types, and clicking 'Update schema'. It's
