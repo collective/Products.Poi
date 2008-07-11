@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2005-10-26 17:00+0000\n"
-"PO-Revision-Date: 2007-11-08 21:29+0000\n"
-"Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
+"PO-Revision-Date: 2008-07-1 15:42+0000\n"
+"Last-Translator: Ralph Jacobs <ralph@fourdigits.nl>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -18,95 +18,98 @@ msgstr ""
 
 # issue transitions
 msgid " Open"
-msgstr ""
+msgstr "Openstaand"
 
 msgid "A response to an issue."
-msgstr ""
+msgstr "Een reactie op een issue"
 
 msgid "An issue tracker"
-msgstr ""
+msgstr "Een issue tracker"
 
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr ""
+msgstr "Een issue. Issues beginnen in de 'niet bevestigd' status en kunnen beantwoord worden door de project managers."
 
 msgid "Begin work"
-msgstr ""
+msgstr "Start werkzaamheden"
 
 msgid "Being created"
-msgstr ""
+msgstr "Bezig met aanmaken"
 
 # tracker transitions
 msgid "Close tracker"
-msgstr ""
+msgstr "Sluit tracker"
 
 msgid "Closed for submissions"
-msgstr ""
+msgstr "Gesloten voor toevoegingen"
 
 msgid "Confirm resolved"
-msgstr ""
+msgstr "Opgelost"
+
+msgid "Confirmed"
+msgstr "Bevestigd"
 
 msgid "In progress"
-msgstr ""
+msgstr "In behandeling"
 
 msgid "Issue"
-msgstr ""
+msgstr "Issue"
 
 # portal type nams
 msgid "Issue Tracker"
-msgstr ""
+msgstr "Issue Tracker"
 
 msgid "Open"
-msgstr ""
+msgstr "Openstaand"
 
 # tracker states
 msgid "Open for submissions"
-msgstr ""
+msgstr "Open voor toevoegingen"
 
 msgid "Open tracker"
-msgstr ""
+msgstr "Open tracker"
 
 msgid "Post issue on save"
-msgstr ""
+msgstr "Plaats issue bij opslaan"
 
 # response transitions
 msgid "Post response on save"
-msgstr ""
+msgstr "Plaats antwoord bij opslaan"
 
 # response states
 msgid "Posted"
-msgstr ""
+msgstr "Geplaatst"
 
 msgid "Postpone"
-msgstr ""
+msgstr "Uitstellen"
 
 msgid "Postponed"
-msgstr ""
+msgstr "Uitgesteld"
 
 msgid "Put on hold"
-msgstr ""
+msgstr "In de wacht"
 
 msgid "Re-open"
-msgstr ""
+msgstr "Her-open"
 
 msgid "Reject"
-msgstr ""
+msgstr "Keur af"
 
 msgid "Rejected"
-msgstr ""
+msgstr "Afgekeurd"
 
 msgid "Resolve"
-msgstr ""
+msgstr "Los op"
 
 msgid "Resolved"
-msgstr ""
+msgstr "Opgelost"
 
 msgid "Response"
-msgstr ""
+msgstr "Antwoord"
 
 # issue states
 msgid "Tested and confirmed closed"
-msgstr ""
+msgstr "Getest en bevestigd gesloten"
 
 msgid "Unconfirmed"
-msgstr ""
+msgstr "Niet bevestigd"
 
