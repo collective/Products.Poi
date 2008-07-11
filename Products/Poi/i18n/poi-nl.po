@@ -1,20 +1,23 @@
 # Dutch Poi translations
+# Translators:
+# Ralph Jacobs <ralph@fourdigits.nl>, 2008
+# Maurits van Rees <maurits@vanrees.org>, 2008
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2008-07-11 20:40+0000\n"
-"PO-Revision-Date: 2008-07-1 15:42+0000\n"
-"Last-Translator: Ralph Jacobs <ralph@fourdigits.nl>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2008-07-12 00:30+0200\n"
+"Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
+"Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "Language-Code: nl\n"
 "Language-Name: Nederlands\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: Poi\n"
-"X-Is-Fallback-For: nl-be\n"
+"X-Is-Fallback-For: nl-be nl-nl\n"
 
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
 msgstr "Een issue. Issues beginnen in de 'niet bevestigd' status en kan beantwoord worden door de project managers."
@@ -26,7 +29,7 @@ msgstr "Annuleer"
 
 #: ../browser/response.py:476
 msgid "Changes saved to response id ${response_id}."
-msgstr ""
+msgstr "Wijzigingen opgeslagen voor reactie met id ${response_id}."
 
 #. Default: "Delete"
 #: ../skins/Poi/poi_response_delete_confirm.cpt:34
@@ -45,19 +48,19 @@ msgstr "Bewerk issue"
 
 #: ../browser/response.py:503
 msgid "No response selected for removal."
-msgstr ""
+msgstr "Geen reactie geselecteerd om te verwijderen."
 
 #: ../browser/response.py:467
 msgid "No response selected for saving."
-msgstr ""
+msgstr "Geen reactie geselecteerd om op te slaan."
 
 #: ../browser/response.py:176
 msgid "No response selected."
-msgstr ""
+msgstr "Geen reactie geselecteerd."
 
 #: ../browser/response.py:420
 msgid "No response text added and no issue changes made."
-msgstr ""
+msgstr "Geen tekst toegevoegd in deze reactie en geen wijzigingen aan de issue gemaakt."
 
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."
@@ -93,7 +96,7 @@ msgstr "Geef de verschillende types van issue prioriteiten op die beschikbaar mo
 # ./content/PoiIssue.py
 #. Default: "Optionally, provide an email address where you can be contacted for further information or when a resolution is available."
 msgid "Poi_help_contactEmail"
-msgstr "Optioneel, geef een e-mail adres op, waar de voortgang van het issue gemeld kan worden."
+msgstr "Optioneel, geef een e-mail adres op, waar de voortgang van de issue gemeld kan worden."
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
@@ -373,27 +376,27 @@ msgstr "Issue volgers"
 
 #: ../browser/response.py:521
 msgid "Removed response id ${response_id}."
-msgstr ""
+msgstr "Reactie met id ${response_id} verwijderd."
 
 #: ../browser/response.py:515
 msgid "Response id ${response_id} does not exist so it cannot be removed."
-msgstr ""
+msgstr "Reactie met id ${response_id} bestaat niet en kan dus niet verwijderd worden."
 
 #: ../browser/response.py:190
 msgid "Response id ${response_id} does not exist."
-msgstr ""
+msgstr "Reactie met id ${response_id} bestaat niet."
 
 #: ../browser/response.py:542
 msgid "Response id ${response_id} has no attachment."
-msgstr ""
+msgstr "Reactie met id ${response_id} heeft geen bijlage."
 
 #: ../browser/response.py:510
 msgid "Response id ${response_id} is no integer so it cannot be removed."
-msgstr ""
+msgstr "Reactie met id ${response_id} is geen geheel getal en kan dus niet verwijderd worden."
 
 #: ../browser/response.py:184
 msgid "Response id ${response_id} is no integer."
-msgstr ""
+msgstr "Reactie met id ${response_id} is geen geheel getal."
 
 #. Default: "Search"
 #: ../skins/Poi/poi_tracker_view.pt:33
@@ -417,11 +420,11 @@ msgstr "Volg deze issue"
 
 #: ../browser/response.py:497
 msgid "You are not allowed to delete responses."
-msgstr ""
+msgstr "U mag geen reacties verwijderen."
 
 #: ../browser/response.py:461
 msgid "You are not allowed to edit responses."
-msgstr ""
+msgstr "U mag geen reacties bewerken."
 
 #. Default: "${number} items matching your criteria."
 #: ../skins/Poi/poi_issue_search.pt:44
@@ -461,7 +464,7 @@ msgstr "Gebied"
 #. Default: "#"
 #: ../skins/Poi/poi_issue_search_results.pt:21
 msgid "listingheader_number"
-msgstr ""
+msgstr "#"
 
 #. Default: "Target"
 #: ../skins/Poi/poi_issue_search_results.pt:23
@@ -500,9 +503,8 @@ msgstr "Type"
 
 #. Default: "If you can, please log in before submitting your issue."
 #: ../skins/Poi/poi_tracker_view.pt:46
-#, fuzzy
 msgid "login_suggestion"
-msgstr "Als het mogelijk is, <a href=\"${DYNAMIC_CONTENT}\">log aub in</a> voordat u de issue plaatst"
+msgstr "Als het mogelijk is, log aub in voordat u de issue plaatst."
 
 #. Default: "(Not assigned)"
 #: ../skins/Poi/poi_issue_search_form.pt:84
@@ -572,7 +574,7 @@ msgstr "Openstaande issues"
 #. Default: "Orphaned issues"
 #: ../skins/Poi/poi_tracker_view.pt:245
 msgid "poi_heading_orphaned_issues"
-msgstr ""
+msgstr "Verlaten issues"
 
 #. Default: "Issue search results"
 #: ../skins/Poi/poi_issue_search.pt:31
@@ -686,13 +688,11 @@ msgstr "Versie"
 
 #. Default: "Last modified on ${modification_time}"
 #: ../skins/Poi/poi_issue_view.pt:123
-#, fuzzy
 msgid "poi_last_modified_on"
 msgstr "Laatst aangepast op ${modification_time}"
 
 #. Default: "Last modified on ${modification_time} by ${modification_actor}"
 #: ../skins/Poi/poi_issue_view.pt:119
-#, fuzzy
 msgid "poi_last_modified_on_by"
 msgstr "Laatst aangepast op ${modification_time} door ${modification_actor}"
 
@@ -713,7 +713,6 @@ msgstr "Ga terug naar de zoekresultaten"
 
 #. Default: "Return to tracker"
 #: ../skins/Poi/poi_issue_view.pt:102
-#, fuzzy
 msgid "poi_return_to_tracker"
 msgstr "Ga terug naar de issue tracker"
 
