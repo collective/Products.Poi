@@ -3,6 +3,12 @@ Changelog for Poi
 
 (name of developer listed in brackets)
 
+1.2rc1 (unreleased)
+-------------------
+
+- Nothing yet.
+
+
 Poi 1.2 beta 1 - (12 July 2008)
 ------------------------------
 
