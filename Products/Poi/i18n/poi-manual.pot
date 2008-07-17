@@ -207,18 +207,6 @@ msgstr ""
 msgid "Poi_help_steps"
 msgstr ""
 
-#. Default: "Attachment"
-# ./content/PoiIssue.py
-# ./content/PoiResponse.py
-msgid "Poi_label_attachment"
-msgstr ""
-
-#. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-# ./content/PoiIssue.py
-# ./content/PoiResponse.py
-msgid "Poi_help_attachment"
-msgstr ""
-
 #. Default: "Contact email address"
 # ./content/PoiIssue.py
 msgid "Poi_label_contactEmail"
@@ -268,57 +256,6 @@ msgstr ""
 #. Default: "Enter a brief subject for this response, e.g. \"Fixed\" or \"Will be fixed in next release\".""
 # ./content/PoiIssue.py
 msgid "Poi_help_response_title"
-msgstr ""
-
-#. Default: "Response"
-# ./content/PoiIssue.py
-msgid "Poi_label_response"
-msgstr ""
-
-
-#. Default: "Please enter your response below"
-# ./content/PoiIssue.py
-msgid "Poi_help_response"
-msgstr ""
-
-#. Default: "Change issue state"
-# ./content/PoiIssue.py
-msgid "Poi_label_issueTransition"
-msgstr ""
-
-#. Default: "Select a change of state in the issue this response is for, if applicable"
-# ./content/PoiIssue.py
-msgid "Poi_help_issueTransition"
-msgstr ""
-
-#. Default: "Change issue severity"
-# ./content/PoiResponse.py
-msgid "Poi_label_newSeverity"
-msgstr ""
-
-#. Default: "Select the severity for this issue"
-# ./content/PoiResponse.py
-msgid "Poi_help_newSeverity"
-msgstr ""
-
-#. Default: "Change target release"
-# ./content/PoiResponse.py
-msgid "Poi_label_newTargetRelease"
-msgstr ""
-
-#. Default: "Set the target release for this issue"
-# ./content/PoiResponse.py
-msgid "Poi_help_newTargetRelease"
-msgstr ""
-
-#. Default: "Change responsible manager"
-# ./content/PoiResponse.py
-msgid "Poi_label_newResponsibleManager"
-msgstr ""
-
-#. Default: "Select the responsible manager for this issue"
-# ./content/PoiResponse.py
-msgid "Poi_help_newResponsibleManager"
 msgstr ""
 
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
