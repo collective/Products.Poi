@@ -22,13 +22,16 @@
 
 	<dl tal:define="entries view/getLogEntries">
 	  <tal:entries repeat="entry entries">
-	    <dt tal:condition="python: entry['type'] == 'PoiIssue'">
+	    <dt tal:condition="python: entry['type'] == 'PoiIssue'"
+            i18n:translate="poi_new_issue_added">
 	      New issue
 	      <a tal:attributes="href entry/url"
-		 tal:content="structure string:&raquo;${entry/title}&laquo;">
-		Issue name
+             tal:content="structure string:&raquo;${entry/title}&laquo;"
+             i18n:name="name">
+            Issue name
 	      </a>
-	      added by <span tal:replace="entry/author" />
+	      added by <span tal:replace="entry/author"
+          i18n:name="author" />
 	    </dt>
 	    <dt tal:condition="python: entry['type'] == 'PoiResponse'">
 	      <span tal:replace="entry/author" />
@@ -56,16 +59,25 @@
 		
 		<span tal:define="delta entry/timedelta">
 		  
-		  <tal:less-than-an-hour condition="delta/minutes">
-		    Added <tal:hours replace="delta/minutes" /> minute(s) ago.
+		  <tal:less-than-an-hour
+              condition="delta/minutes"
+              i18n:translate="poi_added_minutes_ago">
+		    Added <tal:hours replace="delta/minutes" i18n:name="count" />
+            minute(s) ago.
 		  </tal:less-than-an-hour>
 		  
-		  <tal:less-than-a-day condition="delta/hours">
-		    Added <tal:hours replace="delta/hours" /> hour(s) ago.
+		  <tal:less-than-a-day
+              condition="delta/hours"
+              i18n:translate="poi_added_hours_ago">
+		    Added <tal:hours replace="delta/hours" i18n:name="count" />
+            hour(s) ago.
 		  </tal:less-than-a-day>
 
-		  <tal:more-than-a-day condition="delta/days">
-		    Added <tal:hours replace="delta/days" /> day(s) ago.
+		  <tal:more-than-a-day
+              condition="delta/days"
+              i18n:translate="poi_added_days_ago">
+		    Added <tal:hours replace="delta/days" i18n:name="count" />
+            day(s) ago.
 		  </tal:more-than-a-day>
 		</span>
 	      </p>

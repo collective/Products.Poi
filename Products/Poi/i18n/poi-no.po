@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-07-10 22:38+0000\n"
+"POT-Creation-Date: 2008-07-17 22:50+0000\n"
 "PO-Revision-Date: 2007-05-06 17:00+0000\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: None <plone-i18n@lists.sourceforge.net>\n"
@@ -452,7 +452,7 @@ msgid "label_rss_feed"
 msgstr ""
 
 #. Default: "Search"
-#: ../skins/Poi/poi_issue_search_form.pt:248
+#: ../skins/Poi/poi_issue_search_form.pt:249
 msgid "label_search"
 msgstr "Søk"
 
@@ -516,6 +516,21 @@ msgstr "(Ikke tildelt)"
 #: ../browser/response.pt:36
 msgid "poi_added_by"
 msgstr "Lagt til av"
+
+#. Default: "Added ${count} day(s) ago."
+#: ../browser/log.pt:79
+msgid "poi_added_days_ago"
+msgstr ""
+
+#. Default: "Added ${count} hour(s) ago."
+#: ../browser/log.pt:72
+msgid "poi_added_hours_ago"
+msgstr ""
+
+#. Default: "Added ${count} minute(s) ago."
+#: ../browser/log.pt:65
+msgid "poi_added_minutes_ago"
+msgstr ""
 
 #. Default: "on"
 #: ../browser/response.pt:39
@@ -706,6 +721,16 @@ msgstr ""
 #: ../skins/Poi/poi_issue_search_form.pt:27
 msgid "poi_legend_search_terms"
 msgstr "Søkevalg"
+
+#. Default: "Match all tags"
+#: ../skins/Poi/poi_issue_search_form.pt:244
+msgid "poi_match_all_tags"
+msgstr ""
+
+#. Default: "New issue ${name} added by ${author}"
+#: ../browser/log.pt:33
+msgid "poi_new_issue_added"
+msgstr ""
 
 #. Default: "Response #${responseNumber} to \"${issueTitle}\""
 #: ../skins/Poi/poi_response_view.pt:19

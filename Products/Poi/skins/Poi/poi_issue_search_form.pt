@@ -241,7 +241,8 @@
             <div>
               <input type="checkbox" name="tags.operator:record"
                      id="and_tags" value="and" checked="checked" />
-              <label for="and_tags">Match all tags</label>
+              <label for="and_tags"
+                     i18n:translate="poi_match_all_tags">Match all tags</label>
             </div>
 
             <div class="formControls">

@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-07-11 20:40+0000\n"
-"PO-Revision-Date: 2008-07-12 00:30+0200\n"
+"POT-Creation-Date: 2008-07-17 22:50+0000\n"
+"PO-Revision-Date: 2008-07-17 00:55+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -452,7 +452,7 @@ msgid "label_rss_feed"
 msgstr "RSS Feed"
 
 #. Default: "Search"
-#: ../skins/Poi/poi_issue_search_form.pt:248
+#: ../skins/Poi/poi_issue_search_form.pt:249
 msgid "label_search"
 msgstr "Zoeken"
 
@@ -515,6 +515,21 @@ msgstr "(Niet toegewezen)"
 #: ../browser/response.pt:36
 msgid "poi_added_by"
 msgstr "Toegevoegd door"
+
+#. Default: "Added ${count} day(s) ago."
+#: ../browser/log.pt:79
+msgid "poi_added_days_ago"
+msgstr "${count} dag(en) geleden toegevoegd."
+
+#. Default: "Added ${count} hour(s) ago."
+#: ../browser/log.pt:72
+msgid "poi_added_hours_ago"
+msgstr "${count} uur geleden toegevoegd."
+
+#. Default: "Added ${count} minute(s) ago."
+#: ../browser/log.pt:65
+msgid "poi_added_minutes_ago"
+msgstr "${count} minu(u)t(en) geleden toegevoegd."
 
 #. Default: "on"
 #: ../browser/response.pt:39
@@ -700,6 +715,16 @@ msgstr "Laatst aangepast op ${modification_time} door ${modification_actor}"
 #: ../skins/Poi/poi_issue_search_form.pt:27
 msgid "poi_legend_search_terms"
 msgstr "Zoektermen"
+
+#. Default: "Match all tags"
+#: ../skins/Poi/poi_issue_search_form.pt:244
+msgid "poi_match_all_tags"
+msgstr "Zoek op de combinatie van alle geselecteerde tags"
+
+#. Default: "New issue ${name} added by ${author}"
+#: ../browser/log.pt:33
+msgid "poi_new_issue_added"
+msgstr "Nieuw issue ${name} toegevoegd door ${author}"
 
 #. Default: "Response #${responseNumber} to \"${issueTitle}\""
 #: ../skins/Poi/poi_response_view.pt:19
