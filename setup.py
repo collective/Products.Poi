@@ -9,11 +9,16 @@ readmefile = open(os.path.join('Products', 'Poi', 'README.txt'))
 readme = readmefile.read().strip()
 readmefile.close()
 
+historyfile = open(os.path.join('Products', 'Poi', 'HISTORY.txt'))
+history = historyfile.read().strip()
+historyfile.close()
+
+long_description = readme + "\n\n" + history
 
 setup(name='Products.Poi',
       version=version,
       description="Poi: A friendly issue tracker",
-      long_description=readme,
+      long_description=long_description,
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
