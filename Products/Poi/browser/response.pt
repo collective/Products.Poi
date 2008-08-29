@@ -62,7 +62,7 @@
     </div>
   </tal:responses>
 
-  <h3>Add response</h3>
+  <h3 i18n:translate="title_add_response">Add response</h3>
 
   <form method="post" action="@@create_response"
         enctype="multipart/form-data">
@@ -152,7 +152,7 @@
 
         <label
             tal:attributes="for transition/value"
-            tal:content="transition/label">No change</label>
+            tal:content="transition/label" />
 
         <br />
       </tal:transitions>
@@ -181,7 +181,7 @@
 
         <label
             tal:attributes="for option/value"
-            tal:content="option/label">No change</label>
+            tal:content="option/label" />
 
         <br />
       </tal:options>
@@ -209,7 +209,7 @@
 
         <label
             tal:attributes="for option/value"
-            tal:content="option/label">No change</label>
+            tal:content="option/label" />
 
         <br />
       </tal:options>
@@ -237,14 +237,15 @@
 
         <label
             tal:attributes="for option/value"
-            tal:content="option/label">No change</label>
+            tal:content="option/label" />
 
         <br />
       </tal:options>
     </div>
 
     <div class="formControls">
-      <input class="standalone" value="Submit" type="submit" />
+      <input class="standalone" value="Submit" type="submit"
+             i18n:domain="plone" i18n:attributes="value"/>
     </div>
   </form>
 </div>

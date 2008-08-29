@@ -6,7 +6,7 @@ Changelog for Poi
 1.2rc1 (unreleased)
 -------------------
 
-- Nothing yet.
+- Translation updates.  [maurits]
 
 
 Poi 1.2 beta 1 - (12 July 2008)

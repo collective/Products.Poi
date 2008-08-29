@@ -23,9 +23,7 @@
                   issuefolder context/@@issuefolder;
                   isManager python:member.getId() in here.getManagers()">
 
-      <h1 tal:content="here/Title" class="documentFirstHeading">
-        Tracker Title
-      </h1>
+      <h1 tal:content="here/Title" class="documentFirstHeading" />
       
       <div id="issue-quicksearch-box">
          <form action="poi_issue_quicksearch">
@@ -37,9 +35,7 @@
             i18n:translate="poi_issue_search">Advanced issue search</a>
       </div>
       
-      <div class="documentDescription" tal:content="here/Description">
-        Description.
-      </div>
+      <div class="documentDescription" tal:content="here/Description" />
 
       <div class="formControls">
         <div class="login-suggestion" tal:condition="isAnon">
@@ -262,8 +258,11 @@
       </tal:manager>
       
       <div class="poweredBy">
-          Powered by <a class="link-plain"
-                        href="http://plone.org/products/poi">Poi</a>
+        <tal:powered i18n:translate="label_powered_by">
+          Powered by
+        </tal:powered>
+        <a class="link-plain"
+           href="http://plone.org/products/poi">Poi</a>
       </div>
       
     </div>

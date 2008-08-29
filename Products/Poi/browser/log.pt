@@ -37,9 +37,7 @@
 	      <span tal:replace="entry/author" />
 	      added a new response to
 	      <a tal:attributes="href entry/url"
-		 tal:content="structure string:&raquo;${entry/parent}&laquo;">
-		Issue name
-	      </a>:
+             tal:content="structure string:&raquo;${entry/parent}&laquo;" />:
 	    </dt>
 	    <dd>
 	      <p tal:content="structure entry/text" />
