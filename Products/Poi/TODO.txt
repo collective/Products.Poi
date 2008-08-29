@@ -3,6 +3,15 @@ Poi TODO
 
 Items marked with ** are show-stoppers for next release 
 
+Version 1.2
+-----------
+
+- Dutch translations: something went wrong while merging a patch,
+  losing some translations, so fix that.
+
+- Advise users to login before posting a reply.
+
+
 Possible features for inclusion:
 --------------------------------
 
