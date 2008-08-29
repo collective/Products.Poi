@@ -63,6 +63,9 @@ msgstr ""
 msgid "Being created"
 msgstr ""
 
+msgid "Confirmed"
+msgstr ""
+
 msgid "Open"
 msgstr ""
 
