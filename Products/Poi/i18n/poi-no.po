@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-08-29 22:11+0000\n"
+"POT-Creation-Date: 2008-08-29 23:37+0000\n"
 "PO-Revision-Date: 2007-05-06 17:00+0000\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: None <plone-i18n@lists.sourceforge.net>\n"
@@ -202,6 +202,11 @@ msgstr "Hvis det er mulig, beskriv hva/hvordan det skjedde."
 msgid "Poi_help_subject"
 msgstr "Merkelapper kan brukes for å legge til egne kategorier for emner. Listen under viser eksisterende merkelapper som du kan velge, eller du kan legge til nye."
 
+# ./content/PoiIssue.py
+#. Default: "Release this issue is targetted to be fixed in"
+msgid "Poi_help_targetRelease"
+msgstr ""
+
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
 msgid "Poi_help_tracker_title"
@@ -359,6 +364,11 @@ msgstr "Hvordan/Hvorfor skjedde dette"
 msgid "Poi_label_subject"
 msgstr "Merkelapper"
 
+# ./content/PoiIssue.py
+#. Default: "Target release"
+msgid "Poi_label_targetRelease"
+msgstr ""
+
 # ./content/PoiTracker.py
 #. Default: "Tracker name"
 msgid "Poi_label_tracker_title"
@@ -393,9 +403,17 @@ msgstr ""
 msgid "Response id ${response_id} is no integer."
 msgstr ""
 
+#: ../browser/response.py:381
+msgid "Responsible manager"
+msgstr ""
+
 #. Default: "Search"
 #: ../skins/Poi/poi_tracker_view.pt:31
 msgid "Search"
+msgstr ""
+
+#: ../browser/response.py:380
+msgid "Severity"
 msgstr ""
 
 #. Default: "Stop watching this issue"

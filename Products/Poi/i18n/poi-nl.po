@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-08-29 22:11+0000\n"
+"POT-Creation-Date: 2008-08-29 23:37+0000\n"
 "PO-Revision-Date: 2008-08-30 00:19+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
@@ -203,6 +203,11 @@ msgstr "Als het van toepassing is, geef de stappen op om de fout of issue the re
 msgid "Poi_help_subject"
 msgstr "Tags kunnen gebruikt worden om extra categorizatie toe te voegen aan issues. De lijst hier beneden laat de bestaande tags zien die u kunt selecteren of u kunt nieuwe toevoegen."
 
+# ./content/PoiIssue.py
+#. Default: "Release this issue is targetted to be fixed in"
+msgid "Poi_help_targetRelease"
+msgstr ""
+
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
 msgid "Poi_help_tracker_title"
@@ -359,6 +364,11 @@ msgstr "Stappen om het te reproduceren"
 msgid "Poi_label_subject"
 msgstr "Tags"
 
+# ./content/PoiIssue.py
+#. Default: "Target release"
+msgid "Poi_label_targetRelease"
+msgstr ""
+
 # ./content/PoiTracker.py
 #. Default: "Tracker name"
 msgid "Poi_label_tracker_title"
@@ -393,10 +403,18 @@ msgstr "Reactie met id ${response_id} is geen geheel getal en kan dus niet verwi
 msgid "Response id ${response_id} is no integer."
 msgstr "Reactie met id ${response_id} is geen geheel getal."
 
+#: ../browser/response.py:381
+msgid "Responsible manager"
+msgstr "Verantwoordelijke manager"
+
 #. Default: "Search"
 #: ../skins/Poi/poi_tracker_view.pt:31
 msgid "Search"
 msgstr "Zoeken"
+
+#: ../browser/response.py:380
+msgid "Severity"
+msgstr "Prioriteit"
 
 #. Default: "Stop watching this issue"
 #: ../skins/Poi/poi_issue_view.pt:159

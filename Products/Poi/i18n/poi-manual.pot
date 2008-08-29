@@ -254,3 +254,13 @@ msgstr ""
 
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
 msgstr ""
+
+#. Default: "Target release"
+# ./content/PoiIssue.py
+msgid "Poi_label_targetRelease"
+msgstr ""
+
+#. Default: "Release this issue is targetted to be fixed in"
+# ./content/PoiIssue.py
+msgid "Poi_help_targetRelease"
+msgstr ""

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2008-08-29 22:11+0000\n"
+"POT-Creation-Date: 2008-08-29 23:37+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Encolpe Degoute <encolpe@gmail.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -204,6 +204,11 @@ msgstr "Si cela est applicable, veuillez fournir les étapes pour reproduire l'e
 msgid "Poi_help_subject"
 msgstr "Des étiquettes peuvent être employées pour ajouter une catégorisation arbitraire aux tickets. La liste ci dessous montre les étiquettes existantes que vous pouvez choisir, ou vous peut en ajouter des nouvelles."
 
+# ./content/PoiIssue.py
+#. Default: "Release this issue is targetted to be fixed in"
+msgid "Poi_help_targetRelease"
+msgstr ""
+
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
 msgid "Poi_help_tracker_title"
@@ -360,6 +365,11 @@ msgstr "Étapes à reproduire"
 msgid "Poi_label_subject"
 msgstr "Étiquettes"
 
+# ./content/PoiIssue.py
+#. Default: "Target release"
+msgid "Poi_label_targetRelease"
+msgstr ""
+
 # ./content/PoiTracker.py
 #. Default: "Tracker name"
 msgid "Poi_label_tracker_title"
@@ -394,10 +404,18 @@ msgstr "L'identifiant « ${response_id} » de la réponse n'est pas un entier 
 msgid "Response id ${response_id} is no integer."
 msgstr "L'identifiant « ${response_id} » de la réponse n'est pas un entier."
 
+#: ../browser/response.py:381
+msgid "Responsible manager"
+msgstr ""
+
 #. Default: "Search"
 #: ../skins/Poi/poi_tracker_view.pt:31
 msgid "Search"
 msgstr "Rechercher"
+
+#: ../browser/response.py:380
+msgid "Severity"
+msgstr ""
 
 #. Default: "Stop watching this issue"
 #: ../skins/Poi/poi_issue_view.pt:159

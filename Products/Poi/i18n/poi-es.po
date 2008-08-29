@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-08-29 22:11+0000\n"
+"POT-Creation-Date: 2008-08-29 23:37+0000\n"
 "PO-Revision-Date: 2007-08-08 14:10 +1\n"
 "Last-Translator: Angel Carballo <angelcarballo@gmail.com>\n"
 "Language-Team: Angel Carballo <LL@li.org>\n"
@@ -201,6 +201,11 @@ msgstr "Si puede, indique los pasos necesario para reproducir el error o identif
 msgid "Poi_help_subject"
 msgstr "Las etiquetas se pueden usar para agregar categorías extra a las incidencias. La siguiente lista muestra las existentes, también puede agregar nuevas."
 
+# ./content/PoiIssue.py
+#. Default: "Release this issue is targetted to be fixed in"
+msgid "Poi_help_targetRelease"
+msgstr ""
+
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
 msgid "Poi_help_tracker_title"
@@ -358,6 +363,11 @@ msgstr "Pasos para reproducir"
 msgid "Poi_label_subject"
 msgstr "Etiquetas"
 
+# ./content/PoiIssue.py
+#. Default: "Target release"
+msgid "Poi_label_targetRelease"
+msgstr ""
+
 # ./content/PoiTracker.py
 #. Default: "Tracker name"
 msgid "Poi_label_tracker_title"
@@ -392,9 +402,17 @@ msgstr ""
 msgid "Response id ${response_id} is no integer."
 msgstr ""
 
+#: ../browser/response.py:381
+msgid "Responsible manager"
+msgstr ""
+
 #. Default: "Search"
 #: ../skins/Poi/poi_tracker_view.pt:31
 msgid "Search"
+msgstr ""
+
+#: ../browser/response.py:380
+msgid "Severity"
 msgstr ""
 
 #. Default: "Stop watching this issue"

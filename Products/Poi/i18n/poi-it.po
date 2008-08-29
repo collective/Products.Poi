@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-08-29 22:11+0000\n"
+"POT-Creation-Date: 2008-08-29 23:37+0000\n"
 "PO-Revision-Date: 2007-03-22 11:28+0100\n"
 "Last-Translator: Maurizio Delmonte <maurizio.delmonte@redomino.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -201,6 +201,11 @@ msgstr "Se possibile, per favore fornisci i passi per riprodurre l'errore o per 
 msgid "Poi_help_subject"
 msgstr "I tag possono essere usati per aggiungere voci di classificazione arbitrarie alla richiesta. La lista qui sotto mostra tag esistenti che possono essere selezionati. E' comunque possibile aggiungere nuovi tag."
 
+# ./content/PoiIssue.py
+#. Default: "Release this issue is targetted to be fixed in"
+msgid "Poi_help_targetRelease"
+msgstr ""
+
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
 msgid "Poi_help_tracker_title"
@@ -358,6 +363,11 @@ msgstr "Passi da seguire"
 msgid "Poi_label_subject"
 msgstr "Tag"
 
+# ./content/PoiIssue.py
+#. Default: "Target release"
+msgid "Poi_label_targetRelease"
+msgstr ""
+
 # ./content/PoiTracker.py
 #. Default: "Tracker name"
 msgid "Poi_label_tracker_title"
@@ -392,9 +402,17 @@ msgstr ""
 msgid "Response id ${response_id} is no integer."
 msgstr ""
 
+#: ../browser/response.py:381
+msgid "Responsible manager"
+msgstr ""
+
 #. Default: "Search"
 #: ../skins/Poi/poi_tracker_view.pt:31
 msgid "Search"
+msgstr ""
+
+#: ../browser/response.py:380
+msgid "Severity"
 msgstr ""
 
 #. Default: "Stop watching this issue"

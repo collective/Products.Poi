@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-pt-br\n"
-"POT-Creation-Date: 2008-08-29 22:11+0000\n"
+"POT-Creation-Date: 2008-08-29 23:37+0000\n"
 "PO-Revision-Date: 2007-01-26 10:34-0300\n"
 "Last-Translator: Rafahela Bazzanella <rafabazzanella@yahoo.com.br>\n"
 "Language-Team: TcheZope <tchezope@yahoogroups.com>\n"
@@ -180,6 +180,11 @@ msgstr "Se aplicável, por favor informe os passos necessários para reproduzir 
 msgid "Poi_help_subject"
 msgstr "Rótulos podem ser usado para adicionar categorias arbitrárias às ocorrências. A lista abaixo mostra rótulos existentes que você pode selecionar, ou você pode adicionar algum novo."
 
+# ./content/PoiIssue.py
+#. Default: "Release this issue is targetted to be fixed in"
+msgid "Poi_help_targetRelease"
+msgstr ""
+
 #. Default: "Enter a descriptive name for this tracker"
 msgid "Poi_help_tracker_title"
 msgstr "Informe um nome que descreva este gerenciador."
@@ -311,6 +316,11 @@ msgstr "Passos para Reproduzir o Problema"
 msgid "Poi_label_subject"
 msgstr "Rótulos"
 
+# ./content/PoiIssue.py
+#. Default: "Target release"
+msgid "Poi_label_targetRelease"
+msgstr ""
+
 #. Default: "Tracker name"
 msgid "Poi_label_tracker_title"
 msgstr "Nome do Gerenciador"
@@ -343,9 +353,17 @@ msgstr ""
 msgid "Response id ${response_id} is no integer."
 msgstr ""
 
+#: ../browser/response.py:381
+msgid "Responsible manager"
+msgstr ""
+
 #. Default: "Search"
 #: ../skins/Poi/poi_tracker_view.pt:31
 msgid "Search"
+msgstr ""
+
+#: ../browser/response.py:380
+msgid "Severity"
 msgstr ""
 
 #. Default: "Stop watching this issue"
