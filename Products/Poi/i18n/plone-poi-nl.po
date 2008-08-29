@@ -1,11 +1,12 @@
 # Dutch translation for Poi Issue Tracker product.
 # Translators:
 # Ralph Jacobs <ralph@fourdigits.nl>, 2008
+# Maurits van Rees <maurits@vanrees.org>, 2008
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2005-10-26 17:00+0000\n"
-"PO-Revision-Date: 2008-07-11 15:42+0200\n"
+"PO-Revision-Date: 2008-08-30 00:14+0200\n"
 "Last-Translator: Ralph Jacobs <ralph@fourdigits.nl>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -48,7 +49,7 @@ msgid "Confirm resolved"
 msgstr "Opgelost"
 
 msgid "Confirmed"
-msgstr ""
+msgstr "Bevestigd"
 
 msgid "In progress"
 msgstr "In behandeling"

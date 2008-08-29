@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2008-08-29 22:11+0000\n"
-"PO-Revision-Date: 2008-07-18 00:55+0200\n"
+"PO-Revision-Date: 2008-08-30 00:19+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -444,22 +444,22 @@ msgstr "Er zijn resultaten gevonden"
 #. Default: "You are not allowed to edit this response."
 #: ../browser/edit_response.pt:38
 msgid "label_edit_response_not_allowed"
-msgstr ""
+msgstr "Het is u niet toegestaan om deze reactie te bewerken."
 
 #. Default: "Please enter your response below"
 #: ../browser/edit_response.pt:53
 msgid "label_enter_response"
-msgstr ""
+msgstr "Vul alstulieft hieronder uw reactie in."
 
 #. Default: "Powered by"
 #: ../skins/Poi/poi_tracker_view.pt:261
 msgid "label_powered_by"
-msgstr ""
+msgstr "Aangedreven door"
 
 #. Default: "Return to issue."
 #: ../browser/edit_response.pt:26
 msgid "label_return_to_issue"
-msgstr ""
+msgstr "Ga terug naar issue"
 
 #. Default: "RSS Feed"
 #: ../skins/Poi/poi_issue_search_results.pt:6
@@ -874,17 +874,17 @@ msgstr "Bekijk issue volledig"
 #. Default: "Add response"
 #: ../browser/response.pt:65
 msgid "title_add_response"
-msgstr ""
+msgstr "Voeg reactie toe"
 
 #. Default: "Edit response"
 #: ../browser/edit_response.pt:35
 msgid "title_edit_response"
-msgstr ""
+msgstr "Bewerk reactie"
 
 #. Default: "Error: no response found for editing"
 #: ../browser/edit_response.pt:24
 msgid "title_error_no_response"
-msgstr ""
+msgstr "Fout: geen reactie gevonden om te bewerken."
 
 #. Default: "RSS feed of these search results"
 #: ../skins/Poi/poi_issue_search_results.pt:6
