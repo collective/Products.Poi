@@ -46,6 +46,9 @@ msgstr "Lukket"
 msgid "Confirm resolved"
 msgstr "Bekreftet Løst"
 
+msgid "Confirmed"
+msgstr ""
+
 msgid "In progress"
 msgstr "I arbeid"
 

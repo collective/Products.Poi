@@ -48,6 +48,9 @@ msgstr "关闭提交"
 msgid "Confirm resolved"
 msgstr "确认解决"
 
+msgid "Confirmed"
+msgstr ""
+
 msgid "In progress"
 msgstr "工作中"
 

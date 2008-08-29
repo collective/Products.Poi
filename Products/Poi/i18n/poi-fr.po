@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2008-08-29 21:18+0000\n"
+"POT-Creation-Date: 2008-08-29 22:11+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Encolpe Degoute <encolpe@gmail.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -326,7 +326,7 @@ msgstr "Distribution"
 
 # ./content/PoiIssue.py
 #. Default: "Response"
-#: ../browser/response.pt:71
+#: ../browser/edit_response.pt:50
 msgid "Poi_label_response"
 msgstr "Réponse"
 
@@ -395,7 +395,7 @@ msgid "Response id ${response_id} is no integer."
 msgstr "L'identifiant « ${response_id} » de la réponse n'est pas un entier."
 
 #. Default: "Search"
-#: ../skins/Poi/poi_tracker_view.pt:33
+#: ../skins/Poi/poi_tracker_view.pt:31
 msgid "Search"
 msgstr "Rechercher"
 
@@ -405,7 +405,7 @@ msgid "Stop watching this issue"
 msgstr "Arrêter de suivre ce ticket"
 
 #. Default: "Submit new issue"
-#: ../skins/Poi/poi_tracker_view.pt:60
+#: ../skins/Poi/poi_tracker_view.pt:56
 msgid "Submit new issue"
 msgstr "Soumettre un nouveau ticket"
 
@@ -433,7 +433,7 @@ msgid "desc_poi_heading_delete_response"
 msgstr "Êtes vous sûr de vouloir effacer cette réponse ?"
 
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ../skins/Poi/poi_tracker_view.pt:83
+#: ../skins/Poi/poi_tracker_view.pt:79
 msgid "description_cannot_add_issues_before_opened"
 msgstr "Les utilisateurs ne peuvent pas enregistrer d'informations dans ce gestionnaire de tickets tant que vous ne l'avez pas activé en utilisant le menu de 'état' dans la barre verte ci-dessus."
 
@@ -441,6 +441,26 @@ msgstr "Les utilisateurs ne peuvent pas enregistrer d'informations dans ce gesti
 #: ../skins/Poi/poi_issue_search.pt:40
 msgid "description_no_results_found"
 msgstr "La recherche n'a renvoyé aucun résultat"
+
+#. Default: "You are not allowed to edit this response."
+#: ../browser/edit_response.pt:38
+msgid "label_edit_response_not_allowed"
+msgstr ""
+
+#. Default: "Please enter your response below"
+#: ../browser/edit_response.pt:53
+msgid "label_enter_response"
+msgstr ""
+
+#. Default: "Powered by"
+#: ../skins/Poi/poi_tracker_view.pt:261
+msgid "label_powered_by"
+msgstr ""
+
+#. Default: "Return to issue."
+#: ../browser/edit_response.pt:26
+msgid "label_return_to_issue"
+msgstr ""
 
 #. Default: "RSS Feed"
 #: ../skins/Poi/poi_issue_search_results.pt:6
@@ -498,7 +518,7 @@ msgid "listingheader_type"
 msgstr "Type"
 
 #. Default: "If you can, please log in before submitting your issue."
-#: ../skins/Poi/poi_tracker_view.pt:46
+#: ../skins/Poi/poi_tracker_view.pt:42
 #, fuzzy
 msgid "login_suggestion"
 msgstr "Si vous le pouvez, vous devriez <a href=\"${DYNAMIC_CONTENT}\">identifiant</a> avant d'intervenir dans ce tracker."
@@ -514,17 +534,17 @@ msgid "poi_added_by"
 msgstr "Ajouté par"
 
 #. Default: "Added ${count} day(s) ago."
-#: ../browser/log.pt:79
+#: ../browser/log.pt:77
 msgid "poi_added_days_ago"
 msgstr ""
 
 #. Default: "Added ${count} hour(s) ago."
-#: ../browser/log.pt:72
+#: ../browser/log.pt:70
 msgid "poi_added_hours_ago"
 msgstr ""
 
 #. Default: "Added ${count} minute(s) ago."
-#: ../browser/log.pt:65
+#: ../browser/log.pt:63
 msgid "poi_added_minutes_ago"
 msgstr ""
 
@@ -534,27 +554,27 @@ msgid "poi_added_on"
 msgstr "le"
 
 #. Default: "All pending issues"
-#: ../skins/Poi/poi_tracker_view.pt:137
+#: ../skins/Poi/poi_tracker_view.pt:133
 msgid "poi_all_pending_issues"
 msgstr "Tous les tickets en attente"
 
 #. Default: "By area"
-#: ../skins/Poi/poi_tracker_view.pt:104
+#: ../skins/Poi/poi_tracker_view.pt:100
 msgid "poi_heading_by_area"
 msgstr "Par zone"
 
 #. Default: "By target release"
-#: ../skins/Poi/poi_tracker_view.pt:121
+#: ../skins/Poi/poi_tracker_view.pt:117
 msgid "poi_heading_by_release"
 msgstr "Par distribution"
 
 #. Default: "By state"
-#: ../skins/Poi/poi_tracker_view.pt:134
+#: ../skins/Poi/poi_tracker_view.pt:130
 msgid "poi_heading_by_state"
 msgstr "Par état"
 
 #. Default: "By tag"
-#: ../skins/Poi/poi_tracker_view.pt:158
+#: ../skins/Poi/poi_tracker_view.pt:154
 msgid "poi_heading_by_tag"
 msgstr "Par étiquette"
 
@@ -574,17 +594,17 @@ msgid "poi_heading_log"
 msgstr "Le journal du gestionnaire de tickets"
 
 #. Default: "My issues"
-#: ../skins/Poi/poi_tracker_view.pt:212
+#: ../skins/Poi/poi_tracker_view.pt:208
 msgid "poi_heading_my_issues"
 msgstr "Mes tickets"
 
 #. Default: "Open issues"
-#: ../skins/Poi/poi_tracker_view.pt:93
+#: ../skins/Poi/poi_tracker_view.pt:89
 msgid "poi_heading_open_issues"
 msgstr "Tickets ouverts"
 
 #. Default: "Orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:245
+#: ../skins/Poi/poi_tracker_view.pt:241
 msgid "poi_heading_orphaned_issues"
 msgstr "Tickets orphelins"
 
@@ -594,7 +614,7 @@ msgid "poi_heading_search_results"
 msgstr "Résultats de le recherche de tickets"
 
 #. Default: "Unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:181
+#: ../skins/Poi/poi_tracker_view.pt:177
 msgid "poi_heading_unconfirmed_issues"
 msgstr "Tickets non confirmés"
 
@@ -604,32 +624,32 @@ msgid "poi_help_log"
 msgstr "Un aperçu de la récente activité du gestionnaire de tickets"
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ../skins/Poi/poi_tracker_view.pt:213
+#: ../skins/Poi/poi_tracker_view.pt:209
 msgid "poi_help_my_issues_manager"
 msgstr "Les tickets ouverts suivants sont soumis par vous, ou vous sont assignés. Notez que le flux RSS de cette liste inclus aussi les tickets non confirmés et orphelins pour qu'il vous soit possible de vous abonner à un flux unique qui contient tous les tickets qui vous intéresse potentiellement."
 
 #. Default: "The following open issues were submitted by you."
-#: ../skins/Poi/poi_tracker_view.pt:220
+#: ../skins/Poi/poi_tracker_view.pt:216
 msgid "poi_help_my_issues_not_manager"
 msgstr "Les tickets ouverts suivants vous ont été soumis par vous."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
-#: ../skins/Poi/poi_tracker_view.pt:97
+#: ../skins/Poi/poi_tracker_view.pt:93
 msgid "poi_help_open_issues"
 msgstr "Cliquez sur une zone, une distribution ou un état de ticket pour voir tout les tickets ouverts dans cette catégorie. Pour des options de recherche plus avancées, cliquez sur « Recherche de tickets »."
 
 #. Default: "The following open issues are not assigned to anyone."
-#: ../skins/Poi/poi_tracker_view.pt:246
+#: ../skins/Poi/poi_tracker_view.pt:242
 msgid "poi_help_orphaned_issues_"
 msgstr "Les tickets ouverts suivants sont orphelins (assignés à aucun gestionnaire)."
 
 #. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
-#: ../skins/Poi/poi_tracker_view.pt:182
+#: ../skins/Poi/poi_tracker_view.pt:178
 msgid "poi_help_unconfirmed_issues"
 msgstr "Les tickets suivants n'ont pas été encore confirmés ou n'ont pas été assignés. Veuillez les passer en revue et effectuer une action appropriée."
 
 #. Default: "Advanced issue search"
-#: ../skins/Poi/poi_tracker_view.pt:35
+#: ../skins/Poi/poi_tracker_view.pt:33
 msgid "poi_issue_search"
 msgstr "Recherche avancée de tickets"
 
@@ -855,23 +875,38 @@ msgstr "Texte du ticket"
 msgid "poi_up_to_issue"
 msgstr "Voir l'intégralité du ticket"
 
+#. Default: "Add response"
+#: ../browser/response.pt:65
+msgid "title_add_response"
+msgstr ""
+
+#. Default: "Edit response"
+#: ../browser/edit_response.pt:35
+msgid "title_edit_response"
+msgstr ""
+
+#. Default: "Error: no response found for editing"
+#: ../browser/edit_response.pt:24
+msgid "title_error_no_response"
+msgstr ""
+
 #. Default: "RSS feed of these search results"
 #: ../skins/Poi/poi_issue_search_results.pt:6
 msgid "title_rss_feed"
 msgstr "Flux RSS de ce résultat de recherche"
 
 #. Default: "RSS feed of my issues"
-#: ../skins/Poi/poi_tracker_view.pt:227
+#: ../skins/Poi/poi_tracker_view.pt:223
 msgid "title_rss_feed_my_issues"
 msgstr "Flux RSS de mes tickets"
 
 #. Default: "RSS feed of orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:253
+#: ../skins/Poi/poi_tracker_view.pt:249
 msgid "title_rss_feed_orphaned"
 msgstr "Flux RSS des tickets orphelins"
 
 #. Default: "RSS feed of unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:191
+#: ../skins/Poi/poi_tracker_view.pt:187
 msgid "title_rss_feed_unconfirmed"
 msgstr "Flux RSS des tickets non confirmés"
 

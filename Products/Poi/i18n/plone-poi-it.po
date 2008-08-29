@@ -45,6 +45,9 @@ msgstr "Invio richieste non attivo"
 msgid "Confirm resolved"
 msgstr "Conferma risoluzione"
 
+msgid "Confirmed"
+msgstr ""
+
 msgid "In progress"
 msgstr "In gestione"
 

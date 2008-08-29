@@ -49,6 +49,9 @@ msgstr "Fermé aux demandes"
 msgid "Confirm resolved"
 msgstr "Confirmer la résolution"
 
+msgid "Confirmed"
+msgstr ""
+
 msgid "In progress"
 msgstr "En cours de résolution"
 

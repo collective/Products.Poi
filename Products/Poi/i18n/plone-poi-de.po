@@ -45,6 +45,9 @@ msgstr "Keine neuen Problemstellungen einzugeben."
 msgid "Confirm resolved"
 msgstr "Bestätige Lösung"
 
+msgid "Confirmed"
+msgstr ""
+
 msgid "In progress"
 msgstr "In Arbeit"
 

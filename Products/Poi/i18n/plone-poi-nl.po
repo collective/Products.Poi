@@ -47,6 +47,9 @@ msgstr "Gesloten voor toevoegingen"
 msgid "Confirm resolved"
 msgstr "Opgelost"
 
+msgid "Confirmed"
+msgstr ""
+
 msgid "In progress"
 msgstr "In behandeling"
 

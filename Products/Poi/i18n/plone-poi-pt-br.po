@@ -48,6 +48,9 @@ msgstr "Fechado para submissões"
 msgid "Confirm resolved"
 msgstr "Confirmar a solução"
 
+msgid "Confirmed"
+msgstr ""
+
 msgid "In progress"
 msgstr "Em andamento"
 

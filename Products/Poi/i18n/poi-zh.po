@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-08-29 21:18+0000\n"
+"POT-Creation-Date: 2008-08-29 22:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -325,7 +325,7 @@ msgstr "版本"
 
 # ./content/PoiIssue.py
 #. Default: "Response"
-#: ../browser/response.pt:71
+#: ../browser/edit_response.pt:50
 msgid "Poi_label_response"
 msgstr "答复"
 
@@ -394,7 +394,7 @@ msgid "Response id ${response_id} is no integer."
 msgstr ""
 
 #. Default: "Search"
-#: ../skins/Poi/poi_tracker_view.pt:33
+#: ../skins/Poi/poi_tracker_view.pt:31
 msgid "Search"
 msgstr ""
 
@@ -404,7 +404,7 @@ msgid "Stop watching this issue"
 msgstr "退定这个问题的答复"
 
 #. Default: "Submit new issue"
-#: ../skins/Poi/poi_tracker_view.pt:60
+#: ../skins/Poi/poi_tracker_view.pt:56
 msgid "Submit new issue"
 msgstr "提交新的问题(提案)"
 
@@ -432,7 +432,7 @@ msgid "desc_poi_heading_delete_response"
 msgstr "您确信要删除这个答复吗？"
 
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ../skins/Poi/poi_tracker_view.pt:83
+#: ../skins/Poi/poi_tracker_view.pt:79
 msgid "description_cannot_add_issues_before_opened"
 msgstr ""
 
@@ -440,6 +440,26 @@ msgstr ""
 #: ../skins/Poi/poi_issue_search.pt:40
 msgid "description_no_results_found"
 msgstr "没有找到结果。"
+
+#. Default: "You are not allowed to edit this response."
+#: ../browser/edit_response.pt:38
+msgid "label_edit_response_not_allowed"
+msgstr ""
+
+#. Default: "Please enter your response below"
+#: ../browser/edit_response.pt:53
+msgid "label_enter_response"
+msgstr ""
+
+#. Default: "Powered by"
+#: ../skins/Poi/poi_tracker_view.pt:261
+msgid "label_powered_by"
+msgstr ""
+
+#. Default: "Return to issue."
+#: ../browser/edit_response.pt:26
+msgid "label_return_to_issue"
+msgstr ""
 
 #. Default: "RSS Feed"
 #: ../skins/Poi/poi_issue_search_results.pt:6
@@ -498,7 +518,7 @@ msgid "listingheader_type"
 msgstr "类型"
 
 #. Default: "If you can, please log in before submitting your issue."
-#: ../skins/Poi/poi_tracker_view.pt:46
+#: ../skins/Poi/poi_tracker_view.pt:42
 msgid "login_suggestion"
 msgstr ""
 
@@ -513,17 +533,17 @@ msgid "poi_added_by"
 msgstr "添加人："
 
 #. Default: "Added ${count} day(s) ago."
-#: ../browser/log.pt:79
+#: ../browser/log.pt:77
 msgid "poi_added_days_ago"
 msgstr ""
 
 #. Default: "Added ${count} hour(s) ago."
-#: ../browser/log.pt:72
+#: ../browser/log.pt:70
 msgid "poi_added_hours_ago"
 msgstr ""
 
 #. Default: "Added ${count} minute(s) ago."
-#: ../browser/log.pt:65
+#: ../browser/log.pt:63
 msgid "poi_added_minutes_ago"
 msgstr ""
 
@@ -533,28 +553,28 @@ msgid "poi_added_on"
 msgstr "时间："
 
 #. Default: "All pending issues"
-#: ../skins/Poi/poi_tracker_view.pt:137
+#: ../skins/Poi/poi_tracker_view.pt:133
 msgid "poi_all_pending_issues"
 msgstr ""
 
 #. Default: "By area"
-#: ../skins/Poi/poi_tracker_view.pt:104
+#: ../skins/Poi/poi_tracker_view.pt:100
 msgid "poi_heading_by_area"
 msgstr "按“领域”"
 
 #. Default: "By target release"
-#: ../skins/Poi/poi_tracker_view.pt:121
+#: ../skins/Poi/poi_tracker_view.pt:117
 #, fuzzy
 msgid "poi_heading_by_release"
 msgstr "按“版本”"
 
 #. Default: "By state"
-#: ../skins/Poi/poi_tracker_view.pt:134
+#: ../skins/Poi/poi_tracker_view.pt:130
 msgid "poi_heading_by_state"
 msgstr "按“状态”"
 
 #. Default: "By tag"
-#: ../skins/Poi/poi_tracker_view.pt:158
+#: ../skins/Poi/poi_tracker_view.pt:154
 msgid "poi_heading_by_tag"
 msgstr "按“标记”"
 
@@ -574,17 +594,17 @@ msgid "poi_heading_log"
 msgstr ""
 
 #. Default: "My issues"
-#: ../skins/Poi/poi_tracker_view.pt:212
+#: ../skins/Poi/poi_tracker_view.pt:208
 msgid "poi_heading_my_issues"
 msgstr "我的问题"
 
 #. Default: "Open issues"
-#: ../skins/Poi/poi_tracker_view.pt:93
+#: ../skins/Poi/poi_tracker_view.pt:89
 msgid "poi_heading_open_issues"
 msgstr "开放的问题"
 
 #. Default: "Orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:245
+#: ../skins/Poi/poi_tracker_view.pt:241
 msgid "poi_heading_orphaned_issues"
 msgstr ""
 
@@ -594,7 +614,7 @@ msgid "poi_heading_search_results"
 msgstr "问题查找结果"
 
 #. Default: "Unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:181
+#: ../skins/Poi/poi_tracker_view.pt:177
 msgid "poi_heading_unconfirmed_issues"
 msgstr "未确认的问题"
 
@@ -604,35 +624,35 @@ msgid "poi_help_log"
 msgstr ""
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ../skins/Poi/poi_tracker_view.pt:213
+#: ../skins/Poi/poi_tracker_view.pt:209
 #, fuzzy
 msgid "poi_help_my_issues_manager"
 msgstr "下面的开放问题要么是你提交的，要么是分配给你的"
 
 #. Default: "The following open issues were submitted by you."
-#: ../skins/Poi/poi_tracker_view.pt:220
+#: ../skins/Poi/poi_tracker_view.pt:216
 #, fuzzy
 msgid "poi_help_my_issues_not_manager"
 msgstr "下面的开放问题是你提交的"
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
-#: ../skins/Poi/poi_tracker_view.pt:97
+#: ../skins/Poi/poi_tracker_view.pt:93
 msgid "poi_help_open_issues"
 msgstr "点击一个领域、版本或者问题状态，查看所有这个分类的开放问题。要使用更高级的搜索选项，点击“查找问题”"
 
 #. Default: "The following open issues are not assigned to anyone."
-#: ../skins/Poi/poi_tracker_view.pt:246
+#: ../skins/Poi/poi_tracker_view.pt:242
 msgid "poi_help_orphaned_issues_"
 msgstr ""
 
 #. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
-#: ../skins/Poi/poi_tracker_view.pt:182
+#: ../skins/Poi/poi_tracker_view.pt:178
 #, fuzzy
 msgid "poi_help_unconfirmed_issues"
 msgstr "下面的问题还没有确认或者分配。请审查他们，进行适当的处理。"
 
 #. Default: "Advanced issue search"
-#: ../skins/Poi/poi_tracker_view.pt:35
+#: ../skins/Poi/poi_tracker_view.pt:33
 #, fuzzy
 msgid "poi_issue_search"
 msgstr "查找问题"
@@ -862,23 +882,38 @@ msgstr "问题正文"
 msgid "poi_up_to_issue"
 msgstr "完整查看问题"
 
+#. Default: "Add response"
+#: ../browser/response.pt:65
+msgid "title_add_response"
+msgstr ""
+
+#. Default: "Edit response"
+#: ../browser/edit_response.pt:35
+msgid "title_edit_response"
+msgstr ""
+
+#. Default: "Error: no response found for editing"
+#: ../browser/edit_response.pt:24
+msgid "title_error_no_response"
+msgstr ""
+
 #. Default: "RSS feed of these search results"
 #: ../skins/Poi/poi_issue_search_results.pt:6
 msgid "title_rss_feed"
 msgstr ""
 
 #. Default: "RSS feed of my issues"
-#: ../skins/Poi/poi_tracker_view.pt:227
+#: ../skins/Poi/poi_tracker_view.pt:223
 msgid "title_rss_feed_my_issues"
 msgstr ""
 
 #. Default: "RSS feed of orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:253
+#: ../skins/Poi/poi_tracker_view.pt:249
 msgid "title_rss_feed_orphaned"
 msgstr ""
 
 #. Default: "RSS feed of unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:191
+#: ../skins/Poi/poi_tracker_view.pt:187
 msgid "title_rss_feed_unconfirmed"
 msgstr ""
 

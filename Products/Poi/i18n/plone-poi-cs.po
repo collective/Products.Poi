@@ -47,6 +47,9 @@ msgstr "Uzavřený pro zadávání"
 msgid "Confirm resolved"
 msgstr "Potvrdit vyřešení"
 
+msgid "Confirmed"
+msgstr ""
+
 msgid "In progress"
 msgstr "V řešení"
 
