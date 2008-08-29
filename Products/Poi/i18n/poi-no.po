@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-07-17 22:50+0000\n"
+"POT-Creation-Date: 2008-08-29 21:18+0000\n"
 "PO-Revision-Date: 2007-05-06 17:00+0000\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: None <plone-i18n@lists.sourceforge.net>\n"
@@ -115,11 +115,6 @@ msgstr "Vennligst gi flere detaljer"
 # ./content/PoiTracker.py
 #. Default: "Enter any introductory help text you'd like to display on the tracker front page."
 msgid "Poi_help_helpText"
-msgstr ""
-
-# ./content/PoiIssue.py
-#. Default: ""
-msgid "Poi_help_id"
 msgstr ""
 
 # ./content/PoiIssue.py

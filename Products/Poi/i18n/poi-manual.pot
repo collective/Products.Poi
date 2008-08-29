@@ -126,12 +126,6 @@ msgstr ""
 msgid "Poi_label_id"
 msgstr ""
 
-
-#. Default: ""
-# ./content/PoiIssue.py
-msgid "Poi_help_id"
-msgstr ""
-
 #. Default: "Title"
 # ./content/PoiIssue.py
 msgid "Poi_label_issue_title"

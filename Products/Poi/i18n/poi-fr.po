@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2008-07-17 22:50+0000\n"
+"POT-Creation-Date: 2008-08-29 21:18+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Encolpe Degoute <encolpe@gmail.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -118,11 +118,6 @@ msgstr "Veuillez fournir plus détails"
 #. Default: "Enter any introductory help text you'd like to display on the tracker front page."
 msgid "Poi_help_helpText"
 msgstr "Entrer une notice d'emploi de votre gestionnaire de ticket qui sera affiché en page d'accueil de l'outil."
-
-# ./content/PoiIssue.py
-#. Default: ""
-msgid "Poi_help_id"
-msgstr "Identifiant du ticket."
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
