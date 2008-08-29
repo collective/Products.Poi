@@ -377,8 +377,8 @@ class Create(Base):
             issue_has_changed = True
 
         options = [
-            ('severity', 'Severity', 'available_severities'),
-            ('responsibleManager', 'Responsible manager', 'available_managers'),
+            ('severity', _(u'Severity'), 'available_severities'),
+            ('responsibleManager', _(u'Responsible manager'), 'available_managers'),
             ]
         # Changes that need to be applied to the issue (apart from
         # workflow changes that need to be handled separately).
