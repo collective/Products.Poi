@@ -9,6 +9,7 @@ from Products.Poi.adapters import Response
 from plone.memoize.view import memoize
 from Products.Archetypes.atapi import DisplayList
 from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
+from Products.CMFPlone import PloneMessageFactory as PMF
 from Products.Poi import PoiMessageFactory as _
 from Products.Poi import permissions
 from Products.statusmessages.interfaces import IStatusMessage
@@ -222,7 +223,8 @@ class Base(BrowserView):
             return []
         wftool = getToolByName(context, 'portal_workflow')
         transitions = []
-        transitions.append(dict(value='', label='No change', checked="checked"))
+        transitions.append(dict(value='', label=PMF(u'No change'),
+                                checked="checked"))
         for tdef in wftool.getTransitionsFor(context):
             transitions.append(dict(value=tdef['id'], label=tdef['title_or_id'],
                                     checked=''))

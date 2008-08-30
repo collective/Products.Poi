@@ -58,6 +58,10 @@ msgstr "Problem"
 msgid "Issue Tracker"
 msgstr "Problem Tracker"
 
+# browser/respsonse.py:transitions_for_display
+msgid "No change"
+msgstr ""
+
 msgid "Open"
 msgstr "Offen"
 

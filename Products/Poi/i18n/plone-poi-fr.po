@@ -62,6 +62,10 @@ msgstr "Ticket"
 msgid "Issue Tracker"
 msgstr "Gestionnaire de tickets"
 
+# browser/respsonse.py:transitions_for_display
+msgid "No change"
+msgstr ""
+
 msgid "Open"
 msgstr "Ouvert"
 

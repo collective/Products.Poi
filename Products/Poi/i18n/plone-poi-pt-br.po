@@ -61,6 +61,10 @@ msgstr "Ocorrência "
 msgid "Issue Tracker"
 msgstr "Gerenciador de Ocorrência"
 
+# browser/respsonse.py:transitions_for_display
+msgid "No change"
+msgstr ""
+
 msgid "Open"
 msgstr "Aberto"
 

@@ -58,6 +58,10 @@ msgstr "Incidencia"
 msgid "Issue Tracker"
 msgstr "Gestor de Incidencias"
 
+# browser/respsonse.py:transitions_for_display
+msgid "No change"
+msgstr ""
+
 msgid "Open"
 msgstr "Abierta"
 

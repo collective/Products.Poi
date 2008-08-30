@@ -61,6 +61,10 @@ msgstr "问题（提案）"
 msgid "Issue Tracker"
 msgstr "问题跟踪器"
 
+# browser/respsonse.py:transitions_for_display
+msgid "No change"
+msgstr ""
+
 msgid "Open"
 msgstr "开启"
 

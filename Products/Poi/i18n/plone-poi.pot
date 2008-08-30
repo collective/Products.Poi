@@ -118,3 +118,7 @@ msgstr ""
 # response transitions
 msgid "Post response on save"
 msgstr ""
+
+# browser/response.py:transitions_for_display
+msgid "No change"
+msgstr ""
