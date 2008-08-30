@@ -244,13 +244,13 @@ issue changes.  So we create a slightly more interesting response::
     >>> res.text
     'This issue misses a shrubbery.'
     >>> res.changes
-    [{'before': 'Medium', 'after': 'Low', 'id': 'severity', 'name': 'Severity'}]
+    [{'before': 'Medium', 'after': 'Low', 'id': 'severity', 'name': u'Severity'}]
     >>> res.creator
     '(anonymous)'
     >>> res.date
     DateTime('...')
     >>> form = dict(response="We are no longer the Knights who say Ni.",
-    ...             severity='Critical', responsibleManager='manager')
+    ...             severity=u'Critical', responsibleManager='manager')
     >>> Create(issue, TestRequest(form=form))()
     >>> len(view.responses())
     2
