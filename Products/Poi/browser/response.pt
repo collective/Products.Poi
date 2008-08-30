@@ -72,6 +72,24 @@
 
   <h3 i18n:translate="title_add_response">Add response</h3>
 
+  <div class="formControls"
+       tal:condition="context/@@plone_portal_state/anonymous">
+    <div class="login-suggestion">
+      <tal:block i18n:translate="login_suggestion_response">
+        If you can, please log in before submitting a reaction.
+      </tal:block>
+    </div>
+    <form
+        tal:attributes="action string:${context/@@plone_portal_state/portal_url}/login_form?came_from=${here/absolute_url}">
+      <input class="standalone"
+             type="submit"
+             value="Log in"
+             i18n:domain="plone"
+             i18n:attributes="value label_log_in;"
+             />
+    </form>
+  </div>
+
   <form method="post" action="@@create_response"
         enctype="multipart/form-data">
 
