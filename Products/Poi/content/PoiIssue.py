@@ -70,6 +70,7 @@ wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 from zope.interface import implements
 from Products.Poi.interfaces import IIssue
 from Products.Poi.interfaces import ITracker
+from Products.Poi import PoiMessageFactory as _
 from plone.memoize import instance 
 
 schema = Schema((
@@ -495,7 +496,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         tracker = self.getTracker()
         items = tracker.getManagers()
         vocab = DisplayList()
-        vocab.add('(UNASSIGNED)', 'None', 'poi_vocab_none')
+        vocab.add('(UNASSIGNED)', _(u'None'), 'poi_vocab_none')
         for item in items:
             vocab.add(item, item)
         return vocab
@@ -519,7 +520,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         (UNASSIGNED) to denote that a release is not yet assigned.
         """
         vocab = DisplayList()
-        vocab.add('(UNASSIGNED)', 'None', 'poi_vocab_none')
+        vocab.add('(UNASSIGNED)', _(u'None'), 'poi_vocab_none')
         tracker = self.getTracker()
         trackerVocab = tracker.getReleasesVocab()
         for k in trackerVocab.keys():

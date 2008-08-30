@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-08-30 20:03+0000\n"
+"POT-Creation-Date: 2008-08-30 20:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ../browser/response.py:476
+#: ../browser/response.py:480
 msgid "Changes saved to response id ${response_id}."
 msgstr ""
 
@@ -43,24 +43,28 @@ msgstr ""
 msgid "Edit issue"
 msgstr ""
 
-#: ../browser/response.py:375
+#: ../browser/response.py:379
 msgid "Issue state"
 msgstr ""
 
-#: ../browser/response.py:503
+#: ../browser/response.py:507
 msgid "No response selected for removal."
 msgstr ""
 
-#: ../browser/response.py:467
+#: ../browser/response.py:471
 msgid "No response selected for saving."
 msgstr ""
 
-#: ../browser/response.py:176
+#: ../browser/response.py:177
 msgid "No response selected."
 msgstr ""
 
-#: ../browser/response.py:420
+#: ../browser/response.py:424
 msgid "No response text added and no issue changes made."
+msgstr ""
+
+#: ../content/PoiIssue.py:499
+msgid "None"
 msgstr ""
 
 # ./content/PoiIssue.py
@@ -144,17 +148,17 @@ msgid "Poi_help_managers"
 msgstr ""
 
 #. Default: "Select the responsible manager for this issue"
-#: ../browser/response.pt:233
+#: ../browser/response.pt:235
 msgid "Poi_help_newResponsibleManager"
 msgstr ""
 
 #. Default: "Select the severity for this issue"
-#: ../browser/response.pt:177
+#: ../browser/response.pt:179
 msgid "Poi_help_newSeverity"
 msgstr ""
 
 #. Default: "Set the target release for this issue"
-#: ../browser/response.pt:205
+#: ../browser/response.pt:207
 msgid "Poi_help_newTargetRelease"
 msgstr ""
 
@@ -299,17 +303,17 @@ msgid "Poi_label_managers"
 msgstr ""
 
 #. Default: "Change responsible manager"
-#: ../browser/response.pt:228
+#: ../browser/response.pt:230
 msgid "Poi_label_newResponsibleManager"
 msgstr ""
 
 #. Default: "Change issue severity"
-#: ../browser/response.pt:172
+#: ../browser/response.pt:174
 msgid "Poi_label_newSeverity"
 msgstr ""
 
 #. Default: "Change target release"
-#: ../browser/response.pt:200
+#: ../browser/response.pt:202
 msgid "Poi_label_newTargetRelease"
 msgstr ""
 
@@ -368,31 +372,31 @@ msgstr ""
 msgid "Poi_label_watchers"
 msgstr ""
 
-#: ../browser/response.py:521
+#: ../browser/response.py:525
 msgid "Removed response id ${response_id}."
 msgstr ""
 
-#: ../browser/response.py:515
+#: ../browser/response.py:519
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr ""
 
-#: ../browser/response.py:190
+#: ../browser/response.py:191
 msgid "Response id ${response_id} does not exist."
 msgstr ""
 
-#: ../browser/response.py:542
+#: ../browser/response.py:546
 msgid "Response id ${response_id} has no attachment."
 msgstr ""
 
-#: ../browser/response.py:510
+#: ../browser/response.py:514
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr ""
 
-#: ../browser/response.py:184
+#: ../browser/response.py:185
 msgid "Response id ${response_id} is no integer."
 msgstr ""
 
-#: ../browser/response.py:381
+#: ../browser/response.py:385
 msgid "Responsible manager"
 msgstr ""
 
@@ -401,7 +405,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: ../browser/response.py:380
+#: ../browser/response.py:384
 msgid "Severity"
 msgstr ""
 
@@ -415,7 +419,7 @@ msgstr ""
 msgid "Submit new issue"
 msgstr ""
 
-#: ../browser/response.py:406
+#: ../browser/response.py:410
 msgid "Target release"
 msgstr ""
 
@@ -424,11 +428,11 @@ msgstr ""
 msgid "Watch this issue"
 msgstr ""
 
-#: ../browser/response.py:497
+#: ../browser/response.py:501
 msgid "You are not allowed to delete responses."
 msgstr ""
 
-#: ../browser/response.py:461
+#: ../browser/response.py:465
 msgid "You are not allowed to edit responses."
 msgstr ""
 

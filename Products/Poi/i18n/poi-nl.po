@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-08-30 20:03+0000\n"
-"PO-Revision-Date: 2008-08-30 22:07+0200\n"
+"POT-Creation-Date: 2008-08-30 20:39+0000\n"
+"PO-Revision-Date: 2008-08-30 22:40+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Een issue. Issues beginnen in de 'niet bevestigd' status en kan beantwoo
 msgid "Cancel"
 msgstr "Annuleer"
 
-#: ../browser/response.py:476
+#: ../browser/response.py:480
 msgid "Changes saved to response id ${response_id}."
 msgstr "Wijzigingen opgeslagen voor reactie met id ${response_id}."
 
@@ -46,25 +46,29 @@ msgstr "Bewerk"
 msgid "Edit issue"
 msgstr "Bewerk issue"
 
-#: ../browser/response.py:375
+#: ../browser/response.py:379
 msgid "Issue state"
 msgstr "Issue status"
 
-#: ../browser/response.py:503
+#: ../browser/response.py:507
 msgid "No response selected for removal."
 msgstr "Geen reactie geselecteerd om te verwijderen."
 
-#: ../browser/response.py:467
+#: ../browser/response.py:471
 msgid "No response selected for saving."
 msgstr "Geen reactie geselecteerd om op te slaan."
 
-#: ../browser/response.py:176
+#: ../browser/response.py:177
 msgid "No response selected."
 msgstr "Geen reactie geselecteerd."
 
-#: ../browser/response.py:420
+#: ../browser/response.py:424
 msgid "No response text added and no issue changes made."
 msgstr "Geen tekst toegevoegd in deze reactie en geen wijzigingen aan de issue gemaakt."
+
+#: ../content/PoiIssue.py:499
+msgid "None"
+msgstr "Geen"
 
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."
@@ -150,19 +154,19 @@ msgstr "Geef de user id's van gebruikers op die deze tracker mogen beheren, een 
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
-#: ../browser/response.pt:233
+#: ../browser/response.pt:235
 msgid "Poi_help_newResponsibleManager"
 msgstr "Selecteer de verantwoordelijke manager voor deze issue."
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ../browser/response.pt:177
+#: ../browser/response.pt:179
 msgid "Poi_help_newSeverity"
 msgstr "Selecteer de prioriteit voor deze issue"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ../browser/response.pt:205
+#: ../browser/response.pt:207
 msgid "Poi_help_newTargetRelease"
 msgstr "Geef de doelrelease op voor deze issue"
 
@@ -311,19 +315,19 @@ msgstr "Tracker managers"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
-#: ../browser/response.pt:228
+#: ../browser/response.pt:230
 msgid "Poi_label_newResponsibleManager"
 msgstr "Verander verantwoordelijke manager"
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ../browser/response.pt:172
+#: ../browser/response.pt:174
 msgid "Poi_label_newSeverity"
 msgstr "Verander prioriteit van issue"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ../browser/response.pt:200
+#: ../browser/response.pt:202
 msgid "Poi_label_newTargetRelease"
 msgstr "Verander doelrelease"
 
@@ -383,31 +387,31 @@ msgstr "Tracker naam"
 msgid "Poi_label_watchers"
 msgstr "Issue volgers"
 
-#: ../browser/response.py:521
+#: ../browser/response.py:525
 msgid "Removed response id ${response_id}."
 msgstr "Reactie met id ${response_id} verwijderd."
 
-#: ../browser/response.py:515
+#: ../browser/response.py:519
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr "Reactie met id ${response_id} bestaat niet en kan dus niet verwijderd worden."
 
-#: ../browser/response.py:190
+#: ../browser/response.py:191
 msgid "Response id ${response_id} does not exist."
 msgstr "Reactie met id ${response_id} bestaat niet."
 
-#: ../browser/response.py:542
+#: ../browser/response.py:546
 msgid "Response id ${response_id} has no attachment."
 msgstr "Reactie met id ${response_id} heeft geen bijlage."
 
-#: ../browser/response.py:510
+#: ../browser/response.py:514
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr "Reactie met id ${response_id} is geen geheel getal en kan dus niet verwijderd worden."
 
-#: ../browser/response.py:184
+#: ../browser/response.py:185
 msgid "Response id ${response_id} is no integer."
 msgstr "Reactie met id ${response_id} is geen geheel getal."
 
-#: ../browser/response.py:381
+#: ../browser/response.py:385
 msgid "Responsible manager"
 msgstr "Verantwoordelijke manager"
 
@@ -416,7 +420,7 @@ msgstr "Verantwoordelijke manager"
 msgid "Search"
 msgstr "Zoeken"
 
-#: ../browser/response.py:380
+#: ../browser/response.py:384
 msgid "Severity"
 msgstr "Prioriteit"
 
@@ -430,7 +434,7 @@ msgstr "Volg deze issue niet meer"
 msgid "Submit new issue"
 msgstr "Voeg nieuwe issue toe"
 
-#: ../browser/response.py:406
+#: ../browser/response.py:410
 msgid "Target release"
 msgstr "Doelrelease"
 
@@ -439,11 +443,11 @@ msgstr "Doelrelease"
 msgid "Watch this issue"
 msgstr "Volg deze issue"
 
-#: ../browser/response.py:497
+#: ../browser/response.py:501
 msgid "You are not allowed to delete responses."
 msgstr "U mag geen reacties verwijderen."
 
-#: ../browser/response.py:461
+#: ../browser/response.py:465
 msgid "You are not allowed to edit responses."
 msgstr "U mag geen reacties bewerken."
 

@@ -218,6 +218,7 @@
                                checked option/checked;" />
 
         <label
+            i18n:translate=""
             tal:attributes="for option/value"
             tal:content="option/label" />
 
@@ -246,6 +247,7 @@
                                checked option/checked;" />
 
         <label
+            i18n:translate=""
             tal:attributes="for option/value"
             tal:content="option/label" />
 
