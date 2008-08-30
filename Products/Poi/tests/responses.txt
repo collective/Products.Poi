@@ -258,7 +258,7 @@ issue changes.  So we create a slightly more interesting response::
     >>> res.text
     'We are no longer the Knights who say Ni.'
     >>> res.changes
-    [{'before': 'Medium', 'after': 'Critical', 'id': 'severity', 'name': 'Severity'}, {'before': '(UNASSIGNED)', 'after': 'manager', 'id': 'responsibleManager', 'name': 'Responsible manager'}]
+    [{'before': 'Medium', 'after': u'Critical', 'id': 'severity', 'name': u'Severity'}, {'before': '(UNASSIGNED)', 'after': 'manager', 'id': 'responsibleManager', 'name': u'Responsible manager'}]
 
 
 Type of response
