@@ -1,3 +1,4 @@
+from AccessControl import Unauthorized
 from Products.CMFCore.utils import getToolByName
 from Products.Poi.browser.interfaces import IResponseAdder
 from zope.interface import implements
@@ -362,6 +363,8 @@ class Create(Base):
         update = {}
         form = self.request.form
         context = aq_inner(self.context)
+        if not self.memship.checkPermission('Poi: Add Response', context):
+            raise Unauthorized
         response_text = form.get('response', u'')
         new_response = Response(response_text)
         new_response.mimetype = self.mimetype

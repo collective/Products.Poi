@@ -91,6 +91,7 @@
   </div>
 
   <form method="post" action="@@create_response"
+        tal:condition="python: user.has_permission('Poi: Add Response', here)"
         enctype="multipart/form-data">
 
     <div class="field">
