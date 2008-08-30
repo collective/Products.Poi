@@ -372,7 +372,7 @@ class Create(Base):
             before = wftool.getInfoFor(context, 'review_state')
             wftool.doActionFor(context, transition)
             after = wftool.getInfoFor(context, 'review_state')
-            new_response.add_change('review_state', 'Issue state',
+            new_response.add_change('review_state', _(u'Issue state'),
                                     before, after)
             issue_has_changed = True
 
@@ -403,7 +403,7 @@ class Create(Base):
                 new_label = self.available_releases.getValue(new)
                 current_label = self.available_releases.getValue(current)
                 changes['targetRelease'] = new
-                new_response.add_change(option, 'Target release',
+                new_response.add_change(option, _(u'Target release'),
                                         current_label, new_label)
                 issue_has_changed = True
 

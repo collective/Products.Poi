@@ -142,7 +142,7 @@ We check the values of the response::
     >>> len(response.changes)
     2
     >>> response.changes[0]
-    {'before': 'unconfirmed', 'after': 'open', 'id': 'review_state', 'name': 'Issue state'}
+    {'before': 'unconfirmed', 'after': 'open', 'id': 'review_state', 'name': u'Issue state'}
     >>> response.changes[1]
     {'before': '(UNASSIGNED)', 'after': 'test_user_1_', 'id': 'responsibleManager', 'name': u'Responsible manager'}
     >>> response.creator

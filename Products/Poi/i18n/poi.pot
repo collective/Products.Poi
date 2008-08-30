@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-08-29 23:37+0000\n"
+"POT-Creation-Date: 2008-08-30 20:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,6 +43,10 @@ msgstr ""
 msgid "Edit issue"
 msgstr ""
 
+#: ../browser/response.py:375
+msgid "Issue state"
+msgstr ""
+
 #: ../browser/response.py:503
 msgid "No response selected for removal."
 msgstr ""
@@ -65,7 +69,7 @@ msgid "Poi_help_area"
 msgstr ""
 
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ../browser/response.pt:114
+#: ../browser/response.pt:122
 msgid "Poi_help_attachment"
 msgstr ""
 
@@ -115,7 +119,7 @@ msgid "Poi_help_helpText"
 msgstr ""
 
 #. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ../browser/response.pt:139
+#: ../browser/response.pt:147
 msgid "Poi_help_issueTransition"
 msgstr ""
 
@@ -140,17 +144,17 @@ msgid "Poi_help_managers"
 msgstr ""
 
 #. Default: "Select the responsible manager for this issue"
-#: ../browser/response.pt:225
+#: ../browser/response.pt:233
 msgid "Poi_help_newResponsibleManager"
 msgstr ""
 
 #. Default: "Select the severity for this issue"
-#: ../browser/response.pt:169
+#: ../browser/response.pt:177
 msgid "Poi_help_newSeverity"
 msgstr ""
 
 #. Default: "Set the target release for this issue"
-#: ../browser/response.pt:197
+#: ../browser/response.pt:205
 msgid "Poi_help_newTargetRelease"
 msgstr ""
 
@@ -160,7 +164,7 @@ msgid "Poi_help_release"
 msgstr ""
 
 #. Default: "Please enter your response below"
-#: ../browser/response.pt:74
+#: ../browser/response.pt:82
 msgid "Poi_help_response"
 msgstr ""
 
@@ -215,7 +219,7 @@ msgid "Poi_label_area"
 msgstr ""
 
 #. Default: "Attachment"
-#: ../browser/response.pt:111
+#: ../browser/response.pt:119
 msgid "Poi_label_attachment"
 msgstr ""
 
@@ -270,7 +274,7 @@ msgid "Poi_label_id"
 msgstr ""
 
 #. Default: "Change issue state"
-#: ../browser/response.pt:134
+#: ../browser/response.pt:142
 msgid "Poi_label_issueTransition"
 msgstr ""
 
@@ -295,17 +299,17 @@ msgid "Poi_label_managers"
 msgstr ""
 
 #. Default: "Change responsible manager"
-#: ../browser/response.pt:220
+#: ../browser/response.pt:228
 msgid "Poi_label_newResponsibleManager"
 msgstr ""
 
 #. Default: "Change issue severity"
-#: ../browser/response.pt:164
+#: ../browser/response.pt:172
 msgid "Poi_label_newSeverity"
 msgstr ""
 
 #. Default: "Change target release"
-#: ../browser/response.pt:192
+#: ../browser/response.pt:200
 msgid "Poi_label_newTargetRelease"
 msgstr ""
 
@@ -409,6 +413,10 @@ msgstr ""
 #. Default: "Submit new issue"
 #: ../skins/Poi/poi_tracker_view.pt:56
 msgid "Submit new issue"
+msgstr ""
+
+#: ../browser/response.py:406
+msgid "Target release"
 msgstr ""
 
 #. Default: "Watch this issue"
@@ -875,7 +883,7 @@ msgid "poi_up_to_issue"
 msgstr ""
 
 #. Default: "Add response"
-#: ../browser/response.pt:65
+#: ../browser/response.pt:73
 msgid "title_add_response"
 msgstr ""
 

@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-08-29 23:37+0000\n"
-"PO-Revision-Date: 2008-08-30 01:43+0200\n"
+"POT-Creation-Date: 2008-08-30 20:03+0000\n"
+"PO-Revision-Date: 2008-08-30 22:07+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -46,6 +46,10 @@ msgstr "Bewerk"
 msgid "Edit issue"
 msgstr "Bewerk issue"
 
+#: ../browser/response.py:375
+msgid "Issue state"
+msgstr "Issue status"
+
 #: ../browser/response.py:503
 msgid "No response selected for removal."
 msgstr "Geen reactie geselecteerd om te verwijderen."
@@ -69,7 +73,7 @@ msgstr "Selecteer het gebied waar wat relevant is voor deze issue"
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ../browser/response.pt:114
+#: ../browser/response.pt:122
 msgid "Poi_help_attachment"
 msgstr "U kan optioneel een bijlage (bestand) uploaden. Alstublieft geen onnodige grote files uploaden."
 
@@ -120,7 +124,7 @@ msgstr "Geef een introductie helptekst op die getoond wordt op de tracker front 
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ../browser/response.pt:139
+#: ../browser/response.pt:147
 msgid "Poi_help_issueTransition"
 msgstr "Selecteer een verandering van status van de issue waar deze response op toepassing van is."
 
@@ -146,21 +150,21 @@ msgstr "Geef de user id's van gebruikers op die deze tracker mogen beheren, een 
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
-#: ../browser/response.pt:225
+#: ../browser/response.pt:233
 msgid "Poi_help_newResponsibleManager"
 msgstr "Selecteer de verantwoordelijke manager voor deze issue."
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ../browser/response.pt:169
+#: ../browser/response.pt:177
 msgid "Poi_help_newSeverity"
 msgstr "Selecteer de prioriteit voor deze issue"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ../browser/response.pt:197
+#: ../browser/response.pt:205
 msgid "Poi_help_newTargetRelease"
-msgstr "Geef de target-release op voor deze issue"
+msgstr "Geef de doelrelease op voor deze issue"
 
 # ./content/PoiIssue.py
 #. Default: "Select the release this issue pertains to."
@@ -169,7 +173,7 @@ msgstr "Selecteer de release waar deze issue op van toepassing is."
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
-#: ../browser/response.pt:74
+#: ../browser/response.pt:82
 msgid "Poi_help_response"
 msgstr "Geef aub hieronder uw reactie."
 
@@ -225,7 +229,7 @@ msgstr "Gebied"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
-#: ../browser/response.pt:111
+#: ../browser/response.pt:119
 msgid "Poi_label_attachment"
 msgstr "Bijlage"
 
@@ -281,7 +285,7 @@ msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
-#: ../browser/response.pt:134
+#: ../browser/response.pt:142
 msgid "Poi_label_issueTransition"
 msgstr "Verander issue status"
 
@@ -307,21 +311,21 @@ msgstr "Tracker managers"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
-#: ../browser/response.pt:220
+#: ../browser/response.pt:228
 msgid "Poi_label_newResponsibleManager"
 msgstr "Verander verantwoordelijke manager"
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ../browser/response.pt:164
+#: ../browser/response.pt:172
 msgid "Poi_label_newSeverity"
 msgstr "Verander prioriteit van issue"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ../browser/response.pt:192
+#: ../browser/response.pt:200
 msgid "Poi_label_newTargetRelease"
-msgstr "Verander target release"
+msgstr "Verander doelrelease"
 
 # ./content/PoiIssue.py
 #. Default: "Release"
@@ -425,6 +429,10 @@ msgstr "Volg deze issue niet meer"
 #: ../skins/Poi/poi_tracker_view.pt:56
 msgid "Submit new issue"
 msgstr "Voeg nieuwe issue toe"
+
+#: ../browser/response.py:406
+msgid "Target release"
+msgstr "Doelrelease"
 
 #. Default: "Watch this issue"
 #: ../skins/Poi/poi_issue_view.pt:165
@@ -582,7 +590,7 @@ msgstr "Per gebied"
 #. Default: "By target release"
 #: ../skins/Poi/poi_tracker_view.pt:117
 msgid "poi_heading_by_release"
-msgstr "Per target release"
+msgstr "Per doelrelease"
 
 #. Default: "By state"
 #: ../skins/Poi/poi_tracker_view.pt:130
@@ -722,7 +730,7 @@ msgstr "Tags"
 #. Default: "Target release:"
 #: ../skins/Poi/poi_issue_view.pt:82
 msgid "poi_label_target_release"
-msgstr "Doel versie:"
+msgstr "Doel release:"
 
 #. Default: "Issue type"
 #: ../skins/Poi/poi_issue_view.pt:53
@@ -877,7 +885,7 @@ msgstr "Tags"
 #. Default: "Target release"
 #: ../skins/Poi/poi_issue_search_form.pt:95
 msgid "poi_search_label_target_release"
-msgstr "Doel release"
+msgstr "Doelrelease"
 
 #. Default: "Issue text"
 #: ../skins/Poi/poi_issue_search_form.pt:46
@@ -890,7 +898,7 @@ msgid "poi_up_to_issue"
 msgstr "Bekijk issue volledig"
 
 #. Default: "Add response"
-#: ../browser/response.pt:65
+#: ../browser/response.pt:73
 msgid "title_add_response"
 msgstr "Voeg reactie toe"
 

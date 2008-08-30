@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-08-29 23:37+0000\n"
+"POT-Creation-Date: 2008-08-30 20:03+0000\n"
 "PO-Revision-Date: 2007-05-06 17:00+0000\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: None <plone-i18n@lists.sourceforge.net>\n"
@@ -44,6 +44,10 @@ msgstr "Rediger"
 msgid "Edit issue"
 msgstr ""
 
+#: ../browser/response.py:375
+msgid "Issue state"
+msgstr ""
+
 #: ../browser/response.py:503
 msgid "No response selected for removal."
 msgstr ""
@@ -67,7 +71,7 @@ msgstr "Velg for hvilket område dette er relevant."
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ../browser/response.pt:114
+#: ../browser/response.pt:122
 #, fuzzy
 msgid "Poi_help_attachment"
 msgstr "Hvis du ønsker det kan du legge ved en fil. Vennligst ikke legg ved veldig store filer."
@@ -119,7 +123,7 @@ msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ../browser/response.pt:139
+#: ../browser/response.pt:147
 msgid "Poi_help_issueTransition"
 msgstr "Velg en forandring i tilstanden for emnet dette er et svar på, hvis mulig."
 
@@ -145,19 +149,19 @@ msgstr "Skriv inn bruker-id-ene for personer som skal ha administrasjons-rettigh
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
-#: ../browser/response.pt:225
+#: ../browser/response.pt:233
 msgid "Poi_help_newResponsibleManager"
 msgstr ""
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ../browser/response.pt:169
+#: ../browser/response.pt:177
 msgid "Poi_help_newSeverity"
 msgstr ""
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ../browser/response.pt:197
+#: ../browser/response.pt:205
 msgid "Poi_help_newTargetRelease"
 msgstr ""
 
@@ -168,7 +172,7 @@ msgstr "Select the release this issue pertains to.."
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
-#: ../browser/response.pt:74
+#: ../browser/response.pt:82
 msgid "Poi_help_response"
 msgstr "Vennligst skriv inn ditt svar nedenfor"
 
@@ -224,7 +228,7 @@ msgstr "Område"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
-#: ../browser/response.pt:111
+#: ../browser/response.pt:119
 msgid "Poi_label_attachment"
 msgstr "Vedlegg"
 
@@ -281,7 +285,7 @@ msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
-#: ../browser/response.pt:134
+#: ../browser/response.pt:142
 msgid "Poi_label_issueTransition"
 msgstr "Forandre emne-tilstand"
 
@@ -307,19 +311,19 @@ msgstr "Managere"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
-#: ../browser/response.pt:220
+#: ../browser/response.pt:228
 msgid "Poi_label_newResponsibleManager"
 msgstr ""
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ../browser/response.pt:164
+#: ../browser/response.pt:172
 msgid "Poi_label_newSeverity"
 msgstr ""
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ../browser/response.pt:192
+#: ../browser/response.pt:200
 msgid "Poi_label_newTargetRelease"
 msgstr ""
 
@@ -425,6 +429,10 @@ msgstr "Slutt å følge med dette emnet"
 #: ../skins/Poi/poi_tracker_view.pt:56
 msgid "Submit new issue"
 msgstr "Opprett nytt emne"
+
+#: ../browser/response.py:406
+msgid "Target release"
+msgstr ""
 
 #. Default: "Watch this issue"
 #: ../skins/Poi/poi_issue_view.pt:165
@@ -901,7 +909,7 @@ msgid "poi_up_to_issue"
 msgstr "Se hele emnet"
 
 #. Default: "Add response"
-#: ../browser/response.pt:65
+#: ../browser/response.pt:73
 msgid "title_add_response"
 msgstr ""
 

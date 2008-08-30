@@ -41,7 +41,15 @@
               tal:content="python:here.toLocalizedTime(response.date, long_format=True)" />
         <div tal:repeat="delta response/changes">
           <span i18n:translate="" tal:content="string:${delta/name}" />:
-          <span class="issueChange" i18n:translate="" tal:content="delta/before" /> &rarr; <span class="issueChange" i18n:translate="" tal:content="delta/after" />
+          <span class="issueChange"
+                i18n:translate=""
+                i18n:domain="plone"
+                tal:content="delta/before" />
+          &rarr;
+          <span class="issueChange"
+                i18n:translate=""
+                i18n:domain="plone"
+                tal:content="delta/after" />
         </div>
 
       </div>
