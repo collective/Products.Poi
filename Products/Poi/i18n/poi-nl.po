@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-08-30 20:39+0000\n"
-"PO-Revision-Date: 2008-08-30 22:40+0200\n"
+"POT-Creation-Date: 2008-08-30 21:18+0000\n"
+"PO-Revision-Date: 2008-08-30 23:19+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -77,7 +77,7 @@ msgstr "Selecteer het gebied waar wat relevant is voor deze issue"
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ../browser/response.pt:122
+#: ../browser/response.pt:140
 msgid "Poi_help_attachment"
 msgstr "U kan optioneel een bijlage (bestand) uploaden. Alstublieft geen onnodige grote files uploaden."
 
@@ -128,7 +128,7 @@ msgstr "Geef een introductie helptekst op die getoond wordt op de tracker front 
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ../browser/response.pt:147
+#: ../browser/response.pt:165
 msgid "Poi_help_issueTransition"
 msgstr "Selecteer een verandering van status van de issue waar deze response op toepassing van is."
 
@@ -154,19 +154,19 @@ msgstr "Geef de user id's van gebruikers op die deze tracker mogen beheren, een 
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
-#: ../browser/response.pt:235
+#: ../browser/response.pt:254
 msgid "Poi_help_newResponsibleManager"
 msgstr "Selecteer de verantwoordelijke manager voor deze issue."
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ../browser/response.pt:179
+#: ../browser/response.pt:197
 msgid "Poi_help_newSeverity"
 msgstr "Selecteer de prioriteit voor deze issue"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ../browser/response.pt:207
+#: ../browser/response.pt:225
 msgid "Poi_help_newTargetRelease"
 msgstr "Geef de doelrelease op voor deze issue"
 
@@ -177,7 +177,7 @@ msgstr "Selecteer de release waar deze issue op van toepassing is."
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
-#: ../browser/response.pt:82
+#: ../browser/response.pt:100
 msgid "Poi_help_response"
 msgstr "Geef aub hieronder uw reactie."
 
@@ -233,7 +233,7 @@ msgstr "Gebied"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
-#: ../browser/response.pt:119
+#: ../browser/response.pt:137
 msgid "Poi_label_attachment"
 msgstr "Bijlage"
 
@@ -289,7 +289,7 @@ msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
-#: ../browser/response.pt:142
+#: ../browser/response.pt:160
 msgid "Poi_label_issueTransition"
 msgstr "Verander issue status"
 
@@ -315,19 +315,19 @@ msgstr "Tracker managers"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
-#: ../browser/response.pt:230
+#: ../browser/response.pt:249
 msgid "Poi_label_newResponsibleManager"
 msgstr "Verander verantwoordelijke manager"
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ../browser/response.pt:174
+#: ../browser/response.pt:192
 msgid "Poi_label_newSeverity"
 msgstr "Verander prioriteit van issue"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ../browser/response.pt:202
+#: ../browser/response.pt:220
 msgid "Poi_label_newTargetRelease"
 msgstr "Verander doelrelease"
 
@@ -550,6 +550,11 @@ msgstr "Type"
 #: ../skins/Poi/poi_tracker_view.pt:42
 msgid "login_suggestion"
 msgstr "Als het mogelijk is, log aub in voordat u de issue plaatst."
+
+#. Default: "If you can, please log in before submitting a reaction."
+#: ../browser/response.pt:78
+msgid "login_suggestion_response"
+msgstr "Als het mogelijk is, log aub in voordat u een reactie plaatst."
 
 #. Default: "(Not assigned)"
 #: ../skins/Poi/poi_issue_search_form.pt:84

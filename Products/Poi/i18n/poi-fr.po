@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2008-08-30 20:39+0000\n"
+"POT-Creation-Date: 2008-08-30 21:18+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Encolpe Degoute <encolpe@gmail.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -78,7 +78,7 @@ msgstr "Sélectionnez une zone ou ce ticket est approprié."
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ../browser/response.pt:122
+#: ../browser/response.pt:140
 msgid "Poi_help_attachment"
 msgstr "Vous pouvez télécharger vers le serveur un fichier attaché à votre ticket. Veuillez ne pas télécharger inutilement de gros fichiers."
 
@@ -129,7 +129,7 @@ msgstr "Entrer une notice d'emploi de votre gestionnaire de ticket qui sera affi
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ../browser/response.pt:147
+#: ../browser/response.pt:165
 msgid "Poi_help_issueTransition"
 msgstr "Sélectionnez un changement d'état pour cette réponse, si cela est applicable."
 
@@ -155,19 +155,19 @@ msgstr "Entrer les identifiants des utilisateurs qui sont autorisés à gérer c
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
-#: ../browser/response.pt:235
+#: ../browser/response.pt:254
 msgid "Poi_help_newResponsibleManager"
 msgstr "Sélectionnez le gestionnaire responsable du suivi de ce ticket."
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ../browser/response.pt:179
+#: ../browser/response.pt:197
 msgid "Poi_help_newSeverity"
 msgstr "Sélectionnez la criticité de ce ticket"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ../browser/response.pt:207
+#: ../browser/response.pt:225
 msgid "Poi_help_newTargetRelease"
 msgstr "Assignez la distribution voulue pour ce ticket"
 
@@ -178,7 +178,7 @@ msgstr "Sélectionnez la distribution concernée par ce ticket."
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
-#: ../browser/response.pt:82
+#: ../browser/response.pt:100
 msgid "Poi_help_response"
 msgstr "Veuillez saisir votre réponse ci-dessous"
 
@@ -234,7 +234,7 @@ msgstr "Zone"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
-#: ../browser/response.pt:119
+#: ../browser/response.pt:137
 msgid "Poi_label_attachment"
 msgstr "Pièce-jointe"
 
@@ -290,7 +290,7 @@ msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
-#: ../browser/response.pt:142
+#: ../browser/response.pt:160
 msgid "Poi_label_issueTransition"
 msgstr "Modifier l'état du ticket"
 
@@ -316,19 +316,19 @@ msgstr "Responsables du gestionnaire de tickets"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
-#: ../browser/response.pt:230
+#: ../browser/response.pt:249
 msgid "Poi_label_newResponsibleManager"
 msgstr "Modifier le gestionnaire responsable"
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ../browser/response.pt:174
+#: ../browser/response.pt:192
 msgid "Poi_label_newSeverity"
 msgstr "Modifier la criticité du ticket"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ../browser/response.pt:202
+#: ../browser/response.pt:220
 msgid "Poi_label_newTargetRelease"
 msgstr "Modifier la distribution voulue"
 
@@ -552,6 +552,11 @@ msgstr "Type"
 #, fuzzy
 msgid "login_suggestion"
 msgstr "Si vous le pouvez, vous devriez <a href=\"${DYNAMIC_CONTENT}\">identifiant</a> avant d'intervenir dans ce tracker."
+
+#. Default: "If you can, please log in before submitting a reaction."
+#: ../browser/response.pt:78
+msgid "login_suggestion_response"
+msgstr ""
 
 #. Default: "(Not assigned)"
 #: ../skins/Poi/poi_issue_search_form.pt:84

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-08-30 20:39+0000\n"
+"POT-Creation-Date: 2008-08-30 21:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,7 +73,7 @@ msgid "Poi_help_area"
 msgstr ""
 
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ../browser/response.pt:122
+#: ../browser/response.pt:140
 msgid "Poi_help_attachment"
 msgstr ""
 
@@ -123,7 +123,7 @@ msgid "Poi_help_helpText"
 msgstr ""
 
 #. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ../browser/response.pt:147
+#: ../browser/response.pt:165
 msgid "Poi_help_issueTransition"
 msgstr ""
 
@@ -148,17 +148,17 @@ msgid "Poi_help_managers"
 msgstr ""
 
 #. Default: "Select the responsible manager for this issue"
-#: ../browser/response.pt:235
+#: ../browser/response.pt:254
 msgid "Poi_help_newResponsibleManager"
 msgstr ""
 
 #. Default: "Select the severity for this issue"
-#: ../browser/response.pt:179
+#: ../browser/response.pt:197
 msgid "Poi_help_newSeverity"
 msgstr ""
 
 #. Default: "Set the target release for this issue"
-#: ../browser/response.pt:207
+#: ../browser/response.pt:225
 msgid "Poi_help_newTargetRelease"
 msgstr ""
 
@@ -168,7 +168,7 @@ msgid "Poi_help_release"
 msgstr ""
 
 #. Default: "Please enter your response below"
-#: ../browser/response.pt:82
+#: ../browser/response.pt:100
 msgid "Poi_help_response"
 msgstr ""
 
@@ -223,7 +223,7 @@ msgid "Poi_label_area"
 msgstr ""
 
 #. Default: "Attachment"
-#: ../browser/response.pt:119
+#: ../browser/response.pt:137
 msgid "Poi_label_attachment"
 msgstr ""
 
@@ -278,7 +278,7 @@ msgid "Poi_label_id"
 msgstr ""
 
 #. Default: "Change issue state"
-#: ../browser/response.pt:142
+#: ../browser/response.pt:160
 msgid "Poi_label_issueTransition"
 msgstr ""
 
@@ -303,17 +303,17 @@ msgid "Poi_label_managers"
 msgstr ""
 
 #. Default: "Change responsible manager"
-#: ../browser/response.pt:230
+#: ../browser/response.pt:249
 msgid "Poi_label_newResponsibleManager"
 msgstr ""
 
 #. Default: "Change issue severity"
-#: ../browser/response.pt:174
+#: ../browser/response.pt:192
 msgid "Poi_label_newSeverity"
 msgstr ""
 
 #. Default: "Change target release"
-#: ../browser/response.pt:202
+#: ../browser/response.pt:220
 msgid "Poi_label_newTargetRelease"
 msgstr ""
 
@@ -534,6 +534,11 @@ msgstr ""
 #. Default: "If you can, please log in before submitting your issue."
 #: ../skins/Poi/poi_tracker_view.pt:42
 msgid "login_suggestion"
+msgstr ""
+
+#. Default: "If you can, please log in before submitting a reaction."
+#: ../browser/response.pt:78
+msgid "login_suggestion_response"
 msgstr ""
 
 #. Default: "(Not assigned)"

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-08-30 20:39+0000\n"
+"POT-Creation-Date: 2008-08-30 21:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Lukas Zdych <lukas.zdych@corenet.cz>\n"
 "Language-Team: SureCase.org <www.surecase.org>\n"
@@ -74,7 +74,7 @@ msgstr "Zvolte oblast, ke které se tato úloha vztahuje."
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ../browser/response.pt:122
+#: ../browser/response.pt:140
 #, fuzzy
 msgid "Poi_help_attachment"
 msgstr "K vaší úloze můžete nahrát soubor jako přílohu. Prosíme nenahrávejte zbytečně velké soubory."
@@ -126,7 +126,7 @@ msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ../browser/response.pt:147
+#: ../browser/response.pt:165
 msgid "Poi_help_issueTransition"
 msgstr "Pokud je to vhodné, zvolte změnu stavu úlohy, které se tato reakce týká."
 
@@ -152,19 +152,19 @@ msgstr "Zadejte identifikátory (login) uživatelů, kterým bude umožněno spr
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
-#: ../browser/response.pt:235
+#: ../browser/response.pt:254
 msgid "Poi_help_newResponsibleManager"
 msgstr ""
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ../browser/response.pt:179
+#: ../browser/response.pt:197
 msgid "Poi_help_newSeverity"
 msgstr ""
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ../browser/response.pt:207
+#: ../browser/response.pt:225
 msgid "Poi_help_newTargetRelease"
 msgstr ""
 
@@ -175,7 +175,7 @@ msgstr "Zvolte vydání, ke kterému tato úloha patří."
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
-#: ../browser/response.pt:82
+#: ../browser/response.pt:100
 msgid "Poi_help_response"
 msgstr "Prosíme níže zadejte vaší reakci"
 
@@ -231,7 +231,7 @@ msgstr "Oblast"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
-#: ../browser/response.pt:119
+#: ../browser/response.pt:137
 msgid "Poi_label_attachment"
 msgstr "Příloha"
 
@@ -288,7 +288,7 @@ msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
-#: ../browser/response.pt:142
+#: ../browser/response.pt:160
 msgid "Poi_label_issueTransition"
 msgstr "Změnit stav úlohy"
 
@@ -314,19 +314,19 @@ msgstr "Správci manažeru úloh"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
-#: ../browser/response.pt:230
+#: ../browser/response.pt:249
 msgid "Poi_label_newResponsibleManager"
 msgstr ""
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ../browser/response.pt:174
+#: ../browser/response.pt:192
 msgid "Poi_label_newSeverity"
 msgstr ""
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ../browser/response.pt:202
+#: ../browser/response.pt:220
 msgid "Poi_label_newTargetRelease"
 msgstr ""
 
@@ -549,6 +549,11 @@ msgstr "Typ"
 #. Default: "If you can, please log in before submitting your issue."
 #: ../skins/Poi/poi_tracker_view.pt:42
 msgid "login_suggestion"
+msgstr ""
+
+#. Default: "If you can, please log in before submitting a reaction."
+#: ../browser/response.pt:78
+msgid "login_suggestion_response"
 msgstr ""
 
 #. Default: "(Not assigned)"
