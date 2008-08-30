@@ -204,20 +204,20 @@ available options for us now::
     >>> view.available_transitions
     ['']
     >>> view.available_releases
-    <DisplayList [('(UNASSIGNED)', 'None')] at ...>
+    <DisplayList [('(UNASSIGNED)', u'None')] at ...>
     >>> view.available_managers
-    <DisplayList [('(UNASSIGNED)', 'None'), ('manager', 'manager')] at ...>
+    <DisplayList [('(UNASSIGNED)', u'None'), ('manager', 'manager')] at ...>
     >>> view.upload_allowed
     True
 
 The view has some methods especially for displaying::
 
     >>> view.transitions_for_display
-    [{'checked': 'checked', 'value': '', 'label': 'No change'}]
+    [{'checked': 'checked', 'value': '', 'label': u'No change'}]
     >>> view.releases_for_display
-    [{'checked': 'checked', 'value': '(UNASSIGNED)', 'label': 'None'}]
+    [{'checked': 'checked', 'value': '(UNASSIGNED)', 'label': u'None'}]
     >>> view.managers_for_display
-    [{'checked': 'checked', 'value': '(UNASSIGNED)', 'label': 'None'}, {'checked': '', 'value': 'manager', 'label': 'manager'}]
+    [{'checked': 'checked', 'value': '(UNASSIGNED)', 'label': u'None'}, {'checked': '', 'value': 'manager', 'label': 'manager'}]
 
 And of course the responses are visible.  Well, no response has been
 added yet.
