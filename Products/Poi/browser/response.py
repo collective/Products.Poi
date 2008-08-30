@@ -370,8 +370,10 @@ class Create(Base):
         if transition and transition in self.available_transitions:
             wftool = getToolByName(context, 'portal_workflow')
             before = wftool.getInfoFor(context, 'review_state')
+            before = wftool.getTitleForStateOnType(before, 'PoiIssue')
             wftool.doActionFor(context, transition)
             after = wftool.getInfoFor(context, 'review_state')
+            after = wftool.getTitleForStateOnType(after, 'PoiIssue')
             new_response.add_change('review_state', _(u'Issue state'),
                                     before, after)
             issue_has_changed = True
