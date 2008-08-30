@@ -159,6 +159,8 @@
                                checked transition/checked;" />
 
         <label
+            i18n:domain="plone"
+            i18n:translate=""
             tal:attributes="for transition/value"
             tal:content="transition/label" />
 
