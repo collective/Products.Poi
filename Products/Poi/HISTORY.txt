@@ -6,6 +6,9 @@ Changelog for Poi
 1.2rc1 (unreleased)
 -------------------
 
+- Fixed the login button displayed with the login suggestion so it
+  actually redirects to the login_form.  [maurits]
+
 - Translation updates.  [maurits]
 
 

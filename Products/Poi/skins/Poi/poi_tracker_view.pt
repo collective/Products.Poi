@@ -63,7 +63,7 @@
             <td>
               <form
                   tal:condition="isAnon"
-                  tal:attributes="href string:${portal/absolute_url}/login_form?came_from=${here/absolute_url}">
+                  tal:attributes="action string:${portal/absolute_url}/login_form?came_from=${here/absolute_url}">
                 <input class="standalone"
                        type="submit"
                        value="Log in"
