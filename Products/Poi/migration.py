@@ -60,6 +60,7 @@ def replace_old_with_new_responses(issue):
     # This seems a good time to reindex the issue for good measure.
     issue.reindexObject()
 
+
 def migrate_responses(context):
     log.info("Starting migration of old style to new style responses.")
     catalog = getToolByName(context, 'portal_catalog')
@@ -77,6 +78,51 @@ def migrate_responses(context):
             replace_old_with_new_responses(issue)
         tracker.setSendNotificationEmails(original_send_emails)
 
+
+def migrate_workflow_changes(context):
+    """Migrate workflow changes from ids to titles.
+
+    When a response changes the workflow state of an issue, this
+    change is recorded in that response.  This used to be done by
+    storing review state ids.  Currently this is done by storing
+    review state titles.  Friendlier for the end user and translatable
+    to boot.  This migration finds responses with review state ids in
+    them and turns them into titles.
+    """
+    log.info("Starting migration of workflow changes.")
+    catalog = getToolByName(context, 'portal_catalog')
+    wftool = getToolByName(context, 'portal_workflow')
+
+    def get_state_title(state_id):
+        # This neatly returns the input when there is no such review
+        # state id, which happens when the 'state_id' is already a
+        # title.
+        return wftool.getTitleForStateOnType(state_id, 'PoiIssue')
+
+    issue_brains = catalog.searchResults(portal_type='PoiIssue')
+    log.info("Found %s PoiIssues.", len(issue_brains))
+    fixed = 0
+    for brain in issue_brains:
+        issue = brain.getObject()
+        folder = IResponseContainer(issue)
+        made_changes = False
+        for response in folder:
+            for change in response.changes:
+                #def add_change(self, id, name, before, after):
+                if change['id'] != 'review_state':
+                    continue
+                before = get_state_title(change['before'])
+                if change['before'] != before:
+                    made_changes = True
+                    change['before'] = before
+                change['after'] = get_state_title(change['after'])
+        if made_changes:
+            fixed += 1
+            if fixed % 100 == 0:
+                log.info("Fixed %s PoiIssues so far; still busy...", fixed)
+    log.info("Migration completed.  %s PoiIssues needed fixing.", fixed)
+
+                
 
 def fix_descriptions(context):
     """Fix issue Descriptions.

@@ -94,4 +94,13 @@
       sortkey="2"
       profile="Products.Poi:default" />
 
+  <gs:upgradeStep
+      title="Workflow titles in responses"
+      description="Migrate workflow changes from ids to titles."
+      source="1.1"
+      destination="1.2"
+      handler="Products.Poi.migration.migrate_workflow_changes"
+      sortkey="3"
+      profile="Products.Poi:default" />
+
 </configure>

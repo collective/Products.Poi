@@ -174,3 +174,34 @@ new style responses::
     ...     issue = issue.getObject()
     ...     rc = IResponseContainer(issue)
     ...     self.assertEqual(len(rc), 4)
+
+
+Migrate workflow changes from ids to titles
+-------------------------------------------
+
+When a response changes the workflow state of an issue, this change is
+recorded in that response.  This used to be done by storing review
+state ids.  Currently this is done by storing review state titles.
+Friendlier for the end user and translatable to boot.  We have a
+migration step that finds responses with review state ids in them and
+turns them into titles.
+
+    >>> from Products.Poi.migration import migrate_workflow_changes
+    >>> for brain in issues:
+    ...     issue = brain.getObject()
+    ...     rc = IResponseContainer(issue)
+    ...     for response in rc:
+    ...         self.assertEquals(len(response.changes), 0)
+    ...         # Add change with review state ids:
+    ...         response.add_change('review_state', u'Issue state', 'unconfirmed', 'open')
+    ...         self.assertEquals(response.changes[0]['before'], 'unconfirmed')
+    ...         self.assertEquals(response.changes[0]['after'], 'open')
+    >>> migrate_workflow_changes(self.portal)
+    >>> for brain in issues:
+    ...     issue = brain.getObject()
+    ...     rc = IResponseContainer(issue)
+    ...     for response in rc:
+    ...         self.assertEquals(len(response.changes), 1)
+    ...         # The review state ids are now titles:
+    ...         self.assertEquals(response.changes[0]['before'], 'Unconfirmed')
+    ...         self.assertEquals(response.changes[0]['after'], 'Confirmed')
