@@ -2,13 +2,10 @@ from zope.interface import implements
 from zope.interface import Attribute
 from zope.interface import Interface
 from zope.component import adapts
-from zope.app.container.sample import SampleContainer
 from zope.annotation.interfaces import IAnnotations
 from persistent import Persistent
 from persistent.list import PersistentList
-from persistent.mapping import PersistentMapping
 from Products.Poi.interfaces import IIssue
-from BTrees.OOBTree import OOBTree
 from AccessControl import getSecurityManager
 from DateTime import DateTime
 from zope.app.container.contained import ObjectRemovedEvent
@@ -108,7 +105,8 @@ class ResponseContainer(Persistent):
         #
         # Also, now we can say the oldParent is the issue instead of
         # this adapter.
-        event = ObjectRemovedEvent(self[id], oldParent=self.context, oldName=id)
+        event = ObjectRemovedEvent(self[id], oldParent=self.context,
+                                   oldName=id)
         self.remove(self[id])
         notify(event)
 

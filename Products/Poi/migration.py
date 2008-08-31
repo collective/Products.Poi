@@ -11,12 +11,15 @@ log = logging.getLogger("Poi")
 
 
 class IMigration(interface.Interface):
+
     def fix_btrees():
         """The order of inheritance of PoiPscTracker was broken at
         some point.  We need to fix BTreeFolders without `self._tree`.
         """
 
+
 class Migration(BrowserView):
+
     def __call__(self):
         migration_id = self.request.get('migration_id')
         assert migration_id in IMigration.names(), "Unknown migration"
@@ -37,7 +40,7 @@ class Migration(BrowserView):
 def replace_old_with_new_responses(issue):
     if not IIssue.providedBy(issue):
         return
-    responses = issue.contentValues(filter={'portal_type' : 'PoiResponse'})
+    responses = issue.contentValues(filter={'portal_type': 'PoiResponse'})
     folder = IResponseContainer(issue)
     request = issue.REQUEST
     createview = Create(issue, request)
@@ -122,7 +125,6 @@ def migrate_workflow_changes(context):
                 log.info("Fixed %s PoiIssues so far; still busy...", fixed)
     log.info("Migration completed.  %s PoiIssues needed fixing.", fixed)
 
-                
 
 def fix_descriptions(context):
     """Fix issue Descriptions.

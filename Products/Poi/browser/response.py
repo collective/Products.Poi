@@ -18,7 +18,8 @@ from zope.lifecycleevent import modified
 from OFS.Image import File
 from Products.Archetypes.utils import contentDispositionHeader
 try:
-    from plone.i18n.normalizer.interfaces import IUserPreferredFileNameNormalizer
+    from plone.i18n.normalizer.interfaces import \
+        IUserPreferredFileNameNormalizer
     FILE_NORMALIZER = True
 except ImportError:
     FILE_NORMALIZER = False
@@ -28,13 +29,13 @@ def pretty_size(size):
     if size <= 0:
         return "0 Kb"
     kb = size / 1024
-    size = "%d Kb" % kb 
+    size = "%d Kb" % kb
     if kb > 999:
         mb = kb / 1024
-        size = "%d Mb" % mb 
+        size = "%d Mb" % mb
         if mb > 999:
             gb = mb / 1024
-            size = "%d Gb" % gb 
+            size = "%d Gb" % gb
     return size
 
 
@@ -48,11 +49,14 @@ def voc2dict(vocab, current=None):
     [{'checked': '', 'value': 'a', 'label': 'The letter A'}]
     >>> vocab.add('b', "The letter B")
     >>> voc2dict(vocab)
-    [{'checked': '', 'value': 'a', 'label': 'The letter A'}, {'checked': '', 'value': 'b', 'label': 'The letter B'}]
+    [{'checked': '', 'value': 'a', 'label': 'The letter A'},
+    {'checked': '', 'value': 'b', 'label': 'The letter B'}]
     >>> voc2dict(vocab, current='c')
-    [{'checked': '', 'value': 'a', 'label': 'The letter A'}, {'checked': '', 'value': 'b', 'label': 'The letter B'}]
+    [{'checked': '', 'value': 'a', 'label': 'The letter A'},
+    {'checked': '', 'value': 'b', 'label': 'The letter B'}]
     >>> voc2dict(vocab, current='b')
-    [{'checked': '', 'value': 'a', 'label': 'The letter A'}, {'checked': 'checked', 'value': 'b', 'label': 'The letter B'}]
+    [{'checked': '', 'value': 'a', 'label': 'The letter A'},
+    {'checked': 'checked', 'value': 'b', 'label': 'The letter B'}]
 
     """
     options = []
@@ -101,7 +105,6 @@ class Base(BrowserView):
                         html=html)
             items.append(info)
         return items
-
 
     @property
     @memoize
@@ -227,8 +230,8 @@ class Base(BrowserView):
         transitions.append(dict(value='', label=PMF(u'No change'),
                                 checked="checked"))
         for tdef in wftool.getTransitionsFor(context):
-            transitions.append(dict(value=tdef['id'], label=tdef['title_or_id'],
-                                    checked=''))
+            transitions.append(dict(value=tdef['id'],
+                                    label=tdef['title_or_id'], checked=''))
         return transitions
 
     @property
@@ -340,6 +343,7 @@ class AddForm(Base):
         # self.template is defined in zcml
         return self.template()
 
+
 class Create(Base):
 
     def determine_response_type(self, response):
@@ -385,7 +389,8 @@ class Create(Base):
 
         options = [
             ('severity', _(u'Severity'), 'available_severities'),
-            ('responsibleManager', _(u'Responsible manager'), 'available_managers'),
+            ('responsibleManager', _(u'Responsible manager'),
+             'available_managers'),
             ]
         # Changes that need to be applied to the issue (apart from
         # workflow changes that need to be handled separately).
