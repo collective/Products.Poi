@@ -9,7 +9,7 @@ Changelog for Poi
 - Added migration step to migrate workflow changes (in the responses)
   from ids to titles.  [maurits]
 
-- Only show the add response form the the user is allowed to add a
+- Only show the add response form when the user is allowed to add a
   response.  [maurits]
 
 - Fixed the login button displayed with the login suggestion so it
