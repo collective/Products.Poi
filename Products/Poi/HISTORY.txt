@@ -3,8 +3,8 @@ Changelog for Poi
 
 (name of developer listed in brackets)
 
-1.2rc1 (unreleased)
--------------------
+1.2 rc 1 (12 September 2008)
+----------------------------
 
 - Added migration step to migrate workflow changes (in the responses)
   from ids to titles.  [maurits]
