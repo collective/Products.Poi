@@ -35,6 +35,7 @@ except ImportError:
     from Products.Archetypes.atapi import *
 from Products.Poi.interfaces.Tracker import Tracker
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
+from Products.CMFPlone.utils import safe_unicode
 from Products.Poi.config import PROJECTNAME
 
 from Products.DataGridField.DataGridField import DataGridField
@@ -392,13 +393,13 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         if fromName is not None:
             fromAddress = "%s <%s>" % (fromName, fromAddress)
         if isinstance(fromAddress, unicode):
-            fromAddress = fromAddress.encode(charset, 'replace')
+            fromAddress = safe_unicode(fromAddress, charset)
 
         email = MIMEMultipart('alternative')
         email.epilogue = ''
 
         if isinstance(rstText, unicode):
-            rstText = rstText.encode(charset, 'replace')
+            rstText = safe_unicode(rstText, charset)
 
         textPart = MIMEText(rstText, 'plain', charset)
         email.attach(textPart)
@@ -407,7 +408,7 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         message = str(email)
 
         if isinstance(subject, unicode):
-            subject = subject.encode(charset, 'replace')
+            subject = safe_unicode(subject, charset)
 
         # Encode the subject.  Not needed for ascii really.
         # The form is: "=?charset?encoding?encoded text?=".
@@ -425,7 +426,7 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
 
         for address in addresses:
             if isinstance(address, unicode):
-                address = address.encode(charset, 'replace')
+                address = safe_unicode(address, charset)
             try:
                 mailHost.send(message = message,
                               mto = address,

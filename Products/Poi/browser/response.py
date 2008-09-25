@@ -16,6 +16,7 @@ from Products.Poi import permissions
 from Products.statusmessages.interfaces import IStatusMessage
 from zope.lifecycleevent import modified
 from OFS.Image import File
+from Products.CMFPlone.utils import safe_unicode
 from Products.Archetypes.utils import contentDispositionHeader
 try:
     from plone.i18n.normalizer.interfaces import \
@@ -563,9 +564,9 @@ class Download(Base):
         if filename is not None:
             if FILE_NORMALIZER:
                 filename = IUserPreferredFileNameNormalizer(request).normalize(
-                    unicode(filename, context.getCharset()))
+                    safe_unicode(filename, context.getCharset()))
             else:
-                filename = unicode(filename, context.getCharset())
+                filename = safe_unicode(filename, context.getCharset())
             header_value = contentDispositionHeader(
                 disposition='attachment',
                 filename=filename)

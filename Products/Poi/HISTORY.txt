@@ -6,7 +6,8 @@ Changelog for Poi
 1.2 rc 2 (unreleased)
 ---------------------
 
-- Nothing changed yet.
+- Using Products.CMFPlone.utils.safe_unicode to avoid
+  UnicodeDecodeErrors.  [maurits]
 
 
 1.2 rc 1 (12 September 2008)

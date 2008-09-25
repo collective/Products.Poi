@@ -46,6 +46,7 @@ from Products.Archetypes.atapi import SelectionWidget
 from Products.Archetypes.atapi import StringField
 from Products.Archetypes.atapi import StringWidget
 from Products.Archetypes.atapi import TextField
+from Products.CMFPlone.utils import safe_unicode
 
 from Products.Poi.interfaces.Issue import Issue
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
@@ -448,7 +449,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         # Always return unicode.
         if not isinstance(value, unicode):
             encoding = getSiteEncoding(self)
-            value = unicode(value, encoding)
+            value = safe_unicode(value, encoding)
         return value
 
     def validate_watchers(self, value):
