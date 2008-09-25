@@ -3,8 +3,11 @@ from Products.CMFCore.utils import getToolByName
 from Acquisition import aq_inner
 from datetime import datetime
 
+
 def convertDate(date):
-    return datetime(date.year(), date.month(), date.day(), date.hour(), date.minute())
+    return datetime(date.year(), date.month(), date.day(), date.hour(),
+                    date.minute())
+
 
 def getEntrySortingKey(entry):
     if entry.portal_type == 'PoiResponse':
@@ -17,7 +20,9 @@ def getEntrySortingKey(entry):
 
     return key
 
+
 class LogView(BrowserView):
+
     @property
     def catalog(self):
         return getToolByName(self.context, 'portal_catalog')
@@ -25,7 +30,7 @@ class LogView(BrowserView):
     def getTimeDelta(self, zope_date):
         date = convertDate(zope_date)
         now = datetime.now()
-        
+
         delta = now-date
 
         # use largest time unit
@@ -33,19 +38,22 @@ class LogView(BrowserView):
         hours = 0
         days = delta.days
 
-        if not days: hours = delta.seconds/3600
-        if not hours and not days: minutes = delta.seconds/60
+        if not days:
+            hours = delta.seconds/3600
+        if not hours and not days:
+            minutes = delta.seconds/60
 
         return {'minutes': minutes,
                 'hours': hours,
                 'days': days}
-        
+
     def getPrettyName(self, username=None, user=None):
         if not username and not user:
             raise ValueError('Both username and user cannot be empty')
 
         if username:
-            portal_membership = getToolByName(self.context, 'portal_membership')
+            portal_membership = getToolByName(self.context,
+                                              'portal_membership')
             user = portal_membership.getMemberById(username)
 
         if user is None:
@@ -64,7 +72,7 @@ class LogView(BrowserView):
             responses += rs
 
         items = responses + issues
-        
+
         # sort entries
         items.sort(key=getEntrySortingKey, reverse=True)
 
@@ -90,7 +98,7 @@ class LogView(BrowserView):
                              'url': item.absolute_url(),
                              'timedelta': self.getTimeDelta(item.created()),
                              'text': item.getDetails()})
-            
+
             results.append(base)
-            
+
         return results

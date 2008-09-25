@@ -5,7 +5,7 @@ from ZTUtils import make_query
 
 
 class IssueFolderView(BrowserView):
-    
+
     def getFilteredIssues(self, criteria=None, **kwargs):
         """Get the contained issues in the given criteria.
         """
@@ -83,7 +83,7 @@ class IssueFolderView(BrowserView):
                     dummy = subject['query']
                 except KeyError:
                     del query['Subject']
-        
+
         query['sort_on'] = criteria.get('sort_on', 'created')
         query['sort_order'] = criteria.get('sort_order', 'reverse')
 

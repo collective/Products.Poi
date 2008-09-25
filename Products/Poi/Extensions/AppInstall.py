@@ -1,6 +1,6 @@
-from Products.CMFCore.utils import getToolByName
-
 from StringIO import StringIO
+
+from Products.CMFCore.utils import getToolByName
 
 from Products.Poi.Extensions.utils import addAction, removeAction
 
@@ -12,23 +12,26 @@ def addPortalFactoryType(self, out, factory, metaType):
     types.append(metaType)
     factory.manage_setPortalFactoryTypes(listOfTypeIds = types)
 
-    print >> out, "Added %s to portal_factory" % (metaType,)
+    print >> out, "Added %s to portal_factory" % (metaType, )
+
 
 def addToListProperty(self, out, propertySheet, property, value):
     """Add the given value to the list in the given property"""
     current = list(propertySheet.getProperty(property))
     if value not in current:
         current.append(value)
-        propertySheet.manage_changeProperties(**{property : current})
+        propertySheet.manage_changeProperties(**{property: current})
 
     print >> out, "Added %s to %s" % (value, property)
 
-def addFormControllerAction(self, out, controller, template, status, 
+
+def addFormControllerAction(self, out, controller, template, status,
                                 contentType, button, actionType, action):
     """Add the given action to the portalFormController"""
     controller.addFormAction(template, status, contentType,
                                 button, actionType, action)
     print >> out, "Added action %s to %s" % (action, template)
+
 
 def addAllowedContentType(self, out, typesTool, metaType, allowedType):
     """Add the given type to the list of allowed content types for the given
@@ -46,6 +49,7 @@ def addAllowedContentType(self, out, typesTool, metaType, allowedType):
     else:
         print >> out, "%s is already in allowed content types of %s" % (allowedType, metaType)
 
+
 def addCatalogIndexes(site, out):
     """Add our indexes to the catalog.
 
@@ -62,6 +66,7 @@ def addCatalogIndexes(site, out):
             catalog.addIndex(idx, 'FieldIndex')
             print >> out, "Added FieldIndex for %s." % idx
 
+
 def install(self):
 
     out = StringIO()
@@ -69,9 +74,12 @@ def install(self):
     # Set parentMetaTypesNotToQuery
     portalProperties = getToolByName(self, 'portal_properties')
     navtreeProps = getattr(portalProperties, 'navtree_properties')
-    addToListProperty(self, out, navtreeProps, 'parentMetaTypesNotToQuery', 'PoiTracker')
-    addToListProperty(self, out, navtreeProps, 'parentMetaTypesNotToQuery', 'PoiIssue')
-    addToListProperty(self, out, navtreeProps, 'parentMetaTypesNotToQuery', 'PoiPscTracker')
+    addToListProperty(self, out, navtreeProps, 'parentMetaTypesNotToQuery',
+                      'PoiTracker')
+    addToListProperty(self, out, navtreeProps, 'parentMetaTypesNotToQuery',
+                      'PoiIssue')
+    addToListProperty(self, out, navtreeProps, 'parentMetaTypesNotToQuery',
+                      'PoiPscTracker')
 
     # Add PoiPscTracker to allowed types in PSCProject
     typesTool = getToolByName(self, 'portal_types')
@@ -80,8 +88,9 @@ def install(self):
     # Control what happens when posting a new issue.
     controller = getToolByName(self, 'portal_form_controller')
     addFormControllerAction(self, out, controller, 'validate_integrity',
-                            'success', 'PoiIssue', None, 'traverse_to', 'string:poi_issue_post')
-                  
+                            'success', 'PoiIssue', None, 'traverse_to',
+                            'string:poi_issue_post')
+
     addCatalogIndexes(self, out)
 
     # Add log action
@@ -89,14 +98,15 @@ def install(self):
     removeAction(self, out, ttool, 'log', 'object')
     addAction(self, out, ttool, 'log', 'Log', 'string:$object_url/log',
               'nocall: object/@@log|nothing', 'View', 'object', 1)
-    
+
     return out.getvalue()
-    
+
+
 def uninstall(self):
     out = StringIO()
 
     # Remove log action
     ttool = getToolByName(self, 'portal_types')
     removeAction(self, out, ttool, 'log', 'object')
-    
+
     return out.getvalue()

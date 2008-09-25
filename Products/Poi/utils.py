@@ -12,11 +12,11 @@ def getNumberFromString(linktext):
     if res is not None:
         return linktext[res.start(): res.end()]
 
+
 def linkBugs(text, ids, patterns):
     """
     Replace patterns with links to other issues in the same tracker.
     """
-    
     for raw in patterns:
         pos = 0
         pattern = re.compile(raw)
@@ -25,7 +25,7 @@ def linkBugs(text, ids, patterns):
             if res == None:
                 break
             pos = res.start()
-            
+
             linktext = text[res.start(): res.end()]
             bug = getNumberFromString(linktext)
 
@@ -39,6 +39,7 @@ def linkBugs(text, ids, patterns):
 
     return text
 
+
 def linkSvn(text, svnUrl, patterns):
     """
     Replace patterns with links to changesets in a repository.
@@ -48,20 +49,20 @@ def linkSvn(text, svnUrl, patterns):
     if len(svnUrl) == 0:
         return text
 
-    for raw in patterns:    
+    for raw in patterns:
         pos = 0
         pattern = re.compile(raw)
         while True:
             res = pattern.search(text, pos)
             if res == None:
-                break;
+                break
 
             linktext = text[res.start(): res.end()]
             rev = getNumberFromString(linktext)
 
             pos = res.start()+1
-            link = '<a href="' + svnUrl %{'rev' : rev} + '">'+linktext+'</a>'
+            link = '<a href="' + svnUrl %{'rev': rev} + '">'+linktext+'</a>'
             text = text[0: pos-1] + link + text[res.end():]
             pos += len(link)
-    
+
     return text

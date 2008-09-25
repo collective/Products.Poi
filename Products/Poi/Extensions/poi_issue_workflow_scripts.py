@@ -30,17 +30,14 @@ __docformat__ = 'plaintext'
 
 # Workflow Scripts for: poi_issue_workflow
 
-##code-section workflow-script-header #fill in your manual code here
 from Products.CMFCore.utils import getToolByName
-##/code-section workflow-script-header
 
 
-def sendInitialEmail(self,state_change,**kw):
+def sendInitialEmail(self, state_change, **kw):
     state_change.object.sendNotificationMail()
 
 
-
-def sendResolvedMail(self,state_change,**kw):
+def sendResolvedMail(self, state_change, **kw):
     """Send an email to the original submitter that the issue was marked
     as resolved, inviting him/her to confirm it.
     """
@@ -57,7 +54,7 @@ def sendResolvedMail(self,state_change,**kw):
     portal_membership = getToolByName(self, 'portal_membership')
     member = portal_membership.getAuthenticatedMember()
 
-    memberInfo = portal_membership.getMemberInfo(member.getUserName());
+    memberInfo = portal_membership.getMemberInfo(member.getUserName())
     stateChanger = member.getUserName()
     if memberInfo:
         stateChanger = memberInfo['fullname'] or stateChanger
@@ -70,8 +67,7 @@ def sendResolvedMail(self,state_change,**kw):
                                               issue = issue,
                                               fromName = fromName,
                                               stateChanger = stateChanger)
-    subject = "[%s] Resolved #%s - %s" % (tracker.getExternalTitle(), issue.getId(), issue.Title(),)
+    subject = "[%s] Resolved #%s - %s" % (
+        tracker.getExternalTitle(), issue.getId(), issue.Title())
 
     tracker.sendNotificationEmail([issueEmail], subject, mailText)
-
-

@@ -70,4 +70,3 @@ class Response(Base):
 
 
 # end of class Response
-

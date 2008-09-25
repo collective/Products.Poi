@@ -12,6 +12,6 @@ def test_suite():
         Suite('browser.txt',
               package='Products.Poi.tests',
               optionflags=OPTIONFLAGS,
-              test_class=PoiFunctionalTestCase)
+              test_class=PoiFunctionalTestCase),
         ]
     return unittest.TestSuite(suites)

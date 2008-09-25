@@ -21,4 +21,3 @@ CMFCorePermissions.setDefaultRoles(ModifyIssueTags, ['Manager'])
 CMFCorePermissions.setDefaultRoles(ModifyIssueWatchers, ['Manager'])
 CMFCorePermissions.setDefaultRoles(ModifyIssueTargetRelease, ['Manager'])
 CMFCorePermissions.setDefaultRoles(UploadAttachment, ['Manager', 'Member'])
-

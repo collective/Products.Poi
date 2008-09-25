@@ -30,11 +30,6 @@ __docformat__ = 'plaintext'
 
 # Workflow Scripts for: poi_response_workflow
 
-##code-section workflow-script-header #fill in your manual code here
-##/code-section workflow-script-header
 
-
-def sendResponseEmail(self,state_change,**kw):
+def sendResponseEmail(self, state_change, **kw):
     state_change.object.sendResponseNotificationMail()
-
-

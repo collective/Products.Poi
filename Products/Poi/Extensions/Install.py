@@ -38,7 +38,8 @@ from Products.CMFQuickInstallerTool.QuickInstallerTool import AlreadyInstalled
 
 from Products.Poi.config import PROJECTNAME
 
-EXTENSION_PROFILES = ('Products.Poi:default',)
+EXTENSION_PROFILES = ('Products.Poi:default', )
+
 
 def install(self, reinstall=False):
     """ External Method to install Poi """
@@ -52,7 +53,7 @@ def install(self, reinstall=False):
         from Products.Poi.config import DEPENDENCIES
     except:
         DEPENDENCIES = []
-    portal = getToolByName(self,'portal_url').getPortalObject()
+    portal = getToolByName(self, 'portal_url').getPortalObject()
     quickinstaller = portal.portal_quickinstaller
     portal_setup = getToolByName(portal, 'portal_setup')
     for dependency in DEPENDENCIES:
@@ -73,17 +74,17 @@ def install(self, reinstall=False):
         install = None
 
     if install:
-        print >>out,'Custom Install:'
+        print >> out, 'Custom Install:'
         try:
             res = install(self, reinstall)
         except TypeError:
             res = install(self)
         if res:
-            print >>out,res
+            print >>out, res
         else:
-            print >>out,'no output'
+            print >>out, 'no output'
     else:
-        print >>out,'no custom install'
+        print >>out, 'no custom install'
 
     # The following section is boilerplate code that can be reused when you
     # need to invoke a GenericSetup profile from Install.py.
@@ -92,6 +93,7 @@ def install(self, reinstall=False):
         transaction.savepoint()
 
     return out.getvalue()
+
 
 def uninstall(self, reinstall=False):
     out = StringIO()
@@ -105,19 +107,20 @@ def uninstall(self, reinstall=False):
         uninstall = None
 
     if uninstall:
-        print >>out,'Custom Uninstall:'
+        print >>out, 'Custom Uninstall:'
         try:
             res = uninstall(self, reinstall)
         except TypeError:
             res = uninstall(self)
         if res:
-            print >>out,res
+            print >> out, res
         else:
-            print >>out,'no output'
+            print >> out, 'no output'
     else:
-        print >>out,'no custom uninstall'
+        print >> out, 'no custom uninstall'
 
     return out.getvalue()
+
 
 def beforeUninstall(self, reinstall, product, cascade):
     """ try to call a custom beforeUninstall method in 'AppInstall.py'
@@ -125,23 +128,23 @@ def beforeUninstall(self, reinstall, product, cascade):
     """
     out = StringIO()
     try:
-        beforeuninstall = ExternalMethod('temp', 'temp',
-                                   PROJECTNAME+'.AppInstall', 'beforeUninstall')
+        beforeuninstall = ExternalMethod(
+            'temp', 'temp', PROJECTNAME+'.AppInstall', 'beforeUninstall')
     except:
         beforeuninstall = []
 
     if beforeuninstall:
         print >>out, 'Custom beforeUninstall:'
-        res = beforeuninstall(self, reinstall=reinstall
-                                  , product=product
-                                  , cascade=cascade)
+        res = beforeuninstall(self, reinstall=reinstall, product=product,
+                              cascade=cascade)
         if res:
-            print >>out, res
+            print >> out, res
         else:
-            print >>out, 'no output'
+            print >> out, 'no output'
     else:
         print >>out, 'no custom beforeUninstall'
-    return (out,cascade)
+    return (out, cascade)
+
 
 def afterInstall(self, reinstall, product):
     """ try to call a custom afterInstall method in 'AppInstall.py' method
@@ -156,8 +159,7 @@ def afterInstall(self, reinstall, product):
 
     if afterinstall:
         print >>out, 'Custom afterInstall:'
-        res = afterinstall(self, product=None
-                               , reinstall=None)
+        res = afterinstall(self, product=None, reinstall=None)
         if res:
             print >>out, res
         else:

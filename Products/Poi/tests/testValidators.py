@@ -15,7 +15,7 @@ class TestValidation(ATSiteTestCase):
 
 def test_suite():
     suite = TestSuite()
-    
+
     suite.addTest(makeSuite(TestValidation))
 
     return suite

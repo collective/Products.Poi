@@ -58,15 +58,15 @@ import textwrap
 wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 from zope.interface import implements
 from Products.Poi.interfaces import IResponse
-from plone.memoize import instance 
+from plone.memoize import instance
 
 schema = Schema((
 
     StringField(
         name='id',
         widget=StringWidget(
-            visible={'edit' : 'invisible', 'view' : 'invisible'},
-            modes=('view',),
+            visible={'edit': 'invisible', 'view': 'invisible'},
+            modes=('view', ),
             label='Id',
             label_msgid='Poi_label_id',
             i18n_domain='Poi',
@@ -79,8 +79,8 @@ schema = Schema((
         widget=StringWidget(
             label="Subject",
             description="""Enter a brief subject for this response, e.g. "Fixed" or "Will be fixed in next release".""",
-            visible={'edit' : 'invisible', 'view' : 'invisible'},
-            modes=('view',),
+            visible={'edit': 'invisible', 'view': 'invisible'},
+            modes=('view', ),
             label_msgid="Poi_label_response_title",
             description_msgid="Poi_help_response_title",
             i18n_domain='Poi',
@@ -207,7 +207,8 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
     the same time.
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BaseContent,'__implements__',()),) + (getattr(BrowserDefaultMixin,'__implements__',()),) + (Response,)
+    __implements__ = (getattr(BaseContent, '__implements__', ()), ) + \
+        (getattr(BrowserDefaultMixin, '__implements__', ()), ) + (Response, )
     implements(IResponse)
 
     # This name appears in the 'add' box
@@ -226,15 +227,15 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
     typeDescMsgId = 'description_edit_poiresponse'
 
 
-    actions =  (
+    actions = (
 
 
        {'action': "string:${object_url}/view",
         'category': "object",
         'id': 'view',
         'name': 'view',
-        'permissions': (permissions.View,),
-        'condition': 'python:1'
+        'permissions': (permissions.View, ),
+        'condition': 'python:1',
        },
 
 
@@ -242,7 +243,7 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
         'category': "object",
         'id': 'edit',
         'name': 'Edit',
-        'permissions': (permissions.ModifyPortalContent,),
+        'permissions': (permissions.ModifyPortalContent, ),
         'condition': 'python:1'
        },
 
@@ -256,7 +257,7 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
     # Methods
 
     security.declareProtected(permissions.ModifyIssueState, 'setNewIssueState')
-    def setNewIssueState(self,transition):
+    def setNewIssueState(self, transition):
         """
         Set a new review state for the parent issue, by executing
         the given transition.
@@ -269,25 +270,29 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
             stateBefore = wftool.getInfoFor(self.aq_parent, 'review_state')
             wftool.doActionFor(self.aq_parent, transition)
             stateAfter = wftool.getInfoFor(self.aq_parent, 'review_state')
-            self._addIssueChange('review_state', 'Issue state', stateBefore, stateAfter)
+            self._addIssueChange('review_state', 'Issue state',
+                                 stateBefore, stateAfter)
 
         self.getField('issueTransition').set(self, transition)
 
-    security.declareProtected(permissions.ModifyIssueSeverity, 'setNewSeverity')
-    def setNewSeverity(self,severity):
+    security.declareProtected(permissions.ModifyIssueSeverity,
+                              'setNewSeverity')
+    def setNewSeverity(self, severity):
         """
         Set a new issue severity for the parent issue
         """
         currentIssueSeverity = self.getCurrentIssueSeverity()
         if severity and currentIssueSeverity != severity:
-            self._addIssueChange('severity', 'Severity', currentIssueSeverity, severity)
+            self._addIssueChange('severity', 'Severity',
+                                 currentIssueSeverity, severity)
             issue = self.aq_inner.aq_parent
             issue.setSeverity(severity)
-            issue.reindexObject(('getSeverity',))
+            issue.reindexObject(('getSeverity', ))
         self.getField('newSeverity').set(self, severity)
 
-    security.declareProtected(permissions.ModifyIssueTargetRelease, 'setNewTargetRelease')
-    def setNewTargetRelease(self,release):
+    security.declareProtected(permissions.ModifyIssueTargetRelease,
+                              'setNewTargetRelease')
+    def setNewTargetRelease(self, release):
         """
         Set a new target release for the parent issue
         """
@@ -296,29 +301,32 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
             vocab = self.getReleasesVocab()
             current = vocab.getValue(currentTargetRelease)
             new = vocab.getValue(release)
-            self._addIssueChange('target_release', 'Target release', current, new)
+            self._addIssueChange('target_release', 'Target release',
+                                 current, new)
             issue = self.aq_inner.aq_parent
             issue.setTargetRelease(release)
-            issue.reindexObject(('getTargetRelease',))
+            issue.reindexObject(('getTargetRelease', ))
         self.getField('newTargetRelease').set(self, release)
 
-    security.declareProtected(permissions.ModifyIssueAssignment, 'setNewResponsibleManager')
-    def setNewResponsibleManager(self,manager):
+    security.declareProtected(permissions.ModifyIssueAssignment,
+                              'setNewResponsibleManager')
+    def setNewResponsibleManager(self, manager):
         """
         Set a new responsible manager for the parent issue
         """
         currentManager = self.getCurrentResponsibleManager()
         if manager and manager != currentManager:
-            self._addIssueChange('responsible_manager', 'Responsible manager', currentManager, manager)
+            self._addIssueChange('responsible_manager', 'Responsible manager',
+                                 currentManager, manager)
             issue = self.aq_inner.aq_parent
             issue.setResponsibleManager(manager)
-            issue.reindexObject(('getResponsibleManager',))
+            issue.reindexObject(('getResponsibleManager', ))
         self.getField('newResponsibleManager').set(self, manager)
 
     security.declareProtected(permissions.View, 'getIssueChanges')
     def getIssueChanges(self):
-        """
-        Get a list of changes this response has made to the issue.
+        """ Get a list of changes this response has made to the issue.
+
         Contains dicts with keys:
 
             id: A unique id for this change
@@ -360,10 +368,10 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
                 self._p_changed = 1
                 return
 
-        delta.append({'id' : id,
-                      'name' : name,
-                      'before' : before,
-                      'after' : after})
+        delta.append({'id': id,
+                      'name': name,
+                      'before': before,
+                      'after': after})
         self._p_changed = 1
 
     security.declareProtected(permissions.View, 'getCurrentIssueSeverity')
@@ -372,7 +380,10 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
 
     security.declarePublic('isValid')
     def isValid(self):
-        """Check if the response is valid, that is, a response has been filled in"""
+        """Check if the response is valid.
+
+        Meaning: a response has been filled in,
+        """
         errors = {}
         self.Schema().validate(self, None, errors, 1, 1)
 
@@ -429,7 +440,8 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
             return
         if newTargetRelease and newTargetRelease != currentTargetRelease:
             return
-        if newResponsibleManager and newResponsibleManager != currentResponsibleManager:
+        if newResponsibleManager and \
+                newResponsibleManager != currentResponsibleManager:
             return
         if transition and transition != currentTransition:
             return
@@ -451,7 +463,7 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
         tracker = issue.aq_parent
 
         creator = self.Creator()
-        creatorInfo = portal_membership.getMemberInfo(creator);
+        creatorInfo = portal_membership.getMemberInfo(creator)
         responseAuthor = creator
         if creatorInfo:
             responseAuthor = creatorInfo['fullname'] or creator
@@ -464,14 +476,12 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
             responseDetails = None
 
         addresses = tracker.getNotificationEmailAddresses(issue)
-        mailText = self.poi_email_new_response(self,
-                                               tracker = tracker,
-                                               issue = issue,
-                                               response = self,
-                                               responseAuthor = responseAuthor,
-                                               responseDetails = responseDetails,
-                                               fromName = fromName)
-        subject = "[%s] #%s - Re: %s" % (tracker.getExternalTitle(), issue.getId(), issue.Title(),)
+        mailText = self.poi_email_new_response(
+            self, tracker=tracker, issue=issue, response=self,
+            responseAuthor=responseAuthor, responseDetails=responseDetails,
+            fromName=fromName)
+        subject = "[%s] #%s - Re: %s" % (tracker.getExternalTitle(),
+                                         issue.getId(), issue.Title())
 
         tracker.sendNotificationEmail(addresses, subject, mailText)
 

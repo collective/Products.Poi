@@ -34,7 +34,8 @@ except ImportError:
     # No multilingual support
     from Products.Archetypes.atapi import *
 from Products.Poi.interfaces.Tracker import Tracker
-from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
+from Products.CMFPlone.interfaces.NonStructuralFolder import \
+    INonStructuralFolder
 from Products.CMFPlone.utils import safe_unicode
 from Products.Poi.config import PROJECTNAME
 
@@ -90,7 +91,8 @@ schema = Schema((
 
     TextField(
         name='helpText',
-        allowable_content_types=('text/plain', 'text/structured', 'text/html', 'application/msword',),
+        allowable_content_types=('text/plain', 'text/structured', 'text/html',
+                                 'application/msword'),
         widget=RichWidget(
             label="Help text",
             description="Enter any introductory help text you'd like to display on the tracker front page.",
@@ -108,14 +110,14 @@ schema = Schema((
         widget=DataGridWidget(
             label="Areas",
             description="Enter the issue topics/areas for this tracker.",
-            column_names=('Short name', 'Title', 'Description',),
+            column_names=('Short name', 'Title', 'Description'),
             label_msgid='Poi_label_availableAreas',
             description_msgid='Poi_help_availableAreas',
             i18n_domain='Poi',
         ),
         allow_empty_rows=False,
         required=True,
-        validators=('isDataGridFilled',),
+        validators=('isDataGridFilled', ),
         columns=('id', 'title', 'description',)
     ),
 
@@ -220,7 +222,7 @@ schema = Schema((
             label_msgid='Poi_label_svnurl',
             description_msgid='Poi_help_svnurl',
             i18n_domain='Poi',
-	    size = '90',
+            size = '90',
         ),
         required=False,
     ),
@@ -236,7 +238,9 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
     """The default tracker
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BaseBTreeFolder,'__implements__',()),) + (getattr(BrowserDefaultMixin,'__implements__',()),) + (Tracker,) + (INonStructuralFolder,)
+    __implements__ = (getattr(BaseBTreeFolder, '__implements__', ()), ) + \
+        (getattr(BrowserDefaultMixin, '__implements__', ()), ) + \
+        (Tracker, ) + (INonStructuralFolder, )
     implements(ITracker)
 
     # This name appears in the 'add' box
@@ -255,15 +259,15 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
     typeDescMsgId = 'description_edit_poitracker'
 
 
-    actions =  (
+    actions = (
 
 
        {'action': "string:${object_url}",
         'category': "object",
         'id': 'view',
         'name': 'View',
-        'permissions': (permissions.View,),
-        'condition': 'python:1'
+        'permissions': (permissions.View, ),
+        'condition': 'python:1',
        },
 
 
@@ -271,7 +275,7 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         'category': "object",
         'id': 'edit',
         'name': 'Edit',
-        'permissions': (permissions.ModifyPortalContent,),
+        'permissions': (permissions.ModifyPortalContent, ),
         'condition': 'python:1'
        },
 
@@ -304,9 +308,8 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
                          'ticket:[1-9][0-9]*', 'bug:[1-9][0-9]*'])
         svnUrl = self.getSvnUrl()
         text = linkSvn(text, svnUrl,
-                       ['r[0-9]+', 'changeset:[0-9]+', '\[[0-9]+\]']
-                       )
-        
+                       ['r[0-9]+', 'changeset:[0-9]+', '\[[0-9]+\]'])
+
         return text
 
     security.declareProtected(permissions.View, 'isUsingReleases')
@@ -403,7 +406,8 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
 
         textPart = MIMEText(rstText, 'plain', charset)
         email.attach(textPart)
-        htmlPart = MIMEText(renderHTML(rstText, charset=charset), 'html', charset)
+        htmlPart = MIMEText(renderHTML(rstText, charset=charset),
+                            'html', charset)
         email.attach(htmlPart)
         message = str(email)
 
@@ -435,13 +439,12 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
             except ConflictError:
                 raise
             except:
-                log_exc('Could not send email from %s to %s regarding issue in tracker %s\ntext is:\n%s\n' % (fromAddress, address, self.absolute_url(), message,))
+                log_exc('Could not send email from %s to %s regarding issue in tracker %s\ntext is:\n%s\n' % (
+                        fromAddress, address, self.absolute_url(), message))
 
     security.declareProtected(permissions.View, 'getTagsInUse')
     def getTagsInUse(self):
-        """
-        Get a list of the issue tags in use in this tracker.
-        """
+        """Get a list of the issue tags in use in this tracker."""
         catalog = getToolByName(self, 'portal_catalog')
         issues = catalog.searchResults(portal_type = 'PoiIssue',
                                        path = '/'.join(self.getPhysicalPath()))
@@ -455,8 +458,8 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
 
     security.declareProtected(permissions.View, 'getExternalTitle')
     def getExternalTitle(self):
-        """
-        Get the external title of this tracker.
+        """ Get the external title of this tracker.
+
         This will be the name used in outgoing emails, for example.
         """
         return self.Title()
@@ -485,7 +488,7 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
 
     security.declarePublic('getIssueWorkflowStates')
     def getIssueWorkflowStates(self):
-        """Get a DisplayList of the workflow states available on issues"""
+        """Get a DisplayList of the workflow states available on issues."""
         portal_workflow = getToolByName(self, 'portal_workflow')
         chain = portal_workflow.getChainForPortalType('PoiIssue')
         workflow = getattr(portal_workflow, chain[0])
@@ -504,13 +507,14 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
             if member is None:
                 notFound.append(userId)
         if notFound:
-            return "The following user ids could not be found: %s" % ','.join(notFound)
+            return "The following user ids could not be found: %s" % \
+                ','.join(notFound)
         else:
             return None
 
     def getDefaultManagers(self):
         """The default list of managers should include the tracker owner"""
-        return (self.Creator(),)
+        return (self.Creator(), )
 
     def _getMemberEmail(self, username, portal_membership=None):
         """Query portal_membership to figure out the specified email address

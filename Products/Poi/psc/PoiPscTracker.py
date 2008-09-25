@@ -38,7 +38,8 @@ from Products.Archetypes.atapi import StringField
 from Products.Archetypes.atapi import StringWidget
 
 from Products.Poi.content.PoiTracker import PoiTracker
-from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
+from Products.CMFPlone.interfaces.NonStructuralFolder import \
+    INonStructuralFolder
 from Products.Poi.config import PROJECTNAME
 from Products.Poi.config import PSC_TRACKER_ID
 
@@ -80,7 +81,9 @@ class PoiPscTracker(PoiTracker):
     PloneSoftwareCenter. Intended to be added inside a PSCProject.
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BaseFolder,'__implements__',()),) + (getattr(PoiTracker,'__implements__',()),) + (INonStructuralFolder,)
+    __implements__ = (getattr(BaseFolder, '__implements__', ()), ) + \
+        (getattr(PoiTracker, '__implements__', ()), ) + \
+        (INonStructuralFolder, )
     implements(ITracker)
 
     # This name appears in the 'add' box
@@ -88,7 +91,8 @@ class PoiPscTracker(PoiTracker):
 
     meta_type = 'PoiPscTracker'
     portal_type = 'PoiPscTracker'
-    allowed_content_types = [] + list(getattr(PoiTracker, 'allowed_content_types', []))
+    allowed_content_types = [] + list(getattr(PoiTracker,
+                                              'allowed_content_types', []))
     filter_content_types = 1
     global_allow = 0
     content_icon = 'PoiTracker.gif'
@@ -99,15 +103,15 @@ class PoiPscTracker(PoiTracker):
     typeDescMsgId = 'description_edit_poipsctracker'
 
 
-    actions =  (
+    actions = (
 
 
        {'action': "string:${object_url}",
         'category': "object",
         'id': 'view',
         'name': 'View',
-        'permissions': (permissions.View,),
-        'condition': 'python:1'
+        'permissions': (permissions.View, ),
+        'condition': 'python:1',
        },
 
 
@@ -115,7 +119,7 @@ class PoiPscTracker(PoiTracker):
         'category': "object",
         'id': 'edit',
         'name': 'Edit',
-        'permissions': (permissions.ModifyPortalContent,),
+        'permissions': (permissions.ModifyPortalContent, ),
         'condition': 'python:1'
        },
 
@@ -133,9 +137,7 @@ class PoiPscTracker(PoiTracker):
 
     security.declareProtected(permissions.View, 'getExternalTitle')
     def getExternalTitle(self):
-        """
-        The external title of a PSC tracker is <Project> Issue Tracker
-        """
+        """ The external title of a PSC tracker is <Project> Issue Tracker."""
         return self.aq_inner.aq_parent.Title() + " Issue Tracker"
 
     def _renameAfterCreation(self, check_auto_id=False):
@@ -148,9 +150,7 @@ class PoiPscTracker(PoiTracker):
 
     security.declareProtected(permissions.View, 'getAvailableReleases')
     def getAvailableReleases(self):
-        """
-        Get the UIDs of the releases available to the tracker
-        """
+        """Get the UIDs of the releases available to the tracker."""
         catalog = getToolByName(self, 'portal_catalog')
         releases = catalog.searchResults(
                         portal_type = 'PSCRelease',
@@ -161,9 +161,7 @@ class PoiPscTracker(PoiTracker):
 
     security.declareProtected(permissions.View, 'getReleasesVocab')
     def getReleasesVocab(self):
-        """
-        Get the releases available to the tracker as a DisplayList
-        """
+        """Get the releases available to the tracker as a DisplayList."""
         catalog = getToolByName(self, 'portal_catalog')
         releases = catalog.searchResults(
                         portal_type = 'PSCRelease',
@@ -173,9 +171,7 @@ class PoiPscTracker(PoiTracker):
 
     security.declareProtected(permissions.View, 'Title')
     def Title(self):
-        """
-        The title of an issue tracker is always "Issue tracker"
-        """
+        """The title of an issue tracker is always "Issue tracker"."""
         return "Issue tracker"
 
 

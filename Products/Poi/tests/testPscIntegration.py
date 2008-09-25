@@ -7,6 +7,7 @@ from Products.Poi.tests import ptc
 
 ZopeTestCase.installProduct('PloneSoftwareCenter')
 
+
 class TestPscTracker(ptc.PoiTestCase):
     """Test psc tracker functionality"""
 
@@ -25,7 +26,7 @@ class TestPscTracker(ptc.PoiTestCase):
     def afterSetUp(self):
         self.addProduct('PloneSoftwareCenter')
         self.reinstallProduct('Poi')
-        
+
         self.setRoles(['Manager'])
         self.portal.invokeFactory('PloneSoftwareCenter', 'psc')
         self.psc = self.portal.psc
@@ -40,7 +41,7 @@ class TestPscTracker(ptc.PoiTestCase):
 
     def testNoReleasesInSchema(self):
         self.project.invokeFactory('PoiPscTracker', 'issues')
-        self.failIf(self.project.issues.Schema().has_key('releases'))
+        self.failIf('releases' in self.project.issues.Schema())
 
     def testReleasesVocab(self):
         self.project.invokeFactory('PoiPscTracker', 'issues')
@@ -58,8 +59,8 @@ class TestPscTracker(ptc.PoiTestCase):
     def testExternalTitle(self):
         self.project.invokeFactory('PoiPscTracker', 'issues')
         self.project.setTitle("My project")
-        self.assertEqual(self.project.issues.getExternalTitle(), "My project Issue Tracker")
-
+        self.assertEqual(self.project.issues.getExternalTitle(),
+                         "My project Issue Tracker")
 
 
 def test_suite():

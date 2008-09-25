@@ -49,7 +49,8 @@ from Products.Archetypes.atapi import TextField
 from Products.CMFPlone.utils import safe_unicode
 
 from Products.Poi.interfaces.Issue import Issue
-from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
+from Products.CMFPlone.interfaces.NonStructuralFolder import \
+    INonStructuralFolder
 
 from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
 from Products.Poi.config import DESCRIPTION_LENGTH
@@ -72,15 +73,15 @@ from zope.interface import implements
 from Products.Poi.interfaces import IIssue
 from Products.Poi.interfaces import ITracker
 from Products.Poi import PoiMessageFactory as _
-from plone.memoize import instance 
+from plone.memoize import instance
 
 schema = Schema((
 
     StringField(
         name='id',
         widget=StringWidget(
-            visible={'view' : 'invisible', 'edit': 'visible'},
-            modes=('view',),
+            visible={'view': 'invisible', 'edit': 'visible'},
+            modes=('view', ),
             label='Id',
             label_msgid='Poi_label_id',
             i18n_domain='Poi',
@@ -248,7 +249,7 @@ schema = Schema((
 
     StringField(
         name='contactEmail',
-        validators=('isEmail',),
+        validators=('isEmail', ),
         widget=StringWidget(
             label="Contact email address",
             description="Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others.",
@@ -299,7 +300,9 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
     """The default tracker
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BaseFolder,'__implements__',()),) + (getattr(BrowserDefaultMixin,'__implements__',()),) + (Issue,) + (INonStructuralFolder,)
+    __implements__ = (getattr(BaseFolder, '__implements__', ()), ) + \
+        (getattr(BrowserDefaultMixin, '__implements__', ()), ) + \
+        (Issue, ) + (INonStructuralFolder, )
     implements(IIssue)
 
     # This name appears in the 'add' box
@@ -318,15 +321,15 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
     typeDescMsgId = 'description_edit_poiissue'
 
 
-    actions =  (
+    actions = (
 
 
        {'action': "string:${object_url}/view",
         'category': "object",
         'id': 'view',
         'name': 'View',
-        'permissions': (permissions.View,),
-        'condition': 'python:1'
+        'permissions': (permissions.View, ),
+        'condition': 'python:1',
        },
 
 
@@ -461,7 +464,8 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
             if member is None:
                 notFound.append(userId)
         if notFound:
-            return "The following user ids could not be found: %s" % ','.join(notFound)
+            return "The following user ids could not be found: %s" % \
+                ','.join(notFound)
         else:
             return None
 
@@ -472,7 +476,10 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
 
     security.declarePublic('isValid')
     def isValid(self):
-        """Check if the response is valid, that is, a response has been filled in"""
+        """Check if the response is valid.
+
+        Meaning: a response has been filled in.
+        """
         errors = {}
         self.Schema().validate(self, None, errors, 1, 1)
         if errors:
@@ -535,7 +542,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         if folder is None:
             return text
         # old style:
-        responses = self.contentValues(filter={'portal_type' : 'PoiResponse'})
+        responses = self.contentValues(filter={'portal_type': 'PoiResponse'})
         text += ' ' + ' '.join([r.SearchableText() for r in responses])
         # new style:
         text += ' ' + ' '.join([r.text for r in folder])
@@ -569,7 +576,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         tracker = self.getTracker()
 
         issueCreator = self.Creator()
-        issueCreatorInfo = portal_membership.getMemberInfo(issueCreator);
+        issueCreatorInfo = portal_membership.getMemberInfo(issueCreator)
         issueAuthor = issueCreator
         if issueCreatorInfo:
             issueAuthor = issueCreatorInfo['fullname'] or issueCreator
@@ -585,7 +592,8 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
                                             issueAuthor = issueAuthor,
                                             fromName = fromName,
                                             issueDetails = issueDetails)
-        subject = "[%s] #%s - New issue: %s" % (tracker.getExternalTitle(), self.getId(), self.Title(),)
+        subject = "[%s] #%s - New issue: %s" % (
+            tracker.getExternalTitle(), self.getId(), self.Title())
 
         tracker.sendNotificationEmail(addresses, subject, mailText)
 

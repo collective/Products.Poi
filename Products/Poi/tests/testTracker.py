@@ -6,39 +6,49 @@ from Products.Poi.events import sendResponseNotificationMail
 
 default_user = ZopeTestCase.user_name
 
+
 class _MockState:
     pass
+
 
 class TestTracker(ptc.PoiTestCase):
     """Test tracker functionality"""
 
     def afterSetUp(self):
         self.tracker = self.createTracker(self.folder, 'issue-tracker')
-        self.addMember('member1', 'Member One', 'member1@member.com', ['Member'], '2005-01-01')
-        self.addMember('member2', 'Member Two', 'member2@member.com', ['Member'], '2005-01-01')
+        self.addMember('member1', 'Member One', 'member1@member.com',
+                       ['Member'], '2005-01-01')
+        self.addMember('member2', 'Member Two', 'member2@member.com',
+                       ['Member'], '2005-01-01')
 
     def testEditTracker(self):
         self.tracker.setTitle('title')
         self.tracker.setDescription('description')
         self.tracker.setHelpText('help text')
-        self.tracker.setAvailableAreas(({'id' : 'area', 'title' : 'Area', 'description' : 'Issue area'},))
-        self.tracker.setAvailableIssueTypes(({'id' : 'type', 'title' : 'Type', 'description' : 'Issue type'},))
-        self.tracker.setAvailableSeverities(('one', 'two',))
+        self.tracker.setAvailableAreas(
+            ({'id': 'area', 'title': 'Area', 'description': 'Issue area'}, ))
+        self.tracker.setAvailableIssueTypes(
+            ({'id': 'type', 'title': 'Type', 'description': 'Issue type'}, ))
+        self.tracker.setAvailableSeverities(('one', 'two'))
         self.tracker.setDefaultSeverity('two')
-        self.tracker.setAvailableReleases(('1.0', '2.0',))
+        self.tracker.setAvailableReleases(('1.0', '2.0'))
         self.tracker.setManagers(('member1', 'member2'))
         self.tracker.setSendNotificationEmails(False)
         self.tracker.setMailingList('list@list.com')
-        
+
         self.assertEqual(self.tracker.Title(), 'title')
         self.assertEqual(self.tracker.Description(), 'description')
         self.assertEqual(self.tracker.getHelpText(), '<p>help text</p>')
-        self.assertEqual(self.tracker.getAvailableAreas(), ({'id' : 'area', 'title' : 'Area', 'description' : 'Issue area'},))
-        self.assertEqual(self.tracker.getAvailableIssueTypes(), ({'id' : 'type', 'title' : 'Type', 'description' : 'Issue type'},))
-        self.assertEqual(self.tracker.getAvailableSeverities(), ('one', 'two',))
+        self.assertEqual(
+            self.tracker.getAvailableAreas(),
+            ({'id': 'area', 'title': 'Area', 'description': 'Issue area'}, ))
+        self.assertEqual(
+            self.tracker.getAvailableIssueTypes(),
+            ({'id': 'type', 'title': 'Type', 'description': 'Issue type'}, ))
+        self.assertEqual(self.tracker.getAvailableSeverities(), ('one', 'two'))
         self.assertEqual(self.tracker.getDefaultSeverity(), 'two')
-        self.assertEqual(self.tracker.getAvailableReleases(), ('1.0', '2.0',))
-        self.assertEqual(self.tracker.getManagers(), ('member1', 'member2',))
+        self.assertEqual(self.tracker.getAvailableReleases(), ('1.0', '2.0'))
+        self.assertEqual(self.tracker.getManagers(), ('member1', 'member2'))
         self.assertEqual(self.tracker.getSendNotificationEmails(), False)
         self.assertEqual(self.tracker.getMailingList(), 'list@list.com')
 
@@ -79,16 +89,18 @@ class TestTracker(ptc.PoiTestCase):
         self.assertEqual(field.validate(input, self.tracker), None)
 
     def testValidateTrackerManagers(self):
-        self.failUnless(self.tracker.validate_managers(('member1',)) is None)
-        self.failIf(self.tracker.validate_managers(('memberX',)) is None)
-        self.failIf(self.tracker.validate_managers(('member1','memberX',)) is None)
+        self.failUnless(self.tracker.validate_managers(('member1', )) is None)
+        self.failIf(self.tracker.validate_managers(('memberX', )) is None)
+        self.failIf(
+            self.tracker.validate_managers(('member1', 'memberX')) is None)
 
     def testManagersGetLocalRole(self):
-        self.failIf('Manager' in self.tracker.get_local_roles_for_userid('member1'))
-        self.tracker.setManagers(('member1',))
-        self.failUnless('Manager' in self.tracker.get_local_roles_for_userid('member1'))
-        self.tracker.setManagers(('member2',))
-        self.failIf('Manager' in self.tracker.get_local_roles_for_userid('member1'))
+        roles = self.tracker.get_local_roles_for_userid
+        self.failIf('Manager' in roles('member1'))
+        self.tracker.setManagers(('member1', ))
+        self.failUnless('Manager' in roles('member1'))
+        self.tracker.setManagers(('member2', ))
+        self.failIf('Manager' in roles('member1'))
 
     def testIsUsingReleases(self):
         self.tracker.setAvailableReleases(())
@@ -96,18 +108,26 @@ class TestTracker(ptc.PoiTestCase):
         self.tracker.setAvailableReleases(('1.0', '2.0'))
         self.failUnless(self.tracker.isUsingReleases())
 
+
 class TestEmailNotifications(ptc.PoiTestCase):
     """Test getting email addresses and sending email notifications"""
-    
+
     def afterSetUp(self):
-        self.addMember('member1', 'Member One', 'member1@member.com', ['Member'], '2005-01-01')
-        self.addMember('member2', 'Member Two', 'member2@member.com', ['Member'], '2005-01-01')
-        self.addMember('member3', 'Member Three', 'member3@member.com', ['Member'], '2005-01-01')
-        self.tracker = self.createTracker(self.folder, 'issue-tracker', managers = ('member1', 'member2'), sendNotificationEmails = True)
+        self.addMember('member1', 'Member One', 'member1@member.com',
+                       ['Member'], '2005-01-01')
+        self.addMember('member2', 'Member Two', 'member2@member.com',
+                       ['Member'], '2005-01-01')
+        self.addMember('member3', 'Member Three', 'member3@member.com',
+                       ['Member'], '2005-01-01')
+        self.tracker = self.createTracker(
+            self.folder, 'issue-tracker', managers = ('member1', 'member2'),
+            sendNotificationEmails = True)
 
     def testGetAddressesWithNotificationsOff(self):
         self.tracker.setSendNotificationEmails(False)
-        issue = self.createIssue(self.tracker, contactEmail='submitter@domain.com', watchers=('member2', 'member3',))
+        issue = self.createIssue(
+            self.tracker, contactEmail='submitter@domain.com',
+            watchers=('member2', 'member3'))
         addresses = self.tracker.getNotificationEmailAddresses(issue)
         self.failUnless(len(addresses) == 0)
 
@@ -116,7 +136,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
         self.failUnless(len(addresses) == 2)
         self.failUnless('member1@member.com' in addresses)
         self.failUnless('member2@member.com' in addresses)
-        
+
     def testGetAddressesOnNewIssueWithList(self):
         self.tracker.setMailingList('list@list.com')
         addresses = self.tracker.getNotificationEmailAddresses()
@@ -124,7 +144,9 @@ class TestEmailNotifications(ptc.PoiTestCase):
         self.failUnless('list@list.com' in addresses)
 
     def testGetAddressesOnNewResponse(self):
-        issue = self.createIssue(self.tracker, contactEmail='submitter@domain.com', watchers=('member2', 'member3',))
+        issue = self.createIssue(
+            self.tracker, contactEmail='submitter@domain.com',
+            watchers=('member2', 'member3'))
         addresses = self.tracker.getNotificationEmailAddresses(issue)
         self.failUnless(len(addresses) == 4)
         self.failUnless('member1@member.com' in addresses)
@@ -134,7 +156,9 @@ class TestEmailNotifications(ptc.PoiTestCase):
 
     def testGetAddressesOnNewResponseWithList(self):
         self.tracker.setMailingList('list@list.com')
-        issue = self.createIssue(self.tracker, contactEmail='submitter@domain.com', watchers=('member2', 'member3',))
+        issue = self.createIssue(
+            self.tracker, contactEmail='submitter@domain.com',
+            watchers=('member2', 'member3'))
         addresses = self.tracker.getNotificationEmailAddresses(issue)
         self.failUnless(len(addresses) == 4)
         self.failUnless('list@list.com' in addresses)
@@ -143,12 +167,12 @@ class TestEmailNotifications(ptc.PoiTestCase):
         self.failUnless('member3@member.com' in addresses)
 
     def testGetTagsInUse(self):
-        self.createIssue(self.tracker, tags=('A', 'B',))
-        self.createIssue(self.tracker, tags=('B', 'C',))
-        self.createIssue(self.tracker, tags=('A', 'D',))
+        self.createIssue(self.tracker, tags=('A', 'B'))
+        self.createIssue(self.tracker, tags=('B', 'C'))
+        self.createIssue(self.tracker, tags=('A', 'D'))
         self.assertEqual(self.tracker.getTagsInUse(), ['A', 'B', 'C', 'D'])
 
-    
+
     # The following tests don't map directly to functional methods but are
     # meant to make sure no errors arise from sending emails
     # -- begin email tests
@@ -157,8 +181,8 @@ class TestEmailNotifications(ptc.PoiTestCase):
         self.tracker.setSendNotificationEmails(True)
         self.tracker.update(title='Random Tracker')
         issue = self.createIssue(self.tracker,
-                                 contactEmail='submitter@domain.com', 
-                                 watchers=('member1', 'member2',))
+                                 contactEmail='submitter@domain.com',
+                                 watchers=('member1', 'member2'))
         issue.sendNotificationMail()
 
     def testSpecialCharacterIssueEmail(self):
@@ -167,11 +191,11 @@ class TestEmailNotifications(ptc.PoiTestCase):
         issue = self.createIssue(
             self.tracker,
             title="accented vocals: à è ì",
-            contactEmail='submitter@domain.com', 
-            watchers=('member1', 'member2',))
+            contactEmail='submitter@domain.com',
+            watchers=('member1', 'member2'))
         issue.sendNotificationMail()
         response = self.createResponse(
-            issue, text="more accented vocals: ò ù" )
+            issue, text="more accented vocals: ò ù")
         sendResponseNotificationMail(issue, response)
 
         # Now try a different charset
@@ -182,8 +206,8 @@ class TestEmailNotifications(ptc.PoiTestCase):
         issue = self.createIssue(
             self.tracker,
             title=u"accented vocals: à è ì ò ù".encode('iso-8859-1'),
-            contactEmail='submitter@domain.com', 
-            watchers=('member1', 'member2',))
+            contactEmail='submitter@domain.com',
+            watchers=('member1', 'member2'))
         issue.sendNotificationMail()
         response = self.createResponse(
             issue, text=u"more accented vocals: ò ù".encode('iso-8859-1'))
@@ -192,25 +216,25 @@ class TestEmailNotifications(ptc.PoiTestCase):
     def testNewResponseEmail(self):
         self.tracker.setSendNotificationEmails(True)
         self.tracker.update(title='Random Tracker')
-        issue = self.createIssue(self.tracker, 
-                                 contactEmail='submitter@domain.com', 
-                                 watchers=('member1', 'member2',))
+        issue = self.createIssue(self.tracker,
+                                 contactEmail='submitter@domain.com',
+                                 watchers=('member1', 'member2'))
         response = self.createResponse(issue)
         sendResponseNotificationMail(issue, response)
 
     def testResolvedEmail(self):
         self.tracker.setSendNotificationEmails(True)
         self.tracker.update(title='Random Tracker')
-        
-        issue = self.createIssue(self.tracker, 
-                                 contactEmail='submitter@domain.com', 
-                                 watchers=('member1', 'member2',))
 
-        from Products.Poi.Extensions import poi_issue_workflow_scripts as wfScripts
+        issue = self.createIssue(self.tracker,
+                                 contactEmail='submitter@domain.com',
+                                 watchers=('member1', 'member2'))
+
+        from Products.Poi.Extensions import poi_issue_workflow_scripts
         state = _MockState()
         state.object = issue
-        wfScripts.sendResolvedMail(self.portal, state)
-   
+        poi_issue_workflow_scripts.sendResolvedMail(self.portal, state)
+
    # -- end email tests
 
 
@@ -235,21 +259,25 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.createIssue(self.tracker, release='2.0')
         self.createIssue(self.tracker, release='2.0')
         self.createIssue(self.tracker, release='1.0')
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(release='2.0')]
+        issues = [b.getId
+                  for b in self.issuefolder.getFilteredIssues(release='2.0')]
         issues.sort()
         self.assertEqual(issues, ['1', '2'])
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(release='1.0')]
+        issues = [b.getId
+                  for b in self.issuefolder.getFilteredIssues(release='1.0')]
         issues.sort()
         self.assertEqual(issues, ['3'])
-        
+
     def testGetFilteredIssesByArea(self):
         self.createIssue(self.tracker, area='ui')
         self.createIssue(self.tracker, area='ui')
         self.createIssue(self.tracker, area='functionality')
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(area='ui')]
+        issues = [b.getId
+                  for b in self.issuefolder.getFilteredIssues(area='ui')]
         issues.sort()
         self.assertEqual(issues, ['1', '2'])
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(area='functionality')]
+        issues = [b.getId for b in
+                  self.issuefolder.getFilteredIssues(area='functionality')]
         issues.sort()
         self.assertEqual(issues, ['3'])
 
@@ -257,10 +285,12 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.createIssue(self.tracker, issueType='bug')
         self.createIssue(self.tracker, issueType='bug')
         self.createIssue(self.tracker, issueType='feature')
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(issueType='bug')]
+        issues = [b.getId for b in
+                  self.issuefolder.getFilteredIssues(issueType='bug')]
         issues.sort()
         self.assertEqual(issues, ['1', '2'])
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(issueType='feature')]
+        issues = [b.getId for b in
+                  self.issuefolder.getFilteredIssues(issueType='feature')]
         issues.sort()
         self.assertEqual(issues, ['3'])
 
@@ -268,10 +298,12 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.createIssue(self.tracker, severity='Medium')
         self.createIssue(self.tracker, severity='Medium')
         self.createIssue(self.tracker, severity='Critical')
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(severity='Medium')]
+        issues = [b.getId for b in
+                  self.issuefolder.getFilteredIssues(severity='Medium')]
         issues.sort()
         self.assertEqual(issues, ['1', '2'])
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(severity='Critical')]
+        issues = [b.getId for b in
+                  self.issuefolder.getFilteredIssues(severity='Critical')]
         issues.sort()
         self.assertEqual(issues, ['3'])
 
@@ -279,13 +311,14 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.createIssue(self.tracker, targetRelease='2.0')
         self.createIssue(self.tracker, targetRelease='2.0')
         self.createIssue(self.tracker, targetRelease='1.0')
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(targetRelease='2.0')]
+        issues = [b.getId for b in
+                  self.issuefolder.getFilteredIssues(targetRelease='2.0')]
         issues.sort()
         self.assertEqual(issues, ['1', '2'])
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(targetRelease='1.0')]
+        issues = [b.getId for b in
+                  self.issuefolder.getFilteredIssues(targetRelease='1.0')]
         issues.sort()
         self.assertEqual(issues, ['3'])
-
 
     def testGetFilteredIssesByState(self):
         self.createIssue(self.tracker)
@@ -294,10 +327,12 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.setRoles(['Manager'])
         self.workflow.doActionFor(self.tracker['3'], 'accept-unconfirmed')
         self.setRoles(['Member'])
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(state='unconfirmed')]
+        issues = [b.getId for b in
+                  self.issuefolder.getFilteredIssues(state='unconfirmed')]
         issues.sort()
         self.assertEqual(issues, ['1', '2'])
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(state='open')]
+        issues = [b.getId for b in
+                  self.issuefolder.getFilteredIssues(state='open')]
         issues.sort()
         self.assertEqual(issues, ['3'])
 
@@ -305,17 +340,19 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.createIssue(self.tracker)
         self.createIssue(self.tracker)
         self.createIssue(self.tracker)
-        self.tracker['1'].setCreators(('some_member',))
+        self.tracker['1'].setCreators(('some_member', ))
         self.tracker['1'].reindexObject()
-        self.tracker['2'].setCreators(('some_member',))
+        self.tracker['2'].setCreators(('some_member', ))
         self.tracker['2'].reindexObject()
-        self.tracker['3'].setCreators(('another_member',))
+        self.tracker['3'].setCreators(('another_member', ))
         self.tracker['3'].reindexObject()
-        
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(creator='some_member')]
+
+        issues = [b.getId for b in
+                  self.issuefolder.getFilteredIssues(creator='some_member')]
         issues.sort()
         self.assertEqual(issues, ['1', '2'])
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(creator='another_member')]
+        issues = [b.getId for b in
+                  self.issuefolder.getFilteredIssues(creator='another_member')]
         issues.sort()
         self.assertEqual(issues, ['3'])
 
@@ -323,92 +360,115 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.createIssue(self.tracker, responsibleManager='manager1')
         self.createIssue(self.tracker, responsibleManager='manager1')
         self.createIssue(self.tracker, responsibleManager='manager2')
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(responsible='manager1')]
+        issues = [b.getId for b in
+                  self.issuefolder.getFilteredIssues(responsible='manager1')]
         issues.sort()
         self.assertEqual(issues, ['1', '2'])
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(responsible='manager2')]
+        issues = [b.getId for b in
+                  self.issuefolder.getFilteredIssues(responsible='manager2')]
         issues.sort()
         self.assertEqual(issues, ['3'])
 
     def testGetFilteredIssesByTags(self):
-        self.createIssue(self.tracker, tags=('A', 'B',))
-        self.createIssue(self.tracker, tags=('B', 'C',))
-        self.createIssue(self.tracker, tags=('A', 'D',))
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(tags='B')]
+        self.createIssue(self.tracker, tags=('A', 'B'))
+        self.createIssue(self.tracker, tags=('B', 'C'))
+        self.createIssue(self.tracker, tags=('A', 'D'))
+        issues = [b.getId for b in
+                  self.issuefolder.getFilteredIssues(tags='B')]
         issues.sort()
         self.assertEqual(issues, ['1', '2'])
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(tags=('A', 'D',))]
+        issues = [b.getId for b in
+                  self.issuefolder.getFilteredIssues(tags=('A', 'D'))]
         issues.sort()
         self.assertEqual(issues, ['1', '3'])
         # Operator is 'or' by default, so this should give the same results.
         issues = [b.getId for b in self.issuefolder.getFilteredIssues(
-            tags=dict(query=('A', 'D',), operator='or'))]
+            tags=dict(query=('A', 'D'), operator='or'))]
         issues.sort()
         self.assertEqual(issues, ['1', '3'])
         # Now try with 'and'
         issues = [b.getId for b in self.issuefolder.getFilteredIssues(
-            tags=dict(query=('A', 'D',), operator='and'))]
+            tags=dict(query=('A', 'D'), operator='and'))]
         self.assertEqual(issues, ['3'])
 
     def testGetFilteredIssesByIssueText(self):
         self.createIssue(self.tracker, details="foo")
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(text='foo')]
+        issues = [b.getId
+                  for b in self.issuefolder.getFilteredIssues(text='foo')]
         issues.sort()
         self.assertEqual(issues, ['1'])
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(text='bar')]
+        issues = [b.getId
+                  for b in self.issuefolder.getFilteredIssues(text='bar')]
         self.assertEqual(len(issues), 0)
 
     def testGetFilteredIssesByResponseText(self):
         self.createIssue(self.tracker, details="foo")
         self.createIssue(self.tracker)
         self.createIssue(self.tracker)
-        
+
         self.createResponse(self.tracker['2'], text='foo')
         self.createResponse(self.tracker['3'], text='bar')
-        
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(text='foo')]
+
+        issues = [b.getId
+                  for b in self.issuefolder.getFilteredIssues(text='foo')]
         issues.sort()
         self.assertEqual(issues, ['1', '2'])
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(text='bar')]
+        issues = [b.getId
+                  for b in self.issuefolder.getFilteredIssues(text='bar')]
         issues.sort()
         self.assertEqual(issues, ['3'])
 
     def testGetFilteredIssesComplex(self):
-        self.createIssue(self.tracker, details="foo", area="ui", issueType='feature')
+        self.createIssue(
+            self.tracker, details="foo", area="ui", issueType='feature')
         self.createIssue(self.tracker, area="ui", issueType="bug")
-        self.createIssue(self.tracker, area="functionality", details="foo", issueType='bug')
-        
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(text='foo', area='ui')]
-        issues.sort()
-        self.assertEqual(issues, ['1'])
-        
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(area='ui', issueType='feature')]
+        self.createIssue(
+            self.tracker, area="functionality", details="foo", issueType='bug')
+
+        issues = [b.getId for b in
+                  self.issuefolder.getFilteredIssues(text='foo', area='ui')]
         issues.sort()
         self.assertEqual(issues, ['1'])
 
-        issues = [b.getId for b in self.issuefolder.getFilteredIssues(area='ui', issueType=['feature', 'bug'])]
+        issues = [b.getId for b in
+                  self.issuefolder.getFilteredIssues(area='ui',
+                                                     issueType='feature')]
+        issues.sort()
+        self.assertEqual(issues, ['1'])
+
+        issues = [b.getId for b in
+                  self.issuefolder.getFilteredIssues(area='ui',
+                                       issueType=['feature', 'bug'])]
         issues.sort()
         self.assertEqual(issues, ['1', '2'])
 
     def testSubjectTolerance(self):
-        self.createIssue(self.tracker, details="foo", area="ui", issueType='feature', tags=('A',))
-        issues = [b.getId for b in
-                  self.issuefolder.getFilteredIssues(tags=dict(operator='and'))]
+        self.createIssue(self.tracker, details="foo", area="ui",
+                         issueType='feature', tags=('A'))
+        issues = [
+            b.getId for b in
+            self.issuefolder.getFilteredIssues(tags=dict(operator='and'))]
         self.assertEqual(issues, ['1'])
 
-        issues = [b.getId for b in
-                  self.issuefolder.getFilteredIssues(Subject=dict(operator='or'))]
+        issues = [
+            b.getId for b in
+            self.issuefolder.getFilteredIssues(Subject=dict(operator='or'))]
         self.assertEqual(issues, ['1'])
 
-        # When filling in the poi_issue_search_form you do not get a
-        # dict, but an InstanceType, so an old style class.  That can
-        # give problems, so we fake it here.
         class FakeQuery:
+            """Fake query for use in the poi_issue_search_form.
+
+            When filling in the poi_issue_search_form you do not get a
+            dict, but an InstanceType, so an old style class.  That
+            can give problems, so we fake it here.
+            """
+
             def __init__(self, operator=None, query=None):
                 if operator is not None:
                     self.operator = operator
                 if query is not None:
                     self.query = query
+
             def __getitem__(self, key):
                 return self.__dict__[key]
 

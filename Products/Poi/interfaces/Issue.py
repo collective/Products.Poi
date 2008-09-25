@@ -57,4 +57,3 @@ class Issue(Base):
 
 
 # end of class Issue
-

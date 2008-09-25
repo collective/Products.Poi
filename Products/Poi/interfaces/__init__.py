@@ -35,6 +35,7 @@ import Tracker
 
 from zope.interface import Interface
 
+
 class ITracker(Interface):
     """Marker interface for Poi issue tracker."""
 

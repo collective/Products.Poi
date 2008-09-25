@@ -12,6 +12,6 @@ def test_suite():
         Suite('migration.txt',
               package='Products.Poi.tests',
               optionflags=OPTIONFLAGS,
-              test_class=PoiTestCase)
+              test_class=PoiTestCase),
         ]
     return unittest.TestSuite(suites)

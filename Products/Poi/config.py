@@ -51,9 +51,10 @@ ADD_CONTENT_PERMISSIONS = {
     'PoiResponse': 'Poi: Add Response',
 }
 
-setDefaultRoles('Poi: Add Tracker', ('Manager',))
-setDefaultRoles('Poi: Add Issue', ('Anonymous', 'Manager', 'Member', 'Owner',))
-setDefaultRoles('Poi: Add Response', ('Anonymous', 'Manager', 'Member', 'Owner',))
+setDefaultRoles('Poi: Add Tracker', ('Manager', ))
+setDefaultRoles('Poi: Add Issue', ('Anonymous', 'Manager', 'Member', 'Owner'))
+setDefaultRoles('Poi: Add Response',
+                ('Anonymous', 'Manager', 'Member', 'Owner'))
 
 product_globals = globals()
 
@@ -61,11 +62,6 @@ product_globals = globals()
 # override in custom configuration
 PRODUCT_DEPENDENCIES = []
 
-# You can overwrite these two in an AppConfig.py:
-# STYLESHEETS = [{'id': 'my_global_stylesheet.css'},
-#                {'id': 'my_contenttype.css',
-#                 'expression': 'python:object.getTypeInfo().getId() == "MyType"'}]
-# You can do the same with JAVASCRIPTS.
 STYLESHEETS = []
 JAVASCRIPTS = []
 
@@ -79,8 +75,9 @@ PSC_TRACKER_ID = 'issues'
 # Support for plain-text/rich-text
 #
 
-# Add text/html to the list of mimetypes to allow HTML/kupu issue/response text.
-ISSUE_MIME_TYPES = ('text/x-web-intelligent',)
+# Add text/html to the list of mimetypes to allow HTML/kupu
+# issue/response text.
+ISSUE_MIME_TYPES = ('text/x-web-intelligent', )
 DEFAULT_ISSUE_MIME_TYPE = 'text/x-web-intelligent'
 
 

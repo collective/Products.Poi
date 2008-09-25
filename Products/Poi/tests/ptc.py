@@ -1,10 +1,9 @@
 from Testing import ZopeTestCase
-
 from DateTime import DateTime
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
+
 from Products.Poi.adapters import IResponseContainer
-#from Products.Archetypes.event import ObjectInitializedEvent
 
 
 # Make the boring stuff load quietly
@@ -50,6 +49,7 @@ class MockMailHost(object):
 class PoiTestCase(PloneTestCase.PloneTestCase):
 
     class Session(dict):
+
         def set(self, key, value):
             self[key] = value
 
@@ -59,12 +59,13 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         self.portal.MailHost = MockMailHost()
         self.app.REQUEST['SESSION'] = self.Session()
 
-    # Taken from CMFPlone/tests/testMemberDataTool
     def addMember(self, username, fullname, email, roles, last_login_time):
+        # Taken from CMFPlone/tests/testMemberDataTool
         self.portal.portal_membership.addMember(username, 'secret', roles, [])
         member = self.portal.portal_membership.getMemberById(username)
-        member.setMemberProperties({'fullname': fullname, 'email': email,
-                                    'last_login_time': DateTime(last_login_time),})
+        member.setMemberProperties(
+            {'fullname': fullname, 'email': email,
+             'last_login_time': DateTime(last_login_time)})
 
     def createTracker(self, folder, id, title='', description='', helpText='',
                         availableAreas=({'id' : 'ui', 'title' : 'User interface', 'description' : 'User interface issues'}, {'id' : 'functionality', 'title' : 'Functionality', 'description' : 'Issues with the basic functionality'}, {'id' : 'process', 'title' : 'Process', 'description' : 'Issues relating to the development process itself'}),
@@ -92,14 +93,14 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         tracker.setMailingList(mailingList)
         tracker.reindexObject()
         self.setRoles(['Member'])
-        
+
         return tracker
 
-    def createIssue(self, tracker, title='An issue', 
-                    details='Something is wrong', release='(UNASSIGNED)', 
-                    area='ui', issueType='bug', severity='Medium', 
+    def createIssue(self, tracker, title='An issue',
+                    details='Something is wrong', release='(UNASSIGNED)',
+                    area='ui', issueType='bug', severity='Medium',
                     targetRelease='(UNASSIGNED)',
-                    steps='', attachment=None, 
+                    steps='', attachment=None,
                     contactEmail='submitter@domain.com',
                     watchers=(),
                     tags=(),

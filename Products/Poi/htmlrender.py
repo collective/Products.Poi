@@ -1,7 +1,7 @@
 # File: htmlrender.py
-# 
+#
 # GNU General Public Licence (GPL)
-# 
+#
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
 # Foundation; either version 2 of the License, or (at your option) any later
@@ -14,10 +14,10 @@
 # this program; if not, write to the Free Software Foundation, Inc., 59 Temple
 # Place, Suite 330, Boston, MA  02111-1307  USA
 #
-__author__  = '''Rocky Burt <rocky@serverzen.com>'''
+__author__ = '''Rocky Burt <rocky@serverzen.com>'''
 __docformat__ = 'plaintext'
 
-__all__ = ('renderHTML',)
+__all__ = ('renderHTML', )
 
 from reStructuredText import HTML as rstHTML
 
@@ -48,8 +48,8 @@ DT {
     </style>
 
   </head>
-  
-  
+
+
   <body>
 %(body)s
   </body>
@@ -60,9 +60,10 @@ DT {
 def renderHTML(rstText, lang='en', charset='utf-8'):
     """Convert the given rST into a full XHTML transitional document.
     """
-    
+
     kwargs = {'lang': lang,
               'charset': charset,
-              'body': rstHTML(rstText, input_encoding = charset, output_encoding = charset)}
-    
+              'body': rstHTML(rstText, input_encoding=charset,
+                              output_encoding=charset)}
+
     return htmlTemplate % kwargs

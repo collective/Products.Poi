@@ -67,7 +67,7 @@ class Tracker(Base):
         if notification is turned off.
         """
 
-    def sendNotificationEmail(addresses,subject,text):
+    def sendNotificationEmail(addresses, subject, text):
         """
         Send a notification email
         """
@@ -86,4 +86,3 @@ class Tracker(Base):
 
 
 # end of class Tracker
-

@@ -1,4 +1,8 @@
 from zope.interface import Interface
+from zope.interface import directlyProvides
+from zope.interface import Attribute
+from zope.viewlet.interfaces import IViewletManager
+from zope.contentprovider.interfaces import ITALNamespaceData
 
 
 class IIssueFolderView(Interface):
@@ -34,13 +38,6 @@ class IIssueFolderView(Interface):
         """
 
 
-import zope.schema
-from zope.interface import directlyProvides
-from zope.interface import Attribute
-from zope.viewlet.interfaces import IViewletManager
-from zope.contentprovider.interfaces import ITALNamespaceData
-
-
 class IResponseAdder(IViewletManager):
 
     mimetype = Attribute("Mime type for response.")
@@ -67,4 +64,3 @@ directlyProvides(IResponseAdder, ITALNamespaceData)
 
 class ICreateResponse(Interface):
     pass
-

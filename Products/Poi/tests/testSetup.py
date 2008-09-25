@@ -32,10 +32,11 @@ class TestInstallation(ptc.PoiTestCase):
     def testWorkflowsInstalled(self):
         for k, v in self.poiTypes.items():
             self.failUnless(v in self.workflow.objectIds())
-            self.failUnless(self.workflow.getChainForPortalType(k) == (v,))
+            self.failUnless(self.workflow.getChainForPortalType(k) == (v, ))
 
     def testIntelligentTextInstalled(self):
-        self.failUnless('web_intelligent_plain_text_to_html' in self.transforms.objectIds())
+        self.failUnless('web_intelligent_plain_text_to_html' in \
+                            self.transforms.objectIds())
 
     def testPortalFactorySetup(self):
         for t in self.poiTypes.keys():
@@ -45,8 +46,9 @@ class TestInstallation(ptc.PoiTestCase):
         self.failUnless('UID' in self.catalog.schema())
 
     def testParentMetaTypesNotToQuery(self):
-        for t in ('PoiTracker', 'PoiPscTracker', 'PoiIssue',):
-            self.failUnless(t in self.properties.navtree_properties.getProperty('parentMetaTypesNotToQuery'))
+        p = self.properties.navtree_properties
+        for t in ('PoiTracker', 'PoiPscTracker', 'PoiIssue'):
+            self.failUnless(t in p.getProperty('parentMetaTypesNotToQuery'))
 
     def testReinstall(self):
         """Reinstalling should not empty our indexes.
@@ -61,7 +63,7 @@ class TestInstallation(ptc.PoiTestCase):
         self.addMember('member1', 'Member One', 'member1@member.com',
                        ['Member'], '2005-01-01')
         self.tracker = self.createTracker(self.folder, 'issue-tracker',
-                                          managers=('member1',))
+                                          managers=('member1', ))
 
         def results(**kwargs):
             # Small helper function.

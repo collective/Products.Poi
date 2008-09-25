@@ -4,14 +4,19 @@ from Products.Poi.config import DESCRIPTION_LENGTH
 
 default_user = ZopeTestCase.user_name
 
+
 class TestIssue(ptc.PoiTestCase):
     """Test issue functionality"""
 
     def afterSetUp(self):
-        self.addMember('member1', 'Member One', 'member1@member.com', ['Member'], '2005-01-01')
-        self.addMember('member2', 'Member Two', 'member2@member.com', ['Member'], '2005-01-01')
-        self.addMember('member3', 'Member Three', 'member3@member.com', ['Member'], '2005-01-01')
-        self.tracker = self.createTracker(self.folder, 'issue-tracker', managers=('member1', 'member2'))
+        self.addMember('member1', 'Member One', 'member1@member.com',
+                       ['Member'], '2005-01-01')
+        self.addMember('member2', 'Member Two', 'member2@member.com',
+                       ['Member'], '2005-01-01')
+        self.addMember('member3', 'Member Three', 'member3@member.com',
+                       ['Member'], '2005-01-01')
+        self.tracker = self.createTracker(
+            self.folder, 'issue-tracker', managers=('member1', 'member2'))
         self.issue = self.createIssue(self.tracker)
 
     def testEditIssue(self):
@@ -25,9 +30,9 @@ class TestIssue(ptc.PoiTestCase):
         self.issue.setSteps('step1\nstep2', mimetype='text/x-web-intelligent')
         # self.issue.setAttachment(None)
         self.issue.setContactEmail('member1@member.com')
-        self.issue.setWatchers(('member1', 'member2'),)
+        self.issue.setWatchers(('member1', 'member2'), )
         self.issue.setResponsibleManager('member2')
-        
+
         self.assertEqual(self.issue.Title(), 'title')
         self.assertEqual(self.issue.getRelease(), '2.0')
         self.assertEqual(self.issue.getArea(), 'functionality')
@@ -38,8 +43,8 @@ class TestIssue(ptc.PoiTestCase):
         self.assertEqual(self.issue.getSteps(), 'step1<br />step2')
         # self.assertEqual(self.issue.getAttachment(), None)
         self.assertEqual(self.issue.getContactEmail(), 'member1@member.com')
-        self.assertEqual(self.issue.getWatchers(), ('member1', 'member2',))
-        self.assertEqual(self.issue.getWatchers(), ('member1', 'member2',))
+        self.assertEqual(self.issue.getWatchers(), ('member1', 'member2'))
+        self.assertEqual(self.issue.getWatchers(), ('member1', 'member2'))
         self.assertEqual(self.issue.getResponsibleManager(), 'member2')
 
     def testIsValid(self):
@@ -68,48 +73,65 @@ class TestIssue(ptc.PoiTestCase):
         self.failUnless('(UNASSIGNED)' in vocab)
 
     def testValidateWatchers(self):
-        self.failUnless(self.issue.validate_watchers(('member1',)) is None)
-        self.failIf(self.issue.validate_watchers(('memberX',)) is None)
-        self.failIf(self.issue.validate_watchers(('member1','memberX',)) is None)
-    
+        self.failUnless(self.issue.validate_watchers(('member1', )) is None)
+        self.failIf(self.issue.validate_watchers(('memberX', )) is None)
+        self.failIf(self.issue.validate_watchers(('member1', 'memberX', )) \
+                        is None)
+
     def testIsWatching(self):
         self.issue.setWatchers(())
         self.failIf(self.issue.isWatching())
-        self.issue.setWatchers((default_user,))
+        self.issue.setWatchers((default_user, ))
         self.failUnless(self.issue.isWatching())
-    
+
     def testToggleWatching(self):
         self.failIf(self.issue.isWatching())
         self.issue.toggleWatching()
         self.failUnless(self.issue.isWatching())
 
     def testTransformDetails(self):
-        self.issue.setDetails('Make this a link http://test.com', mimetype='text/x-web-intelligent')
-        self.assertEqual(self.issue.getDetails(), 'Make this a link <a href="http://test.com" rel="nofollow">http://test.com</a>')
-        self.issue.setDetails('Make this a more difficult link http://test.com/ask?yes=1&no=0', mimetype='text/x-web-intelligent')
-        self.assertEqual(self.issue.getDetails(), 'Make this a more difficult link <a href="http://test.com/ask?yes=1&no=0" rel="nofollow">http://test.com/ask?yes=1&amp;no=0</a>')
+        self.issue.setDetails('Make this a link http://test.com',
+                              mimetype='text/x-web-intelligent')
+        self.assertEqual(
+            self.issue.getDetails(),
+            'Make this a link <a href="http://test.com" rel="nofollow">http://test.com</a>')
+        self.issue.setDetails(
+            'Make this a more difficult link http://test.com/ask?yes=1&no=0',
+            mimetype='text/x-web-intelligent')
+        self.assertEqual(
+            self.issue.getDetails(),
+            'Make this a more difficult link <a href="http://test.com/ask?yes=1&no=0" rel="nofollow">http://test.com/ask?yes=1&amp;no=0</a>')
 
     def testTransformSteps(self):
-        self.issue.setSteps('Make this a link http://test.com', mimetype='text/x-web-intelligent')
-        self.assertEqual(self.issue.getSteps(), 'Make this a link <a href="http://test.com" rel="nofollow">http://test.com</a>')
+        self.issue.setSteps('Make this a link http://test.com',
+                            mimetype='text/x-web-intelligent')
+        self.assertEqual(
+            self.issue.getSteps(),
+            'Make this a link <a href="http://test.com" rel="nofollow">http://test.com</a>')
 
     def testExplicitDescription(self):
         self.issue.setDescription('A description')
         self.assertEqual(self.issue.Description(), 'A description')
-        
+
     def testImplicitDescription(self):
-        self.issue.setDetails('A short details section with a link http://test.com', mimetype='text/x-web-intelligent')
-        self.assertEqual(self.issue.Description(), 'A short details section with a link http://test.com')
-        
+        self.issue.setDetails(
+            'A short details section with a link http://test.com',
+            mimetype='text/x-web-intelligent')
+        self.assertEqual(
+            self.issue.Description(),
+            'A short details section with a link http://test.com')
+
     def testImplicitLongDetails(self):
         text = "The quick brown fox jumped over the lazy dog" * 20
         self.issue.setDetails(text, mimetype='text/x-web-intelligent')
-        self.assertEqual(self.issue.Description(), text[:DESCRIPTION_LENGTH] + '...')
+        self.assertEqual(self.issue.Description(),
+                         text[:DESCRIPTION_LENGTH] + '...')
 
     def testReadableDescription(self):
         text = "When pasting html you can get:\r\n    - ugly line breaks,\r\n    - non-breaking spaces.\r\n" * 20
         self.issue.setDetails(text, mimetype='text/x-web-intelligent')
-        self.failUnless(self.issue.Description().startswith("When pasting html you can get:\r\n    - ugly line breaks"))
+        self.failUnless(self.issue.Description().startswith(
+                "When pasting html you can get:\r\n    - ugly line breaks"))
         self.failIf("&nbsp;" in self.issue.Description())
         self.failIf("<br />" in self.issue.Description())
 
@@ -117,7 +139,7 @@ class TestIssue(ptc.PoiTestCase):
         text = u"The Japanese call their country Nippon or in their own characters: ÆüËÜ."
         self.issue.setDetails(text, mimetype='text/x-web-intelligent')
         self.failUnless(self.issue.Description() == text)
-        
+
 
 def test_suite():
     from unittest import TestSuite, makeSuite
