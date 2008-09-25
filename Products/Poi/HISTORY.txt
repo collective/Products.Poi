@@ -3,6 +3,12 @@ Changelog for Poi
 
 (name of developer listed in brackets)
 
+1.2 rc 3 (unreleased)
+---------------------
+
+- Nothing changed yet.
+
+
 1.2 rc 2 (25 September 2008)
 ----------------------------
 
