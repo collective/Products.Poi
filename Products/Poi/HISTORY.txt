@@ -6,6 +6,9 @@ Changelog for Poi
 1.2 rc 3 (unreleased)
 ---------------------
 
+- Do not show (part of) the Add response form when no responses can be
+  added.  Show a discreet message instead.  [maurits]
+
 - Migrate old style responses in PoiPscTrackers as well.  [maurits]
 
 - Code cleanup with pyflakes and pep8.  Only syntactic changes, no
