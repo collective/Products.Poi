@@ -6,6 +6,8 @@ Changelog for Poi
 1.2 rc 3 (unreleased)
 ---------------------
 
+- Added profiles/default/metadata.xml: version 1.2.  [maurits]
+
 - Do not show (part of) the Add response form when no responses can be
   added.  Show a discreet message instead.  [maurits]
 
