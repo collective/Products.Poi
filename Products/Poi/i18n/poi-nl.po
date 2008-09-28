@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-08-30 21:18+0000\n"
-"PO-Revision-Date: 2008-08-30 23:19+0200\n"
+"POT-Creation-Date: 2008-09-28 13:50+0000\n"
+"PO-Revision-Date: 2008-09-28 15:51+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Een issue. Issues beginnen in de 'niet bevestigd' status en kan beantwoo
 msgid "Cancel"
 msgstr "Annuleer"
 
-#: ../browser/response.py:480
+#: ../browser/response.py:489
 msgid "Changes saved to response id ${response_id}."
 msgstr "Wijzigingen opgeslagen voor reactie met id ${response_id}."
 
@@ -46,27 +46,27 @@ msgstr "Bewerk"
 msgid "Edit issue"
 msgstr "Bewerk issue"
 
-#: ../browser/response.py:379
+#: ../browser/response.py:387
 msgid "Issue state"
 msgstr "Issue status"
 
-#: ../browser/response.py:507
+#: ../browser/response.py:516
 msgid "No response selected for removal."
 msgstr "Geen reactie geselecteerd om te verwijderen."
 
-#: ../browser/response.py:471
+#: ../browser/response.py:480
 msgid "No response selected for saving."
 msgstr "Geen reactie geselecteerd om op te slaan."
 
-#: ../browser/response.py:177
+#: ../browser/response.py:182
 msgid "No response selected."
 msgstr "Geen reactie geselecteerd."
 
-#: ../browser/response.py:424
+#: ../browser/response.py:433
 msgid "No response text added and no issue changes made."
 msgstr "Geen tekst toegevoegd in deze reactie en geen wijzigingen aan de issue gemaakt."
 
-#: ../content/PoiIssue.py:499
+#: ../content/PoiIssue.py:507
 msgid "None"
 msgstr "Geen"
 
@@ -77,7 +77,7 @@ msgstr "Selecteer het gebied waar wat relevant is voor deze issue"
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ../browser/response.pt:140
+#: ../browser/response.pt:147
 msgid "Poi_help_attachment"
 msgstr "U kan optioneel een bijlage (bestand) uploaden. Alstublieft geen onnodige grote files uploaden."
 
@@ -128,7 +128,7 @@ msgstr "Geef een introductie helptekst op die getoond wordt op de tracker front 
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ../browser/response.pt:165
+#: ../browser/response.pt:172
 msgid "Poi_help_issueTransition"
 msgstr "Selecteer een verandering van status van de issue waar deze response op toepassing van is."
 
@@ -154,19 +154,19 @@ msgstr "Geef de user id's van gebruikers op die deze tracker mogen beheren, een 
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
-#: ../browser/response.pt:254
+#: ../browser/response.pt:261
 msgid "Poi_help_newResponsibleManager"
 msgstr "Selecteer de verantwoordelijke manager voor deze issue."
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ../browser/response.pt:197
+#: ../browser/response.pt:204
 msgid "Poi_help_newSeverity"
 msgstr "Selecteer de prioriteit voor deze issue"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ../browser/response.pt:225
+#: ../browser/response.pt:232
 msgid "Poi_help_newTargetRelease"
 msgstr "Geef de doelrelease op voor deze issue"
 
@@ -177,7 +177,7 @@ msgstr "Selecteer de release waar deze issue op van toepassing is."
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
-#: ../browser/response.pt:100
+#: ../browser/response.pt:107
 msgid "Poi_help_response"
 msgstr "Geef aub hieronder uw reactie."
 
@@ -233,7 +233,7 @@ msgstr "Gebied"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
-#: ../browser/response.pt:137
+#: ../browser/response.pt:144
 msgid "Poi_label_attachment"
 msgstr "Bijlage"
 
@@ -289,7 +289,7 @@ msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
-#: ../browser/response.pt:160
+#: ../browser/response.pt:167
 msgid "Poi_label_issueTransition"
 msgstr "Verander issue status"
 
@@ -315,19 +315,19 @@ msgstr "Tracker managers"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
-#: ../browser/response.pt:249
+#: ../browser/response.pt:256
 msgid "Poi_label_newResponsibleManager"
 msgstr "Verander verantwoordelijke manager"
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ../browser/response.pt:192
+#: ../browser/response.pt:199
 msgid "Poi_label_newSeverity"
 msgstr "Verander prioriteit van issue"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ../browser/response.pt:220
+#: ../browser/response.pt:227
 msgid "Poi_label_newTargetRelease"
 msgstr "Verander doelrelease"
 
@@ -387,31 +387,31 @@ msgstr "Tracker naam"
 msgid "Poi_label_watchers"
 msgstr "Issue volgers"
 
-#: ../browser/response.py:525
+#: ../browser/response.py:534
 msgid "Removed response id ${response_id}."
 msgstr "Reactie met id ${response_id} verwijderd."
 
-#: ../browser/response.py:519
+#: ../browser/response.py:528
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr "Reactie met id ${response_id} bestaat niet en kan dus niet verwijderd worden."
 
-#: ../browser/response.py:191
+#: ../browser/response.py:196
 msgid "Response id ${response_id} does not exist."
 msgstr "Reactie met id ${response_id} bestaat niet."
 
-#: ../browser/response.py:546
+#: ../browser/response.py:555
 msgid "Response id ${response_id} has no attachment."
 msgstr "Reactie met id ${response_id} heeft geen bijlage."
 
-#: ../browser/response.py:514
+#: ../browser/response.py:523
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr "Reactie met id ${response_id} is geen geheel getal en kan dus niet verwijderd worden."
 
-#: ../browser/response.py:185
+#: ../browser/response.py:190
 msgid "Response id ${response_id} is no integer."
 msgstr "Reactie met id ${response_id} is geen geheel getal."
 
-#: ../browser/response.py:385
+#: ../browser/response.py:393
 msgid "Responsible manager"
 msgstr "Verantwoordelijke manager"
 
@@ -420,7 +420,7 @@ msgstr "Verantwoordelijke manager"
 msgid "Search"
 msgstr "Zoeken"
 
-#: ../browser/response.py:384
+#: ../browser/response.py:392
 msgid "Severity"
 msgstr "Prioriteit"
 
@@ -434,7 +434,7 @@ msgstr "Volg deze issue niet meer"
 msgid "Submit new issue"
 msgstr "Voeg nieuwe issue toe"
 
-#: ../browser/response.py:410
+#: ../browser/response.py:419
 msgid "Target release"
 msgstr "Doelrelease"
 
@@ -443,11 +443,11 @@ msgstr "Doelrelease"
 msgid "Watch this issue"
 msgstr "Volg deze issue"
 
-#: ../browser/response.py:501
+#: ../browser/response.py:510
 msgid "You are not allowed to delete responses."
 msgstr "U mag geen reacties verwijderen."
 
-#: ../browser/response.py:465
+#: ../browser/response.py:474
 msgid "You are not allowed to edit responses."
 msgstr "U mag geen reacties bewerken."
 
@@ -552,9 +552,14 @@ msgid "login_suggestion"
 msgstr "Als het mogelijk is, log aub in voordat u de issue plaatst."
 
 #. Default: "If you can, please log in before submitting a reaction."
-#: ../browser/response.pt:78
+#: ../browser/response.pt:85
 msgid "login_suggestion_response"
 msgstr "Als het mogelijk is, log aub in voordat u een reactie plaatst."
+
+#. Default: "No responses can be added."
+#: ../browser/response.pt:74
+msgid "msg_no_responses_can_be_added"
+msgstr "Er kunnen geen reacties worden toegevoegd."
 
 #. Default: "(Not assigned)"
 #: ../skins/Poi/poi_issue_search_form.pt:84
@@ -907,7 +912,7 @@ msgid "poi_up_to_issue"
 msgstr "Bekijk issue volledig"
 
 #. Default: "Add response"
-#: ../browser/response.pt:73
+#: ../browser/response.pt:80
 msgid "title_add_response"
 msgstr "Voeg reactie toe"
 
