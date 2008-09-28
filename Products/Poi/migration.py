@@ -67,7 +67,8 @@ def replace_old_with_new_responses(issue):
 def migrate_responses(context):
     log.info("Starting migration of old style to new style responses.")
     catalog = getToolByName(context, 'portal_catalog')
-    tracker_brains = catalog.searchResults(portal_type='PoiTracker')
+    tracker_brains = catalog.searchResults(
+        portal_type=('PoiTracker', 'PoiPscTracker'))
     log.info("Found %s PoiTrackers.", len(tracker_brains))
     for brain in tracker_brains:
         tracker = brain.getObject()

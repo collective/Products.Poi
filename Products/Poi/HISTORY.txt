@@ -6,6 +6,8 @@ Changelog for Poi
 1.2 rc 3 (unreleased)
 ---------------------
 
+- Migrate old style responses in PoiPscTrackers as well.  [maurits]
+
 - Code cleanup with pyflakes and pep8.  Only syntactic changes, no
   behaviour changes.  [maurits]
 
