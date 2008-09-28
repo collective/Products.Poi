@@ -1,9 +1,8 @@
 Changelog for Poi
 =================
 
-1.2rc3 (2008-09-28)
 
-1.2 rc 3 (unreleased)
+1.2rc3 (2008-09-28)
 ---------------------
 
 - Added profiles/default/metadata.xml: version 1.2.  [maurits]
