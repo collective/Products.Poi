@@ -5,7 +5,7 @@ Changelog for Poi
 1.2rc4 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- End-of-lines and svn:ignores set all over the place.  [maurits]
 
 
 1.2rc3 (2008-09-28)
