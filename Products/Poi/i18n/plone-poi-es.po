@@ -1,11 +1,12 @@
 # pot file for Poi Issue Tracker product.
 # Junyong Pan <panjy@zopechina.com>, 2005.
+# Angel Carballo <angelcarballo@gmail.com>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2005-10-26 17:00+0000\n"
-"PO-Revision-Date: 2007-08-09 12:25 +1\n"
-"Last-Translator: Angel Carballo <angelcarballo@gmail.com>\n"
+"PO-Revision-Date: 2008-10-16 20:18-0400\n"
+"Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: ES-es <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -46,7 +47,7 @@ msgid "Confirm resolved"
 msgstr "Confirmar resolución"
 
 msgid "Confirmed"
-msgstr ""
+msgstr "Confirmedo"
 
 msgid "In progress"
 msgstr "En curso"
@@ -60,7 +61,7 @@ msgstr "Gestor de Incidencias"
 
 # browser/respsonse.py:transitions_for_display
 msgid "No change"
-msgstr ""
+msgstr "Ningún cambio"
 
 msgid "Open"
 msgstr "Abierta"
