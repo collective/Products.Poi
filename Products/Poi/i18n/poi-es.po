@@ -1,15 +1,17 @@
-# pot file for Poi Issue Tracker product.
+# translation of poi-es.po to Spanish
 # Junyong Pan <panjy@zopechina.com>, 2005.
 # Angel Carballo <angelcarballo@gmail.com>, 2007.
+# Leonardo Caballero <leonardocaballero@gmail.com>, 2008.
+# pot file for Poi Issue Tracker product.
 msgid ""
 msgstr ""
-"Project-Id-Version: Poi\n"
+"Project-Id-Version: poi-es\n"
 "POT-Creation-Date: 2008-09-28 13:50+0000\n"
-"PO-Revision-Date: 2008-10-16 20:19-0400\n"
+"PO-Revision-Date: 2008-10-17 10:05-0430\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
-"Language-Team: ES-es <LL@li.org>\n"
+"Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: es\n"
@@ -18,7 +20,7 @@ msgstr ""
 "Domain: Poi\n"
 
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Una incidencia. Las incidencias comienzan en el estado 'sin ser confirmardo', y puede ser respondido por los administradores del proyectos."
+msgstr "Una incidencia. Las incidencias comienzan en el estado 'sin ser confirmado', y puede ser respondido por los administradores del proyectos."
 
 #. Default: "Cancel"
 #: ../skins/Poi/poi_response_delete_confirm.cpt:41
@@ -102,17 +104,17 @@ msgstr "Indique los diferentes tipos de importancia, uno por línea."
 # ./content/PoiIssue.py
 #. Default: "Optionally, provide an email address where you can be contacted for further information or when a resolution is available."
 msgid "Poi_help_contactEmail"
-msgstr "Opcionalmente, indique un email al que contactar para obtener más información o cuando hay una solución disponible."
+msgstr "Opcionalmente, indique un correo electrónico al que contactar para obtener más información o cuando hay una solución disponible."
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
 msgid "Poi_help_defaultSeverity"
-msgstr "Seleccione el niver de importancia por defecto."
+msgstr "Seleccione el nivel de importancia por defecto."
 
 # ./content/PoiIssue.py
 #. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
 msgid "Poi_help_description"
-msgstr "Escriba una breve descripción de la incidencia. Al igual que con el título, una descripción clara y concinsa permite al gestor del proyecto responder con más rápidez y eficiencia."
+msgstr "Escriba una breve descripción de la incidencia. Al igual que con el título, una descripción clara y concisa permite al gestor del proyecto responder con más rapidez y eficiencia."
 
 # ./content/PoiIssue.py
 #. Default: "Please provide further details"
@@ -144,6 +146,16 @@ msgstr "Escriba un título corto y descriptivo de la incidencia. Un buen título
 #. Default: "If given, and if "Send notification emails" is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails."
 msgid "Poi_help_mailingList"
 msgstr "Si se indica, y se selecciona \"Enviar notificaciones\", se enviará un mensaje a esta dirección cada vez que se publique una nueva incidencia o respuesta. Si no se indica un dirección, los gestores recibirán mensajes individuales."
+
+# ./content/PoiTracker.py
+#. Default: "URL to SVN"
+msgid "Poi_label_svnurl"
+msgstr "Ruta del servidor de versiones Subversión (SVN)"
+
+# ./content/PoiTracker.py
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+msgid "Poi_help_svnurl"
+msgstr "Por favor ingrese la ruta hacia el repositorio SVN relacionado, e.j.: http://dev.plone.org/collective/changeset/%(rev)s para productos en el Plone collective."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
@@ -222,7 +234,7 @@ msgstr "Escriba un nombre para este gestor."
 # ./content/PoiIssue.py
 #. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
 msgid "Poi_help_watchers"
-msgstr "Escriba los nombres de los miembros que están siguiendo esta incidencia, uno por línea. Estos miembros recibirán un mensaje cuando se publuque un respuesta. Puede agregarse a sí mismo."
+msgstr "Escriba los nombres de los miembros que están siguiendo esta incidencia, uno por línea. Estos miembros recibirán un mensaje cuando se publique un respuesta. Puede agregarse a sí mismo."
 
 # ./content/PoiIssue.py
 #. Default: "Area"
