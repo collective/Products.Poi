@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-09-28 13:50+0000\n"
+"POT-Creation-Date: 2008-10-20 08:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgid "Changes saved to response id ${response_id}."
 msgstr ""
 
 #. Default: "Delete"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:34
+#: ../browser/response.pt:27
 msgid "Delete"
 msgstr ""
 
@@ -143,16 +143,6 @@ msgid "Poi_help_mailingList"
 msgstr ""
 
 # ./content/PoiTracker.py
-#. Default: "URL to SVN"
-msgid "Poi_label_svnurl"
-msgstr ""
-
-# ./content/PoiTracker.py
-#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
-msgid "Poi_help_svnurl"
-msgstr ""
-
-# ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
 msgid "Poi_help_managers"
 msgstr ""
@@ -210,6 +200,11 @@ msgstr ""
 # ./content/PoiIssue.py
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
 msgid "Poi_help_subject"
+msgstr ""
+
+# ./content/PoiTracker.py
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+msgid "Poi_help_svnurl"
 msgstr ""
 
 # ./content/PoiIssue.py
@@ -333,7 +328,7 @@ msgid "Poi_label_release"
 msgstr ""
 
 #. Default: "Response"
-#: ../browser/edit_response.pt:50
+#: ../browser/response.pt:104
 msgid "Poi_label_response"
 msgstr ""
 
@@ -365,6 +360,11 @@ msgstr ""
 # ./content/PoiIssue.py
 #. Default: "Tags"
 msgid "Poi_label_subject"
+msgstr ""
+
+# ./content/PoiTracker.py
+#. Default: "URL to SVN"
+msgid "Poi_label_svnurl"
 msgstr ""
 
 # ./content/PoiIssue.py
@@ -487,7 +487,7 @@ msgid "label_return_to_issue"
 msgstr ""
 
 #. Default: "RSS Feed"
-#: ../skins/Poi/poi_issue_search_results.pt:6
+#: ../skins/Poi/poi_tracker_view.pt:187
 msgid "label_rss_feed"
 msgstr ""
 
@@ -697,7 +697,7 @@ msgid "poi_label_area"
 msgstr ""
 
 #. Default: "Attached:"
-#: ../skins/Poi/poi_issue_view.pt:144
+#: ../browser/response.pt:59
 msgid "poi_label_attachment"
 msgstr ""
 
@@ -786,8 +786,8 @@ msgstr ""
 msgid "poi_return_to_search"
 msgstr ""
 
-#. Default: "Return to tracker"
-#: ../skins/Poi/poi_issue_view.pt:102
+#. Default: "Return to issue tracker"
+#: ../skins/Poi/poi_issue_search_form.pt:13
 msgid "poi_return_to_tracker"
 msgstr ""
 

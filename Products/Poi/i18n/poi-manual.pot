@@ -264,3 +264,13 @@ msgstr ""
 # ./content/PoiIssue.py
 msgid "Poi_help_targetRelease"
 msgstr ""
+
+# ./content/PoiTracker.py
+#. Default: "URL to SVN"
+msgid "Poi_label_svnurl"
+msgstr ""
+
+# ./content/PoiTracker.py
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+msgid "Poi_help_svnurl"
+msgstr ""

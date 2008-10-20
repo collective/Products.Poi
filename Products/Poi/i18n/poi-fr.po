@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2008-09-28 13:50+0000\n"
+"POT-Creation-Date: 2008-10-20 08:42+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Encolpe Degoute <encolpe@gmail.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -33,7 +33,7 @@ msgid "Changes saved to response id ${response_id}."
 msgstr "Les modifications à la réponses ${response_id} sont enregistrées."
 
 #. Default: "Delete"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:34
+#: ../browser/response.pt:27
 msgid "Delete"
 msgstr "Effacer"
 
@@ -212,6 +212,11 @@ msgstr "Si cela est applicable, veuillez fournir les étapes pour reproduire l'e
 msgid "Poi_help_subject"
 msgstr "Des étiquettes peuvent être employées pour ajouter une catégorisation arbitraire aux tickets. La liste ci dessous montre les étiquettes existantes que vous pouvez choisir, ou vous peut en ajouter des nouvelles."
 
+# ./content/PoiTracker.py
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+msgid "Poi_help_svnurl"
+msgstr ""
+
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"
 msgid "Poi_help_targetRelease"
@@ -339,7 +344,7 @@ msgstr "Distribution"
 
 # ./content/PoiIssue.py
 #. Default: "Response"
-#: ../browser/edit_response.pt:50
+#: ../browser/response.pt:104
 msgid "Poi_label_response"
 msgstr "Réponse"
 
@@ -372,6 +377,11 @@ msgstr "Étapes à reproduire"
 #. Default: "Tags"
 msgid "Poi_label_subject"
 msgstr "Étiquettes"
+
+# ./content/PoiTracker.py
+#. Default: "URL to SVN"
+msgid "Poi_label_svnurl"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Target release"
@@ -493,7 +503,7 @@ msgid "label_return_to_issue"
 msgstr ""
 
 #. Default: "RSS Feed"
-#: ../skins/Poi/poi_issue_search_results.pt:6
+#: ../skins/Poi/poi_tracker_view.pt:187
 msgid "label_rss_feed"
 msgstr "Flux RSS"
 
@@ -704,7 +714,7 @@ msgid "poi_label_area"
 msgstr "Zone"
 
 #. Default: "Attached:"
-#: ../skins/Poi/poi_issue_view.pt:144
+#: ../browser/response.pt:59
 msgid "poi_label_attachment"
 msgstr "Pièces-jointes :"
 
@@ -795,8 +805,9 @@ msgstr "Réponse # ${responseNumber} à « ${issueTitle} »"
 msgid "poi_return_to_search"
 msgstr "Retour aux résultats de recherche"
 
-#. Default: "Return to tracker"
-#: ../skins/Poi/poi_issue_view.pt:102
+#. Default: "Return to issue tracker"
+#: ../skins/Poi/poi_issue_search_form.pt:13
+#, fuzzy
 msgid "poi_return_to_tracker"
 msgstr "Retour au gestionnaire de tickets"
 

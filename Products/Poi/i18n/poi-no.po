@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-09-28 13:50+0000\n"
+"POT-Creation-Date: 2008-10-20 08:42+0000\n"
 "PO-Revision-Date: 2007-05-06 17:00+0000\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: None <plone-i18n@lists.sourceforge.net>\n"
@@ -30,7 +30,7 @@ msgid "Changes saved to response id ${response_id}."
 msgstr ""
 
 #. Default: "Delete"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:34
+#: ../browser/response.pt:27
 msgid "Delete"
 msgstr "Slett"
 
@@ -210,6 +210,11 @@ msgstr "Hvis det er mulig, beskriv hva/hvordan det skjedde."
 msgid "Poi_help_subject"
 msgstr "Merkelapper kan brukes for å legge til egne kategorier for emner. Listen under viser eksisterende merkelapper som du kan velge, eller du kan legge til nye."
 
+# ./content/PoiTracker.py
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+msgid "Poi_help_svnurl"
+msgstr ""
+
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"
 msgid "Poi_help_targetRelease"
@@ -338,7 +343,7 @@ msgstr "Versjon"
 
 # ./content/PoiIssue.py
 #. Default: "Response"
-#: ../browser/edit_response.pt:50
+#: ../browser/response.pt:104
 msgid "Poi_label_response"
 msgstr "Svar"
 
@@ -371,6 +376,11 @@ msgstr "Hvordan/Hvorfor skjedde dette"
 #. Default: "Tags"
 msgid "Poi_label_subject"
 msgstr "Merkelapper"
+
+# ./content/PoiTracker.py
+#. Default: "URL to SVN"
+msgid "Poi_label_svnurl"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Target release"
@@ -492,7 +502,7 @@ msgid "label_return_to_issue"
 msgstr ""
 
 #. Default: "RSS Feed"
-#: ../skins/Poi/poi_issue_search_results.pt:6
+#: ../skins/Poi/poi_tracker_view.pt:187
 msgid "label_rss_feed"
 msgstr ""
 
@@ -708,7 +718,7 @@ msgid "poi_label_area"
 msgstr "Område"
 
 #. Default: "Attached:"
-#: ../skins/Poi/poi_issue_view.pt:144
+#: ../browser/response.pt:59
 msgid "poi_label_attachment"
 msgstr "Vedlagt."
 
@@ -799,8 +809,8 @@ msgstr "Svar # ${responseNumber} til \" ${issueTitle} \""
 msgid "poi_return_to_search"
 msgstr "Tilbake til søk"
 
-#. Default: "Return to tracker"
-#: ../skins/Poi/poi_issue_view.pt:102
+#. Default: "Return to issue tracker"
+#: ../skins/Poi/poi_issue_search_form.pt:13
 #, fuzzy
 msgid "poi_return_to_tracker"
 msgstr "Tilbake"

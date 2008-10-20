@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-09-28 13:50+0000\n"
+"POT-Creation-Date: 2008-10-20 08:42+0000\n"
 "PO-Revision-Date: 2006-01-22 18:00+0900\n"
 "Last-Translator: TANIGUCHI Takaki <takaki@asis.media-as.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgid "Changes saved to response id ${response_id}."
 msgstr ""
 
 #. Default: "Delete"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:34
+#: ../browser/response.pt:27
 msgid "Delete"
 msgstr "削除"
 
@@ -209,6 +209,11 @@ msgstr "もしできたら，エラーの再現方法もしくは，問題の特
 msgid "Poi_help_subject"
 msgstr "タグは課題に対して任意の分類を追加することができます。以下のリストは選択もしくは追加できるタグのリストです。"
 
+# ./content/PoiTracker.py
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+msgid "Poi_help_svnurl"
+msgstr ""
+
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"
 msgid "Poi_help_targetRelease"
@@ -337,7 +342,7 @@ msgstr "リリース"
 
 # ./content/PoiIssue.py
 #. Default: "Response"
-#: ../browser/edit_response.pt:50
+#: ../browser/response.pt:104
 msgid "Poi_label_response"
 msgstr "対応"
 
@@ -370,6 +375,11 @@ msgstr "再現手順"
 #. Default: "Tags"
 msgid "Poi_label_subject"
 msgstr "タグ"
+
+# ./content/PoiTracker.py
+#. Default: "URL to SVN"
+msgid "Poi_label_svnurl"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Target release"
@@ -491,7 +501,7 @@ msgid "label_return_to_issue"
 msgstr ""
 
 #. Default: "RSS Feed"
-#: ../skins/Poi/poi_issue_search_results.pt:6
+#: ../skins/Poi/poi_tracker_view.pt:187
 msgid "label_rss_feed"
 msgstr ""
 
@@ -707,7 +717,7 @@ msgid "poi_label_area"
 msgstr "領域"
 
 #. Default: "Attached:"
-#: ../skins/Poi/poi_issue_view.pt:144
+#: ../browser/response.pt:59
 msgid "poi_label_attachment"
 msgstr "添付:"
 
@@ -798,8 +808,8 @@ msgstr "\" ${issueTitle} \" への対応 # ${responseNumber} "
 msgid "poi_return_to_search"
 msgstr "検索に戻る"
 
-#. Default: "Return to tracker"
-#: ../skins/Poi/poi_issue_view.pt:102
+#. Default: "Return to issue tracker"
+#: ../skins/Poi/poi_issue_search_form.pt:13
 #, fuzzy
 msgid "poi_return_to_tracker"
 msgstr "課題トラッカーに戻る"

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-09-28 13:50+0000\n"
+"POT-Creation-Date: 2008-10-20 08:42+0000\n"
 "PO-Revision-Date: 2006-09-08 21:01 +0200\n"
 "Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
 "Language-Team: DE <de@li.org>\n"
@@ -29,7 +29,7 @@ msgid "Changes saved to response id ${response_id}."
 msgstr ""
 
 #. Default: "Delete"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:34
+#: ../browser/response.pt:27
 msgid "Delete"
 msgstr "Löschen"
 
@@ -209,6 +209,11 @@ msgstr ""
 msgid "Poi_help_subject"
 msgstr ""
 
+# ./content/PoiTracker.py
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+msgid "Poi_help_svnurl"
+msgstr ""
+
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"
 msgid "Poi_help_targetRelease"
@@ -337,7 +342,7 @@ msgstr "Ausgabe/ Version"
 
 # ./content/PoiIssue.py
 #. Default: "Response"
-#: ../browser/edit_response.pt:50
+#: ../browser/response.pt:104
 msgid "Poi_label_response"
 msgstr "Antwort"
 
@@ -370,6 +375,11 @@ msgstr "Schritte zum Nachvollziehen"
 #. Default: "Tags"
 msgid "Poi_label_subject"
 msgstr "Kennzeichnung"
+
+# ./content/PoiTracker.py
+#. Default: "URL to SVN"
+msgid "Poi_label_svnurl"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Target release"
@@ -491,7 +501,7 @@ msgid "label_return_to_issue"
 msgstr ""
 
 #. Default: "RSS Feed"
-#: ../skins/Poi/poi_issue_search_results.pt:6
+#: ../skins/Poi/poi_tracker_view.pt:187
 msgid "label_rss_feed"
 msgstr ""
 
@@ -706,7 +716,7 @@ msgid "poi_label_area"
 msgstr "Bereich"
 
 #. Default: "Attached:"
-#: ../skins/Poi/poi_issue_view.pt:144
+#: ../browser/response.pt:59
 msgid "poi_label_attachment"
 msgstr "Angehängt:"
 
@@ -797,8 +807,8 @@ msgstr "Beantworten von Nr.${responseNumber} zu \" ${issueTitle} \""
 msgid "poi_return_to_search"
 msgstr "Zurück zur Suche"
 
-#. Default: "Return to tracker"
-#: ../skins/Poi/poi_issue_view.pt:102
+#. Default: "Return to issue tracker"
+#: ../skins/Poi/poi_issue_search_form.pt:13
 #, fuzzy
 msgid "poi_return_to_tracker"
 msgstr "Zurück zum Problem-Tracker"

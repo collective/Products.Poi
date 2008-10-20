@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-es\n"
-"POT-Creation-Date: 2008-09-28 13:50+0000\n"
+"POT-Creation-Date: 2008-10-20 08:42+0000\n"
 "PO-Revision-Date: 2008-10-17 10:05-0430\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -32,7 +32,7 @@ msgid "Changes saved to response id ${response_id}."
 msgstr "Se han guardado los cambios a la respuesta id ${response_id}."
 
 #. Default: "Delete"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:34
+#: ../browser/response.pt:27
 msgid "Delete"
 msgstr "Borrar"
 
@@ -148,16 +148,6 @@ msgid "Poi_help_mailingList"
 msgstr "Si se indica, y se selecciona \"Enviar notificaciones\", se enviará un mensaje a esta dirección cada vez que se publique una nueva incidencia o respuesta. Si no se indica un dirección, los gestores recibirán mensajes individuales."
 
 # ./content/PoiTracker.py
-#. Default: "URL to SVN"
-msgid "Poi_label_svnurl"
-msgstr "Ruta del servidor de versiones Subversión (SVN)"
-
-# ./content/PoiTracker.py
-#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
-msgid "Poi_help_svnurl"
-msgstr "Por favor ingrese la ruta hacia el repositorio SVN relacionado, e.j.: http://dev.plone.org/collective/changeset/%(rev)s para productos en el Plone collective."
-
-# ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
 msgid "Poi_help_managers"
 msgstr "Indique los nombres de los usuario que pueden administrar este gestor, uno por línea."
@@ -220,6 +210,11 @@ msgstr "Si puede, indique los pasos necesario para reproducir el error o identif
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
 msgid "Poi_help_subject"
 msgstr "Las etiquetas se pueden usar para agregar categorías extra a las incidencias. La siguiente lista muestra las existentes, también puede agregar nuevas."
+
+# ./content/PoiTracker.py
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+msgid "Poi_help_svnurl"
+msgstr "Por favor ingrese la ruta hacia el repositorio SVN relacionado, e.j.: http://dev.plone.org/collective/changeset/%(rev)s para productos en el Plone collective."
 
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"
@@ -348,7 +343,7 @@ msgstr "Versión"
 
 # ./content/PoiIssue.py
 #. Default: "Response"
-#: ../browser/edit_response.pt:50
+#: ../browser/response.pt:104
 msgid "Poi_label_response"
 msgstr "Respuesta"
 
@@ -381,6 +376,11 @@ msgstr "Pasos para reproducir"
 #. Default: "Tags"
 msgid "Poi_label_subject"
 msgstr "Etiquetas"
+
+# ./content/PoiTracker.py
+#. Default: "URL to SVN"
+msgid "Poi_label_svnurl"
+msgstr "Ruta del servidor de versiones Subversión (SVN)"
 
 # ./content/PoiIssue.py
 #. Default: "Target release"
@@ -502,7 +502,7 @@ msgid "label_return_to_issue"
 msgstr "Volver a incidencia."
 
 #. Default: "RSS Feed"
-#: ../skins/Poi/poi_issue_search_results.pt:6
+#: ../skins/Poi/poi_tracker_view.pt:187
 msgid "label_rss_feed"
 msgstr "canal RSS"
 
@@ -712,7 +712,7 @@ msgid "poi_label_area"
 msgstr "Área"
 
 #. Default: "Attached:"
-#: ../skins/Poi/poi_issue_view.pt:144
+#: ../browser/response.pt:59
 msgid "poi_label_attachment"
 msgstr "Adjunto:"
 
@@ -801,8 +801,9 @@ msgstr "Respuesta # ${responseNumber} a \" ${issueTitle} \""
 msgid "poi_return_to_search"
 msgstr "Volver a la búsqueda"
 
-#. Default: "Return to tracker"
-#: ../skins/Poi/poi_issue_view.pt:102
+#. Default: "Return to issue tracker"
+#: ../skins/Poi/poi_issue_search_form.pt:13
+#, fuzzy
 msgid "poi_return_to_tracker"
 msgstr "Volver al gestor de incidencias"
 
