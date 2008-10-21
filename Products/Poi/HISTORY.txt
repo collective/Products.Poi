@@ -5,6 +5,9 @@ Changelog for Poi
 1.2rc4 (unreleased)
 -------------------
 
+- In migrations guard against outdated catalog items that have no
+  existing object associated with them anymore.  [maurits]
+
 - End-of-lines and svn:ignores set all over the place.  [maurits]
 
 

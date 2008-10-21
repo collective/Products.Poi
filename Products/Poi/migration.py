@@ -71,7 +71,12 @@ def migrate_responses(context):
         portal_type=('PoiTracker', 'PoiPscTracker'))
     logger.info("Found %s PoiTrackers.", len(tracker_brains))
     for brain in tracker_brains:
-        tracker = brain.getObject()
+        try:
+            tracker = brain.getObject()
+        except AttributeError:
+            logger.warn("AttributeError getting tracker object at %s",
+                        brain.getURL())
+            continue
         # We definitely do not want to send any emails for responses
         # added or removed during this migration.
         original_send_emails = tracker.getSendNotificationEmails()
@@ -107,7 +112,12 @@ def migrate_workflow_changes(context):
     logger.info("Found %s PoiIssues.", len(issue_brains))
     fixed = 0
     for brain in issue_brains:
-        issue = brain.getObject()
+        try:
+            issue = brain.getObject()
+        except AttributeError:
+            logger.warn("AttributeError getting issue object at %s",
+                        brain.getURL())
+            continue
         folder = IResponseContainer(issue)
         made_changes = False
         for response in folder:
@@ -151,7 +161,12 @@ def fix_descriptions(context):
     fixed = 0
     for brain in brains:
         if isinstance(brain.Description, str):
-            issue = brain.getObject()
+            try:
+                issue = brain.getObject()
+            except AttributeError:
+                logger.warn("AttributeError getting issue object at %s",
+                            brain.getURL())
+                continue
             if isinstance(issue.Description(), unicode):
                 logger.debug("Un/reindexing PoiIssue %s", brain.getURL())
                 # This is the central point really: directly
