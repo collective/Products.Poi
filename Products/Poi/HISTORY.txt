@@ -5,6 +5,9 @@ Changelog for Poi
 1.2rc4 (unreleased)
 -------------------
 
+- After creating a response, first check if emails need to be sent
+  before figuring out the text to send.  [maurits]
+
 - In migrations guard against outdated catalog items that have no
   existing object associated with them anymore.  [maurits]
 

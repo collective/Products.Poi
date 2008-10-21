@@ -46,12 +46,17 @@ def sendResponseNotificationMail(issue, response):
     tracker managers, unless emailing is turned off.
     """
 
+    tracker = aq_parent(issue)
+    addresses = tracker.getNotificationEmailAddresses(issue)
+    if not addresses:
+        # This also catches the case where there may be addresses but
+        # the tracker is not configured to send emails.
+        return
+
     portal_membership = getToolByName(issue, 'portal_membership')
     portal_url = getToolByName(issue, 'portal_url')
     portal = portal_url.getPortalObject()
     fromName = portal.getProperty('email_from_name', None)
-
-    tracker = aq_parent(issue)
 
     creator = response.creator
     creatorInfo = portal_membership.getMemberInfo(creator)
@@ -69,9 +74,6 @@ def sendResponseNotificationMail(issue, response):
         responseDetails = None
     else:
         responseDetails = "**Response Details**::\n\n\n" + responseDetails
-
-    addresses = tracker.getNotificationEmailAddresses(issue)
-    # XXX
 
     changes = ''
     for change in response.changes:
