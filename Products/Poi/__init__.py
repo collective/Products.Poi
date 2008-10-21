@@ -29,8 +29,8 @@ __docformat__ = 'plaintext'
 
 
 import logging
-log = logging.getLogger("Poi")
-log.debug('Start initialization of product.')
+logger = logging.getLogger("Poi")
+logger.debug('Start initialization of product.')
 
 from Products.CMFCore import utils as cmfutils
 

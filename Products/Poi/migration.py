@@ -7,7 +7,7 @@ from Products.Poi.adapters import Response
 from Products.Poi.adapters import IResponseContainer
 from Products.Poi.browser.response import Create
 import logging
-log = logging.getLogger("Poi")
+logger = logging.getLogger("Poi")
 
 
 class IMigration(interface.Interface):
@@ -45,8 +45,8 @@ def replace_old_with_new_responses(issue):
     request = issue.REQUEST
     createview = Create(issue, request)
     path = '/'.join(issue.getPhysicalPath())
-    log.debug("Migrating %s responses for issue at %s",
-              len(responses), path)
+    logger.debug("Migrating %s responses for issue at %s",
+                 len(responses), path)
     for old_response in responses:
         field = old_response.getField('response')
         text = field.getRaw(old_response)
@@ -65,19 +65,19 @@ def replace_old_with_new_responses(issue):
 
 
 def migrate_responses(context):
-    log.info("Starting migration of old style to new style responses.")
+    logger.info("Starting migration of old style to new style responses.")
     catalog = getToolByName(context, 'portal_catalog')
     tracker_brains = catalog.searchResults(
         portal_type=('PoiTracker', 'PoiPscTracker'))
-    log.info("Found %s PoiTrackers.", len(tracker_brains))
+    logger.info("Found %s PoiTrackers.", len(tracker_brains))
     for brain in tracker_brains:
         tracker = brain.getObject()
         # We definitely do not want to send any emails for responses
         # added or removed during this migration.
         original_send_emails = tracker.getSendNotificationEmails()
         tracker.setSendNotificationEmails(False)
-        log.info("Migrating %s issues in tracker %s",
-                 len(tracker.contentIds()), tracker.absolute_url())
+        logger.info("Migrating %s issues in tracker %s",
+                    len(tracker.contentIds()), tracker.absolute_url())
         for issue in tracker.contentValues():
             replace_old_with_new_responses(issue)
         tracker.setSendNotificationEmails(original_send_emails)
@@ -93,7 +93,7 @@ def migrate_workflow_changes(context):
     to boot.  This migration finds responses with review state ids in
     them and turns them into titles.
     """
-    log.info("Starting migration of workflow changes.")
+    logger.info("Starting migration of workflow changes.")
     catalog = getToolByName(context, 'portal_catalog')
     wftool = getToolByName(context, 'portal_workflow')
 
@@ -104,7 +104,7 @@ def migrate_workflow_changes(context):
         return wftool.getTitleForStateOnType(state_id, 'PoiIssue')
 
     issue_brains = catalog.searchResults(portal_type='PoiIssue')
-    log.info("Found %s PoiIssues.", len(issue_brains))
+    logger.info("Found %s PoiIssues.", len(issue_brains))
     fixed = 0
     for brain in issue_brains:
         issue = brain.getObject()
@@ -123,8 +123,8 @@ def migrate_workflow_changes(context):
         if made_changes:
             fixed += 1
             if fixed % 100 == 0:
-                log.info("Fixed %s PoiIssues so far; still busy...", fixed)
-    log.info("Migration completed.  %s PoiIssues needed fixing.", fixed)
+                logger.info("Fixed %s PoiIssues so far; still busy...", fixed)
+    logger.info("Migration completed.  %s PoiIssues needed fixing.", fixed)
 
 
 def fix_descriptions(context):
@@ -144,16 +144,16 @@ def fix_descriptions(context):
     A good workaround is to clear and rebuild the catalog.  But
     running this upgrade step also fixes it.
     """
-    log.info("Start fixing issue descriptions.")
+    logger.info("Start fixing issue descriptions.")
     catalog = getToolByName(context, 'portal_catalog')
     brains = catalog.searchResults(portal_type='PoiIssue')
-    log.info("Found %s PoiIssues.", len(brains))
+    logger.info("Found %s PoiIssues.", len(brains))
     fixed = 0
     for brain in brains:
         if isinstance(brain.Description, str):
             issue = brain.getObject()
             if isinstance(issue.Description(), unicode):
-                log.debug("Un/reindexing PoiIssue %s", brain.getURL())
+                logger.debug("Un/reindexing PoiIssue %s", brain.getURL())
                 # This is the central point really: directly
                 # reindexing this issue can fail if the description
                 # has non-ascii characters.  So we unindex it first.
@@ -161,5 +161,6 @@ def fix_descriptions(context):
                 catalog.reindexObject(issue)
                 fixed += 1
                 if fixed % 100 == 0:
-                    log.info("Fixed %s PoiIssues so far; still busy...", fixed)
-    log.info("Fix completed.  %s PoiIssues needed fixing.", fixed)
+                    logger.info("Fixed %s PoiIssues so far; still busy...",
+                                fixed)
+    logger.info("Fix completed.  %s PoiIssues needed fixing.", fixed)
