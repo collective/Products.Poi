@@ -14,81 +14,82 @@ msgstr ""
 "Language-Code: pt\n"
 "Language-Name: Português\n"
 "Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
 "X-Poedit-Language: Portuguese\n"
 "X-Poedit-Country: PORTUGAL\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"Domain: plone\n"
-
-# portal type nams
-msgid "Issue Tracker"
-msgstr "Gestor de Ocorrência"
-
-msgid "An issue tracker"
-msgstr "Um gestor de ocorrências."
-
-msgid "Issue"
-msgstr "Ocorrência"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Uma ocorrência inicia no estado 'não confirmado', e pode ser respondida pelo responsável do projeto."
-
-msgid "Response"
-msgstr "Resposta"
-
-msgid "A response to an issue."
-msgstr "Uma resposta para uma ocorrência."
-
-# tracker states
-msgid "Open for submissions"
-msgstr "Aberto para submissões"
-
-msgid "Closed for submissions"
-msgstr "Fechado para submissões"
-
-# tracker transitions
-msgid "Open tracker"
-msgstr "Abrir ocorrência "
-
-msgid "Close tracker"
-msgstr "Fechar ocorrência "
-
-# issue states
-msgid "Tested and confirmed closed"
-msgstr "Testado e fechado"
-
-msgid "In progress"
-msgstr "Resolução em curso"
-
-msgid "Being created"
-msgstr "Criação em curso"
-
-msgid "Confirmed"
-msgstr "Confirmado"
-
-msgid "Unconfirmed"
-msgstr "Não confirmado"
-
-msgid "Open"
-msgstr "Aberto"
-
-msgid "Postponed"
-msgstr "Adiado"
-
-msgid "Rejected"
-msgstr "Rejeitado"
-
-msgid "Resolved"
-msgstr "Resolvido"
 
 # issue transitions
 msgid " Open"
 msgstr "Abrir"
 
+msgid "A response to an issue."
+msgstr "Uma resposta para uma ocorrência."
+
+msgid "An issue tracker"
+msgstr "Um gestor de ocorrências."
+
+msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
+msgstr "Uma ocorrência inicia no estado 'não confirmado', e pode ser respondida pelo responsável do projeto."
+
 msgid "Begin work"
 msgstr "Iniciar trabalho"
 
+msgid "Being created"
+msgstr "Criação em curso"
+
+msgid "Close tracker"
+msgstr "Fechar ocorrência "
+
+msgid "Closed for submissions"
+msgstr "Fechado para submissões"
+
 msgid "Confirm resolved"
 msgstr "Confirmar a solução"
+
+msgid "Confirmed"
+msgstr "Confirmado"
+
+msgid "In progress"
+msgstr "Resolução em curso"
+
+msgid "Issue"
+msgstr "Ocorrência"
+
+# portal type nams
+msgid "Issue Tracker"
+msgstr "Gestor de Ocorrência"
+
+msgid "No change"
+msgstr "Sem alteração"
+
+msgid "Open"
+msgstr "Aberto"
+
+# tracker states
+msgid "Open for submissions"
+msgstr "Aberto para submissões"
+
+# tracker transitions
+msgid "Open tracker"
+msgstr "Abrir ocorrência "
+
+msgid "Post issue on save"
+msgstr "Enviar ocorrência  ao guardar"
+
+# response transitions
+msgid "Post response on save"
+msgstr "Enviar resposta ao guardar"
+
+# response states
+msgid "Posted"
+msgstr "Enviado"
+
+msgid "Postpone"
+msgstr "Adiar"
+
+msgid "Postponed"
+msgstr "Adiado"
 
 msgid "Put on hold"
 msgstr "Suspender"
@@ -96,29 +97,25 @@ msgstr "Suspender"
 msgid "Re-open"
 msgstr "Reabrir"
 
-msgid "Post issue on save"
-msgstr "Enviar ocorrência  ao guardar"
-
-msgid "Postpone"
-msgstr "Adiar"
-
 msgid "Reject"
 msgstr "Rejeitar"
+
+msgid "Rejected"
+msgstr "Rejeitado"
 
 msgid "Resolve"
 msgstr "Resolver"
 
-# response states
-msgid "Posted"
-msgstr "Enviado"
+msgid "Resolved"
+msgstr "Resolvido"
 
-# response transitions
-msgid "Post response on save"
-msgstr "Enviar resposta ao guardar"
+msgid "Response"
+msgstr "Resposta"
 
-msgid "Resolve immediately"
-msgstr "Resolver imediatamente"
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "Testado e fechado"
 
-msgid "No change"
-msgstr "Sem alteração"
+msgid "Unconfirmed"
+msgstr "Não confirmado"
 

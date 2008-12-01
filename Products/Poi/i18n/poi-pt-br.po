@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-pt-br\n"
-"POT-Creation-Date: 2008-10-20 08:42+0000\n"
+"POT-Creation-Date: 2008-12-01 16:55+0000\n"
 "PO-Revision-Date: 2007-01-26 10:34-0300\n"
 "Last-Translator: Rafahela Bazzanella <rafabazzanella@yahoo.com.br>\n"
 "Language-Team: TcheZope <tchezope@yahoogroups.com>\n"
