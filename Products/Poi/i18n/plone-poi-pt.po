@@ -1,0 +1,124 @@
+# translation of plone-poi-pt.po to Portuguese
+# pot file for Poi Issue Tracker product.
+msgid ""
+msgstr ""
+"Project-Id-Version: Poi 1.1.2\n"
+"POT-Creation-Date: 2005-10-26 17:00+0000\n"
+"PO-Revision-Date: 2008-11-17 11:53-0000\n"
+"Last-Translator: Nuno Cruz <nuno.cruz@inst-informatica.pt>\n"
+"Language-Team: NWEB <nwebmaster@inst-informatica.pt>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: pt\n"
+"Language-Name: Português\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: PORTUGAL\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Domain: plone\n"
+
+# portal type nams
+msgid "Issue Tracker"
+msgstr "Gestor de Ocorrência"
+
+msgid "An issue tracker"
+msgstr "Um gestor de ocorrências."
+
+msgid "Issue"
+msgstr "Ocorrência"
+
+msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
+msgstr "Uma ocorrência inicia no estado 'não confirmado', e pode ser respondida pelo responsável do projeto."
+
+msgid "Response"
+msgstr "Resposta"
+
+msgid "A response to an issue."
+msgstr "Uma resposta para uma ocorrência."
+
+# tracker states
+msgid "Open for submissions"
+msgstr "Aberto para submissões"
+
+msgid "Closed for submissions"
+msgstr "Fechado para submissões"
+
+# tracker transitions
+msgid "Open tracker"
+msgstr "Abrir ocorrência "
+
+msgid "Close tracker"
+msgstr "Fechar ocorrência "
+
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "Testado e fechado"
+
+msgid "In progress"
+msgstr "Resolução em curso"
+
+msgid "Being created"
+msgstr "Criação em curso"
+
+msgid "Confirmed"
+msgstr "Confirmado"
+
+msgid "Unconfirmed"
+msgstr "Não confirmado"
+
+msgid "Open"
+msgstr "Aberto"
+
+msgid "Postponed"
+msgstr "Adiado"
+
+msgid "Rejected"
+msgstr "Rejeitado"
+
+msgid "Resolved"
+msgstr "Resolvido"
+
+# issue transitions
+msgid " Open"
+msgstr "Abrir"
+
+msgid "Begin work"
+msgstr "Iniciar trabalho"
+
+msgid "Confirm resolved"
+msgstr "Confirmar a solução"
+
+msgid "Put on hold"
+msgstr "Suspender"
+
+msgid "Re-open"
+msgstr "Reabrir"
+
+msgid "Post issue on save"
+msgstr "Enviar ocorrência  ao guardar"
+
+msgid "Postpone"
+msgstr "Adiar"
+
+msgid "Reject"
+msgstr "Rejeitar"
+
+msgid "Resolve"
+msgstr "Resolver"
+
+# response states
+msgid "Posted"
+msgstr "Enviado"
+
+# response transitions
+msgid "Post response on save"
+msgstr "Enviar resposta ao guardar"
+
+msgid "Resolve immediately"
+msgstr "Resolver imediatamente"
+
+msgid "No change"
+msgstr "Sem alteração"
+
