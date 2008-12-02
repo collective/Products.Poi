@@ -5,6 +5,11 @@ Changelog for Poi
 1.2rc4 (unreleased)
 -------------------
 
+- Fixed UnicodeError in email sending.
+  Fixes http://plone.org/products/poi/issues/198
+  Thanks to Derek Broughton for the first version of this fix.
+  [maurits]
+
 - Added Portuguese translations by Nuno Cruz.  Thanks!  [maurits]
 
 - After creating a response, first check if emails need to be sent

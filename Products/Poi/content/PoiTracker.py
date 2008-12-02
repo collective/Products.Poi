@@ -27,6 +27,8 @@
 __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
+from email.Utils import parseaddr, formataddr
+import socket
 from AccessControl import ClassSecurityInfo
 try:
     from Products.LinguaPlone.public import *
@@ -51,7 +53,6 @@ from Products.CMFPlone.utils import log_exc, log
 
 from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
-import base64
 import sets
 from Products.Poi.htmlrender import renderHTML
 from zope.interface import implements
@@ -384,63 +385,59 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
 
         portal      = portal_url.getPortalObject()
         mailHost    = plone_utils.getMailHost()
-        charset     = portal.getProperty('email_charset', None)
-        if charset is None or charset == '':
+        charset     = portal.getProperty('email_charset', '')
+        if not charset:
             charset = plone_utils.getSiteEncoding()
-        fromAddress = portal.getProperty('email_from_address', None)
+        from_address = portal.getProperty('email_from_address', '')
 
-        if fromAddress is None:
+        if not from_address:
             log('Cannot send notification email: email sender address not set')
             return
-        fromName = portal.getProperty('email_from_name', None)
-        if fromName is not None:
-            fromAddress = "%s <%s>" % (fromName, fromAddress)
-        if isinstance(fromAddress, unicode):
-            fromAddress = safe_unicode(fromAddress, charset)
+        from_name = portal.getProperty('email_from_name', '')
+        mfrom = formataddr((from_name, from_address))
+        if parseaddr(mfrom)[1] != from_address:
+            # formataddr probably got confused by special characters.
+            mfrom - from_address
 
-        email = MIMEMultipart('alternative')
-        email.epilogue = ''
 
-        if isinstance(rstText, unicode):
-            rstText = safe_unicode(rstText, charset)
+        email_msg = MIMEMultipart('alternative')
+        email_msg.epilogue = ''
 
-        textPart = MIMEText(rstText, 'plain', charset)
-        email.attach(textPart)
-        htmlPart = MIMEText(renderHTML(rstText, charset=charset),
-                            'html', charset)
-        email.attach(htmlPart)
-        message = str(email)
+        # We must choose the body charset manually
+        for body_charset in 'US-ASCII', charset, 'UTF-8':
+            try:
+                rstText = rstText.encode(body_charset)
+            except UnicodeError:
+                pass
+            else:
+                break
 
-        if isinstance(subject, unicode):
-            subject = safe_unicode(subject, charset)
+        textPart = MIMEText(rstText, 'plain', body_charset)
+        email_msg.attach(textPart)
+        htmlPart = MIMEText(renderHTML(rstText, charset=body_charset),
+                            'html', body_charset)
+        email_msg.attach(htmlPart)
 
-        # Encode the subject.  Not needed for ascii really.
-        # The form is: "=?charset?encoding?encoded text?=".
-        # An encoding of 'B' stands for base64.
-        # See http://en.wikipedia.org/wiki/MIME
-        # First strip the subject of whitespace.
-        subject = subject.strip()
-        # In case of multiple lines return only the first line.
-        # We do not want newlines here as it messes up encoding.
-        subject = subject.splitlines()[0]
-        # Encode it in base64 and use the same tricks as above.
-        # Yes this can be needed in case of long subjects.
-        subject = base64.encodestring(subject).strip().splitlines()[0]
-        subject = "=?%s?B?%s?=" % (charset, subject)
+        subject = safe_unicode(subject, charset)
 
         for address in addresses:
-            if isinstance(address, unicode):
-                address = safe_unicode(address, charset)
+            address = safe_unicode(address, charset)
             try:
-                mailHost.send(message = message,
-                              mto = address,
-                              mfrom = fromAddress,
-                              subject = subject)
-            except ConflictError:
-                raise
+                # Note that charset is only used for the headers, not
+                # for the body text as that is a Message already.
+                mailHost.secureSend(message = email_msg,
+                                    mto = address,
+                                    mfrom = mfrom,
+                                    subject = subject,
+                                    charset = charset)
+            except socket.error, exc:
+                log_exc(('Could not send email from %s to %s regarding issue '
+                         'in tracker %s\ntext is:\n%s\n') % (
+                        mfrom, address, self.absolute_url(), email_msg))
+                log_exc("Reason: %s: %r" % (exc.__class__.__name__, str(exc)))
             except:
-                log_exc('Could not send email from %s to %s regarding issue in tracker %s\ntext is:\n%s\n' % (
-                        fromAddress, address, self.absolute_url(), message))
+                raise
+
 
     security.declareProtected(permissions.View, 'getTagsInUse')
     def getTagsInUse(self):
