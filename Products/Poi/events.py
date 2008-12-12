@@ -1,5 +1,7 @@
 from Acquisition import aq_parent
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import safe_unicode
+
 from Products.Poi.interfaces import IIssue
 import textwrap
 
@@ -53,48 +55,61 @@ def sendResponseNotificationMail(issue, response):
         # the tracker is not configured to send emails.
         return
 
-    portal_membership = getToolByName(issue, 'portal_membership')
     portal_url = getToolByName(issue, 'portal_url')
     portal = portal_url.getPortalObject()
-    fromName = portal.getProperty('email_from_name', None)
+    portal_membership = getToolByName(portal, 'portal_membership')
+    plone_utils = getToolByName(portal, 'plone_utils')
+
+    charset = plone_utils.getSiteEncoding()
+
+    # We are going to use the same encoding everywhere, so we will
+    # make that easy.
+    def su(value):
+        return safe_unicode(value, encoding=charset)
+
+    fromName = su(portal.getProperty('email_from_name', ''))
 
     creator = response.creator
     creatorInfo = portal_membership.getMemberInfo(creator)
-    responseAuthor = creator
-    if creatorInfo:
-        responseAuthor = creatorInfo['fullname'] or creator
+    if creatorInfo and creatorInfo['fullname']:
+        responseAuthor = creatorInfo['fullname']
+    else:
+        responseAuthor = creator
+    responseAuthor = su(responseAuthor)
 
-    responseText = response.text
-    paras = responseText.split('\n\n')[:2]
-    wrapper = textwrap.TextWrapper(initial_indent='    ',
-                                   subsequent_indent='    ')
-    responseDetails = '\n\n'.join([wrapper.fill(p) for p in paras])
+    responseText = su(response.text)
+    paras = responseText.split(u'\n\n')[:2]
+    wrapper = textwrap.TextWrapper(initial_indent=u'    ',
+                                   subsequent_indent=u'    ')
+    responseDetails = u'\n\n'.join([wrapper.fill(p) for p in paras])
 
     if not responseDetails.strip():
-        responseDetails = None
+        responseDetails = u''
     else:
-        responseDetails = "**Response Details**::\n\n\n" + responseDetails
+        responseDetails = u"**Response Details**::\n\n\n" + responseDetails
 
-    changes = ''
+    changes = u''
     for change in response.changes:
-        changes += "%s -> %s" % (change.get('before'), change.get('after'))
+        changes += u"%s -> %s" % (su(change.get('before')),
+                                  su(change.get('after')))
 
     mailText = poi_email_new_response_template % dict(
-        issue_title = issue.title_or_id(),
-        tracker_title = tracker.title_or_id(),
+        issue_title = su(issue.title_or_id()),
+        tracker_title = su(tracker.title_or_id()),
         response_author = responseAuthor,
         response_details = responseDetails,
-        issue_url = issue.absolute_url(),
+        issue_url = su(issue.absolute_url()),
         changes = changes,
         from_name = fromName)
 
-    subject = "[%s] #%s - Re: %s" % (tracker.getExternalTitle(),
-                                     issue.getId(), issue.Title())
+    subject = u"[%s] #%s - Re: %s" % (su(tracker.getExternalTitle()),
+                                      su(issue.getId()),
+                                      su(issue.Title()))
 
     tracker.sendNotificationEmail(addresses, subject, mailText)
 
 
-poi_email_new_response_template = """
+poi_email_new_response_template = u"""
 A new response has been given to the issue **%(issue_title)s**
 in the tracker **%(tracker_title)s** by **%(response_author)s**.
 
