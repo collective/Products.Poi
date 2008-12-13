@@ -571,7 +571,13 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         portal_url = getToolByName(self, 'portal_url')
         portal_membership = getToolByName(self, 'portal_membership')
         portal = portal_url.getPortalObject()
+        plone_utils = getToolByName(self, 'plone_utils')
+        charset     = portal.getProperty('email_charset', '')
         fromName = portal.getProperty('email_from_name', None)
+        if not charset:
+            charset = plone_utils.getSiteEncoding()
+	if isinstance(fromName, unicode):
+	    fromName = fromName.encode(charset, 'replace')
 
         tracker = self.getTracker()
 
