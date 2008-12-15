@@ -571,13 +571,11 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         portal_url = getToolByName(self, 'portal_url')
         portal_membership = getToolByName(self, 'portal_membership')
         portal = portal_url.getPortalObject()
-        plone_utils = getToolByName(self, 'plone_utils')
-        charset     = portal.getProperty('email_charset', '')
         fromName = portal.getProperty('email_from_name', None)
-        if not charset:
+        if isinstance(fromName, unicode):
+            plone_utils = getToolByName(self, 'plone_utils')
             charset = plone_utils.getSiteEncoding()
-	if isinstance(fromName, unicode):
-	    fromName = fromName.encode(charset, 'replace')
+            fromName = fromName.encode(charset, 'replace')
 
         tracker = self.getTracker()
 
@@ -592,6 +590,8 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         issueDetails = '\n\n'.join([wrapper.fill(p) for p in paras])
 
         addresses = tracker.getNotificationEmailAddresses()
+        # XXX We will want to change this to use a template like
+        # poi_email_new_response_template in events.py  [maurits]
         mailText = self.poi_email_new_issue(self,
                                             tracker = tracker,
                                             issue = self,
