@@ -1,4 +1,5 @@
 from StringIO import StringIO
+import transaction
 from zope import interface
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
@@ -47,6 +48,8 @@ def replace_old_with_new_responses(issue):
     path = '/'.join(issue.getPhysicalPath())
     logger.debug("Migrating %s responses for issue at %s",
                  len(responses), path)
+    if not responses:
+        return
     for old_response in responses:
         field = old_response.getField('response')
         text = field.getRaw(old_response)
@@ -86,6 +89,11 @@ def migrate_responses(context):
         for issue in tracker.contentValues():
             replace_old_with_new_responses(issue)
         tracker.setSendNotificationEmails(original_send_emails)
+        # We do a transaction commit here.  Otherwise on large sites
+        # (say plone.org) it may be virtually impossible to finish
+        # this very big migration.
+        logger.info("Committing transaction after migrating this tracker.")
+        transaction.commit()
 
 
 def migrate_workflow_changes(context):
@@ -133,7 +141,9 @@ def migrate_workflow_changes(context):
         if made_changes:
             fixed += 1
             if fixed % 100 == 0:
-                logger.info("Fixed %s PoiIssues so far; still busy...", fixed)
+                logger.info("Committing transaction after fixing "
+                            "%s PoiIssues; still busy... " % fixed)
+                transaction.commit()
     logger.info("Migration completed.  %s PoiIssues needed fixing.", fixed)
 
 
@@ -176,6 +186,7 @@ def fix_descriptions(context):
                 catalog.reindexObject(issue)
                 fixed += 1
                 if fixed % 100 == 0:
-                    logger.info("Fixed %s PoiIssues so far; still busy...",
-                                fixed)
+                    logger.info("Committing transaction after fixing "
+                                "%s PoiIssues; still busy... " % fixed)
+                    transaction.commit()
     logger.info("Fix completed.  %s PoiIssues needed fixing.", fixed)

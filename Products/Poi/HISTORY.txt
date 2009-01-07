@@ -5,6 +5,9 @@ Changelog for Poi
 1.2rc4 (unreleased)
 -------------------
 
+- Migrations: now doing intermediate transaction commits to give the
+  migrations a chance to finish on big sites.  [maurits]
+
 - Fixed UnicodeError in email sending.
   Fixes http://plone.org/products/poi/issues/198
   Thanks to Derek Broughton for the first version of this fix.
