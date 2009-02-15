@@ -5,6 +5,9 @@ Changelog for Poi
 1.2rc4 (unreleased)
 -------------------
 
+- Fixed 'Field missing error' from kss (only visible in the logs).
+  [maurits]
+
 - Fixed possible in rich text field widget by now giving the number of
   rows as an integer instead of a string.
   Fixes http://plone.org/products/poi/issues/203

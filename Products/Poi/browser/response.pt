@@ -177,7 +177,7 @@
 
       <tal:transitions
           repeat="transition view/transitions_for_display">
-        <input class="noborder blurrable" name="transition"
+        <input class="noborder" name="transition"
                value="" id="transition_1" type="radio"
                tal:attributes="value transition/value;
                                id transition/value;
@@ -208,7 +208,7 @@
 
       <tal:options
           repeat="option view/severities_for_display">
-        <input class="noborder blurrable" name="severity"
+        <input class="noborder" name="severity"
                value="" id="" type="radio"
                tal:attributes="value option/value;
                                id option/value;
@@ -236,7 +236,7 @@
 
       <tal:options
           repeat="option view/releases_for_display">
-        <input class="noborder blurrable" name="targetRelease"
+        <input class="noborder" name="targetRelease"
                value="" id="" type="radio"
                tal:attributes="value option/value;
                                id option/value;
@@ -265,7 +265,7 @@
 
       <tal:options
           repeat="option view/managers_for_display">
-        <input class="noborder blurrable" name="responsibleManager"
+        <input class="noborder" name="responsibleManager"
                value="" id="" type="radio"
                tal:attributes="value option/value;
                                id option/value;
