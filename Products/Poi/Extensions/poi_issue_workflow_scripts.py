@@ -31,6 +31,9 @@ __docformat__ = 'plaintext'
 # Workflow Scripts for: poi_issue_workflow
 
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import safe_unicode
+
+from Products.Poi.events import poi_email_issue_resolved_template
 
 
 def sendInitialEmail(self, state_change, **kw):
@@ -51,7 +54,17 @@ def sendResolvedMail(self, state_change, **kw):
     if not issueEmail:
         return
 
-    portal_membership = getToolByName(self, 'portal_membership')
+    portal_url = getToolByName(self, 'portal_url')
+    portal = portal_url.getPortalObject()
+    plone_utils = getToolByName(portal, 'plone_utils')
+    charset = plone_utils.getSiteEncoding()
+
+    def su(value):
+        # We are going to use the same encoding everywhere, so we will
+        # make that easy.
+        return safe_unicode(value, encoding=charset)
+
+    portal_membership = getToolByName(portal, 'portal_membership')
     member = portal_membership.getAuthenticatedMember()
 
     memberInfo = portal_membership.getMemberInfo(member.getUserName())
@@ -59,15 +72,14 @@ def sendResolvedMail(self, state_change, **kw):
     if memberInfo:
         stateChanger = memberInfo['fullname'] or stateChanger
 
-    portal_url = getToolByName(self, 'portal_url')
-    portal = portal_url.getPortalObject()
     fromName = portal.getProperty('email_from_name', None)
-    mailText = issue.poi_email_issue_resolved(issue,
-                                              tracker = tracker,
-                                              issue = issue,
-                                              fromName = fromName,
-                                              stateChanger = stateChanger)
+    mailText = poi_email_issue_resolved_template % dict(
+        issue_title = su(issue.title_or_id()),
+        tracker_title = su(tracker.title_or_id()),
+        response_author = su(stateChanger),
+        issue_url = su(issue.absolute_url()),
+        from_name = su(fromName))
+
     subject = "[%s] Resolved #%s - %s" % (
         tracker.getExternalTitle(), issue.getId(), issue.Title())
-
     tracker.sendNotificationEmail([issueEmail], subject, mailText)

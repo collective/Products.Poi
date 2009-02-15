@@ -57,7 +57,7 @@ from Products.Poi.config import DESCRIPTION_LENGTH
 from Products.Poi.config import ISSUE_MIME_TYPES
 from Products.Poi.config import PROJECTNAME
 from Products.Poi.adapters import IResponseContainer
-
+from Products.Poi.events import poi_email_new_issue_template
 
 from Products.Poi import permissions
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
@@ -569,12 +569,17 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         tracker managers, unless emailing is turned off.
         """
         portal_url = getToolByName(self, 'portal_url')
-        portal_membership = getToolByName(self, 'portal_membership')
         portal = portal_url.getPortalObject()
+        portal_membership = getToolByName(portal, 'portal_membership')
+        plone_utils = getToolByName(portal, 'plone_utils')
+        charset = plone_utils.getSiteEncoding()
+        # We are going to use the same encoding everywhere, so we will
+        # make that easy.
+        def su(value):
+            return safe_unicode(value, encoding=charset)
+
         fromName = portal.getProperty('email_from_name', None)
         if isinstance(fromName, unicode):
-            plone_utils = getToolByName(self, 'plone_utils')
-            charset = plone_utils.getSiteEncoding()
             fromName = fromName.encode(charset, 'replace')
 
         tracker = self.getTracker()
@@ -590,14 +595,13 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         issueDetails = '\n\n'.join([wrapper.fill(p) for p in paras])
 
         addresses = tracker.getNotificationEmailAddresses()
-        # XXX We will want to change this to use a template like
-        # poi_email_new_response_template in events.py  [maurits]
-        mailText = self.poi_email_new_issue(self,
-                                            tracker = tracker,
-                                            issue = self,
-                                            issueAuthor = issueAuthor,
-                                            fromName = fromName,
-                                            issueDetails = issueDetails)
+        mailText = poi_email_new_issue_template % dict(
+            issue_title = su(self.title_or_id()),
+            tracker_title = su(tracker.title_or_id()),
+            issue_author = su(issueAuthor),
+            issue_details = su(issueDetails),
+            issue_url = su(self.absolute_url()),
+            from_name = su(fromName))
         subject = "[%s] #%s - New issue: %s" % (
             tracker.getExternalTitle(), self.getId(), self.Title())
 

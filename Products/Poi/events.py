@@ -109,6 +109,8 @@ def sendResponseNotificationMail(issue, response):
     tracker.sendNotificationEmail(addresses, subject, mailText)
 
 
+# Email templates.
+
 poi_email_new_response_template = u"""
 A new response has been given to the issue **%(issue_title)s**
 in the tracker **%(tracker_title)s** by **%(response_author)s**.
@@ -121,6 +123,41 @@ Issue
 
 %(changes)s
 %(response_details)s
+
+\* This is an automated email, please do not reply - %(from_name)s
+"""
+
+poi_email_issue_resolved_template = u"""
+The issue **%(issue_title)s** in the **%(tracker_title)s**
+tracker has been marked as resolved by **%(response_author)s**.
+Please visit the issue and either confirm that it has been
+satisfactorily resolved or re-open it.
+
+Response Information
+--------------------
+
+Issue
+  %(issue_title)s (%(issue_url)s)
+
+
+\* This is an automated email, please do not reply - %(from_name)s
+"""
+
+poi_email_new_issue_template = u"""
+A new issue has been submitted to the **%(tracker_title)s**
+tracker by **%(issue_author)s** and awaits confirmation.
+
+Issue Information
+-----------------
+
+Issue
+  %(issue_title)s (%(issue_url)s)
+
+
+**Issue Details**::
+
+%(issue_details)s
+
 
 \* This is an automated email, please do not reply - %(from_name)s
 """

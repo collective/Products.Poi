@@ -5,6 +5,10 @@ Changelog for Poi
 1.2rc4 (unreleased)
 -------------------
 
+- Removed poi_email_* dtml pages from the skins directory, in favour
+  of templates in events.py.
+  Fixes http://plone.org/products/poi/issues/206 [maurits]
+
 - Fixed 'Field missing error' from kss (only visible in the logs).
   [maurits]
 
