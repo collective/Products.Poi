@@ -178,6 +178,7 @@ schema = Schema((
             i18n_domain='Poi',
         ),
         enforceVocabulary=True,
+        default_method='getDefaultArea',
         vocabulary='getAreasVocab',
         required=True
     ),
@@ -193,6 +194,7 @@ schema = Schema((
             i18n_domain='Poi',
         ),
         enforceVocabulary=True,
+        default_method='getDefaultIssueType',
         vocabulary='getIssueTypesVocab',
         required=True
     ),
@@ -337,7 +339,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         'category': "object",
         'id': 'edit',
         'name': 'Edit',
-        'permissions': (permissions.ModifyPortalContent,),
+        'permissions': (permissions.ModifyPortalContent, ),
         'condition': 'python:1'
        },
 
@@ -473,6 +475,28 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         """Get the default severity for new issues"""
         tracker = self.getTracker()
         return tracker.getDefaultSeverity()
+
+    def getDefaultIssueType(self):
+        """Get the default issue type for new issues.
+
+        If there is only one possible issue type, we select this, else
+        we select nothing.
+        """
+        vocab = self.getIssueTypesVocab()
+        if len(vocab) == 1:
+            return vocab[0]
+        return None
+
+    def getDefaultArea(self):
+        """Get the default area for new issues.
+
+        If there is only one possible area, we select this, else
+        we select nothing.
+        """
+        vocab = self.getAreasVocab()
+        if len(vocab) == 1:
+            return vocab[0]
+        return None
 
     security.declarePublic('isValid')
     def isValid(self):

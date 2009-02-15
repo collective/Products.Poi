@@ -5,6 +5,10 @@ Changelog for Poi
 1.2rc4 (unreleased)
 -------------------
 
+- Added default_methods for the area and issueType fields of an issue.
+  If the vocabulary of the field has only one value, we select that
+  one.  See http://plone.org/products/poi/issues/202 [maurits]
+
 - Removed poi_email_* dtml pages from the skins directory, in favour
   of templates in events.py.
   Fixes http://plone.org/products/poi/issues/206 [maurits]
