@@ -90,7 +90,7 @@ def sendResponseNotificationMail(issue, response):
 
     changes = u''
     for change in response.changes:
-        changes += u"%s -> %s" % (su(change.get('before')),
+        changes += u"%s -> %s\n" % (su(change.get('before')),
                                   su(change.get('after')))
 
     mailText = poi_email_new_response_template % dict(
@@ -122,6 +122,7 @@ Issue
   %(issue_title)s (%(issue_url)s)
 
 %(changes)s
+
 %(response_details)s
 
 \* This is an automated email, please do not reply - %(from_name)s
