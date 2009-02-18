@@ -60,25 +60,30 @@ Please note one **very important** thing:
 Installation and dependencies
 -----------------------------
 
+Best is to use zc.buildout.  Just add Products.Poi to your eggs, rerun
+buildout and you are done.  Optionally add
+Products.PloneSoftwareCenter (and Products.ArchAddOn).
+
 Poi requires:
 
-  - Plone: 3.0+ on Zope 2.10
+  - Plone: 3.0+ on Zope 2.10.x (tested with Plone 3.0.6, 3.1.7 and 3.2.1)
+
   - DataGridField (*)
+
   - AddRemoveWidget
 
   - intelligenttext (but this is installed by default in Plone 3)
     Note: when going from Plone 2.5 to 3.0, please first uninstall
-    intelligenttext, then create a new instance with Plone 3.  Then
-    run the portal_migration, which will install the new
+    intelligenttext, then create a new zope instance with Plone 3.
+    Then run the portal_migration, which will install the new
     plone.intelligenttext library for you.
   
   - For PloneSoftwareCenter integration, PloneSoftwareCenter is
     required.  See http://plone.org/products/plonesoftwarecenter
-    Tested on Plone 2.5 with: PloneSoftwareCenter-1.0-RC.tgz
-    Tested on Plone 3.0 with: PloneSoftwareCenter-1.5-alpha1.tar.gz
+    Tested with PloneSoftwareCenter 1.5.
 
 (*) NOTE: Before version 1.0 beta 2, ArchAddOn was required instead of
-DataGridField.  Also note that PloneSoftwareCenter does required
+DataGridField.  Also note that PloneSoftwareCenter itself does require
 ArchAddOn.
 
 For new installations, install using Add/Remove Products as normal. If you want
@@ -96,6 +101,17 @@ Poi 1.2 gets rid of old Archetypes based PoiResponses and introduces
 new light weight zope-3-style responses; this needs a migration.  In
 the ZMI go to portal_setup, then the Upgrades tab and run any upgrade
 steps that are available for Poi.  Backup your Data.fs first!
+
+NOTE: the upgrade steps can take a long time.  Try to run the upgrade
+when traffic on your site is low or take the site offline for best
+results.  When someone is editing content during the upgrade step, a
+ConflictError can occur, which means the upgrade will start all over.
+On sites with a lot of Poi content (like plone.org) that can mean that
+the upgrade stops after a while without being complete.  After the
+upgrade check if there are still old-style PoiResponses in your site
+by going to ``<your site url>/search?portal_type=PoiResponse``.  If
+this still gives back results, run the upgrade again (running it
+multiple times is safe).
 
 After any upgrade, run an Archetypes schema update, by going to
 'archetype_tool' in the ZMI, selecting the 'Update Schema' tab,
