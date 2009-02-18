@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2008-12-01 16:55+0000\n"
+"POT-Creation-Date: 2009-02-18 20:57+0000\n"
 "PO-Revision-Date: 2006-09-08 21:01 +0200\n"
 "Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
 "Language-Team: DE <de@li.org>\n"
@@ -29,7 +29,7 @@ msgid "Changes saved to response id ${response_id}."
 msgstr ""
 
 #. Default: "Delete"
-#: ../browser/response.pt:27
+#: ../skins/Poi/poi_response_delete_confirm.cpt:34
 msgid "Delete"
 msgstr "Löschen"
 
@@ -63,7 +63,7 @@ msgstr ""
 msgid "No response text added and no issue changes made."
 msgstr ""
 
-#: ../content/PoiIssue.py:507
+#: ../content/PoiIssue.py:531
 msgid "None"
 msgstr ""
 
@@ -342,7 +342,7 @@ msgstr "Ausgabe/ Version"
 
 # ./content/PoiIssue.py
 #. Default: "Response"
-#: ../browser/response.pt:104
+#: ../browser/edit_response.pt:50
 msgid "Poi_label_response"
 msgstr "Antwort"
 
@@ -501,7 +501,7 @@ msgid "label_return_to_issue"
 msgstr ""
 
 #. Default: "RSS Feed"
-#: ../skins/Poi/poi_tracker_view.pt:187
+#: ../skins/Poi/poi_issue_search_results.pt:6
 msgid "label_rss_feed"
 msgstr ""
 
@@ -716,7 +716,7 @@ msgid "poi_label_area"
 msgstr "Bereich"
 
 #. Default: "Attached:"
-#: ../browser/response.pt:59
+#: ../skins/Poi/poi_issue_view.pt:144
 msgid "poi_label_attachment"
 msgstr "Angehängt:"
 
@@ -807,8 +807,8 @@ msgstr "Beantworten von Nr.${responseNumber} zu \" ${issueTitle} \""
 msgid "poi_return_to_search"
 msgstr "Zurück zur Suche"
 
-#. Default: "Return to issue tracker"
-#: ../skins/Poi/poi_issue_search_form.pt:13
+#. Default: "Return to tracker"
+#: ../skins/Poi/poi_issue_view.pt:102
 #, fuzzy
 msgid "poi_return_to_tracker"
 msgstr "Zurück zum Problem-Tracker"

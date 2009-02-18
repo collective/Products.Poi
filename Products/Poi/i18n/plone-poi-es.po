@@ -18,76 +18,78 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-# portal type nams
-msgid "Issue Tracker"
-msgstr "Gestor de Incidencias"
-
-msgid "An issue tracker"
-msgstr "Un gestor de incidencias"
-
-msgid "Issue"
-msgstr "Incidencia"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Una incidencia. Las incidencias comienzan en el estado 'sin confirmar', y son atendidas por los gestores del proyecto."
-
-msgid "Response"
-msgstr "Respuesta"
+# issue transitions
+msgid " Open"
+msgstr "Abrir"
 
 msgid "A response to an issue."
 msgstr "Una respuesta a una incidencia."
 
-# tracker states
-msgid "Open for submissions"
-msgstr "Abierto"
+msgid "An issue tracker"
+msgstr "Un gestor de incidencias"
 
-msgid "Closed for submissions"
-msgstr "Cerrado"
+msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
+msgstr "Una incidencia. Las incidencias comienzan en el estado 'sin confirmar', y son atendidas por los gestores del proyecto."
+
+msgid "Begin work"
+msgstr "Comenzar trabajo"
+
+msgid "Being created"
+msgstr "Siendo creada"
 
 # tracker transitions
 msgid "Close tracker"
 msgstr "Cerrar gestor"
 
-msgid "Open tracker"
-msgstr "Abrir gestor"
+msgid "Closed for submissions"
+msgstr "Cerrado"
 
-# issue states
-msgid "Tested and confirmed closed"
-msgstr "Chequeada y confirmada"
-
-msgid "In progress"
-msgstr "En curso"
-
-msgid "Being created"
-msgstr "Siendo creada"
+msgid "Confirm resolved"
+msgstr "Confirmar resolución"
 
 msgid "Confirmed"
 msgstr "Confirmado"
 
+msgid "In progress"
+msgstr "En curso"
+
+msgid "Issue"
+msgstr "Incidencia"
+
+# portal type nams
+msgid "Issue Tracker"
+msgstr "Gestor de Incidencias"
+
+# browser/respsonse.py:transitions_for_display
+msgid "No change"
+msgstr "Ningún cambio"
+
 msgid "Open"
 msgstr "Abierta"
 
+# tracker states
+msgid "Open for submissions"
+msgstr "Abierto"
+
+msgid "Open tracker"
+msgstr "Abrir gestor"
+
+msgid "Post issue on save"
+msgstr "Publicar incidencia al guardar"
+
+# response transitions
+msgid "Post response on save"
+msgstr "Publicar respuesta al guardar"
+
+# response states
+msgid "Posted"
+msgstr "Publicada"
+
+msgid "Postpone"
+msgstr "Posponer"
+
 msgid "Postponed"
 msgstr "Pospuesta"
-
-msgid "Rejected"
-msgstr "Rechazada"
-
-msgid "Resolved"
-msgstr "Resuelta"
-
-msgid "Unconfirmed"
-msgstr "Sin confirmar"
-
-# issue transitions
-msgid " Open"
-msgstr "Abrir"
-
-msgid "Begin work"
-msgstr "Comenzar trabajo"
-
-msgid "Confirm resolved"
-msgstr "Confirmar resolución"
 
 msgid "Put on hold"
 msgstr "Dejar en espera"
@@ -95,27 +97,25 @@ msgstr "Dejar en espera"
 msgid "Re-open"
 msgstr "Re-abrir"
 
-msgid "Post issue on save"
-msgstr "Publicar incidencia al guardar"
-
-msgid "Postpone"
-msgstr "Posponer"
-
 msgid "Reject"
 msgstr "Rechazar"
+
+msgid "Rejected"
+msgstr "Rechazada"
 
 msgid "Resolve"
 msgstr "Resolver"
 
-# response states
-msgid "Posted"
-msgstr "Publicada"
+msgid "Resolved"
+msgstr "Resuelta"
 
-# response transitions
-msgid "Post response on save"
-msgstr "Publicar respuesta al guardar"
+msgid "Response"
+msgstr "Respuesta"
 
-# browser/respsonse.py:transitions_for_display
-msgid "No change"
-msgstr "Ningún cambio"
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "Chequeada y confirmada"
+
+msgid "Unconfirmed"
+msgstr "Sin confirmar"
 

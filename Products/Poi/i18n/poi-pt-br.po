@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-pt-br\n"
-"POT-Creation-Date: 2008-12-01 16:55+0000\n"
+"POT-Creation-Date: 2009-02-18 20:57+0000\n"
 "PO-Revision-Date: 2007-01-26 10:34-0300\n"
 "Last-Translator: Rafahela Bazzanella <rafabazzanella@yahoo.com.br>\n"
 "Language-Team: TcheZope <tchezope@yahoogroups.com>\n"
@@ -31,7 +31,7 @@ msgid "Changes saved to response id ${response_id}."
 msgstr ""
 
 #. Default: "Delete"
-#: ../browser/response.pt:27
+#: ../skins/Poi/poi_response_delete_confirm.cpt:34
 msgid "Delete"
 msgstr "Apagar"
 
@@ -65,7 +65,7 @@ msgstr ""
 msgid "No response text added and no issue changes made."
 msgstr ""
 
-#: ../content/PoiIssue.py:507
+#: ../content/PoiIssue.py:531
 msgid "None"
 msgstr ""
 
@@ -301,7 +301,7 @@ msgid "Poi_label_release"
 msgstr "Versão"
 
 #. Default: "Response"
-#: ../browser/response.pt:104
+#: ../browser/edit_response.pt:50
 msgid "Poi_label_response"
 msgstr "Resposta"
 
@@ -452,7 +452,7 @@ msgid "label_return_to_issue"
 msgstr ""
 
 #. Default: "RSS Feed"
-#: ../skins/Poi/poi_tracker_view.pt:187
+#: ../skins/Poi/poi_issue_search_results.pt:6
 msgid "label_rss_feed"
 msgstr ""
 
@@ -667,7 +667,7 @@ msgid "poi_label_area"
 msgstr "Área "
 
 #. Default: "Attached:"
-#: ../browser/response.pt:59
+#: ../skins/Poi/poi_issue_view.pt:144
 msgid "poi_label_attachment"
 msgstr "Anexado:"
 
@@ -758,8 +758,8 @@ msgstr "Resposta n. ${responseNumber} to \"${issueTitle}\""
 msgid "poi_return_to_search"
 msgstr "Retorne a busca"
 
-#. Default: "Return to issue tracker"
-#: ../skins/Poi/poi_issue_search_form.pt:13
+#. Default: "Return to tracker"
+#: ../skins/Poi/poi_issue_view.pt:102
 #, fuzzy
 msgid "poi_return_to_tracker"
 msgstr "Retorne ao gerenciador de ocorrências"

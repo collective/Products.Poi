@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-es\n"
-"POT-Creation-Date: 2008-12-01 16:55+0000\n"
+"POT-Creation-Date: 2009-02-18 20:57+0000\n"
 "PO-Revision-Date: 2008-10-17 10:05-0430\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -32,7 +32,7 @@ msgid "Changes saved to response id ${response_id}."
 msgstr "Se han guardado los cambios a la respuesta id ${response_id}."
 
 #. Default: "Delete"
-#: ../browser/response.pt:27
+#: ../skins/Poi/poi_response_delete_confirm.cpt:34
 msgid "Delete"
 msgstr "Borrar"
 
@@ -66,7 +66,7 @@ msgstr "No hay respuesta seleccionadas."
 msgid "No response text added and no issue changes made."
 msgstr "No hay respuesta en el texto añadido y no hay incidencia de cambios realizados."
 
-#: ../content/PoiIssue.py:507
+#: ../content/PoiIssue.py:531
 msgid "None"
 msgstr "Ninguno"
 
@@ -343,7 +343,7 @@ msgstr "Versión"
 
 # ./content/PoiIssue.py
 #. Default: "Response"
-#: ../browser/response.pt:104
+#: ../browser/edit_response.pt:50
 msgid "Poi_label_response"
 msgstr "Respuesta"
 
@@ -502,7 +502,7 @@ msgid "label_return_to_issue"
 msgstr "Volver a incidencia."
 
 #. Default: "RSS Feed"
-#: ../skins/Poi/poi_tracker_view.pt:187
+#: ../skins/Poi/poi_issue_search_results.pt:6
 msgid "label_rss_feed"
 msgstr "canal RSS"
 
@@ -712,7 +712,7 @@ msgid "poi_label_area"
 msgstr "Área"
 
 #. Default: "Attached:"
-#: ../browser/response.pt:59
+#: ../skins/Poi/poi_issue_view.pt:144
 msgid "poi_label_attachment"
 msgstr "Adjunto:"
 
@@ -801,8 +801,8 @@ msgstr "Respuesta # ${responseNumber} a \" ${issueTitle} \""
 msgid "poi_return_to_search"
 msgstr "Volver a la búsqueda"
 
-#. Default: "Return to issue tracker"
-#: ../skins/Poi/poi_issue_search_form.pt:13
+#. Default: "Return to tracker"
+#: ../skins/Poi/poi_issue_view.pt:102
 #, fuzzy
 msgid "poi_return_to_tracker"
 msgstr "Volver al gestor de incidencias"
