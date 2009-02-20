@@ -2,7 +2,9 @@ Poi: A friendly issue tracker
 =============================
 
  by Martin Aspeli <optilude@gmx.net>
+
  current maintainer: Maurits van Rees <maurits@vanrees.org>
+
  Released under the GNU General Public License, version 2
  
 Poi is an issue tracker product for Plone. It has three overarching aims:
@@ -21,7 +23,7 @@ look at something like PloneCollectorNG.
 
 Feedback is very welcome. 
 
-Please submit any bugs or feature requests to at: 
+Please submit any bugs or feature requests at: 
     
     http://plone.org/products/poi/issues
     
@@ -30,31 +32,6 @@ avoid unnecessary duplicates.
     
 See http://plone.org/products/poi for the latest release and the development 
 roadmap.
-
-
-Using HTML/kupu and other markups for issue text:
--------------------------------------------------
-
- **Please see notes about migration below!**
-
-Before version 1.0b2 Poi used to support kupu/rich text fields with HTML in the
-issue and response body. This was removed in favour of "intelligenttext", a
-plain-text markup that preserves whitespace and makes links clickable.
-
-This was found to work very well on plone.org and for the type of simple 
-trackers that Poi was intended for. However, a lot of users wanted kupu back.
-
-To get kupu back, you will need to edit Poi/config.py::
-
-  ISSUE_MIME_TYPES = ('text/x-web-intelligent', 'text/html')
-  DEFAULT_ISSUE_MIME_TYPE = 'text/html'
-
-You may also need to re-install Poi, and perform an Archetypes schema update,
-by going to archetypes_tool, and the Schema Update tab in the ZMI.
-
-Please note one **very important** thing:
-
-- If you upgrade Poi, you're likely to have to make this change again!
 
 
 Installation and dependencies
@@ -66,7 +43,7 @@ Products.PloneSoftwareCenter (and Products.ArchAddOn).
 
 Poi requires:
 
-  - Plone: 3.0+ on Zope 2.10.x (tested with Plone 3.0.6, 3.1.7 and 3.2.1)
+  - Plone: 3 on Zope 2.10.x (tested with Plone 3.0.6, 3.1.7 and 3.2.1)
 
   - DataGridField (*)
 
@@ -113,15 +90,13 @@ by going to ``<your site url>/search?portal_type=PoiResponse``.  If
 this still gives back results, run the upgrade again (running it
 multiple times is safe).
 
-After any upgrade, run an Archetypes schema update, by going to
-'archetype_tool' in the ZMI, selecting the 'Update Schema' tab,
-selecting all the 'Poi.*' types, and clicking 'Update schema'. It's
+After any upgrade, you may need to run an Archetypes schema update.
+Go to 'archetype_tool' in the ZMI, select the 'Update Schema' tab, and
+see if any of the 'Poi.*' types (or any other type actually) are
+selected.  If some are selected, click 'Update schema'.  It iss
 probably a good idea to choose 'All objects' from the drop-down as
-well, although this will take slightly longer.
-
-If you get errors about things being 'Missing', try to update your catalog,
-by going to portal_catalog in the ZMI, clicking the Advanced tab, and then
-the 'Update catalog' button.
+well, although this will take slightly longer.  When coming from Plone
+2.5, be sure to select 'Remove schema attributes from instances.'
 
 
 Usage
@@ -161,6 +136,31 @@ software center project instead of a manually defined list.
 For a look at how the various workflow states of an issue are
 connected, take a look at the attachment added by bethor to this
 issue: http://plone.org/products/poi/issues/179
+
+
+Using HTML/kupu and other markups for issue text:
+-------------------------------------------------
+
+ **Please see notes about migration below!**
+
+Before version 1.0b2 Poi used to support kupu/rich text fields with HTML in the
+issue and response body. This was removed in favour of "intelligenttext", a
+plain-text markup that preserves whitespace and makes links clickable.
+
+This was found to work very well on plone.org and for the type of simple 
+trackers that Poi was intended for. However, a lot of users wanted kupu back.
+
+To get kupu back, you will need to edit Poi/config.py::
+
+  ISSUE_MIME_TYPES = ('text/x-web-intelligent', 'text/html')
+  DEFAULT_ISSUE_MIME_TYPE = 'text/html'
+
+You may also need to re-install Poi, and perform an Archetypes schema update,
+by going to archetypes_tool, and the Schema Update tab in the ZMI.
+
+Please note one **very important** thing:
+
+- If you upgrade Poi, you're likely to have to make this change again!
 
 
 Credits
