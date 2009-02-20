@@ -84,7 +84,9 @@ the upgrade stops after a while without being complete.  After the
 upgrade check if there are still old-style PoiResponses in your site
 by going to ``<your site url>/search?portal_type=PoiResponse``.  If
 this still gives back results, simply run the upgrade again (running
-it multiple times is safe).
+it multiple times is safe).  You may need to click the 'Show' button
+to show old upgrades as portal_setup may think the upgrade has been
+completed.
 
 After any upgrade, you may need to run an Archetypes schema update.
 Go to 'archetype_tool' in the ZMI, select the 'Update Schema' tab, and
