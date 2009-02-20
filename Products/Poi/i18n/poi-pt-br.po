@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-pt-br\n"
-"POT-Creation-Date: 2009-02-18 20:57+0000\n"
+"POT-Creation-Date: 2009-02-20 23:17+0000\n"
 "PO-Revision-Date: 2007-01-26 10:34-0300\n"
 "Last-Translator: Rafahela Bazzanella <rafabazzanella@yahoo.com.br>\n"
 "Language-Team: TcheZope <tchezope@yahoogroups.com>\n"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../browser/response.py:489
+#: ../browser/response.py:491
 msgid "Changes saved to response id ${response_id}."
 msgstr ""
 
@@ -45,23 +45,23 @@ msgstr "Editar"
 msgid "Edit issue"
 msgstr ""
 
-#: ../browser/response.py:387
+#: ../browser/response.py:389
 msgid "Issue state"
 msgstr ""
 
-#: ../browser/response.py:516
+#: ../browser/response.py:518
 msgid "No response selected for removal."
 msgstr ""
 
-#: ../browser/response.py:480
+#: ../browser/response.py:482
 msgid "No response selected for saving."
 msgstr ""
 
-#: ../browser/response.py:182
+#: ../browser/response.py:184
 msgid "No response selected."
 msgstr ""
 
-#: ../browser/response.py:433
+#: ../browser/response.py:435
 msgid "No response text added and no issue changes made."
 msgstr ""
 
@@ -347,31 +347,31 @@ msgstr "Nome do Gerenciador"
 msgid "Poi_label_watchers"
 msgstr "Observadores da Ocorrência"
 
-#: ../browser/response.py:534
+#: ../browser/response.py:536
 msgid "Removed response id ${response_id}."
 msgstr ""
 
-#: ../browser/response.py:528
+#: ../browser/response.py:530
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr ""
 
-#: ../browser/response.py:196
+#: ../browser/response.py:198
 msgid "Response id ${response_id} does not exist."
 msgstr ""
 
-#: ../browser/response.py:555
+#: ../browser/response.py:557
 msgid "Response id ${response_id} has no attachment."
 msgstr ""
 
-#: ../browser/response.py:523
+#: ../browser/response.py:525
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr ""
 
-#: ../browser/response.py:190
+#: ../browser/response.py:192
 msgid "Response id ${response_id} is no integer."
 msgstr ""
 
-#: ../browser/response.py:393
+#: ../browser/response.py:395
 msgid "Responsible manager"
 msgstr ""
 
@@ -380,7 +380,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: ../browser/response.py:392
+#: ../browser/response.py:394
 msgid "Severity"
 msgstr ""
 
@@ -394,7 +394,7 @@ msgstr "Parar de Observar esta Ocorrência"
 msgid "Submit new issue"
 msgstr "Submeter nova ocorrência "
 
-#: ../browser/response.py:419
+#: ../browser/response.py:421
 msgid "Target release"
 msgstr ""
 
@@ -403,11 +403,11 @@ msgstr ""
 msgid "Watch this issue"
 msgstr "Observar a Ocorrência"
 
-#: ../browser/response.py:510
+#: ../browser/response.py:512
 msgid "You are not allowed to delete responses."
 msgstr ""
 
-#: ../browser/response.py:474
+#: ../browser/response.py:476
 msgid "You are not allowed to edit responses."
 msgstr ""
 
