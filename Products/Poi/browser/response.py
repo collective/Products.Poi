@@ -562,7 +562,7 @@ class Download(Base):
 
         # From now on file exists.
         # Code mostly taken from Archetypes/Field.py:FileField.download
-        filename = file.id()
+        filename = getattr(file, 'filename', file.getId())
         if filename is not None:
             if FILE_NORMALIZER:
                 filename = IUserPreferredFileNameNormalizer(request).normalize(
