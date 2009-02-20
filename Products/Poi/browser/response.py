@@ -141,12 +141,14 @@ class Base(BrowserView):
                 pass
         if icon is None:
             icon = context.getIcon()
+        filename = getattr(attachment, 'filename', attachment.getId())
         info = dict(
             icon = self.portal_url + '/' + icon,
             url = context.absolute_url() +\
                 '/@@poi_response_attachment?response_id=' + str(id),
             content_type = attachment.content_type,
             size = pretty_size(attachment.size),
+            filename = filename,
             )
         return info
 

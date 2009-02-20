@@ -1,13 +1,16 @@
+import logging
 from StringIO import StringIO
-import transaction
-from zope import interface
+
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
+from zope import interface
+import transaction
+
 from Products.Poi.interfaces import IIssue
 from Products.Poi.adapters import Response
 from Products.Poi.adapters import IResponseContainer
 from Products.Poi.browser.response import Create
-import logging
+
 logger = logging.getLogger("Poi")
 
 
@@ -61,6 +64,10 @@ def replace_old_with_new_responses(issue):
         changes = old_response.getIssueChanges()
         for change in changes:
             new_response.add_change(**change)
+        attachment_field = old_response.getField('attachment')
+        attachment = attachment_field.getRaw(old_response)
+        if attachment.get_size() > 0:
+            new_response.attachment = attachment
         folder.add(new_response)
         issue._delObject(old_response.getId())
     # This seems a good time to reindex the issue for good measure.

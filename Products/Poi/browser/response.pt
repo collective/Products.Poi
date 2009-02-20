@@ -59,7 +59,7 @@
         <div class="issue-attachment-label" i18n:translate="poi_label_attachment">Attached:</div>
         <img tal:attributes="src attachment/icon" />
         <a tal:attributes="href attachment/url"
-           tal:content="response/attachment/id" />
+           tal:content="attachment/filename" />
         <span class="discreet">
           &mdash;
           <tal:type content="attachment/content_type" />,

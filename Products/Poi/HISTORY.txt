@@ -5,6 +5,9 @@ Changelog for Poi
 1.2rc4 (unreleased)
 -------------------
 
+- In the migration from old to new style responses, also migrate the
+  attachments to the responses.  [maurits]
+
 - Added default_methods for the area and issueType fields of an issue.
   If the vocabulary of the field has only one value, we select that
   one.  See http://plone.org/products/poi/issues/202 [maurits]
