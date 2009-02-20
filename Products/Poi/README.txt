@@ -31,7 +31,7 @@ Please submit any bugs or feature requests at:
 avoid unnecessary duplicates.
     
 See http://plone.org/products/poi for the latest release and the development 
-roadmap.
+road map.
 
 
 Installation and dependencies
@@ -43,9 +43,9 @@ Products.PloneSoftwareCenter (and Products.ArchAddOn).
 
 Poi requires:
 
-  - Plone: 3 on Zope 2.10.x (tested with Plone 3.0.6, 3.1.7 and 3.2.1)
+  - Plone 3 on Zope 2.10.x (tested with Plone 3.0.6, 3.1.7 and 3.2.1)
 
-  - DataGridField (*)
+  - DataGridField
 
   - AddRemoveWidget
 
@@ -59,10 +59,6 @@ Poi requires:
     required.  See http://plone.org/products/plonesoftwarecenter
     Tested with PloneSoftwareCenter 1.5.
 
-(*) NOTE: Before version 1.0 beta 2, ArchAddOn was required instead of
-DataGridField.  Also note that PloneSoftwareCenter itself does require
-ArchAddOn.
-
 For new installations, install using Add/Remove Products as normal. If you want
 PloneSoftwareCenter configuration to be automatically configured, install PSC
 *first*. 
@@ -71,7 +67,7 @@ PloneSoftwareCenter configuration to be automatically configured, install PSC
 Upgrading
 ---------
 
-Re-install Poi from the Add/Remove Products control panel or
+Re-install Poi from the Add/Remove Products control panel or the
 portal_quickinstaller in the ZMI.
 
 Poi 1.2 gets rid of old Archetypes based PoiResponses and introduces
@@ -80,20 +76,20 @@ the ZMI go to portal_setup, then the Upgrades tab and run any upgrade
 steps that are available for Poi.  Backup your Data.fs first!
 
 NOTE: the upgrade steps can take a long time.  Try to run the upgrade
-when traffic on your site is low or take the site offline for best
+when traffic on your site is low or take the site off-line for best
 results.  When someone is editing content during the upgrade step, a
 ConflictError can occur, which means the upgrade will start all over.
 On sites with a lot of Poi content (like plone.org) that can mean that
 the upgrade stops after a while without being complete.  After the
 upgrade check if there are still old-style PoiResponses in your site
 by going to ``<your site url>/search?portal_type=PoiResponse``.  If
-this still gives back results, run the upgrade again (running it
-multiple times is safe).
+this still gives back results, simply run the upgrade again (running
+it multiple times is safe).
 
 After any upgrade, you may need to run an Archetypes schema update.
 Go to 'archetype_tool' in the ZMI, select the 'Update Schema' tab, and
 see if any of the 'Poi.*' types (or any other type actually) are
-selected.  If some are selected, click 'Update schema'.  It iss
+selected.  If some are selected, click 'Update schema'.  It is
 probably a good idea to choose 'All objects' from the drop-down as
 well, although this will take slightly longer.  When coming from Plone
 2.5, be sure to select 'Remove schema attributes from instances.'
@@ -121,7 +117,7 @@ you can change the state, importance or assignment of an issue.
 
 If email notification is enabled in the root tracker object, managers
 will get an email when there are new issues and responses, optionally
-via a mailing list. Issue submittes will also get emails upon issue
+via a mailing list. Issue submitters will also get emails upon issue
 responses. Additionally, when an issue is marked as "resolved" by a
 tracker manager, the submitter will receive an email asking him or her
 to mark the issue as confirmed closed.
@@ -141,7 +137,7 @@ issue: http://plone.org/products/poi/issues/179
 Using HTML/kupu and other markups for issue text:
 -------------------------------------------------
 
- **Please see notes about migration below!**
+ **Please see notes about migration above!**
 
 Before version 1.0b2 Poi used to support kupu/rich text fields with HTML in the
 issue and response body. This was removed in favour of "intelligenttext", a
