@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2009-02-20 23:17+0000\n"
+"POT-Creation-Date: 2009-02-21 00:24+0000\n"
 "PO-Revision-Date: 2009-02-18 21:58+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
@@ -397,11 +397,11 @@ msgstr "Tracker naam"
 msgid "Poi_label_watchers"
 msgstr "Issue volgers"
 
-#: ../browser/response.py:536
+#: ../browser/response.py:538
 msgid "Removed response id ${response_id}."
 msgstr "Reactie met id ${response_id} verwijderd."
 
-#: ../browser/response.py:530
+#: ../browser/response.py:531
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr "Reactie met id ${response_id} bestaat niet en kan dus niet verwijderd worden."
 
@@ -409,7 +409,7 @@ msgstr "Reactie met id ${response_id} bestaat niet en kan dus niet verwijderd wo
 msgid "Response id ${response_id} does not exist."
 msgstr "Reactie met id ${response_id} bestaat niet."
 
-#: ../browser/response.py:557
+#: ../browser/response.py:559
 msgid "Response id ${response_id} has no attachment."
 msgstr "Reactie met id ${response_id} heeft geen bijlage."
 

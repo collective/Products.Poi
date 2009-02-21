@@ -522,12 +522,14 @@ class Delete(Base):
                     response_id = int(response_id)
                 except ValueError:
                     status.addStatusMessage(
-                        _(u"Response id ${response_id} is no integer so it cannot be removed.",
+                        _(u"Response id ${response_id} is no integer so it "
+                          "cannot be removed.",
                           mapping=dict(response_id=response_id)),
                         type='error')
                 if response_id >= len(self.folder):
                     status.addStatusMessage(
-                        _(u"Response id ${response_id} does not exist so it cannot be removed.",
+                        _(u"Response id ${response_id} does not exist so it "
+                          "cannot be removed.",
                           mapping=dict(response_id=response_id)),
                         type='error')
                 else:

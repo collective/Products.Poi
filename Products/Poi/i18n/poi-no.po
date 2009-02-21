@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2009-02-20 23:17+0000\n"
+"POT-Creation-Date: 2009-02-21 00:24+0000\n"
 "PO-Revision-Date: 2007-05-06 17:00+0000\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: None <plone-i18n@lists.sourceforge.net>\n"
@@ -397,11 +397,11 @@ msgstr "Navn"
 msgid "Poi_label_watchers"
 msgstr "Emne-betraktere"
 
-#: ../browser/response.py:536
+#: ../browser/response.py:538
 msgid "Removed response id ${response_id}."
 msgstr ""
 
-#: ../browser/response.py:530
+#: ../browser/response.py:531
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr ""
 
@@ -409,7 +409,7 @@ msgstr ""
 msgid "Response id ${response_id} does not exist."
 msgstr ""
 
-#: ../browser/response.py:557
+#: ../browser/response.py:559
 msgid "Response id ${response_id} has no attachment."
 msgstr ""
 

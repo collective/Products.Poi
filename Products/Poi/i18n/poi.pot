@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2009-02-20 23:17+0000\n"
+"POT-Creation-Date: 2009-02-21 00:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -382,11 +382,11 @@ msgstr ""
 msgid "Poi_label_watchers"
 msgstr ""
 
-#: ../browser/response.py:536
+#: ../browser/response.py:538
 msgid "Removed response id ${response_id}."
 msgstr ""
 
-#: ../browser/response.py:530
+#: ../browser/response.py:531
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr ""
 
@@ -394,7 +394,7 @@ msgstr ""
 msgid "Response id ${response_id} does not exist."
 msgstr ""
 
-#: ../browser/response.py:557
+#: ../browser/response.py:559
 msgid "Response id ${response_id} has no attachment."
 msgstr ""
 

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-es\n"
-"POT-Creation-Date: 2009-02-20 23:17+0000\n"
+"POT-Creation-Date: 2009-02-21 00:24+0000\n"
 "PO-Revision-Date: 2008-10-17 10:05-0430\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -397,11 +397,11 @@ msgstr "Nombre del gestor"
 msgid "Poi_label_watchers"
 msgstr "Usuarios relacionados"
 
-#: ../browser/response.py:536
+#: ../browser/response.py:538
 msgid "Removed response id ${response_id}."
 msgstr "Eliminada ID de respuesta"
 
-#: ../browser/response.py:530
+#: ../browser/response.py:531
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr "Respuesta del ID ${response_id} no existe por lo que no se puede quitar."
 
@@ -409,7 +409,7 @@ msgstr "Respuesta del ID ${response_id} no existe por lo que no se puede quitar.
 msgid "Response id ${response_id} does not exist."
 msgstr "Respuesta del ID ${response_id} no existe."
 
-#: ../browser/response.py:557
+#: ../browser/response.py:559
 msgid "Response id ${response_id} has no attachment."
 msgstr "Respuesta del ID ${response_id} no tiene adjunto."
 
