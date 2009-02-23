@@ -2,8 +2,8 @@ Changelog for Poi
 =================
 
 
-1.2rc4 (unreleased)
--------------------
+1.2 (2009-02-23)
+----------------
 
 - In the migration from old to new style responses, also migrate the
   attachments to the responses.  [maurits]
