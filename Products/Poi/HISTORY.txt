@@ -79,8 +79,8 @@ Changelog for Poi
 - Translation updates.  [maurits]
 
 
-Poi 1.2 beta 1 - (12 July 2008)
--------------------------------
+1.2 beta 1 - (12 July 2008)
+---------------------------
 
 - Merged r68220 and r68223 from branches/1.1:
   Fixed typo that messed up a few translations.  
@@ -101,8 +101,8 @@ Poi 1.2 beta 1 - (12 July 2008)
   [maurits]
 
 
-Poi 1.2 alpha 1 - (17 June 2008)
---------------------------------
+1.2 alpha 1 - (17 June 2008)
+----------------------------
 
 - Handle target release better -- there was some confusion between
   values and labels.  [maurits]
@@ -333,8 +333,8 @@ Poi 1.2 alpha 1 - (17 June 2008)
   [maurits]
 
 
-Poi 1.1.1 - (Unreleased)
-------------------------
+1.1.1 - (Unreleased)
+--------------------
 
     - In issue view show CreationDate instead of (modification) Date
       of the PoiResponse, as the template states this is the date the
@@ -351,8 +351,8 @@ Poi 1.1.1 - (Unreleased)
       [maurits]
 
 
-Poi 1.1 final - Released December 27, 2007
-------------------------------------------
+1.1 final - Released December 27, 2007
+--------------------------------------
 
     (No changes compared to rc4.)
 
