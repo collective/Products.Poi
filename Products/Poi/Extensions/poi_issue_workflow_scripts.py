@@ -33,7 +33,7 @@ __docformat__ = 'plaintext'
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
 
-from Products.Poi.events import poi_email_issue_resolved_template
+from Products.Poi import PoiMessageFactory as _
 
 
 def sendInitialEmail(self, state_change, **kw):
@@ -73,12 +73,28 @@ def sendResolvedMail(self, state_change, **kw):
         stateChanger = memberInfo['fullname'] or stateChanger
 
     fromName = portal.getProperty('email_from_name', None)
-    mailText = poi_email_issue_resolved_template % dict(
-        issue_title = su(issue.title_or_id()),
-        tracker_title = su(tracker.title_or_id()),
-        response_author = su(stateChanger),
-        issue_url = su(issue.absolute_url()),
-        from_name = su(fromName))
+
+
+    mailText = _('poi_email_issue_resolved_template', u"""
+The issue **${issue_title}** in the **${tracker_title}**
+tracker has been marked as resolved by **${response_author}**.
+Please visit the issue and either confirm that it has been
+satisfactorily resolved or re-open it.
+
+Response Information
+--------------------
+
+Issue
+  ${issue_title} (${issue_url})
+
+
+\* This is an automated email, please do not reply - ${from_name}
+""", mapping=dict(
+            issue_title = su(issue.title_or_id()),
+            tracker_title = su(tracker.title_or_id()),
+            response_author = su(stateChanger),
+            issue_url = su(issue.absolute_url()),
+            from_name = su(fromName)))
 
     subject = "[%s] Resolved #%s - %s" % (
         tracker.getExternalTitle(), issue.getId(), issue.Title())

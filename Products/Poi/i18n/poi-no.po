@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2009-02-21 00:24+0000\n"
+"POT-Creation-Date: 2009-03-07 23:13+0000\n"
 "PO-Revision-Date: 2007-05-06 17:00+0000\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: None <plone-i18n@lists.sourceforge.net>\n"
@@ -64,7 +64,7 @@ msgstr ""
 msgid "No response text added and no issue changes made."
 msgstr ""
 
-#: ../content/PoiIssue.py:531
+#: ../content/PoiIssue.py:530
 msgid "None"
 msgstr ""
 
@@ -607,6 +607,21 @@ msgstr "den"
 msgid "poi_all_pending_issues"
 msgstr ""
 
+#. Default: "\nThe issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n\* This is an automated email, please do not reply - ${from_name}\n"
+#: ../Extensions/poi_issue_workflow_scripts.py:78
+msgid "poi_email_issue_resolved_template"
+msgstr ""
+
+#. Default: "\nA new issue has been submitted to the **${tracker_title}**\ntracker by **${issue_author}** and awaits confirmation.\n\nIssue Information\n-----------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n**Issue Details**::\n\n${issue_details}\n\n\n\* This is an automated email, please do not reply - ${from_name}\n"
+#: ../content/PoiIssue.py:622
+msgid "poi_email_new_issue_template"
+msgstr ""
+
+#. Default: "\nA new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n\* This is an automated email, please do not reply - ${from_name}\n"
+#: ../events.py:108
+msgid "poi_email_new_response_template"
+msgstr ""
+
 #. Default: "By area"
 #: ../skins/Poi/poi_tracker_view.pt:100
 msgid "poi_heading_by_area"
@@ -656,6 +671,11 @@ msgstr "Åpne emner"
 #. Default: "Orphaned issues"
 #: ../skins/Poi/poi_tracker_view.pt:241
 msgid "poi_heading_orphaned_issues"
+msgstr ""
+
+#. Default: "Response Details"
+#: ../events.py:96
+msgid "poi_heading_response_details"
 msgstr ""
 
 #. Default: "Issue search results"

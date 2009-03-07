@@ -48,8 +48,9 @@ from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
 from AccessControl import Unauthorized
 from Products.CMFCore.utils import getToolByName
-from ZODB.POSException import ConflictError
 from Products.CMFPlone.utils import log_exc, log
+from Products.PageTemplates.GlobalTranslationService import \
+    getGlobalTranslationService
 
 from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
@@ -403,6 +404,9 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         email_msg = MIMEMultipart('alternative')
         email_msg.epilogue = ''
 
+        # Translate the body text
+        ts = getGlobalTranslationService()
+        rstText = ts.translate('Poi', rstText, context=self)
         # We must choose the body charset manually
         for body_charset in 'US-ASCII', charset, 'UTF-8':
             try:

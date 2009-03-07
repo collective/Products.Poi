@@ -5,7 +5,9 @@ Changelog for Poi
 1.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Made it possible to translate the email messages.  Fixes
+  http://plone.org/products/poi/issues/209
+  [maurits]
 
 
 1.2 (2009-02-23)

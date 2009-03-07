@@ -57,7 +57,6 @@ from Products.Poi.config import DESCRIPTION_LENGTH
 from Products.Poi.config import ISSUE_MIME_TYPES
 from Products.Poi.config import PROJECTNAME
 from Products.Poi.adapters import IResponseContainer
-from Products.Poi.events import poi_email_new_issue_template
 
 from Products.Poi import permissions
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
@@ -619,13 +618,31 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         issueDetails = '\n\n'.join([wrapper.fill(p) for p in paras])
 
         addresses = tracker.getNotificationEmailAddresses()
-        mailText = poi_email_new_issue_template % dict(
-            issue_title = su(self.title_or_id()),
-            tracker_title = su(tracker.title_or_id()),
-            issue_author = su(issueAuthor),
-            issue_details = su(issueDetails),
-            issue_url = su(self.absolute_url()),
-            from_name = su(fromName))
+
+        mailText = _('poi_email_new_issue_template', u"""
+A new issue has been submitted to the **${tracker_title}**
+tracker by **${issue_author}** and awaits confirmation.
+
+Issue Information
+-----------------
+
+Issue
+  ${issue_title} (${issue_url})
+
+
+**Issue Details**::
+
+${issue_details}
+
+
+\* This is an automated email, please do not reply - ${from_name}
+""", mapping=dict(
+                issue_title = su(self.title_or_id()),
+                tracker_title = su(tracker.title_or_id()),
+                issue_author = su(issueAuthor),
+                issue_details = su(issueDetails),
+                issue_url = su(self.absolute_url()),
+                from_name = su(fromName)))
         subject = "[%s] #%s - New issue: %s" % (
             tracker.getExternalTitle(), self.getId(), self.Title())
 
