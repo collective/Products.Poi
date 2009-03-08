@@ -66,6 +66,7 @@ def sendResponseNotificationMail(issue, response):
     portal = portal_url.getPortalObject()
     portal_membership = getToolByName(portal, 'portal_membership')
     plone_utils = getToolByName(portal, 'plone_utils')
+    ts = getGlobalTranslationService()
 
     charset = plone_utils.getSiteEncoding()
 
@@ -96,14 +97,18 @@ def sendResponseNotificationMail(issue, response):
         header = _(
             'poi_heading_response_details',
             u"Response Details")
-        ts = getGlobalTranslationService()
         header = ts.translate('Poi', header, context=issue)
         responseDetails = u"**%s**::\n\n\n%s" % (header, responseDetails)
 
     changes = u''
     for change in response.changes:
-        changes += u"%s -> %s\n" % (su(change.get('before')),
-                                  su(change.get('after')))
+        before = su(change.get('before'))
+        after = su(change.get('after'))
+        # Some changes are workflow changes, which can be translated.
+        # Note that workflow changes are in the plone domain.
+        before = ts.translate('plone', before, context=issue)
+        after = ts.translate('plone', after, context=issue)
+        changes += u"%s -> %s\n" % (before, after)
 
     mailText = _('poi_email_new_response_template', u"""
 A new response has been given to the issue **${issue_title}**

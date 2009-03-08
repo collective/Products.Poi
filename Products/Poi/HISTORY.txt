@@ -5,6 +5,10 @@ Changelog for Poi
 1.2.1 (unreleased)
 ------------------
 
+- When sending an email about changes to an issue, translate those
+  changes, as some of them are workflow changes, which can be
+  translated.  [maurits]
+
 - Use the global translation service to translate the text that is
   added as status message.  [maurits]
 
