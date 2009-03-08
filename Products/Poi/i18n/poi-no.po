@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2009-03-07 23:13+0000\n"
+"POT-Creation-Date: 2009-03-08 00:37+0000\n"
 "PO-Revision-Date: 2007-05-06 17:00+0000\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: None <plone-i18n@lists.sourceforge.net>\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: ../browser/response.py:491
+#: ../browser/response.py:497
 msgid "Changes saved to response id ${response_id}."
 msgstr ""
 
@@ -44,23 +44,23 @@ msgstr "Rediger"
 msgid "Edit issue"
 msgstr ""
 
-#: ../browser/response.py:389
+#: ../browser/response.py:394
 msgid "Issue state"
 msgstr ""
 
-#: ../browser/response.py:518
+#: ../browser/response.py:526
 msgid "No response selected for removal."
 msgstr ""
 
-#: ../browser/response.py:482
+#: ../browser/response.py:488
 msgid "No response selected for saving."
 msgstr ""
 
-#: ../browser/response.py:184
+#: ../browser/response.py:186
 msgid "No response selected."
 msgstr ""
 
-#: ../browser/response.py:435
+#: ../browser/response.py:440
 msgid "No response text added and no issue changes made."
 msgstr ""
 
@@ -397,31 +397,31 @@ msgstr "Navn"
 msgid "Poi_label_watchers"
 msgstr "Emne-betraktere"
 
-#: ../browser/response.py:538
+#: ../browser/response.py:548
 msgid "Removed response id ${response_id}."
 msgstr ""
 
-#: ../browser/response.py:531
+#: ../browser/response.py:541
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr ""
 
-#: ../browser/response.py:198
+#: ../browser/response.py:200
 msgid "Response id ${response_id} does not exist."
 msgstr ""
 
-#: ../browser/response.py:559
+#: ../browser/response.py:570
 msgid "Response id ${response_id} has no attachment."
 msgstr ""
 
-#: ../browser/response.py:525
+#: ../browser/response.py:533
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr ""
 
-#: ../browser/response.py:192
+#: ../browser/response.py:194
 msgid "Response id ${response_id} is no integer."
 msgstr ""
 
-#: ../browser/response.py:395
+#: ../browser/response.py:400
 msgid "Responsible manager"
 msgstr ""
 
@@ -430,7 +430,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: ../browser/response.py:394
+#: ../browser/response.py:399
 msgid "Severity"
 msgstr ""
 
@@ -444,7 +444,7 @@ msgstr "Slutt å følge med dette emnet"
 msgid "Submit new issue"
 msgstr "Opprett nytt emne"
 
-#: ../browser/response.py:421
+#: ../browser/response.py:426
 msgid "Target release"
 msgstr ""
 
@@ -453,11 +453,11 @@ msgstr ""
 msgid "Watch this issue"
 msgstr "Følg med dette emnet"
 
-#: ../browser/response.py:512
+#: ../browser/response.py:520
 msgid "You are not allowed to delete responses."
 msgstr ""
 
-#: ../browser/response.py:476
+#: ../browser/response.py:482
 msgid "You are not allowed to edit responses."
 msgstr ""
 

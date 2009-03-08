@@ -5,6 +5,9 @@ Changelog for Poi
 1.2.1 (unreleased)
 ------------------
 
+- Use the global translation service to translate the text that is
+  added as status message.  [maurits]
+
 - Made it possible to translate the email messages.  Fixes
   http://plone.org/products/poi/issues/209
   [maurits]
