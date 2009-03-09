@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-1.2.1 (unreleased)
+1.2.1 (2009-03-09)
 ------------------
 
 - When sending an email about changes to an issue, translate those
