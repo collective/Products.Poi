@@ -1,13 +1,14 @@
 # translation of poi-fr.po to French
 # Sebastien Douche <sdouche@gmail.com>, 2005.
 # Encolpe Degoute <encolpe@gmail.com>, 2008.
+# Kevin Deldycke <kevin@deldycke.com>, 2009.
 # Translation of poi.pot to French
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
 "POT-Creation-Date: 2009-03-08 00:37+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
-"Last-Translator: Encolpe Degoute <encolpe@gmail.com>\n"
+"Last-Translator: Kevin Deldycke <kevin@deldycke.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,16 +41,16 @@ msgstr "Effacer"
 #. Default: "Edit"
 #: ../browser/response.pt:17
 msgid "Edit"
-msgstr "Éditer"
+msgstr "Modifier"
 
 #. Default: "Edit issue"
 #: ../skins/Poi/poi_issue_view.pt:151
 msgid "Edit issue"
-msgstr "Éditer le ticket"
+msgstr "Modifier le ticket"
 
 #: ../browser/response.py:394
 msgid "Issue state"
-msgstr ""
+msgstr "État du ticket"
 
 #: ../browser/response.py:526
 msgid "No response selected for removal."
@@ -215,12 +216,12 @@ msgstr "Des étiquettes peuvent être employées pour ajouter une catégorisatio
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
 msgid "Poi_help_svnurl"
-msgstr ""
+msgstr "Entrez s'il vous plaît l'Url vers le dépôt SVN correspondant, e.g.: http://dev.plone.org/collective/changeset/%(rev)s pour les Products de Plone collective."
 
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"
 msgid "Poi_help_targetRelease"
-msgstr ""
+msgstr "Distribution cible de correction du ticket"
 
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
@@ -381,12 +382,12 @@ msgstr "Étiquettes"
 # ./content/PoiTracker.py
 #. Default: "URL to SVN"
 msgid "Poi_label_svnurl"
-msgstr ""
+msgstr "URL du SVN"
 
 # ./content/PoiIssue.py
 #. Default: "Target release"
 msgid "Poi_label_targetRelease"
-msgstr ""
+msgstr "Distribution cible"
 
 # ./content/PoiTracker.py
 #. Default: "Tracker name"
@@ -424,7 +425,7 @@ msgstr "L'identifiant « ${response_id} » de la réponse n'est pas un entier."
 
 #: ../browser/response.py:400
 msgid "Responsible manager"
-msgstr ""
+msgstr "Responsable"
 
 #. Default: "Search"
 #: ../skins/Poi/poi_tracker_view.pt:31
@@ -433,7 +434,7 @@ msgstr "Rechercher"
 
 #: ../browser/response.py:399
 msgid "Severity"
-msgstr ""
+msgstr "Sévérité"
 
 #. Default: "Stop watching this issue"
 #: ../skins/Poi/poi_issue_view.pt:159
@@ -447,7 +448,7 @@ msgstr "Soumettre un nouveau ticket"
 
 #: ../browser/response.py:426
 msgid "Target release"
-msgstr ""
+msgstr "Distribution cible"
 
 #. Default: "Watch this issue"
 #: ../skins/Poi/poi_issue_view.pt:165
@@ -485,22 +486,22 @@ msgstr "La recherche n'a renvoyé aucun résultat"
 #. Default: "You are not allowed to edit this response."
 #: ../browser/edit_response.pt:38
 msgid "label_edit_response_not_allowed"
-msgstr ""
+msgstr "Vous n'êtes pas autorisé à modifier cette réponse."
 
 #. Default: "Please enter your response below"
 #: ../browser/edit_response.pt:53
 msgid "label_enter_response"
-msgstr ""
+msgstr "Veuillez saisir votre réponse ci-dessous"
 
 #. Default: "Powered by"
 #: ../skins/Poi/poi_tracker_view.pt:261
 msgid "label_powered_by"
-msgstr ""
+msgstr "Propulsé par"
 
 #. Default: "Return to issue."
 #: ../browser/edit_response.pt:26
 msgid "label_return_to_issue"
-msgstr ""
+msgstr "Revenir au ticket."
 
 #. Default: "RSS Feed"
 #: ../skins/Poi/poi_issue_search_results.pt:6
@@ -566,12 +567,12 @@ msgstr "Si vous le pouvez, vous devriez <a href=\"${DYNAMIC_CONTENT}\">identifia
 #. Default: "If you can, please log in before submitting a reaction."
 #: ../browser/response.pt:85
 msgid "login_suggestion_response"
-msgstr ""
+msgstr "Si vous le pouvez, authentifiez-vous s'il vous plaît avant de poster une réaction."
 
 #. Default: "No responses can be added."
 #: ../browser/response.pt:74
 msgid "msg_no_responses_can_be_added"
-msgstr ""
+msgstr "Aucune réponse ne peut être ajoutée."
 
 #. Default: "(Not assigned)"
 #: ../skins/Poi/poi_issue_search_form.pt:84
@@ -586,17 +587,17 @@ msgstr "Ajouté par"
 #. Default: "Added ${count} day(s) ago."
 #: ../browser/log.pt:77
 msgid "poi_added_days_ago"
-msgstr ""
+msgstr "Ajouté il y a ${count} jour(s)."
 
 #. Default: "Added ${count} hour(s) ago."
 #: ../browser/log.pt:70
 msgid "poi_added_hours_ago"
-msgstr ""
+msgstr "Ajouté il y a ${count} heure(s)."
 
 #. Default: "Added ${count} minute(s) ago."
 #: ../browser/log.pt:63
 msgid "poi_added_minutes_ago"
-msgstr ""
+msgstr "Ajouté il y a ${count} minute(s)."
 
 #. Default: "on"
 #: ../browser/response.pt:39
@@ -611,17 +612,17 @@ msgstr "Tous les tickets en attente"
 #. Default: "\nThe issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n\* This is an automated email, please do not reply - ${from_name}\n"
 #: ../Extensions/poi_issue_workflow_scripts.py:78
 msgid "poi_email_issue_resolved_template"
-msgstr ""
+msgstr "\nLe ticket **${issue_title}** du gestionnaire **${tracker_title}**\na été marqué comme résolu par **${response_author}**.\nConsultez s'il vous plait le ticket pour confirmer qu'il a été résolu de façon\nacceptable ou le réouvrir le cas échéant.\n\nInformations sur la réponse\n--------------------\n\nTicket\n  ${issue_title} (${issue_url})\n\n\n\* Ceci est un email automatique, merci de ne pas répondre - ${from_name}\n"s
 
 #. Default: "\nA new issue has been submitted to the **${tracker_title}**\ntracker by **${issue_author}** and awaits confirmation.\n\nIssue Information\n-----------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n**Issue Details**::\n\n${issue_details}\n\n\n\* This is an automated email, please do not reply - ${from_name}\n"
 #: ../content/PoiIssue.py:622
 msgid "poi_email_new_issue_template"
-msgstr ""
+msgstr "\nUn nouveau tiket a été créé dans le gestionnaire **${tracker_title}**\npar **${issue_author}** et attends confirmation.\n\nInformations sur le ticket\n-----------------\n\nTicket\n  ${issue_title} (${issue_url})\n\n\n**Détails du ticket**::\n\n${issue_details}\n\n\n\* Ceci est un email automatique, merci de ne pas répondre - ${from_name}\n"
 
 #. Default: "\nA new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n\* This is an automated email, please do not reply - ${from_name}\n"
 #: ../events.py:108
 msgid "poi_email_new_response_template"
-msgstr ""
+msgstr "\nUne nouvelle réponse à été donnée à propos du ticket **${issue_title}**\ndu gestionnaire **${tracker_title}** par **${response_author}**.\n\nInformations sur la réponse\n--------------------\n\nTicket\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n\* Ceci est un email automatique, merci de ne pas répondre - ${from_name}\n"
 
 #. Default: "By area"
 #: ../skins/Poi/poi_tracker_view.pt:100
@@ -676,7 +677,7 @@ msgstr "Tickets orphelins"
 #. Default: "Response Details"
 #: ../events.py:96
 msgid "poi_heading_response_details"
-msgstr ""
+msgstr "Détails de la réponse"
 
 #. Default: "Issue search results"
 #: ../skins/Poi/poi_issue_search.pt:31
@@ -808,12 +809,12 @@ msgstr "Termes de la recherche"
 #. Default: "Match all tags"
 #: ../skins/Poi/poi_issue_search_form.pt:244
 msgid "poi_match_all_tags"
-msgstr ""
+msgstr "Faire correspondre toutes les étiquettes"
 
 #. Default: "New issue ${name} added by ${author}"
 #: ../browser/log.pt:33
 msgid "poi_new_issue_added"
-msgstr ""
+msgstr "Nouveau ticket ${name} ajouté par ${author}"
 
 #. Default: "Response #${responseNumber} to \"${issueTitle}\""
 #: ../skins/Poi/poi_response_view.pt:19
@@ -949,17 +950,17 @@ msgstr "Voir l'intégralité du ticket"
 #. Default: "Add response"
 #: ../browser/response.pt:80
 msgid "title_add_response"
-msgstr ""
+msgstr "Ajouter une réponse"
 
 #. Default: "Edit response"
 #: ../browser/edit_response.pt:35
 msgid "title_edit_response"
-msgstr ""
+msgstr "Modifier la réponse"
 
 #. Default: "Error: no response found for editing"
 #: ../browser/edit_response.pt:24
 msgid "title_error_no_response"
-msgstr ""
+msgstr "Erreur: aucune réponse trouvée pour modification"
 
 #. Default: "RSS feed of these search results"
 #: ../skins/Poi/poi_issue_search_results.pt:6
