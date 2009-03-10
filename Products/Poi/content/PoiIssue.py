@@ -685,6 +685,9 @@ ${issue_details}
             self)
 
 
+# XXX get rid of this modify_fti function.  We can do that in
+# types/PoiIssue.xml
+
 def modify_fti(fti):
     # Hide unnecessary tabs (usability enhancement)
     for a in fti['actions']:
