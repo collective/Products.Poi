@@ -103,4 +103,13 @@
       sortkey="3"
       profile="Products.Poi:default" />
 
+  <gs:upgradeStep
+      title="Poi responses second try"
+      description="Alternative migration from old style to new style Poi responses."
+      source="1.1"
+      destination="1.2"
+      handler="Products.Poi.migration.migrate_responses_alternative"
+      sortkey="4"
+      profile="Products.Poi:default" />
+
 </configure>

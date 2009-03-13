@@ -1,4 +1,5 @@
 import logging
+import sets
 from StringIO import StringIO
 
 from Products.CMFCore.utils import getToolByName
@@ -100,6 +101,49 @@ def migrate_responses(context):
         # (say plone.org) it may be virtually impossible to finish
         # this very big migration.
         logger.info("Committing transaction after migrating this tracker.")
+        transaction.commit()
+
+
+def migrate_responses_alternative(context):
+    """Alternative way to migrate responses.
+
+    On big sites (like plone.org) it can be hard for the response
+    migration to finish without getting a ConflictError when someone
+    else is adding content at the same time.  And the normal migration
+    wakes up all issues in each tracker, which is not ideal on a big
+    site.
+
+    This alternative migration can help you if a search like this
+    still gives search results:
+    http://plone.org/search?portal_type=PoiResponse
+    """
+    logger.info("Starting alternative migration of old style to new style "
+                "responses.")
+    catalog = getToolByName(context, 'portal_catalog')
+    response_brains = catalog.searchResults(
+        portal_type='PoiResponse')
+
+    def get_parent_path(path):
+        #return '/'.join(path.split('/')[:-1])
+        return path[:path.rfind('/')]
+
+    # Get a list of issues that still have one or more old style responses.
+    issue_paths = sets.Set()
+    logger.info("Found %d old style responses.", len(response_brains))
+    for brain in response_brains:
+        response_path = brain.getPath()
+        issue_paths.add(get_parent_path(response_path))
+    logger.info("Found %d issues with old style responses.", len(issue_paths))
+    for issue_path in issue_paths:
+        tracker_path = get_parent_path(issue_path)
+        tracker = context.restrictedTraverse(tracker_path)
+        issue = tracker.restrictedTraverse(issue_path)
+        original_send_emails = tracker.getSendNotificationEmails()
+        tracker.setSendNotificationEmails(False)
+        logger.info("Migrating issue %s", issue_path)
+        replace_old_with_new_responses(issue)
+        tracker.setSendNotificationEmails(original_send_emails)
+        logger.info("Committing transaction after migrating this issue.")
         transaction.commit()
 
 

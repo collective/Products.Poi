@@ -86,7 +86,9 @@ by going to ``<your site url>/search?portal_type=PoiResponse``.  If
 this still gives back results, simply run the upgrade again (running
 it multiple times is safe).  You may need to click the 'Show' button
 to show old upgrades as portal_setup may think the upgrade has been
-completed.
+completed.  There is also an alternative migration of old style
+responses that may be more suitable for big sites (but will also work
+on other sites).  It is the fourth upgrade step for Poi.
 
 After any upgrade, you may need to run an Archetypes schema update.
 Go to 'archetype_tool' in the ZMI, select the 'Update Schema' tab, and

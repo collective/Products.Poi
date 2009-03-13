@@ -5,6 +5,9 @@ Changelog for Poi
 1.2.2 (unreleased)
 ------------------
 
+- Added alternative migration for old style responses that should have
+  more chance to finish on a big site like plone.org.  [maurits]
+
 - Fixed html validation error that has been around since Christmas
   2005!  Spotted by Bill Freeman.  [maurits]
 
