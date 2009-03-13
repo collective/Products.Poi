@@ -612,7 +612,7 @@ msgstr "Tous les tickets en attente"
 #. Default: "\nThe issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n\* This is an automated email, please do not reply - ${from_name}\n"
 #: ../Extensions/poi_issue_workflow_scripts.py:78
 msgid "poi_email_issue_resolved_template"
-msgstr "\nLe ticket **${issue_title}** du gestionnaire **${tracker_title}**\na été marqué comme résolu par **${response_author}**.\nConsultez s'il vous plait le ticket pour confirmer qu'il a été résolu de façon\nacceptable ou le réouvrir le cas échéant.\n\nInformations sur la réponse\n--------------------\n\nTicket\n  ${issue_title} (${issue_url})\n\n\n\* Ceci est un email automatique, merci de ne pas répondre - ${from_name}\n"s
+msgstr "\nLe ticket **${issue_title}** du gestionnaire **${tracker_title}**\na été marqué comme résolu par **${response_author}**.\nConsultez s'il vous plait le ticket pour confirmer qu'il a été résolu de façon\nacceptable ou le réouvrir le cas échéant.\n\nInformations sur la réponse\n--------------------\n\nTicket\n  ${issue_title} (${issue_url})\n\n\n\* Ceci est un email automatique, merci de ne pas répondre - ${from_name}\n"
 
 #. Default: "\nA new issue has been submitted to the **${tracker_title}**\ntracker by **${issue_author}** and awaits confirmation.\n\nIssue Information\n-----------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n**Issue Details**::\n\n${issue_details}\n\n\n\* This is an automated email, please do not reply - ${from_name}\n"
 #: ../content/PoiIssue.py:622
