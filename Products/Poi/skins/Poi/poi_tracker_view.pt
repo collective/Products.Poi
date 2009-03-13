@@ -27,7 +27,7 @@
       
       <div id="issue-quicksearch-box">
          <form action="poi_issue_quicksearch">
-            <input type="searchText" name="searchText" size="15" />
+            <input type="text" name="searchText" size="15" />
             <input class="searchButton" type="submit" value="Search" i18n:attributes="value"/>
          </form>
          <a id="issue-search-link" 

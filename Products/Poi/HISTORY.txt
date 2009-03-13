@@ -5,6 +5,9 @@ Changelog for Poi
 1.2.2 (unreleased)
 ------------------
 
+- Fixed html validation error that has been around since Christmas
+  2005!  Spotted by Bill Freeman.  [maurits]
+
 - Update french translation.  [kdeldycke]
 
 
