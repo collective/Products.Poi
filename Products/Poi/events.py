@@ -110,8 +110,9 @@ def sendResponseNotificationMail(issue, response):
         after = ts.translate('plone', after, context=issue)
         changes += u"%s -> %s\n" % (before, after)
 
-    mailText = _('poi_email_new_response_template', u"""
-A new response has been given to the issue **${issue_title}**
+    mailText = _(
+        'poi_email_new_response_template',
+        u"""A new response has been given to the issue **${issue_title}**
 in the tracker **${tracker_title}** by **${response_author}**.
 
 Response Information
@@ -124,8 +125,8 @@ ${changes}
 
 ${response_details}
 
-\* This is an automated email, please do not reply - ${from_name}
-""", mapping=dict(
+* This is an automated email, please do not reply - ${from_name}""",
+        mapping=dict(
             issue_title = su(issue.title_or_id()),
             tracker_title = su(tracker.title_or_id()),
             response_author = responseAuthor,

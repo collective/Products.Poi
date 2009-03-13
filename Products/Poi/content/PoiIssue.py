@@ -619,8 +619,9 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
 
         addresses = tracker.getNotificationEmailAddresses()
 
-        mailText = _('poi_email_new_issue_template', u"""
-A new issue has been submitted to the **${tracker_title}**
+        mailText = _(
+            'poi_email_new_issue_template',
+            u"""A new issue has been submitted to the **${tracker_title}**
 tracker by **${issue_author}** and awaits confirmation.
 
 Issue Information
@@ -635,8 +636,8 @@ Issue
 ${issue_details}
 
 
-\* This is an automated email, please do not reply - ${from_name}
-""", mapping=dict(
+* This is an automated email, please do not reply - ${from_name}""",
+            mapping=dict(
                 issue_title = su(self.title_or_id()),
                 tracker_title = su(tracker.title_or_id()),
                 issue_author = su(issueAuthor),
