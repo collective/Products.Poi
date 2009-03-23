@@ -5,6 +5,8 @@ Changelog for Poi
 1.2.2 (unreleased)
 ------------------
 
+- Fixed silly error in formatting an email address.  [maurits]
+
 - Added alternative migration for old style responses that should have
   more chance to finish on a big site like plone.org.  [maurits]
 

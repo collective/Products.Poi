@@ -398,7 +398,7 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         mfrom = formataddr((from_name, from_address))
         if parseaddr(mfrom)[1] != from_address:
             # formataddr probably got confused by special characters.
-            mfrom - from_address
+            mfrom = from_address
 
 
         email_msg = MIMEMultipart('alternative')
