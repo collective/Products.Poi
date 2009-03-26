@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-1.2.2 (unreleased)
+1.2.2 (2009-03-26)
 ------------------
 
 - Fixed silly error in formatting an email address.  [maurits]
