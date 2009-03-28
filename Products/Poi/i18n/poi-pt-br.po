@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-pt-br\n"
-"POT-Creation-Date: 2009-03-26 21:35+0000\n"
+"POT-Creation-Date: 2009-03-28 15:06+0000\n"
 "PO-Revision-Date: 2007-01-26 10:34-0300\n"
 "Last-Translator: Rafahela Bazzanella <rafabazzanella@yahoo.com.br>\n"
 "Language-Team: TcheZope <tchezope@yahoogroups.com>\n"
@@ -780,7 +780,6 @@ msgstr "Retorne a busca"
 
 #. Default: "Return to tracker"
 #: ../skins/Poi/poi_issue_view.pt:102
-#, fuzzy
 msgid "poi_return_to_tracker"
 msgstr "Retorne ao gerenciador de ocorrências"
 

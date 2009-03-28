@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-es\n"
-"POT-Creation-Date: 2009-03-26 21:35+0000\n"
+"POT-Creation-Date: 2009-03-28 15:06+0000\n"
 "PO-Revision-Date: 2008-10-17 10:05-0430\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -823,7 +823,6 @@ msgstr "Volver a la búsqueda"
 
 #. Default: "Return to tracker"
 #: ../skins/Poi/poi_issue_view.pt:102
-#, fuzzy
 msgid "poi_return_to_tracker"
 msgstr "Volver al gestor de incidencias"
 

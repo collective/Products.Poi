@@ -10,7 +10,7 @@
     <a href=""
           class="link-parent visualNoPrint"
           tal:attributes="href string:${here/absolute_url}">
-          <span i18n:translate="poi_return_to_tracker">Return to issue tracker</span>
+          <span i18n:translate="poi_return_to_tracker">Return to tracker</span>
       </a>
 
     <p i18n:translate="poi_issue_search_description">

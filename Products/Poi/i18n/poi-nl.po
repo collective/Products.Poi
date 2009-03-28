@@ -1,12 +1,12 @@
 # Dutch Poi translations
 # Translators:
 # Ralph Jacobs <ralph@fourdigits.nl>, 2008
-# Maurits van Rees <maurits@vanrees.org>, 2008
+# Maurits van Rees <maurits@vanrees.org>, 2008-2009
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2009-03-26 21:35+0000\n"
-"PO-Revision-Date: 2009-03-07 23:37+0100\n"
+"POT-Creation-Date: 2009-03-28 15:06+0000\n"
+"PO-Revision-Date: 2009-03-28 16:06+0100\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"

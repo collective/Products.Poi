@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2009-03-26 21:35+0000\n"
+"POT-Creation-Date: 2009-03-28 15:06+0000\n"
 "PO-Revision-Date: 2006-09-08 21:01 +0200\n"
 "Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
 "Language-Team: DE <de@li.org>\n"
@@ -829,7 +829,6 @@ msgstr "Zurück zur Suche"
 
 #. Default: "Return to tracker"
 #: ../skins/Poi/poi_issue_view.pt:102
-#, fuzzy
 msgid "poi_return_to_tracker"
 msgstr "Zurück zum Problem-Tracker"
 

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2009-03-26 21:35+0000\n"
+"POT-Creation-Date: 2009-03-28 15:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -831,7 +831,6 @@ msgstr "回到查找"
 
 #. Default: "Return to tracker"
 #: ../skins/Poi/poi_issue_view.pt:102
-#, fuzzy
 msgid "poi_return_to_tracker"
 msgstr "回到问题跟踪器"
 

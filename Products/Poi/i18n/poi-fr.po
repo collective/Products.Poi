@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2009-03-26 21:35+0000\n"
+"POT-Creation-Date: 2009-03-28 15:06+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Kevin Deldycke <kevin@deldycke.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -871,7 +871,6 @@ msgstr "Retour aux résultats de recherche"
 
 #. Default: "Return to tracker"
 #: ../skins/Poi/poi_issue_view.pt:102
-#, fuzzy
 msgid "poi_return_to_tracker"
 msgstr "Retour au gestionnaire de tickets"
 
