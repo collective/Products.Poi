@@ -5,7 +5,9 @@ Changelog for Poi
 1.2.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Registered the Poi upgrade steps for an upgrade from Poi 1.1.9
+  instead of 1.1 so these steps are shown also when you upgrade from
+  say Poi 1.1.2.  [maurits]
 
 
 1.2.2 (2009-03-26)

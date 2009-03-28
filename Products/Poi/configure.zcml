@@ -79,7 +79,7 @@
   <gs:upgradeStep
       title="Issue descriptions"
       description="Fix description of issues."
-      source="1.1"
+      source="1.1.9"
       destination="1.2"
       handler="Products.Poi.migration.fix_descriptions"
       sortkey="1"
@@ -88,7 +88,7 @@
   <gs:upgradeStep
       title="Poi responses"
       description="Migrate old style to new style Poi responses."
-      source="1.1"
+      source="1.1.9"
       destination="1.2"
       handler="Products.Poi.migration.migrate_responses"
       sortkey="2"
@@ -97,7 +97,7 @@
   <gs:upgradeStep
       title="Workflow titles in responses"
       description="Migrate workflow changes from ids to titles."
-      source="1.1"
+      source="1.1.9"
       destination="1.2"
       handler="Products.Poi.migration.migrate_workflow_changes"
       sortkey="3"
@@ -106,7 +106,7 @@
   <gs:upgradeStep
       title="Poi responses second try"
       description="Alternative migration from old style to new style Poi responses."
-      source="1.1"
+      source="1.1.9"
       destination="1.2"
       handler="Products.Poi.migration.migrate_responses_alternative"
       sortkey="4"
