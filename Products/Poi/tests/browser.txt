@@ -32,7 +32,11 @@ We create a tracker::
     >>> browser.open(url)
     >>> browser.open(url + '/createObject?type_name=PoiTracker')
     >>> browser.getControl(name='title').value = 'Issues'
-    >>> browser.getControl(name='form_submit').click()
+    >>> try:
+    ...     button = browser.getControl(name='form.button.save')
+    ... except LookupError:
+    ...     button = browser.getControl(name='form_submit')
+    >>> button.click()
     >>> tracker = self.portal.issues
 
 Now we create an issue::
@@ -44,7 +48,11 @@ Now we create an issue::
     >>> browser.getControl(name='area').value = ('ui',)
     >>> browser.getControl(name='issueType').value = ('bug',)
     >>> browser.getControl(name='contactEmail').value = 'maurits@vanrees.org'
-    >>> browser.getControl(name='form_submit').click()
+    >>> try:
+    ...     button = browser.getControl(name='form.button.save')
+    ... except LookupError:
+    ...     button = browser.getControl(name='form_submit')
+    >>> button.click()
     >>> 'Changes saved.' in browser.contents
     True
     >>> issue = tracker['1']
@@ -181,7 +189,6 @@ We change the text and save it::
 
 Now we delete the response::
 
-    >>> open('/tmp/test.html', 'w').write(browser.contents)
     >>> browser.getControl('Delete', index=1).click()
     >>> browser.url
     'http://nohost/plone/issues/1'
