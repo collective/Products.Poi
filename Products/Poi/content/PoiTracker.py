@@ -428,7 +428,7 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
             address = safe_unicode(address, charset)
             try:
                 # Note that charset is only used for the headers, not
-                # for the body text as that is a Message already.
+                # for the body text as that is a Message/MIMEText already.
                 mailHost.secureSend(message = email_msg,
                                     mto = address,
                                     mfrom = mfrom,
