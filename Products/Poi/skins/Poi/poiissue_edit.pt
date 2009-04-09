@@ -1,3 +1,3 @@
-<div metal:define-macro="topslot">
+<tal:block metal:define-macro="topslot">
    <tal:block define="dummy python:request.set('disable_border', 1)"/>
-</div>
+</tal:block>
