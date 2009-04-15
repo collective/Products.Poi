@@ -5,6 +5,10 @@ Changelog for Poi
 1.2.3 (unreleased)
 ------------------
 
+- The html version of the emails that are sent out could contain
+  warnings from the restructured text parser.  When that happens, we
+  now simply put the text inside a pre tag.  [maurits]
+
 - When email of user is not known, which can happen for example when
   this is an LDAP user, do not try to send this person an email
   Fixes http://plone.org/products/poi/issues/213

@@ -19,7 +19,7 @@ __docformat__ = 'plaintext'
 
 __all__ = ('renderHTML', )
 
-from reStructuredText import HTML as rstHTML
+import reStructuredText as rst
 
 htmlTemplate = """
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -61,9 +61,17 @@ def renderHTML(rstText, lang='en', charset='utf-8'):
     """Convert the given rST into a full XHTML transitional document.
     """
 
+    ignored, warnings = rst.render(
+        rstText, input_encoding=charset, output_encoding=charset)
+    if len(warnings.messages) == 0:
+        body = rst.HTML(
+            rstText, input_encoding=charset, output_encoding=charset)
+    else:
+        # There are warnings, so we keep it simple.
+        body = '<pre>%s</pre>' % rstText
+
     kwargs = {'lang': lang,
               'charset': charset,
-              'body': rstHTML(rstText, input_encoding=charset,
-                              output_encoding=charset)}
+              'body': body}
 
     return htmlTemplate % kwargs
