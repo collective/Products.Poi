@@ -5,6 +5,11 @@ Changelog for Poi
 1.2.3 (unreleased)
 ------------------
 
+- When email of user is not known, which can happen for example when
+  this is an LDAP user, do not try to send this person an email
+  Fixes http://plone.org/products/poi/issues/213
+  [maurits]
+
 - Remove stray div before DOCTYPE in add issue template. [elro]
 
 - Registered the Poi upgrade steps for an upgrade from Poi 1.1.9

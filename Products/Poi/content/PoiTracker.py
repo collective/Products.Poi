@@ -426,6 +426,11 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
 
         for address in addresses:
             address = safe_unicode(address, charset)
+            if not address:
+                # E-mail address may not be known, for example in case
+                # of LDAP users.  See:
+                # http://plone.org/products/poi/issues/213
+                continue
             try:
                 # Note that charset is only used for the headers, not
                 # for the body text as that is a Message/MIMEText already.
