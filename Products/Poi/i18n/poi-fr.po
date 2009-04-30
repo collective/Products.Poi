@@ -631,7 +631,7 @@ msgstr ""
 #: ../content/PoiIssue.py:622
 msgid "poi_email_new_issue_template"
 msgstr ""
-"Un nouveau tiket a été créé dans le gestionnaire **${tracker_title}**\n"
+"Un nouveau ticket a été créé dans le gestionnaire **${tracker_title}**\n"
 "par **${issue_author}** et attends confirmation.\n"
 "\n"
 "Informations sur le ticket\n"
