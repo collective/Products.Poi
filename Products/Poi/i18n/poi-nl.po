@@ -489,7 +489,7 @@ msgstr "Het is u niet toegestaan om deze reactie te bewerken."
 #. Default: "Please enter your response below"
 #: ../browser/edit_response.pt:53
 msgid "label_enter_response"
-msgstr "Vul alstulieft hieronder uw reactie in."
+msgstr "Vul alstublieft hieronder uw reactie in."
 
 #. Default: "Powered by"
 #: ../skins/Poi/poi_tracker_view.pt:261
