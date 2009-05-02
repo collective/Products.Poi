@@ -5,7 +5,8 @@ Changelog for Poi
 1.2.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Get the response add and edit forms working with kupu and TinyMCE
+  (when ISSUE_MIME_TYPES is changed manually in config.py).  [maurits]
 
 
 1.2.3 (2009-04-22)

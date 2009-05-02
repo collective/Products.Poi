@@ -119,9 +119,11 @@
           <tal:block
               define="inputname string:response;
                       inputvalue string:;
+                      fieldName string:details;
                       member python:context.portal_membership.getAuthenticatedMember();
                       editor python:member.getProperty('wysiwyg_editor', 'plone_wysiwyg').lower();
                       portal_url context/portal_url;
+                      portal context/portal_url/getPortalObject;
                       here_url context/portal_url;
                       support python: path('nocall:here/%s_wysiwyg_support|here/%s/wysiwyg_support|here/portal_skins/plone_wysiwyg/wysiwyg_support' % (editor, editor));"
               on-error="string:$editor not installed correctly: ${error/value}">
