@@ -3,11 +3,31 @@ Poi TODO
 
 Items marked with ** are show-stoppers for next release 
 
+Within [brackets] is the person who came up with this todo and the
+date that the item was added to this list.
+
+
+Cleanup of old code
+-------------------
+
+- Move all Extensions/AppInstall.py code into GS handlers.
+  [maurits, 2009-05-20]
+
+- Remove code for PoiResponses.  We may want to keep the PoiResponse
+  class around for migrations though.
+  [maurits, 2009-05-20]
+
+- Remove ancient migration code.
+  [maurits, 2009-05-20]
+
+- Replace python scripts in skin layer with browser views or other
+  more modern code.
+  [maurits, 2009-05-20]
+
+
+
 Possible features for inclusion:
 --------------------------------
-
-o Use Five events to manage issue searchable text updates when response
-    changes and email notifications
 
 o Link Areas and Plone groups. This way, all UI postings should fire
     a mail to the UI team, for example.
