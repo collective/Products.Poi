@@ -614,7 +614,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
             issueAuthor = issueCreatorInfo['fullname'] or issueCreator
 
         issueText = self.getDetails(mimetype="text/x-web-intelligent")
-        paras = issueText.split('\n\n')[:2]
+        paras = issueText.splitlines()
         issueDetails = '\n\n'.join([wrapper.fill(p) for p in paras])
 
         addresses = tracker.getNotificationEmailAddresses()

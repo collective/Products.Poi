@@ -87,12 +87,15 @@ def sendResponseNotificationMail(issue, response):
     responseAuthor = su(responseAuthor)
 
     responseText = su(response.text)
-    paras = responseText.split(u'\n\n')[:2]
+    paras = responseText.splitlines()
+
+    # Indent the response details so they are correctly interpreted as
+    # a literal block after the double colon behind the 'Response
+    # Details' header.
     wrapper = textwrap.TextWrapper(initial_indent=u'    ',
                                    subsequent_indent=u'    ')
     responseDetails = u'\n\n'.join([wrapper.fill(p) for p in paras])
 
-    responseDetails = responseDetails.strip()
     if responseDetails:
         header = _(
             'poi_heading_response_details',

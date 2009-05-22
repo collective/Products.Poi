@@ -469,7 +469,7 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
             responseAuthor = creatorInfo['fullname'] or creator
 
         responseText = self.getResponse(mimetype="text/x-web-intelligent")
-        paras = responseText.split('\n\n')[:2]
+        paras = responseText.splitlines()
         responseDetails = '\n\n'.join([wrapper.fill(p) for p in paras])
 
         if not responseDetails.strip():

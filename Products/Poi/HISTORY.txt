@@ -5,6 +5,13 @@ Changelog for Poi
 1.2.4 (unreleased)
 ------------------
 
+- Indent the response details in the email so they are correctly
+  interpreted as a literal block after the double colon behind the
+  'Response Details' header.  Otherwise the html part of an email
+  would be in a simple pre tag or possibly show a warning.
+  Fixes http://plone.org/products/poi/issues/215
+  [maurits]
+
 - Get the response add and edit forms working with kupu and TinyMCE
   (when ISSUE_MIME_TYPES is changed manually in config.py).  [maurits]
 
