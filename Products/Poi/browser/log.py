@@ -1,7 +1,20 @@
-from Products.Five.browser import BrowserView
-from Products.CMFCore.utils import getToolByName
-from Acquisition import aq_inner
 from datetime import datetime
+from DateTime import DateTime
+
+from Acquisition import aq_inner
+from Products.CMFCore.utils import getToolByName
+from Products.Five.browser import BrowserView
+
+from Products.Poi.adapters import IResponseContainer
+
+
+def fixDate(date):
+    if isinstance(date, basestring):
+        # Should not happen, but I have seen it locally, and I am
+        # not sure if that was just the result of temporarily
+        # wrong code or something more important.
+        date = DateTime(date)
+    return date
 
 
 def convertDate(date):
@@ -10,9 +23,11 @@ def convertDate(date):
 
 
 def getEntrySortingKey(entry):
-    if entry.portal_type == 'PoiResponse':
-        key = entry.modified
+    if not hasattr(entry, 'portal_type'):
+        # response
+        key = entry.get('date')
     else:
+        # issue
         key = entry.created
 
     if callable(key):
@@ -64,12 +79,18 @@ class LogView(BrowserView):
     def getLogEntries(self, count=20):
         context = aq_inner(self.context)
         issuefolder = context.restrictedTraverse('@@issuefolder')
-        issues = [i.getObject() for i in issuefolder.getFilteredIssues()]
+        issues = [i.getObject() for i in
+                  issuefolder.getFilteredIssues()]
 
         responses = []
         for issue in issues:
-            rs = issue.getFolderContents()
-            responses += rs
+            folder = IResponseContainer(issue)
+            for res in list(folder):
+                item = dict(
+                    parent=issue,
+                    response=res,
+                    date=fixDate(res.date))
+                responses.append(item)
 
         items = responses + issues
 
@@ -78,27 +99,29 @@ class LogView(BrowserView):
 
         results = []
         for item in items[:count]:
-            if not callable(item.getId):
-                item = item.getObject()
+            if not hasattr(item, 'portal_type'):
+                # Response
+                date = item.get('date')
+                issue = item.get('parent')
+                response = item.get('response')
+                data = {'type': 'response',
+                        'author': self.getPrettyName(response.creator),
+                        'date': date,
+                        'timedelta': self.getTimeDelta(date),
+                        'changes': response.changes,
+                        'issue': issue.title_or_id(),
+                        'url': issue.absolute_url(),
+                        'text': response.rendered_text}
+            else:
+                # Issue
+                data = {'title': item.title_or_id(),
+                        'type': item.portal_type,
+                        'author': self.getPrettyName(item.Creator()),
+                        'date': item.created(),
+                        'url': item.absolute_url(),
+                        'timedelta': self.getTimeDelta(item.created()),
+                        'text': item.getDetails()}
 
-            base = {'title': item.title_or_id(),
-                    'type': item.portal_type,
-                    'author': self.getPrettyName(item.Creator())}
-
-            if item.portal_type == 'PoiResponse':
-                base.update({'date': item.modified(),
-                             'timedelta': self.getTimeDelta(item.modified()),
-                             'changes': item.getIssueChanges(),
-                             'parent': item.aq_parent.title_or_id(),
-                             'url': item.aq_parent.absolute_url(),
-                             'text': item.getResponse()})
-
-            if item.portal_type == 'PoiIssue':
-                base.update({'date': item.created(),
-                             'url': item.absolute_url(),
-                             'timedelta': self.getTimeDelta(item.created()),
-                             'text': item.getDetails()})
-
-            results.append(base)
+            results.append(data)
 
         return results

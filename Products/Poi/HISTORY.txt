@@ -5,6 +5,9 @@ Changelog for Poi
 1.2.4 (unreleased)
 ------------------
 
+- Fixed the log page of an issue so the new style responses are shown.
+  [maurits]
+
 - Indent the response details in the email so they are correctly
   interpreted as a literal block after the double colon behind the
   'Response Details' header.  Otherwise the html part of an email

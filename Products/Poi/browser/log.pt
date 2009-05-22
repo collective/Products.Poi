@@ -9,13 +9,13 @@
         tal:content="string:@import url($portal_url/poi.css);"></style>
     </metal:css>
   </head>
-  
-  
+
+
   <body>
     <div metal:fill-slot="main">
       <div metal:define-macro="body">
 	<h2 i18n:translate="poi_heading_log">Tracker log</h2>
-        
+
 	<p i18n:translate="poi_help_log">
 	  An overview of recent activity in the tracker.
 	</p>
@@ -33,18 +33,18 @@
 	      added by <span tal:replace="entry/author"
           i18n:name="author" />
 	    </dt>
-	    <dt tal:condition="python: entry['type'] == 'PoiResponse'">
+	    <dt tal:condition="python: entry['type'] == 'response'">
 	      <span tal:replace="entry/author" />
 	      added a new response to
 	      <a tal:attributes="href entry/url"
-             tal:content="structure string:&raquo;${entry/parent}&laquo;" />:
+             tal:content="structure string:&raquo;${entry/issue}&laquo;" />:
 	    </dt>
 	    <dd>
 	      <p tal:content="structure entry/text" />
 
 	      <p class="discreet">
 
-		<span tal:condition="python: entry['type'] == 'PoiResponse'"
+		<tal:response condition="python: entry['type'] == 'response'"
 		      tal:repeat="delta entry/changes">
                   <span i18n:translate="" tal:content="string:${delta/name}" />:
                   <span class="issueChange"
@@ -53,17 +53,18 @@
 		  <span class="issueChange"
 			      i18n:translate=""
 			      tal:content="delta/after" />.
-		</span>
-		
+          <br />
+		</tal:response>
+
 		<span tal:define="delta entry/timedelta">
-		  
+
 		  <tal:less-than-an-hour
               condition="delta/minutes"
               i18n:translate="poi_added_minutes_ago">
 		    Added <tal:hours replace="delta/minutes" i18n:name="count" />
             minute(s) ago.
 		  </tal:less-than-an-hour>
-		  
+
 		  <tal:less-than-a-day
               condition="delta/hours"
               i18n:translate="poi_added_hours_ago">
@@ -82,7 +83,7 @@
 	    </dd>
 	  </tal:entries>
 	</dl>
-	
+
       </div>
     </div>
   </body>
