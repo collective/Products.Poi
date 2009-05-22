@@ -79,8 +79,11 @@ class LogView(BrowserView):
     def getLogEntries(self, count=20):
         context = aq_inner(self.context)
         issuefolder = context.restrictedTraverse('@@issuefolder')
-        issues = [i.getObject() for i in
-                  issuefolder.getFilteredIssues()]
+        # First we get the most recently modified issues, which means
+        # the most recently added, or the ones with the most recent
+        # responses.
+        issues = [i.getObject() for i in issuefolder.getFilteredIssues(
+                sort_on='modified', sort_limit=count, sort_order='reverse')]
 
         responses = []
         for issue in issues:

@@ -86,6 +86,8 @@ class IssueFolderView(BrowserView):
 
         query['sort_on'] = criteria.get('sort_on', 'created')
         query['sort_order'] = criteria.get('sort_order', 'reverse')
+        if criteria.get('sort_limit'):
+            query['sort_limit'] = criteria.get('sort_limit')
 
         return query
 
