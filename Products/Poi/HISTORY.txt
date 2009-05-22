@@ -5,6 +5,12 @@ Changelog for Poi
 1.2.4 (unreleased)
 ------------------
 
+- Added state 'restricted' to poi tracker workflow; in this state
+  anonymous can view issues and responses, but only members can add
+  them.  Default stays the same: open for submissions from everyone.
+  Fixes http://plone.org/products/poi/issues/214
+  [maurits]
+
 - Fixed the log page of an issue so the new style responses are shown.
   [maurits]
 

@@ -78,7 +78,7 @@
 
       <p class="portalMessage"
          i18n:translate="description_cannot_add_issues_before_opened"
-         tal:condition="python: is_editable and wtool.getInfoFor(here, 'review_state')!='open'">
+         tal:condition="python: is_editable and wtool.getInfoFor(here, 'review_state')=='closed'">
          Others cannot submit issues to your tracker until you open it for
          submissions using the 'state' drop down in the green bar above.
       </p>

@@ -1,18 +1,15 @@
-<?xml version="1.0"?>
-<dc-workflow workflow_id="poi_tracker_workflow"
-             title="poi_tracker_workflow"
-             state_variable="review_state"
-             initial_state="open">
+<?xml version="1.0" encoding="UTF-8"?>
+<dc-workflow workflow_id="poi_tracker_workflow" title="poi_tracker_workflow" description="" state_variable="review_state" initial_state="open">
+ <permission>Access contents information</permission>
+ <permission>Add portal content</permission>
+ <permission>Modify portal content</permission>
  <permission>Poi: Add Issue</permission>
  <permission>Poi: Add Response</permission>
  <permission>View</permission>
- <permission>Modify portal content</permission>
- <permission>Access contents information</permission>
- <permission>Add portal content</permission>
  <state state_id="closed" title="Closed for submissions">
   <exit-transition transition_id="open"/>
-  <permission-map name="Access contents information"
-                  acquired="False">
+  <exit-transition transition_id="restrict"/>
+  <permission-map name="Access contents information" acquired="False">
    <permission-role>Anonymous</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Manager</permission-role>
@@ -22,8 +19,7 @@
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
   </permission-map>
-  <permission-map name="Modify portal content"
-                  acquired="False">
+  <permission-map name="Modify portal content" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
   </permission-map>
@@ -44,8 +40,8 @@
  </state>
  <state state_id="open" title="Open for submissions">
   <exit-transition transition_id="close"/>
-  <permission-map name="Access contents information"
-                  acquired="False">
+  <exit-transition transition_id="restrict"/>
+  <permission-map name="Access contents information" acquired="False">
    <permission-role>Anonymous</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Manager</permission-role>
@@ -57,8 +53,7 @@
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
   </permission-map>
-  <permission-map name="Modify portal content"
-                  acquired="False">
+  <permission-map name="Modify portal content" acquired="False">
    <permission-role>Owner</permission-role>
    <permission-role>Manager</permission-role>
   </permission-map>
@@ -81,26 +76,64 @@
    <permission-role>Owner</permission-role>
   </permission-map>
  </state>
- <transition transition_id="close" title="Close tracker"
-             new_state="closed" trigger="USER"
-             before_script="" after_script="">
+ <state state_id="restricted" title="Only members can submit">
+  <description>Anonymous can view issues and responses.  Only members can add them.</description>
+  <exit-transition transition_id="close"/>
+  <exit-transition transition_id="open"/>
+  <permission-map name="Access contents information" acquired="False">
+   <permission-role>Anonymous</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>Member</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+  <permission-map name="Add portal content" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Member</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+  <permission-map name="Poi: Add Issue" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Member</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+  <permission-map name="Poi: Add Response" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Member</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+  <permission-map name="View" acquired="False">
+   <permission-role>Anonymous</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>Member</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+ </state>
+ <transition transition_id="close" title="Close tracker" new_state="closed" trigger="USER" before_script="" after_script="">
   <action url="" category="workflow">Close tracker</action>
   <guard>
    <guard-role>Owner</guard-role>
    <guard-role>Manager</guard-role>
   </guard>
  </transition>
- <transition transition_id="open" title="Open tracker"
-             new_state="open" trigger="USER"
-             before_script="" after_script="">
+ <transition transition_id="open" title="Open tracker" new_state="open" trigger="USER" before_script="" after_script="">
   <action url="" category="workflow">Open tracker</action>
   <guard>
    <guard-role>Owner</guard-role>
    <guard-role>Manager</guard-role>
   </guard>
  </transition>
- <variable variable_id="action" for_catalog="False"
-           for_status="True" update_always="True">
+ <transition transition_id="restrict" title="Restrict tracker" new_state="restricted" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow">Restrict tracker</action>
+  <guard>
+   <guard-role>Owner</guard-role>
+   <guard-role>Manager</guard-role>
+  </guard>
+ </transition>
+ <variable variable_id="action" for_catalog="False" for_status="True" update_always="True">
   <description>The last transition</description>
   <default>
    
@@ -109,8 +142,7 @@
   <guard>
   </guard>
  </variable>
- <variable variable_id="actor" for_catalog="False"
-           for_status="True" update_always="True">
+ <variable variable_id="actor" for_catalog="False" for_status="True" update_always="True">
   <description>The ID of the user who performed the last transition</description>
   <default>
    
@@ -119,8 +151,7 @@
   <guard>
   </guard>
  </variable>
- <variable variable_id="comments" for_catalog="False"
-           for_status="True" update_always="True">
+ <variable variable_id="comments" for_catalog="False" for_status="True" update_always="True">
   <description>Comments about the last transition</description>
   <default>
    
@@ -129,8 +160,7 @@
   <guard>
   </guard>
  </variable>
- <variable variable_id="review_history" for_catalog="False"
-           for_status="False" update_always="False">
+ <variable variable_id="review_history" for_catalog="False" for_status="False" update_always="False">
   <description>Provides access to workflow history</description>
   <default>
    
@@ -141,8 +171,7 @@
    <guard-permission>Review portal content</guard-permission>
   </guard>
  </variable>
- <variable variable_id="time" for_catalog="False"
-           for_status="True" update_always="True">
+ <variable variable_id="time" for_catalog="False" for_status="True" update_always="True">
   <description>Time of the last transition</description>
   <default>
    
