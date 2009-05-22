@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <dc-workflow workflow_id="poi_issue_workflow"
-             title="poi_issue_workflow"
+             title="Poi issue workflow"
              state_variable="review_state"
              initial_state="new">
  <permission>Delete objects</permission>
