@@ -88,6 +88,7 @@
       description="Alternative migration from old style to new style Poi responses."
       source="1.1.9"
       destination="1.2"
+      checker="Products.Poi.migration.has_old_responses"
       handler="Products.Poi.migration.migrate_responses_alternative"
       sortkey="4"
       profile="Products.Poi:default" />

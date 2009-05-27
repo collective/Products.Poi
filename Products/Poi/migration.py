@@ -42,6 +42,16 @@ class Migration(BrowserView):
         return out.getvalue()
 
 
+def has_old_responses(tool):
+    catalog = getToolByName(tool, 'portal_catalog')
+    responses = catalog.searchResults(portal_type='PoiResponse')
+    if len(responses) > 0:
+        logger.info("Found %s old style PoiResponses.", len(responses))
+        logger.warn("Migration is needed.")
+        return True
+    return False
+
+
 def replace_old_with_new_responses(issue):
     if not IIssue.providedBy(issue):
         return

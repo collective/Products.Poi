@@ -5,6 +5,10 @@ Changelog for Poi
 1.2.4 (unreleased)
 ------------------
 
+- Registered a checker for one of the upgrade steps, so this step is
+  always available when there are old style PoiResponses.
+  [maurits]
+
 - Removed some event subscribers for old style responses, as they were
   not needed anymore and they might slow down the migration a bit.
   [maurits]
