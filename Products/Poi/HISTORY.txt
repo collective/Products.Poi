@@ -5,6 +5,11 @@ Changelog for Poi
 1.2.4 (unreleased)
 ------------------
 
+- Deal with AttributeError in migration when called from the
+  prefs_install_products_form (Plone 3.3) as we have no REQUEST object
+  then.
+  [maurits]
+
 - Registered a checker for one of the upgrade steps, so this step is
   always available when there are old style PoiResponses.
   [maurits]

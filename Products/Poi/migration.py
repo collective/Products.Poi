@@ -5,6 +5,7 @@ from StringIO import StringIO
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from zope import interface
+from zope.publisher.browser import TestRequest
 import transaction
 
 from Products.Poi.interfaces import IIssue
@@ -57,7 +58,12 @@ def replace_old_with_new_responses(issue):
         return
     responses = issue.contentValues(filter={'portal_type': 'PoiResponse'})
     folder = IResponseContainer(issue)
-    request = issue.REQUEST
+    try:
+        request = issue.REQUEST
+    except AttributeError:
+        # When called via prefs_install_products_form (Plone 3.3) we
+        # have no REQUEST object here.  We will use a dummy then.
+        request = TestRequest()
     createview = Create(issue, request)
     path = '/'.join(issue.getPhysicalPath())
     logger.debug("Migrating %s responses for issue at %s",
