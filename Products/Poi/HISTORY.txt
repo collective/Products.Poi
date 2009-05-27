@@ -5,6 +5,10 @@ Changelog for Poi
 1.2.4 (unreleased)
 ------------------
 
+- Removed some event subscribers for old style responses, as they were
+  not needed anymore and they might slow down the migration a bit.
+  [maurits]
+
 - Added state 'restricted' to poi tracker workflow; in this state
   anonymous can view issues and responses, but only members can add
   them.  Default stays the same: open for submissions from everyone.

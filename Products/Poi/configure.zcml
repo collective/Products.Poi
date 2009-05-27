@@ -14,26 +14,6 @@
       class=".migration.Migration"
       />
 
-  <!-- Subscribe to some events to keep the SearchableText of an issue
-       in sync with the text of its responses. -->
-  <!--subscriber
-      for="Products.Poi.interfaces.IResponse
-           Products.Archetypes.interfaces.IObjectInitializedEvent"
-      handler=".events.modifiedResponse"
-      /-->
-
-  <subscriber
-      for="Products.Poi.interfaces.IResponse
-           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
-      handler=".events.modifiedResponse"
-      />
-
-  <subscriber
-      for="Products.Poi.interfaces.IResponse
-           zope.app.container.interfaces.IObjectRemovedEvent"
-      handler=".events.removedResponse"
-      />
-
   <subscriber
       for="Products.Poi.adapters.IResponse
            zope.lifecycleevent.interfaces.IObjectModifiedEvent"

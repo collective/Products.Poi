@@ -20,15 +20,6 @@ def removedResponse(object, event):
         issue.notifyModified()
 
 
-def modifiedResponse(object, event):
-    """A response is modified or created so update its parent.
-    """
-    parent = aq_parent(object)
-    if IIssue.providedBy(parent):
-        parent.reindexObject(idxs=['SearchableText'])
-        parent.notifyModified()
-
-
 def modifiedNewStyleResponse(object, event):
     """A response is modified or created so update its parent.
     """
