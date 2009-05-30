@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2009-03-28 15:06+0000\n"
+"POT-Creation-Date: 2009-05-30 21:11+0000\n"
 "PO-Revision-Date: 2007-05-06 17:00+0000\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: None <plone-i18n@lists.sourceforge.net>\n"
@@ -75,7 +75,7 @@ msgstr "Velg for hvilket område dette er relevant."
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ../browser/response.pt:147
+#: ../browser/response.pt:149
 #, fuzzy
 msgid "Poi_help_attachment"
 msgstr "Hvis du ønsker det kan du legge ved en fil. Vennligst ikke legg ved veldig store filer."
@@ -127,7 +127,7 @@ msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ../browser/response.pt:172
+#: ../browser/response.pt:174
 msgid "Poi_help_issueTransition"
 msgstr "Velg en forandring i tilstanden for emnet dette er et svar på, hvis mulig."
 
@@ -153,19 +153,19 @@ msgstr "Skriv inn bruker-id-ene for personer som skal ha administrasjons-rettigh
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
-#: ../browser/response.pt:261
+#: ../browser/response.pt:263
 msgid "Poi_help_newResponsibleManager"
 msgstr ""
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ../browser/response.pt:204
+#: ../browser/response.pt:206
 msgid "Poi_help_newSeverity"
 msgstr ""
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ../browser/response.pt:232
+#: ../browser/response.pt:234
 msgid "Poi_help_newTargetRelease"
 msgstr ""
 
@@ -237,7 +237,7 @@ msgstr "Område"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
-#: ../browser/response.pt:144
+#: ../browser/response.pt:146
 msgid "Poi_label_attachment"
 msgstr "Vedlegg"
 
@@ -294,7 +294,7 @@ msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
-#: ../browser/response.pt:167
+#: ../browser/response.pt:169
 msgid "Poi_label_issueTransition"
 msgstr "Forandre emne-tilstand"
 
@@ -320,19 +320,19 @@ msgstr "Managere"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
-#: ../browser/response.pt:256
+#: ../browser/response.pt:258
 msgid "Poi_label_newResponsibleManager"
 msgstr ""
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ../browser/response.pt:199
+#: ../browser/response.pt:201
 msgid "Poi_label_newSeverity"
 msgstr ""
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ../browser/response.pt:227
+#: ../browser/response.pt:229
 msgid "Poi_label_newTargetRelease"
 msgstr ""
 
@@ -583,17 +583,17 @@ msgid "poi_added_by"
 msgstr "Lagt til av"
 
 #. Default: "Added ${count} day(s) ago."
-#: ../browser/log.pt:77
+#: ../browser/log.pt:78
 msgid "poi_added_days_ago"
 msgstr ""
 
 #. Default: "Added ${count} hour(s) ago."
-#: ../browser/log.pt:70
+#: ../browser/log.pt:71
 msgid "poi_added_hours_ago"
 msgstr ""
 
 #. Default: "Added ${count} minute(s) ago."
-#: ../browser/log.pt:63
+#: ../browser/log.pt:64
 msgid "poi_added_minutes_ago"
 msgstr ""
 
@@ -618,7 +618,7 @@ msgid "poi_email_new_issue_template"
 msgstr ""
 
 #. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ../events.py:113
+#: ../events.py:107
 msgid "poi_email_new_response_template"
 msgstr ""
 
@@ -674,7 +674,7 @@ msgid "poi_heading_orphaned_issues"
 msgstr ""
 
 #. Default: "Response Details"
-#: ../events.py:97
+#: ../events.py:91
 msgid "poi_heading_response_details"
 msgstr ""
 

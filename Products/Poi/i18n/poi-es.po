@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-es\n"
-"POT-Creation-Date: 2009-03-28 15:06+0000\n"
+"POT-Creation-Date: 2009-05-30 21:11+0000\n"
 "PO-Revision-Date: 2008-10-17 10:05-0430\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -77,7 +77,7 @@ msgstr "Indique el área al que afecta esta incidencia."
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ../browser/response.pt:147
+#: ../browser/response.pt:149
 msgid "Poi_help_attachment"
 msgstr "Si lo desea puede agregar un archivo adjunto a esta incidencia. Por favor, no adjunte archivos muy grandes si no es necesario."
 
@@ -128,7 +128,7 @@ msgstr "Introduzca cualquier texto de ayuda introductoria que desea mostrar en l
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ../browser/response.pt:172
+#: ../browser/response.pt:174
 msgid "Poi_help_issueTransition"
 msgstr "Selecciones el cambio de estado de la incidencia al que se refiere esta respuesta, si procede."
 
@@ -154,19 +154,19 @@ msgstr "Indique los nombres de los usuario que pueden administrar este gestor, u
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
-#: ../browser/response.pt:261
+#: ../browser/response.pt:263
 msgid "Poi_help_newResponsibleManager"
 msgstr "Seleccione el administrador responsable de esta incidencia"
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ../browser/response.pt:204
+#: ../browser/response.pt:206
 msgid "Poi_help_newSeverity"
 msgstr "Seleccione la severidad para esta incidencia"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ../browser/response.pt:232
+#: ../browser/response.pt:234
 msgid "Poi_help_newTargetRelease"
 msgstr "Establecer el destino de la publicación para la incidencia"
 
@@ -238,7 +238,7 @@ msgstr "Área"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
-#: ../browser/response.pt:144
+#: ../browser/response.pt:146
 msgid "Poi_label_attachment"
 msgstr "Adjunto"
 
@@ -294,7 +294,7 @@ msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
-#: ../browser/response.pt:167
+#: ../browser/response.pt:169
 msgid "Poi_label_issueTransition"
 msgstr "Cambiar el estado de la incidencia"
 
@@ -320,19 +320,19 @@ msgstr "Administradores del gestor"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
-#: ../browser/response.pt:256
+#: ../browser/response.pt:258
 msgid "Poi_label_newResponsibleManager"
 msgstr "Cambiar al administrador responsable"
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ../browser/response.pt:199
+#: ../browser/response.pt:201
 msgid "Poi_label_newSeverity"
 msgstr "Cambiar nivel de severidad"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ../browser/response.pt:227
+#: ../browser/response.pt:229
 msgid "Poi_label_newTargetRelease"
 msgstr "Cambiar destino de publicación"
 
@@ -582,17 +582,17 @@ msgid "poi_added_by"
 msgstr "Agregado por"
 
 #. Default: "Added ${count} day(s) ago."
-#: ../browser/log.pt:77
+#: ../browser/log.pt:78
 msgid "poi_added_days_ago"
 msgstr "Agregado hace ${count} día(s)."
 
 #. Default: "Added ${count} hour(s) ago."
-#: ../browser/log.pt:70
+#: ../browser/log.pt:71
 msgid "poi_added_hours_ago"
 msgstr "Agregado hace ${count} hora(s)."
 
 #. Default: "Added ${count} minute(s) ago."
-#: ../browser/log.pt:63
+#: ../browser/log.pt:64
 msgid "poi_added_minutes_ago"
 msgstr "Agregado hace ${count} minuto(s)."
 
@@ -617,7 +617,7 @@ msgid "poi_email_new_issue_template"
 msgstr ""
 
 #. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ../events.py:113
+#: ../events.py:107
 msgid "poi_email_new_response_template"
 msgstr ""
 
@@ -672,7 +672,7 @@ msgid "poi_heading_orphaned_issues"
 msgstr "Incidencias quedado huérfanas"
 
 #. Default: "Response Details"
-#: ../events.py:97
+#: ../events.py:91
 msgid "poi_heading_response_details"
 msgstr ""
 
