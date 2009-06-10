@@ -24,10 +24,6 @@ Cleanup of old code
   more modern code.
   [maurits, 2009-05-20]
 
-- Remove our own isDataGridFilled validator and instead depend on
-  Products.DataGridField >= 1.6b3.
-  [maurits, 2009-05-20]
-
 
 Possible features for inclusion:
 --------------------------------

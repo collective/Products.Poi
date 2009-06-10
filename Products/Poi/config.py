@@ -67,7 +67,7 @@ JAVASCRIPTS = []
 
 
 # Dependencies of Products to be installed by quick-installer
-DEPENDENCIES = ['DataGridField', 'AddRemoveWidget']
+DEPENDENCIES = ['AddRemoveWidget']
 DESCRIPTION_LENGTH = 200
 PSC_TRACKER_ID = 'issues'
 
