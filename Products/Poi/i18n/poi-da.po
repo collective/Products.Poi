@@ -1,12 +1,12 @@
 # --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
 # DA translation of 1.x.
 # <finn@magenta-aps.dk>, 2007 2006
-# <jonasn@mail.tele.dk>, 2008 
+# <jonasn@mail.tele.dk>, 2008
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.1.2\n"
-"POT-Creation-Date: 2008-08-29 23:41+0000\n"
+"POT-Creation-Date: 2009-06-11 20:32+0000\n"
 "PO-Revision-Date: 2008-12-08 09:42+0100\n"
 "Last-Translator: Jonas Nielsen <jonas@magenta-aps.dk>\n"
 "Language-Team: DA\n"
@@ -20,11 +20,6 @@ msgstr ""
 "Domain: Poi\n"
 "Report-Msgid-Bugs-To: \n"
 
-#. Default: "Add response"
-#: ../skins/Poi/poi_issue_view.pt:155
-msgid "Add response"
-msgstr "Tilføj svar"
-
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
 msgstr "En sag. Sager starter i 'ubekræftet' tilstand. Tilstanden kan ændres af ejerne af projektet."
 
@@ -33,20 +28,48 @@ msgstr "En sag. Sager starter i 'ubekræftet' tilstand. Tilstanden kan ændres a
 msgid "Cancel"
 msgstr "Annuller"
 
+#: ../browser/response.py:497
+msgid "Changes saved to response id ${response_id}."
+msgstr ""
+
 #. Default: "Delete"
-#: ../skins/Poi/poi_issue_view.pt:208
+#: ../skins/Poi/poi_response_delete_confirm.cpt:34
 msgid "Delete"
 msgstr "Slet"
 
 #. Default: "Edit"
-#: ../skins/Poi/poi_issue_view.pt:201
+#: ../browser/response.pt:17
 msgid "Edit"
 msgstr "Rediger"
 
 #. Default: "Edit issue"
-#: ../skins/Poi/poi_issue_view.pt:163
+#: ../skins/Poi/poi_issue_view.pt:151
 msgid "Edit issue"
 msgstr "Rediger sag"
+
+#: ../browser/response.py:394
+msgid "Issue state"
+msgstr ""
+
+#: ../browser/response.py:526
+msgid "No response selected for removal."
+msgstr ""
+
+#: ../browser/response.py:488
+msgid "No response selected for saving."
+msgstr ""
+
+#: ../browser/response.py:186
+msgid "No response selected."
+msgstr ""
+
+#: ../browser/response.py:440
+msgid "No response text added and no issue changes made."
+msgstr ""
+
+#: ../content/PoiIssue.py:530
+msgid "None"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."
@@ -55,6 +78,7 @@ msgstr "Vælg det område, som denne sag er relevant for."
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
+#: ../browser/response.pt:149
 msgid "Poi_help_attachment"
 msgstr "Du har mulighed for at uploade en fil, som kan tilknyttes dit svar. Undlad venligst at uploade unødvendigt store filer."
 
@@ -104,6 +128,7 @@ msgstr "Skriv en introducerende tekst, som du vil have vist på fejlrapportering
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
+#: ../browser/response.pt:174
 msgid "Poi_help_issueTransition"
 msgstr "Vælg hvis muligt en statusændring, som dette svar passer med."
 
@@ -129,16 +154,19 @@ msgstr "Angiv brugernavnene på de brugere, som skal have tilladelse til at admi
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
+#: ../browser/response.pt:263
 msgid "Poi_help_newResponsibleManager"
 msgstr "Vælg den ansvarlige administrator for denne sag."
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
+#: ../browser/response.pt:206
 msgid "Poi_help_newSeverity"
 msgstr "Vælg ny alvorlighedsgrad for sagen"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
+#: ../browser/response.pt:234
 msgid "Poi_help_newTargetRelease"
 msgstr "Set målversionen for denne sag"
 
@@ -149,6 +177,7 @@ msgstr "Vælg den version, som sagen vedrører."
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
+#: ../browser/response.pt:107
 msgid "Poi_help_response"
 msgstr "Angiv dit svar nedenfor."
 
@@ -182,6 +211,10 @@ msgstr "Hvis muligt, beskriv trinene, som er nødvendige for at reproducere fejl
 msgid "Poi_help_subject"
 msgstr "Etiketter kan bruges til at tilføje en selvvalgt kategorisering af sager. Listen nedenfor viser ekeisterende etiketter, du kan vælge, eller du kan addere nye."
 
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+msgid "Poi_help_svnurl"
+msgstr "Indtast venligst URL'en til SVN-repositoriet, f.eks. http://dev.plone.org/collective/changeset/%(rev)s hvis det er et produkt i 'The Plone Collective'"
+
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"
 msgid "Poi_help_targetRelease"
@@ -203,6 +236,7 @@ msgstr "Område"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
+#: ../browser/response.pt:146
 msgid "Poi_label_attachment"
 msgstr "Vedhæftet fil"
 
@@ -257,6 +291,7 @@ msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
+#: ../browser/response.pt:169
 msgid "Poi_label_issueTransition"
 msgstr "Skift sagsstatus"
 
@@ -282,16 +317,19 @@ msgstr "Tracker-administratorer"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
+#: ../browser/response.pt:258
 msgid "Poi_label_newResponsibleManager"
 msgstr "Skift ansvarlig administrator"
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
+#: ../browser/response.pt:201
 msgid "Poi_label_newSeverity"
 msgstr "Skift alvorlighed"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
+#: ../browser/response.pt:229
 msgid "Poi_label_newTargetRelease"
 msgstr "Skift målversion"
 
@@ -302,6 +340,7 @@ msgstr "Version"
 
 # ./content/PoiIssue.py
 #. Default: "Response"
+#: ../browser/edit_response.pt:50
 msgid "Poi_label_response"
 msgstr "Svar"
 
@@ -335,6 +374,10 @@ msgstr "Trin for at reproducere"
 msgid "Poi_label_subject"
 msgstr "Etiketter"
 
+#. Default: "URL to SVN"
+msgid "Poi_label_svnurl"
+msgstr "URL til SVN"
+
 # ./content/PoiIssue.py
 #. Default: "Target release"
 msgid "Poi_label_targetRelease"
@@ -349,28 +392,72 @@ msgstr "Navn på fejlrapporteringsværktøjet"
 msgid "Poi_label_watchers"
 msgstr "Sagsovervågere"
 
+#: ../browser/response.py:548
+msgid "Removed response id ${response_id}."
+msgstr ""
+
+#: ../browser/response.py:541
+msgid "Response id ${response_id} does not exist so it cannot be removed."
+msgstr ""
+
+#: ../browser/response.py:200
+msgid "Response id ${response_id} does not exist."
+msgstr ""
+
+#: ../browser/response.py:570
+msgid "Response id ${response_id} has no attachment."
+msgstr ""
+
+#: ../browser/response.py:533
+msgid "Response id ${response_id} is no integer so it cannot be removed."
+msgstr ""
+
+#: ../browser/response.py:194
+msgid "Response id ${response_id} is no integer."
+msgstr ""
+
+#: ../browser/response.py:400
+msgid "Responsible manager"
+msgstr ""
+
 #. Default: "Search"
-#: ../skins/Poi/poi_tracker_view.pt:30
+#: ../skins/Poi/poi_tracker_view.pt:31
 msgid "Search"
 msgstr "Søg"
 
+#: ../browser/response.py:399
+msgid "Severity"
+msgstr ""
+
 #. Default: "Stop watching this issue"
-#: ../skins/Poi/poi_issue_view.pt:171
+#: ../skins/Poi/poi_issue_view.pt:159
 msgid "Stop watching this issue"
 msgstr "Følg ikke denne sag"
 
 #. Default: "Submit new issue"
-#: ../skins/Poi/poi_tracker_view.pt:55
+#: ../skins/Poi/poi_tracker_view.pt:56
 msgid "Submit new issue"
 msgstr "Opret ny sag"
 
+#: ../browser/response.py:426
+msgid "Target release"
+msgstr ""
+
 #. Default: "Watch this issue"
-#: ../skins/Poi/poi_issue_view.pt:177
+#: ../skins/Poi/poi_issue_view.pt:165
 msgid "Watch this issue"
 msgstr "Følg denne sag"
 
+#: ../browser/response.py:520
+msgid "You are not allowed to delete responses."
+msgstr ""
+
+#: ../browser/response.py:482
+msgid "You are not allowed to edit responses."
+msgstr ""
+
 #. Default: "${number} items matching your criteria."
-#: ../skins/Poi/poi_issue_search.pt:43
+#: ../skins/Poi/poi_issue_search.pt:44
 msgid "batch_x_items_matching_your_criteria"
 msgstr "Der er ${number} sager, der passer til de angivne kriterier"
 
@@ -380,19 +467,34 @@ msgid "desc_poi_heading_delete_response"
 msgstr "Er du sikker på at du vil slette dette svar?"
 
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ../skins/Poi/poi_tracker_view.pt:78
+#: ../skins/Poi/poi_tracker_view.pt:79
 msgid "description_cannot_add_issues_before_opened"
 msgstr "Andre kan ikke oprette sager på trackeren, før du sætter dens status som åben. Dette gøres i den grønne statusmenu ovenfor."
 
 #. Default: "No results were found."
-#: ../skins/Poi/poi_issue_search.pt:39
+#: ../skins/Poi/poi_issue_search.pt:40
 msgid "description_no_results_found"
 msgstr "Ingen resultater blev fundet"
 
+#. Default: "You are not allowed to edit this response."
+#: ../browser/edit_response.pt:38
+msgid "label_edit_response_not_allowed"
+msgstr ""
+
+#. Default: "Please enter your response below"
+#: ../browser/edit_response.pt:53
+msgid "label_enter_response"
+msgstr ""
+
 #. Default: "Powered by"
-#: ../skins/Poi/poi_tracker_view.pt:260
+#: ../skins/Poi/poi_tracker_view.pt:261
 msgid "label_powered_by"
 msgstr "Baseret på"
+
+#. Default: "Return to issue."
+#: ../browser/edit_response.pt:26
+msgid "label_return_to_issue"
+msgstr ""
 
 #. Default: "RSS Feed"
 #: ../skins/Poi/poi_issue_search_results.pt:6
@@ -400,7 +502,7 @@ msgid "label_rss_feed"
 msgstr "RSS Feed"
 
 #. Default: "Search"
-#: ../skins/Poi/poi_issue_search_form.pt:250
+#: ../skins/Poi/poi_issue_search_form.pt:249
 msgid "label_search"
 msgstr "Søg"
 
@@ -450,9 +552,19 @@ msgid "listingheader_type"
 msgstr "Type"
 
 #. Default: "If you can, please log in before submitting your issue."
-#: ../skins/Poi/poi_tracker_view.pt:41
+#: ../skins/Poi/poi_tracker_view.pt:42
 msgid "login_suggestion"
 msgstr "Du skal være logget ind for at tilføje en sag."
+
+#. Default: "If you can, please log in before submitting a reaction."
+#: ../browser/response.pt:85
+msgid "login_suggestion_response"
+msgstr ""
+
+#. Default: "No responses can be added."
+#: ../browser/response.pt:74
+msgid "msg_no_responses_can_be_added"
+msgstr ""
 
 #. Default: "(Not assigned)"
 #: ../skins/Poi/poi_issue_search_form.pt:84
@@ -460,52 +572,67 @@ msgid "not_assigned"
 msgstr "(Ikke tildelt)"
 
 #. Default: "Added by"
-#: ../skins/Poi/poi_issue_view.pt:217
+#: ../browser/response.pt:36
 msgid "poi_added_by"
 msgstr "Tilføjet af"
 
 #. Default: "Added ${count} day(s) ago."
-#: ../browser/log.pt:77
+#: ../browser/log.pt:78
 msgid "poi_added_days_ago"
 msgstr "Tilføjet ${count} dag(e) side."
 
 #. Default: "Added ${count} hour(s) ago."
-#: ../browser/log.pt:70
+#: ../browser/log.pt:71
 msgid "poi_added_hours_ago"
 msgstr "Tilføjet ${count} time(r) siden."
 
 #. Default: "Added ${count} minute(s) ago."
-#: ../browser/log.pt:63
+#: ../browser/log.pt:64
 msgid "poi_added_minutes_ago"
 msgstr "Tilføjet ${count} minutte(r) siden."
 
 #. Default: "on"
-#: ../skins/Poi/poi_issue_view.pt:220
+#: ../browser/response.pt:39
 msgid "poi_added_on"
 msgstr "på"
 
 #. Default: "All pending issues"
-#: ../skins/Poi/poi_tracker_view.pt:132
+#: ../skins/Poi/poi_tracker_view.pt:133
 msgid "poi_all_pending_issues"
 msgstr "Alle åbne sager"
 
+#. Default: "The issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n* This is an automated email, please do not reply - ${from_name}"
+#: ../Extensions/poi_issue_workflow_scripts.py:78
+msgid "poi_email_issue_resolved_template"
+msgstr ""
+
+#. Default: "A new issue has been submitted to the **${tracker_title}**\ntracker by **${issue_author}** and awaits confirmation.\n\nIssue Information\n-----------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n**Issue Details**::\n\n${issue_details}\n\n\n* This is an automated email, please do not reply - ${from_name}"
+#: ../content/PoiIssue.py:622
+msgid "poi_email_new_issue_template"
+msgstr ""
+
+#. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
+#: ../events.py:107
+msgid "poi_email_new_response_template"
+msgstr ""
+
 #. Default: "By area"
-#: ../skins/Poi/poi_tracker_view.pt:99
+#: ../skins/Poi/poi_tracker_view.pt:100
 msgid "poi_heading_by_area"
 msgstr "Efter område"
 
 #. Default: "By target release"
-#: ../skins/Poi/poi_tracker_view.pt:116
+#: ../skins/Poi/poi_tracker_view.pt:117
 msgid "poi_heading_by_release"
 msgstr "Efter udgivelse"
 
 #. Default: "By state"
-#: ../skins/Poi/poi_tracker_view.pt:129
+#: ../skins/Poi/poi_tracker_view.pt:130
 msgid "poi_heading_by_state"
 msgstr "Efter tilstand"
 
 #. Default: "By tag"
-#: ../skins/Poi/poi_tracker_view.pt:153
+#: ../skins/Poi/poi_tracker_view.pt:154
 msgid "poi_heading_by_tag"
 msgstr "Efter markering"
 
@@ -524,33 +651,33 @@ msgstr "Søg sager"
 msgid "poi_heading_log"
 msgstr "log"
 
-#. Default: "Migration"
-#: ../browser/migration.pt:13
-msgid "poi_heading_migration"
-msgstr "Migration"
-
 #. Default: "My issues"
-#: ../skins/Poi/poi_tracker_view.pt:207
+#: ../skins/Poi/poi_tracker_view.pt:208
 msgid "poi_heading_my_issues"
 msgstr "Mine sager"
 
 #. Default: "Open issues"
-#: ../skins/Poi/poi_tracker_view.pt:88
+#: ../skins/Poi/poi_tracker_view.pt:89
 msgid "poi_heading_open_issues"
 msgstr "Åbne sager"
 
 #. Default: "Orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:240
+#: ../skins/Poi/poi_tracker_view.pt:241
 msgid "poi_heading_orphaned_issues"
 msgstr "Utildelte sager"
 
+#. Default: "Response Details"
+#: ../events.py:91
+msgid "poi_heading_response_details"
+msgstr ""
+
 #. Default: "Issue search results"
-#: ../skins/Poi/poi_issue_search.pt:30
+#: ../skins/Poi/poi_issue_search.pt:31
 msgid "poi_heading_search_results"
 msgstr "Sager Søgeresultater"
 
 #. Default: "Unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:176
+#: ../skins/Poi/poi_tracker_view.pt:177
 msgid "poi_heading_unconfirmed_issues"
 msgstr "Ubekræftede sager"
 
@@ -559,43 +686,33 @@ msgstr "Ubekræftede sager"
 msgid "poi_help_log"
 msgstr "Et overblik over den seneste aktivitet"
 
-#. Default: "A list of all migrations available for Poi."
-#: ../browser/migration.pt:15
-msgid "poi_help_migration"
-msgstr "En liste over alle migrationer der er tilgængelige for Poi."
-
-#. Default: "This may change your data.  Make sure you have a backup for safety."
-#: ../browser/migration.pt:19
-msgid "poi_help_migration_warning"
-msgstr "Dette ændrer muligvis dine data. Du bør sikre dig at du har en backup for en sikkerheds skyld."
-
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ../skins/Poi/poi_tracker_view.pt:208
+#: ../skins/Poi/poi_tracker_view.pt:209
 msgid "poi_help_my_issues_manager"
 msgstr "Disse åbne sager er enten oprettet af dig eller er tildelt til dig. Vær opmærksom på at RSS for denne liste inkluderer ubekræftede og irrelevante issues. Dette er gjort for at gøre det muligt at abbonnere på et enkelt RSS feed med alle de issues som du måtte have interesse i."
 
 #. Default: "The following open issues were submitted by you."
-#: ../skins/Poi/poi_tracker_view.pt:215
+#: ../skins/Poi/poi_tracker_view.pt:216
 msgid "poi_help_my_issues_not_manager"
 msgstr "Følgende åbne sager er oprettet af dig."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
-#: ../skins/Poi/poi_tracker_view.pt:92
+#: ../skins/Poi/poi_tracker_view.pt:93
 msgid "poi_help_open_issues"
 msgstr "Klik på område, udgivelse eller tilstand for at se alle åbne sager i den enkelte kategori. For mere avancerede søgefunktioner, klik på \"Avanceret søgning\"."
 
 #. Default: "The following open issues are not assigned to anyone."
-#: ../skins/Poi/poi_tracker_view.pt:241
+#: ../skins/Poi/poi_tracker_view.pt:242
 msgid "poi_help_orphaned_issues_"
 msgstr "De følgende sager er ikke tildelt nogen."
 
 #. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
-#: ../skins/Poi/poi_tracker_view.pt:177
+#: ../skins/Poi/poi_tracker_view.pt:178
 msgid "poi_help_unconfirmed_issues"
 msgstr "De følgende sager er endnu ikke blevet registreret. Kig dem venligst igennem og tildel dem korrekt status."
 
 #. Default: "Advanced issue search"
-#: ../skins/Poi/poi_tracker_view.pt:32
+#: ../skins/Poi/poi_tracker_view.pt:33
 msgid "poi_issue_search"
 msgstr "Avanceret søgning"
 
@@ -681,7 +798,7 @@ msgid "poi_legend_search_terms"
 msgstr "Søgeord"
 
 #. Default: "Match all tags"
-#: ../skins/Poi/poi_issue_search_form.pt:245
+#: ../skins/Poi/poi_issue_search_form.pt:244
 msgid "poi_match_all_tags"
 msgstr "Vis alle mærker (tags)"
 
@@ -820,49 +937,38 @@ msgstr "Sagstekst"
 msgid "poi_up_to_issue"
 msgstr "Se hele denne sag"
 
+#. Default: "Add response"
+#: ../browser/response.pt:80
+msgid "title_add_response"
+msgstr ""
+
+#. Default: "Edit response"
+#: ../browser/edit_response.pt:35
+msgid "title_edit_response"
+msgstr ""
+
+#. Default: "Error: no response found for editing"
+#: ../browser/edit_response.pt:24
+msgid "title_error_no_response"
+msgstr ""
+
 #. Default: "RSS feed of these search results"
 #: ../skins/Poi/poi_issue_search_results.pt:6
 msgid "title_rss_feed"
 msgstr "RSS feed af disse søgeresultater"
 
 #. Default: "RSS feed of my issues"
-#: ../skins/Poi/poi_tracker_view.pt:222
+#: ../skins/Poi/poi_tracker_view.pt:223
 msgid "title_rss_feed_my_issues"
 msgstr "RSS-feed med mine sager"
 
 #. Default: "RSS feed of orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:248
+#: ../skins/Poi/poi_tracker_view.pt:249
 msgid "title_rss_feed_orphaned"
 msgstr "RSS feed af forældreløse sager"
 
 #. Default: "RSS feed of unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:186
+#: ../skins/Poi/poi_tracker_view.pt:187
 msgid "title_rss_feed_unconfirmed"
 msgstr "RSS-feed med ubekræftede sager"
 
-msgid "Poi_label_svnurl"
-msgstr "URL til SVN"
-
-msgid "Poi_help_svnurl"
-msgstr "Indtast venligst URL'en til SVN-repositoriet, f.eks. http://dev.plone.org/collective/changeset/%(rev)s hvis det er et produkt i 'The Plone Collective'"
-
-msgid "A response to an issue, added by a project manager. When giving a response, the workflow state of the parent issue can be set at the same time."
-msgstr ""
-
-msgid "User interface"
-msgstr "Brugergrænseflade / design"
-
-msgid "Functionality"
-msgstr "Funktionalitet"
-
-msgid "Process"
-msgstr "Andet"
-
-msgid "Bug"
-msgstr "Fejl"
-
-msgid "Feature"
-msgstr "Forslag til udvidelse eller ændring"
-
-msgid "Patch"
-msgstr "Egen fejlrettelse"

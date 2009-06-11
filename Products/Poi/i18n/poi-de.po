@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2009-05-30 21:11+0000\n"
+"POT-Creation-Date: 2009-06-11 20:32+0000\n"
 "PO-Revision-Date: 2006-09-08 21:01 +0200\n"
 "Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
 "Language-Team: DE <de@li.org>\n"

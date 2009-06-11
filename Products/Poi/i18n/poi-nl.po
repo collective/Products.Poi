@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2009-05-30 21:11+0000\n"
+"POT-Creation-Date: 2009-06-11 20:32+0000\n"
 "PO-Revision-Date: 2009-04-24 09:35+0100\n"
 "Last-Translator: Jarno de Wit <Jarno.de.Wit@gmail.com>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"

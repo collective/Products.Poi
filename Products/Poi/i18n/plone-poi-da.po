@@ -106,9 +106,6 @@ msgstr "Afvist"
 msgid "Resolve"
 msgstr "Løs"
 
-msgid "Resolve immediately"
-msgstr "Løs med det samme"
-
 msgid "Resolved"
 msgstr "Løst"
 
@@ -121,35 +118,3 @@ msgstr "Efterprøvet og bekræftet lukket"
 msgid "Unconfirmed"
 msgstr "Ubekræftet"
 
-msgid "Critical"
-msgstr "Kritisk"
-
-msgid "Important"
-msgstr "Vigtig"
-
-msgid "Medium"
-msgstr "Medium"
-
-msgid "Low"
-msgstr "Lav"
-
-msgid "None"
-msgstr "Ingen"
-
-msgid "User interface"
-msgstr "Brugergrænseflade / design"
-
-msgid "Functionality"
-msgstr "Funktionalitet"
-
-msgid "Process"
-msgstr "Andet"
-
-msgid "Bug"
-msgstr "Fejl"
-
-msgid "Feature"
-msgstr "Forslag til udvidelse eller ændring"
-
-msgid "Patch"
-msgstr "Egen fejlrettelse"
