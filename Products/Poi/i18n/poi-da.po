@@ -55,7 +55,6 @@ msgstr "Vælg det område, som denne sag er relevant for."
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#, fuzzy
 msgid "Poi_help_attachment"
 msgstr "Du har mulighed for at uploade en fil, som kan tilknyttes dit svar. Undlad venligst at uploade unødvendigt store filer."
 
@@ -239,7 +238,6 @@ msgstr "Standard-alvorlighedsgrad"
 
 # ./content/PoiIssue.py
 #. Default: "Tracker description"
-#, fuzzy
 msgid "Poi_label_description"
 msgstr "Overblik"
 
@@ -388,7 +386,6 @@ msgstr "Andre kan ikke oprette sager på trackeren, før du sætter dens status 
 
 #. Default: "No results were found."
 #: ../skins/Poi/poi_issue_search.pt:39
-#, fuzzy
 msgid "description_no_results_found"
 msgstr "Ingen resultater blev fundet"
 
@@ -549,9 +546,8 @@ msgstr "Utildelte sager"
 
 #. Default: "Issue search results"
 #: ../skins/Poi/poi_issue_search.pt:30
-#, fuzzy
 msgid "poi_heading_search_results"
-msgstr "${tracker} - Søgeresultater"
+msgstr "Sager Søgeresultater"
 
 #. Default: "Unconfirmed issues"
 #: ../skins/Poi/poi_tracker_view.pt:176
@@ -666,9 +662,8 @@ msgstr "Sagstype"
 
 #. Default: "Version:"
 #: ../skins/Poi/poi_issue_view.pt:39
-#, fuzzy
 msgid "poi_label_version"
-msgstr "Version"
+msgstr "Version:"
 
 #. Default: "Last modified on ${modification_time}"
 #: ../skins/Poi/poi_issue_view.pt:123
@@ -697,19 +692,16 @@ msgstr "Ny sag ${name} tilføjet af ${author}"
 
 #. Default: "Response #${responseNumber} to \"${issueTitle}\""
 #: ../skins/Poi/poi_response_view.pt:19
-#, fuzzy
 msgid "poi_response_title"
 msgstr "Svar nummer ${responseNumber} til \" ${issueTitle} \""
 
 #. Default: "Return to search results"
 #: ../skins/Poi/poi_issue_view.pt:95
-#, fuzzy
 msgid "poi_return_to_search"
 msgstr "Tilbage til søgning"
 
 #. Default: "Return to tracker"
 #: ../skins/Poi/poi_issue_view.pt:102
-#, fuzzy
 msgid "poi_return_to_tracker"
 msgstr "Tilbage til trackeren"
 
@@ -848,17 +840,11 @@ msgstr "RSS feed af forældreløse sager"
 msgid "title_rss_feed_unconfirmed"
 msgstr "RSS-feed med ubekræftede sager"
 
-msgid "Poi_label_description"
-msgstr "Beskrivelse"
-
 msgid "Poi_label_svnurl"
 msgstr "URL til SVN"
 
 msgid "Poi_help_svnurl"
 msgstr "Indtast venligst URL'en til SVN-repositoriet, f.eks. http://dev.plone.org/collective/changeset/%(rev)s hvis det er et produkt i 'The Plone Collective'"
-
-msgid "Poi_help_attachment"
-msgstr "Du har her mulighed for at vedhæfte en fil. Undgå venligst at uploade unødvendigt store filer. Hvis du har brug for at uploade flere filer kan du samle dem i en pakket fil (zip, tar.gz osv.)"
 
 msgid "A response to an issue, added by a project manager. When giving a response, the workflow state of the parent issue can be set at the same time."
 msgstr ""
