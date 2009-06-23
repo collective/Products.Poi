@@ -5,6 +5,9 @@ Changelog for Poi
 1.2.5 (unreleased)
 ------------------
 
+- Added missing strings in german translation
+  [jensens]
+
 - Explicitly depend on Products.DataGridField >= 1.6b3 as that is the
   first pypi release.  That release has a GS profile (that we depend
   on in our metadata.xml) and it has the isDataGridFilled validator
