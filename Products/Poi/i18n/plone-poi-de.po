@@ -1,10 +1,10 @@
 # german po file for Poi Issue Tracker product.
-# Jens Klein <jens@bluedynamics.com>, 2006.
+# Jens Klein <jens@bluedynamics.com>, 2006-2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2005-10-26 17:00+0000\n"
-"PO-Revision-Date: 2006-09-08 21:01 +0200\n"
+"PO-Revision-Date: 2009-06-23 13:01 +0200\n"
 "Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
 "Language-Team: DE <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgid "A response to an issue."
 msgstr "Eine Antwort auf eine Problemstellung"
 
 msgid "An issue tracker"
-msgstr "Ein System zum Aufspüren und Lösen von Problemstellungen."
+msgstr "Ein System zum Dokumentieren und Lösen von Problemstellungen."
 
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
 msgstr "Eine Problemstellung. Problemstellungen beginnen im Status 'nicht bestätigt' und können nur von Projektmanagern beantwortet werden."
@@ -37,7 +37,7 @@ msgstr "Bei der Erstellung"
 
 # tracker transitions
 msgid "Close tracker"
-msgstr "Schliessen des Trackers"
+msgstr "Schließen des Trackers"
 
 msgid "Closed for submissions"
 msgstr "Keine neuen Problemstellungen einzugeben."
@@ -46,7 +46,7 @@ msgid "Confirm resolved"
 msgstr "Bestätige Lösung"
 
 msgid "Confirmed"
-msgstr ""
+msgstr "Bestätigt"
 
 msgid "In progress"
 msgstr "In Arbeit"
@@ -60,7 +60,7 @@ msgstr "Problem Tracker"
 
 # browser/respsonse.py:transitions_for_display
 msgid "No change"
-msgstr ""
+msgstr "Kein Änderung"
 
 msgid "Open"
 msgstr "Offen"
