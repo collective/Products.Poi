@@ -182,7 +182,7 @@ msgstr "Bitte geben sie unten ihre antwort an."
 # ./content/PoiIssue.py
 #. Default: "Enter a brief subject for this response, e.g. \"Fixed\" or \"Will be fixed in next release\".""
 msgid "Poi_help_response_title"
-msgstr "Geben Sie einen kurzen Betreff für diese Antwort an, z.B. \"Erledigt\ oder \"Wird erst in der nächsten Version erledigt\"."
+msgstr "Geben Sie einen kurzen Betreff für diese Antwort an, z.B. 'Erledigt' oder 'Wird erst in der nächsten Version erledigt'."
 
 # ./content/PoiIssue.py
 #. Default: "Select which manager, if any, is responsible for this issue."
