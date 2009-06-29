@@ -9,7 +9,8 @@ Poi: A friendly issue tracker
  
 Poi is an issue tracker product for Plone. It has three overarching aims:
 
-- Work with, not against Plone.
+- Provide the default tracker for open source software projects on
+  http://plone.org
 
 - Be simple and attractive whilst providing the most commonly needed issue
   tracking functionality.
