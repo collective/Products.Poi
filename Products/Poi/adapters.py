@@ -137,3 +137,12 @@ class Response(Persistent):
             before = before,
             after = after)
         self.changes.append(delta)
+
+
+class EmptyExporter(object):
+
+    def __init__(self, context):
+        self.context = context
+
+    def export(self, export_context, subdir, root=False):
+        return

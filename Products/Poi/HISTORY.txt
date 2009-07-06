@@ -5,6 +5,11 @@ Changelog for Poi
 1.2.5 (unreleased)
 ------------------
 
+- Register a basically empty content exporter for issues, as they can
+  give unicode errors when making a snapshot in portal_setup.  See
+  http://plone.org/products/poi/issues/217
+  [maurits]
+
 - Added missing strings in german translation
   [jensens]
 

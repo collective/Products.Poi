@@ -37,6 +37,15 @@
       factory=".adapters.ResponseContainer"
       />
 
+  <!-- Register a basically empty content exporter for issues, as they
+       can give unicode errors when making a snapshot in portal_setup.
+       See http://plone.org/products/poi/issues/217 -->
+  <adapter
+      factory=".adapters.EmptyExporter"
+      provides="Products.GenericSetup.interfaces.IFilesystemExporter"
+      for="Products.Poi.interfaces.IIssue"
+      />
+
   <!-- Register the GenericSetup extension profile so that we can
        install the product
   -->
