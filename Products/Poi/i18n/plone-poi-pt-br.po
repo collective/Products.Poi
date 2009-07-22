@@ -1,14 +1,15 @@
 # translation of plone-poi-pt-br.po to Portugues Brasileiro
 # pot file for Poi Issue Tracker product.
+# Erico Andrei <erico@simplesconsultoria.com.br>, 2009
 # Rafahela Bazzanella <rafabazzanella@yahoo.com.br>, 2007.
 # Paulo Fernandes de Souza Jr. <pasouza@gmail.com>, 2005.
 msgid ""
 msgstr ""
 "Project-Id-Version: plone-poi-pt-br\n"
 "POT-Creation-Date: 2005-10-26 17:00+0000\n"
-"PO-Revision-Date: 2007-01-26 10:33-0300\n"
-"Last-Translator: Rafahela Bazzanella <rafabazzanella@yahoo.com.br>\n"
-"Language-Team: TcheZope <tchezope@yahoogroups.com>\n"
+"PO-Revision-Date: 2009-07-22\n"
+"Last-Translator: Erico Andrei <erico@simplesconsultoria.com.br>\n"
+"Language-Team: Simples Consultoria <contato@simplesconsultoria.com.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,13 +24,13 @@ msgid " Open"
 msgstr "Abrir"
 
 msgid "A response to an issue."
-msgstr "Uma resposta para uma ocorrência."
+msgstr "Resposta para uma ocorrência."
 
 msgid "An issue tracker"
 msgstr "Um gerenciador de ocorrência. "
 
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr ""
+msgstr "Uma ocorrência. Ocorrências são adicionadas como 'não confirmada' e podem ser respondidas pelos gerentes de projeto."
 
 msgid "Begin work"
 msgstr "Iniciar trabalho"
@@ -40,7 +41,7 @@ msgstr "Sendo criada"
 
 # tracker transitions
 msgid "Close tracker"
-msgstr "Fechar ocorrência "
+msgstr "Fechar gerenciador"
 
 msgid "Closed for submissions"
 msgstr "Fechado para submissões"
@@ -49,7 +50,7 @@ msgid "Confirm resolved"
 msgstr "Confirmar a solução"
 
 msgid "Confirmed"
-msgstr ""
+msgstr "Confirmada"
 
 msgid "In progress"
 msgstr "Em andamento"
@@ -59,11 +60,11 @@ msgstr "Ocorrência "
 
 # portal type nams
 msgid "Issue Tracker"
-msgstr "Gerenciador de Ocorrência"
+msgstr "Gerenciador de Ocorrências"
 
 # browser/respsonse.py:transitions_for_display
 msgid "No change"
-msgstr ""
+msgstr "Nenhuma alteração"
 
 msgid "Open"
 msgstr "Aberto"
@@ -83,13 +84,13 @@ msgid "Post response on save"
 msgstr "Enviar resposta ao salvar"
 
 msgid "Posted"
-msgstr "Enviado"
+msgstr "Enviada"
 
 msgid "Postpone"
 msgstr "Adiar"
 
 msgid "Postponed"
-msgstr "Adiado"
+msgstr "Adiada"
 
 msgid "Put on hold"
 msgstr "Colocar em espera"
@@ -101,21 +102,21 @@ msgid "Reject"
 msgstr "Rejeitar"
 
 msgid "Rejected"
-msgstr "Rejeitado"
+msgstr "Rejeitada"
 
 msgid "Resolve"
 msgstr "Resolver"
 
 msgid "Resolved"
-msgstr "Resolvido"
+msgstr "Resolvida"
 
 msgid "Response"
 msgstr "Resposta"
 
 # issue states
 msgid "Tested and confirmed closed"
-msgstr "Testado e fechado"
+msgstr "Testada e confirmado o fechado"
 
 msgid "Unconfirmed"
-msgstr "Não confirmado"
+msgstr "Não confirmada"
 
