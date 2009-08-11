@@ -5,7 +5,8 @@ Changelog for Poi
 1.2.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Made the restricted state the initial state of a new tracker.
+  [maurits]
 
 
 1.2.5 (2009-07-08)
