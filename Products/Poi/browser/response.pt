@@ -76,9 +76,6 @@
       No responses can be added.
     </p>
   </tal:noadd>
-  <tal:add condition="python:user.has_permission('Poi: Add Response', here)">
-  <h3 i18n:translate="title_add_response">Add response</h3>
-
   <div class="formControls"
        tal:condition="context/@@plone_portal_state/anonymous">
     <div class="login-suggestion">
@@ -96,6 +93,8 @@
              />
     </form>
   </div>
+  <tal:add condition="python:user.has_permission('Poi: Add Response', here)">
+  <h3 i18n:translate="title_add_response">Add response</h3>
 
   <form method="post" action="@@create_response"
         enctype="multipart/form-data">
