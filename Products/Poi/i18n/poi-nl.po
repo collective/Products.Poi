@@ -559,7 +559,7 @@ msgstr "Type"
 #. Default: "If you can, please log in before submitting your issue."
 #: ../skins/Poi/poi_tracker_view.pt:42
 msgid "login_suggestion"
-msgstr "Als het mogelijk is, log aub in voordat u de issue plaatst."
+msgstr "Als het mogelijk is, log aub in voordat u een issue plaatst."
 
 #. Default: "If you can, please log in before submitting a reaction."
 #: ../browser/response.pt:85
