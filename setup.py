@@ -39,7 +39,7 @@ setup(name='Products.Poi',
       install_requires=[
           'setuptools',
           'Products.AddRemoveWidget',
-          'Products.DataGridField>=1.6b3',
+          'Products.DataGridField>=1.6b3,<1.8dev',
       ],
       entry_points="""
       # -*- Entry points: -*-
