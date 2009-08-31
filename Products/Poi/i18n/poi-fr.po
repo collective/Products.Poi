@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2009-06-11 20:32+0000\n"
+"POT-Creation-Date: 2009-08-31 20:36+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Kevin Deldycke <kevin@deldycke.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -79,7 +79,7 @@ msgstr "Sélectionnez une zone ou ce ticket est approprié."
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ../browser/response.pt:149
+#: ../browser/response.pt:148
 msgid "Poi_help_attachment"
 msgstr "Vous pouvez télécharger vers le serveur un fichier attaché à votre ticket. Veuillez ne pas télécharger inutilement de gros fichiers."
 
@@ -130,7 +130,7 @@ msgstr "Entrer une notice d'emploi de votre gestionnaire de ticket qui sera affi
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ../browser/response.pt:174
+#: ../browser/response.pt:173
 msgid "Poi_help_issueTransition"
 msgstr "Sélectionnez un changement d'état pour cette réponse, si cela est applicable."
 
@@ -156,19 +156,19 @@ msgstr "Entrer les identifiants des utilisateurs qui sont autorisés à gérer c
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
-#: ../browser/response.pt:263
+#: ../browser/response.pt:262
 msgid "Poi_help_newResponsibleManager"
 msgstr "Sélectionnez le gestionnaire responsable du suivi de ce ticket."
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ../browser/response.pt:206
+#: ../browser/response.pt:205
 msgid "Poi_help_newSeverity"
 msgstr "Sélectionnez la criticité de ce ticket"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ../browser/response.pt:234
+#: ../browser/response.pt:233
 msgid "Poi_help_newTargetRelease"
 msgstr "Assignez la distribution voulue pour ce ticket"
 
@@ -179,7 +179,7 @@ msgstr "Sélectionnez la distribution concernée par ce ticket."
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
-#: ../browser/response.pt:107
+#: ../browser/response.pt:106
 msgid "Poi_help_response"
 msgstr "Veuillez saisir votre réponse ci-dessous"
 
@@ -240,7 +240,7 @@ msgstr "Zone"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
-#: ../browser/response.pt:146
+#: ../browser/response.pt:145
 msgid "Poi_label_attachment"
 msgstr "Pièce-jointe"
 
@@ -296,7 +296,7 @@ msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
-#: ../browser/response.pt:169
+#: ../browser/response.pt:168
 msgid "Poi_label_issueTransition"
 msgstr "Modifier l'état du ticket"
 
@@ -322,19 +322,19 @@ msgstr "Responsables du gestionnaire de tickets"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
-#: ../browser/response.pt:258
+#: ../browser/response.pt:257
 msgid "Poi_label_newResponsibleManager"
 msgstr "Modifier le gestionnaire responsable"
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ../browser/response.pt:201
+#: ../browser/response.pt:200
 msgid "Poi_label_newSeverity"
 msgstr "Modifier la criticité du ticket"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ../browser/response.pt:229
+#: ../browser/response.pt:228
 msgid "Poi_label_newTargetRelease"
 msgstr "Modifier la distribution voulue"
 
@@ -565,7 +565,7 @@ msgid "login_suggestion"
 msgstr "Si vous le pouvez, vous devriez <a href=\"${DYNAMIC_CONTENT}\">identifiant</a> avant d'intervenir dans ce tracker."
 
 #. Default: "If you can, please log in before submitting a reaction."
-#: ../browser/response.pt:85
+#: ../browser/response.pt:82
 msgid "login_suggestion_response"
 msgstr "Si vous le pouvez, authentifiez-vous s'il vous plaît avant de poster une réaction."
 
@@ -609,6 +609,11 @@ msgstr "le"
 msgid "poi_all_pending_issues"
 msgstr "Tous les tickets en attente"
 
+#. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
+#: ../Extensions/poi_issue_workflow_scripts.py:100
+msgid "poi_email_issue_resolved_subject_template"
+msgstr "[${tracker_title}] Ticket #${issue_id} résolu - ${issue_title}"
+
 #. Default: "The issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n* This is an automated email, please do not reply - ${from_name}"
 #: ../Extensions/poi_issue_workflow_scripts.py:78
 msgid "poi_email_issue_resolved_template"
@@ -626,6 +631,11 @@ msgstr ""
 "\n"
 "\n"
 "* Ceci est un email automatique, merci de ne pas répondre - ${from_name}"
+
+#. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
+#: ../content/PoiIssue.py:648
+msgid "poi_email_new_issue_subject_template"
+msgstr "[${tracker_title}] #${issue_id} - Nouveau ticket: ${issue_title}"
 
 #. Default: "A new issue has been submitted to the **${tracker_title}**\ntracker by **${issue_author}** and awaits confirmation.\n\nIssue Information\n-----------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n**Issue Details**::\n\n${issue_details}\n\n\n* This is an automated email, please do not reply - ${from_name}"
 #: ../content/PoiIssue.py:622
@@ -647,6 +657,11 @@ msgstr ""
 "\n"
 "\n"
 "* Ceci est un email automatique, merci de ne pas répondre - ${from_name}"
+
+#. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
+#: ../events.py:132
+msgid "poi_email_new_response_subject_template"
+msgstr "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
 
 #. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
 #: ../events.py:107
@@ -990,7 +1005,7 @@ msgid "poi_up_to_issue"
 msgstr "Voir l'intégralité du ticket"
 
 #. Default: "Add response"
-#: ../browser/response.pt:80
+#: ../browser/response.pt:97
 msgid "title_add_response"
 msgstr "Ajouter une réponse"
 

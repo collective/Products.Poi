@@ -5,6 +5,10 @@ Changelog for Poi
 1.2.6 (unreleased)
 ------------------
 
+- Allow translation of email's subject.
+  Fixes http://plone.org/products/poi/issues/219
+  [kdeldycke]
+
 - Made the restricted state the initial state of a new tracker.
   [maurits]
 
@@ -28,7 +32,7 @@ Changelog for Poi
   metadata.xml.
   [maurits]
 
-- Added dependencies to metadata.xml in profile. 
+- Added dependencies to metadata.xml in profile.
   [jensens]
 
 
@@ -197,7 +201,7 @@ Changelog for Poi
 ---------------------------
 
 - Merged r68220 and r68223 from branches/1.1:
-  Fixed typo that messed up a few translations.  
+  Fixed typo that messed up a few translations.
   And fixed untranslatable login suggestion.
   Fixes http://plone.org/products/poi/issues/191
   [maurits]

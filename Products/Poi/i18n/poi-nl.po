@@ -5,9 +5,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2009-06-11 20:32+0000\n"
-"PO-Revision-Date: 2009-04-24 09:35+0100\n"
-"Last-Translator: Jarno de Wit <Jarno.de.Wit@gmail.com>\n"
+"POT-Creation-Date: 2009-08-31 20:36+0000\n"
+"PO-Revision-Date: 2009-08-31 22:36+0100\n"
+"Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -77,7 +77,7 @@ msgstr "Selecteer het gebied waar wat relevant is voor deze issue"
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ../browser/response.pt:149
+#: ../browser/response.pt:148
 msgid "Poi_help_attachment"
 msgstr "U kan optioneel een bijlage (bestand) uploaden. Alstublieft geen onnodige grote files uploaden."
 
@@ -128,7 +128,7 @@ msgstr "Geef een introductie helptekst op die getoond wordt op de tracker front 
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ../browser/response.pt:174
+#: ../browser/response.pt:173
 msgid "Poi_help_issueTransition"
 msgstr "Selecteer een verandering van status van de issue waar deze response op toepassing van is."
 
@@ -154,19 +154,19 @@ msgstr "Geef de user id's van gebruikers op die deze tracker mogen beheren, een 
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
-#: ../browser/response.pt:263
+#: ../browser/response.pt:262
 msgid "Poi_help_newResponsibleManager"
 msgstr "Selecteer de verantwoordelijke manager voor deze issue."
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ../browser/response.pt:206
+#: ../browser/response.pt:205
 msgid "Poi_help_newSeverity"
 msgstr "Selecteer de prioriteit voor deze issue"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ../browser/response.pt:234
+#: ../browser/response.pt:233
 msgid "Poi_help_newTargetRelease"
 msgstr "Geef de doelrelease op voor deze issue"
 
@@ -177,7 +177,7 @@ msgstr "Selecteer de release waar deze issue op van toepassing is."
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
-#: ../browser/response.pt:107
+#: ../browser/response.pt:106
 msgid "Poi_help_response"
 msgstr "Geef aub hieronder uw reactie."
 
@@ -238,7 +238,7 @@ msgstr "Gebied"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
-#: ../browser/response.pt:146
+#: ../browser/response.pt:145
 msgid "Poi_label_attachment"
 msgstr "Bijlage"
 
@@ -294,7 +294,7 @@ msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
-#: ../browser/response.pt:169
+#: ../browser/response.pt:168
 msgid "Poi_label_issueTransition"
 msgstr "Verander issue status"
 
@@ -320,19 +320,19 @@ msgstr "Tracker managers"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
-#: ../browser/response.pt:258
+#: ../browser/response.pt:257
 msgid "Poi_label_newResponsibleManager"
 msgstr "Verander verantwoordelijke manager"
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ../browser/response.pt:201
+#: ../browser/response.pt:200
 msgid "Poi_label_newSeverity"
 msgstr "Verander prioriteit van issue"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ../browser/response.pt:229
+#: ../browser/response.pt:228
 msgid "Poi_label_newTargetRelease"
 msgstr "Verander doelrelease"
 
@@ -562,7 +562,7 @@ msgid "login_suggestion"
 msgstr "Als het mogelijk is, log aub in voordat u een issue plaatst."
 
 #. Default: "If you can, please log in before submitting a reaction."
-#: ../browser/response.pt:85
+#: ../browser/response.pt:82
 msgid "login_suggestion_response"
 msgstr "Als het mogelijk is, log aub in voordat u een reactie plaatst."
 
@@ -606,6 +606,11 @@ msgstr "op"
 msgid "poi_all_pending_issues"
 msgstr "Alle openstaande issues"
 
+#. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
+#: ../Extensions/poi_issue_workflow_scripts.py:100
+msgid "poi_email_issue_resolved_subject_template"
+msgstr "[${tracker_title}] #${issue_id} opgelost - ${issue_title}"
+
 #. Default: "The issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n* This is an automated email, please do not reply - ${from_name}"
 #: ../Extensions/poi_issue_workflow_scripts.py:78
 msgid "poi_email_issue_resolved_template"
@@ -623,6 +628,11 @@ msgstr ""
 "\n"
 "\n"
 "* Dit is een automatische e-mail, gelieven niet de e-mail te beantwoorden - ${from_name}"
+
+#. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
+#: ../content/PoiIssue.py:648
+msgid "poi_email_new_issue_subject_template"
+msgstr "[${tracker_title}] #${issue_id} - Nieuw issue: ${issue_title}"
 
 #. Default: "A new issue has been submitted to the **${tracker_title}**\ntracker by **${issue_author}** and awaits confirmation.\n\nIssue Information\n-----------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n**Issue Details**::\n\n${issue_details}\n\n\n* This is an automated email, please do not reply - ${from_name}"
 #: ../content/PoiIssue.py:622
@@ -644,6 +654,11 @@ msgstr ""
 "\n"
 "\n"
 "* Dit is een automatische e-mail, gelieven niet de e-mail te beantwoorden - ${from_name}"
+
+#. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
+#: ../events.py:132
+msgid "poi_email_new_response_subject_template"
+msgstr "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
 
 #. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
 #: ../events.py:107
@@ -985,7 +1000,7 @@ msgid "poi_up_to_issue"
 msgstr "Bekijk issue volledig"
 
 #. Default: "Add response"
-#: ../browser/response.pt:80
+#: ../browser/response.pt:97
 msgid "title_add_response"
 msgstr "Voeg reactie toe"
 

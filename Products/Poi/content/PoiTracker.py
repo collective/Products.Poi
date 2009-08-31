@@ -422,8 +422,9 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
                             'html', body_charset)
         email_msg.attach(htmlPart)
 
+        # Make the subject unicode and translate it too.
         subject = safe_unicode(subject, charset)
-
+        subject = ts.translate('Poi', subject, context=self)
         for address in addresses:
             address = safe_unicode(address, charset)
             if not address:

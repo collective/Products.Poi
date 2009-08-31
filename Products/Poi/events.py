@@ -129,8 +129,12 @@ ${response_details}
             changes = changes,
             from_name = fromName))
 
-    subject = u"[%s] #%s - Re: %s" % (su(tracker.getExternalTitle()),
-                                      su(issue.getId()),
-                                      su(issue.Title()))
+    subject = _(
+        'poi_email_new_response_subject_template',
+        u"[${tracker_title}] #${issue_id} - Re: ${issue_title}",
+        mapping=dict(
+            tracker_title = su(tracker.getExternalTitle()),
+            issue_id = su(issue.getId()),
+            issue_title = su(issue.Title())))
 
     tracker.sendNotificationEmail(addresses, subject, mailText)

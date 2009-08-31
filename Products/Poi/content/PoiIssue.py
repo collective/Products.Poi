@@ -644,8 +644,14 @@ ${issue_details}
                 issue_details = su(issueDetails),
                 issue_url = su(self.absolute_url()),
                 from_name = su(fromName)))
-        subject = "[%s] #%s - New issue: %s" % (
-            tracker.getExternalTitle(), self.getId(), self.Title())
+
+        subject = _(
+            'poi_email_new_issue_subject_template',
+            u"[${tracker_title}] #${issue_id} - New issue: ${issue_title}",
+            mapping=dict(
+                tracker_title = su(tracker.getExternalTitle()),
+                issue_id = su(self.getId()),
+                issue_title = su(self.Title())))
 
         tracker.sendNotificationEmail(addresses, subject, mailText)
 

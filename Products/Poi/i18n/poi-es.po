@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-es\n"
-"POT-Creation-Date: 2009-06-29 19:52+0000\n"
+"POT-Creation-Date: 2009-08-31 20:36+0000\n"
 "PO-Revision-Date: 2009-08-11 13:53-0400\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Plone Cono Sur <plone-conosur@lists.plone.org>\n"
@@ -79,7 +79,7 @@ msgstr "Indique el área al que afecta esta incidencia."
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ../browser/response.pt:149
+#: ../browser/response.pt:148
 msgid "Poi_help_attachment"
 msgstr "Si lo desea puede agregar un archivo adjunto a esta incidencia. Por favor, no adjunte archivos muy grandes si no es necesario."
 
@@ -130,7 +130,7 @@ msgstr "Introduzca cualquier texto de ayuda introductoria que desea mostrar en l
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ../browser/response.pt:174
+#: ../browser/response.pt:173
 msgid "Poi_help_issueTransition"
 msgstr "Selecciones el cambio de estado de la incidencia al que se refiere esta respuesta, si procede."
 
@@ -156,19 +156,19 @@ msgstr "Indique los nombres de los usuario que pueden administrar este gestor, u
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
-#: ../browser/response.pt:263
+#: ../browser/response.pt:262
 msgid "Poi_help_newResponsibleManager"
 msgstr "Seleccione el administrador responsable de esta incidencia"
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ../browser/response.pt:206
+#: ../browser/response.pt:205
 msgid "Poi_help_newSeverity"
 msgstr "Seleccione la severidad para esta incidencia"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ../browser/response.pt:234
+#: ../browser/response.pt:233
 msgid "Poi_help_newTargetRelease"
 msgstr "Establecer el destino de la publicación para la incidencia"
 
@@ -179,7 +179,7 @@ msgstr "Selecciones la versión a la que se aplica esta incidencia."
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
-#: ../browser/response.pt:107
+#: ../browser/response.pt:106
 msgid "Poi_help_response"
 msgstr "Escriba su respuesta a continuación"
 
@@ -240,7 +240,7 @@ msgstr "Área"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
-#: ../browser/response.pt:146
+#: ../browser/response.pt:145
 msgid "Poi_label_attachment"
 msgstr "Adjunto"
 
@@ -296,7 +296,7 @@ msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
-#: ../browser/response.pt:169
+#: ../browser/response.pt:168
 msgid "Poi_label_issueTransition"
 msgstr "Cambiar el estado de la incidencia"
 
@@ -322,19 +322,19 @@ msgstr "Administradores del gestor"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
-#: ../browser/response.pt:258
+#: ../browser/response.pt:257
 msgid "Poi_label_newResponsibleManager"
 msgstr "Cambiar al administrador responsable"
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ../browser/response.pt:201
+#: ../browser/response.pt:200
 msgid "Poi_label_newSeverity"
 msgstr "Cambiar nivel de severidad"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ../browser/response.pt:229
+#: ../browser/response.pt:228
 msgid "Poi_label_newTargetRelease"
 msgstr "Cambiar destino de publicación"
 
@@ -564,7 +564,7 @@ msgid "login_suggestion"
 msgstr "Si usted puede, por favor entrar antes de suministrar su incidencia."
 
 #. Default: "If you can, please log in before submitting a reaction."
-#: ../browser/response.pt:85
+#: ../browser/response.pt:82
 msgid "login_suggestion_response"
 msgstr "Si usted puede, por favor entrar antes de suministrar una reacción."
 
@@ -608,6 +608,11 @@ msgstr "en"
 msgid "poi_all_pending_issues"
 msgstr "Todas las incidencias pendientes"
 
+#. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
+#: ../Extensions/poi_issue_workflow_scripts.py:100
+msgid "poi_email_issue_resolved_subject_template"
+msgstr ""
+
 #. Default: "The issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n* This is an automated email, please do not reply - ${from_name}"
 #: ../Extensions/poi_issue_workflow_scripts.py:78
 msgid "poi_email_issue_resolved_template"
@@ -625,6 +630,11 @@ msgstr ""
 "\n"
 "\n"
 "* Éste es un correo electrónico automático, por favor no lo responda - ${from_name}"
+
+#. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
+#: ../content/PoiIssue.py:648
+msgid "poi_email_new_issue_subject_template"
+msgstr ""
 
 #. Default: "A new issue has been submitted to the **${tracker_title}**\ntracker by **${issue_author}** and awaits confirmation.\n\nIssue Information\n-----------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n**Issue Details**::\n\n${issue_details}\n\n\n* This is an automated email, please do not reply - ${from_name}"
 #: ../content/PoiIssue.py:622
@@ -646,6 +656,11 @@ msgstr ""
 "\n"
 "\n"
 "* Éste es un correo electrónico automático, por favor no lo responda - ${from_name}"
+
+#. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
+#: ../events.py:132
+msgid "poi_email_new_response_subject_template"
+msgstr ""
 
 #. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
 #: ../events.py:107
@@ -990,7 +1005,7 @@ msgid "poi_up_to_issue"
 msgstr "Ver incidencia completa"
 
 #. Default: "Add response"
-#: ../browser/response.pt:80
+#: ../browser/response.pt:97
 msgid "title_add_response"
 msgstr "Agregar respuesta"
 

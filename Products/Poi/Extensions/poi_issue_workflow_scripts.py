@@ -97,6 +97,12 @@ Issue
             issue_url = su(issue.absolute_url()),
             from_name = su(fromName)))
 
-    subject = "[%s] Resolved #%s - %s" % (
-        tracker.getExternalTitle(), issue.getId(), issue.Title())
+    subject = _(
+        'poi_email_issue_resolved_subject_template',
+        u"[${tracker_title}] Resolved #${issue_id} - ${issue_title}",
+        mapping=dict(
+            tracker_title = su(tracker.getExternalTitle()),
+            issue_id = su(issue.getId()),
+            issue_title = su(issue.Title())))
+
     tracker.sendNotificationEmail([issueEmail], subject, mailText)
