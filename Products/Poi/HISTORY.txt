@@ -5,6 +5,11 @@ Changelog for Poi
 1.2.6 (unreleased)
 ------------------
 
+- Uploading a file in an issue could fail needlessly due to a
+  translation error while validating.  Fixes UnicodeDecodeError at
+  http://plone.org/products/poi/issues/220
+  [maurits]
+
 - Allow translation of email's subject.
   Fixes http://plone.org/products/poi/issues/219
   [kdeldycke]

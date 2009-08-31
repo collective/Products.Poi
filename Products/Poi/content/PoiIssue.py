@@ -504,7 +504,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         Meaning: a response has been filled in.
         """
         errors = {}
-        self.Schema().validate(self, None, errors, 1, 1)
+        self.Schema().validate(self, self.REQUEST, errors, 1, 1)
         if errors:
             return False
         else:
