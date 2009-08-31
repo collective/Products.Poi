@@ -29,6 +29,7 @@ __docformat__ = 'plaintext'
 
 from email.Utils import parseaddr, formataddr
 import socket
+from smtplib import SMTPException
 from AccessControl import ClassSecurityInfo
 try:
     from Products.LinguaPlone.public import *
@@ -440,7 +441,7 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
                                     mfrom = mfrom,
                                     subject = subject,
                                     charset = charset)
-            except socket.error, exc:
+            except (socket.error, SMTPException), exc:
                 log_exc(('Could not send email from %s to %s regarding issue '
                          'in tracker %s\ntext is:\n%s\n') % (
                         mfrom, address, self.absolute_url(), email_msg))
