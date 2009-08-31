@@ -101,6 +101,21 @@ class TestTracker(ptc.PoiTestCase):
         self.failUnless('Manager' in roles('member1'))
         self.tracker.setManagers(('member2', ))
         self.failIf('Manager' in roles('member1'))
+        self.failUnless('Manager' in roles('member2'))
+        # Now we mess with local roles and see if setting the tracker
+        # managers fixes it.
+        self.tracker.manage_delLocalRoles(['member2'])
+        self.tracker.setManagers(('member2', ))
+        self.failUnless('Manager' in roles('member2'))
+        self.tracker.manage_setLocalRoles('member2', ['Owner', 'Manager'])
+        self.tracker.manage_setLocalRoles('member1', ['Reviewer'])
+        self.tracker.setManagers(('member1', 'member2'))
+        self.failUnless('Manager' in roles('member2'))
+        self.failUnless('Manager' in roles('member1'))
+        self.failUnless('Owner' in roles('member2'))
+        self.failUnless('Reviewer' in roles('member1'))
+        self.tracker.setManagers(('member2', ))
+        self.failUnless('Reviewer' in roles('member1'))
 
     def testIsUsingReleases(self):
         self.tracker.setAvailableReleases(())

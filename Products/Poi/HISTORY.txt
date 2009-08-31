@@ -5,6 +5,13 @@ Changelog for Poi
 1.2.6 (unreleased)
 ------------------
 
+- When creating a tracker as non-manager you used to become only Owner
+  and not Manager, which is not what we want.  Fixed this and a few
+  other possible errors (like loosing other local roles) in setting
+  the managers.
+  Fixes http://plone.org/products/poi/issues/218
+  [maurits]
+
 - Catch and log SMTPExceptions when sending an email fails.
   Fixes http://plone.org/products/poi/issues/223
   [maurits]
