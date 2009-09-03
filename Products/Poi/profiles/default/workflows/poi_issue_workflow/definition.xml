@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <dc-workflow workflow_id="poi_issue_workflow"
-             title="Poi issue workflow"
+             title="Poi issue workflow" description=""
              state_variable="review_state"
              initial_state="new">
  <permission>Delete objects</permission>
- <permission>Poi: Modify issue state</permission>
  <permission>Modify portal content</permission>
+ <permission>Poi: Modify issue state</permission>
  <state state_id="closed"
         title="Tested and confirmed closed">
   <exit-transition transition_id="open-closed"/>
@@ -13,9 +13,9 @@
    <permission-role>Manager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
-                  acquired="False">
-   <permission-role>Owner</permission-role>
+                  acquired="True">
    <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="Poi: Modify issue state"
                   acquired="False">
@@ -30,9 +30,9 @@
    <permission-role>Manager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
-                  acquired="False">
-   <permission-role>Owner</permission-role>
+                  acquired="True">
    <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="Poi: Modify issue state"
                   acquired="False">
@@ -43,20 +43,20 @@
   <exit-transition transition_id="post"/>
   <permission-map name="Delete objects" acquired="False">
    <permission-role>Anonymous</permission-role>
-   <permission-role>Owner</permission-role>
    <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
-                  acquired="False">
+                  acquired="True">
    <permission-role>Anonymous</permission-role>
-   <permission-role>Owner</permission-role>
    <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="Poi: Modify issue state"
                   acquired="False">
    <permission-role>Anonymous</permission-role>
-   <permission-role>Owner</permission-role>
    <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
   </permission-map>
  </state>
  <state state_id="open" title="Confirmed">
@@ -68,9 +68,9 @@
    <permission-role>Manager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
-                  acquired="False">
-   <permission-role>Owner</permission-role>
+                  acquired="True">
    <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="Poi: Modify issue state"
                   acquired="False">
@@ -84,9 +84,9 @@
    <permission-role>Manager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
-                  acquired="False">
-   <permission-role>Owner</permission-role>
+                  acquired="True">
    <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="Poi: Modify issue state"
                   acquired="False">
@@ -99,9 +99,9 @@
    <permission-role>Manager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
-                  acquired="False">
-   <permission-role>Owner</permission-role>
+                  acquired="True">
    <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="Poi: Modify issue state"
                   acquired="False">
@@ -115,9 +115,9 @@
    <permission-role>Manager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
-                  acquired="False">
-   <permission-role>Owner</permission-role>
+                  acquired="True">
    <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="Poi: Modify issue state"
                   acquired="False">
@@ -134,9 +134,9 @@
    <permission-role>Manager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
-                  acquired="False">
-   <permission-role>Owner</permission-role>
+                  acquired="True">
    <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="Poi: Modify issue state"
                   acquired="False">

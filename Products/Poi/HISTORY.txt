@@ -5,6 +5,11 @@ Changelog for Poi
 1.2.6 (unreleased)
 ------------------
 
+- Issue workflow: acquire permission settings of 'Modify portal
+  content' from higher level: when you can edit a tracker you can edit
+  its issues as well.
+  [maurits]
+
 - Protect the edit button of an issue with the 'Manage portal content'
   permission instead of the non-existing 'Manage Portal Content' with
   capital letters...
