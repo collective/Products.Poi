@@ -109,8 +109,9 @@ We check the values of this response::
     DateTime(...)
     >>> response.type
     'clarification'
-    >>> response.mimetype
-    'text/x-web-intelligent'
+    >>> from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
+    >>> response.mimetype == DEFAULT_ISSUE_MIME_TYPE
+    True
 
 Now we add a response::
 
@@ -159,9 +160,8 @@ We check the values of the response::
     DateTime(...)
     >>> response.type
     'clarification'
-    >>> response.mimetype
-    'text/x-web-intelligent'
-
+    >>> response.mimetype == DEFAULT_ISSUE_MIME_TYPE
+    True
 
 We can edit this second response::
 

@@ -5,6 +5,11 @@ Changelog for Poi
 1.2.6 (unreleased)
 ------------------
 
+- Fixed bug where a text/html response added using kupu (needs a
+  change in config.py) was not accepted.
+  Fixes http://plone.org/products/poi/issues/224
+  [maurits]
+
 - When creating a tracker as non-manager you used to become only Owner
   and not Manager, which is not what we want.  Fixed this and a few
   other possible errors (like loosing other local roles) in setting

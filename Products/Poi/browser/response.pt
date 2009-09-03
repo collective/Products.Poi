@@ -118,7 +118,6 @@
           <tal:block
               define="inputname string:response;
                       inputvalue string:;
-                      fieldName string:details;
                       member python:context.portal_membership.getAuthenticatedMember();
                       editor python:member.getProperty('wysiwyg_editor', 'plone_wysiwyg').lower();
                       portal_url context/portal_url;
