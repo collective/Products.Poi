@@ -14,6 +14,7 @@ from Products.Poi.adapters import IResponseContainer
 from Products.Poi.browser.response import Create
 
 logger = logging.getLogger("Poi")
+PROFILE_ID = 'profile-Products.Poi:default'
 
 
 class IMigration(interface.Interface):
@@ -257,3 +258,12 @@ def fix_descriptions(context):
                                 "%s PoiIssues; still busy... " % fixed)
                     transaction.commit()
     logger.info("Fix completed.  %s PoiIssues needed fixing.", fixed)
+
+
+def run_workflow_step(context):
+    context.runImportStepFromProfile(PROFILE_ID, 'workflow')
+    # Run the update security on the workflow tool.
+    logger.info('Updating security settings.  This may take a while...')
+    wf_tool = getToolByName(context, 'portal_workflow')
+    wf_tool.updateRoleMappings()
+    logger.info('Done updating security settings.')

@@ -102,4 +102,12 @@
       sortkey="4"
       profile="Products.Poi:default" />
 
+<gs:upgradeStep
+      title="Run workflow import step"
+      description="Apply our own workflow.xml file."
+      source="1202"
+      destination="1203"
+      handler="Products.Poi.migration.run_workflow_step"
+      profile="Products.Poi:default" />
+
 </configure>

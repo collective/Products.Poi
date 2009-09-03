@@ -5,6 +5,12 @@ Changelog for Poi
 1.2.6 (unreleased)
 ------------------
 
+- Added tracker workflow state 'protected'.  Basically Readers can
+  read, Editors can edit and Contributors can contribute.  Anonymous
+  cannot see anything.
+  Implements http://plone.org/products/poi/issues/181
+  [maurits]
+
 - Issue workflow: acquire permission settings of 'Modify portal
   content' from higher level: when you can edit a tracker you can edit
   its issues as well.
