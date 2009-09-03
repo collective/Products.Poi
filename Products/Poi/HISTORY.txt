@@ -5,6 +5,11 @@ Changelog for Poi
 1.2.6 (unreleased)
 ------------------
 
+- Protect the edit button of an issue with the 'Manage portal content'
+  permission instead of the non-existing 'Manage Portal Content' with
+  capital letters...
+  [maurits]
+
 - Fixed bug where a text/html response added using kupu (needs a
   change in config.py) was not accepted.
   Fixes http://plone.org/products/poi/issues/224

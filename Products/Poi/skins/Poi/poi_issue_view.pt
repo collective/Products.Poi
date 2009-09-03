@@ -147,7 +147,7 @@
       
       <div class="formControls">
           <form style="display: inline" action="edit"
-              tal:condition="python: user.has_permission('Modify Portal Content', here)">
+              tal:condition="python: user.has_permission('Modify portal content', here)">
             <input class="context"
                    type="submit"
                    i18n:attributes="value"
