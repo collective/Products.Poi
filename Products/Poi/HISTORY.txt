@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-1.2.6 (unreleased)
+1.2.6 (2009-09-06)
 ------------------
 
 - Added upgrade step to make sure all the tracker manager actually
