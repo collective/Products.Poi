@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2005-10-26 17:00+0000\n"
+"POT-Creation-Date: 2009-09-05 23:00+0000\n"
 "PO-Revision-Date: 2008-12-08 14:51+0100\n"
 "Last-Translator: Jonas Nielsen <jonas@magenta-aps.dk>\n"
 "Language-Team: Magenta Aps\n"
@@ -18,10 +18,6 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 "Report-Msgid-Bugs-To: \n"
-
-# issue transitions
-msgid " Open"
-msgstr " Åben"
 
 msgid "A response to an issue."
 msgstr "Et respons til sagen."
@@ -64,6 +60,9 @@ msgstr "Fejlrapporteringsværktøj"
 msgid "No change"
 msgstr "Ingen Ændring"
 
+msgid "Only members can submit"
+msgstr ""
+
 msgid "Open"
 msgstr "Åben"
 
@@ -91,6 +90,12 @@ msgstr "Udsæt"
 msgid "Postponed"
 msgstr "Udsat"
 
+msgid "Protect tracker"
+msgstr ""
+
+msgid "Protected against anonymous views"
+msgstr ""
+
 msgid "Put on hold"
 msgstr "Sæt på hold"
 
@@ -111,6 +116,9 @@ msgstr "Løst"
 
 msgid "Response"
 msgstr "Respons"
+
+msgid "Restrict tracker"
+msgstr ""
 
 msgid "Tested and confirmed closed"
 msgstr "Efterprøvet og bekræftet lukket"

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2005-10-26 17:00+0000\n"
+"POT-Creation-Date: 2009-09-05 23:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,9 +83,6 @@ msgstr ""
 
 # issue transitions
 
-msgid " Open"
-msgstr ""
-
 msgid "Begin work"
 msgstr ""
 
@@ -121,4 +118,16 @@ msgstr ""
 
 # browser/response.py:transitions_for_display
 msgid "No change"
+msgstr ""
+
+msgid "Restrict tracker"
+msgstr ""
+
+msgid "Only members can submit"
+msgstr ""
+
+msgid "Protect tracker"
+msgstr ""
+
+msgid "Protected against anonymous views"
 msgstr ""

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2005-10-26 17:00+0000\n"
+"POT-Creation-Date: 2009-09-05 23:00+0000\n"
 "PO-Revision-Date: 2008-12-09 09:15+0100\n"
 "Last-Translator: Pilar Marinas Luis <pilar.marinas@upcnet.es>\n"
 "Language-Team: \n"
@@ -17,10 +17,6 @@ msgstr ""
 "Language-Name: Catalan\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
-
-# issue transitions
-msgid " Open"
-msgstr "Obrir"
 
 msgid "A response to an issue."
 msgstr "Una resposta a una incidència."
@@ -64,6 +60,9 @@ msgstr "Gestor d'Incidències"
 msgid "No change"
 msgstr "Cap canvi"
 
+msgid "Only members can submit"
+msgstr ""
+
 msgid "Open"
 msgstr "Oberta"
 
@@ -91,6 +90,12 @@ msgstr "Posposar"
 msgid "Postponed"
 msgstr "Posposada"
 
+msgid "Protect tracker"
+msgstr ""
+
+msgid "Protected against anonymous views"
+msgstr ""
+
 msgid "Put on hold"
 msgstr "Deixar en espera"
 
@@ -111,6 +116,9 @@ msgstr "Resolta"
 
 msgid "Response"
 msgstr "Resposta"
+
+msgid "Restrict tracker"
+msgstr ""
 
 # issue states
 msgid "Tested and confirmed closed"

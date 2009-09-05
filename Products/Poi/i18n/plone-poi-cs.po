@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2005-10-26 17:00+0000\n"
+"POT-Creation-Date: 2009-09-05 23:00+0000\n"
 "PO-Revision-Date: 2005-11-13 16:47 +0000\n"
 "Last-Translator: Lukas Zdych <lukas.zdych@corenet.cz>\n"
 "Language-Team: SureCase.org <www.surecase.org>\n"
@@ -15,10 +15,6 @@ msgstr ""
 "Language-Name: Czech\n"
 "Preferred-Encodings: utf-8 latin2\n"
 "Domain: plone\n"
-
-# issue transitions
-msgid " Open"
-msgstr ""
 
 msgid "A response to an issue."
 msgstr "Reakce k úloze."
@@ -64,6 +60,9 @@ msgstr "Manažer úloh"
 msgid "No change"
 msgstr ""
 
+msgid "Only members can submit"
+msgstr ""
+
 msgid "Open"
 msgstr "Přijato"
 
@@ -90,6 +89,12 @@ msgstr "Odložit"
 msgid "Postponed"
 msgstr "Odloženo"
 
+msgid "Protect tracker"
+msgstr ""
+
+msgid "Protected against anonymous views"
+msgstr ""
+
 msgid "Put on hold"
 msgstr "Odložit"
 
@@ -110,6 +115,9 @@ msgstr "Vyřešeno"
 
 msgid "Response"
 msgstr "Reakce"
+
+msgid "Restrict tracker"
+msgstr ""
 
 # issue states
 msgid "Tested and confirmed closed"

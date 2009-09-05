@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2005-10-26 17:00+0000\n"
+"POT-Creation-Date: 2009-09-05 23:00+0000\n"
 "PO-Revision-Date: 2007-05-06 17:00+0000\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: None <plone-i18n@lists.sourceforge.net>\n"
@@ -16,10 +16,6 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 "X-Is-Fallback-For: nb nb-no no-bok\n"
-
-# issue transitions
-msgid " Open"
-msgstr "Åpent"
 
 msgid "A response to an issue."
 msgstr "Et svar på et emnet."
@@ -63,6 +59,9 @@ msgstr "Emne-sporer"
 msgid "No change"
 msgstr ""
 
+msgid "Only members can submit"
+msgstr ""
+
 msgid "Open"
 msgstr "Åpen"
 
@@ -90,6 +89,12 @@ msgstr "Reporter"
 msgid "Postponed"
 msgstr "Utsatt"
 
+msgid "Protect tracker"
+msgstr ""
+
+msgid "Protected against anonymous views"
+msgstr ""
+
 msgid "Put on hold"
 msgstr "På vent"
 
@@ -110,6 +115,9 @@ msgstr "Løst"
 
 msgid "Response"
 msgstr "Et svar"
+
+msgid "Restrict tracker"
+msgstr ""
 
 # issue states
 msgid "Tested and confirmed closed"

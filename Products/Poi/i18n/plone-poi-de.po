@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2005-10-26 17:00+0000\n"
+"POT-Creation-Date: 2009-09-05 23:00+0000\n"
 "PO-Revision-Date: 2009-06-23 13:01 +0200\n"
 "Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
 "Language-Team: DE <de@li.org>\n"
@@ -16,10 +16,6 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 "X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
-
-# issue transitions
-msgid " Open"
-msgstr "Eröffnen"
 
 msgid "A response to an issue."
 msgstr "Eine Antwort auf eine Problemstellung"
@@ -63,6 +59,9 @@ msgstr "Problem Tracker"
 msgid "No change"
 msgstr "Kein Änderung"
 
+msgid "Only members can submit"
+msgstr ""
+
 msgid "Open"
 msgstr "Offen"
 
@@ -90,6 +89,12 @@ msgstr "Verschieben"
 msgid "Postponed"
 msgstr "Verschoben"
 
+msgid "Protect tracker"
+msgstr ""
+
+msgid "Protected against anonymous views"
+msgstr ""
+
 msgid "Put on hold"
 msgstr "Zurückstellen"
 
@@ -110,6 +115,9 @@ msgstr "Gelöst"
 
 msgid "Response"
 msgstr "Antwort"
+
+msgid "Restrict tracker"
+msgstr ""
 
 # issue states
 msgid "Tested and confirmed closed"

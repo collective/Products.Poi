@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2005-10-26 17:00+0000\n"
+"POT-Creation-Date: 2009-09-05 23:00+0000\n"
 "PO-Revision-Date: 2007-03-19 16:36+0100\n"
 "Last-Translator: Maurizio Delmonte <maurizio.delmonte@redomino.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,10 +15,6 @@ msgstr ""
 "Language-Name: Italian\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
-
-# issue transitions
-msgid " Open"
-msgstr " Open"
 
 msgid "A response to an issue."
 msgstr "Risposta ad una richiesta attività"
@@ -62,6 +58,9 @@ msgstr "Gestore Attività"
 msgid "No change"
 msgstr ""
 
+msgid "Only members can submit"
+msgstr ""
+
 msgid "Open"
 msgstr "Attiva"
 
@@ -89,6 +88,12 @@ msgstr "Posticipa"
 msgid "Postponed"
 msgstr "Posticipato"
 
+msgid "Protect tracker"
+msgstr ""
+
+msgid "Protected against anonymous views"
+msgstr ""
+
 msgid "Put on hold"
 msgstr "Metti in pausa"
 
@@ -109,6 +114,9 @@ msgstr "Risolto"
 
 msgid "Response"
 msgstr "Risposta"
+
+msgid "Restrict tracker"
+msgstr ""
 
 # issue states
 msgid "Tested and confirmed closed"

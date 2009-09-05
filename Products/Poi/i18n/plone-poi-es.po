@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2005-10-26 17:00+0000\n"
+"POT-Creation-Date: 2009-09-05 23:00+0000\n"
 "PO-Revision-Date: 2009-08-11 13:53-0400\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Plone Cono Sur <plone-conosur@lists.plone.org>\n"
@@ -19,10 +19,6 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 "X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
-
-# issue transitions
-msgid " Open"
-msgstr "Abrir"
 
 msgid "A response to an issue."
 msgstr "Una respuesta a una incidencia."
@@ -66,6 +62,9 @@ msgstr "Gestor de Incidencias"
 msgid "No change"
 msgstr "Ningún cambio"
 
+msgid "Only members can submit"
+msgstr ""
+
 msgid "Open"
 msgstr "Abierta"
 
@@ -93,6 +92,12 @@ msgstr "Posponer"
 msgid "Postponed"
 msgstr "Pospuesta"
 
+msgid "Protect tracker"
+msgstr ""
+
+msgid "Protected against anonymous views"
+msgstr ""
+
 msgid "Put on hold"
 msgstr "Dejar en espera"
 
@@ -113,6 +118,9 @@ msgstr "Resuelta"
 
 msgid "Response"
 msgstr "Respuesta"
+
+msgid "Restrict tracker"
+msgstr ""
 
 # issue states
 msgid "Tested and confirmed closed"
