@@ -101,7 +101,7 @@ def migrate_responses(context):
     for brain in tracker_brains:
         try:
             tracker = brain.getObject()
-        except AttributeError:
+        except (AttributeError, KeyError):
             logger.warn("AttributeError getting tracker object at %s",
                         brain.getURL())
             continue
@@ -190,7 +190,7 @@ def migrate_workflow_changes(context):
     for brain in issue_brains:
         try:
             issue = brain.getObject()
-        except AttributeError:
+        except (AttributeError, KeyError):
             logger.warn("AttributeError getting issue object at %s",
                         brain.getURL())
             continue
@@ -241,7 +241,7 @@ def fix_descriptions(context):
         if isinstance(brain.Description, str):
             try:
                 issue = brain.getObject()
-            except AttributeError:
+            except (AttributeError, KeyError):
                 logger.warn("AttributeError getting issue object at %s",
                             brain.getURL())
                 continue
@@ -267,3 +267,39 @@ def run_workflow_step(context):
     wf_tool = getToolByName(context, 'portal_workflow')
     wf_tool.updateRoleMappings()
     logger.info('Done updating security settings.')
+
+
+def update_tracker_managers(context):
+    """Make sure all the tracker manager actually have the Manager role.
+
+    Specifically, due to an error in the code the original creator may
+    not have gotten the Manager role.
+    """
+    logger.info("Starting update of tracker managers.")
+    catalog = getToolByName(context, 'portal_catalog')
+    tracker_brains = catalog.searchResults(
+        portal_type=('PoiTracker', 'PoiPscTracker'))
+    logger.info("Found %s PoiTrackers.", len(tracker_brains))
+    for brain in tracker_brains:
+        try:
+            tracker = brain.getObject()
+        except (AttributeError, KeyError):
+            logger.warn("AttributeError getting tracker object at %s",
+                        brain.getURL())
+            continue
+
+        field = tracker.getField('managers')
+        managers = field.get(tracker)
+        changed = False
+        for user_id in managers:
+            local_roles = list(tracker.get_local_roles_for_userid(user_id))
+            if not 'Manager' in local_roles:
+                logger.info("User %s is tracker manager but does not have "
+                            "the manager role. Fixing that now.", user_id)
+                local_roles.append('Manager')
+                tracker.manage_setLocalRoles(user_id, local_roles)
+                changed = True
+        if changed:
+            logger.info("Committing after updating roles on tracker %s",
+                        tracker.absolute_url())
+            transaction.commit()

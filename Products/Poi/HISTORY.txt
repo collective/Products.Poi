@@ -5,6 +5,10 @@ Changelog for Poi
 1.2.6 (unreleased)
 ------------------
 
+- Added upgrade step to make sure all the tracker manager actually
+  have the Manager role.
+  [maurits]
+
 - Added tracker workflow state 'protected'.  Basically Readers can
   read, Editors can edit and Contributors can contribute.  Anonymous
   cannot see anything.
