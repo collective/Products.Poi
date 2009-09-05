@@ -40,11 +40,11 @@ Installation and dependencies
 
 Best is to use zc.buildout.  Just add Products.Poi to your eggs, rerun
 buildout and you are done.  Optionally add
-Products.PloneSoftwareCenter (and Products.ArchAddOn).
+Products.PloneSoftwareCenter.
 
 Poi requires:
 
-  - Plone 3 on Zope 2.10.x (tested with Plone 3.0.6, 3.1.7 and 3.2.1)
+  - Plone 3 on Zope 2.10.x (tested with Plone 3.0.6, 3.1.7, 3.2.3 and 3.3)
 
   - DataGridField
 
@@ -62,7 +62,8 @@ Poi requires:
 
 For new installations, install using Add/Remove Products as normal. If you want
 PloneSoftwareCenter configuration to be automatically configured, install PSC
-*first*. 
+*first*.  If you use Plone 3.0 you need to install the DataGridField
+manually, in later Plone versions this is done automatically.
 
 
 Upgrading

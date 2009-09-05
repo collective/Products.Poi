@@ -31,6 +31,10 @@ ZopeTestCase.installProduct('Poi')
 from Products.PloneTestCase import PloneTestCase
 
 PRODUCTS = ['Poi']
+if PloneTestCase.PLONE31 == 0:
+    # Before Plone 3.1 (GenericSetup 1.3) the dependencies in
+    # metadata.xml are not picked up.
+    PRODUCTS.append('DataGridField')
 
 PloneTestCase.setupPloneSite(products=PRODUCTS)
 
