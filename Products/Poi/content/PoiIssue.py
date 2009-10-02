@@ -258,7 +258,8 @@ schema = Schema((
             description_msgid='Poi_help_contactEmail',
             i18n_domain='Poi',
         ),
-        required=True,
+# the email field must not be a requirement (ajung)
+#        required=True,
         default_method='getDefaultContactEmail'
     ),
 
