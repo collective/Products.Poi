@@ -31,11 +31,9 @@
   </permission-map>
   <permission-map name="Poi: Add Issue" acquired="False">
    <permission-role>Manager</permission-role>
-   <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="Poi: Add Response" acquired="False">
    <permission-role>Manager</permission-role>
-   <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="View" acquired="False">
    <permission-role>Anonymous</permission-role>
