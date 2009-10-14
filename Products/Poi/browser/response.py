@@ -163,7 +163,7 @@ class Base(BrowserView):
     @memoize
     def can_edit_response(self):
         context = aq_inner(self.context)
-        return self.memship.checkPermission('Modify portal content', context)
+        return self.memship.checkPermission('Poi: Edit response', context)
 
     @property
     @memoize

@@ -6,6 +6,7 @@ View                      = CMFCorePermissions.View
 ModifyPortalContent       = CMFCorePermissions.ModifyPortalContent
 AccessContentsInformation = CMFCorePermissions.AccessContentsInformation
 
+EditResponse              = "Poi: Edit response"
 ModifyIssueSeverity       = "Poi: Modify issue severity"
 ModifyIssueAssignment     = "Poi: Modify issue assignment"
 ModifyIssueState          = "Poi: Modify issue state"
@@ -14,6 +15,7 @@ ModifyIssueWatchers       = "Poi: Modify issue watchers"
 ModifyIssueTargetRelease  = "Poi: Modify issue target release"
 UploadAttachment          = "Poi: Upload attachment"
 
+CMFCorePermissions.setDefaultRoles(EditResponse, ['Manager'])
 CMFCorePermissions.setDefaultRoles(ModifyIssueSeverity, ['Manager'])
 CMFCorePermissions.setDefaultRoles(ModifyIssueAssignment, ['Manager'])
 CMFCorePermissions.setDefaultRoles(ModifyIssueState, ['Manager'])

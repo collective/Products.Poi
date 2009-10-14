@@ -5,6 +5,12 @@ Changelog for Poi
 1.2.7 (unreleased)
 ------------------
 
+- Added permission 'Poi: Edit response' and protect the edit button of
+  responses with that permission.  The creator (Owner) of an issue has
+  this permission when the tracker is in the open or restricted state
+  and not in the protected or closed state.
+  [maurits]
+
 - Do not give Owner the Add Issue/Response permissions in a closed
   tracker.
   [maurits]

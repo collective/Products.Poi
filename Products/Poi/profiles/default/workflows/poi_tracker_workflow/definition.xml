@@ -9,6 +9,7 @@
  <permission>Poi: Add Issue</permission>
  <permission>Poi: Add Response</permission>
  <permission>View</permission>
+ <permission>Poi: Edit response</permission>
  <state state_id="closed" title="Closed for submissions">
   <exit-transition transition_id="open"/>
   <exit-transition transition_id="protect"/>
@@ -33,6 +34,9 @@
    <permission-role>Manager</permission-role>
   </permission-map>
   <permission-map name="Poi: Add Response" acquired="False">
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Poi: Edit response" acquired="False">
    <permission-role>Manager</permission-role>
   </permission-map>
   <permission-map name="View" acquired="False">
@@ -74,6 +78,10 @@
    <permission-role>Anonymous</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+  <permission-map name="Poi: Edit response" acquired="False">
+   <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="View" acquired="False">
@@ -118,6 +126,10 @@
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
   </permission-map>
+  <permission-map name="Poi: Edit response" acquired="False">
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
   <permission-map name="View" acquired="False">
    <permission-role>Contributor</permission-role>
    <permission-role>Editor</permission-role>
@@ -157,6 +169,10 @@
   <permission-map name="Poi: Add Response" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+  <permission-map name="Poi: Edit response" acquired="False">
+   <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="View" acquired="False">
