@@ -5,8 +5,8 @@ Changelog for Poi
 1.2.7 (unreleased)
 ------------------
 
-- the contact email field of PoiIssue is not a requirement - it is optional
-  [ajung]
+- Nothing changed yet.
+
 
 1.2.6 (2009-09-06)
 ------------------
