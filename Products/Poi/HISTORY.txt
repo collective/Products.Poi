@@ -5,6 +5,11 @@ Changelog for Poi
 1.2.7 (unreleased)
 ------------------
 
+- Some styling changes: adding a few classes and ids, and loading
+  Poi.css in the issue search form.  With thanks to Lars Löwenadler
+  for some hints here.
+  [maurits]
+
 - Added permission 'Poi: Edit response' and protect the edit button of
   responses with that permission.  The creator (Owner) of an issue has
   this permission when the tracker is in the open or restricted state

@@ -48,28 +48,33 @@
           <tr>
             <td>
               <form action="createObject"
+                    id="poi-submit-new-issue-form"
                     tal:condition="python: user.has_permission('Poi: Add Issue', here)">
                 <input name="type_name"
                        type="hidden"
                        value="PoiIssue"
                        />
-                <input class="standalone"
-                       type="submit"
-                       i18n:attributes="value"
-                       value="Submit new issue"
-                       />
+                <div class="formControls">
+                  <input class="context"
+                         type="submit"
+                         i18n:attributes="value"
+                         value="Submit new issue"
+                         />
+                </div>
               </form>
             </td>
             <td>
               <form
                   tal:condition="isAnon"
                   tal:attributes="action string:${portal/absolute_url}/login_form?came_from=${here/absolute_url}">
-                <input class="standalone"
-                       type="submit"
-                       value="Log in"
-                       i18n:domain="plone"
-                       i18n:attributes="value label_log_in;"
-                       />
+                <div class="formControls">
+                  <input class="context"
+                         type="submit"
+                         value="Log in"
+                         i18n:domain="plone"
+                         i18n:attributes="value label_log_in;"
+                         />
+                </div>
               </form>
             </td>
           </tr>

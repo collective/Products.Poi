@@ -2,7 +2,13 @@
       lang="en"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="Poi">
-
+<head>
+    <metal:css fill-slot="css_slot">
+      <style type="text/css" media="all"
+        tal:content="string:@import url($portal_url/poi.css);"></style>
+    </metal:css>
+</head>
+<body>
 <div metal:fill-slot="main">
 
     <h1 i18n:translate="poi_heading_issue_search">Issue search</h1>
@@ -246,11 +252,12 @@
             </div>
 
             <div class="formControls">
-                <input class="context"
+                <input class="context searchButton"
                        tabindex=""
                        type="submit"
                        name="submit"
                        value="Search"
+                       id="poi_advanced_search"
                        i18n:attributes="value label_search;"
                        tal:attributes="tabindex tabindex/next;"
                        />
@@ -261,5 +268,5 @@
     </form>
 
 </div>
-
+</body>
 </html>

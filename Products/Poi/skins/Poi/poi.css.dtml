@@ -46,6 +46,10 @@
     top: 5px;
 }
 
+#poi_advanced_search {
+    background: White url(&dtml-portal_url;/search_icon.gif) no-repeat scroll 2px 1px;
+}
+
 /* Issue display */
 
 .return-to-search {
