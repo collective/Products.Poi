@@ -132,7 +132,23 @@
               </li>
           </ul>
       </div>
-
+      <div class="formControls">
+          <form style="display: inline" action="toggleWatchingIssue"
+              tal:condition="python: not isAnon and not isManager and not isSubmitter">
+              <input tal:condition="here/isWatching"
+                     class="standalone"
+                     type="submit"
+                     i18n:attributes="value"
+                     value="Stop watching this issue"
+                   />
+            <input tal:condition="not:here/isWatching"
+                   class="standalone"
+                   type="submit"
+                   i18n:attributes="value"
+                   value="Watch this issue"
+                   />
+          </form>
+      </div>
       <div class="issue-details" tal:content="structure here/getTaggedDetails" />
 
       <dl class="steps-to-reproduce" tal:define="steps here/getTaggedSteps" tal:condition="nocall:steps">
@@ -152,21 +168,6 @@
                    type="submit"
                    i18n:attributes="value"
                    value="Edit issue"
-                   />
-          </form>
-          <form style="display: inline" action="toggleWatchingIssue"
-              tal:condition="python: not isAnon and not isManager and not isSubmitter">
-              <input tal:condition="here/isWatching"
-                     class="standalone"
-                     type="submit"
-                     i18n:attributes="value"
-                     value="Stop watching this issue"
-                   />
-            <input tal:condition="not:here/isWatching"
-                   class="standalone"
-                   type="submit"
-                   i18n:attributes="value"
-                   value="Watch this issue"
                    />
           </form>
       </div>
