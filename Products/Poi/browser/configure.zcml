@@ -1,4 +1,4 @@
-<configure 
+<configure
    xmlns="http://namespaces.zope.org/five"
    xmlns:browser="http://namespaces.zope.org/browser">
 
@@ -17,7 +17,7 @@
      class=".tracker.IssueFolderView"
      allowed_interface=".interfaces.IIssueFolderView"
      />
-			  
+			
   <!-- Add response form -->
   <!-- XXX: Use other permission "Poi: Add Response" -->
   <browser:viewletManager
