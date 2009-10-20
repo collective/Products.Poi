@@ -15,7 +15,7 @@ response = context.REQUEST.RESPONSE
 issueId = searchText
 if issueId.startswith('#'):
     issueId = issueId[1:]
-    
+
 if tracker.has_key(issueId):
     response.redirect('%s/%s' % (tracker.absolute_url(), issueId,))
 else:

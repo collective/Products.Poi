@@ -11,7 +11,7 @@ if username:
     user = portal_membership.getMemberById(username)
 else:
     username = user.getUserName()
-    
+
 niceName = username
 if user:
     niceName = user.getProperty('fullname') or username
