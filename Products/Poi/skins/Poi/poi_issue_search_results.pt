@@ -1,6 +1,6 @@
 <metal:block define-macro="issue_search_results"
              i18n:domain="Poi">
-      
+
    <div tal:condition="rssQueryString | nothing" class="issue-search-rss" metal:define-slot="rss-button">
        <a href="" tal:attributes="href string:${here/absolute_url}/poi-issue-search-rss.xml?${rssQueryString}">
            <img i18n:attributes="title title_rss_feed; alt label_rss_feed;"
@@ -12,8 +12,8 @@
    </div>
 
    <metal:block define-slot="intro-text" />
-   
-   <table class="listing nosort issue-search-results" 
+
+   <table class="listing nosort issue-search-results"
        tal:define="states here/getIssueWorkflowStates"
        tal:condition="nocall:issues">
        <thead>
@@ -38,7 +38,7 @@
                    </td>
                    <td>
                        <a tal:attributes="href  item/getURL;
-                                          title item/Description;" 
+                                          title item/Description;"
                           tal:content="item/Title" />
                    </td>
                    <td tal:condition="here/isUsingReleases">
@@ -48,7 +48,7 @@
                        <div tal:condition="python:item.getTargetRelease == '(UNASSIGNED)'"
                             style="text-align:center">&mdash;</div>
                    </td>
-                   <td tal:content="python:here.getWrappedField('availableAreas').lookup(here, item.getArea, 'title')" 
+                   <td tal:content="python:here.getWrappedField('availableAreas').lookup(here, item.getArea, 'title')"
                        tal:on-error="item/getArea"/>
                    <td tal:content="python:here.getWrappedField('availableIssueTypes').lookup(here, item.getIssueType, 'title')"
                        tal:on-error="item/getIssueType" />
@@ -67,7 +67,7 @@
            </tal:issues>
        </tbody>
    </table>
-   
+
    <metal:block define-slot="footer" />
-   
+
 </metal:block>

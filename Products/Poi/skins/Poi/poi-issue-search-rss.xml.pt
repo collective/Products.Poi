@@ -4,7 +4,7 @@
      xmlns:metal="http://xml.zope.org/namespaces/metal"
      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
      i18n:domain="Poi">
-  
+
   <channel tal:define="issuefolder context/@@issuefolder;
                        results   python:issuefolder.getFilteredIssues(request);
                        DateTime python:modules['DateTime'].DateTime;">
@@ -15,11 +15,11 @@
     <description tal:condition="not:nocall:results" i18n:translate="description_no_results_found">
       No results were found
     </description>
-    <description tal:condition="nocall:results" i18n:translate="batch_x_items_matching_your_criteria"> 
+    <description tal:condition="nocall:results" i18n:translate="batch_x_items_matching_your_criteria">
       <tal:span i18n:name="number" tal:content="python:len(results)"> 234 </tal:span>  items matching your criteria.
     </description>
     <generator>Poi</generator>
-    
+
     <tal:entry tal:condition="nocall:results"
                tal:repeat="item results">
       <item>

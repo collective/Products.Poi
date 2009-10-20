@@ -9,11 +9,11 @@
         tal:content="string:@import url($portal_url/poi.css);"></style>
     </metal:css>
   </head>
-  
+
 
 <body>
   <div metal:fill-slot="main">
-    <div metal:define-macro="body" 
+    <div metal:define-macro="body"
       tal:define="basicOpenStates python:['open', 'in-progress'];
                   openStates python:['unconfirmed'] + basicOpenStates;
                   ignoredStates python:['new'];
@@ -24,17 +24,17 @@
                   isManager python:member.getId() in here.getManagers()">
 
       <h1 tal:content="here/Title" class="documentFirstHeading" />
-      
+
       <div id="issue-quicksearch-box">
          <form action="poi_issue_quicksearch">
             <input type="text" name="searchText" size="15" />
             <input class="searchButton" type="submit" value="Search" i18n:attributes="value"/>
          </form>
-         <a id="issue-search-link" 
-            tal:attributes="href string:${here/absolute_url}/poi_issue_search_form" 
+         <a id="issue-search-link"
+            tal:attributes="href string:${here/absolute_url}/poi_issue_search_form"
             i18n:translate="poi_issue_search">Advanced issue search</a>
       </div>
-      
+
       <div class="documentDescription" tal:content="here/Description" />
 
       <div class="formControls">
@@ -82,14 +82,14 @@
          Others cannot submit issues to your tracker until you open it for
          submissions using the 'state' drop down in the green bar above.
       </p>
-        
+
       <div tal:content="structure here/getHelpText"/>
-        
-        
+
+
       <h2 i18n:translate="poi_heading_open_issues">Open issues</h2>
-      
-      
-      
+
+
+
       <p i18n:translate="poi_help_open_issues">
           Click an area, release or issue state to see all open issues in that
           category. For more advanced search options, click "search for issues".
@@ -105,13 +105,13 @@
                                 areaDescription area/description;
                                 issues          python:issuefolder.getFilteredIssues(area=areaId, state=openStates)">
                 <a tal:attributes="href string:${issueQueryString}&amp;area=${areaId};
-                                   title areaDescription" 
+                                   title areaDescription"
                    tal:content="areaTitle" /> (<span tal:replace="python:len(issues)" />)
                 </li>
               </tal:areas>
           </ul>
       </div>
-      
+
       <div id="open-issues-by-release" class="issue-quick-search-box"
            tal:condition="here/isUsingReleases">
           <h3 i18n:translate="poi_heading_by_release">By target release</h3>
@@ -124,7 +124,7 @@
               </tal:releases>
           </ul>
       </div>
-      
+
       <div id="open-issues-by-state" class="issue-quick-search-box"
            tal:define="issueStates here/getIssueWorkflowStates;">
           <h3 i18n:translate="poi_heading_by_state">By state</h3>
@@ -145,9 +145,9 @@
               </tal:releases>
           </ul>
       </div>
-      
+
       <div class="visualClear"><!----></div>
-      
+
       <div id="open-issues-by-tag" class="issue-quick-search-box"
           tal:define="tags here/getTagsInUse"
           tal:condition="python:isManager and len(tags) > 0">
@@ -155,31 +155,31 @@
           <div>
             <span tal:repeat="tag tags">
                 <a tal:attributes="href string:${issueQueryString}&amp;tags=${tag}"
-                   tal:content="tag" /> 
+                   tal:content="tag" />
                 <span tal:condition="not:repeat/tag/end"> ~ </span>
             </span>
           </div>
       </div>
-      
+
       <div style="clear:both"><!----></div>
-      
+
       <tal:manager condition="isManager">
-         
+
           <div id="unassigned-issues"
                tal:define="issues python:issuefolder.getFilteredIssues(state='unconfirmed');
                            rssQueryString python:issuefolder.getIssueSearchQueryString(state='unconfirmed')"
                tal:condition="nocall:issues">
 
                <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
-                  
+
                   <div metal:fill-slot="intro-text">
-                     
+
                      <h2 i18n:translate="poi_heading_unconfirmed_issues">Unconfirmed issues</h2>
                      <p i18n:translate="poi_help_unconfirmed_issues">
                          The following issues have not yet been confirmed. Please
                          review them and take the appropriate action.
                      </p>
-                     
+
                   </div>
 
                   <div class="issue-search-rss" metal:fill-slot="rss-button">
@@ -193,17 +193,17 @@
                   </div>
 
                </metal:table>
-               
+
           </div>
-          
+
       </tal:manager>
       <tal:loggedIn condition="not:isAnon">
           <div id="my-issues"
                tal:define="issues python:issuefolder.getMyIssues(manager=False)"
                tal:condition="nocall:issues">
-           
+
                <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
-                  
+
                   <div metal:fill-slot="intro-text">
                      <h2 i18n:translate="poi_heading_my_issues">My issues</h2>
                      <p tal:condition="isManager" i18n:translate="poi_help_my_issues_manager">
@@ -212,12 +212,12 @@
                          to make it possible to subscribe to a single feed with all the issues you may be interested
                          in.
                      </p>
-           
+
                      <p tal:condition="not:isManager" i18n:translate="poi_help_my_issues_not_manager">
                          The following open issues were submitted by you.
                      </p>
                   </div>
-                  
+
                    <div class="issue-search-rss" metal:fill-slot="rss-button">
                         <a href="" tal:attributes="href string:${here/absolute_url}/poi-my-issues-rss.xml?memberId=${member/getId}&isManager:boolean=${isManager}">
                             <img i18n:attributes="title title_rss_feed_my_issues; alt label_rss_feed;"
@@ -226,7 +226,7 @@
                                 alt="RSS Feed"
                                 title="RSS feed of my issues" />
                         </a>
-                    </div>    
+                    </div>
                </metal:table>
           </div>
       </tal:loggedIn>
@@ -234,16 +234,16 @@
           <div id="orphaned-issues"
                tal:define="issues issuefolder/getOrphanedIssues"
                tal:condition="nocall:issues">
-           
+
                <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
-                   
+
                    <div metal:fill-slot="intro-text">
                      <h2 i18n:translate="poi_heading_orphaned_issues">Orphaned issues</h2>
                      <p i18n:translate="poi_help_orphaned_issues_">
                          The following open issues are not assigned to anyone.
                      </p>
                    </div>
-                   
+
                    <div class="issue-search-rss" metal:fill-slot="rss-button">
                         <a href="" tal:attributes="href string:${here/absolute_url}/poi-orphaned-issues-rss.xml?memberId=${member/getId}">
                             <img i18n:attributes="title title_rss_feed_orphaned; alt label_rss_feed;"
@@ -252,11 +252,11 @@
                                 alt="RSS Feed"
                                 title="RSS feed of orphaned issues" />
                         </a>
-                    </div>    
+                    </div>
                </metal:table>
           </div>
       </tal:manager>
-      
+
       <div class="poweredBy">
         <tal:powered i18n:translate="label_powered_by">
           Powered by
@@ -264,7 +264,7 @@
         <a class="link-plain"
            href="http://plone.org/products/poi">Poi</a>
       </div>
-      
+
     </div>
 
   </div>

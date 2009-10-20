@@ -25,57 +25,57 @@
         <fieldset>
 
             <legend i18n:translate="poi_legend_search_terms">Search Terms</legend>
-    
+
             <div class="field">
-                
+
                 <label for="text" i18n:translate="poi_search_label_id">Issue number</label>
 
                 <div class="formHelp" i18n:translate="poi_search_help_id">
                     If you wish to search for a particular issue, please
                     enter its number.
                 </div>
-    
-                <input type="text" 
+
+                <input type="text"
                        id="id"
                        name="id"
                        size="5" />
             </div>
-    
+
             <div class="field">
-                
+
                 <label for="text" i18n:translate="poi_search_label_text">Issue text</label>
 
                 <div class="formHelp" i18n:translate="poi_search_help_text">
                     Enter any text you wish the issue to include.
                 </div>
-    
-                <input type="text" 
+
+                <input type="text"
                        id="text"
                        name="text"
                        size="30" />
             </div>
-    
+
             <div class="field">
-                
+
                 <label for="creator" i18n:translate="poi_search_label_creator">Submitter</label>
 
                 <div class="formHelp" i18n:translate="poi_search_help_creator">
                     Enter the username of the issue submitter,
                 </div>
-    
+
                 <input id="creator" name="creator" size="15" />
-                
+
             </div>
-    
+
             <div class="field" tal:condition="here/isUsingReleases">
-                
+
                 <label for="release" i18n:translate="poi_search_label_release">Version</label>
 
                 <div class="formHelp" i18n:translate="poi_search_help_release">
                     Select the version for which the bugs you want to find
                     were reported.
                 </div>
-    
+
                 <select id="release"
                         size="5"
                         multiple="multiple"
@@ -87,17 +87,17 @@
                             tal:attributes="value item"
                             tal:content="python:releases.getValue(item)" />
                 </select>
-                
+
             </div>
-    
+
             <div class="field" tal:condition="here/isUsingReleases">
-                
+
                 <label for="release" i18n:translate="poi_search_label_target_release">Target release</label>
 
                 <div class="formHelp" i18n:translate="poi_search_help_target_release">
                     Select the assigned target release you wish to search for.
                 </div>
-    
+
                 <select id="targetRelease"
                         size="5"
                         multiple="multiple"
@@ -109,17 +109,17 @@
                             tal:attributes="value item"
                             tal:content="python:releases.getValue(item)" />
                 </select>
-                
+
             </div>
-    
+
             <div class="field">
-                
+
                 <label for="area" i18n:translate="poi_search_label_area">Area</label>
 
                 <div class="formHelp" i18n:translate="poi_search_help_area">
                     Select the areas you wish to search for.
                 </div>
-    
+
                 <select id="area"
                         size="5"
                         multiple="multiple"
@@ -129,17 +129,17 @@
                             tal:attributes="value nocall:item"
                             tal:content="python:areas.getValue(item)" />
                 </select>
-                
+
             </div>
-    
+
             <div class="field">
-                
+
                 <label for="issueType" i18n:translate="poi_search_label_issue_type">Issue type</label>
 
                 <div class="formHelp" i18n:translate="poi_search_help_issue_type">
                     Select the issue types you wish to search for.
                 </div>
-    
+
                 <select id="issueType"
                         size="5"
                         multiple="multiple"
@@ -149,17 +149,17 @@
                             tal:attributes="value nocall:item"
                             tal:content="python:issueTypes.getValue(item)" />
                 </select>
-                
+
             </div>
 
             <div class="field">
-                
+
                 <label for="severity" i18n:translate="poi_search_label_severity">Severity</label>
 
                 <div class="formHelp" i18n:translate="poi_search_help_severity">
                     Select the severities you wish to search for.
                 </div>
-    
+
                 <select id="severity"
                         size="5"
                         multiple="multiple"
@@ -169,17 +169,17 @@
                             tal:attributes="value item"
                             tal:content="item" />
                 </select>
-                
+
             </div>
-            
+
             <div class="field">
-                
+
                 <label for="state" i18n:translate="poi_search_label_state">State</label>
 
                 <div class="formHelp" i18n:translate="poi_search_help_state">
                     Select the states you wish to search for.
                 </div>
-    
+
                 <select id="state"
                         size="5"
                         multiple="multiple"
@@ -191,17 +191,17 @@
                             i18n:domain="plone"
                             tal:content="python:states.getValue(item)" />
                 </select>
-                
+
             </div>
-            
+
             <div class="field">
-                
+
                 <label for="responsible" i18n:translate="poi_search_label_responsible">Responsible tracker managers</label>
 
                 <div class="formHelp" i18n:translate="poi_search_help_responsible">
                     Select the responsible managers you wish to search for.
                 </div>
-    
+
                 <select id="responsible"
                         size="5"
                         multiple="multiple"
@@ -213,11 +213,11 @@
                             tal:attributes="value item"
                             tal:content="item" />
                 </select>
-                
+
             </div>
-            
+
             <div class="field">
-                
+
                 <label for="tags" i18n:translate="poi_search_label_tags">Tags</label>
 
                 <div class="formHelp" i18n:translate="poi_search_help_tags">
@@ -225,7 +225,7 @@
                     allow finer-grained organisation of issues. Select the tag
                     or tags you wish to search for.
                 </div>
-    
+
                 <select id="tags"
                         size="5"
                         multiple="multiple"
@@ -257,7 +257,7 @@
             </div>
 
         </fieldset>
-    
+
     </form>
 
 </div>

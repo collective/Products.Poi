@@ -16,7 +16,7 @@
 
   <body>
     <div metal:fill-slot="main">
-      
+
       <div metal:define-macro="body">
 
         <tal:no_response condition="not:view/response_found">
@@ -49,7 +49,7 @@
             <div class="field">
               <label for="response"
                      i18n:translate="Poi_label_response">Response</label>
-              
+
               <div class="formHelp" id="response_help"
                    i18n:translate="label_enter_response">Please enter your response below</div>
               <div>
@@ -80,9 +80,9 @@
                     tal:condition="not:view/use_wysiwyg"
                     tal:content="view/response/text"
                     cols="40" rows="15" name="response" id="response"></textarea>
-                
+
               </div>
-              
+
             </div>
 
             <input type="hidden" name="response_id" tal:attributes="value request/response_id" />

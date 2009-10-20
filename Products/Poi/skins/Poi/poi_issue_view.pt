@@ -17,21 +17,21 @@
         tal:define="wftool here/portal_workflow;
                     isManager python:member.getId() in here.getManagers();
                     isSubmitter python:member.getId() == here.Creator()">
-    
+
     <div metal:define-macro="body">
 
       <h1 class="documentFirstHeading">
           #<span tal:replace="here/getId" /> &mdash;
           <span tal:replace="here/Title" />
-      </h1> 
-                  
+      </h1>
+
       <table class="vertical listing issue-info-box"
              tal:define="releases here/getReleasesVocab">
           <tr tal:define="state python:wftool.getInfoFor(here, 'review_state');
                           state_title python:wtool.getTitleForStateOnType(state,
                           here.getPortalTypeName());">
               <th i18n:translate="poi_label_state">State</th>
-              <td tal:content="state_title" 
+              <td tal:content="state_title"
                   i18n:translate="" i18n:domain="plone"
                   tal:attributes="class string:issue-${state}"/>
           </tr>
@@ -89,7 +89,7 @@
               </td>
           </tr>
       </table>
-      
+
       <tal:block define="backURL request/HTTP_REFERER | nothing;
                          cameFromTracker python:backURL and backURL.startswith(here.aq_inner.aq_parent.absolute_url() + '/poi_issue_search');">
          <a href=""
@@ -107,44 +107,44 @@
             tal:attributes="href parentURL">
            Return to tracker
          </a>
-            
+
       </tal:block>
-      
-      <div class="modification-info" 
+
+      <div class="modification-info"
            tal:define="user here/getLastModificationUser;
                        time here/modified">
          <span tal:condition="nocall:user" i18n:translate="poi_last_modified_on_by">Last modified on
             <tal:block i18n:name="modification_time" tal:content="python:here.toLocalizedTime(time)" />
             by
-            <tal:block i18n:name="modification_actor" 
+            <tal:block i18n:name="modification_actor"
                   tal:content="python:here.poi_niceName(username=user)"  />
          </span>
          <span tal:condition="not:nocall:user" i18n:translate="poi_last_modified_on">Last modified on
             <tal:block i18n:name="modification_time" tal:content="python:here.toLocalizedTime(time)"/>
          </span>
       </div>
-      
+
       <div class="issue-tags" tal:condition="here/Subject">
-          <span class="issue-tags-label" i18n:translate="poi_label_tags">Tags:</span> 
+          <span class="issue-tags-label" i18n:translate="poi_label_tags">Tags:</span>
           <ul class="issue-tags-tags">
               <li tal:repeat="tag here/Subject">
                  <a tal:content="tag" tal:attributes="href string:${here/aq_parent/absolute_url}/poi_issue_search?tags=${tag}"/>
               </li>
           </ul>
       </div>
-      
+
       <div class="issue-details" tal:content="structure here/getTaggedDetails" />
-  
+
       <dl class="steps-to-reproduce" tal:define="steps here/getTaggedSteps" tal:condition="nocall:steps">
           <dt i18n:translate="poi_label_steps">Steps to reproduce:</dt>
           <dd tal:content="structure steps" />
       </dl>
-      
+
       <div class="issue-attachment" tal:condition="python:here.getAttachment().get_size() &gt; 0">
           <div class="issue-attachment-label" i18n:translate="poi_label_attachment">Attached:</div>
           <metal:attachment use-macro="python:here.widget('attachment')"/>
       </div>
-      
+
       <div class="formControls">
           <form style="display: inline" action="edit"
               tal:condition="python: user.has_permission('Modify portal content', here)">
@@ -170,11 +170,11 @@
                    />
           </form>
       </div>
-      
+
       <div class="visualClear"><!----></div>
 
       <div tal:replace="structure provider:poi.response.add" />
-      
+
       <div class="visualClear"><!----></div>
   </div>
 </div>

@@ -45,8 +45,8 @@
            </strong>
 
         </div>
-        
-         
+
+
         <div metal:fill-slot="footer">
            <div metal:use-macro="here/batch_macros/macros/navigation" />
         </div>
