@@ -97,7 +97,7 @@ msgstr "Geben Sie die Ausgaben/ Versionen an, die einer einer Problemstellung zu
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
 msgid "Poi_help_availableSeverities"
-msgstr "Geben Sie die verschiedenen Wichtungen an, die für eine Problemstellungzur Auswahl stehen sollen. Eine pro Zeile."
+msgstr "Geben Sie die verschiedenen Gewichtungen an, die für eine Problemstellungzur Auswahl stehen sollen. Eine pro Zeile."
 
 # ./content/PoiIssue.py
 #. Default: "Optionally, provide an email address where you can be contacted for further information or when a resolution is available."
@@ -107,7 +107,7 @@ msgstr "Optional können sie eine E-Mail-Adresse angeben, über die sie für wei
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
 msgid "Poi_help_defaultSeverity"
-msgstr "Wählen sie eine Wichtung, die als Vorgabe verwendet werden soll."
+msgstr "Wählen sie eine Gewichtung, die als Vorgabe verwendet werden soll."
 
 # ./content/PoiIssue.py
 #. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
@@ -258,7 +258,7 @@ msgstr "Verfügbare Ausgaben/ Versionen"
 # ./content/PoiTracker.py
 #. Default: "Available severities"
 msgid "Poi_label_availableSeverities"
-msgstr "Verfügbare Wichtungen"
+msgstr "Verfügbare Gewichtungen"
 
 # ./content/PoiIssue.py
 #. Default: "Contact email address"
@@ -268,7 +268,7 @@ msgstr "E-Mail Kontakt "
 # ./content/PoiTracker.py
 #. Default: "Default severity"
 msgid "Poi_label_defaultSeverity"
-msgstr "Vorgabe für die Wichtung"
+msgstr "Vorgabe für die Gewichtung"
 
 # ./content/PoiIssue.py
 #. Default: "Tracker description"
@@ -327,7 +327,7 @@ msgstr "Ändern des zuständigen Verwalters"
 #. Default: "Change issue severity"
 #: ../browser/response.pt:200
 msgid "Poi_label_newSeverity"
-msgstr "Ändern der Wichtung der Problemstellung"
+msgstr "Ändern der Gewichtung der Problemstellung"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
@@ -364,7 +364,7 @@ msgstr "Sende Benachrichtigungs E-Mails"
 # ./content/PoiIssue.py
 #. Default: "Severity"
 msgid "Poi_label_severity"
-msgstr "Wichtung"
+msgstr "Gewichtung"
 
 # ./content/PoiIssue.py
 #. Default: "Steps to reproduce"
@@ -431,7 +431,7 @@ msgstr "Suche"
 
 #: ../browser/response.py:399
 msgid "Severity"
-msgstr "Wichtung"
+msgstr "Gewichtung"
 
 #. Default: "Stop watching this issue"
 #: ../skins/Poi/poi_issue_view.pt:159
@@ -534,7 +534,7 @@ msgstr "Zuständig"
 #. Default: "Severity"
 #: ../skins/Poi/poi_issue_search_results.pt:27
 msgid "listingheader_severity"
-msgstr "Wichtung"
+msgstr "Gewichtung"
 
 #. Default: "State"
 #: ../skins/Poi/poi_issue_search_results.pt:30
@@ -809,7 +809,7 @@ msgstr "Zuständig"
 #. Default: "Severity"
 #: ../skins/Poi/poi_issue_view.pt:57
 msgid "poi_label_severity"
-msgstr "Wichtung"
+msgstr "Gewichtung"
 
 #. Default: "State"
 #: ../skins/Poi/poi_issue_view.pt:33
@@ -983,7 +983,7 @@ msgstr "Verantwortliche Tracker Manager"
 #. Default: "Severity"
 #: ../skins/Poi/poi_issue_search_form.pt:157
 msgid "poi_search_label_severity"
-msgstr "Wichtung"
+msgstr "Gewichtung"
 
 #. Default: "State"
 #: ../skins/Poi/poi_issue_search_form.pt:177
