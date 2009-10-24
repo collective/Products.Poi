@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2009-10-23 20:09+0000\n"
+"POT-Creation-Date: 2009-10-24 02:11+0000\n"
 "PO-Revision-Date: 2009-08-31 22:36+0100\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
@@ -22,17 +22,12 @@ msgstr ""
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
 msgstr "Een issue. Issues beginnen in de 'niet bevestigd' status en kan beantwoord worden door de project managers."
 
-#. Default: "Cancel"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:41
-msgid "Cancel"
-msgstr "Annuleer"
-
 #: ../browser/response.py:497
 msgid "Changes saved to response id ${response_id}."
 msgstr "Wijzigingen opgeslagen voor reactie met id ${response_id}."
 
 #. Default: "Delete"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:34
+#: ../browser/response.pt:27
 msgid "Delete"
 msgstr "Verwijder"
 
@@ -66,7 +61,7 @@ msgstr "Geen reactie geselecteerd."
 msgid "No response text added and no issue changes made."
 msgstr "Geen tekst toegevoegd in deze reactie en geen wijzigingen aan de issue gemaakt."
 
-#: ../content/PoiIssue.py:530
+#: ../content/PoiIssue.py:484
 msgid "None"
 msgstr "Geen"
 
@@ -466,11 +461,6 @@ msgstr "U mag geen reacties bewerken."
 msgid "batch_x_items_matching_your_criteria"
 msgstr "${number} items die voldoen aan je criteria"
 
-#. Default: "Are you sure you wish to delete this response?"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:19
-msgid "desc_poi_heading_delete_response"
-msgstr "Weet u zeker dat u deze reactie wilt verwijderen?"
-
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
 #: ../skins/Poi/poi_tracker_view.pt:84
 msgid "description_cannot_add_issues_before_opened"
@@ -630,12 +620,12 @@ msgstr ""
 "* Dit is een automatische e-mail, gelieven niet de e-mail te beantwoorden - ${from_name}"
 
 #. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
-#: ../content/PoiIssue.py:648
+#: ../content/PoiIssue.py:599
 msgid "poi_email_new_issue_subject_template"
 msgstr "[${tracker_title}] #${issue_id} - Nieuw issue: ${issue_title}"
 
 #. Default: "A new issue has been submitted to the **${tracker_title}**\ntracker by **${issue_author}** and awaits confirmation.\n\nIssue Information\n-----------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n**Issue Details**::\n\n${issue_details}\n\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ../content/PoiIssue.py:622
+#: ../content/PoiIssue.py:573
 msgid "poi_email_new_issue_template"
 msgstr ""
 "Een nieuwe issue is ingediend in de **${tracker_title}**\n"
@@ -698,11 +688,6 @@ msgstr "Per status"
 #: ../skins/Poi/poi_tracker_view.pt:159
 msgid "poi_heading_by_tag"
 msgstr "Per tag"
-
-#. Default: "Delete Response"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:17
-msgid "poi_heading_delete_response"
-msgstr "Verwijder reactie"
 
 #. Default: "Issue search"
 #: ../skins/Poi/poi_issue_search_form.pt:14
@@ -869,11 +854,6 @@ msgstr "Zoek op de combinatie van alle geselecteerde tags"
 msgid "poi_new_issue_added"
 msgstr "Nieuw issue ${name} toegevoegd door ${author}"
 
-#. Default: "Response #${responseNumber} to \"${issueTitle}\""
-#: ../skins/Poi/poi_response_view.pt:19
-msgid "poi_response_title"
-msgstr "Reactie #${responseNumber} op \"${issueTitle}\""
-
 #. Default: "Return to search results"
 #: ../skins/Poi/poi_issue_view.pt:95
 msgid "poi_return_to_search"
@@ -993,11 +973,6 @@ msgstr "Doelrelease"
 #: ../skins/Poi/poi_issue_search_form.pt:52
 msgid "poi_search_label_text"
 msgstr "Issue tekst"
-
-#. Default: "View issue in full"
-#: ../skins/Poi/poi_response_view.pt:26
-msgid "poi_up_to_issue"
-msgstr "Bekijk issue volledig"
 
 #. Default: "Add response"
 #: ../browser/response.pt:97

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-es\n"
-"POT-Creation-Date: 2009-10-23 20:09+0000\n"
+"POT-Creation-Date: 2009-10-24 02:11+0000\n"
 "PO-Revision-Date: 2009-08-11 13:53-0400\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Plone Cono Sur <plone-conosur@lists.plone.org>\n"
@@ -24,17 +24,12 @@ msgstr ""
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
 msgstr "Una incidencia. Las incidencias comienzan en el estado 'sin ser confirmado', y puede ser respondido por los administradores del proyectos."
 
-#. Default: "Cancel"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:41
-msgid "Cancel"
-msgstr "Cancelar"
-
 #: ../browser/response.py:497
 msgid "Changes saved to response id ${response_id}."
 msgstr "Se han guardado los cambios a la respuesta id ${response_id}."
 
 #. Default: "Delete"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:34
+#: ../browser/response.pt:27
 msgid "Delete"
 msgstr "Borrar"
 
@@ -68,7 +63,7 @@ msgstr "No hay respuesta seleccionadas."
 msgid "No response text added and no issue changes made."
 msgstr "No hay respuesta en el texto añadido y no hay incidencia de cambios realizados."
 
-#: ../content/PoiIssue.py:530
+#: ../content/PoiIssue.py:484
 msgid "None"
 msgstr "Ninguno"
 
@@ -468,11 +463,6 @@ msgstr "No está permitido editar las respuestas."
 msgid "batch_x_items_matching_your_criteria"
 msgstr "${number} elementos concuerdan con la búsqueda."
 
-#. Default: "Are you sure you wish to delete this response?"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:19
-msgid "desc_poi_heading_delete_response"
-msgstr "Está seguro de que desea eliminar esta respuesta?"
-
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
 #: ../skins/Poi/poi_tracker_view.pt:84
 msgid "description_cannot_add_issues_before_opened"
@@ -632,12 +622,12 @@ msgstr ""
 "* Éste es un correo electrónico automático, por favor no lo responda - ${from_name}"
 
 #. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
-#: ../content/PoiIssue.py:648
+#: ../content/PoiIssue.py:599
 msgid "poi_email_new_issue_subject_template"
 msgstr ""
 
 #. Default: "A new issue has been submitted to the **${tracker_title}**\ntracker by **${issue_author}** and awaits confirmation.\n\nIssue Information\n-----------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n**Issue Details**::\n\n${issue_details}\n\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ../content/PoiIssue.py:622
+#: ../content/PoiIssue.py:573
 msgid "poi_email_new_issue_template"
 msgstr ""
 "Una nueva incidencia ha sido enviada al gestor **${tracker_title}**\n"
@@ -703,11 +693,6 @@ msgstr "Por estado"
 #: ../skins/Poi/poi_tracker_view.pt:159
 msgid "poi_heading_by_tag"
 msgstr "Por etiqueta"
-
-#. Default: "Delete Response"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:17
-msgid "poi_heading_delete_response"
-msgstr "Borrar respuesta"
 
 #. Default: "Issue search"
 #: ../skins/Poi/poi_issue_search_form.pt:14
@@ -874,11 +859,6 @@ msgstr "Coincidir todas las etiquetas"
 msgid "poi_new_issue_added"
 msgstr "Nuevo incidente ${name} agregado por ${author}"
 
-#. Default: "Response #${responseNumber} to \"${issueTitle}\""
-#: ../skins/Poi/poi_response_view.pt:19
-msgid "poi_response_title"
-msgstr "Respuesta # ${responseNumber} a \" ${issueTitle} \""
-
 #. Default: "Return to search results"
 #: ../skins/Poi/poi_issue_view.pt:95
 msgid "poi_return_to_search"
@@ -998,11 +978,6 @@ msgstr "Destino de publicación"
 #: ../skins/Poi/poi_issue_search_form.pt:52
 msgid "poi_search_label_text"
 msgstr "Texto de la incidencia"
-
-#. Default: "View issue in full"
-#: ../skins/Poi/poi_response_view.pt:26
-msgid "poi_up_to_issue"
-msgstr "Ver incidencia completa"
 
 #. Default: "Add response"
 #: ../browser/response.pt:97

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2009-10-23 20:09+0000\n"
+"POT-Creation-Date: 2009-10-24 02:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,17 +19,12 @@ msgstr ""
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
 msgstr ""
 
-#. Default: "Cancel"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:41
-msgid "Cancel"
-msgstr ""
-
 #: ../browser/response.py:497
 msgid "Changes saved to response id ${response_id}."
 msgstr ""
 
 #. Default: "Delete"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:34
+#: ../browser/response.pt:27
 msgid "Delete"
 msgstr ""
 
@@ -63,7 +58,7 @@ msgstr ""
 msgid "No response text added and no issue changes made."
 msgstr ""
 
-#: ../content/PoiIssue.py:530
+#: ../content/PoiIssue.py:484
 msgid "None"
 msgstr ""
 
@@ -451,11 +446,6 @@ msgstr ""
 msgid "batch_x_items_matching_your_criteria"
 msgstr ""
 
-#. Default: "Are you sure you wish to delete this response?"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:19
-msgid "desc_poi_heading_delete_response"
-msgstr ""
-
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
 #: ../skins/Poi/poi_tracker_view.pt:84
 msgid "description_cannot_add_issues_before_opened"
@@ -602,12 +592,12 @@ msgid "poi_email_issue_resolved_template"
 msgstr ""
 
 #. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
-#: ../content/PoiIssue.py:648
+#: ../content/PoiIssue.py:599
 msgid "poi_email_new_issue_subject_template"
 msgstr ""
 
 #. Default: "A new issue has been submitted to the **${tracker_title}**\ntracker by **${issue_author}** and awaits confirmation.\n\nIssue Information\n-----------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n**Issue Details**::\n\n${issue_details}\n\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ../content/PoiIssue.py:622
+#: ../content/PoiIssue.py:573
 msgid "poi_email_new_issue_template"
 msgstr ""
 
@@ -639,11 +629,6 @@ msgstr ""
 #. Default: "By tag"
 #: ../skins/Poi/poi_tracker_view.pt:159
 msgid "poi_heading_by_tag"
-msgstr ""
-
-#. Default: "Delete Response"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:17
-msgid "poi_heading_delete_response"
 msgstr ""
 
 #. Default: "Issue search"
@@ -811,11 +796,6 @@ msgstr ""
 msgid "poi_new_issue_added"
 msgstr ""
 
-#. Default: "Response #${responseNumber} to \"${issueTitle}\""
-#: ../skins/Poi/poi_response_view.pt:19
-msgid "poi_response_title"
-msgstr ""
-
 #. Default: "Return to search results"
 #: ../skins/Poi/poi_issue_view.pt:95
 msgid "poi_return_to_search"
@@ -934,11 +914,6 @@ msgstr ""
 #. Default: "Issue text"
 #: ../skins/Poi/poi_issue_search_form.pt:52
 msgid "poi_search_label_text"
-msgstr ""
-
-#. Default: "View issue in full"
-#: ../skins/Poi/poi_response_view.pt:26
-msgid "poi_up_to_issue"
 msgstr ""
 
 #. Default: "Add response"

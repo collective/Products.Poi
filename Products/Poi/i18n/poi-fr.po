@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2009-10-23 20:09+0000\n"
+"POT-Creation-Date: 2009-10-24 02:11+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Kevin Deldycke <kevin@deldycke.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -24,17 +24,12 @@ msgstr ""
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
 msgstr "Un ticket. Les tickets sont créés dans l'état « non confirmé », et peuvent être traités par les gestionnaires du projet."
 
-#. Default: "Cancel"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:41
-msgid "Cancel"
-msgstr "Annuler"
-
 #: ../browser/response.py:497
 msgid "Changes saved to response id ${response_id}."
 msgstr "Les modifications à la réponses ${response_id} sont enregistrées."
 
 #. Default: "Delete"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:34
+#: ../browser/response.pt:27
 msgid "Delete"
 msgstr "Effacer"
 
@@ -68,7 +63,7 @@ msgstr "Aucune réponse n'est sélectionnée."
 msgid "No response text added and no issue changes made."
 msgstr "Aucun texte de réponse ajouté et aucune modification effectuée."
 
-#: ../content/PoiIssue.py:530
+#: ../content/PoiIssue.py:484
 msgid "None"
 msgstr ""
 
@@ -468,11 +463,6 @@ msgstr "Vous n'êtes pas autorisé à modifier des réponses."
 msgid "batch_x_items_matching_your_criteria"
 msgstr "${number} éléments correspondent à vos critères."
 
-#. Default: "Are you sure you wish to delete this response?"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:19
-msgid "desc_poi_heading_delete_response"
-msgstr "Êtes vous sûr de vouloir effacer cette réponse ?"
-
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
 #: ../skins/Poi/poi_tracker_view.pt:84
 msgid "description_cannot_add_issues_before_opened"
@@ -633,12 +623,12 @@ msgstr ""
 "* Ceci est un email automatique, merci de ne pas répondre - ${from_name}"
 
 #. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
-#: ../content/PoiIssue.py:648
+#: ../content/PoiIssue.py:599
 msgid "poi_email_new_issue_subject_template"
 msgstr "[${tracker_title}] #${issue_id} - Nouveau ticket: ${issue_title}"
 
 #. Default: "A new issue has been submitted to the **${tracker_title}**\ntracker by **${issue_author}** and awaits confirmation.\n\nIssue Information\n-----------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n**Issue Details**::\n\n${issue_details}\n\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ../content/PoiIssue.py:622
+#: ../content/PoiIssue.py:573
 msgid "poi_email_new_issue_template"
 msgstr ""
 "Un nouveau ticket a été créé dans le gestionnaire **${tracker_title}**\n"
@@ -701,11 +691,6 @@ msgstr "Par état"
 #: ../skins/Poi/poi_tracker_view.pt:159
 msgid "poi_heading_by_tag"
 msgstr "Par étiquette"
-
-#. Default: "Delete Response"
-#: ../skins/Poi/poi_response_delete_confirm.cpt:17
-msgid "poi_heading_delete_response"
-msgstr "Effacer la réponse"
 
 #. Default: "Issue search"
 #: ../skins/Poi/poi_issue_search_form.pt:14
@@ -874,11 +859,6 @@ msgstr "Faire correspondre toutes les étiquettes"
 msgid "poi_new_issue_added"
 msgstr "Nouveau ticket ${name} ajouté par ${author}"
 
-#. Default: "Response #${responseNumber} to \"${issueTitle}\""
-#: ../skins/Poi/poi_response_view.pt:19
-msgid "poi_response_title"
-msgstr "Réponse # ${responseNumber} à « ${issueTitle} »"
-
 #. Default: "Return to search results"
 #: ../skins/Poi/poi_issue_view.pt:95
 msgid "poi_return_to_search"
@@ -998,11 +978,6 @@ msgstr "Distribution souhaitée"
 #: ../skins/Poi/poi_issue_search_form.pt:52
 msgid "poi_search_label_text"
 msgstr "Texte du ticket"
-
-#. Default: "View issue in full"
-#: ../skins/Poi/poi_response_view.pt:26
-msgid "poi_up_to_issue"
-msgstr "Voir l'intégralité du ticket"
 
 #. Default: "Add response"
 #: ../browser/response.pt:97
