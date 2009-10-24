@@ -5,6 +5,10 @@ Changelog for Poi
 1.3 (unreleased)
 ----------------
 
+- Use zope.i18n.translate instead the the no longer existing
+  GlobalTranslationService.
+  [maurits]
+
 - Get rid of old style zope2 interfaces, which no longer exist in Zope
   2.12.
   [maurits]

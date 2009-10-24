@@ -1,11 +1,10 @@
 import logging
 import textwrap
 
+from zope.i18n import translate
 from Acquisition import aq_parent
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
-from Products.PageTemplates.GlobalTranslationService import \
-    getGlobalTranslationService
 
 from Products.Poi.interfaces import IIssue
 from Products.Poi import PoiMessageFactory as _
@@ -57,7 +56,6 @@ def sendResponseNotificationMail(issue, response):
     portal = portal_url.getPortalObject()
     portal_membership = getToolByName(portal, 'portal_membership')
     plone_utils = getToolByName(portal, 'plone_utils')
-    ts = getGlobalTranslationService()
 
     charset = plone_utils.getSiteEncoding()
 
@@ -91,7 +89,7 @@ def sendResponseNotificationMail(issue, response):
         header = _(
             'poi_heading_response_details',
             u"Response Details")
-        header = ts.translate('Poi', header, context=issue)
+        header = translate(header, 'Poi', context=issue)
         responseDetails = u"**%s**::\n\n\n%s" % (header, responseDetails)
 
     changes = u''
@@ -100,8 +98,8 @@ def sendResponseNotificationMail(issue, response):
         after = su(change.get('after'))
         # Some changes are workflow changes, which can be translated.
         # Note that workflow changes are in the plone domain.
-        before = ts.translate('plone', before, context=issue)
-        after = ts.translate('plone', after, context=issue)
+        before = translate(before, 'plone', context=issue)
+        after = translate(after, 'plone', context=issue)
         changes += u"%s -> %s\n" % (before, after)
 
     mailText = _(

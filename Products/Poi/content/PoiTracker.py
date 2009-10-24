@@ -30,6 +30,7 @@ __docformat__ = 'plaintext'
 from email.Utils import parseaddr, formataddr
 import socket
 from smtplib import SMTPException
+from zope.i18n import translate
 from AccessControl import ClassSecurityInfo
 try:
     from Products.LinguaPlone.public import *
@@ -47,8 +48,6 @@ from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 from AccessControl import Unauthorized
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import log_exc, log
-from Products.PageTemplates.GlobalTranslationService import \
-    getGlobalTranslationService
 
 from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
@@ -400,8 +399,7 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         email_msg.epilogue = ''
 
         # Translate the body text
-        ts = getGlobalTranslationService()
-        rstText = ts.translate('Poi', rstText, context=self)
+        rstText = translate(rstText, 'Poi', context=self)
         # We must choose the body charset manually
         for body_charset in 'US-ASCII', charset, 'UTF-8':
             try:
@@ -419,7 +417,7 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
 
         # Make the subject unicode and translate it too.
         subject = safe_unicode(subject, charset)
-        subject = ts.translate('Poi', subject, context=self)
+        subject = translate(subject, 'Poi', context=self)
         for address in addresses:
             address = safe_unicode(address, charset)
             if not address:
