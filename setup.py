@@ -40,7 +40,7 @@ setup(name='Products.Poi',
           'setuptools',
           'Plone>=3.3',
           'Products.AddRemoveWidget',
-          'Products.DataGridField>=1.6b3,<1.8dev',
+          'Products.DataGridField',
       ],
       entry_points="""
       # -*- Entry points: -*-
