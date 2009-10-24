@@ -57,6 +57,9 @@ Bugs/Known issues:
 
     o _renameAfterCreation() counter is not thread safe
 
+    o Fix browser/log.py to work for new style responses too.
+      [maurits, 2009-05-22]
+
 Security issues:
 
     o Add max-size validator on uploaded attachments?

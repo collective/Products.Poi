@@ -48,7 +48,6 @@ setDefaultRoles(DEFAULT_ADD_CONTENT_PERMISSION, ('Manager', 'Owner'))
 ADD_CONTENT_PERMISSIONS = {
     'PoiTracker': 'Poi: Add Tracker',
     'PoiIssue': 'Poi: Add Issue',
-    'PoiResponse': 'Poi: Add Response',
 }
 
 setDefaultRoles('Poi: Add Tracker', ('Manager', ))

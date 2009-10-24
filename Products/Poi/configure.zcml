@@ -119,4 +119,12 @@
       handler="Products.Poi.migration.run_workflow_step"
       profile="Products.Poi:default" />
 
+  <gs:upgradeStep
+      title="Remove PoiResponse contenttype"
+      description="Remove old content types from the portal_types tool."
+      source="1299"
+      destination="1300"
+      handler="Products.Poi.migration.remove_response_content_type"
+      profile="Products.Poi:default" />
+
 </configure>

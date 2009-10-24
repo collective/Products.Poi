@@ -73,7 +73,7 @@ def voc2dict(vocab, current=None):
 class Base(BrowserView):
     """Base view for PoiIssues.
 
-    Mostly meant as helper for adding a PoiResponse.
+    Mostly meant as helper for adding a response.
     """
 
     def __init__(self, context, request):

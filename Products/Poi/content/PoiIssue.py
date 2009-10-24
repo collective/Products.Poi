@@ -295,6 +295,7 @@ schema = Schema((
 
 PoiIssue_schema = BaseFolderSchema.copy() + \
     schema.copy()
+PoiIssue_schema.moveField('subject', after='watchers')
 
 
 class PoiIssue(BaseFolder, BrowserDefaultMixin):
@@ -308,61 +309,14 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
 
     # This name appears in the 'add' box
     archetype_name = 'Issue'
-
     meta_type = 'PoiIssue'
     portal_type = 'PoiIssue'
-    allowed_content_types = ['PoiResponse']
-    filter_content_types = 1
-    global_allow = 0
-    content_icon = 'PoiIssue.gif'
-    immediate_view = 'base_view'
-    default_view = 'poi_issue_view'
-    suppl_views = ()
-    typeDescription = "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-    typeDescMsgId = 'description_edit_poiissue'
-
-
-    actions = (
-
-
-       {'action': "string:${object_url}/view",
-        'category': "object",
-        'id': 'view',
-        'name': 'View',
-        'permissions': (permissions.View, ),
-        'condition': 'python:1',
-       },
-
-
-       {'action': "string:${object_url}/edit",
-        'category': "object",
-        'id': 'edit',
-        'name': 'Edit',
-        'permissions': (permissions.ModifyPortalContent, ),
-        'condition': 'python:1'
-       },
-
-
-    )
-
     _at_rename_after_creation = True
 
     schema = PoiIssue_schema
 
-    schema.moveField('subject', after='watchers')
 
     # Methods
-
-    security.declareProtected(permissions.View, 'getCurrentIssueState')
-    def getCurrentIssueState(self):
-        """
-        Get the current state of the issue.
-
-        Used by PoiResponse to select a default for the new issue
-        state selector.
-        """
-        wftool = getToolByName(self, 'portal_workflow')
-        return wftool.getInfoFor(self, 'review_state')
 
     security.declareProtected(permissions.View, 'getAvailableIssueTransitions')
     def getAvailableIssueTransitions(self):
@@ -563,11 +517,8 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         text = BaseObject.SearchableText(self)
         folder = IResponseContainer(self, None)
         if folder is None:
+            # Should Not Happen (TM)
             return text
-        # old style:
-        responses = self.contentValues(filter={'portal_type': 'PoiResponse'})
-        text += ' ' + ' '.join([r.SearchableText() for r in responses])
-        # new style:
         text += ' ' + ' '.join([r.text for r in folder])
         return text
 

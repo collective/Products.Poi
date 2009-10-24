@@ -5,7 +5,8 @@ Changelog for Poi
 1.2.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Cleaned up code that was meant for PoiResponses.  The class itself
+  is still there for migration.  [maurits]
 
 
 1.2.7 (2009-10-24)

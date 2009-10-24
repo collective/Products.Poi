@@ -57,7 +57,7 @@ def has_old_responses(tool):
 def replace_old_with_new_responses(issue):
     if not IIssue.providedBy(issue):
         return
-    responses = issue.contentValues(filter={'portal_type': 'PoiResponse'})
+    responses = issue.objectValues(spec='PoiResponse')
     folder = IResponseContainer(issue)
     try:
         request = issue.REQUEST
@@ -303,3 +303,13 @@ def update_tracker_managers(context):
             logger.info("Committing after updating roles on tracker %s",
                         tracker.absolute_url())
             transaction.commit()
+
+
+def remove_response_content_type(context):
+    """Remove the PoiResponse content type from the portal_types tool.
+    """
+    types = getToolByName(context, 'portal_types')
+    try:
+        types._delObject('PoiResponse')
+    except AttributeError:
+        pass

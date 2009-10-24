@@ -216,40 +216,6 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
 
     meta_type = 'PoiResponse'
     portal_type = 'PoiResponse'
-    allowed_content_types = []
-    filter_content_types = 0
-    global_allow = 0
-    content_icon = 'PoiResponse.gif'
-    immediate_view = 'base_view'
-    default_view = 'poi_response_view'
-    suppl_views = ()
-    typeDescription = "A response to an issue."
-    typeDescMsgId = 'description_edit_poiresponse'
-
-
-    actions = (
-
-
-       {'action': "string:${object_url}/view",
-        'category': "object",
-        'id': 'view',
-        'name': 'view',
-        'permissions': (permissions.View, ),
-        'condition': 'python:1',
-       },
-
-
-       {'action': "string:${object_url}/edit",
-        'category': "object",
-        'id': 'edit',
-        'name': 'Edit',
-        'permissions': (permissions.ModifyPortalContent, ),
-        'condition': 'python:1'
-       },
-
-
-    )
-
     _at_rename_after_creation = True
 
     schema = PoiResponse_schema
@@ -500,13 +466,6 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
         """
         return self.Title() + " " + self.getRawResponse()
 
-
-def modify_fti(fti):
-    # Hide unnecessary tabs (usability enhancement)
-    for a in fti['actions']:
-        if a['id'] in ['metadata', 'sharing']:
-            a['visible'] = 0
-    return fti
 
 registerType(PoiResponse, PROJECTNAME)
 # end of class PoiResponse

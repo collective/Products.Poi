@@ -1,7 +1,7 @@
 Link Detection
 ==============
 
-Some fields of PoiIssues and PoiResponses can have text like #42 to
+Some fields of PoiIssues and responses can have text like #42 to
 point to an issue and r1000 to point to a revision or changeset.  This
 is governed by settings in the PoiTracker.
 

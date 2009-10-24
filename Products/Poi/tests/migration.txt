@@ -4,12 +4,15 @@ Migration
 To test migration we first add some sample content::
 
     >>> self.loginAsPortalOwner()
+    >>> from Products.Poi.content.PoiResponse import PoiResponse
     >>> for x in ('foo', 'bar'):
     ...     dummy = self.portal.invokeFactory('PoiTracker', x)
     ...     for y in ('foo', 'bar' , 'baz'):
     ...         dummy = self.portal[x].invokeFactory('PoiIssue', y)
     ...         for z in ('foo', 'bar' , 'baz', 'quux'):
-    ...             dummy = self.portal[x][y].invokeFactory('PoiResponse', z)
+    ...             response = PoiResponse(z)
+    ...             dummy = self.portal[x][y]._setObject(z, response)
+    ...             self.portal[x][y][z].reindexObject()
     >>> catalog = self.portal.portal_catalog
     >>> len(catalog(portal_type='PoiTracker'))
     2
@@ -123,7 +126,7 @@ oldstyle response and no new style responses::
 
     >>> tracker = self.portal.foo
     >>> issue = tracker.foo
-    >>> len(issue.contentValues(filter={'portal_type' : 'PoiResponse'}))
+    >>> len(issue.objectValues(spec='PoiResponse'))
     4
     >>> from Products.Poi.adapters import IResponseContainer
     >>> rc = IResponseContainer(issue)
@@ -137,7 +140,7 @@ We call the migrator on this issue::
 
 Now the numbers of old and new style responses have flipped::
 
-    >>> len(issue.contentValues(filter={'portal_type' : 'PoiResponse'}))
+    >>> len(issue.objectValues(spec='PoiResponse'))
     0
     >>> len(rc)
     4
@@ -145,7 +148,7 @@ Now the numbers of old and new style responses have flipped::
 Calling the migrator a second time has no ill effect::
 
     >>> replace_old_with_new_responses(issue)
-    >>> len(issue.contentValues(filter={'portal_type' : 'PoiResponse'}))
+    >>> len(issue.objectValues(spec='PoiResponse'))
     0
     >>> len(rc)
     4
