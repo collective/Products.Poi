@@ -29,7 +29,6 @@ __docformat__ = 'plaintext'
 
 from AccessControl import ClassSecurityInfo
 
-from Products.Archetypes.atapi import BaseFolder
 from Products.Archetypes.atapi import BaseFolderSchema
 from Products.Archetypes.atapi import DisplayList
 from Products.Archetypes.atapi import registerType
@@ -38,8 +37,6 @@ from Products.Archetypes.atapi import StringField
 from Products.Archetypes.atapi import StringWidget
 
 from Products.Poi.content.PoiTracker import PoiTracker
-from Products.CMFPlone.interfaces.NonStructuralFolder import \
-    INonStructuralFolder
 from Products.Poi.config import PROJECTNAME
 from Products.Poi.config import PSC_TRACKER_ID
 
@@ -81,9 +78,6 @@ class PoiPscTracker(PoiTracker):
     PloneSoftwareCenter. Intended to be added inside a PSCProject.
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BaseFolder, '__implements__', ()), ) + \
-        (getattr(PoiTracker, '__implements__', ()), ) + \
-        (INonStructuralFolder, )
     implements(ITracker)
 
     # This name appears in the 'add' box

@@ -36,9 +36,6 @@ try:
 except ImportError:
     # No multilingual support
     from Products.Archetypes.atapi import *
-from Products.Poi.interfaces.Tracker import Tracker
-from Products.CMFPlone.interfaces.NonStructuralFolder import \
-    INonStructuralFolder
 from Products.CMFPlone.utils import safe_unicode
 from Products.Poi.config import PROJECTNAME
 
@@ -241,9 +238,6 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
     """The default tracker
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BaseBTreeFolder, '__implements__', ()), ) + \
-        (getattr(BrowserDefaultMixin, '__implements__', ()), ) + \
-        (Tracker, ) + (INonStructuralFolder, )
     implements(ITracker)
 
     # This name appears in the 'add' box

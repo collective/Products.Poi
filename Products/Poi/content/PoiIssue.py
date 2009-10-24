@@ -48,10 +48,6 @@ from Products.Archetypes.atapi import StringWidget
 from Products.Archetypes.atapi import TextField
 from Products.CMFPlone.utils import safe_unicode
 
-from Products.Poi.interfaces.Issue import Issue
-from Products.CMFPlone.interfaces.NonStructuralFolder import \
-    INonStructuralFolder
-
 from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
 from Products.Poi.config import DESCRIPTION_LENGTH
 from Products.Poi.config import ISSUE_MIME_TYPES
@@ -302,9 +298,6 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
     """The default tracker
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BaseFolder, '__implements__', ()), ) + \
-        (getattr(BrowserDefaultMixin, '__implements__', ()), ) + \
-        (Issue, ) + (INonStructuralFolder, )
     implements(IIssue)
 
     # This name appears in the 'add' box

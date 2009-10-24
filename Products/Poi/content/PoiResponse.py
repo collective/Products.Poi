@@ -43,7 +43,6 @@ from Products.Archetypes.atapi import StringWidget
 from Products.Archetypes.atapi import TextField
 
 
-from Products.Poi.interfaces.Response import Response
 from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
 from Products.Poi.config import ISSUE_MIME_TYPES
 from Products.Poi.config import PROJECTNAME
@@ -184,8 +183,6 @@ class PoiResponse(BaseContent, BrowserDefaultMixin):
     the same time.
     """
     security = ClassSecurityInfo()
-    __implements__ = (getattr(BaseContent, '__implements__', ()), ) + \
-        (getattr(BrowserDefaultMixin, '__implements__', ()), ) + (Response, )
     implements(IResponse)
 
     # This name appears in the 'add' box
