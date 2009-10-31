@@ -160,6 +160,10 @@ To get kupu back, you will need to edit Poi/config.py::
 You may also need to re-install Poi, and perform an Archetypes schema update,
 by going to archetypes_tool, and the Schema Update tab in the ZMI.
 
+And you may need to remove some conditional expressions in the
+portal_javascripts to make sure all needed scripts load (at least for
+TinyMCE).
+
 Please note one **very important** thing:
 
 - If you upgrade Poi, you're likely to have to make this change again!
