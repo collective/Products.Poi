@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Products.Poi.tests import ptc
 
 
@@ -14,27 +15,26 @@ class TestResponse(ptc.PoiTestCase):
         self.workflow = self.portal.portal_workflow
 
     def testAccentedCharacters(self):
-        encoding = 'iso-8859-1'
         catalog = self.portal.portal_catalog
         issue = self.createIssue(
             self.tracker,
-            title=u"été est belle.".encode(encoding),
-            details=u"C'est plus belle à Café René.".encode(encoding))
+            title="\xc3\xa9t\xc3\xa9 est belle.",
+            details="C'est plus belle \xc3\xa0 Caf\xc3\xa9 Ren\xc3\xa9.")
         found = len(catalog.searchResults(
-                portal_type = 'PoiIssue',
-                SearchableText = u"été".encode(encoding))) >= 1
+                portal_type='PoiIssue',
+                SearchableText="\xc3\xa9t\xc3\xa9")) >= 1
         self.failUnless(found)
         found = len(catalog.searchResults(
-                portal_type = 'PoiIssue',
-                SearchableText = u"René".encode(encoding))) >= 1
+                portal_type='PoiIssue',
+                SearchableText="Ren\xc3\xa9")) >= 1
         self.failUnless(found)
 
         response = self.createResponse(
-            issue, u"In Dutch 'seas' is 'zeeën'".encode(encoding))
+            issue, "In Dutch 'seas' is 'zee\xc3\xabn'")
         # That should show up in the issue.
         found = len(catalog.searchResults(
-                portal_type = 'PoiIssue',
-                SearchableText = u"zeeën".encode(encoding))) >= 1
+                portal_type='PoiIssue',
+                SearchableText="zee\xc3\xabn")) >= 1
         self.failUnless(found)
 
 
@@ -52,7 +52,7 @@ class TestKnownIssues(ptc.PoiTestCase):
 
     def testDeleteResponseLeavesStaleDescription(self):
         found = len(self.catalog.searchResults(
-                portal_type = 'PoiIssue', SearchableText = 'a-response')) >= 1
+                portal_type='PoiIssue', SearchableText='a-response')) >= 1
         self.failUnless(found)
 
         from Products.Poi.adapters import IResponseContainer
@@ -60,8 +60,9 @@ class TestKnownIssues(ptc.PoiTestCase):
         container.delete('0')
         self.failIf('a-response' in self.issue.SearchableText())
         found = len(self.catalog.searchResults(
-                portal_type = 'PoiIssue', SearchableText = 'a-response')) >= 1
-        self.failIf(found, 'OLD ISSUE RAISING ITS HEAD AGAIN: Deleted response causes stale issue SearchableText')
+                portal_type='PoiIssue', SearchableText='a-response')) >= 1
+        self.failIf(found, ("OLD ISSUE RAISING ITS HEAD AGAIN: Deleted "
+                            "response causes stale issue SearchableText"))
 
 
 def test_suite():

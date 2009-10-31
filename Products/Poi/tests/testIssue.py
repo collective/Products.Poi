@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Testing import ZopeTestCase
 from Products.Poi.tests import ptc
 from Products.Poi.config import DESCRIPTION_LENGTH
@@ -130,7 +131,8 @@ class TestIssue(ptc.PoiTestCase):
         self.failIf("<br />" in self.issue.Description())
 
     def testUnicodeDescription(self):
-        text = u"The Japanese call their country Nippon or in their own characters: ÆüËÜ."
+        text = (u"The Japanese call their country Nippon or in their own "
+                u"characters (I think): \xe6\x97\xa5\xe6\x9c\xac")
         self.issue.setDetails(text, mimetype='text/x-web-intelligent')
         self.failUnless(self.issue.Description() == text)
 
