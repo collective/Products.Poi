@@ -6,7 +6,7 @@
   <head>
     <metal:block fill-slot="top_slot"
              tal:define="dummy python:request.set('disable_border',1)" />
-    <metal:css fill-slot="css_slot">
+    <metal:css fill-slot="style_slot">
       <style type="text/css" media="all"
         tal:content="string:@import url($portal_url/poi.css);"></style>
     </metal:css>
@@ -14,7 +14,11 @@
 
 <body>
 <div metal:fill-slot="main"
-        tal:define="wftool here/portal_workflow;
+        tal:define="
+                    member context/@@plone_portal_state/member;
+                    template_id template/getId;
+                    isAnon context/@@plone_portal_state/anonymous;
+                    wftool here/portal_workflow;
                     isManager python:member.getId() in here.getManagers();
                     isSubmitter python:member.getId() == here.Creator()">
 
@@ -28,7 +32,7 @@
       <table class="vertical listing issue-info-box"
              tal:define="releases here/getReleasesVocab">
           <tr tal:define="state python:wftool.getInfoFor(here, 'review_state');
-                          state_title python:wtool.getTitleForStateOnType(state,
+                          state_title python:wftool.getTitleForStateOnType(state,
                           here.getPortalTypeName());">
               <th i18n:translate="poi_label_state">State</th>
               <td tal:content="state_title"

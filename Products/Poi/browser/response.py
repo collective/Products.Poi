@@ -182,7 +182,7 @@ class Base(BrowserView):
         response_id = self.request.form.get('response_id', None)
         if response_id is None:
             msg = _(u"No response selected.")
-            msg = translate(msg, 'Poi', context=self.context)
+            msg = translate(msg, 'Poi', context=self.request)
             status.addStatusMessage(msg, type='error')
             return -1
         else:
@@ -191,13 +191,13 @@ class Base(BrowserView):
             except ValueError:
                 msg = _(u"Response id ${response_id} is no integer.",
                         mapping=dict(response_id=response_id))
-                msg = translate(msg, 'Poi', context=self.context)
+                msg = translate(msg, 'Poi', context=self.request)
                 status.addStatusMessage(msg, type='error')
                 return -1
             if response_id >= len(self.folder):
                 msg = _(u"Response id ${response_id} does not exist.",
                         mapping=dict(response_id=response_id))
-                msg = translate(msg, 'Poi', context=self.context)
+                msg = translate(msg, 'Poi', context=self.request)
                 status.addStatusMessage(msg, type='error')
                 return -1
             else:
@@ -434,7 +434,7 @@ class Create(Base):
         if len(response_text) == 0 and not issue_has_changed:
             status = IStatusMessage(self.request)
             msg = _(u"No response text added and no issue changes made.")
-            msg = translate(msg, 'Poi', context=context)
+            msg = translate(msg, 'Poi', context=self.request)
             status.addStatusMessage(msg, type='error')
         else:
             # Apply changes to issue
@@ -475,13 +475,13 @@ class Save(Base):
         status = IStatusMessage(self.request)
         if not self.can_edit_response:
             msg = _(u"You are not allowed to edit responses.")
-            msg = translate(msg, 'Poi', context=context)
+            msg = translate(msg, 'Poi', context=self.request)
             status.addStatusMessage(msg, type='error')
         else:
             response_id = form.get('response_id', None)
             if response_id is None:
                 msg = _(u"No response selected for saving.")
-                msg = translate(msg, 'Poi', context=context)
+                msg = translate(msg, 'Poi', context=self.request)
                 status.addStatusMessage(msg, type='error')
             else:
                 response = self.folder[response_id]
@@ -491,7 +491,7 @@ class Save(Base):
                 response.rendered_text = None
                 msg = _(u"Changes saved to response id ${response_id}.",
                       mapping=dict(response_id=response_id))
-                msg = translate(msg, 'Poi', context=context)
+                msg = translate(msg, 'Poi', context=self.request)
                 status.addStatusMessage(msg, type='info')
                 # Fire event.  We put the context in the descriptions
                 # so event handlers can use this fully acquisition
@@ -512,13 +512,13 @@ class Delete(Base):
 
         if not self.can_delete_response:
             msg = _(u"You are not allowed to delete responses.")
-            msg = translate(msg, 'Poi', context=context)
+            msg = translate(msg, 'Poi', context=self.request)
             status.addStatusMessage(msg, type='error')
         else:
             response_id = self.request.form.get('response_id', None)
             if response_id is None:
                 msg = _(u"No response selected for removal.")
-                msg = translate(msg, 'Poi', context=context)
+                msg = translate(msg, 'Poi', context=self.request)
                 status.addStatusMessage(msg, type='error')
             else:
                 try:

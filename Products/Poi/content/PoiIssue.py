@@ -502,7 +502,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         tracker = self.getTracker()
         trackerVocab = tracker.getReleasesVocab()
         for k in trackerVocab.keys():
-            vocab.add(k, trackerVocab.getValue(k), trackerVocab.getMsgId(k))
+            vocab.add(k, trackerVocab.getValue(k), trackerVocab.getValue(k))
         return vocab
 
     def SearchableText(self):

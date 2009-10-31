@@ -399,7 +399,7 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         email_msg.epilogue = ''
 
         # Translate the body text
-        rstText = translate(rstText, 'Poi', context=self)
+        rstText = translate(rstText, 'Poi', context=self.REQUEST)
         # We must choose the body charset manually
         for body_charset in 'US-ASCII', charset, 'UTF-8':
             try:
@@ -417,7 +417,7 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
 
         # Make the subject unicode and translate it too.
         subject = safe_unicode(subject, charset)
-        subject = translate(subject, 'Poi', context=self)
+        subject = translate(subject, 'Poi', context=self.REQUEST)
         for address in addresses:
             address = safe_unicode(address, charset)
             if not address:

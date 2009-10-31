@@ -89,7 +89,7 @@ def sendResponseNotificationMail(issue, response):
         header = _(
             'poi_heading_response_details',
             u"Response Details")
-        header = translate(header, 'Poi', context=issue)
+        header = translate(header, 'Poi', context=issue.REQUEST)
         responseDetails = u"**%s**::\n\n\n%s" % (header, responseDetails)
 
     changes = u''
@@ -98,8 +98,8 @@ def sendResponseNotificationMail(issue, response):
         after = su(change.get('after'))
         # Some changes are workflow changes, which can be translated.
         # Note that workflow changes are in the plone domain.
-        before = translate(before, 'plone', context=issue)
-        after = translate(after, 'plone', context=issue)
+        before = translate(before, 'plone', context=issue.REQUEST)
+        after = translate(after, 'plone', context=issue.REQUEST)
         changes += u"%s -> %s\n" % (before, after)
 
     mailText = _(

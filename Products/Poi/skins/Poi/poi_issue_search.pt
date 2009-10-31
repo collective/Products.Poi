@@ -6,7 +6,7 @@
   <metal:override fill-slot="column_two_slot" />
 
   <head>
-    <metal:css fill-slot="css_slot">
+    <metal:css fill-slot="style_slot">
       <style type="text/css" media="all"
         tal:content="string:@import url($portal_url/poi.css);"></style>
     </metal:css>

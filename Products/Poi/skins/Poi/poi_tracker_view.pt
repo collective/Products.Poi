@@ -4,7 +4,7 @@
       i18n:domain="Poi">
 
   <head>
-    <metal:css fill-slot="css_slot">
+    <metal:css fill-slot="style_slot">
       <style type="text/css" media="all"
         tal:content="string:@import url($portal_url/poi.css);"></style>
     </metal:css>
@@ -14,7 +14,13 @@
 <body>
   <div metal:fill-slot="main">
     <div metal:define-macro="body"
-      tal:define="basicOpenStates python:['open', 'in-progress'];
+      tal:define="
+                  member context/@@plone_portal_state/member;
+                  isAnon context/@@plone_portal_state/anonymous;
+                  is_editable context/@@plone_context_state/is_editable;
+                  portal context/@@plone_portal_state/portal;
+                  wtool context/portal_workflow;
+                  basicOpenStates python:['open', 'in-progress'];
                   openStates python:['unconfirmed'] + basicOpenStates;
                   ignoredStates python:['new'];
                   pendingStates python:openStates + ['resolved'];
