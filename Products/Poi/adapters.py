@@ -10,7 +10,6 @@ from AccessControl import getSecurityManager
 from DateTime import DateTime
 from zope.app.container.contained import ObjectRemovedEvent
 from zope.app.container.contained import ObjectAddedEvent
-from zope.app.container.interfaces import UnaddableError
 from zope.event import notify
 
 
@@ -90,8 +89,7 @@ class ResponseContainer(Persistent):
 
     def add(self, item):
         if not IResponse.providedBy(item):
-            raise UnaddableError(self, item,
-                                 "IResponse interface not provided.")
+            raise ValueError("IResponse interface not provided.")
         self.append(item)
         id = str(len(self))
         event = ObjectAddedEvent(item, newParent=self.context, newName=id)
@@ -132,10 +130,10 @@ class Response(Persistent):
         """Add a new issue change.
         """
         delta = dict(
-            id = id,
-            name = name,
-            before = before,
-            after = after)
+            id=id,
+            name=name,
+            before=before,
+            after=after)
         self.changes.append(delta)
 
 

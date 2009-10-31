@@ -65,7 +65,7 @@ Adding something that is not an IResponse should fail::
     >>> rc.add("Bogus response.")
     Traceback (most recent call last):
     ...
-    UnaddableError: Bogus response. cannot be added to <Products.Poi.adapters.ResponseContainer object at ...>: IResponse interface not provided.
+    ValueError: IResponse interface not provided.
 
 
 Removing responses
