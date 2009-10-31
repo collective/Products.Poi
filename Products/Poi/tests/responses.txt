@@ -113,7 +113,7 @@ need some tools and set a Creator for this tracker::
 
     >>> from Products.CMFPlone.WorkflowTool import WorkflowTool
     >>> from Products.CMFPlone.URLTool import URLTool
-    >>> from Products.CMFPlone.MembershipTool import MembershipTool
+    >>> from Products.CMFDefault.MembershipTool import MembershipTool
     >>> from Products.CMFPlone.CatalogTool import CatalogTool
     >>> tracker.portal_workflow = WorkflowTool()
     >>> tracker.portal_url = URLTool()
