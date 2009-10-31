@@ -74,15 +74,11 @@ Now we come to the meat of the matter.  A reindex of this object now
 fails, as during the reindexing (actually in the updateMetadata
 method) the non-ascii Description string that is in the catalog gets
 turned into unicode to compare it with the unicode Description of the
-issue and this fails::
-
-    >>> issue.reindexObject()
-    Traceback (most recent call last):
-    ...
-    UnicodeDecodeError: 'ascii' codec can't decode byte ...
-
-The way to fix this is by first unindexing the object.  Then a reindex
-works fine again::
+issue and this fails.  Actually, on Plone 4 it goes fine.  But we are
+not really interested in a test that checks that old, removed code
+used to have a failure, so we remove one test here.  *IF* it goes
+wrong, the way to fix this is by first unindexing the object.  Then a
+reindex works fine again::
 
     >>> issue.unindexObject()
     >>> issue.reindexObject()
@@ -98,13 +94,8 @@ issues.  Let's hack some wrong Descriptions in the existing issues::
     ...     issue.reindexObject()
     ...     del issue.__dict__['Description']
 
-This should again fail:
-
-    >>> for issue in issues:
-    ...     issue.reindexObject()
-    Traceback (most recent call last):
-    ...
-    UnicodeDecodeError: 'ascii' codec can't decode byte ...
+Reindexing all the issues might fail but if it does we are not
+interested anymore.
 
 The migration code is usually called with portal_setup as context, but
 let's call use a different context to show that also works::
