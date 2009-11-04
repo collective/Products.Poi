@@ -30,13 +30,7 @@ ZopeTestCase.installProduct('Poi')
 
 from Products.PloneTestCase import PloneTestCase
 
-PRODUCTS = ['Poi']
-if PloneTestCase.PLONE31 == 0:
-    # Before Plone 3.1 (GenericSetup 1.3) the dependencies in
-    # metadata.xml are not picked up.
-    PRODUCTS.append('DataGridField')
-
-PloneTestCase.setupPloneSite(products=PRODUCTS)
+PloneTestCase.setupPloneSite(products=['Poi'])
 
 
 class MockMailHost(object):
@@ -72,8 +66,8 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
              'last_login_time': DateTime(last_login_time)})
 
     def createTracker(self, folder, id, title='', description='', helpText='',
-                        availableAreas=({'id' : 'ui', 'title' : 'User interface', 'description' : 'User interface issues'}, {'id' : 'functionality', 'title' : 'Functionality', 'description' : 'Issues with the basic functionality'}, {'id' : 'process', 'title' : 'Process', 'description' : 'Issues relating to the development process itself'}),
-                        availableIssueTypes=({'id' : 'bug', 'title' : 'Bug', 'description' : 'Functionality bugs in the software'}, {'id' : 'feature', 'title' : 'Feature', 'description' : 'Suggested features'}, {'id' : 'patch', 'title' : 'Patch', 'description' : 'Patches to the software'}),
+                        availableAreas=({'id': 'ui', 'title': 'User interface', 'description': 'User interface issues'}, {'id': 'functionality', 'title': 'Functionality', 'description': 'Issues with the basic functionality'}, {'id': 'process', 'title': 'Process', 'description': 'Issues relating to the development process itself'}),
+                        availableIssueTypes=({'id': 'bug', 'title': 'Bug', 'description': 'Functionality bugs in the software'}, {'id': 'feature', 'title': 'Feature', 'description': 'Suggested features'}, {'id': 'patch', 'title': 'Patch', 'description': 'Patches to the software'}),
                         availableSeverities=['Critical', 'Important', 'Medium', 'Low'],
                         defaultSeverity='Medium',
                         availableReleases=['2.0', '1.0'],

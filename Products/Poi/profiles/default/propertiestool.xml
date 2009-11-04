@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<object name="portal_properties" meta_type="Plone Properties Tool">
+ <object name="navtree_properties" meta_type="Plone Property Sheet">
+  <property name="parentMetaTypesNotToQuery" type="lines">
+   <element value="PoiPscTracker"/>
+   <element value="PoiTracker"/>
+   <element value="PoiIssue"/>
+  </property>
+ </object>
+</object>

@@ -49,6 +49,14 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <gs:importStep
+      name="poi_various"
+      title="Poi various import handlers"
+      description=""
+      handler="Products.Poi.setuphandlers.import_various">
+    <depends name="catalog"/>
+  </gs:importStep>
+
   <!-- Avoid deprecation warnings for manage_afterAdd and friends. -->
   <five:deprecatedManageAddDelete
       class=".content.PoiTracker.PoiTracker" />
