@@ -5,6 +5,9 @@ Changelog for Poi
 1.3 (unreleased)
 ----------------
 
+- Removed old BTrees migration code for the trackers.
+  [maurits]
+
 - Use zope.i18n.translate instead the the no longer existing
   GlobalTranslationService.
   [maurits]
