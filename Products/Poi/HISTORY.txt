@@ -5,6 +5,12 @@ Changelog for Poi
 1.3 (unreleased)
 ----------------
 
+- Added minimum versions for AddRemoveWidget and DataGridField in
+  setup.py, to make sure we get versions that are compatible with
+  Plone 4, and that we have an AddRemoveWidget version with a
+  GenericSetup profile.
+  [maurits]
+
 - Removed old BTrees migration code for the trackers.
   [maurits]
 
