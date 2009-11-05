@@ -12,6 +12,22 @@ from Products.Poi import PoiMessageFactory as _
 logger = logging.getLogger('Poi')
 
 
+def post_issue(object, event):
+    """Finalise posting of an issue.
+
+    If an anonymous user is posting, Creator would normally be set to
+    the root zope manager, as this user will become the owner.
+    Instead we give a more sensible default.
+
+    And we do the 'post' transition.
+    """
+    portal_membership = getToolByName(object, 'portal_membership')
+    if portal_membership.isAnonymousUser():
+        object.setCreators(('(anonymous)',))
+    portal_workflow = getToolByName(object, 'portal_workflow')
+    portal_workflow.doActionFor(object, 'post')
+
+
 def removedResponse(object, event):
     issue = event.oldParent
     if IIssue.providedBy(issue):

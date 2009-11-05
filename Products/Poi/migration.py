@@ -1,7 +1,9 @@
 import logging
 import sets
 
+from ZODB.POSException import ConflictError
 from Products.CMFCore.utils import getToolByName
+from Products.CMFFormController.FormAction import FormActionKey
 from zope.publisher.browser import TestRequest
 import transaction
 
@@ -283,3 +285,40 @@ def remove_response_content_type(context):
         types._delObject('PoiResponse')
     except AttributeError:
         pass
+
+
+def remove_form_controller_action(context):
+    """Remove our action from the portal_form_controller.
+
+    We used to add the poi_issue_post action (a skin script) to the
+    validate_integrity script.  Now we have registered an event
+    handler instead so the action is no longer needed.  And we have
+    removed the skin script, so we must remove the action as otherwise
+    anyone submitting a new issue will get an error.
+    """
+    controller = getToolByName(context, 'portal_form_controller')
+    action_key = FormActionKey('validate_integrity', 'success', 'PoiIssue', '')
+    try:
+        action = controller.actions.get(action_key)
+    except KeyError:
+        logger.info("Action for validate_integrity not found; ignoring.")
+        return
+    if action.getActionArg() != 'string:poi_issue_post':
+        logger.info("Expected action argument 'string:poi_issue_post' for "
+                    "successfull validate_integrity on PoiIssue; found %r "
+                    "instead; ignoring.", action.getActionArg())
+        return
+    try:
+        controller.actions.delete(action_key)
+    except (ConflictError, KeyboardInterrupt):
+        raise
+    except Exception, exc:
+        # This way of removing an action is yucky; I wonder how many
+        # things can go wrong; let's inform the user.
+        url = controller.absolute_url() + '/manage_formActionsForm'
+        error = ("Exception while removing action poi_issue_post on "
+                 "validate_integrity. Please go to %s and remove it manually. "
+                 "Original exception was: %r" % (url, exc))
+        raise Exception(error)
+    else:
+        logger.info("Removed action poi_issue_post from validate_integrity.")

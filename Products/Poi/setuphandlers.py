@@ -41,17 +41,6 @@ def allow_psc_tracker(site, logger):
     logger.info("Added PoiPscTracker to allowed content types PSCProject.")
 
 
-def add_form_controller_action(site, logger):
-    """Add the given action to the portalFormController,
-
-    Control what happens when posting a new issue.
-    """
-    controller = getToolByName(site, 'portal_form_controller')
-    controller.addFormAction('validate_integrity', 'success', 'PoiIssue',
-                             None, 'traverse_to', 'string:poi_issue_post')
-    logger.info("Added action poi_issue_post to validate_integrity.")
-
-
 def import_various(context):
     # Only run step if a flag file is present
     if context.readDataFile('poi_various.txt') is None:
@@ -60,4 +49,3 @@ def import_various(context):
     site = context.getSite()
     add_catalog_indexes(site, logger)
     allow_psc_tracker(site, logger)
-    add_form_controller_action(site, logger)

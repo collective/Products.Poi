@@ -24,6 +24,12 @@
       handler=".events.removedResponse"
       />
 
+  <subscriber 
+      for="Products.Poi.interfaces.IIssue
+           Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler=".events.post_issue"
+        />
+
   <adapter
       provides=".adapters.IResponseContainer"
       factory=".adapters.ResponseContainer"
@@ -125,6 +131,14 @@
       source="1299"
       destination="1300"
       handler="Products.Poi.migration.remove_response_content_type"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Remove poi_issue_post form controller action"
+      description=""
+      source="1300"
+      destination="1301"
+      handler="Products.Poi.migration.remove_form_controller_action"
       profile="Products.Poi:default" />
 
 </configure>

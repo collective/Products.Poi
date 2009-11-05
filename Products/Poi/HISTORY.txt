@@ -5,6 +5,12 @@ Changelog for Poi
 1.3 (unreleased)
 ----------------
 
+- Removed skins/Poi/poi_issue_post.cpy and use an event handler on
+  IObjectInitializedEvent of an issue instead.  Added upgrade step to
+  remove the now unneeded form controller action for this, as it would
+  otherwise give: ValueError: Unable to find poi_issue_post.
+  [maurits]
+
 - Moved fully to GenericSetup.
   [maurits]
 
