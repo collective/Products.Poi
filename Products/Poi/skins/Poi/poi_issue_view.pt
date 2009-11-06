@@ -20,7 +20,8 @@
                     isAnon context/@@plone_portal_state/anonymous;
                     wftool here/portal_workflow;
                     isManager python:member.getId() in here.getManagers();
-                    isSubmitter python:member.getId() == here.Creator()">
+                    isSubmitter python:member.getId() == here.Creator();
+                    pas_member context/@@pas_member;">
 
     <div metal:define-macro="body">
 
@@ -63,7 +64,9 @@
           </tr>
           <tr>
               <th i18n:translate="poi_label_submitted_by">Submitted by</th>
-              <td tal:content="python:here.poi_niceName(username=here.Creator())" />
+              <td
+                  tal:define="creator python:pas_member.info(here.Creator())"
+                  tal:content="creator/name_or_id" />
 
           </tr>
           <tr>
@@ -74,7 +77,9 @@
               <th i18n:translate="poi_label_responsible">Responsible</th>
               <td tal:define="responsibleManager here/getResponsibleManager">
                   <tal:condition condition="python:responsibleManager != '(UNASSIGNED)'">
-                        <span tal:replace="python:here.poi_niceName(username=responsibleManager)" />
+                    <span
+                        tal:define="manager python:pas_member.info(responsibleManager)"
+                        tal:replace="manager/name_or_id" />
                   </tal:condition>
 
                   <div tal:condition="python:responsibleManager == '(UNASSIGNED)'" class="unassigned-field">
@@ -120,8 +125,10 @@
          <span tal:condition="nocall:user" i18n:translate="poi_last_modified_on_by">Last modified on
             <tal:block i18n:name="modification_time" tal:content="python:here.toLocalizedTime(time)" />
             by
-            <tal:block i18n:name="modification_actor"
-                  tal:content="python:here.poi_niceName(username=user)"  />
+            <tal:block
+                i18n:name="modification_actor"
+                define="actor python:pas_member.info(user)"
+                content="actor/name_or_id" />
          </span>
          <span tal:condition="not:nocall:user" i18n:translate="poi_last_modified_on">Last modified on
             <tal:block i18n:name="modification_time" tal:content="python:here.toLocalizedTime(time)"/>

@@ -35,7 +35,9 @@
       <div class="response-info">
         <span i18n:translate="poi_added_by">Added by</span>
         <span class="contact-user"
-              tal:content="python:here.poi_niceName(username=response.creator)" />
+              tal:define="pas_member context/@@pas_member;
+                          creator python:pas_member.info(response.creator)"
+              tal:content="creator/name_or_id" />
         <span i18n:translate="poi_added_on">on</span>
         <span class="contact-user"
               tal:content="python:here.toLocalizedTime(response.date, long_format=True)" />
