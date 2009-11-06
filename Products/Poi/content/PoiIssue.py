@@ -330,6 +330,8 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         watchers.
         """
         portal_membership = getToolByName(self, 'portal_membership')
+        if portal_membership.isAnonymousUser():
+            return
         member = portal_membership.getAuthenticatedMember()
         memberId = member.getId()
         watchers = list(self.getWatchers())

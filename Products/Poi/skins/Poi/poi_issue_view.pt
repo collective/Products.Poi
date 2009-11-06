@@ -143,7 +143,7 @@
               </li>
           </ul>
       </div>
-      <form style="display: inline" action="toggleWatchingIssue"
+      <form style="display: inline" action="@@toggle_watching"
             id="poi-watch-issue-form"
             tal:condition="python:not isAnon and not isManager and not isSubmitter">
         <div class="formControls">

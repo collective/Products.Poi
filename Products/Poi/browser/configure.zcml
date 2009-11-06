@@ -17,7 +17,14 @@
      class=".tracker.IssueFolderView"
      allowed_interface=".interfaces.IIssueFolderView"
      />
-			
+
+  <browser:page
+     name="toggle_watching"
+     for="Products.Poi.interfaces.IIssue"
+     permission="zope2.View"
+     class=".watchers.WatcherView"
+     />
+
   <!-- Add response form -->
   <!-- XXX: Use other permission "Poi: Add Response" -->
   <browser:viewletManager

@@ -5,6 +5,10 @@ Changelog for Poi
 1.3 (unreleased)
 ----------------
 
+- Removed ``skins/Poi/toggleWatchingIssue.py`` in favour of our new
+  ``@@toggle_watching`` view.
+  [maurits]
+
 - Removed ``skins/Poi/poi_niceName.py`` in favour of the new
   ``@@pas_member`` view from PlonePAS.
   [maurits]
