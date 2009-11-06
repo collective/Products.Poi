@@ -25,6 +25,13 @@
      class=".watchers.WatcherView"
      />
 
+  <browser:page
+     name="poi_issue_quicksearch"
+     for="Products.Poi.interfaces.ITracker"
+     permission="zope2.View"
+     class=".tracker.QuickSearchView"
+     />
+
   <!-- Add response form -->
   <!-- XXX: Use other permission "Poi: Add Response" -->
   <browser:viewletManager

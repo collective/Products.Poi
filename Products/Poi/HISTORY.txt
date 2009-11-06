@@ -5,6 +5,10 @@ Changelog for Poi
 1.3 (unreleased)
 ----------------
 
+- Removed ``skins/Poi/poi_issue_quicksearch.py`` in favour of our new
+  ``@@poi_issue_quicksearch`` view.
+  [maurits]
+
 - Removed ``skins/Poi/toggleWatchingIssue.py`` in favour of our new
   ``@@toggle_watching`` view.
   [maurits]

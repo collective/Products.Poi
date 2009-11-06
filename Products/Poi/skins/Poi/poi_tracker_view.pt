@@ -32,7 +32,7 @@
       <h1 tal:content="here/Title" class="documentFirstHeading" />
 
       <div id="issue-quicksearch-box">
-         <form action="poi_issue_quicksearch">
+         <form action="@@poi_issue_quicksearch">
             <input type="text" name="searchText" size="15" />
             <input class="searchButton" type="submit" value="Search" i18n:attributes="value"/>
          </form>

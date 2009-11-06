@@ -1,6 +1,7 @@
 from Acquisition import aq_inner
-from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
+from Products.Five.browser import BrowserView
+from Products.PythonScripts.standard import url_quote
 from ZTUtils import make_query
 
 
@@ -145,3 +146,24 @@ class IssueFolderView(BrowserView):
                 issues.append(i)
 
         return issues
+
+
+class QuickSearchView(BrowserView):
+    """Parse a quicksearch string and jump to the appropriate issue or
+    search result page.
+
+    """
+
+    def __call__(self):
+        tracker = aq_inner(self.context)
+        search_text = self.request.form.get('searchText', '')
+        issue_id = search_text
+        if issue_id.startswith('#'):
+            issue_id = issue_id[1:]
+        base_url = tracker.absolute_url()
+        if issue_id in tracker.keys():
+            url = '%s/%s' % (base_url, issue_id)
+        else:
+            url = '%s/poi_issue_search?SearchableText=%s' % (
+                base_url, url_quote(search_text))
+        self.request.RESPONSE.redirect(url)
