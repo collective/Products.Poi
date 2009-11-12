@@ -206,3 +206,15 @@ We also take a look at the log of the tracker:
     True
     >>> 'New issue' in browser.contents
     True
+
+We can toggle if we want to 'watch' this issue or not; meaning: do we
+want to receive emails or not.
+
+    >>> issue.getWatchers()
+    ()
+    >>> browser.open(tracker.absolute_url() + '/1/@@toggle_watching')
+    >>> issue.getWatchers()
+    ('test_user_1_',)
+    >>> browser.open(tracker.absolute_url() + '/1/@@toggle_watching')
+    >>> issue.getWatchers()
+    ()
