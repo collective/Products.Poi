@@ -124,6 +124,12 @@ oldstyle response and no new style responses::
     >>> len(rc)
     0
 
+We have a checker to see if an upgrade step is necessary:
+
+    >>> from Products.Poi.migration import has_old_responses
+    >>> has_old_responses(self.portal)
+    True
+
 We call the migrator on this issue::
 
     >>> from Products.Poi.migration import replace_old_with_new_responses
@@ -168,6 +174,11 @@ new style responses::
     ...     issue = issue.getObject()
     ...     rc = IResponseContainer(issue)
     ...     self.assertEqual(len(rc), 4)
+
+Our checker also agrees that there are no old responses anymore:
+
+    >>> has_old_responses(self.portal)
+    False
 
 
 Migrate workflow changes from ids to titles
