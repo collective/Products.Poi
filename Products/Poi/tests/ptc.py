@@ -167,15 +167,25 @@ class PoiMigrationTestCase(PoiTestCase):
         PoiTestCase._setup(self)
         # We run the tests as portal owner.
         self.loginAsPortalOwner()
+        # Some content from other tests may still be here.  I tried
+        # using layers and a separate test case but that did not help.
+        # I don't get it.  At this point we can only accept the
+        # situation and delete the rogue content if it is there.
+        try:
+            self.portal._delObject('foo')
+            self.portal._delObject('bar')
+        except AttributeError:
+            # The content is not there after all; oh well.
+            pass
         self.createOldSampleContent()
 
     def createOldSampleContent(self):
         from Products.Poi.content.PoiResponse import PoiResponse
         for x in ('foo', 'bar'):
             dummy = self.portal.invokeFactory('PoiTracker', x)
-            for y in ('foo', 'bar' , 'baz'):
+            for y in ('foo', 'bar', 'baz'):
                 dummy = self.portal[x].invokeFactory('PoiIssue', y)
-                for z in ('foo', 'bar' , 'baz', 'quux'):
+                for z in ('foo', 'bar', 'baz', 'quux'):
                     response = PoiResponse(z)
                     dummy = self.portal[x][y]._setObject(z, response)
                     self.portal[x][y][z].reindexObject()
