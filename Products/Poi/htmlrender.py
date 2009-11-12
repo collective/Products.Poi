@@ -21,8 +21,7 @@ __all__ = ('renderHTML', )
 
 import reStructuredText as rst
 
-htmlTemplate = """
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+htmlTemplate = """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xml:lang="%(lang)s"
       lang="%(lang)s">
@@ -53,12 +52,30 @@ DT {
   <body>
 %(body)s
   </body>
-</html>
-"""
+</html>"""
 
 
 def renderHTML(rstText, lang='en', charset='utf-8'):
     """Convert the given rST into a full XHTML transitional document.
+
+    Good restructured text gets interpreted:
+
+    >>> print renderHTML("*bold* **italic**")
+    <!DOCTYPE html ...
+      <body>
+    <p><em>bold</em> <strong>italic</strong></p>
+    <BLANKLINE>
+      </body>
+    </html>
+
+    Bad restructured text gets put in a 'pre' tag:
+
+    >>> print renderHTML("This is **bad* restructured text")
+    <!DOCTYPE html ...
+      <body>
+    <pre>This is **bad* restructured text</pre>
+      </body>
+    </html>
     """
 
     ignored, warnings = rst.render(

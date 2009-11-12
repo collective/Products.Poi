@@ -8,6 +8,8 @@ OPTIONFLAGS = (doctest.ELLIPSIS |
 
 def test_suite():
     return unittest.TestSuite([
+        doctestunit.DocTestSuite(module='Products.Poi.htmlrender',
+                                 optionflags=OPTIONFLAGS),
         doctestunit.DocTestSuite(module='Products.Poi.browser.response',
                                  optionflags=OPTIONFLAGS),
         doctestunit.DocFileSuite('responses.txt',
