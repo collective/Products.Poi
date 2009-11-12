@@ -21,9 +21,9 @@ def test_suite():
               package='Products.Poi.tests',
               optionflags=OPTIONFLAGS,
               test_class=PoiMigrationTestCase),
-#         Suite('migration_old_responses_alternative.txt',
-#               package='Products.Poi.tests',
-#               optionflags=OPTIONFLAGS,
-#               test_class=PoiMigrationTestCase),
+        Suite('migration_old_responses_alternative.txt',
+              package='Products.Poi.tests',
+              optionflags=OPTIONFLAGS,
+              test_class=PoiMigrationTestCase),
         ]
     return unittest.TestSuite(suites)
