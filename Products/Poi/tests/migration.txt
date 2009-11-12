@@ -1,18 +1,8 @@
 Migration
 =========
 
-To test migration we first add some sample content::
+To test migration we have added some sample content::
 
-    >>> self.loginAsPortalOwner()
-    >>> from Products.Poi.content.PoiResponse import PoiResponse
-    >>> for x in ('foo', 'bar'):
-    ...     dummy = self.portal.invokeFactory('PoiTracker', x)
-    ...     for y in ('foo', 'bar' , 'baz'):
-    ...         dummy = self.portal[x].invokeFactory('PoiIssue', y)
-    ...         for z in ('foo', 'bar' , 'baz', 'quux'):
-    ...             response = PoiResponse(z)
-    ...             dummy = self.portal[x][y]._setObject(z, response)
-    ...             self.portal[x][y][z].reindexObject()
     >>> catalog = self.portal.portal_catalog
     >>> len(catalog(portal_type='PoiTracker'))
     2

@@ -159,3 +159,23 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
 
 class PoiFunctionalTestCase(PoiTestCase, PloneTestCase.FunctionalTestCase):
     pass
+
+
+class PoiMigrationTestCase(PoiTestCase):
+
+    def _setup(self):
+        PoiTestCase._setup(self)
+        # We run the tests as portal owner.
+        self.loginAsPortalOwner()
+        self.createOldSampleContent()
+
+    def createOldSampleContent(self):
+        from Products.Poi.content.PoiResponse import PoiResponse
+        for x in ('foo', 'bar'):
+            dummy = self.portal.invokeFactory('PoiTracker', x)
+            for y in ('foo', 'bar' , 'baz'):
+                dummy = self.portal[x].invokeFactory('PoiIssue', y)
+                for z in ('foo', 'bar' , 'baz', 'quux'):
+                    response = PoiResponse(z)
+                    dummy = self.portal[x][y]._setObject(z, response)
+                    self.portal[x][y][z].reindexObject()
