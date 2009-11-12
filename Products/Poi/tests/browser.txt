@@ -196,3 +196,13 @@ Now we delete the response::
     True
     >>> 'Certainly fixed in r100.' in browser.contents
     False
+
+We also take a look at the log of the tracker:
+
+    >>> browser.open(tracker.absolute_url() + '/log')
+    >>> 'An overview of recent activity in the tracker.' in browser.contents
+    True
+    >>> 'added a new response to' in browser.contents
+    True
+    >>> 'New issue' in browser.contents
+    True
