@@ -9,9 +9,21 @@ OPTIONFLAGS = (doctest.ELLIPSIS |
 
 def test_suite():
     suites = [
-        Suite('migration.txt',
+        Suite('migration_issue_description.txt',
               package='Products.Poi.tests',
               optionflags=OPTIONFLAGS,
               test_class=PoiMigrationTestCase),
+        Suite('migration_workflow_changes.txt',
+              package='Products.Poi.tests',
+              optionflags=OPTIONFLAGS,
+              test_class=PoiMigrationTestCase),
+        Suite('migration_old_responses_original.txt',
+              package='Products.Poi.tests',
+              optionflags=OPTIONFLAGS,
+              test_class=PoiMigrationTestCase),
+#         Suite('migration_old_responses_alternative.txt',
+#               package='Products.Poi.tests',
+#               optionflags=OPTIONFLAGS,
+#               test_class=PoiMigrationTestCase),
         ]
     return unittest.TestSuite(suites)

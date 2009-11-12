@@ -1,0 +1,40 @@
+Responses: from Archetypes to Zope 3 (alternative)
+==================================================
+
+Next to the original migrator (migration_old_responses_original.txt)
+we have an alternative that is more suited to large sites like
+plone.org, since it does more intermediate commits, causing less
+ConflictErrors.  That migrator is tested here.
+
+To test migration we have added some sample content.  We have a
+checker to see if an upgrade step is necessary:
+
+    >>> from Products.Poi.migration import has_old_responses
+    >>> has_old_responses(self.portal)
+    True
+
+Calling migrate_responses_alternative searches for
+all PoiTrackers and migrates all responses::
+
+    >>> from Products.Poi.migration import migrate_responses_alternative
+    >>> migrate_responses_alternative(self.portal)
+
+All PoiResponses are gone after migration and they have been added as
+new style responses::
+
+    >>> catalog = self.portal.portal_catalog
+    >>> len(catalog(portal_type='PoiResponse'))
+    0
+    >>> issues = catalog(portal_type='PoiIssue')
+    >>> len(issues)
+    6
+    >>> from Products.Poi.adapters import IResponseContainer
+    >>> for issue in issues:
+    ...     issue = issue.getObject()
+    ...     rc = IResponseContainer(issue)
+    ...     self.assertEqual(len(rc), 4)
+
+Our checker also agrees that there are no old responses anymore:
+
+    >>> has_old_responses(self.portal)
+    False

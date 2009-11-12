@@ -1,0 +1,83 @@
+Responses: from Archetypes to Zope 3 (original)
+===============================================
+
+For an alternative migrator see the tests in
+migration_old_responses_alternative.txt.
+
+To test migration we have added some sample content::
+
+    >>> catalog = self.portal.portal_catalog
+    >>> len(catalog(portal_type='PoiTracker'))
+    2
+    >>> len(catalog(portal_type='PoiIssue'))
+    6
+    >>> len(catalog(portal_type='PoiResponse'))
+    24
+
+We look at the first issue created.  Like all the others it has five
+oldstyle response and no new style responses::
+
+    >>> tracker = self.portal.foo
+    >>> issue = tracker.foo
+    >>> len(issue.objectValues(spec='PoiResponse'))
+    4
+    >>> from Products.Poi.adapters import IResponseContainer
+    >>> rc = IResponseContainer(issue)
+    >>> len(rc)
+    0
+
+We have a checker to see if an upgrade step is necessary:
+
+    >>> from Products.Poi.migration import has_old_responses
+    >>> has_old_responses(self.portal)
+    True
+
+We call the migrator on this issue::
+
+    >>> from Products.Poi.migration import replace_old_with_new_responses
+    >>> replace_old_with_new_responses(issue)
+
+Now the numbers of old and new style responses have flipped::
+
+    >>> len(issue.objectValues(spec='PoiResponse'))
+    0
+    >>> len(rc)
+    4
+
+Calling the migrator a second time has no ill effect::
+
+    >>> replace_old_with_new_responses(issue)
+    >>> len(issue.objectValues(spec='PoiResponse'))
+    0
+    >>> len(rc)
+    4
+
+Calling the migrator on something that is not a PoiIssue (actually not
+implementing IIssue), gives no errors::
+
+    >>> replace_old_with_new_responses(self.portal)
+
+Calling migrate_responses searches for all PoiTrackers and migrates
+all responses::
+
+    >>> from Products.Poi.migration import migrate_responses
+    >>> migrate_responses(self.portal)
+
+
+All PoiResponses are gone after migration and they have been added as
+new style responses::
+
+    >>> len(catalog(portal_type='PoiResponse'))
+    0
+    >>> issues = catalog(portal_type='PoiIssue')
+    >>> len(issues)
+    6
+    >>> for issue in issues:
+    ...     issue = issue.getObject()
+    ...     rc = IResponseContainer(issue)
+    ...     self.assertEqual(len(rc), 4)
+
+Our checker also agrees that there are no old responses anymore:
+
+    >>> has_old_responses(self.portal)
+    False
