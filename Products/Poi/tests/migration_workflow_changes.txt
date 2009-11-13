@@ -7,6 +7,12 @@ To test migration we have added some sample content::
     >>> len(issues)
     6
 
+These are actually issues with old responses (we might want to change
+that) so we need to migrate those first::
+
+    >>> from Products.Poi.migration import migrate_responses
+    >>> migrate_responses(self.portal)
+
 When a response changes the workflow state of an issue, this change is
 recorded in that response.  This used to be done by storing review
 state ids.  Currently this is done by storing review state titles.

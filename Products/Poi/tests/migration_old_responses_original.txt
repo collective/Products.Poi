@@ -14,6 +14,53 @@ To test migration we have added some sample content::
     >>> len(catalog(portal_type='PoiResponse'))
     24
 
+Do some special handling on one response, mostly for testing that the
+code behind old style responses still works:
+
+    >>> self.response = self.portal.foo.bar.baz
+    >>> from zope.publisher.browser import TestRequest
+    >>> class MyRequest(TestRequest):
+    ...     def set(self, prop, value):
+    ...         # hack needed for hack in post_validate
+    ...         self.form[prop] = value
+    >>> errors = {}
+    >>> req = MyRequest()
+    >>> self.response.post_validate(REQUEST=req, errors=errors)
+    >>> errors
+    {'response': 'Please provide a response'}
+    >>> errors = {}
+    >>> req = MyRequest(response='It does not work')
+    >>> self.response.post_validate(REQUEST=req, errors=errors)
+    >>> errors
+    {}
+    >>> errors = {}
+    >>> req = MyRequest(newSeverity='Important')
+    >>> self.response.post_validate(REQUEST=req, errors=errors)
+    >>> errors
+    {}
+    >>> errors = {}
+    >>> req = MyRequest(newTargetRelease='1.0')
+    >>> self.response.post_validate(REQUEST=req, errors=errors)
+    >>> errors
+    {}
+    >>> errors = {}
+    >>> req = MyRequest(newResponsibleManager='portal_owner')
+    >>> self.response.post_validate(REQUEST=req, errors=errors)
+    >>> errors
+    {}
+    >>> errors = {}
+    >>> self.response.update(
+    ... response='It does not work',
+    ... newSeverity='Important',
+    ... newTargetRelease='1.0',
+    ... newResponsibleManager='portal_owner')
+    >>> from zope.event import notify
+    >>> from Products.Archetypes.event import ObjectInitializedEvent
+    >>> notify(ObjectInitializedEvent(self.response))
+    >>> self.response.reindexObject()
+    >>> self.response.isValid()
+    True
+
 We look at the first issue created.  Like all the others it has five
 oldstyle response and no new style responses::
 

@@ -182,7 +182,8 @@ class PoiMigrationTestCase(PoiTestCase):
     def createOldSampleContent(self):
         from Products.Poi.content.PoiResponse import PoiResponse
         for x in ('foo', 'bar'):
-            dummy = self.portal.invokeFactory('PoiTracker', x)
+            dummy = self.portal.invokeFactory('PoiTracker', x,
+                                              availableReleases=['2.0', '1.0'])
             for y in ('foo', 'bar', 'baz'):
                 dummy = self.portal[x].invokeFactory('PoiIssue', y)
                 for z in ('foo', 'bar', 'baz', 'quux'):
