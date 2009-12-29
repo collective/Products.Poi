@@ -8,9 +8,5 @@
       <role name="Manager"/>
       <role name="TrackerManager" />
     </permission>
-    <permission name="Poi: Delegate TrackerManager role" acquire="True">
-      <role name="Manager"/>
-      <role name="TrackerManager" />
-    </permission>
   </permissions>
 </rolemap>

@@ -150,12 +150,4 @@
       handler="Products.Poi.migration.run_rolemap_step"
       profile="Products.Poi:default" />
 
-  <gs:upgradeStep
-      title="Run sharing role import step"
-      description="Apply our own sharing.xml file."
-      source="1302"
-      destination="1303"
-      handler="Products.Poi.migration.run_sharing_step"
-      profile="Products.Poi:default" />
-
 </configure>

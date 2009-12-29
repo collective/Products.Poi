@@ -9,9 +9,4 @@
     title="Poi: Manage tracker"
     />
 
-  <permission
-    id="Poi.DelegateTrackerManagerRole"
-    title="Poi: Delegate TrackerManager role"
-    />
-
 </configure>

@@ -7,7 +7,6 @@ ModifyPortalContent       = CMFCorePermissions.ModifyPortalContent
 AccessContentsInformation = CMFCorePermissions.AccessContentsInformation
 
 ManageTracker             = "Poi: Manage tracker"
-DelegateTrackerManagerRole = "Poi: Delegate TrackerManager role"
 EditResponse              = "Poi: Edit response"
 ModifyIssueSeverity       = "Poi: Modify issue severity"
 ModifyIssueAssignment     = "Poi: Modify issue assignment"
