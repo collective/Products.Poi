@@ -150,4 +150,12 @@
       handler="Products.Poi.migration.update_tracker_managers"
       profile="Products.Poi:default" />
 
+  <gs:upgradeStep
+      title="Run workflow import step"
+      description="Apply our own workflow.xml file."
+      source="1303"
+      destination="1304"
+      handler="Products.Poi.migration.run_workflow_step"
+      profile="Products.Poi:default" />
+
 </configure>
