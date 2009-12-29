@@ -11,16 +11,19 @@
   <exit-transition transition_id="open-closed"/>
   <permission-map name="Delete objects" acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="True">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Modify issue state"
                   acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
  <state state_id="in-progress" title="In progress">
@@ -28,15 +31,18 @@
   <exit-transition transition_id="postpone"/>
   <permission-map name="Delete objects" acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="True">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Modify issue state"
                   acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
  <state state_id="new" title="Being created">
@@ -45,18 +51,21 @@
    <permission-role>Anonymous</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="True">
    <permission-role>Anonymous</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Modify issue state"
                   acquired="False">
    <permission-role>Anonymous</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
  <state state_id="open" title="Confirmed">
@@ -66,15 +75,18 @@
   <exit-transition transition_id="reject-open"/>
   <permission-map name="Delete objects" acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="True">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Modify issue state"
                   acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
  <state state_id="postponed" title="Postponed">
@@ -82,30 +94,36 @@
   <exit-transition transition_id="open-postponed"/>
   <permission-map name="Delete objects" acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="True">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Modify issue state"
                   acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
  <state state_id="rejected" title="Rejected">
   <exit-transition transition_id="open-rejected"/>
   <permission-map name="Delete objects" acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="True">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Modify issue state"
                   acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
  <state state_id="resolved" title="Resolved">
@@ -113,16 +131,19 @@
   <exit-transition transition_id="confirm-resolved"/>
   <permission-map name="Delete objects" acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="True">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Modify issue state"
                   acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
  <state state_id="unconfirmed" title="Unconfirmed">
@@ -132,15 +153,18 @@
   <exit-transition transition_id="resolve-unconfirmed"/>
   <permission-map name="Delete objects" acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="True">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Modify issue state"
                   acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
  <transition transition_id="accept-unconfirmed" title="Open"

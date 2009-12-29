@@ -1,0 +1,17 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           i18n_domain="poi">
+
+  <!-- Define permissions. See also permissions.py -->
+  <include package="collective.autopermission" />
+
+  <permission
+    id="Poi.ManageTracker"
+    title="Poi: Manage tracker"
+    />
+
+  <permission
+    id="Poi.DelegateTrackerManagerRole"
+    title="Poi: Delegate TrackerManager role"
+    />
+
+</configure>

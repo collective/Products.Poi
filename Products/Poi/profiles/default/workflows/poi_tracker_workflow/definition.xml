@@ -20,30 +20,37 @@
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Add portal content" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Add Issue" acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Add Response" acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Edit response" acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="View" acquired="False">
    <permission-role>Anonymous</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
  <state state_id="open" title="Open for submissions">
@@ -56,39 +63,46 @@
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Add portal content" acquired="False">
    <permission-role>Anonymous</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Add Issue" acquired="False">
    <permission-role>Anonymous</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Add Response" acquired="False">
    <permission-role>Anonymous</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Edit response" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="View" acquired="False">
    <permission-role>Anonymous</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
  <state state_id="protected"
@@ -104,31 +118,37 @@
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>Reader</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Add portal content" acquired="False">
    <permission-role>Contributor</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="False">
    <permission-role>Editor</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Add Issue" acquired="False">
    <permission-role>Contributor</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Add Response" acquired="False">
    <permission-role>Contributor</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Edit response" acquired="False">
    <permission-role>Editor</permission-role>
    <permission-role>Manager</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="View" acquired="False">
    <permission-role>Contributor</permission-role>
@@ -136,6 +156,7 @@
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>Reader</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
  <state state_id="restricted"
@@ -150,36 +171,43 @@
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Add portal content" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Add Issue" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Add Response" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Edit response" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="View" acquired="False">
    <permission-role>Anonymous</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
  <transition transition_id="close" title="Close tracker"
@@ -187,8 +215,9 @@
              before_script="" after_script="">
   <action url="" category="workflow">Close tracker</action>
   <guard>
-   <guard-role>Owner</guard-role>
    <guard-role>Manager</guard-role>
+   <guard-role>Owner</guard-role>
+   <guard-role>TrackerManager</guard-role>
   </guard>
  </transition>
  <transition transition_id="open" title="Open tracker"
@@ -196,8 +225,9 @@
              before_script="" after_script="">
   <action url="" category="workflow">Open tracker</action>
   <guard>
-   <guard-role>Owner</guard-role>
    <guard-role>Manager</guard-role>
+   <guard-role>Owner</guard-role>
+   <guard-role>TrackerManager</guard-role>
   </guard>
  </transition>
  <transition transition_id="protect"
@@ -206,8 +236,9 @@
              before_script="" after_script="">
   <action url="" category="workflow">Protect tracker</action>
   <guard>
-   <guard-role>Owner</guard-role>
    <guard-role>Manager</guard-role>
+   <guard-role>Owner</guard-role>
+   <guard-role>TrackerManager</guard-role>
   </guard>
  </transition>
  <transition transition_id="restrict"
@@ -215,8 +246,9 @@
              trigger="USER" before_script="" after_script="">
   <action url="" category="workflow">Restrict tracker</action>
   <guard>
-   <guard-role>Owner</guard-role>
    <guard-role>Manager</guard-role>
+   <guard-role>Owner</guard-role>
+   <guard-role>TrackerManager</guard-role>
   </guard>
  </transition>
  <variable variable_id="action" for_catalog="False"

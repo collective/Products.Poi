@@ -322,3 +322,11 @@ def remove_form_controller_action(context):
         raise Exception(error)
     else:
         logger.info("Removed action poi_issue_post from validate_integrity.")
+
+
+def run_rolemap_step(context):
+    context.runImportStepFromProfile(PROFILE_ID, 'rolemap')
+
+
+def run_sharing_step(context):
+    context.runImportStepFromProfile(PROFILE_ID, 'sharing')

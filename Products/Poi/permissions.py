@@ -6,6 +6,8 @@ View                      = CMFCorePermissions.View
 ModifyPortalContent       = CMFCorePermissions.ModifyPortalContent
 AccessContentsInformation = CMFCorePermissions.AccessContentsInformation
 
+ManageTracker             = "Poi: Manage tracker"
+DelegateTrackerManagerRole = "Poi: Delegate TrackerManager role"
 EditResponse              = "Poi: Edit response"
 ModifyIssueSeverity       = "Poi: Modify issue severity"
 ModifyIssueAssignment     = "Poi: Modify issue assignment"
@@ -15,6 +17,7 @@ ModifyIssueWatchers       = "Poi: Modify issue watchers"
 ModifyIssueTargetRelease  = "Poi: Modify issue target release"
 UploadAttachment          = "Poi: Upload attachment"
 
+# These can probably all be done in rolemap.xml.
 CMFCorePermissions.setDefaultRoles(EditResponse, ['Manager'])
 CMFCorePermissions.setDefaultRoles(ModifyIssueSeverity, ['Manager'])
 CMFCorePermissions.setDefaultRoles(ModifyIssueAssignment, ['Manager'])

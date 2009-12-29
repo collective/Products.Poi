@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<rolemap>
+  <roles>
+    <role name="TrackerManager"/>
+  </roles>
+  <permissions>
+    <permission name="Poi: Manage tracker" acquire="True">
+      <role name="Manager"/>
+      <role name="TrackerManager" />
+    </permission>
+    <permission name="Poi: Delegate TrackerManager role" acquire="True">
+      <role name="Manager"/>
+      <role name="TrackerManager" />
+    </permission>
+  </permissions>
+</rolemap>

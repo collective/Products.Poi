@@ -5,6 +5,7 @@
     i18n_domain="poi">
 
   <include package=".browser" />
+  <include file="permissions.zcml" />
 
   <subscriber
       for="Products.Poi.adapters.IResponse
@@ -139,6 +140,22 @@
       source="1300"
       destination="1301"
       handler="Products.Poi.migration.remove_form_controller_action"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Run rolemap import step"
+      description="Apply our own rolemap.xml file."
+      source="1301"
+      destination="1302"
+      handler="Products.Poi.migration.run_rolemap_step"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Run sharing role import step"
+      description="Apply our own sharing.xml file."
+      source="1302"
+      destination="1303"
+      handler="Products.Poi.migration.run_sharing_step"
       profile="Products.Poi:default" />
 
 </configure>

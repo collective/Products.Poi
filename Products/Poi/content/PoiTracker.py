@@ -484,8 +484,8 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         toKeep = [m for m in managers if m in currentManagers]
         for userId in toRemove:
             local_roles = list(self.get_local_roles_for_userid(userId))
-            if 'Manager' in local_roles:
-                local_roles.remove('Manager')
+            if 'TrackerManager' in local_roles:
+                local_roles.remove('TrackerManager')
                 if local_roles:
                     # One or more roles must be given
                     self.manage_setLocalRoles(userId, local_roles)
@@ -493,14 +493,14 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
                     self.manage_delLocalRoles(toRemove)
         for userId in toAdd:
             local_roles = list(self.get_local_roles_for_userid(userId))
-            local_roles.append('Manager')
+            local_roles.append('TrackerManager')
             self.manage_setLocalRoles(userId, local_roles)
         # When creating a tracker as non-manager you used to become
         # only Owner and not Manager, which is not what we want.
         for userId in toKeep:
             local_roles = list(self.get_local_roles_for_userid(userId))
-            if not 'Manager' in local_roles:
-                local_roles.append('Manager')
+            if not 'TrackerManager' in local_roles:
+                local_roles.append('TrackerManager')
                 self.manage_setLocalRoles(userId, local_roles)
 
     security.declarePublic('getIssueWorkflowStates')
