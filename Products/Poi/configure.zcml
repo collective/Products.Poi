@@ -110,15 +110,6 @@
       profile="Products.Poi:default" />
 
   <gs:upgradeStep
-      title="Give all tracker managers the local Manager role"
-      description="Make sure all the tracker manager actually have the
-                   Manager role."
-      source="1203"
-      destination="1204"
-      handler="Products.Poi.migration.update_tracker_managers"
-      profile="Products.Poi:default" />
-
-  <gs:upgradeStep
       title="Run workflow import step"
       description="Apply our own workflow.xml file."
       source="1204"
@@ -148,6 +139,15 @@
       source="1301"
       destination="1302"
       handler="Products.Poi.migration.run_rolemap_step"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Give all tracker managers the TrackerManager role"
+      description="Make sure all the tracker manager actually have the
+                   local TrackerManager role instead of the Manager role."
+      source="1302"
+      destination="1303"
+      handler="Products.Poi.migration.update_tracker_managers"
       profile="Products.Poi:default" />
 
 </configure>

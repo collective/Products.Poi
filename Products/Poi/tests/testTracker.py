@@ -109,7 +109,8 @@ class TestTracker(ptc.PoiTestCase):
         self.tracker.manage_delLocalRoles(['member2'])
         self.tracker.setManagers(('member2', ))
         self.failUnless('TrackerManager' in roles('member2'))
-        self.tracker.manage_setLocalRoles('member2', ['Owner', 'TrackerManager'])
+        self.tracker.manage_setLocalRoles(
+            'member2', ['Owner', 'TrackerManager'])
         self.tracker.manage_setLocalRoles('member1', ['Reviewer'])
         self.tracker.setManagers(('member1', 'member2'))
         self.failUnless('TrackerManager' in roles('member2'))
@@ -118,6 +119,25 @@ class TestTracker(ptc.PoiTestCase):
         self.failUnless('Reviewer' in roles('member1'))
         self.tracker.setManagers(('member2', ))
         self.failUnless('Reviewer' in roles('member1'))
+
+    def testUpgradeManagers(self):
+        roles = self.tracker.get_local_roles_for_userid
+        self.tracker.setManagers(('member1', 'member2', ))
+        # Mess things up
+        self.tracker.manage_setLocalRoles(
+            'member1', ['Owner', 'Manager', 'TrackerManager'])
+        self.tracker.manage_setLocalRoles('member2', ['Reviewer'])
+        # Our upgrade step should fix it.
+        from Products.Poi.migration import update_tracker_managers
+        update_tracker_managers(self.portal, testing=True)
+
+        self.failUnless('Owner' in roles('member1'))
+        self.failUnless('TrackerManager' in roles('member1'))
+        self.failIf('Manager' in roles('member1'))
+
+        self.failUnless('Reviewer' in roles('member2'))
+        self.failUnless('TrackerManager' in roles('member2'))
+        self.failIf('Manager' in roles('member2'))
 
     def testIsUsingReleases(self):
         self.tracker.setAvailableReleases(())
@@ -137,8 +157,8 @@ class TestEmailNotifications(ptc.PoiTestCase):
         self.addMember('member3', 'Member Three', 'member3@member.com',
                        ['Member'], '2005-01-01')
         self.tracker = self.createTracker(
-            self.folder, 'issue-tracker', managers = ('member1', 'member2'),
-            sendNotificationEmails = True)
+            self.folder, 'issue-tracker', managers=('member1', 'member2'),
+            sendNotificationEmails=True)
 
     def testGetAddressesWithNotificationsOff(self):
         self.tracker.setSendNotificationEmails(False)

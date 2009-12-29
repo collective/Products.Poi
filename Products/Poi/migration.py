@@ -74,8 +74,8 @@ def migrate_responses(context):
         try:
             tracker = brain.getObject()
         except (AttributeError, KeyError):
-            logger.warn("AttributeError getting tracker object at %s",
-                        brain.getURL())
+            logger.warn("AttributeError or KeyError getting tracker object at "
+                        "%s", brain.getURL())
             continue
         # We definitely do not want to send any emails for responses
         # added or removed during this migration.
@@ -163,8 +163,8 @@ def migrate_workflow_changes(context):
         try:
             issue = brain.getObject()
         except (AttributeError, KeyError):
-            logger.warn("AttributeError getting issue object at %s",
-                        brain.getURL())
+            logger.warn("AttributeError or KeyError getting tracker object at "
+                        "%s", brain.getURL())
             continue
         folder = IResponseContainer(issue)
         made_changes = False
@@ -214,8 +214,8 @@ def fix_descriptions(context):
             try:
                 issue = brain.getObject()
             except (AttributeError, KeyError):
-                logger.warn("AttributeError getting issue object at %s",
-                            brain.getURL())
+                logger.warn("AttributeError or KeyError getting tracker "
+                            "object at %s", brain.getURL())
                 continue
             if isinstance(issue.Description(), unicode):
                 logger.debug("Un/reindexing PoiIssue %s", brain.getURL())
@@ -241,11 +241,19 @@ def run_workflow_step(context):
     logger.info('Done updating security settings.')
 
 
-def update_tracker_managers(context):
-    """Make sure all the tracker manager actually have the Manager role.
+def update_tracker_managers(context, testing=False):
+    """Make sure all managers of a tracker get the TrackerManager role.
 
-    Specifically, due to an error in the code the original creator may
-    not have gotten the Manager role.
+    We used to give users in the 'managers' field of a tracker the
+    local Manager.  Now we give them the new TrackerManager role.  In
+    this upgrade step we remove the local Manager role from all users.
+    Instead we give them the TrackerManager role.  This might give a
+    few 'false positives', where a user has been intentionally given
+    the local Manager role and will now lose it.  That can't be
+    helped and is not expected to be a big problem.
+
+    If testing is True, do not commit; this avoids some problems when
+    running the tests.
     """
     logger.info("Starting update of tracker managers.")
     catalog = getToolByName(context, 'portal_catalog')
@@ -256,22 +264,29 @@ def update_tracker_managers(context):
         try:
             tracker = brain.getObject()
         except (AttributeError, KeyError):
-            logger.warn("AttributeError getting tracker object at %s",
-                        brain.getURL())
+            logger.warn("AttributeError or KeyError getting tracker object at "
+                        "%s", brain.getURL())
             continue
 
         field = tracker.getField('managers')
         managers = field.get(tracker)
-        changed = False
+        tracker_changed = False
         for user_id in managers:
+            user_changed = False
             local_roles = list(tracker.get_local_roles_for_userid(user_id))
-            if not 'Manager' in local_roles:
-                logger.info("User %s is tracker manager but does not have "
-                            "the manager role. Fixing that now.", user_id)
-                local_roles.append('Manager')
+            if 'Manager' in local_roles:
+                logger.info("Removing local Manager role from user %s.",
+                            user_id)
+                local_roles.remove('Manager')
+                user_changed = True
+            if not 'TrackerManager' in local_roles:
+                logger.info("Giving user %s TrackerManager role.", user_id)
+                local_roles.append('TrackerManager')
+                user_changed = True
+            if user_changed:
                 tracker.manage_setLocalRoles(user_id, local_roles)
-                changed = True
-        if changed:
+                tracker_changed = True
+        if tracker_changed and not testing:
             logger.info("Committing after updating roles on tracker %s",
                         tracker.absolute_url())
             transaction.commit()
