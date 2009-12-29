@@ -5,6 +5,9 @@ Changelog for Poi
 1.3 (unreleased)
 ----------------
 
+- Define our permissions in zcml and configure them in rolemap.xml.
+  [maurits]
+
 - Added TrackerManager role.  Give this role to users mentioned in the
   managers field of a tracker, instead of the more powerful Manager
   role.

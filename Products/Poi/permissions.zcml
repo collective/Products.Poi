@@ -9,4 +9,44 @@
     title="Poi: Manage tracker"
     />
 
+  <permission
+    id="Poi.EditResponse"
+    title="Poi: Edit response"
+    />
+
+  <permission
+    id="Poi.ModifyIssueSeverity"
+    title="Poi: Modify issue severity"
+    />
+
+  <permission
+    id="Poi.ModifyIssueAssignment"
+    title="Poi: Modify issue assignment"
+    />
+
+  <permission
+    id="Poi.ModifyIssueState"
+    title="Poi: Modify issue state"
+    />
+
+  <permission
+    id="Poi.ModifyIssueTags"
+    title="Poi: Modify issue tags"
+    />
+
+  <permission
+    id="Poi.ModifyIssueWatchers"
+    title="Poi: Modify issue watchers"
+    />
+
+  <permission
+    id="Poi.ModifyIssueTargetRelease"
+    title="Poi: Modify issue target release"
+    />
+
+  <permission
+    id="Poi.UploadAttachment"
+    title="Poi: Upload attachment"
+    />
+
 </configure>
