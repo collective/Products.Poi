@@ -4,6 +4,15 @@
     <role name="TrackerManager"/>
   </roles>
   <permissions>
+    <permission name="Poi: Add Tracker" acquire="True">
+      <role name="Manager"/>
+    </permission>
+    <permission name="Poi: Add Issue" acquire="True">
+      <role name="Anonymous"/>
+    </permission>
+    <permission name="Poi: Add Response" acquire="True">
+      <role name="Anonymous"/>
+    </permission>
     <permission name="Poi: Manage tracker" acquire="True">
       <role name="Manager"/>
       <role name="TrackerManager" />

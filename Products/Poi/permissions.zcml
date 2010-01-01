@@ -5,6 +5,21 @@
   <include package="collective.autopermission" />
 
   <permission
+    id="Poi.AddTracker"
+    title="Poi: Add Tracker"
+    />
+
+  <permission
+    id="Poi.AddIssue"
+    title="Poi: Add Issue"
+    />
+
+  <permission
+    id="Poi.AddResponse"
+    title="Poi: Add Response"
+    />
+
+  <permission
     id="Poi.ManageTracker"
     title="Poi: Manage tracker"
     />
