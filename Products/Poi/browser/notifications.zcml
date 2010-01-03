@@ -1,0 +1,19 @@
+<configure
+   xmlns="http://namespaces.zope.org/five"
+   xmlns:browser="http://namespaces.zope.org/browser">
+
+  <browser:page
+     name="new-issue-mail"
+     for="Products.Poi.interfaces.IIssue"
+     permission="zope2.View"
+     class=".notifications.NewIssueMail"
+     />
+
+  <browser:page
+     name="new-response-mail"
+     for="Products.Poi.interfaces.IIssue"
+     permission="zope2.View"
+     class=".notifications.NewResponseMail"
+     />
+
+</configure>
