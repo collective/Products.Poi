@@ -42,6 +42,7 @@ setup(name='Products.Poi',
           'Products.AddRemoveWidget>=1.4.2',
           'Products.DataGridField>=1.8a1',
           'collective.autopermission',
+          'collective.watcherlist',
       ],
       entry_points="""
       # -*- Entry points: -*-
