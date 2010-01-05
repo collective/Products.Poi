@@ -6,6 +6,7 @@ from Products.Poi.htmlrender import renderHTML
 from Products.Poi.adapters import IResponseContainer
 from Products.Poi import PoiMessageFactory as _
 from collective.watcherlist.browser import BaseMail
+from collective.watcherlist.utils import su
 import textwrap
 
 wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
@@ -19,7 +20,7 @@ class BasePoiMail(BaseMail):
 
         So we parse it as reStructuredText.
         """
-        return renderHTML(self.plain, charset=self.charset)
+        return renderHTML(self.plain)
 
 
 class NewIssueMail(BasePoiMail):
@@ -60,12 +61,12 @@ ${issue_details}
 
 * This is an automated email, please do not reply - ${from_name}""",
             mapping=dict(
-                issue_title=self.su(context.title_or_id()),
-                tracker_title=self.su(tracker.title_or_id()),
-                issue_author=self.su(issueAuthor),
-                issue_details=self.su(issueDetails),
-                issue_url=self.su(context.absolute_url()),
-                from_name=self.su(fromName)))
+                issue_title=su(context.title_or_id()),
+                tracker_title=su(tracker.title_or_id()),
+                issue_author=su(issueAuthor),
+                issue_details=su(issueDetails),
+                issue_url=su(context.absolute_url()),
+                from_name=su(fromName)))
         # Translate the body text
         mail_text = translate(mail_text, 'Poi', context=self.request)
         return mail_text
@@ -78,11 +79,11 @@ ${issue_details}
             'poi_email_new_issue_subject_template',
             u"[${tracker_title}] #${issue_id} - New issue: ${issue_title}",
             mapping=dict(
-                tracker_title=self.su(tracker.getExternalTitle()),
-                issue_id=self.su(context.getId()),
-                issue_title=self.su(context.Title())))
+                tracker_title=su(tracker.getExternalTitle()),
+                issue_id=su(context.getId()),
+                issue_title=su(context.Title())))
         # Make the subject unicode and translate it too.
-        subject = self.su(subject)
+        subject = su(subject)
         subject = translate(subject, 'Poi', context=self.request)
         return subject
 
@@ -108,7 +109,7 @@ class NewResponseMail(BasePoiMail):
         portal_url = getToolByName(context, 'portal_url')
         portal = portal_url.getPortalObject()
         portal_membership = getToolByName(portal, 'portal_membership')
-        fromName = self.su(portal.getProperty('email_from_name', ''))
+        fromName = su(portal.getProperty('email_from_name', ''))
 
         creator = response.creator
         creatorInfo = portal_membership.getMemberInfo(creator)
@@ -116,9 +117,9 @@ class NewResponseMail(BasePoiMail):
             responseAuthor = creatorInfo['fullname']
         else:
             responseAuthor = creator
-        responseAuthor = self.su(responseAuthor)
+        responseAuthor = su(responseAuthor)
 
-        responseText = self.su(response.text)
+        responseText = su(response.text)
         paras = responseText.splitlines()
 
         # Indent the response details so they are correctly interpreted as
@@ -137,8 +138,8 @@ class NewResponseMail(BasePoiMail):
 
         changes = u''
         for change in response.changes:
-            before = self.su(change.get('before'))
-            after = self.su(change.get('after'))
+            before = su(change.get('before'))
+            after = su(change.get('after'))
             # Some changes are workflow changes, which can be translated.
             # Note that workflow changes are in the plone domain.
             before = translate(before, 'plone', context=self.request)
@@ -162,11 +163,11 @@ ${response_details}
 
 * This is an automated email, please do not reply - ${from_name}""",
             mapping=dict(
-                issue_title=self.su(context.title_or_id()),
-                tracker_title=self.su(tracker.title_or_id()),
+                issue_title=su(context.title_or_id()),
+                tracker_title=su(tracker.title_or_id()),
                 response_author=responseAuthor,
                 response_details=responseDetails,
-                issue_url=self.su(context.absolute_url()),
+                issue_url=su(context.absolute_url()),
                 changes=changes,
                 from_name=fromName))
         mail_text = translate(mail_text, 'Poi', context=self.request)
@@ -180,10 +181,10 @@ ${response_details}
             'poi_email_new_response_subject_template',
             u"[${tracker_title}] #${issue_id} - Re: ${issue_title}",
             mapping=dict(
-                tracker_title=self.su(tracker.getExternalTitle()),
-                issue_id=self.su(context.getId()),
-                issue_title=self.su(context.Title())))
+                tracker_title=su(tracker.getExternalTitle()),
+                issue_id=su(context.getId()),
+                issue_title=su(context.Title())))
         # Ensure that the subject is unicode and translate it too.
-        subject = self.su(subject)
+        subject = su(subject)
         subject = translate(subject, 'Poi', context=self.request)
         return subject

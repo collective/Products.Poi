@@ -36,6 +36,11 @@
       factory=".adapters.ResponseContainer"
       />
 
+  <adapter
+      for="Products.Poi.interfaces.IIssue"
+      factory="collective.watcherlist.watchers.WatcherList"
+      />
+
   <!-- Register a basically empty content exporter for issues, as they
        can give unicode errors when making a snapshot in portal_setup.
        See http://plone.org/products/poi/issues/217 -->

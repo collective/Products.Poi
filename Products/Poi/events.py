@@ -1,7 +1,7 @@
 import logging
 
 from Products.CMFCore.utils import getToolByName
-from collective.watcherlist.interfaces import IEmailSender
+from collective.watcherlist.interfaces import IWatcherList
 from Products.Poi.interfaces import IIssue
 
 logger = logging.getLogger('Poi')
@@ -48,17 +48,10 @@ def addedNewStyleResponse(object, event):
     if IIssue.providedBy(issue):
         issue.reindexObject(idxs=['SearchableText'])
         issue.notifyModified()
-        ignore_me = True
-        if ignore_me:
-            return
-        sender = IEmailSender(issue)
-        # As we take the last response by default, we can simplify this.
-        # response_id = int(event.newName)
-        # extra = {'response_id': response_id}
-        # sender.sendNotificationEmail('new-response-mail', **extra)
-        sender.sendNotificationEmail('new-response-mail')
+        watchers = IWatcherList(issue)
+        watchers.send('new-response-mail')
 
 
 def new_style_notification_for_new_issue(issue, response):
-    sender = IEmailSender(issue)
-    sender.sendNotificationEmail('new-issue-mail')
+    watchers = IWatcherList(issue)
+    watchers.send('new-issue-mail')
