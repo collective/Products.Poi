@@ -48,8 +48,13 @@ def addedNewStyleResponse(object, event):
     if IIssue.providedBy(issue):
         issue.reindexObject(idxs=['SearchableText'])
         issue.notifyModified()
-        watchers = IWatcherList(issue)
-        watchers.send('new-response-mail')
+        sendResponseNotificationMail(issue)
+
+
+def sendResponseNotificationMail(issue):
+    # As we take the last response by default, we can keep this simple.
+    watchers = IWatcherList(issue)
+    watchers.send('new-response-mail')
 
 
 def new_style_notification_for_new_issue(issue, response):

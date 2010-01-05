@@ -233,7 +233,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
         issue.sendNotificationMail()
         response = self.createResponse(
             issue, text="more accented vocals: ò ù")
-        sendResponseNotificationMail(issue, response)
+        sendResponseNotificationMail(issue)
 
         # Now try a different charset
         pprop = getToolByName(self.portal, 'portal_properties')
@@ -248,7 +248,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
         issue.sendNotificationMail()
         response = self.createResponse(
             issue, text=u"more accented vocals: ò ù".encode('iso-8859-1'))
-        sendResponseNotificationMail(issue, response)
+        sendResponseNotificationMail(issue)
 
     def testNewResponseEmail(self):
         self.tracker.setSendNotificationEmails(True)
@@ -257,7 +257,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
                                  contactEmail='submitter@domain.com',
                                  watchers=('member1', 'member2'))
         response = self.createResponse(issue)
-        sendResponseNotificationMail(issue, response)
+        sendResponseNotificationMail(issue)
 
     def testResolvedEmail(self):
         self.tracker.setSendNotificationEmails(True)
