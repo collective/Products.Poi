@@ -2,6 +2,7 @@ from Testing import ZopeTestCase
 from DateTime import DateTime
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
+from Products.Archetypes.event import ObjectInitializedEvent
 
 from Products.Poi.adapters import IResponseContainer
 
@@ -122,7 +123,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         issue.setWatchers(watchers)
         issue.setSubject(tags)
         issue.setResponsibleManager(responsibleManager)
-        self.portal.portal_workflow.doActionFor(issue, 'post')
+        notify(ObjectInitializedEvent(issue))
         issue._renameAfterCreation()
         issue.reindexObject()
         return issue

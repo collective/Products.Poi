@@ -3,7 +3,7 @@ from Testing import ZopeTestCase
 from Products.Poi.tests import ptc
 from Products.CMFCore.utils import getToolByName
 from Products.Poi.events import sendResponseNotificationMail
-
+from zope.event import notify
 default_user = ZopeTestCase.user_name
 
 
@@ -217,10 +217,10 @@ class TestEmailNotifications(ptc.PoiTestCase):
     def testNewIssueEmail(self):
         self.tracker.setSendNotificationEmails(True)
         self.tracker.update(title='Random Tracker')
+        # Just creating it should be enough to send an email.
         issue = self.createIssue(self.tracker,
                                  contactEmail='submitter@domain.com',
                                  watchers=('member1', 'member2'))
-        issue.sendNotificationMail()
 
     def testSpecialCharacterIssueEmail(self):
         self.tracker.setSendNotificationEmails(True)
@@ -230,7 +230,6 @@ class TestEmailNotifications(ptc.PoiTestCase):
             title="accented vocals: à è ì",
             contactEmail='submitter@domain.com',
             watchers=('member1', 'member2'))
-        issue.sendNotificationMail()
         response = self.createResponse(
             issue, text="more accented vocals: ò ù")
         sendResponseNotificationMail(issue)
@@ -245,7 +244,6 @@ class TestEmailNotifications(ptc.PoiTestCase):
             title=u"accented vocals: à è ì ò ù".encode('iso-8859-1'),
             contactEmail='submitter@domain.com',
             watchers=('member1', 'member2'))
-        issue.sendNotificationMail()
         response = self.createResponse(
             issue, text=u"more accented vocals: ò ù".encode('iso-8859-1'))
         sendResponseNotificationMail(issue)

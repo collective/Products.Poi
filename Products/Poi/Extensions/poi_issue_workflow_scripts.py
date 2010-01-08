@@ -36,10 +36,6 @@ from Products.CMFPlone.utils import safe_unicode
 from Products.Poi import PoiMessageFactory as _
 
 
-def sendInitialEmail(self, state_change, **kw):
-    state_change.object.sendNotificationMail()
-
-
 def sendResolvedMail(self, state_change, **kw):
     """Send an email to the original submitter that the issue was marked
     as resolved, inviting him/her to confirm it.

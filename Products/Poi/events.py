@@ -15,12 +15,17 @@ def post_issue(object, event):
     Instead we give a more sensible default.
 
     And we do the 'post' transition.
+
+    And send the initial email.
+
     """
     portal_membership = getToolByName(object, 'portal_membership')
     if portal_membership.isAnonymousUser():
         object.setCreators(('(anonymous)',))
     portal_workflow = getToolByName(object, 'portal_workflow')
     portal_workflow.doActionFor(object, 'post')
+    watchers = IWatcherList(object)
+    watchers.send('new-issue-mail')
 
 
 def removedResponse(object, event):
@@ -55,8 +60,3 @@ def sendResponseNotificationMail(issue):
     # As we take the last response by default, we can keep this simple.
     watchers = IWatcherList(issue)
     watchers.send('new-response-mail')
-
-
-def new_style_notification_for_new_issue(issue, response):
-    watchers = IWatcherList(issue)
-    watchers.send('new-issue-mail')

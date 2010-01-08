@@ -234,7 +234,7 @@
  <transition transition_id="post" title="Post issue on save"
              new_state="unconfirmed" trigger="USER"
              before_script=""
-             after_script="sendInitialEmail">
+             after_script="">
   <action url="" category="workflow">Post issue on save</action>
   <guard>
    <guard-expression>here/isValid</guard-expression>
@@ -359,10 +359,7 @@
   <guard>
   </guard>
  </variable>
- <script script_id="sendInitialEmail" type="External Method"
-         filename="" module="Poi.poi_issue_workflow_scripts"
-         function="sendInitialEmail"/>
- <script script_id="sendResolvedMail" type="External Method"
+  <script script_id="sendResolvedMail" type="External Method"
          filename="" module="Poi.poi_issue_workflow_scripts"
          function="sendResolvedMail"/>
 </dc-workflow>
