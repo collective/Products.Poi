@@ -24,8 +24,19 @@ def post_issue(object, event):
         object.setCreators(('(anonymous)',))
     portal_workflow = getToolByName(object, 'portal_workflow')
     portal_workflow.doActionFor(object, 'post')
-    watchers = IWatcherList(object)
-    watchers.send('new-issue-mail')
+
+
+def mail_issue_change(object, event):
+    """Send an email on some transitions of an issue.
+
+    Specificiall: new issue and resolved issue.
+    """
+    if event.transition == 'post':
+        watchers = IWatcherList(object)
+        watchers.send('new-issue-mail')
+    elif event.new_state == 'resolved':
+        watchers = IWatcherList(object)
+        watchers.send('resolved-issue-mail')
 
 
 def removedResponse(object, event):

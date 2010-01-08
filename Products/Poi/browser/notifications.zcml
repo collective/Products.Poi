@@ -16,4 +16,11 @@
      class=".notifications.NewResponseMail"
      />
 
+  <browser:page
+     name="resolved-issue-mail"
+     for="Products.Poi.interfaces.IIssue"
+     permission="zope2.View"
+     class=".notifications.ResolvedIssueMail"
+     />
+
 </configure>

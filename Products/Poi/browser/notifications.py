@@ -188,3 +188,60 @@ ${response_details}
         subject = su(subject)
         subject = translate(subject, 'Poi', context=self.request)
         return subject
+
+
+class ResolvedIssueMail(BasePoiMail):
+
+    @property
+    def plain(self):
+        context = aq_inner(self.context)
+        portal = getSite()
+        fromName = portal.getProperty('email_from_name', '')
+        portal_membership = getToolByName(portal, 'portal_membership')
+        member = portal_membership.getAuthenticatedMember()
+        memberInfo = portal_membership.getMemberInfo(member.getUserName())
+        stateChanger = member.getUserName()
+        if memberInfo:
+            stateChanger = memberInfo['fullname'] or stateChanger
+        tracker = context.getTracker()
+        mail_text = _(
+            'poi_email_issue_resolved_template',
+            u"""The issue **${issue_title}** in the **${tracker_title}**
+    tracker has been marked as resolved by **${response_author}**.
+    Please visit the issue and either confirm that it has been
+    satisfactorily resolved or re-open it.
+
+    Response Information
+    --------------------
+
+    Issue
+      ${issue_title} (${issue_url})
+
+
+    * This is an automated email, please do not reply - ${from_name}""",
+            mapping=dict(
+                issue_title=su(context.title_or_id()),
+                tracker_title=su(tracker.title_or_id()),
+                response_author=su(stateChanger),
+                issue_url=su(context.absolute_url()),
+                from_name=su(fromName)))
+
+        # Translate the body text
+        mail_text = translate(mail_text, 'Poi', context=self.request)
+        return mail_text
+
+    @property
+    def subject(self):
+        context = aq_inner(self.context)
+        tracker = context.getTracker()
+        subject = _(
+            'poi_email_issue_resolved_subject_template',
+            u"[${tracker_title}] Resolved #${issue_id} - ${issue_title}",
+            mapping=dict(
+                tracker_title=su(tracker.getExternalTitle()),
+                issue_id=su(context.getId()),
+                issue_title=su(context.Title())))
+        # Make the subject unicode and translate it too.
+        subject = su(subject)
+        subject = translate(subject, 'Poi', context=self.request)
+        return subject

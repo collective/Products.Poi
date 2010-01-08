@@ -3,12 +3,7 @@ from Testing import ZopeTestCase
 from Products.Poi.tests import ptc
 from Products.CMFCore.utils import getToolByName
 from Products.Poi.events import sendResponseNotificationMail
-from zope.event import notify
 default_user = ZopeTestCase.user_name
-
-
-class _MockState:
-    pass
 
 
 class TestTracker(ptc.PoiTestCase):
@@ -264,11 +259,9 @@ class TestEmailNotifications(ptc.PoiTestCase):
         issue = self.createIssue(self.tracker,
                                  contactEmail='submitter@domain.com',
                                  watchers=('member1', 'member2'))
-
-        from Products.Poi.Extensions import poi_issue_workflow_scripts
-        state = _MockState()
-        state.object = issue
-        poi_issue_workflow_scripts.sendResolvedMail(self.portal, state)
+        self.loginAsPortalOwner()
+        workflow = self.portal.portal_workflow
+        workflow.doActionFor(issue, 'resolve-unconfirmed')
 
    # -- end email tests
 
