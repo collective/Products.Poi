@@ -1,8 +1,11 @@
+from Acquisition import aq_base
 from Testing import ZopeTestCase
 from DateTime import DateTime
 from zope.event import notify
+from zope.component import getSiteManager
 from zope.lifecycleevent import ObjectModifiedEvent
 from Products.Archetypes.event import ObjectInitializedEvent
+from Products.MailHost.interfaces import IMailHost
 
 from Products.Poi.adapters import IResponseContainer
 
@@ -30,19 +33,9 @@ ZopeTestCase.installProduct('AddRemoveWidget')
 ZopeTestCase.installProduct('Poi')
 
 from Products.PloneTestCase import PloneTestCase
-
+#from Products.CMFPlone.tests.test_mails import MockMailHostTestCase
+from Products.CMFPlone.tests.utils import MockMailHost
 PloneTestCase.setupPloneSite(products=['Poi'])
-
-
-class MockMailHost(object):
-    """Make a mock mail host to avoid sending emails when testing.
-    """
-
-    def getId(self):
-        return 'MailHost'
-
-    def send(self, message, mto=None, mfrom=None, subject=None, encode=None):
-        pass
 
 
 class PoiTestCase(PloneTestCase.PloneTestCase):
@@ -55,8 +48,21 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
     def _setup(self):
         PloneTestCase.PloneTestCase._setup(self)
         # Replace normal mailhost with mock mailhost
-        self.portal.MailHost = MockMailHost()
+        self.portal._original_MailHost = self.portal.MailHost
+        self.portal.MailHost = mailhost = MockMailHost('MailHost')
+        sm = getSiteManager(context=self.portal)
+        sm.unregisterUtility(provided=IMailHost)
+        sm.registerUtility(mailhost, provided=IMailHost)
+
+        # Setup session (not sure why)
         self.app.REQUEST['SESSION'] = self.Session()
+
+    def _clear(self, call_close_hook=0):
+        self.portal.MailHost = self.portal._original_MailHost
+        sm = getSiteManager(context=self.portal)
+        sm.unregisterUtility(provided=IMailHost)
+        sm.registerUtility(aq_base(self.portal._original_MailHost), provided=IMailHost)
+        PloneTestCase.PloneTestCase._clear(self)
 
     def addMember(self, username, fullname, email, roles, last_login_time):
         # Taken from CMFPlone/tests/testMemberDataTool
