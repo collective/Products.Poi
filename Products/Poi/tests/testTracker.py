@@ -11,9 +11,9 @@ class TestTracker(ptc.PoiTestCase):
 
     def afterSetUp(self):
         self.tracker = self.createTracker(self.folder, 'issue-tracker')
-        self.addMember('member1', 'Member One', 'member1@member.com',
+        self.addMember('member1', 'Member One', 'member1@example.com',
                        ['Member'], '2005-01-01')
-        self.addMember('member2', 'Member Two', 'member2@member.com',
+        self.addMember('member2', 'Member Two', 'member2@example.com',
                        ['Member'], '2005-01-01')
 
     def testEditTracker(self):
@@ -29,7 +29,7 @@ class TestTracker(ptc.PoiTestCase):
         self.tracker.setAvailableReleases(('1.0', '2.0'))
         self.tracker.setManagers(('member1', 'member2'))
         self.tracker.setSendNotificationEmails(False)
-        self.tracker.setMailingList('list@list.com')
+        self.tracker.setMailingList('list@example.com')
 
         self.assertEqual(self.tracker.Title(), 'title')
         self.assertEqual(self.tracker.Description(), 'description')
@@ -45,7 +45,7 @@ class TestTracker(ptc.PoiTestCase):
         self.assertEqual(self.tracker.getAvailableReleases(), ('1.0', '2.0'))
         self.assertEqual(self.tracker.getManagers(), ('member1', 'member2'))
         self.assertEqual(self.tracker.getSendNotificationEmails(), False)
-        self.assertEqual(self.tracker.getMailingList(), 'list@list.com')
+        self.assertEqual(self.tracker.getMailingList(), 'list@example.com')
 
     def testDataGridFields(self):
         """
@@ -145,11 +145,11 @@ class TestEmailNotifications(ptc.PoiTestCase):
     """Test getting email addresses and sending email notifications"""
 
     def afterSetUp(self):
-        self.addMember('member1', 'Member One', 'member1@member.com',
+        self.addMember('member1', 'Member One', 'member1@example.com',
                        ['Member'], '2005-01-01')
-        self.addMember('member2', 'Member Two', 'member2@member.com',
+        self.addMember('member2', 'Member Two', 'member2@example.com',
                        ['Member'], '2005-01-01')
-        self.addMember('member3', 'Member Three', 'member3@member.com',
+        self.addMember('member3', 'Member Three', 'member3@example.com',
                        ['Member'], '2005-01-01')
         self.tracker = self.createTracker(
             self.folder, 'issue-tracker', managers=('member1', 'member2'),
@@ -158,7 +158,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
     def testGetAddressesWithNotificationsOff(self):
         self.tracker.setSendNotificationEmails(False)
         issue = self.createIssue(
-            self.tracker, contactEmail='submitter@domain.com',
+            self.tracker, contactEmail='submitter@example.com',
             watchers=('member2', 'member3'))
         addresses = self.tracker.getNotificationEmailAddresses(issue)
         self.failUnless(len(addresses) == 0)
@@ -166,37 +166,37 @@ class TestEmailNotifications(ptc.PoiTestCase):
     def testGetAddressesOnNewIssue(self):
         addresses = self.tracker.getNotificationEmailAddresses()
         self.failUnless(len(addresses) == 2)
-        self.failUnless('member1@member.com' in addresses)
-        self.failUnless('member2@member.com' in addresses)
+        self.failUnless('member1@example.com' in addresses)
+        self.failUnless('member2@example.com' in addresses)
 
     def testGetAddressesOnNewIssueWithList(self):
-        self.tracker.setMailingList('list@list.com')
+        self.tracker.setMailingList('list@example.com')
         addresses = self.tracker.getNotificationEmailAddresses()
         self.failUnless(len(addresses) == 1)
-        self.failUnless('list@list.com' in addresses)
+        self.failUnless('list@example.com' in addresses)
 
     def testGetAddressesOnNewResponse(self):
         issue = self.createIssue(
-            self.tracker, contactEmail='submitter@domain.com',
+            self.tracker, contactEmail='submitter@example.com',
             watchers=('member2', 'member3'))
         addresses = self.tracker.getNotificationEmailAddresses(issue)
         self.failUnless(len(addresses) == 4)
-        self.failUnless('member1@member.com' in addresses)
-        self.failUnless('member2@member.com' in addresses)
-        self.failUnless('member3@member.com' in addresses)
-        self.failUnless('submitter@domain.com' in addresses)
+        self.failUnless('member1@example.com' in addresses)
+        self.failUnless('member2@example.com' in addresses)
+        self.failUnless('member3@example.com' in addresses)
+        self.failUnless('submitter@example.com' in addresses)
 
     def testGetAddressesOnNewResponseWithList(self):
-        self.tracker.setMailingList('list@list.com')
+        self.tracker.setMailingList('list@example.com')
         issue = self.createIssue(
-            self.tracker, contactEmail='submitter@domain.com',
+            self.tracker, contactEmail='submitter@example.com',
             watchers=('member2', 'member3'))
         addresses = self.tracker.getNotificationEmailAddresses(issue)
         self.failUnless(len(addresses) == 4)
-        self.failUnless('list@list.com' in addresses)
-        self.failUnless('submitter@domain.com' in addresses)
-        self.failUnless('member2@member.com' in addresses)
-        self.failUnless('member3@member.com' in addresses)
+        self.failUnless('list@example.com' in addresses)
+        self.failUnless('submitter@example.com' in addresses)
+        self.failUnless('member2@example.com' in addresses)
+        self.failUnless('member3@example.com' in addresses)
 
     def testGetTagsInUse(self):
         self.createIssue(self.tracker, tags=('A', 'B'))
@@ -214,7 +214,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
         self.tracker.update(title='Random Tracker')
         # Just creating it should be enough to send an email.
         issue = self.createIssue(self.tracker,
-                                 contactEmail='submitter@domain.com',
+                                 contactEmail='submitter@example.com',
                                  watchers=('member1', 'member2'))
 
     def testSpecialCharacterIssueEmail(self):
@@ -223,7 +223,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
         issue = self.createIssue(
             self.tracker,
             title="accented vocals: à è ì",
-            contactEmail='submitter@domain.com',
+            contactEmail='submitter@example.com',
             watchers=('member1', 'member2'))
         response = self.createResponse(
             issue, text="more accented vocals: ò ù")
@@ -237,7 +237,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
         issue = self.createIssue(
             self.tracker,
             title=u"accented vocals: à è ì ò ù".encode('iso-8859-1'),
-            contactEmail='submitter@domain.com',
+            contactEmail='submitter@example.com',
             watchers=('member1', 'member2'))
         response = self.createResponse(
             issue, text=u"more accented vocals: ò ù".encode('iso-8859-1'))
@@ -247,7 +247,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
         self.tracker.setSendNotificationEmails(True)
         self.tracker.update(title='Random Tracker')
         issue = self.createIssue(self.tracker,
-                                 contactEmail='submitter@domain.com',
+                                 contactEmail='submitter@example.com',
                                  watchers=('member1', 'member2'))
         response = self.createResponse(issue)
         sendResponseNotificationMail(issue)
@@ -257,7 +257,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
         self.tracker.update(title='Random Tracker')
 
         issue = self.createIssue(self.tracker,
-                                 contactEmail='submitter@domain.com',
+                                 contactEmail='submitter@example.com',
                                  watchers=('member1', 'member2'))
         self.loginAsPortalOwner()
         workflow = self.portal.portal_workflow

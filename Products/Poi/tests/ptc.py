@@ -106,7 +106,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
                     area='ui', issueType='bug', severity='Medium',
                     targetRelease='(UNASSIGNED)',
                     steps='', attachment=None,
-                    contactEmail='submitter@domain.com',
+                    contactEmail='submitter@example.com',
                     watchers=(),
                     tags=(),
                     responsibleManager='(UNASSIGNED)'):

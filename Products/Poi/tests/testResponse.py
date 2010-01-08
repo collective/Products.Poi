@@ -6,7 +6,7 @@ class TestResponse(ptc.PoiTestCase):
     """Test response functionality"""
 
     def afterSetUp(self):
-        self.addMember('member1', 'Member One', 'member1@member.com',
+        self.addMember('member1', 'Member One', 'member1@example.com',
                        ['Member'], '2005-01-01')
         self.tracker = self.createTracker(self.folder, 'issue-tracker',
                                           managers=('member1', ))
@@ -42,7 +42,7 @@ class TestKnownIssues(ptc.PoiTestCase):
     """Test bugs with responses"""
 
     def afterSetUp(self):
-        self.addMember('member1', 'Member One', 'member1@member.com',
+        self.addMember('member1', 'Member One', 'member1@example.com',
                        ['Member'], '2005-01-01')
         self.tracker = self.createTracker(self.folder, 'issue-tracker',
                                           managers=('member1', ))

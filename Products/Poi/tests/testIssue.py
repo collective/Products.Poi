@@ -10,11 +10,11 @@ class TestIssue(ptc.PoiTestCase):
     """Test issue functionality"""
 
     def afterSetUp(self):
-        self.addMember('member1', 'Member One', 'member1@member.com',
+        self.addMember('member1', 'Member One', 'member1@example.com',
                        ['Member'], '2005-01-01')
-        self.addMember('member2', 'Member Two', 'member2@member.com',
+        self.addMember('member2', 'Member Two', 'member2@example.com',
                        ['Member'], '2005-01-01')
-        self.addMember('member3', 'Member Three', 'member3@member.com',
+        self.addMember('member3', 'Member Three', 'member3@example.com',
                        ['Member'], '2005-01-01')
         self.tracker = self.createTracker(
             self.folder, 'issue-tracker', managers=('member1', 'member2'))
@@ -30,7 +30,7 @@ class TestIssue(ptc.PoiTestCase):
         self.issue.setDetails('details', mimetype='text/x-web-intelligent')
         self.issue.setSteps('step1\nstep2', mimetype='text/x-web-intelligent')
         # self.issue.setAttachment(None)
-        self.issue.setContactEmail('member1@member.com')
+        self.issue.setContactEmail('member1@example.com')
         self.issue.setWatchers(('member1', 'member2'), )
         self.issue.setResponsibleManager('member2')
 
@@ -43,7 +43,7 @@ class TestIssue(ptc.PoiTestCase):
         self.assertEqual(self.issue.getDetails(), 'details')
         self.assertEqual(self.issue.getSteps(), 'step1<br />step2')
         # self.assertEqual(self.issue.getAttachment(), None)
-        self.assertEqual(self.issue.getContactEmail(), 'member1@member.com')
+        self.assertEqual(self.issue.getContactEmail(), 'member1@example.com')
         self.assertEqual(self.issue.getWatchers(), ('member1', 'member2'))
         self.assertEqual(self.issue.getWatchers(), ('member1', 'member2'))
         self.assertEqual(self.issue.getResponsibleManager(), 'member2')

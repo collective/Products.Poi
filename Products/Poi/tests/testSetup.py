@@ -60,7 +60,7 @@ class TestInstallation(ptc.PoiTestCase):
         for idx in wanted:
             self.failUnless(idx in indexes)
 
-        self.addMember('member1', 'Member One', 'member1@member.com',
+        self.addMember('member1', 'Member One', 'member1@example.com',
                        ['Member'], '2005-01-01')
         self.tracker = self.createTracker(self.folder, 'issue-tracker',
                                           managers=('member1', ))
