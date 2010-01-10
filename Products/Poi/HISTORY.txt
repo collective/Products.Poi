@@ -5,7 +5,7 @@ Changelog for Poi
 1.2.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- PoiIssue: there is no reason why contactEmail is mandatory
 
 
 1.2.7 (2009-10-24)
