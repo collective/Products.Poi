@@ -254,7 +254,7 @@ schema = Schema((
             description_msgid='Poi_help_contactEmail',
             i18n_domain='Poi',
         ),
-        required=True,
+        required=False,
         default_method='getDefaultContactEmail'
     ),
 

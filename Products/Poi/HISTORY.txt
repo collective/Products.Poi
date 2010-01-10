@@ -5,6 +5,8 @@ Changelog for Poi
 1.3 (unreleased)
 ----------------
 
+- PoiIssue: there is no reason why contactEmail is mandatory
+
 - Added upgrade step to remove the local Manager role from all tracker
   managers and instead give them the TrackerManager role.
   [maurits]
