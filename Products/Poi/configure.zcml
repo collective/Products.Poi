@@ -44,7 +44,7 @@
 
   <adapter
       for="Products.Poi.interfaces.IIssue"
-      factory="collective.watcherlist.watchers.WatcherList"
+      factory="Products.Poi.adapters.IssueWatcherList"
       />
 
   <!-- Register a basically empty content exporter for issues, as they

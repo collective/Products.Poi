@@ -11,6 +11,18 @@ from DateTime import DateTime
 from zope.app.container.contained import ObjectRemovedEvent
 from zope.app.container.contained import ObjectAddedEvent
 from zope.event import notify
+from collective.watcherlist.watchers import WatcherList
+
+
+class IssueWatcherList(WatcherList):
+
+    def __get_watchers(self):
+        return self.context.getWatchers()
+
+    def __set_watchers(self, v):
+        self.context.setWatchers(v)
+
+    watchers = property(__get_watchers, __set_watchers)
 
 
 class IResponseContainer(Interface):
