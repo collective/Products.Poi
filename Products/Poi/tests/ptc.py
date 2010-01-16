@@ -53,6 +53,10 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         sm = getSiteManager(context=self.portal)
         sm.unregisterUtility(provided=IMailHost)
         sm.registerUtility(mailhost, provided=IMailHost)
+        # Make sure our mock mailhost does not give a mailhost_warning
+        # in the overview-controlpanel.
+        mailhost.smtp_host = 'mock'
+        self.portal.email_from_address = 'admin@example.com'
 
         # Setup session (not sure why)
         self.app.REQUEST['SESSION'] = self.Session()
