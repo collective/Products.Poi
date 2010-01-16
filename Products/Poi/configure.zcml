@@ -47,6 +47,11 @@
       factory="Products.Poi.adapters.IssueWatcherList"
       />
 
+  <adapter
+      for="Products.Poi.interfaces.ITracker"
+      factory="Products.Poi.adapters.TrackerWatcherList"
+      />
+
   <!-- Register a basically empty content exporter for issues, as they
        can give unicode errors when making a snapshot in portal_setup.
        See http://plone.org/products/poi/issues/217 -->
