@@ -185,6 +185,8 @@ class TestEmailNotifications(ptc.PoiTestCase):
         self.failUnless('member2@example.com' in addresses)
         self.failUnless('member3@example.com' in addresses)
         self.failUnless('submitter@example.com' in addresses)
+        print 'testGetAddressesOnNewResponse'
+        print self.portal.MailHost.messages
 
     def testGetAddressesOnNewResponseWithList(self):
         self.tracker.setMailingList('list@example.com')
@@ -197,6 +199,8 @@ class TestEmailNotifications(ptc.PoiTestCase):
         self.failUnless('submitter@example.com' in addresses)
         self.failUnless('member2@example.com' in addresses)
         self.failUnless('member3@example.com' in addresses)
+        print 'testGetAddressesOnNewResponseWithList'
+        print self.portal.MailHost.messages
 
     def testGetTagsInUse(self):
         self.createIssue(self.tracker, tags=('A', 'B'))
@@ -216,6 +220,8 @@ class TestEmailNotifications(ptc.PoiTestCase):
         issue = self.createIssue(self.tracker,
                                  contactEmail='submitter@example.com',
                                  watchers=('member1', 'member2'))
+        print 'testNewIssueEmail'
+        print self.portal.MailHost.messages
 
     def testSpecialCharacterIssueEmail(self):
         self.tracker.setSendNotificationEmails(True)
