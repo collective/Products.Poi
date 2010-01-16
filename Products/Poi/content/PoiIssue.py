@@ -57,6 +57,7 @@ from Products.Poi.adapters import IResponseContainer
 from Products.Poi import permissions
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 from Products.AddRemoveWidget.AddRemoveWidget import AddRemoveWidget
+from collective.watcherlist.utils import get_member_email
 
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import getSiteEncoding
@@ -367,6 +368,27 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         member = portal_membership.getAuthenticatedMember()
         email = member.getProperty('email', '')
         return email
+
+    def setContactEmail(self, value):
+        field = self.getField('contactEmail')
+        if field.get(self) == value:
+            # No change
+            return
+        field.set(self, value)
+        # Add to the watchers; but try to add the userid instead of
+        # the email.
+        if not value:
+            return
+        member_email = get_member_email()
+        if member_email == value:
+            # We can add the userid instead of the email.
+            portal_membership = getToolByName(self, 'portal_membership')
+            member = portal_membership.getAuthenticatedMember()
+            value = member.getId()
+        watchers = list(self.getWatchers())
+        if value not in watchers:
+            watchers.append(value)
+            self.setWatchers(tuple(watchers))
 
     def _renameAfterCreation(self, check_auto_id=False):
         parent = self.getTracker()
