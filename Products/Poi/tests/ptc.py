@@ -129,8 +129,9 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         issue.setDetails(details)
         issue.setSteps(steps, mimetype='text/x-web-intelligent')
         issue.setAttachment(attachment)
-        issue.setContactEmail(contactEmail)
         issue.setWatchers(watchers)
+        # This also adds to the watchers:
+        issue.setContactEmail(contactEmail)
         issue.setSubject(tags)
         issue.setResponsibleManager(responsibleManager)
         notify(ObjectInitializedEvent(issue))
