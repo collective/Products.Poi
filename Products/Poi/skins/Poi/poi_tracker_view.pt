@@ -230,7 +230,7 @@
                   </div>
 
                    <div class="issue-search-rss" metal:fill-slot="rss-button">
-                        <a href="" tal:attributes="href string:${here/absolute_url}/poi-my-issues-rss.xml?memberId=${member/getId}&isManager:boolean=${isManager}">
+                        <a href="" tal:attributes="href string:${here/absolute_url}/poi-my-issues-rss.xml?memberId=${member/getId}&amp;isManager:boolean=${isManager}">
                             <img i18n:attributes="title title_rss_feed_my_issues; alt label_rss_feed;"
                                 tal:attributes="src string:$portal_url/rss.gif"
                                 src="rss.gif"
