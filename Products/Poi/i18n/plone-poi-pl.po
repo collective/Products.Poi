@@ -1,0 +1,133 @@
+# pot file for Poi Issue Tracker product.
+# Junyong Pan <panjy@zopechina.com>, 2005.
+msgid ""
+msgstr ""
+"Project-Id-Version: Poi\n"
+"POT-Creation-Date: 2009-09-05 23:00+0000\n"
+"PO-Revision-Date: 2010-01-06 15:00 +0010\n"
+"Last-Translator: STX Next <info@stxnext.pl>"
+"Language-Team: STX Next <info@stxnext.pl>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: pl\n"
+"Language-Name: Polish\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+# portal type nams
+
+msgid "Issue Tracker"
+msgstr "System Zgłoszeniowy"
+
+msgid "An issue tracker"
+msgstr "System Zgłoszeniowy"
+
+msgid "Issue"
+msgstr "Zgłoszenie"
+
+msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
+msgstr "Po stworzeniu zgłoszenie będzie w stanie 'Niezaakceptowany'."
+
+msgid "Response"
+msgstr "Odpowiedź"
+
+msgid "A response to an issue."
+msgstr "Odpowiedź do zgłoszenia."
+
+# tracker states
+
+msgid "Open for submissions"
+msgstr "Otwarty"
+
+msgid "Closed for submissions"
+msgstr "Zamknięty"
+
+# tracker transitions
+
+msgid "Close tracker"
+msgstr "Zamknij System Zgłoszeniowy"
+
+msgid "Open tracker"
+msgstr "Otwórz System Zgłoszeniowy"
+
+# issue states
+
+msgid "Tested and confirmed closed"
+msgstr "Przetestowany i zamknięty"
+
+msgid "In progress"
+msgstr "W toku"
+
+msgid "Being created"
+msgstr "Dopiero stworzone"
+
+msgid "Confirmed"
+msgstr "Zaakceptowane"
+
+msgid "Open"
+msgstr "Otwórz"
+
+msgid "Postponed"
+msgstr "Odroczone"
+
+msgid "Rejected"
+msgstr "Odrzucone"
+
+msgid "Resolved"
+msgstr "Rozwiązane"
+
+msgid "Unconfirmed"
+msgstr "Niezaakceptowane"
+
+# issue transitions
+
+msgid "Begin work"
+msgstr "Zacznij pracę"
+
+msgid "Confirm resolved"
+msgstr "Akceptuj rozwiązanie"
+
+msgid "Put on hold"
+msgstr "Zawieszone"
+
+msgid "Re-open"
+msgstr "Ponownie otwarte"
+
+msgid "Post issue on save"
+msgstr "Zapisz i wyślij"
+
+msgid "Postpone"
+msgstr "Odłóż"
+
+msgid "Reject"
+msgstr "Odrzuć"
+
+msgid "Resolve"
+msgstr "Rozwiąż"
+
+# response states
+
+msgid "Posted"
+msgstr "Zgłoszona"
+
+# response transitions
+msgid "Post response on save"
+msgstr "Zapisz i wyślij"
+
+# browser/response.py:transitions_for_display
+msgid "No change"
+msgstr "Bez zmian"
+
+msgid "Restrict tracker"
+msgstr "Zastrzeż System Zgłoszeniowy"
+
+msgid "Only members can submit"
+msgstr "Tylko użytkownicy mogą dodawać zgłoszenia"
+
+msgid "Protect tracker"
+msgstr "Zabezpiecz System Zgłoszeniowy"
+
+msgid "Protected against anonymous views"
+msgstr "Chronione przed nieautoryzowanym podglądem"

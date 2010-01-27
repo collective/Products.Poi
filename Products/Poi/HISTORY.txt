@@ -5,6 +5,15 @@ Changelog for Poi
 1.3 (unreleased)
 ----------------
 
+- Polish translation
+  [sargo]
+  
+- Compatibility with Chameleon
+  [sargo]
+ 
+- Minor fixes for i18n support
+  [sargo]
+
 - PoiIssue: there is no reason why contactEmail is mandatory
 
 - Added upgrade step to remove the local Manager role from all tracker
