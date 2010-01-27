@@ -428,18 +428,20 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         return value
 
     def validate_watchers(self, value):
-        """Make sure watchers are actual user ids"""
+        """Make sure watchers are actual user ids or email addresses."""
         membership = getToolByName(self, 'portal_membership')
+        plone_utils = getToolByName(self, 'plone_utils')
         notFound = []
         for userId in value:
             member = membership.getMemberById(userId)
             if member is None:
-                notFound.append(userId)
+                # Maybe an email address
+                if not plone_utils.validateSingleEmailAddress(userId):
+                    notFound.append(userId)
         if notFound:
             return "The following user ids could not be found: %s" % \
                 ','.join(notFound)
-        else:
-            return None
+        return None
 
     def getDefaultSeverity(self):
         """Get the default severity for new issues"""
