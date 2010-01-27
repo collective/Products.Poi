@@ -33,11 +33,13 @@
 	      added by <span tal:replace="entry/author"
           i18n:name="author" />
 	    </dt>
-	    <dt tal:condition="python: entry['type'] == 'response'">
-	      <span tal:replace="entry/author" />
+	    <dt tal:condition="python: entry['type'] == 'response'"
+	        i18n:translate="poi_new_response_added">
+	      <span tal:replace="entry/author" i18n:name="author"/>
 	      added a new response to
 	      <a tal:attributes="href entry/url"
-             tal:content="structure string:&raquo;${entry/issue}&laquo;" />:
+                 tal:content="structure string:&raquo;${entry/issue}&laquo;"
+		 i18n:name="name" />:
 	    </dt>
 	    <dd>
 	      <p tal:content="structure entry/text" />
