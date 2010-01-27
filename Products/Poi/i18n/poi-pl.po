@@ -319,7 +319,7 @@ msgstr "Zmień docelowe wydanie"
 # ./content/PoiIssue.py
 #. Default: "Release"
 msgid "Poi_label_release"
-msgstr "Opublikuj"
+msgstr "Wydanie"
 
 #. Default: "Response"
 #: ../browser/edit_response.pt:50
