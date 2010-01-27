@@ -527,7 +527,7 @@ class Delete(Base):
                     msg = _(u"Response id ${response_id} is no integer so it "
                             "cannot be removed.",
                             mapping=dict(response_id=response_id))
-                    msg = translate(msg, 'Poi', context=context)
+                    msg = translate(msg, 'Poi', context=self.request)
                     status.addStatusMessage(msg, type='error')
                     self.request.response.redirect(context.absolute_url())
                     return
@@ -535,13 +535,13 @@ class Delete(Base):
                     msg = _(u"Response id ${response_id} does not exist so it "
                             "cannot be removed.",
                             mapping=dict(response_id=response_id))
-                    msg = translate(msg, 'Poi', context=context)
+                    msg = translate(msg, 'Poi', context=self.request)
                     status.addStatusMessage(msg, type='error')
                 else:
                     self.folder.delete(response_id)
                     msg = _(u"Removed response id ${response_id}.",
                             mapping=dict(response_id=response_id))
-                    msg = translate(msg, 'Poi', context=context)
+                    msg = translate(msg, 'Poi', context=self.request)
                     status.addStatusMessage(msg, type='info')
         self.request.response.redirect(context.absolute_url())
 
