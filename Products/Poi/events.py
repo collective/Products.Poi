@@ -34,7 +34,7 @@ def mail_issue_change(object, event):
     if event.transition and event.transition.id == 'post':
         watchers = IWatcherList(object)
         watchers.send('new-issue-mail')
-    elif event.new_state == 'resolved':
+    elif event.new_state.id == 'resolved':
         watchers = IWatcherList(object)
         watchers.send('resolved-issue-mail')
 
