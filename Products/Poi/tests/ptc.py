@@ -116,8 +116,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
                     responsibleManager='(UNASSIGNED)'):
         """Create an issue in the given tracker, and perform workflow and
         rename-after-creation initialisation"""
-        newId = self.portal.generateUniqueId('PoiIssue')
-        oldIds = tracker.objectIds()
+        newId = tracker.generateUniqueId('PoiIssue')
         tracker.invokeFactory('PoiIssue', newId)
         issue = getattr(tracker, newId)
         issue.setTitle(title)
@@ -134,9 +133,9 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         issue.setContactEmail(contactEmail)
         issue.setSubject(tags)
         issue.setResponsibleManager(responsibleManager)
-        notify(ObjectInitializedEvent(issue))
         issue._renameAfterCreation()
         issue.reindexObject()
+        notify(ObjectInitializedEvent(issue))
         return issue
 
     def createResponse(self, issue, text='Response text', issueTransition='',

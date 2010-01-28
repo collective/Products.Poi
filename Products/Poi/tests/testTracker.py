@@ -180,13 +180,13 @@ class TestEmailNotifications(ptc.PoiTestCase):
             self.tracker, contactEmail='submitter@example.com',
             watchers=('member2', 'member3'))
         addresses = self.tracker.getNotificationEmailAddresses(issue)
-        self.failUnless(len(addresses) == 4)
+        self.assertEqual(len(addresses), 4)
         self.failUnless('member1@example.com' in addresses)
         self.failUnless('member2@example.com' in addresses)
         self.failUnless('member3@example.com' in addresses)
         self.failUnless('submitter@example.com' in addresses)
-        print 'testGetAddressesOnNewResponse'
-        print self.portal.MailHost.messages
+        # A mail is sent immediately on creation of this issue.
+        self.assertEqual(len(self.portal.MailHost.messages), 4)
 
     def testGetAddressesOnNewResponseWithList(self):
         self.tracker.setMailingList('list@example.com')
@@ -194,13 +194,16 @@ class TestEmailNotifications(ptc.PoiTestCase):
             self.tracker, contactEmail='submitter@example.com',
             watchers=('member2', 'member3'))
         addresses = self.tracker.getNotificationEmailAddresses(issue)
-        self.failUnless(len(addresses) == 4)
+        self.assertEqual(len(addresses), 4)
         self.failUnless('list@example.com' in addresses)
         self.failUnless('submitter@example.com' in addresses)
         self.failUnless('member2@example.com' in addresses)
         self.failUnless('member3@example.com' in addresses)
-        print 'testGetAddressesOnNewResponseWithList'
-        print self.portal.MailHost.messages
+        # A mail is sent immediately on creation of this issue.
+
+        # XXX This currently goes wrong, as member1 is getting an
+        # email even though it should go to the mailing list.
+        self.assertEqual(len(self.portal.MailHost.messages), 4)
 
     def testGetTagsInUse(self):
         self.createIssue(self.tracker, tags=('A', 'B'))
@@ -220,8 +223,8 @@ class TestEmailNotifications(ptc.PoiTestCase):
         issue = self.createIssue(self.tracker,
                                  contactEmail='submitter@example.com',
                                  watchers=('member1', 'member2'))
-        print 'testNewIssueEmail'
-        print self.portal.MailHost.messages
+        # A mail is sent immediately on creation of this issue.
+        self.assertEqual(len(self.portal.MailHost.messages), 3)
 
     def testSpecialCharacterIssueEmail(self):
         self.tracker.setSendNotificationEmails(True)

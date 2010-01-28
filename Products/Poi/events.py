@@ -29,9 +29,9 @@ def post_issue(object, event):
 def mail_issue_change(object, event):
     """Send an email on some transitions of an issue.
 
-    Specificiall: new issue and resolved issue.
+    Specifically: new issue and resolved issue.
     """
-    if event.transition == 'post':
+    if event.transition and event.transition.id == 'post':
         watchers = IWatcherList(object)
         watchers.send('new-issue-mail')
     elif event.new_state == 'resolved':
