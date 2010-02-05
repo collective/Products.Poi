@@ -42,6 +42,14 @@ class TrackerWatcherList(WatcherList):
 
     watchers = property(__get_watchers, __set_watchers)
 
+    def __get_send_emails(self):
+        return self.context.getSendNotificationEmails()
+
+    def __set_send_emails(self, v):
+        self.tracker.setSendNotificationEmails(v)
+
+    send_emails = property(__get_send_emails, __set_send_emails)
+
 
 class IResponseContainer(Interface):
     pass
