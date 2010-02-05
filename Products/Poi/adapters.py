@@ -33,7 +33,9 @@ class TrackerWatcherList(WatcherList):
     def __get_watchers(self):
         managers = self.context.getManagers()
         mailing_list = self.context.getMailingList()
-        return list(managers) + [mailing_list]
+        if mailing_list:
+            return [mailing_list]
+        return list(managers)
 
     def __set_watchers(self, v):
         logger.warn("Setting watchers on a tracker is not supported yet.")

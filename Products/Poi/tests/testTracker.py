@@ -201,8 +201,8 @@ class TestEmailNotifications(ptc.PoiTestCase):
         self.failUnless('member3@example.com' in addresses)
         # A mail is sent immediately on creation of this issue.
 
-        # XXX This currently goes wrong, as member1 is getting an
-        # email even though it should go to the mailing list.
+        # Note that member1 should not get an email, as it should go
+        # to the mailing list.
         self.assertEqual(len(self.portal.MailHost.messages), 4)
 
     def testGetTagsInUse(self):
