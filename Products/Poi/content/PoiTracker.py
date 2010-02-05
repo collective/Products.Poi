@@ -43,7 +43,6 @@ from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 from AccessControl import Unauthorized
 from Products.CMFCore.utils import getToolByName
 
-import sets
 from zope.interface import implements
 from Products.Poi.interfaces import ITracker
 from Products.Poi.utils import linkSvn
@@ -315,44 +314,6 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         for item in items:
             vocab.add(item, item)
         return vocab
-
-    security.declarePrivate('getNotificationEmailAddresses')
-    def getNotificationEmailAddresses(self, issue=None):
-        """
-        Upon activity for the given issue, get the list of email
-        addresses to which notifications should be sent. May return an
-        empty list if notification is turned off. If issue is given, the
-        issue poster and any watchers will also be included.
-        """
-
-        if not self.getSendNotificationEmails():
-            return []
-
-        portal_membership = getToolByName(self, 'portal_membership')
-
-        member = portal_membership.getAuthenticatedMember()
-        email = member.getProperty('email')
-
-        # make sure no duplicates are added
-        addresses = sets.Set()
-
-        mailingList = self.getMailingList()
-        if mailingList:
-            addresses.add(mailingList)
-        else:
-            addresses.union_update([self._getMemberEmail(x, portal_membership)
-                                    for x in self.getManagers() or []])
-
-        if issue is not None:
-            addresses.add(issue.getContactEmail())
-            addresses.union_update([self._getMemberEmail(x, portal_membership)
-                                    for x in issue.getWatchers() or []])
-
-        addresses.discard(None)
-        addresses.discard(email)
-
-        return tuple(addresses)
-
 
     security.declareProtected(permissions.View, 'getTagsInUse')
     def getTagsInUse(self):

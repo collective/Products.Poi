@@ -3,6 +3,7 @@ from Testing import ZopeTestCase
 from Products.Poi.tests import ptc
 from Products.CMFCore.utils import getToolByName
 from Products.Poi.events import sendResponseNotificationMail
+from collective.watcherlist.interfaces import IWatcherList
 default_user = ZopeTestCase.user_name
 
 
@@ -160,26 +161,31 @@ class TestEmailNotifications(ptc.PoiTestCase):
         issue = self.createIssue(
             self.tracker, contactEmail='submitter@example.com',
             watchers=('member2', 'member3'))
-        addresses = self.tracker.getNotificationEmailAddresses(issue)
-        self.failUnless(len(addresses) == 0)
+        watcherlist = IWatcherList(issue)
+        # We have two watchers directly on this issue, plus the submitter:
+        watchers = watcherlist.watchers
+        self.assertEqual(len(watchers), 3)
+        # But since emails are not sent, we have zero addresses:
+        addresses = watcherlist.addresses
+        self.assertEqual(len(addresses), 0)
 
     def testGetAddressesOnNewIssue(self):
-        addresses = self.tracker.getNotificationEmailAddresses()
-        self.failUnless(len(addresses) == 2)
+        addresses = IWatcherList(self.tracker).addresses
+        self.assertEqual(len(addresses), 2)
         self.failUnless('member1@example.com' in addresses)
         self.failUnless('member2@example.com' in addresses)
 
     def testGetAddressesOnNewIssueWithList(self):
         self.tracker.setMailingList('list@example.com')
-        addresses = self.tracker.getNotificationEmailAddresses()
-        self.failUnless(len(addresses) == 1)
+        addresses = IWatcherList(self.tracker).addresses
+        self.assertEqual(len(addresses), 1)
         self.failUnless('list@example.com' in addresses)
 
     def testGetAddressesOnNewResponse(self):
         issue = self.createIssue(
             self.tracker, contactEmail='submitter@example.com',
             watchers=('member2', 'member3'))
-        addresses = self.tracker.getNotificationEmailAddresses(issue)
+        addresses = IWatcherList(issue).addresses
         self.assertEqual(len(addresses), 4)
         self.failUnless('member1@example.com' in addresses)
         self.failUnless('member2@example.com' in addresses)
@@ -193,7 +199,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
         issue = self.createIssue(
             self.tracker, contactEmail='submitter@example.com',
             watchers=('member2', 'member3'))
-        addresses = self.tracker.getNotificationEmailAddresses(issue)
+        addresses = IWatcherList(issue).addresses
         self.assertEqual(len(addresses), 4)
         self.failUnless('list@example.com' in addresses)
         self.failUnless('submitter@example.com' in addresses)
