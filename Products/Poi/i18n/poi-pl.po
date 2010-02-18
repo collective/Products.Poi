@@ -134,7 +134,7 @@ msgstr "Krótki opisowy tytuł ułatwi ocenę i reakcję na problem."
 # ./content/PoiTracker.py
 #. Default: "If given, and if "Send notification emails" is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails."
 msgid "Poi_help_mailingList"
-msgstr "Ustawienie tego pola oraz zaznaczenie opcji \"Wysyłaj powiadomienia\" spowoduje wysłanie na wskazany adres powiadomień o nowych zgłoszeniach i odpowiedziach do nich. Jeżeli adres nie zostanie ustawiony, powiadomienia będą wysyłane do każdej z osób oddzielnie."
+msgstr "Ustawienie tego pola oraz zaznaczenie opcji \"Powiadomienia e-mail\" spowoduje wysłanie na wskazany adres powiadomień o nowych zgłoszeniach i odpowiedziach do nich. Jeżeli adres nie zostanie ustawiony, powiadomienia będą wysyłane do każdej z osób oddzielnie."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
