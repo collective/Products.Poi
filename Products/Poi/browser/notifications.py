@@ -144,7 +144,7 @@ class NewResponseMail(BasePoiMail):
             # Note that workflow changes are in the plone domain.
             before = translate(before, 'plone', context=self.request)
             after = translate(after, 'plone', context=self.request)
-            changes += u"%s -> %s\n" % (before, after)
+            changes += u"- %s -> %s\n" % (before, after)
 
         mail_text = _(
             'poi_email_new_response_template',
