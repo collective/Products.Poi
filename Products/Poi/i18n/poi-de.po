@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2009-10-24 02:11+0000\n"
+"POT-Creation-Date: 2010-02-26 22:02+0000\n"
 "PO-Revision-Date: 2010-01-19 18:19 +0200\n"
 "Last-Translator: Ida Ebkes <ida.ebkes@veit-schiele.de>\n"
 "Language-Team: DE <de@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
 msgstr "Eine Problemstellung. Problemstellungen beginnen im Status 'nicht bestätigt' und können nur von Projektmanagern beantwortet werden."
 
-#: ../browser/response.py:497
+#: ../browser/response.py:492
 msgid "Changes saved to response id ${response_id}."
 msgstr "Änderungen an Antwort mit ID ${response_id} wurden gespeichert."
 
@@ -34,31 +34,31 @@ msgid "Edit"
 msgstr "Bearbeiten"
 
 #. Default: "Edit issue"
-#: ../skins/Poi/poi_issue_view.pt:168
+#: ../skins/Poi/poi_issue_view.pt:179
 msgid "Edit issue"
 msgstr "Problemstellung bearbeiten"
 
-#: ../browser/response.py:394
+#: ../browser/response.py:391
 msgid "Issue state"
 msgstr "Status der Problemstellung"
 
-#: ../browser/response.py:526
+#: ../browser/response.py:520
 msgid "No response selected for removal."
 msgstr "Es wurde keine Antwort zum Löschen ausgewählt."
 
-#: ../browser/response.py:488
+#: ../browser/response.py:483
 msgid "No response selected for saving."
 msgstr "Es wurde keine Antwort zum Speichern ausgewählt."
 
-#: ../browser/response.py:186
+#: ../browser/response.py:184
 msgid "No response selected."
 msgstr "Es wurde keine Antwort ausgewählt."
 
-#: ../browser/response.py:440
+#: ../browser/response.py:436
 msgid "No response text added and no issue changes made."
 msgstr "Es wurde kein Antwort-Text hinzugefügt und keine "
 
-#: ../content/PoiIssue.py:484
+#: ../content/PoiIssue.py:503
 msgid "None"
 msgstr "Keiner"
 
@@ -69,7 +69,7 @@ msgstr "Wählen Sie, zu welchem Bereich diese Problemstellung passt."
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ../browser/response.pt:147
+#: ../browser/response.pt:149
 #, fuzzy
 msgid "Poi_help_attachment"
 msgstr "Sie können optional eine Datei als Anhang hochladen. Bitte laden sie keine unnötig großen Dateien hoch."
@@ -121,7 +121,7 @@ msgstr "Geben Sie einen einführenden Text zur Anzeige auf der Titelseite des Tr
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ../browser/response.pt:172
+#: ../browser/response.pt:174
 msgid "Poi_help_issueTransition"
 msgstr "Ändern Sie des Status der Problemstellung mit dieser Antwort, wenn dies zutreffend ist."
 
@@ -147,19 +147,19 @@ msgstr "Geben sie die Anmeldenamen von BenutzerInnen ein, welchen erlaubt ist di
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
-#: ../browser/response.pt:261
+#: ../browser/response.pt:263
 msgid "Poi_help_newResponsibleManager"
 msgstr "Wählen Sie den für die Problemstellung zuständigen Verwalter aus."
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ../browser/response.pt:204
+#: ../browser/response.pt:206
 msgid "Poi_help_newSeverity"
 msgstr "Wählen Sie die Dringlichkeit für diese Problemstellung"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ../browser/response.pt:232
+#: ../browser/response.pt:234
 msgid "Poi_help_newTargetRelease"
 msgstr "Betroffene Version/ Ausgabe der Problemstellung"
 
@@ -170,7 +170,7 @@ msgstr "Wählen sie die von diesem Problem betroffene Version/ Ausgabe."
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
-#: ../browser/response.pt:106
+#: ../browser/response.pt:108
 msgid "Poi_help_response"
 msgstr "Bitte geben sie unten ihre antwort an."
 
@@ -231,7 +231,7 @@ msgstr "Bereich"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
-#: ../browser/response.pt:144
+#: ../browser/response.pt:146
 msgid "Poi_label_attachment"
 msgstr "Anhang"
 
@@ -288,7 +288,7 @@ msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
-#: ../browser/response.pt:167
+#: ../browser/response.pt:169
 msgid "Poi_label_issueTransition"
 msgstr "Ändere Status der Problemstellung"
 
@@ -314,19 +314,19 @@ msgstr "Verwalter des Trackers"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
-#: ../browser/response.pt:256
+#: ../browser/response.pt:258
 msgid "Poi_label_newResponsibleManager"
 msgstr "Ändern des zuständigen Verwalters"
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ../browser/response.pt:199
+#: ../browser/response.pt:201
 msgid "Poi_label_newSeverity"
 msgstr "Ändern der Gewichtung der Problemstellung"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ../browser/response.pt:227
+#: ../browser/response.pt:229
 msgid "Poi_label_newTargetRelease"
 msgstr "Ändern der Ausgabe/ Version"
 
@@ -338,6 +338,7 @@ msgstr "Ausgabe/ Version"
 # ./content/PoiIssue.py
 #. Default: "Response"
 #: ../browser/edit_response.pt:50
+#: ../browser/response.pt:105
 msgid "Poi_label_response"
 msgstr "Antwort"
 
@@ -391,67 +392,67 @@ msgstr "Name des Trackers"
 msgid "Poi_label_watchers"
 msgstr "Beobachter der Problemstellung"
 
-#: ../browser/response.py:548
+#: ../browser/response.py:542
 msgid "Removed response id ${response_id}."
 msgstr "Antwort mit ID ${response_id} wurde gelöscht."
 
-#: ../browser/response.py:541
+#: ../browser/response.py:535
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr "Antwort mit ID ${response_id} kann nicht gelöscht werden, da sie nicht existiert."
 
-#: ../browser/response.py:200
+#: ../browser/response.py:198
 msgid "Response id ${response_id} does not exist."
 msgstr "Antwort mit ID ${response_id} existiert nicht."
 
-#: ../browser/response.py:570
+#: ../browser/response.py:563
 msgid "Response id ${response_id} has no attachment."
 msgstr "Antwort mit ID ${response_id} hat keinen Anhang."
 
-#: ../browser/response.py:533
+#: ../browser/response.py:527
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr "Antwort ID ${response_id} ist keine Ganzzahl und kann daher nicht entfernt werden."
 
-#: ../browser/response.py:194
+#: ../browser/response.py:192
 msgid "Response id ${response_id} is no integer."
 msgstr "Antwort ID ${response_id} ist keine Ganzzahl."
 
-#: ../browser/response.py:400
+#: ../browser/response.py:397
 msgid "Responsible manager"
 msgstr "Zuständiger Verwalter"
 
 #. Default: "Search"
-#: ../skins/Poi/poi_tracker_view.pt:31
+#: ../skins/Poi/poi_tracker_view.pt:37
 msgid "Search"
 msgstr "Suche"
 
-#: ../browser/response.py:399
+#: ../browser/response.py:396
 msgid "Severity"
 msgstr "Gewichtung"
 
 #. Default: "Stop watching this issue"
-#: ../skins/Poi/poi_issue_view.pt:139
+#: ../skins/Poi/poi_issue_view.pt:150
 msgid "Stop watching this issue"
 msgstr "Diese Problemstellung nicht mehr beobachten"
 
 #. Default: "Submit new issue"
-#: ../skins/Poi/poi_tracker_view.pt:58
+#: ../skins/Poi/poi_tracker_view.pt:64
 msgid "Submit new issue"
 msgstr "Problemstellung übermitteln"
 
-#: ../browser/response.py:426
+#: ../browser/response.py:423
 msgid "Target release"
 msgstr "Betroffene Version/ Ausgabe"
 
 #. Default: "Watch this issue"
-#: ../skins/Poi/poi_issue_view.pt:145
+#: ../skins/Poi/poi_issue_view.pt:156
 msgid "Watch this issue"
 msgstr "Problemstellung beobachten"
 
-#: ../browser/response.py:520
+#: ../browser/response.py:514
 msgid "You are not allowed to delete responses."
 msgstr "Es ist Ihnen nicht erlaubt Antworten zu Löschen."
 
-#: ../browser/response.py:482
+#: ../browser/response.py:477
 msgid "You are not allowed to edit responses."
 msgstr "Es ist Ihnen nicht erlaubt Antworten zu Bearbeiten."
 
@@ -461,7 +462,7 @@ msgid "batch_x_items_matching_your_criteria"
 msgstr "${number} Einträge wurden passend zu Ihren Kriterien gefunden."
 
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ../skins/Poi/poi_tracker_view.pt:84
+#: ../skins/Poi/poi_tracker_view.pt:90
 msgid "description_cannot_add_issues_before_opened"
 msgstr "Solange der Tracker nicht geöffnet ist, kann nieman außer Ihnen Problemstellungen übermitteln. Benutzen Sie das 'Status' Ausklapp-Menu in der Leiste oben."
 
@@ -481,7 +482,7 @@ msgid "label_enter_response"
 msgstr "Bitte geben Sie Ihre Antwort unten ein"
 
 #. Default: "Powered by"
-#: ../skins/Poi/poi_tracker_view.pt:266
+#: ../skins/Poi/poi_tracker_view.pt:272
 msgid "label_powered_by"
 msgstr "ermöglicht durch"
 
@@ -492,6 +493,7 @@ msgstr "Zurück zur Problemstellung"
 
 #. Default: "RSS Feed"
 #: ../skins/Poi/poi_issue_search_results.pt:6
+#: ../skins/Poi/poi_tracker_view.pt:198
 msgid "label_rss_feed"
 msgstr "RSS Feed"
 
@@ -501,63 +503,63 @@ msgid "label_search"
 msgstr "Suche"
 
 #. Default: "Area"
-#: ../skins/Poi/poi_issue_search_results.pt:25
+#: ../skins/Poi/poi_issue_search_results.pt:26
 msgid "listingheader_area"
 msgstr "Bereich"
 
 #. Default: "#"
-#: ../skins/Poi/poi_issue_search_results.pt:21
+#: ../skins/Poi/poi_issue_search_results.pt:22
 msgid "listingheader_number"
 msgstr "Nr."
 
 #. Default: "Target"
-#: ../skins/Poi/poi_issue_search_results.pt:23
+#: ../skins/Poi/poi_issue_search_results.pt:24
 #, fuzzy
 msgid "listingheader_release"
 msgstr "Ausgabe/ Version"
 
 #. Default: "Responsible"
-#: ../skins/Poi/poi_issue_search_results.pt:28
+#: ../skins/Poi/poi_issue_search_results.pt:29
 msgid "listingheader_responsible"
 msgstr "Zuständig"
 
 #. Default: "Severity"
-#: ../skins/Poi/poi_issue_search_results.pt:27
+#: ../skins/Poi/poi_issue_search_results.pt:28
 msgid "listingheader_severity"
 msgstr "Gewichtung"
 
 #. Default: "State"
-#: ../skins/Poi/poi_issue_search_results.pt:30
+#: ../skins/Poi/poi_issue_search_results.pt:31
 msgid "listingheader_state"
 msgstr "Status"
 
 #. Default: "Tags"
-#: ../skins/Poi/poi_issue_search_results.pt:29
+#: ../skins/Poi/poi_issue_search_results.pt:30
 msgid "listingheader_tags"
 msgstr "Stichworte"
 
 #. Default: "Title"
-#: ../skins/Poi/poi_issue_search_results.pt:22
+#: ../skins/Poi/poi_issue_search_results.pt:23
 msgid "listingheader_title"
 msgstr "Titel"
 
 #. Default: "Type"
-#: ../skins/Poi/poi_issue_search_results.pt:26
+#: ../skins/Poi/poi_issue_search_results.pt:27
 msgid "listingheader_type"
 msgstr "Art"
 
 #. Default: "If you can, please log in before submitting your issue."
-#: ../skins/Poi/poi_tracker_view.pt:42
+#: ../skins/Poi/poi_tracker_view.pt:48
 msgid "login_suggestion"
 msgstr "Wenn Sie können, so loggen Sie sich bitte ein, bevor Sie Ihre Problemstellung übermitteln."
 
 #. Default: "If you can, please log in before submitting a reaction."
-#: ../browser/response.pt:82
+#: ../browser/response.pt:84
 msgid "login_suggestion_response"
 msgstr "Wenn Sie können, so loggen Sie sich bitte ein, bevor Sie Ihre Antwort übermitteln."
 
 #. Default: "No responses can be added."
-#: ../browser/response.pt:74
+#: ../browser/response.pt:76
 msgid "msg_no_responses_can_be_added"
 msgstr "Es können keine Antworten hinzugefügt werden."
 
@@ -572,37 +574,38 @@ msgid "poi_added_by"
 msgstr "Hinzugefügt von"
 
 #. Default: "Added ${count} day(s) ago."
-#: ../browser/log.pt:78
+#: ../browser/log.pt:80
 msgid "poi_added_days_ago"
 msgstr "Vor ${count} Tag(en) hinzugefügt."
 
 #. Default: "Added ${count} hour(s) ago."
-#: ../browser/log.pt:71
+#: ../browser/log.pt:73
 msgid "poi_added_hours_ago"
 msgstr "Vor ${count} Stunde(n) hinzugefügt."
 
 #. Default: "Added ${count} minute(s) ago."
-#: ../browser/log.pt:64
+#: ../browser/log.pt:66
 msgid "poi_added_minutes_ago"
 msgstr "Vor ${count} Minute(n) hinzugefügt."
 
 #. Default: "on"
-#: ../browser/response.pt:39
+#: ../browser/response.pt:41
 msgid "poi_added_on"
 msgstr "am"
 
 #. Default: "All pending issues"
-#: ../skins/Poi/poi_tracker_view.pt:138
+#: ../skins/Poi/poi_tracker_view.pt:144
 msgid "poi_all_pending_issues"
 msgstr "Alle Problemstellungen in Schwebe"
 
 #. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
-#: ../Extensions/poi_issue_workflow_scripts.py:100
+#: ../browser/notifications.py:237
 msgid "poi_email_issue_resolved_subject_template"
 msgstr ""
 
-#. Default: "The issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ../Extensions/poi_issue_workflow_scripts.py:78
+#. Default: "The issue **${issue_title}** in the **${tracker_title}**\n    tracker has been marked as resolved by **${response_author}**.\n    Please visit the issue and either confirm that it has been\n    satisfactorily resolved or re-open it.\n\n    Response Information\n    --------------------\n\n    Issue\n      ${issue_title} (${issue_url})\n\n\n    * This is an automated email, please do not reply - ${from_name}"
+#: ../browser/notifications.py:207
+#, fuzzy
 msgid "poi_email_issue_resolved_template"
 msgstr ""
 "Die Problemstellung **${issue_title}** in **${tracker_title}**\n"
@@ -621,12 +624,12 @@ msgstr ""
 ".Bitte nicht antworten - ${from_name}"
 
 #. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
-#: ../content/PoiIssue.py:599
+#: ../browser/notifications.py:78
 msgid "poi_email_new_issue_subject_template"
 msgstr ""
 
 #. Default: "A new issue has been submitted to the **${tracker_title}**\ntracker by **${issue_author}** and awaits confirmation.\n\nIssue Information\n-----------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n**Issue Details**::\n\n${issue_details}\n\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ../content/PoiIssue.py:573
+#: ../browser/notifications.py:45
 msgid "poi_email_new_issue_template"
 msgstr ""
 "Eine neue Problemstellung wurde in Tracker **${tracker_title}** übermittelt.\n"
@@ -648,12 +651,12 @@ msgstr ""
 ".Bitte nicht antworten - ${from_name}"
 
 #. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
-#: ../events.py:132
+#: ../browser/notifications.py:180
 msgid "poi_email_new_response_subject_template"
 msgstr ""
 
 #. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ../events.py:107
+#: ../browser/notifications.py:149
 msgid "poi_email_new_response_template"
 msgstr ""
 "Eine neue Antwort zu **${issue_title}** wurde geschrieben.\n"
@@ -673,23 +676,23 @@ msgstr ""
 ".Bitte nicht antworten - ${from_name}"
 
 #. Default: "By area"
-#: ../skins/Poi/poi_tracker_view.pt:105
+#: ../skins/Poi/poi_tracker_view.pt:111
 msgid "poi_heading_by_area"
 msgstr "Nach Bereich"
 
 #. Default: "By target release"
-#: ../skins/Poi/poi_tracker_view.pt:122
+#: ../skins/Poi/poi_tracker_view.pt:128
 #, fuzzy
 msgid "poi_heading_by_release"
 msgstr "Nach Ausgabe/ Version"
 
 #. Default: "By state"
-#: ../skins/Poi/poi_tracker_view.pt:135
+#: ../skins/Poi/poi_tracker_view.pt:141
 msgid "poi_heading_by_state"
 msgstr "Nach Status"
 
 #. Default: "By tag"
-#: ../skins/Poi/poi_tracker_view.pt:159
+#: ../skins/Poi/poi_tracker_view.pt:165
 msgid "poi_heading_by_tag"
 msgstr "Nach Kennzeichnung"
 
@@ -704,22 +707,22 @@ msgid "poi_heading_log"
 msgstr "Historie des Trackers"
 
 #. Default: "My issues"
-#: ../skins/Poi/poi_tracker_view.pt:213
+#: ../skins/Poi/poi_tracker_view.pt:219
 msgid "poi_heading_my_issues"
 msgstr "Meine Problemstellungen"
 
 #. Default: "Open issues"
-#: ../skins/Poi/poi_tracker_view.pt:94
+#: ../skins/Poi/poi_tracker_view.pt:100
 msgid "poi_heading_open_issues"
 msgstr "Offene Problemstellungen"
 
 #. Default: "Orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:246
+#: ../skins/Poi/poi_tracker_view.pt:252
 msgid "poi_heading_orphaned_issues"
 msgstr "Verwaiste Problemstellungen"
 
 #. Default: "Response Details"
-#: ../events.py:91
+#: ../browser/notifications.py:133
 msgid "poi_heading_response_details"
 msgstr "Details der Antwort"
 
@@ -729,7 +732,7 @@ msgid "poi_heading_search_results"
 msgstr "Suchergebnisse über Problemstellungen"
 
 #. Default: "Unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:182
+#: ../skins/Poi/poi_tracker_view.pt:188
 msgid "poi_heading_unconfirmed_issues"
 msgstr "Unbestätigte Problemstellungen"
 
@@ -739,34 +742,34 @@ msgid "poi_help_log"
 msgstr "Ein Überblick über die aktuelle Aktivität des Trackers."
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ../skins/Poi/poi_tracker_view.pt:214
+#: ../skins/Poi/poi_tracker_view.pt:220
 msgid "poi_help_my_issues_manager"
 msgstr "Die folgenden offenen Problemstellungen wurden von Ihnen übermittelt oder wurden Ihnen zugewiesen. Der RSS-Feed von dieser Liste enthält zudem unbestätigte und verwaiste Problemstellungen um Ihnen eine Möglichkeit zu geben alles auf einmal zu abbonieren."
 
 #. Default: "The following open issues were submitted by you."
-#: ../skins/Poi/poi_tracker_view.pt:221
+#: ../skins/Poi/poi_tracker_view.pt:227
 #, fuzzy
 msgid "poi_help_my_issues_not_manager"
 msgstr "Die folgenden offenen Problemstellungen wurden von ihnen übermittelt oder sind ihnen zugewiesen worden."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
-#: ../skins/Poi/poi_tracker_view.pt:98
+#: ../skins/Poi/poi_tracker_view.pt:104
 msgid "poi_help_open_issues"
 msgstr "Wählen einen Bereich, eine Ausgabe/ Version oder einen Status um alle (offenen) Problemstellungen in dieser Kategorie zu sehen. Für feingliederiges Suchen klicken Sie 'Suche nach Problemstellungen'."
 
 #. Default: "The following open issues are not assigned to anyone."
-#: ../skins/Poi/poi_tracker_view.pt:247
+#: ../skins/Poi/poi_tracker_view.pt:253
 msgid "poi_help_orphaned_issues_"
 msgstr "Die folgenden offenen Problemstellungen sind niemandem zugeordnet."
 
 #. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
-#: ../skins/Poi/poi_tracker_view.pt:183
+#: ../skins/Poi/poi_tracker_view.pt:189
 #, fuzzy
 msgid "poi_help_unconfirmed_issues"
 msgstr "Folgende Problemstellungen sind noch nicht bestätigt oder zugewiesen. Bitte um Durchsicht und Antwort!"
 
 #. Default: "Advanced issue search"
-#: ../skins/Poi/poi_tracker_view.pt:33
+#: ../skins/Poi/poi_tracker_view.pt:39
 #, fuzzy
 msgid "poi_issue_search"
 msgstr "Suche nach Problemstellungen"
@@ -777,72 +780,73 @@ msgid "poi_issue_search_description"
 msgstr "Dieses Formular befähigt sie zur Suche von Problemstellungen mit einer grossen Auswahl von Kriterien. Bitte wählen sie ihre Einschränkungen aus und klicken sie auf Suchen."
 
 #. Default: "Area"
-#: ../skins/Poi/poi_issue_view.pt:49
+#: ../skins/Poi/poi_issue_view.pt:54
 msgid "poi_label_area"
 msgstr "Bereich"
 
 #. Default: "Attached:"
-#: ../skins/Poi/poi_issue_view.pt:161
+#: ../browser/response.pt:61
+#: ../skins/Poi/poi_issue_view.pt:172
 msgid "poi_label_attachment"
 msgstr "Angehängt:"
 
 #. Default: "Responsible"
-#: ../skins/Poi/poi_issue_view.pt:70
+#: ../skins/Poi/poi_issue_view.pt:77
 msgid "poi_label_responsible"
 msgstr "Zuständig"
 
 #. Default: "Severity"
-#: ../skins/Poi/poi_issue_view.pt:57
+#: ../skins/Poi/poi_issue_view.pt:62
 msgid "poi_label_severity"
 msgstr "Gewichtung"
 
 #. Default: "State"
-#: ../skins/Poi/poi_issue_view.pt:33
+#: ../skins/Poi/poi_issue_view.pt:38
 msgid "poi_label_state"
 msgstr "Status"
 
 #. Default: "Steps to reproduce:"
-#: ../skins/Poi/poi_issue_view.pt:156
+#: ../skins/Poi/poi_issue_view.pt:167
 msgid "poi_label_steps"
 msgstr "Schritte zum Nachvollziehen"
 
 #. Default: "Submitted by"
-#: ../skins/Poi/poi_issue_view.pt:61
+#: ../skins/Poi/poi_issue_view.pt:66
 msgid "poi_label_submitted_by"
 msgstr "Übermittelt von"
 
 #. Default: "Submitted on"
-#: ../skins/Poi/poi_issue_view.pt:66
+#: ../skins/Poi/poi_issue_view.pt:73
 msgid "poi_label_submitted_on"
 msgstr "Übermittelt am"
 
 #. Default: "Tags:"
-#: ../skins/Poi/poi_issue_view.pt:128
+#: ../skins/Poi/poi_issue_view.pt:139
 msgid "poi_label_tags"
 msgstr "Kennzeichnungen (Tags)"
 
 #. Default: "Target release:"
-#: ../skins/Poi/poi_issue_view.pt:82
+#: ../skins/Poi/poi_issue_view.pt:91
 msgid "poi_label_target_release"
 msgstr "Betroffene Ausgabe/ Version:"
 
 #. Default: "Issue type"
-#: ../skins/Poi/poi_issue_view.pt:53
+#: ../skins/Poi/poi_issue_view.pt:58
 msgid "poi_label_type"
 msgstr "Art der Problemstellung"
 
 #. Default: "Version:"
-#: ../skins/Poi/poi_issue_view.pt:39
+#: ../skins/Poi/poi_issue_view.pt:44
 msgid "poi_label_version"
 msgstr "Verson:"
 
 #. Default: "Last modified on ${modification_time}"
-#: ../skins/Poi/poi_issue_view.pt:123
+#: ../skins/Poi/poi_issue_view.pt:134
 msgid "poi_last_modified_on"
 msgstr "Zuletzt verändert am ${modification_time}"
 
 #. Default: "Last modified on ${modification_time} by ${modification_actor}"
-#: ../skins/Poi/poi_issue_view.pt:119
+#: ../skins/Poi/poi_issue_view.pt:128
 msgid "poi_last_modified_on_by"
 msgstr "Zuletzt verändert am ${modification_time} durch ${modification_actor}"
 
@@ -861,14 +865,25 @@ msgstr "Alle Stichworte einbeziehen"
 msgid "poi_new_issue_added"
 msgstr "Neue Problemstellung ${name} von ${author} hinzugefügt"
 
-#. Default: "Return to search results"
-#: ../skins/Poi/poi_issue_view.pt:95
+#. Default: "${author} added a new response to ${name}:"
+#: ../browser/log.pt:40
+msgid "poi_new_response_added"
+msgstr ""
+
+#. Default: "Return to search"
+#: ../skins/Poi/poi_issue_search.pt:36
 #, fuzzy
 msgid "poi_return_to_search"
 msgstr "Zurück zur Suche"
 
+#. Default: "Return to search results"
+#: ../skins/Poi/poi_issue_view.pt:104
+msgid "poi_return_to_search_results"
+msgstr ""
+
 #. Default: "Return to tracker"
-#: ../skins/Poi/poi_issue_view.pt:102
+#: ../skins/Poi/poi_issue_search_form.pt:19
+#: ../skins/Poi/poi_issue_view.pt:111
 msgid "poi_return_to_tracker"
 msgstr "Zurück zum Tracker"
 
@@ -985,7 +1000,7 @@ msgid "poi_search_label_text"
 msgstr "Problemstellungs-Text"
 
 #. Default: "Add response"
-#: ../browser/response.pt:97
+#: ../browser/response.pt:99
 msgid "title_add_response"
 msgstr "Antwort hinzufügen"
 
@@ -1005,17 +1020,17 @@ msgid "title_rss_feed"
 msgstr "RSS-Feed für diese Suchabfrage"
 
 #. Default: "RSS feed of my issues"
-#: ../skins/Poi/poi_tracker_view.pt:228
+#: ../skins/Poi/poi_tracker_view.pt:234
 msgid "title_rss_feed_my_issues"
 msgstr "RSS-Feed von meinen Problemstellungen"
 
 #. Default: "RSS feed of orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:254
+#: ../skins/Poi/poi_tracker_view.pt:260
 msgid "title_rss_feed_orphaned"
 msgstr "RSS-Feed von verwaisten Problemstellungen"
 
 #. Default: "RSS feed of unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:192
+#: ../skins/Poi/poi_tracker_view.pt:198
 msgid "title_rss_feed_unconfirmed"
 msgstr "RSS-Feed von unbestätigten Problemstellungen"
 
