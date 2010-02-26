@@ -44,26 +44,21 @@ Products.PloneSoftwareCenter.
 
 Poi requires:
 
-  - Plone 3 on Zope 2.10.x (tested with Plone 3.0.6, 3.1.7, 3.2.3 and 3.3)
+  - Plone 4
 
   - DataGridField
 
   - AddRemoveWidget
 
-  - intelligenttext (but this is installed by default in Plone 3)
-    Note: when going from Plone 2.5 to 3.0, please first uninstall
-    intelligenttext, then create a new zope instance with Plone 3.
-    Then run the portal_migration, which will install the new
-    plone.intelligenttext library for you.
-  
+  - collective.watcherlist
+
   - For PloneSoftwareCenter integration, PloneSoftwareCenter is
     required.  See http://plone.org/products/plonesoftwarecenter
     Tested with PloneSoftwareCenter 1.5.
 
 For new installations, install using Add/Remove Products as normal. If you want
 PloneSoftwareCenter configuration to be automatically configured, install PSC
-*first*.  If you use Plone 3.0 you need to install the DataGridField
-manually, in later Plone versions this is done automatically.
+*first*.
 
 
 Upgrading

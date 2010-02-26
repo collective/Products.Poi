@@ -31,9 +31,25 @@
         handler=".events.post_issue"
         />
 
+  <subscriber 
+      for="Products.Poi.interfaces.IIssue
+           Products.DCWorkflow.interfaces.IAfterTransitionEvent"
+        handler=".events.mail_issue_change"
+        />
+
   <adapter
       provides=".adapters.IResponseContainer"
       factory=".adapters.ResponseContainer"
+      />
+
+  <adapter
+      for="Products.Poi.interfaces.IIssue"
+      factory="Products.Poi.adapters.IssueWatcherList"
+      />
+
+  <adapter
+      for="Products.Poi.interfaces.ITracker"
+      factory="Products.Poi.adapters.TrackerWatcherList"
       />
 
   <!-- Register a basically empty content exporter for issues, as they

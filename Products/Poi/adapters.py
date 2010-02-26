@@ -1,3 +1,4 @@
+import logging
 from zope.interface import implements
 from zope.interface import Attribute
 from zope.interface import Interface
@@ -11,6 +12,43 @@ from DateTime import DateTime
 from zope.app.container.contained import ObjectRemovedEvent
 from zope.app.container.contained import ObjectAddedEvent
 from zope.event import notify
+from collective.watcherlist.watchers import WatcherList
+
+logger = logging.getLogger('Products.Poi.adapters')
+
+
+class IssueWatcherList(WatcherList):
+
+    def __get_watchers(self):
+        return self.context.getWatchers()
+
+    def __set_watchers(self, v):
+        self.context.setWatchers(v)
+
+    watchers = property(__get_watchers, __set_watchers)
+
+
+class TrackerWatcherList(WatcherList):
+
+    def __get_watchers(self):
+        managers = self.context.getManagers()
+        mailing_list = self.context.getMailingList()
+        if mailing_list:
+            return [mailing_list]
+        return list(managers)
+
+    def __set_watchers(self, v):
+        logger.warn("Setting watchers on a tracker is not supported yet.")
+
+    watchers = property(__get_watchers, __set_watchers)
+
+    def __get_send_emails(self):
+        return self.context.getSendNotificationEmails()
+
+    def __set_send_emails(self, v):
+        self.tracker.setSendNotificationEmails(v)
+
+    send_emails = property(__get_send_emails, __set_send_emails)
 
 
 class IResponseContainer(Interface):

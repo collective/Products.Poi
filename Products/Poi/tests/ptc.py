@@ -1,7 +1,11 @@
+from Acquisition import aq_base
 from Testing import ZopeTestCase
 from DateTime import DateTime
 from zope.event import notify
+from zope.component import getSiteManager
 from zope.lifecycleevent import ObjectModifiedEvent
+from Products.Archetypes.event import ObjectInitializedEvent
+from Products.MailHost.interfaces import IMailHost
 
 from Products.Poi.adapters import IResponseContainer
 
@@ -29,19 +33,9 @@ ZopeTestCase.installProduct('AddRemoveWidget')
 ZopeTestCase.installProduct('Poi')
 
 from Products.PloneTestCase import PloneTestCase
-
+#from Products.CMFPlone.tests.test_mails import MockMailHostTestCase
+from Products.CMFPlone.tests.utils import MockMailHost
 PloneTestCase.setupPloneSite(products=['Poi'])
-
-
-class MockMailHost(object):
-    """Make a mock mail host to avoid sending emails when testing.
-    """
-
-    def getId(self):
-        return 'MailHost'
-
-    def send(self, message, mto=None, mfrom=None, subject=None, encode=None):
-        pass
 
 
 class PoiTestCase(PloneTestCase.PloneTestCase):
@@ -54,8 +48,25 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
     def _setup(self):
         PloneTestCase.PloneTestCase._setup(self)
         # Replace normal mailhost with mock mailhost
-        self.portal.MailHost = MockMailHost()
+        self.portal._original_MailHost = self.portal.MailHost
+        self.portal.MailHost = mailhost = MockMailHost('MailHost')
+        sm = getSiteManager(context=self.portal)
+        sm.unregisterUtility(provided=IMailHost)
+        sm.registerUtility(mailhost, provided=IMailHost)
+        # Make sure our mock mailhost does not give a mailhost_warning
+        # in the overview-controlpanel.
+        mailhost.smtp_host = 'mock'
+        self.portal.email_from_address = 'admin@example.com'
+
+        # Setup session (not sure why)
         self.app.REQUEST['SESSION'] = self.Session()
+
+    def _clear(self, call_close_hook=0):
+        self.portal.MailHost = self.portal._original_MailHost
+        sm = getSiteManager(context=self.portal)
+        sm.unregisterUtility(provided=IMailHost)
+        sm.registerUtility(aq_base(self.portal._original_MailHost), provided=IMailHost)
+        PloneTestCase.PloneTestCase._clear(self)
 
     def addMember(self, username, fullname, email, roles, last_login_time):
         # Taken from CMFPlone/tests/testMemberDataTool
@@ -99,14 +110,13 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
                     area='ui', issueType='bug', severity='Medium',
                     targetRelease='(UNASSIGNED)',
                     steps='', attachment=None,
-                    contactEmail='submitter@domain.com',
+                    contactEmail='submitter@example.com',
                     watchers=(),
                     tags=(),
                     responsibleManager='(UNASSIGNED)'):
         """Create an issue in the given tracker, and perform workflow and
         rename-after-creation initialisation"""
-        newId = self.portal.generateUniqueId('PoiIssue')
-        oldIds = tracker.objectIds()
+        newId = tracker.generateUniqueId('PoiIssue')
         tracker.invokeFactory('PoiIssue', newId)
         issue = getattr(tracker, newId)
         issue.setTitle(title)
@@ -118,13 +128,14 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         issue.setDetails(details)
         issue.setSteps(steps, mimetype='text/x-web-intelligent')
         issue.setAttachment(attachment)
-        issue.setContactEmail(contactEmail)
         issue.setWatchers(watchers)
+        # This also adds to the watchers:
+        issue.setContactEmail(contactEmail)
         issue.setSubject(tags)
         issue.setResponsibleManager(responsibleManager)
-        self.portal.portal_workflow.doActionFor(issue, 'post')
         issue._renameAfterCreation()
         issue.reindexObject()
+        notify(ObjectInitializedEvent(issue))
         return issue
 
     def createResponse(self, issue, text='Response text', issueTransition='',

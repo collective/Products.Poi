@@ -57,6 +57,7 @@ from Products.Poi.adapters import IResponseContainer
 from Products.Poi import permissions
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 from Products.AddRemoveWidget.AddRemoveWidget import AddRemoveWidget
+from collective.watcherlist.utils import get_member_email
 
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import getSiteEncoding
@@ -368,6 +369,27 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         email = member.getProperty('email', '')
         return email
 
+    def setContactEmail(self, value):
+        field = self.getField('contactEmail')
+        if field.get(self) == value:
+            # No change
+            return
+        field.set(self, value)
+        # Add to the watchers; but try to add the userid instead of
+        # the email.
+        if not value:
+            return
+        member_email = get_member_email()
+        if member_email == value:
+            # We can add the userid instead of the email.
+            portal_membership = getToolByName(self, 'portal_membership')
+            member = portal_membership.getAuthenticatedMember()
+            value = member.getId()
+        watchers = list(self.getWatchers())
+        if value not in watchers:
+            watchers.append(value)
+            self.setWatchers(tuple(watchers))
+
     def _renameAfterCreation(self, check_auto_id=False):
         parent = self.getTracker()
         maxId = 0
@@ -406,18 +428,20 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         return value
 
     def validate_watchers(self, value):
-        """Make sure watchers are actual user ids"""
+        """Make sure watchers are actual user ids or email addresses."""
         membership = getToolByName(self, 'portal_membership')
+        plone_utils = getToolByName(self, 'plone_utils')
         notFound = []
         for userId in value:
             member = membership.getMemberById(userId)
             if member is None:
-                notFound.append(userId)
+                # Maybe an email address
+                if not plone_utils.validateSingleEmailAddress(userId):
+                    notFound.append(userId)
         if notFound:
             return "The following user ids could not be found: %s" % \
                 ','.join(notFound)
-        else:
-            return None
+        return None
 
     def getDefaultSeverity(self):
         """Get the default severity for new issues"""
@@ -531,75 +555,6 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         tracker = self.getTracker()
         field = tracker.getField('availableAreas')
         return field.getAsDisplayList(tracker)
-
-    def sendNotificationMail(self):
-        """
-        When this issue is created, send a notification email to all
-        tracker managers, unless emailing is turned off.
-        """
-        portal_url = getToolByName(self, 'portal_url')
-        portal = portal_url.getPortalObject()
-        portal_membership = getToolByName(portal, 'portal_membership')
-        plone_utils = getToolByName(portal, 'plone_utils')
-        charset = plone_utils.getSiteEncoding()
-        # We are going to use the same encoding everywhere, so we will
-        # make that easy.
-        def su(value):
-            return safe_unicode(value, encoding=charset)
-
-        fromName = portal.getProperty('email_from_name', None)
-        if isinstance(fromName, unicode):
-            fromName = fromName.encode(charset, 'replace')
-
-        tracker = self.getTracker()
-
-        issueCreator = self.Creator()
-        issueCreatorInfo = portal_membership.getMemberInfo(issueCreator)
-        issueAuthor = issueCreator
-        if issueCreatorInfo:
-            issueAuthor = issueCreatorInfo['fullname'] or issueCreator
-
-        issueText = self.getDetails(mimetype="text/x-web-intelligent")
-        paras = issueText.splitlines()
-        issueDetails = '\n\n'.join([wrapper.fill(p) for p in paras])
-
-        addresses = tracker.getNotificationEmailAddresses()
-
-        mailText = _(
-            'poi_email_new_issue_template',
-            u"""A new issue has been submitted to the **${tracker_title}**
-tracker by **${issue_author}** and awaits confirmation.
-
-Issue Information
------------------
-
-Issue
-  ${issue_title} (${issue_url})
-
-
-**Issue Details**::
-
-${issue_details}
-
-
-* This is an automated email, please do not reply - ${from_name}""",
-            mapping=dict(
-                issue_title = su(self.title_or_id()),
-                tracker_title = su(tracker.title_or_id()),
-                issue_author = su(issueAuthor),
-                issue_details = su(issueDetails),
-                issue_url = su(self.absolute_url()),
-                from_name = su(fromName)))
-
-        subject = _(
-            'poi_email_new_issue_subject_template',
-            u"[${tracker_title}] #${issue_id} - New issue: ${issue_title}",
-            mapping=dict(
-                tracker_title = su(tracker.getExternalTitle()),
-                issue_id = su(self.getId()),
-                issue_title = su(self.Title())))
-
-        tracker.sendNotificationEmail(addresses, subject, mailText)
 
     @instance.clearbefore
     def setDetails(self, *args, **kwargs):

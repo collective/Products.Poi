@@ -10,11 +10,11 @@ class TestFeeds(ptc.PoiTestCase):
     def afterSetUp(self):
         self.workflow = self.portal.portal_workflow
         self.membership = self.portal.portal_membership
-        self.addMember('member1', 'Member One', 'member1@member.com',
+        self.addMember('member1', 'Member One', 'member1@example.com',
                        ['Member'], '2005-01-01')
-        self.addMember('member2', 'Member Two', 'member2@member.com',
+        self.addMember('member2', 'Member Two', 'member2@example.com',
                        ['Member'], '2005-01-01')
-        self.addMember('member3', 'Member Three', 'member3@member.com',
+        self.addMember('member3', 'Member Three', 'member3@example.com',
                        ['Member'], '2005-01-01')
         self.tracker = self.createTracker(
             self.folder, 'issue-tracker',
