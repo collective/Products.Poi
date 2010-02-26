@@ -15,6 +15,7 @@ Changelog for Poi
   [sargo]
 
 - PoiIssue: there is no reason why contactEmail is mandatory
+  [ajung]
 
 - Added upgrade step to remove the local Manager role from all tracker
   managers and instead give them the TrackerManager role.

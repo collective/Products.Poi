@@ -36,7 +36,11 @@ def mail_issue_change(object, event):
         watchers.send('new-issue-mail')
     elif event.new_state.id == 'resolved':
         watchers = IWatcherList(object)
-        watchers.send('resolved-issue-mail')
+        # Only mail the original poster, if available.
+        address = object.getContactEmail()
+        if address:
+            watchers.send('resolved-issue-mail',
+                          only_these_addresses=[address])
 
 
 def removedResponse(object, event):
