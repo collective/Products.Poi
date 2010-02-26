@@ -93,4 +93,7 @@ def renderHTML(rstText, lang='en'):
               'charset': charset,
               'body': body}
 
-    return htmlTemplate % kwargs
+    html = htmlTemplate % kwargs
+    if not isinstance(html, unicode):
+        html = html.decode(charset, 'xmlcharrefreplace')
+    return html
