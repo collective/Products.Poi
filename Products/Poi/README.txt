@@ -50,6 +50,8 @@ Poi requires:
 
   - AddRemoveWidget
 
+  - collective.watcherlist
+
   - For PloneSoftwareCenter integration, PloneSoftwareCenter is
     required.  See http://plone.org/products/plonesoftwarecenter
     Tested with PloneSoftwareCenter 1.5.
