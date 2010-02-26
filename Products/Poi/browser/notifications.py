@@ -207,18 +207,18 @@ class ResolvedIssueMail(BasePoiMail):
         mail_text = _(
             'poi_email_issue_resolved_template',
             u"""The issue **${issue_title}** in the **${tracker_title}**
-    tracker has been marked as resolved by **${response_author}**.
-    Please visit the issue and either confirm that it has been
-    satisfactorily resolved or re-open it.
+tracker has been marked as resolved by **${response_author}**.
+Please visit the issue and either confirm that it has been
+satisfactorily resolved or re-open it.
 
-    Response Information
-    --------------------
+Response Information
+--------------------
 
-    Issue
-      ${issue_title} (${issue_url})
+Issue
+  ${issue_title} (${issue_url})
 
 
-    * This is an automated email, please do not reply - ${from_name}""",
+* This is an automated email, please do not reply - ${from_name}""",
             mapping=dict(
                 issue_title=su(context.title_or_id()),
                 tracker_title=su(tracker.title_or_id()),
