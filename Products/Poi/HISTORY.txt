@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-1.2.8 (unreleased)
+1.2.8 (2010-02-27)
 ------------------
 
 - Depend on Products.AddRemoveWidget < 1.5 as I foresee that version
