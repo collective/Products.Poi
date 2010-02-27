@@ -32,7 +32,7 @@ Changelog for Poi
 ------------------
 
 - Some styling changes: adding a few classes and ids, and loading
-  Poi.css in the issue search form.  With thanks to Lars Löwenadler
+  Poi.css in the issue search form.  With thanks to Lars Loewenadler
   for some hints here.
   [maurits]
 
