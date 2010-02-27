@@ -5,6 +5,10 @@ Changelog for Poi
 1.3 (unreleased)
 ----------------
 
+- When a response contains an attachment, add info about this to the
+  e-mail.  Fixes http://plone.org/products/poi/issues/238
+  [maurits]
+
 - Depend on collective.watcherlist >= 0.2 for sending the resolved
   email only to the initial poster.
   [maurits]

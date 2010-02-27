@@ -145,6 +145,14 @@ class NewResponseMail(BasePoiMail):
             before = translate(before, 'plone', context=self.request)
             after = translate(after, 'plone', context=self.request)
             changes += u"- %s -> %s\n" % (before, after)
+        if response.attachment:
+            extra = _(
+                'poi_attachment_added',
+                u"An attachment has been added with id ${attachment_id}",
+                mapping=dict(
+                    attachment_id=response.attachment.getId()))
+            extra = translate(extra, 'Poi', context=self.request)
+            changes += extra + "\n"
 
         mail_text = _(
             'poi_email_new_response_template',
