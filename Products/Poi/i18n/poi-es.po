@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-es\n"
-"POT-Creation-Date: 2010-02-26 22:12+0000\n"
+"POT-Creation-Date: 2010-02-27 00:48+0000\n"
 "PO-Revision-Date: 2009-08-11 13:53-0400\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Plone Cono Sur <plone-conosur@lists.plone.org>\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
 msgstr "Una incidencia. Las incidencias comienzan en el estado 'sin ser confirmado', y puede ser respondido por los administradores del proyectos."
 
-#: ../browser/response.py:492
+#: ../browser/response.py:498
 msgid "Changes saved to response id ${response_id}."
 msgstr "Se han guardado los cambios a la respuesta id ${response_id}."
 
@@ -43,23 +43,23 @@ msgstr "Editar"
 msgid "Edit issue"
 msgstr "Editar incidencia"
 
-#: ../browser/response.py:391
+#: ../browser/response.py:393
 msgid "Issue state"
 msgstr "Estado de la incidencia"
 
-#: ../browser/response.py:520
+#: ../browser/response.py:526
 msgid "No response selected for removal."
 msgstr "No hay respuesta seleccionados para su eliminación."
 
-#: ../browser/response.py:483
+#: ../browser/response.py:484
 msgid "No response selected for saving."
 msgstr "No hay respuesta seleccionados para ser guardadas."
 
-#: ../browser/response.py:184
+#: ../browser/response.py:187
 msgid "No response selected."
 msgstr "No hay respuesta seleccionadas."
 
-#: ../browser/response.py:436
+#: ../browser/response.py:438
 msgid "No response text added and no issue changes made."
 msgstr "No hay respuesta en el texto añadido y no hay incidencia de cambios realizados."
 
@@ -395,31 +395,35 @@ msgstr "Nombre del gestor"
 msgid "Poi_label_watchers"
 msgstr "Usuarios relacionados"
 
-#: ../browser/response.py:542
+#: ../browser/response.py:548
 msgid "Removed response id ${response_id}."
 msgstr "Eliminada ID de respuesta"
 
-#: ../browser/response.py:535
+#: ../browser/response.py:488
+msgid "Response does not exist anymore; perhaps it was removed by another user."
+msgstr ""
+
+#: ../browser/response.py:541
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr "Respuesta del ID ${response_id} no existe por lo que no se puede quitar."
 
-#: ../browser/response.py:198
+#: ../browser/response.py:201
 msgid "Response id ${response_id} does not exist."
 msgstr "Respuesta del ID ${response_id} no existe."
 
-#: ../browser/response.py:563
+#: ../browser/response.py:569
 msgid "Response id ${response_id} has no attachment."
 msgstr "Respuesta del ID ${response_id} no tiene adjunto."
 
-#: ../browser/response.py:527
+#: ../browser/response.py:533
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr "Respuesta del ID ${response_id} no es entero por lo que no se puede quitar."
 
-#: ../browser/response.py:192
+#: ../browser/response.py:195
 msgid "Response id ${response_id} is no integer."
 msgstr "Respuesta del ID ${response_id} no es entero."
 
-#: ../browser/response.py:397
+#: ../browser/response.py:399
 msgid "Responsible manager"
 msgstr "Administrador responsable"
 
@@ -428,7 +432,7 @@ msgstr "Administrador responsable"
 msgid "Search"
 msgstr "Búsqueda"
 
-#: ../browser/response.py:396
+#: ../browser/response.py:398
 msgid "Severity"
 msgstr "Severidad"
 
@@ -442,7 +446,7 @@ msgstr "Dejar el seguimiento de esta incidencia"
 msgid "Submit new issue"
 msgstr "Notificar nueva incidencia"
 
-#: ../browser/response.py:423
+#: ../browser/response.py:425
 msgid "Target release"
 msgstr "Destino de publicación"
 
@@ -451,11 +455,11 @@ msgstr "Destino de publicación"
 msgid "Watch this issue"
 msgstr "Seguir esta incidencia"
 
-#: ../browser/response.py:514
+#: ../browser/response.py:520
 msgid "You are not allowed to delete responses."
 msgstr "No está permitido eliminar las respuestas."
 
-#: ../browser/response.py:477
+#: ../browser/response.py:478
 msgid "You are not allowed to edit responses."
 msgstr "No está permitido editar las respuestas."
 
@@ -600,13 +604,18 @@ msgstr "en"
 msgid "poi_all_pending_issues"
 msgstr "Todas las incidencias pendientes"
 
+#. Default: "An attachment has been added with id ${attachment_id}"
+#: ../browser/notifications.py:149
+msgid "poi_attachment_added"
+msgstr ""
+
 #. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
-#: ../browser/notifications.py:237
+#: ../browser/notifications.py:245
 msgid "poi_email_issue_resolved_subject_template"
 msgstr ""
 
 #. Default: "The issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ../browser/notifications.py:207
+#: ../browser/notifications.py:215
 msgid "poi_email_issue_resolved_template"
 msgstr ""
 "La incidencia **${issue_title}** en el gestor de **${tracker_title}**\n"
@@ -650,12 +659,12 @@ msgstr ""
 "* Éste es un correo electrónico automático, por favor no lo responda - ${from_name}"
 
 #. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
-#: ../browser/notifications.py:180
+#: ../browser/notifications.py:188
 msgid "poi_email_new_response_subject_template"
 msgstr ""
 
 #. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ../browser/notifications.py:149
+#: ../browser/notifications.py:157
 msgid "poi_email_new_response_template"
 msgstr ""
 "Una nueva respuesta ha sido dada a la incidencia **${issue_title}**\n"
