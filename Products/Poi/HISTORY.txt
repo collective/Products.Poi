@@ -5,6 +5,11 @@ Changelog for Poi
 1.2.8 (unreleased)
 ------------------
 
+- When deleting a response, do not remove it, but set it to None.
+  This avoid problems when one user is editing a response and another
+  user is removing it.
+  [maurits]
+
 - PoiIssue: there is no reason why contactEmail is mandatory.
   [ajung]
 

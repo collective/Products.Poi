@@ -89,6 +89,8 @@ class LogView(BrowserView):
         for issue in issues:
             folder = IResponseContainer(issue)
             for res in list(folder):
+                if not res:
+                    continue
                 item = dict(
                     parent=issue,
                     response=res,

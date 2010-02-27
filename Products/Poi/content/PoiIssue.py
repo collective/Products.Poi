@@ -568,7 +568,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         responses = self.contentValues(filter={'portal_type': 'PoiResponse'})
         text += ' ' + ' '.join([r.SearchableText() for r in responses])
         # new style:
-        text += ' ' + ' '.join([r.text for r in folder])
+        text += ' ' + ' '.join([r.text for r in folder if r])
         return text
 
     def notifyModified(self):

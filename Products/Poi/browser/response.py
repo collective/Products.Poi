@@ -89,6 +89,9 @@ class Base(BrowserView):
         items = []
         linkDetection = context.linkDetection
         for id, response in enumerate(self.folder):
+            if response is None:
+                # Has been removed.
+                continue
             # Use the already rendered response when available
             if response.rendered_text is None:
                 if response.mimetype == 'text/html':
@@ -145,12 +148,12 @@ class Base(BrowserView):
             icon = context.getIcon()
         filename = getattr(attachment, 'filename', attachment.getId())
         info = dict(
-            icon = self.portal_url + '/' + icon,
-            url = context.absolute_url() +\
+            icon=self.portal_url + '/' + icon,
+            url=context.absolute_url() +\
                 '/@@poi_response_attachment?response_id=' + str(id),
-            content_type = attachment.content_type,
-            size = pretty_size(attachment.size),
-            filename = filename,
+            content_type=attachment.content_type,
+            size=pretty_size(attachment.size),
+            filename=filename,
             )
         return info
 
@@ -370,7 +373,6 @@ class Create(Base):
         return 'additional'
 
     def __call__(self):
-        update = {}
         form = self.request.form
         context = aq_inner(self.context)
         if not self.memship.checkPermission('Poi: Add Response', context):
@@ -454,7 +456,6 @@ class Edit(Base):
     @memoize
     def response(self):
         form = self.request.form
-        context = aq_inner(self.context)
         response_id = form.get('response_id', None)
         if response_id is None:
             return None
@@ -487,6 +488,11 @@ class Save(Base):
             if response_id is None:
                 msg = _(u"No response selected for saving.")
                 msg = ts.translate('Poi', msg, context=context)
+                status.addStatusMessage(msg, type='error')
+            elif self.folder[response_id] is None:
+                msg = _(u"Response does not exist anymore; perhaps it was "
+                        "removed by another user.")
+                msg = translate(msg, 'Poi', context=self.request)
                 status.addStatusMessage(msg, type='error')
             else:
                 response = self.folder[response_id]
