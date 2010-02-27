@@ -44,7 +44,7 @@ Products.PloneSoftwareCenter.
 
 Poi requires:
 
-  - Plone 4
+  - Plone 4; this version of Poi will *not* work with Plone 3.
 
   - DataGridField
 
@@ -64,36 +64,10 @@ PloneSoftwareCenter configuration to be automatically configured, install PSC
 Upgrading
 ---------
 
-Re-install Poi from the Add/Remove Products control panel or the
-portal_quickinstaller in the ZMI.
-
-Poi 1.2 gets rid of old Archetypes based PoiResponses and introduces
-new light weight zope-3-style responses; this needs a migration.  In
-the ZMI go to portal_setup, then the Upgrades tab and run any upgrade
-steps that are available for Poi.  Backup your Data.fs first!
-
-NOTE: the upgrade steps can take a long time.  Try to run the upgrade
-when traffic on your site is low or take the site off-line for best
-results.  When someone is editing content during the upgrade step, a
-ConflictError can occur, which means the upgrade will start all over.
-On sites with a lot of Poi content (like plone.org) that can mean that
-the upgrade stops after a while without being complete.  After the
-upgrade check if there are still old-style PoiResponses in your site
-by going to ``<your site url>/search?portal_type=PoiResponse``.  If
-this still gives back results, simply run the upgrade again (running
-it multiple times is safe).  You may need to click the 'Show' button
-to show old upgrades as portal_setup may think the upgrade has been
-completed.  There is also an alternative migration of old style
-responses that may be more suitable for big sites (but will also work
-on other sites).  It is the fourth upgrade step for Poi.
-
-After any upgrade, you may need to run an Archetypes schema update.
-Go to 'archetype_tool' in the ZMI, select the 'Update Schema' tab, and
-see if any of the 'Poi.*' types (or any other type actually) are
-selected.  If some are selected, click 'Update schema'.  It is
-probably a good idea to choose 'All objects' from the drop-down as
-well, although this will take slightly longer.  When coming from Plone
-2.5, be sure to select 'Remove schema attributes from instances.'
+Re-install Poi from the Add/Remove Products control panel.  Some
+upgrade steps will be executed; these can also be found in the ZMI, in
+portal_setup, on the Upgrade tab, in case you need to run them again.
+Backup your Data.fs first before upgrading!
 
 
 Usage
@@ -161,7 +135,7 @@ TinyMCE).
 
 Please note one **very important** thing:
 
-- If you upgrade Poi, you're likely to have to make this change again!
+- If you upgrade Poi, you are likely to have to make this change again!
 
 
 Credits
@@ -185,3 +159,8 @@ yourself in the hall of fame here!
 
  o Bug fixes, modernizing of responses, maintenance by Maurits van
    Rees
+
+ o Plone 4 support by Maurits van Rees and Maarten Kling.
+
+ o Refactoring of emailing and watching code into
+   collective.watcherlist: Maurits van Rees.

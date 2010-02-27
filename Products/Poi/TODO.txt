@@ -6,59 +6,12 @@ Items marked with ** are show-stoppers for next release
 Within [brackets] is the person who came up with this todo and the
 date that the item was added to this list.
 
-
-Cleanup of old code
--------------------
-
-- Move all Extensions/AppInstall.py code into GS handlers.
-  [maurits, 2009-05-20]
-
-- Remove code for PoiResponses.  We may want to keep the PoiResponse
-  class around for migrations though.
-  [maurits, 2009-05-20]
-
-- Remove ancient migration code.
-  [maurits, 2009-05-20]
-
-- Replace python scripts in skin layer with browser views or other
-  more modern code.
-  [maurits, 2009-05-20]
-
-
-Possible features for inclusion:
---------------------------------
-
-o Link Areas and Plone groups. This way, all UI postings should fire
-    a mail to the UI team, for example.
-    - Can do this with column in availableAreas grid, but need better
-        management of who can do this, or we'll get every project on
-        plone.org sending emails to every random team. :)
-    - Perhaps we therefore need to be a bit more discriminating with the
-        manager role
-
-o Only install PoiPscTracker when PSC is detected (may be difficult with
-    current ArchGenXML)
-
-o Optional (!) ATSchemaEditorNG integration to get a set of variable
-    fields on a per-use-case basis (need to retain standard fields
-    always; only if it can be done cleanly and with little/no performance
-    overhead)
-
-o XML import/export of issues
-    - Should look at PCNG's export format in particular
-    - Would like to use xmlio if possible
-    - Should allow partial updates, e.g. change issue, add new issue,
-        over XML
-
 Fixes:
 ------
 
 Bugs/Known issues:
 
     o _renameAfterCreation() counter is not thread safe
-
-    o Fix browser/log.py to work for new style responses too.
-      [maurits, 2009-05-22]
 
 Security issues:
 
@@ -75,9 +28,6 @@ User interface:
     o Enable quoting other responses/issue text in responses
         - May be able to plug into Ploneboard?
         
-    o The edit tab on issues is becoming very long. Consider re-organising
-        it.
-
     o Would be nice to link to releases when in PSC view
 
     o No way to specify sort order in issue search form, and no sensible
@@ -85,11 +35,3 @@ User interface:
 
     o Want to have sortable tables, but they look funny without nosort if
         the title makes a row two lines long or more
-        
-Tests:
-
-    o Functional tests for standard operations
-
-    o Should increase unit test coverage
-        - Tests for tracker and issue states (permissions)
-        - Vocab + defaults methods
