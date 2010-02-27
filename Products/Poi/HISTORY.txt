@@ -5,6 +5,10 @@ Changelog for Poi
 1.2.8 (unreleased)
 ------------------
 
+- When a response contains an attachment, add info about this to the
+  e-mail.  Fixes http://plone.org/products/poi/issues/238
+  [maurits]
+
 - When deleting a response, do not remove it, but set it to None.
   This avoid problems when one user is editing a response and another
   user is removing it.

@@ -103,6 +103,14 @@ def sendResponseNotificationMail(issue, response):
         before = ts.translate('plone', before, context=issue)
         after = ts.translate('plone', after, context=issue)
         changes += u"%s -> %s\n" % (before, after)
+        if response.attachment:
+            extra = _(
+                'poi_attachment_added',
+                u"An attachment has been added with id ${attachment_id}",
+                mapping=dict(
+                    attachment_id=response.attachment.getId()))
+            extra = ts.translate(extra, 'Poi', context=issue)
+            changes += extra + "\n"
 
     mailText = _(
         'poi_email_new_response_template',
