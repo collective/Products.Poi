@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-pt-br\n"
-"POT-Creation-Date: 2009-10-23 20:09+0000\n"
+"POT-Creation-Date: 2010-02-27 00:35+0000\n"
 "PO-Revision-Date: 2009-07-22 20:21-0300\n"
 "Last-Translator: Erico Andrei <erico@simplesconsultoria.com.br>\n"
 "Language-Team: Simples Consultoria <contato@simplesconsultoria.com.br>\n"
@@ -27,11 +27,12 @@ msgstr "Uma ocorrência. Ocorrências começam como 'Não confirmadas' e podem s
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../browser/response.py:497
+#: ../browser/response.py:503
 msgid "Changes saved to response id ${response_id}."
 msgstr "Alterações salvas para a resposta com id ${response_id}"
 
 #. Default: "Delete"
+#: ../browser/response.pt:27
 #: ../skins/Poi/poi_response_delete_confirm.cpt:34
 msgid "Delete"
 msgstr "Apagar"
@@ -46,23 +47,23 @@ msgstr "Editar"
 msgid "Edit issue"
 msgstr "Editar ocorrência"
 
-#: ../browser/response.py:394
+#: ../browser/response.py:396
 msgid "Issue state"
 msgstr "Estado da ocorrência"
 
-#: ../browser/response.py:526
+#: ../browser/response.py:532
 msgid "No response selected for removal."
 msgstr "Nenhuma resposta selecionada para remoção."
 
-#: ../browser/response.py:488
+#: ../browser/response.py:489
 msgid "No response selected for saving."
 msgstr "Nenhuma resposta selecionada para salvamento."
 
-#: ../browser/response.py:186
+#: ../browser/response.py:189
 msgid "No response selected."
 msgstr "Nenhuma resposta selecionada."
 
-#: ../browser/response.py:440
+#: ../browser/response.py:442
 msgid "No response text added and no issue changes made."
 msgstr "Não foi adicionado um texto à resposta e nenhuma alteração foi realizada na ocorrência."
 
@@ -301,6 +302,7 @@ msgstr "Versão"
 
 #. Default: "Response"
 #: ../browser/edit_response.pt:50
+#: ../browser/response.pt:103
 msgid "Poi_label_response"
 msgstr "Resposta"
 
@@ -346,31 +348,35 @@ msgstr "Nome do Gerenciador"
 msgid "Poi_label_watchers"
 msgstr "Observadores da Ocorrência"
 
-#: ../browser/response.py:548
+#: ../browser/response.py:554
 msgid "Removed response id ${response_id}."
 msgstr "Removida a resposta com id ${response_id}"
 
-#: ../browser/response.py:541
+#: ../browser/response.py:493
+msgid "Response does not exist anymore; perhaps it was removed by another user."
+msgstr ""
+
+#: ../browser/response.py:547
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr "A resposta com id ${response_id} não existe, portanto não poderia ser removida."
 
-#: ../browser/response.py:200
+#: ../browser/response.py:203
 msgid "Response id ${response_id} does not exist."
 msgstr "Resposta com id ${response_id} não existe."
 
-#: ../browser/response.py:570
+#: ../browser/response.py:576
 msgid "Response id ${response_id} has no attachment."
 msgstr "Resposta com id ${response_id} não possui nenhum anexo."
 
-#: ../browser/response.py:533
+#: ../browser/response.py:539
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr "O id ${response_id} da resposta não é um número inteiro, portanto não pode ser removido;"
 
-#: ../browser/response.py:194
+#: ../browser/response.py:197
 msgid "Response id ${response_id} is no integer."
 msgstr "Id de resposta ${response_id} não é um número inteiro."
 
-#: ../browser/response.py:400
+#: ../browser/response.py:402
 msgid "Responsible manager"
 msgstr "Responsável"
 
@@ -379,7 +385,7 @@ msgstr "Responsável"
 msgid "Search"
 msgstr "Buscar"
 
-#: ../browser/response.py:399
+#: ../browser/response.py:401
 msgid "Severity"
 msgstr "Severidade"
 
@@ -393,7 +399,7 @@ msgstr "Parar de Observar esta Ocorrência"
 msgid "Submit new issue"
 msgstr "Submeter nova ocorrência "
 
-#: ../browser/response.py:426
+#: ../browser/response.py:428
 msgid "Target release"
 msgstr "Versão"
 
@@ -402,11 +408,11 @@ msgstr "Versão"
 msgid "Watch this issue"
 msgstr "Observar a Ocorrência"
 
-#: ../browser/response.py:520
+#: ../browser/response.py:526
 msgid "You are not allowed to delete responses."
 msgstr "Você não pode apagar respostas."
 
-#: ../browser/response.py:482
+#: ../browser/response.py:483
 msgid "You are not allowed to edit responses."
 msgstr "Você não pode editar respostas."
 
@@ -452,6 +458,7 @@ msgstr "Voltar à ocorrência"
 
 #. Default: "RSS Feed"
 #: ../skins/Poi/poi_issue_search_results.pt:6
+#: ../skins/Poi/poi_tracker_view.pt:192
 msgid "label_rss_feed"
 msgstr "Alimentação RSS"
 
@@ -730,6 +737,7 @@ msgid "poi_label_area"
 msgstr "Área "
 
 #. Default: "Attached:"
+#: ../browser/response.pt:59
 #: ../skins/Poi/poi_issue_view.pt:161
 msgid "poi_label_attachment"
 msgstr "Anexado:"
@@ -815,11 +823,13 @@ msgid "poi_response_title"
 msgstr "Resposta n. ${responseNumber} para \"${issueTitle}\""
 
 #. Default: "Return to search results"
+#: ../skins/Poi/poi_issue_search.pt:36
 #: ../skins/Poi/poi_issue_view.pt:95
 msgid "poi_return_to_search"
 msgstr "Retorne aos resultados de busca"
 
 #. Default: "Return to tracker"
+#: ../skins/Poi/poi_issue_search_form.pt:19
 #: ../skins/Poi/poi_issue_view.pt:102
 msgid "poi_return_to_tracker"
 msgstr "Retorne ao gerenciador de ocorrências"

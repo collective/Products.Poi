@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2009-10-23 20:09+0000\n"
+"POT-Creation-Date: 2010-02-27 00:35+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Kevin Deldycke <kevin@deldycke.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -29,11 +29,12 @@ msgstr "Un ticket. Les tickets sont créés dans l'état « non confirmé », 
 msgid "Cancel"
 msgstr "Annuler"
 
-#: ../browser/response.py:497
+#: ../browser/response.py:503
 msgid "Changes saved to response id ${response_id}."
 msgstr "Les modifications à la réponses ${response_id} sont enregistrées."
 
 #. Default: "Delete"
+#: ../browser/response.pt:27
 #: ../skins/Poi/poi_response_delete_confirm.cpt:34
 msgid "Delete"
 msgstr "Effacer"
@@ -48,23 +49,23 @@ msgstr "Modifier"
 msgid "Edit issue"
 msgstr "Modifier le ticket"
 
-#: ../browser/response.py:394
+#: ../browser/response.py:396
 msgid "Issue state"
 msgstr "État du ticket"
 
-#: ../browser/response.py:526
+#: ../browser/response.py:532
 msgid "No response selected for removal."
 msgstr "Aucune réponse n'est sélectionnée pour la suppression."
 
-#: ../browser/response.py:488
+#: ../browser/response.py:489
 msgid "No response selected for saving."
 msgstr "Aucune réponse n'est sélectionnée pour la sauvegarde."
 
-#: ../browser/response.py:186
+#: ../browser/response.py:189
 msgid "No response selected."
 msgstr "Aucune réponse n'est sélectionnée."
 
-#: ../browser/response.py:440
+#: ../browser/response.py:442
 msgid "No response text added and no issue changes made."
 msgstr "Aucun texte de réponse ajouté et aucune modification effectuée."
 
@@ -346,6 +347,7 @@ msgstr "Distribution"
 # ./content/PoiIssue.py
 #. Default: "Response"
 #: ../browser/edit_response.pt:50
+#: ../browser/response.pt:103
 msgid "Poi_label_response"
 msgstr "Réponse"
 
@@ -399,31 +401,35 @@ msgstr "Nom du gestionnaire de tickets"
 msgid "Poi_label_watchers"
 msgstr "Observateurs du ticket"
 
-#: ../browser/response.py:548
+#: ../browser/response.py:554
 msgid "Removed response id ${response_id}."
 msgstr "La réponse « ${response_id} » a été supprimé."
 
-#: ../browser/response.py:541
+#: ../browser/response.py:493
+msgid "Response does not exist anymore; perhaps it was removed by another user."
+msgstr ""
+
+#: ../browser/response.py:547
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr "La réponse « ${response_id} » n'existe pas donc n'a pu être effacée."
 
-#: ../browser/response.py:200
+#: ../browser/response.py:203
 msgid "Response id ${response_id} does not exist."
 msgstr "La réponse « ${response_id} » n'existe pas."
 
-#: ../browser/response.py:570
+#: ../browser/response.py:576
 msgid "Response id ${response_id} has no attachment."
 msgstr "La réponse « ${response_id} » n'a pas de pièce jointe."
 
-#: ../browser/response.py:533
+#: ../browser/response.py:539
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr "L'identifiant « ${response_id} » de la réponse n'est pas un entier donc elle n'a pu être effacée."
 
-#: ../browser/response.py:194
+#: ../browser/response.py:197
 msgid "Response id ${response_id} is no integer."
 msgstr "L'identifiant « ${response_id} » de la réponse n'est pas un entier."
 
-#: ../browser/response.py:400
+#: ../browser/response.py:402
 msgid "Responsible manager"
 msgstr "Responsable"
 
@@ -432,7 +438,7 @@ msgstr "Responsable"
 msgid "Search"
 msgstr "Rechercher"
 
-#: ../browser/response.py:399
+#: ../browser/response.py:401
 msgid "Severity"
 msgstr "Sévérité"
 
@@ -446,7 +452,7 @@ msgstr "Arrêter de suivre ce ticket"
 msgid "Submit new issue"
 msgstr "Soumettre un nouveau ticket"
 
-#: ../browser/response.py:426
+#: ../browser/response.py:428
 msgid "Target release"
 msgstr "Distribution cible"
 
@@ -455,11 +461,11 @@ msgstr "Distribution cible"
 msgid "Watch this issue"
 msgstr "Suivre ce ticket"
 
-#: ../browser/response.py:520
+#: ../browser/response.py:526
 msgid "You are not allowed to delete responses."
 msgstr "Vous n'êtes pas autorisé à effacer des réponses."
 
-#: ../browser/response.py:482
+#: ../browser/response.py:483
 msgid "You are not allowed to edit responses."
 msgstr "Vous n'êtes pas autorisé à modifier des réponses."
 
@@ -505,6 +511,7 @@ msgstr "Revenir au ticket."
 
 #. Default: "RSS Feed"
 #: ../skins/Poi/poi_issue_search_results.pt:6
+#: ../skins/Poi/poi_tracker_view.pt:192
 msgid "label_rss_feed"
 msgstr "Flux RSS"
 
@@ -793,6 +800,7 @@ msgid "poi_label_area"
 msgstr "Zone"
 
 #. Default: "Attached:"
+#: ../browser/response.pt:59
 #: ../skins/Poi/poi_issue_view.pt:161
 msgid "poi_label_attachment"
 msgstr "Pièces-jointes :"
@@ -880,11 +888,13 @@ msgid "poi_response_title"
 msgstr "Réponse # ${responseNumber} à « ${issueTitle} »"
 
 #. Default: "Return to search results"
+#: ../skins/Poi/poi_issue_search.pt:36
 #: ../skins/Poi/poi_issue_view.pt:95
 msgid "poi_return_to_search"
 msgstr "Retour aux résultats de recherche"
 
 #. Default: "Return to tracker"
+#: ../skins/Poi/poi_issue_search_form.pt:19
 #: ../skins/Poi/poi_issue_view.pt:102
 msgid "poi_return_to_tracker"
 msgstr "Retour au gestionnaire de tickets"

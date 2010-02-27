@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2009-10-23 20:09+0000\n"
+"POT-Creation-Date: 2010-02-27 00:35+0000\n"
 "PO-Revision-Date: 2006-01-22 18:00+0900\n"
 "Last-Translator: TANIGUCHI Takaki <takaki@asis.media-as.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,11 +24,12 @@ msgstr ""
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: ../browser/response.py:497
+#: ../browser/response.py:503
 msgid "Changes saved to response id ${response_id}."
 msgstr ""
 
 #. Default: "Delete"
+#: ../browser/response.pt:27
 #: ../skins/Poi/poi_response_delete_confirm.cpt:34
 msgid "Delete"
 msgstr "削除"
@@ -43,23 +44,23 @@ msgstr "編集"
 msgid "Edit issue"
 msgstr ""
 
-#: ../browser/response.py:394
+#: ../browser/response.py:396
 msgid "Issue state"
 msgstr ""
 
-#: ../browser/response.py:526
+#: ../browser/response.py:532
 msgid "No response selected for removal."
 msgstr ""
 
-#: ../browser/response.py:488
+#: ../browser/response.py:489
 msgid "No response selected for saving."
 msgstr ""
 
-#: ../browser/response.py:186
+#: ../browser/response.py:189
 msgid "No response selected."
 msgstr ""
 
-#: ../browser/response.py:440
+#: ../browser/response.py:442
 msgid "No response text added and no issue changes made."
 msgstr ""
 
@@ -343,6 +344,7 @@ msgstr "リリース"
 # ./content/PoiIssue.py
 #. Default: "Response"
 #: ../browser/edit_response.pt:50
+#: ../browser/response.pt:103
 msgid "Poi_label_response"
 msgstr "対応"
 
@@ -396,31 +398,35 @@ msgstr "トラッカー名"
 msgid "Poi_label_watchers"
 msgstr "課題の監視者"
 
-#: ../browser/response.py:548
+#: ../browser/response.py:554
 msgid "Removed response id ${response_id}."
 msgstr ""
 
-#: ../browser/response.py:541
+#: ../browser/response.py:493
+msgid "Response does not exist anymore; perhaps it was removed by another user."
+msgstr ""
+
+#: ../browser/response.py:547
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr ""
 
-#: ../browser/response.py:200
+#: ../browser/response.py:203
 msgid "Response id ${response_id} does not exist."
 msgstr ""
 
-#: ../browser/response.py:570
+#: ../browser/response.py:576
 msgid "Response id ${response_id} has no attachment."
 msgstr ""
 
-#: ../browser/response.py:533
+#: ../browser/response.py:539
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr ""
 
-#: ../browser/response.py:194
+#: ../browser/response.py:197
 msgid "Response id ${response_id} is no integer."
 msgstr ""
 
-#: ../browser/response.py:400
+#: ../browser/response.py:402
 msgid "Responsible manager"
 msgstr ""
 
@@ -429,7 +435,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: ../browser/response.py:399
+#: ../browser/response.py:401
 msgid "Severity"
 msgstr ""
 
@@ -443,7 +449,7 @@ msgstr "この課題の監視の中止"
 msgid "Submit new issue"
 msgstr "新しい課題の提出"
 
-#: ../browser/response.py:426
+#: ../browser/response.py:428
 msgid "Target release"
 msgstr ""
 
@@ -452,11 +458,11 @@ msgstr ""
 msgid "Watch this issue"
 msgstr "この課題の監視"
 
-#: ../browser/response.py:520
+#: ../browser/response.py:526
 msgid "You are not allowed to delete responses."
 msgstr ""
 
-#: ../browser/response.py:482
+#: ../browser/response.py:483
 msgid "You are not allowed to edit responses."
 msgstr ""
 
@@ -502,6 +508,7 @@ msgstr ""
 
 #. Default: "RSS Feed"
 #: ../skins/Poi/poi_issue_search_results.pt:6
+#: ../skins/Poi/poi_tracker_view.pt:192
 msgid "label_rss_feed"
 msgstr ""
 
@@ -752,6 +759,7 @@ msgid "poi_label_area"
 msgstr "領域"
 
 #. Default: "Attached:"
+#: ../browser/response.pt:59
 #: ../skins/Poi/poi_issue_view.pt:161
 msgid "poi_label_attachment"
 msgstr "添付:"
@@ -838,12 +846,14 @@ msgid "poi_response_title"
 msgstr "\" ${issueTitle} \" への対応 # ${responseNumber} "
 
 #. Default: "Return to search results"
+#: ../skins/Poi/poi_issue_search.pt:36
 #: ../skins/Poi/poi_issue_view.pt:95
 #, fuzzy
 msgid "poi_return_to_search"
 msgstr "検索に戻る"
 
 #. Default: "Return to tracker"
+#: ../skins/Poi/poi_issue_search_form.pt:19
 #: ../skins/Poi/poi_issue_view.pt:102
 msgid "poi_return_to_tracker"
 msgstr "課題トラッカーに戻る"

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2009-10-23 20:09+0000\n"
+"POT-Creation-Date: 2010-02-27 00:35+0000\n"
 "PO-Revision-Date: 2006-09-08 21:01 +0200\n"
 "Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
 "Language-Team: DE <de@li.org>\n"
@@ -24,11 +24,12 @@ msgstr "Eine Problemstellung. Problemstellungen beginnen im Status 'nicht bestä
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: ../browser/response.py:497
+#: ../browser/response.py:503
 msgid "Changes saved to response id ${response_id}."
 msgstr "Änderungen an Antwort mit ID ${response_id} wurden gespeichert."
 
 #. Default: "Delete"
+#: ../browser/response.pt:27
 #: ../skins/Poi/poi_response_delete_confirm.cpt:34
 msgid "Delete"
 msgstr "Löschen"
@@ -43,23 +44,23 @@ msgstr "Bearbeiten"
 msgid "Edit issue"
 msgstr "Problemstellung bearbeiten"
 
-#: ../browser/response.py:394
+#: ../browser/response.py:396
 msgid "Issue state"
 msgstr "Status der Problemstellung"
 
-#: ../browser/response.py:526
+#: ../browser/response.py:532
 msgid "No response selected for removal."
 msgstr "Es wurde keine Antwort zum Löschen ausgewählt."
 
-#: ../browser/response.py:488
+#: ../browser/response.py:489
 msgid "No response selected for saving."
 msgstr "Es wurde keine Antwort zum Speichern ausgewählt."
 
-#: ../browser/response.py:186
+#: ../browser/response.py:189
 msgid "No response selected."
 msgstr "Es wurde keine Antwort ausgewählt."
 
-#: ../browser/response.py:440
+#: ../browser/response.py:442
 msgid "No response text added and no issue changes made."
 msgstr "Es wurde kein Antwort-Text hinzugefügt und keine "
 
@@ -343,6 +344,7 @@ msgstr "Ausgabe/ Version"
 # ./content/PoiIssue.py
 #. Default: "Response"
 #: ../browser/edit_response.pt:50
+#: ../browser/response.pt:103
 msgid "Poi_label_response"
 msgstr "Antwort"
 
@@ -396,31 +398,35 @@ msgstr "Name des Trackers"
 msgid "Poi_label_watchers"
 msgstr "Beobachter der Problemstellung"
 
-#: ../browser/response.py:548
+#: ../browser/response.py:554
 msgid "Removed response id ${response_id}."
 msgstr "Antwort mit ID ${response_id} wurde gelöscht."
 
-#: ../browser/response.py:541
+#: ../browser/response.py:493
+msgid "Response does not exist anymore; perhaps it was removed by another user."
+msgstr ""
+
+#: ../browser/response.py:547
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr "Antwort mit ID ${response_id} kann nicht gelöscht werden, da sie nicht existiert."
 
-#: ../browser/response.py:200
+#: ../browser/response.py:203
 msgid "Response id ${response_id} does not exist."
 msgstr "Antwort mit ID ${response_id} existiert nicht."
 
-#: ../browser/response.py:570
+#: ../browser/response.py:576
 msgid "Response id ${response_id} has no attachment."
 msgstr "Antwort mit ID ${response_id} hat keinen Anhang."
 
-#: ../browser/response.py:533
+#: ../browser/response.py:539
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr "Antwort ID ${response_id} ist keine Ganzzahl und kann daher nicht entfernt werden."
 
-#: ../browser/response.py:194
+#: ../browser/response.py:197
 msgid "Response id ${response_id} is no integer."
 msgstr "Antwort ID ${response_id} ist keine Ganzzahl."
 
-#: ../browser/response.py:400
+#: ../browser/response.py:402
 msgid "Responsible manager"
 msgstr "Zuständiger Verwalter"
 
@@ -429,7 +435,7 @@ msgstr "Zuständiger Verwalter"
 msgid "Search"
 msgstr "Suche"
 
-#: ../browser/response.py:399
+#: ../browser/response.py:401
 msgid "Severity"
 msgstr "Gewichtung"
 
@@ -443,7 +449,7 @@ msgstr "Diese Problemstellung nicht mehr beobachten"
 msgid "Submit new issue"
 msgstr "Problemstellung übermitteln"
 
-#: ../browser/response.py:426
+#: ../browser/response.py:428
 msgid "Target release"
 msgstr "Betroffene Version/ Ausgabe"
 
@@ -452,11 +458,11 @@ msgstr "Betroffene Version/ Ausgabe"
 msgid "Watch this issue"
 msgstr "Problemstellung beobachten"
 
-#: ../browser/response.py:520
+#: ../browser/response.py:526
 msgid "You are not allowed to delete responses."
 msgstr "Es ist Ihnen nicht erlaubt Antworten zu Löschen."
 
-#: ../browser/response.py:482
+#: ../browser/response.py:483
 msgid "You are not allowed to edit responses."
 msgstr "Es ist Ihnen nicht erlaubt Antworten zu Bearbeiten."
 
@@ -502,6 +508,7 @@ msgstr "Zurück zur Problemstellung"
 
 #. Default: "RSS Feed"
 #: ../skins/Poi/poi_issue_search_results.pt:6
+#: ../skins/Poi/poi_tracker_view.pt:192
 msgid "label_rss_feed"
 msgstr "RSS Feed"
 
@@ -797,6 +804,7 @@ msgid "poi_label_area"
 msgstr "Bereich"
 
 #. Default: "Attached:"
+#: ../browser/response.pt:59
 #: ../skins/Poi/poi_issue_view.pt:161
 msgid "poi_label_attachment"
 msgstr "Angehängt:"
@@ -883,12 +891,14 @@ msgid "poi_response_title"
 msgstr "Beantworten von Nr.${responseNumber} zu \" ${issueTitle} \""
 
 #. Default: "Return to search results"
+#: ../skins/Poi/poi_issue_search.pt:36
 #: ../skins/Poi/poi_issue_view.pt:95
 #, fuzzy
 msgid "poi_return_to_search"
 msgstr "Zurück zur Suche"
 
 #. Default: "Return to tracker"
+#: ../skins/Poi/poi_issue_search_form.pt:19
 #: ../skins/Poi/poi_issue_view.pt:102
 msgid "poi_return_to_tracker"
 msgstr "Zurück zum Tracker"
