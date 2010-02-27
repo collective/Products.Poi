@@ -49,8 +49,6 @@ class TestIssue(ptc.PoiTestCase):
 
     def testIsValid(self):
         self.failUnless(self.issue.isValid())
-        self.issue.setContactEmail('')
-        self.failIf(self.issue.isValid())
 
     def testRenameAfterCreation(self):
         self.failUnless(self.issue.getId() == '1')
