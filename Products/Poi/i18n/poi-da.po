@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.1.2\n"
-"POT-Creation-Date: 2010-02-27 00:35+0000\n"
+"POT-Creation-Date: 2010-02-27 01:00+0000\n"
 "PO-Revision-Date: 2008-12-08 09:42+0100\n"
 "Last-Translator: Jonas Nielsen <jonas@magenta-aps.dk>\n"
 "Language-Team: DA\n"
@@ -608,6 +608,11 @@ msgstr "på"
 msgid "poi_all_pending_issues"
 msgstr "Alle åbne sager"
 
+#. Default: "An attachment has been added with id ${attachment_id}"
+#: ../events.py:107
+msgid "poi_attachment_added"
+msgstr ""
+
 #. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
 #: ../Extensions/poi_issue_workflow_scripts.py:100
 msgid "poi_email_issue_resolved_subject_template"
@@ -629,12 +634,12 @@ msgid "poi_email_new_issue_template"
 msgstr ""
 
 #. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
-#: ../events.py:132
+#: ../events.py:140
 msgid "poi_email_new_response_subject_template"
 msgstr ""
 
 #. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ../events.py:107
+#: ../events.py:115
 msgid "poi_email_new_response_template"
 msgstr ""
 
