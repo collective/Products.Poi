@@ -78,10 +78,12 @@ We add a few more responses::
     >>> len(rc)
     11
 
-Responses can be deleted::
+Responses can be deleted; they are not really removed, but emptied::
 
     >>> rc.delete(7)
-    >>> len(rc) == 10
+    >>> len(rc) == 11
+    True
+    >>> rc[7] is None
     True
 
 Non existing responses cannot be deleted::

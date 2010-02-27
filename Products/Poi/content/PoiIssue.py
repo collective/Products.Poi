@@ -538,7 +538,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         if folder is None:
             # Should Not Happen (TM)
             return text
-        text += ' ' + ' '.join([r.text for r in folder])
+        text += ' ' + ' '.join([r.text for r in folder if r])
         return text
 
     def notifyModified(self):

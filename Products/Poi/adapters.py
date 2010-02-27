@@ -122,8 +122,17 @@ class ResponseContainer(Persistent):
     def append(self, item):
         self.__mapping.append(item)
 
-    def remove(self, item):
-        self.__mapping.remove(item)
+    def remove(self, id):
+        """Remove item 'id' from the list.
+
+        We don't actually remove the item, we just set it to None,
+        so that when you edit item 3 out of 3 and someone deletes
+        item 2 you are not left in the water.
+
+        Note that we used to get passed a complete item, not an id.
+        """
+        id = int(id)
+        self[id] = None
 
     def add(self, item):
         if not IResponse.providedBy(item):
@@ -143,7 +152,7 @@ class ResponseContainer(Persistent):
         # this adapter.
         event = ObjectRemovedEvent(self[id], oldParent=self.context,
                                    oldName=id)
-        self.remove(self[id])
+        self.remove(id)
         notify(event)
 
 

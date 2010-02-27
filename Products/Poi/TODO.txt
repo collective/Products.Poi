@@ -60,10 +60,6 @@ Bugs/Known issues:
     o Fix browser/log.py to work for new style responses too.
       [maurits, 2009-05-22]
 
-    o When an issue has two responses, user 1 is editing response 1
-      and user 2 deletes response 1, then when user 1 saves the
-      form response 2 will be overwritten instead.
-
 Security issues:
 
     o Add max-size validator on uploaded attachments?
