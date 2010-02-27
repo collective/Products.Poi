@@ -5,6 +5,10 @@ Changelog for Poi
 1.2.8 (unreleased)
 ------------------
 
+- Depend on Products.AddRemoveWidget < 1.5 as I foresee that version
+  might be for Plone 4 only.
+  [maurits]
+
 - When a response contains an attachment, add info about this to the
   e-mail.  Fixes http://plone.org/products/poi/issues/238
   [maurits]
