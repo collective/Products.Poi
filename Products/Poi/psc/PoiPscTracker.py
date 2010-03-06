@@ -76,54 +76,13 @@ class PoiPscTracker(PoiTracker):
     """Version of the PoiTracker which supports the
     PloneSoftwareCenter. Intended to be added inside a PSCProject.
     """
-    security = ClassSecurityInfo()
-    implements(ITracker)
-
-    # This name appears in the 'add' box
+    _at_rename_after_creation = True
     archetype_name = 'Issue Tracker'
-
+    implements(ITracker)
     meta_type = 'PoiPscTracker'
     portal_type = 'PoiPscTracker'
-    allowed_content_types = [] + list(getattr(PoiTracker,
-                                              'allowed_content_types', []))
-    filter_content_types = 1
-    global_allow = 0
-    content_icon = 'PoiTracker.gif'
-    immediate_view = 'base_view'
-    default_view = 'poi_tracker_view'
-    suppl_views = ()
-    typeDescription = "A simple issue tracker"
-    typeDescMsgId = 'description_edit_poipsctracker'
-
-
-    actions = (
-
-
-       {'action': "string:${object_url}",
-        'category': "object",
-        'id': 'view',
-        'name': 'View',
-        'permissions': (permissions.View, ),
-        'condition': 'python:1',
-       },
-
-
-       {'action': "string:${object_url}/edit",
-        'category': "object",
-        'id': 'edit',
-        'name': 'Edit',
-        'permissions': (permissions.ModifyPortalContent, ),
-        'condition': 'python:1'
-       },
-
-
-    )
-
-    _at_rename_after_creation = True
-
     schema = PoiPscTracker_schema
-
-    # Methods
+    security = ClassSecurityInfo()
 
     security.declareProtected(permissions.View, 'getExternalTitle')
     def getExternalTitle(self):

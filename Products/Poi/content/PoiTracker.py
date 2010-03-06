@@ -226,51 +226,13 @@ PoiTracker_schema = BaseBTreeFolderSchema.copy() + \
 class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
     """The default tracker
     """
-    security = ClassSecurityInfo()
-    implements(ITracker)
-
-    # This name appears in the 'add' box
+    _at_rename_after_creation = True
     archetype_name = 'Issue Tracker'
-
+    implements(ITracker)
     meta_type = 'PoiTracker'
     portal_type = 'PoiTracker'
-    allowed_content_types = ['PoiIssue']
-    filter_content_types = 1
-    global_allow = 1
-    content_icon = 'PoiTracker.gif'
-    immediate_view = 'base_view'
-    default_view = 'poi_tracker_view'
-    suppl_views = ()
-    typeDescription = "An issue tracker"
-    typeDescMsgId = 'description_edit_poitracker'
-
-
-    actions = (
-
-
-       {'action': "string:${object_url}",
-        'category': "object",
-        'id': 'view',
-        'name': 'View',
-        'permissions': (permissions.View, ),
-        'condition': 'python:1',
-       },
-
-
-       {'action': "string:${object_url}/edit",
-        'category': "object",
-        'id': 'edit',
-        'name': 'Edit',
-        'permissions': (permissions.ModifyPortalContent, ),
-        'condition': 'python:1'
-       },
-
-
-    )
-
-    _at_rename_after_creation = True
-
     schema = PoiTracker_schema
+    security = ClassSecurityInfo()
 
     # Methods
 

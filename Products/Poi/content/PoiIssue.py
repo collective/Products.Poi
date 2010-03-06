@@ -298,19 +298,13 @@ PoiIssue_schema.moveField('subject', after='watchers')
 class PoiIssue(BaseFolder, BrowserDefaultMixin):
     """The default tracker
     """
-    security = ClassSecurityInfo()
-    implements(IIssue)
-
-    # This name appears in the 'add' box
+    _at_rename_after_creation = True
     archetype_name = 'Issue'
+    implements(IIssue)
     meta_type = 'PoiIssue'
     portal_type = 'PoiIssue'
-    _at_rename_after_creation = True
-
     schema = PoiIssue_schema
-
-
-    # Methods
+    security = ClassSecurityInfo()
 
     security.declareProtected(permissions.View, 'getAvailableIssueTransitions')
     def getAvailableIssueTransitions(self):
