@@ -29,10 +29,10 @@ __docformat__ = 'plaintext'
 
 from AccessControl import ClassSecurityInfo
 try:
-    from Products.LinguaPlone.public import *
+    from Products.LinguaPlone import public as atapi
 except ImportError:
     # No multilingual support
-    from Products.Archetypes.atapi import *
+    from Products.Archetypes import atapi
 from Products.Poi.config import PROJECTNAME
 
 from Products.DataGridField.DataGridField import DataGridField
@@ -48,11 +48,11 @@ from Products.Poi.interfaces import ITracker
 from Products.Poi.utils import linkSvn
 from Products.Poi.utils import linkBugs
 
-schema = Schema((
+schema = atapi.Schema((
 
-    StringField(
+    atapi.StringField(
         name='title',
-        widget=StringWidget(
+        widget=atapi.StringWidget(
             label="Tracker name",
             description="Enter a descriptive name for this tracker",
             label_msgid="Poi_label_tracker_title",
@@ -64,9 +64,9 @@ schema = Schema((
         searchable=True
     ),
 
-    TextField(
+    atapi.TextField(
         name='description',
-        widget=TextAreaWidget(
+        widget=atapi.TextAreaWidget(
             label="Tracker description",
             description="Describe the purpose of this tracker",
             label_msgid='Poi_label_description',
@@ -78,11 +78,11 @@ schema = Schema((
         searchable=True
     ),
 
-    TextField(
+    atapi.TextField(
         name='helpText',
         allowable_content_types=('text/plain', 'text/structured', 'text/html',
                                  'application/msword'),
-        widget=RichWidget(
+        widget=atapi.RichWidget(
             label="Help text",
             description="Enter any introductory help text you'd like to display on the tracker front page.",
             label_msgid='Poi_label_helpText',
@@ -127,10 +127,10 @@ schema = Schema((
         columns=('id', 'title', 'description')
     ),
 
-    LinesField(
+    atapi.LinesField(
         name='availableSeverities',
         default=['Critical', 'Important', 'Medium', 'Low'],
-        widget=LinesWidget(
+        widget=atapi.LinesWidget(
             label="Available severities",
             description="Enter the different type of issue severities that should be available, one per line.",
             label_msgid='Poi_label_availableSeverities',
@@ -140,10 +140,10 @@ schema = Schema((
         required=True
     ),
 
-    StringField(
+    atapi.StringField(
         name='defaultSeverity',
         default='Medium',
-        widget=SelectionWidget(
+        widget=atapi.SelectionWidget(
             label="Default severity",
             description="Select the default severity for new issues.",
             label_msgid='Poi_label_defaultSeverity',
@@ -155,9 +155,9 @@ schema = Schema((
         required=True
     ),
 
-    LinesField(
+    atapi.LinesField(
         name='availableReleases',
-        widget=LinesWidget(
+        widget=atapi.LinesWidget(
             label="Available releases",
             description="Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release.",
             label_msgid='Poi_label_availableReleases',
@@ -167,9 +167,9 @@ schema = Schema((
         required=False
     ),
 
-    LinesField(
+    atapi.LinesField(
         name='managers',
-        widget=LinesWidget(
+        widget=atapi.LinesWidget(
             label="Tracker managers",
             description="Enter the user ids of the users who will be allowed to manage this tracker, one per line.",
             label_msgid='Poi_label_managers',
@@ -179,10 +179,10 @@ schema = Schema((
         default_method="getDefaultManagers"
     ),
 
-    BooleanField(
+    atapi.BooleanField(
         name='sendNotificationEmails',
         default=True,
-        widget=BooleanWidget(
+        widget=atapi.BooleanWidget(
             label="Send notification emails",
             description="If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation.",
             label_msgid='Poi_label_sendNotificationEmails',
@@ -191,9 +191,9 @@ schema = Schema((
         )
     ),
 
-    StringField(
+    atapi.StringField(
         name='mailingList',
-        widget=StringWidget(
+        widget=atapi.StringWidget(
             label="Mailing list",
             description="""If given, and if "Send notification emails" is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails.""",
             label_msgid='Poi_label_mailingList',
@@ -203,9 +203,10 @@ schema = Schema((
         required=False,
         validators=('isEmail',)
     ),
-    StringField(
+
+    atapi.StringField(
         name='svnUrl',
-        widget=StringWidget(
+        widget=atapi.StringWidget(
             label="URL to SVN",
             description="""Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective.""",
             label_msgid='Poi_label_svnurl',
@@ -219,11 +220,11 @@ schema = Schema((
 ),
 )
 
-PoiTracker_schema = BaseBTreeFolderSchema.copy() + \
+PoiTracker_schema = atapi.BaseBTreeFolderSchema.copy() + \
     schema.copy()
 
 
-class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
+class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
     """The default tracker
     """
     _at_rename_after_creation = True
@@ -272,7 +273,7 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         Get the releases available to the tracker as a DisplayList.
         """
         items = self.getAvailableReleases()
-        vocab = DisplayList()
+        vocab = atapi.DisplayList()
         for item in items:
             vocab.add(item, item)
         return vocab
@@ -345,7 +346,7 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         chain = portal_workflow.getChainForPortalType('PoiIssue')
         workflow = getattr(portal_workflow, chain[0])
         states = getattr(workflow, 'states')
-        vocab = DisplayList()
+        vocab = atapi.DisplayList()
         for id, state in states.items():
             vocab.add(id, state.title)
         return vocab.sortedByValue()
@@ -390,5 +391,5 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         return email
 
 
-registerType(PoiTracker, PROJECTNAME)
+atapi.registerType(PoiTracker, PROJECTNAME)
 # end of class PoiTracker
