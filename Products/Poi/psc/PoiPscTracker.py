@@ -29,7 +29,6 @@ __docformat__ = 'plaintext'
 
 from AccessControl import ClassSecurityInfo
 
-from Products.Archetypes.atapi import BaseFolderSchema
 from Products.Archetypes.atapi import DisplayList
 from Products.Archetypes.atapi import registerType
 from Products.Archetypes.atapi import Schema
@@ -37,6 +36,7 @@ from Products.Archetypes.atapi import StringField
 from Products.Archetypes.atapi import StringWidget
 
 from Products.Poi.content.PoiTracker import PoiTracker
+from Products.Poi.content.PoiTracker import PoiTracker_schema
 from Products.Poi.config import PROJECTNAME
 from Products.Poi.config import PSC_TRACKER_ID
 
@@ -65,12 +65,11 @@ schema = Schema((
 ),
 )
 
-PoiPscTracker_schema = BaseFolderSchema.copy() + \
-    getattr(PoiTracker, 'schema', Schema(())).copy() + \
-    schema.copy()
-
-PoiPscTracker_schema = PoiPscTracker_schema.copy()
-del PoiPscTracker_schema['title']
+PoiPscTracker_schema = PoiTracker_schema.copy() + schema.copy()
+PoiPscTracker_schema['title'].required = False
+PoiPscTracker_schema['title'].widget.visible = {'edit': 'invisible',
+                                                'view': 'visible'}
+del PoiPscTracker_schema['availableReleases']
 
 
 class PoiPscTracker(PoiTracker):
@@ -123,9 +122,6 @@ class PoiPscTracker(PoiTracker):
     _at_rename_after_creation = True
 
     schema = PoiPscTracker_schema
-
-    schema = schema.copy()
-    del schema['availableReleases']
 
     # Methods
 
