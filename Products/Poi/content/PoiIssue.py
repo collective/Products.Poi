@@ -89,7 +89,9 @@ schema = Schema((
         name='title',
         widget=StringWidget(
             label="Title",
-            description="Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue.",
+            description=("Enter a short, descriptive title for the issue. "
+                         "A good title will make it easier for project "
+                         "managers to identify and respond to the issue."),
             label_msgid="Poi_label_issue_title",
             description_msgid="Poi_help_issue_title",
             i18n_domain='Poi',
@@ -138,7 +140,9 @@ schema = Schema((
         allowable_content_types=ISSUE_MIME_TYPES,
         widget=RichWidget(
             label="Steps to reproduce",
-            description="If applicable, please provide the steps to reproduce the error or identify the issue, one per line.",
+            description=("If applicable, please provide the steps to "
+                         "reproduce the error or identify the issue, one per "
+                         "line."),
             rows=6,
             allow_file_upload=False,
             label_msgid='Poi_label_steps',
@@ -154,7 +158,8 @@ schema = Schema((
         name='attachment',
         widget=FileWidget(
             label="Attachment",
-            description="You may optionally upload a file attachment. Please do not upload unnecessarily large files.",
+            description=("You may optionally upload a file attachment. Please "
+                         "do not upload unnecessarily large files."),
             label_msgid='Poi_label_attachment',
             description_msgid='Poi_help_attachment',
             i18n_domain='Poi',
@@ -234,7 +239,8 @@ schema = Schema((
         index="FieldIndex:schema",
         widget=SelectionWidget(
             label="Responsible",
-            description="Select which manager, if any, is responsible for this issue.",
+            description=("Select which manager, if any, is responsible for "
+                         "this issue."),
             label_msgid='Poi_label_responsibleManager',
             description_msgid='Poi_help_responsibleManager',
             i18n_domain='Poi',
@@ -250,7 +256,10 @@ schema = Schema((
         validators=('isEmail', ),
         widget=StringWidget(
             label="Contact email address",
-            description="Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others.",
+            description=("Please provide an email address where you can be "
+                         "contacted for further information or when a "
+                         "resolution is available. Note that your email "
+                         "address will not be displayed to others."),
             label_msgid='Poi_label_contactEmail',
             description_msgid='Poi_help_contactEmail',
             i18n_domain='Poi',
@@ -263,7 +272,11 @@ schema = Schema((
         name='watchers',
         widget=LinesWidget(
             label="Issue watchers",
-            description="Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers.",
+            description=("Enter the user names of members who are watching "
+                         "this issue, one per line. These members will "
+                         "receive an email when a response is added to the "
+                         "issue. Members can also add themselves as "
+                         "watchers."),
             label_msgid='Poi_label_watchers',
             description_msgid='Poi_help_watchers',
             i18n_domain='Poi',
@@ -275,7 +288,9 @@ schema = Schema((
         name='subject',
         widget=AddRemoveWidget(
             label="Tags",
-            description="Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones.",
+            description=("Tags can be used to add arbitrary categorisation to "
+                         "issues. The list below shows existing tags which "
+                         "you can select, or you can add new ones."),
             label_msgid='Poi_label_subject',
             description_msgid='Poi_help_subject',
             i18n_domain='Poi',

@@ -53,7 +53,8 @@ schema = Schema((
         name='id',
         widget=StringWidget(
             label="Short name",
-            description="Short name for the tracker - should be 'issues' to comply with the standards.",
+            description=("Short name for the tracker - should be 'issues' "
+                         "to comply with the standards."),
             label_msgid="Poi_label_psctracker_title",
             description_msgid="Poi_description_psctracker_title",
             i18n_domain='Poi',
@@ -102,9 +103,9 @@ class PoiPscTracker(PoiTracker):
         """Get the UIDs of the releases available to the tracker."""
         catalog = getToolByName(self, 'portal_catalog')
         releases = catalog.searchResults(
-                        portal_type = 'PSCRelease',
-                        path = '/'.join(self.getPhysicalPath()[:-1]),
-                        sort_on = 'created',
+                        portal_type='PSCRelease',
+                        path='/'.join(self.getPhysicalPath()[:-1]),
+                        sort_on='created',
                         )
         return [r.UID for r in releases]
 
@@ -113,8 +114,8 @@ class PoiPscTracker(PoiTracker):
         """Get the releases available to the tracker as a DisplayList."""
         catalog = getToolByName(self, 'portal_catalog')
         releases = catalog.searchResults(
-                        portal_type = 'PSCRelease',
-                        path = '/'.join(self.getPhysicalPath()[:-1]),
+                        portal_type='PSCRelease',
+                        path='/'.join(self.getPhysicalPath()[:-1]),
                         )
         return DisplayList([(r.UID, r.getId) for r in releases])
 

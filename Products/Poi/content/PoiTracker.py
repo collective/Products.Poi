@@ -84,7 +84,8 @@ schema = atapi.Schema((
                                  'application/msword'),
         widget=atapi.RichWidget(
             label="Help text",
-            description="Enter any introductory help text you'd like to display on the tracker front page.",
+            description=("Enter any introductory help text you'd like to "
+                         "display on the tracker front page."),
             label_msgid='Poi_label_helpText',
             description_msgid='Poi_help_helpText',
             i18n_domain='Poi',
@@ -95,7 +96,16 @@ schema = atapi.Schema((
 
     DataGridField(
         name='availableAreas',
-        default=({'id' : 'ui', 'title' : 'User interface', 'description' : 'User interface issues'}, {'id' : 'functionality', 'title' : 'Functionality', 'description' : 'Issues with the basic functionality'}, {'id' : 'process', 'title' : 'Process', 'description' : 'Issues relating to the development process itself'}),
+        default=({'id': 'ui',
+                  'title': 'User interface',
+                  'description': 'User interface issues'},
+                 {'id': 'functionality',
+                  'title': 'Functionality',
+                  'description': 'Issues with the basic functionality'},
+                 {'id': 'process',
+                  'title': 'Process',
+                  'description':
+                      'Issues relating to the development process itself'}),
         widget=DataGridWidget(
             label="Areas",
             description="Enter the issue topics/areas for this tracker.",
@@ -112,7 +122,15 @@ schema = atapi.Schema((
 
     DataGridField(
         name='availableIssueTypes',
-        default=({'id' : 'bug', 'title' : 'Bug', 'description' : 'Functionality bugs in the software'}, {'id' : 'feature', 'title' : 'Feature', 'description' : 'Suggested features'}, {'id' : 'patch', 'title' : 'Patch', 'description' : 'Patches to the software'}),
+        default=({'id': 'bug',
+                  'title': 'Bug',
+                  'description': 'Functionality bugs in the software'},
+                 {'id': 'feature',
+                  'title': 'Feature',
+                  'description': 'Suggested features'},
+                 {'id': 'patch',
+                  'title': 'Patch',
+                  'description': 'Patches to the software'}),
         widget=DataGridWidget(
             label="Issue types",
             description="Enter the issue types for this tracker.",
@@ -132,7 +150,8 @@ schema = atapi.Schema((
         default=['Critical', 'Important', 'Medium', 'Low'],
         widget=atapi.LinesWidget(
             label="Available severities",
-            description="Enter the different type of issue severities that should be available, one per line.",
+            description=("Enter the different type of issue severities that "
+                         "should be available, one per line."),
             label_msgid='Poi_label_availableSeverities',
             description_msgid='Poi_help_availableSeverities',
             i18n_domain='Poi',
@@ -159,7 +178,9 @@ schema = atapi.Schema((
         name='availableReleases',
         widget=atapi.LinesWidget(
             label="Available releases",
-            description="Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release.",
+            description=("Enter the releases which issues can be assigned to, "
+                         "one per line. If no releases are entered, issues "
+                         "will not be organised by release."),
             label_msgid='Poi_label_availableReleases',
             description_msgid='Poi_help_availableReleases',
             i18n_domain='Poi',
@@ -171,7 +192,8 @@ schema = atapi.Schema((
         name='managers',
         widget=atapi.LinesWidget(
             label="Tracker managers",
-            description="Enter the user ids of the users who will be allowed to manage this tracker, one per line.",
+            description=("Enter the user ids of the users who will be allowed "
+                         "to manage this tracker, one per line."),
             label_msgid='Poi_label_managers',
             description_msgid='Poi_help_managers',
             i18n_domain='Poi',
@@ -184,7 +206,11 @@ schema = atapi.Schema((
         default=True,
         widget=atapi.BooleanWidget(
             label="Send notification emails",
-            description="If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation.",
+            description=("If selected, tracker managers will receive an email "
+                         "each time a new issue or response is posted, and "
+                         "issue submitters will receive an email when there "
+                         "is a new response and when an issue has been "
+                         "resolved, awaiting confirmation."),
             label_msgid='Poi_label_sendNotificationEmails',
             description_msgid='Poi_help_sendNotificationEmails',
             i18n_domain='Poi',
@@ -195,7 +221,10 @@ schema = atapi.Schema((
         name='mailingList',
         widget=atapi.StringWidget(
             label="Mailing list",
-            description="""If given, and if "Send notification emails" is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails.""",
+            description="""If given, and if "Send notification emails" is
+selected, an email will be sent to this address each time a new issue or
+response is posted. If no mailing list address is given, managers will
+receive individual emails.""",
             label_msgid='Poi_label_mailingList',
             description_msgid='Poi_help_mailingList',
             i18n_domain='Poi',
@@ -208,11 +237,13 @@ schema = atapi.Schema((
         name='svnUrl',
         widget=atapi.StringWidget(
             label="URL to SVN",
-            description="""Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective.""",
+            description="""Please enter the Url to the related SVN repository,
+e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the
+Plone collective.""",
             label_msgid='Poi_label_svnurl',
             description_msgid='Poi_help_svnurl',
             i18n_domain='Poi',
-            size = '90',
+            size='90',
         ),
         required=False,
     ),
@@ -282,8 +313,8 @@ class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
     def getTagsInUse(self):
         """Get a list of the issue tags in use in this tracker."""
         catalog = getToolByName(self, 'portal_catalog')
-        issues = catalog.searchResults(portal_type = 'PoiIssue',
-                                       path = '/'.join(self.getPhysicalPath()))
+        issues = catalog.searchResults(portal_type='PoiIssue',
+                                       path='/'.join(self.getPhysicalPath()))
         tags = {}
         for i in issues:
             for s in i.Subject:
