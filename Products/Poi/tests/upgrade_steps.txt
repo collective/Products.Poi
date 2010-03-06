@@ -1,0 +1,60 @@
+Upgrade steps
+=============
+
+Here we do some testing of various mostly simple upgrade steps.  It is
+not always practical to do things like mess up the portal_workflow,
+then run our workflow upgrade step and check if this fixes it.  But we
+can at least run the step to see if it runs successfully.  Also,
+running a step twice should work too.
+
+Upgrade steps are run with the portal_setup tool as context:
+
+    >>> context = self.portal.portal_setup
+
+Run the workflow step:
+
+    >>> from Products.Poi.migration import run_workflow_step
+    >>> run_workflow_step(context)
+    >>> run_workflow_step(context)
+
+Run the rolemap step:
+
+    >>> from Products.Poi.migration import run_rolemap_step
+    >>> run_rolemap_step(context)
+    >>> run_rolemap_step(context)
+
+Run the sharing step:
+
+    >>> from Products.Poi.migration import run_sharing_step
+    >>> run_sharing_step(context)
+    >>> run_sharing_step(context)
+
+Run the types (typeinfo) step:
+
+    >>> from Products.Poi.migration import run_types_step
+    >>> run_types_step(context)
+    >>> run_types_step(context)
+
+Remove the response content type:
+
+    >>> from Products.Poi.migration import remove_response_content_type
+    >>> from Products.CMFCore.utils import getToolByName
+    >>> types = getToolByName(self.portal, 'portal_types')
+    >>> 'PoiResponse' in types.objectIds()
+    False
+    >>> types._setObject('PoiResponse', object(), set_owner=0)
+    'PoiResponse'
+    >>> 'PoiResponse' in types.objectIds()
+    True
+    >>> remove_response_content_type(context)
+    >>> 'PoiResponse' in types.objectIds()
+    False
+    >>> remove_response_content_type(context)
+    >>> 'PoiResponse' in types.objectIds()
+    False
+
+Remove a no longer needed form controller action:
+
+    >>> from Products.Poi.migration import remove_form_controller_action
+    >>> remove_form_controller_action(context)
+    >>> remove_form_controller_action(context)
