@@ -5,7 +5,9 @@ Changelog for Poi
 2.0a2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Clean up type definitions (mostly: do not try to hide the
+  properties/metadata tab that already is no longer there).
+  [maurits]
 
 
 2.0a1 (2010-02-27)

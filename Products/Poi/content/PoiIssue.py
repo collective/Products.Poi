@@ -593,15 +593,5 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
             self)
 
 
-# XXX get rid of this modify_fti function.  We can do that in
-# types/PoiIssue.xml
-
-def modify_fti(fti):
-    # Hide unnecessary tabs (usability enhancement)
-    for a in fti['actions']:
-        if a['id'] in ['metadata', 'sharing']:
-            a['visible'] = 0
-    return fti
-
 registerType(PoiIssue, PROJECTNAME)
 # end of class PoiIssue

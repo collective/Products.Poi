@@ -345,3 +345,7 @@ def run_rolemap_step(context):
 
 def run_sharing_step(context):
     context.runImportStepFromProfile(PROFILE_ID, 'sharing')
+
+
+def run_types_step(context):
+    context.runImportStepFromProfile(PROFILE_ID, 'typeinfo')

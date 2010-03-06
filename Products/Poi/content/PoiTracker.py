@@ -428,12 +428,5 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         return email
 
 
-def modify_fti(fti):
-    # Hide unnecessary tabs (usability enhancement)
-    for a in fti['actions']:
-        if a['id'] in ['metadata', 'sharing']:
-            a['visible'] = 0
-    return fti
-
 registerType(PoiTracker, PROJECTNAME)
 # end of class PoiTracker

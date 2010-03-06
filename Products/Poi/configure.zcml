@@ -174,4 +174,12 @@
       handler="Products.Poi.migration.run_workflow_step"
       profile="Products.Poi:default" />
 
+  <gs:upgradeStep
+      title="Run types import step"
+      description="Apply our own types.xml file."
+      source="1304"
+      destination="2000"
+      handler="Products.Poi.migration.run_types_step"
+      profile="Products.Poi:default" />
+
 </configure>
