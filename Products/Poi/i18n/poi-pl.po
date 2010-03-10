@@ -857,20 +857,18 @@ msgstr "Nowe zgłoszenie ${name} dodane przez ${author}"
 
 #. Default: "${author} added a new response to ${name}:"
 #: ../browser/log.pt:40
-#, fuzzy
 msgid "poi_new_response_added"
 msgstr "${author} dodał nową odpowiedź do ${name}"
 
 #. Default: "Return to search"
 #: ../skins/Poi/poi_issue_search.pt:36
-#, fuzzy
 msgid "poi_return_to_search"
 msgstr "Wróć do wyszukiwarki"
 
 #. Default: "Return to search results"
 #: ../skins/Poi/poi_issue_view.pt:104
 msgid "poi_return_to_search_results"
-msgstr ""
+msgstr "Wróć do wyników wyszukiwania"
 
 #. Default: "Return to tracker"
 #: ../skins/Poi/poi_issue_search_form.pt:19
