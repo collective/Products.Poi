@@ -5,6 +5,12 @@ Changelog for Poi
 2.0a2 (unreleased)
 ------------------
 
+- Send parameter names in notifications
+  [sargo]
+
+- Polish translation update
+  [sargo]
+
 - Do not completely remove the title field in the PSC tracker, but
   only make it invisible while editing.  This makes sure that
   folder_contents does not throw an error trying to find the title
