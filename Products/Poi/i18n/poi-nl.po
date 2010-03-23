@@ -616,7 +616,7 @@ msgstr "Alle openstaande issues"
 #. Default: "An attachment has been added with id ${attachment_id}"
 #: ../events.py:107
 msgid "poi_attachment_added"
-+msgstr "Een bijlage is toegevoegd met id ${attachment_id}"
+msgstr "Een bijlage is toegevoegd met id ${attachment_id}"
 
 #. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
 #: ../Extensions/poi_issue_workflow_scripts.py:100
