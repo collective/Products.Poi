@@ -722,7 +722,7 @@ msgstr "Szczegóły odpowiedzi"
 #. Default: "Issue search results"
 #: ../skins/Poi/poi_issue_search.pt:31
 msgid "poi_heading_search_results"
-msgstr "Wyniki wyszukiania zgłoszeń"
+msgstr "Wyniki wyszukiwania zgłoszeń"
 
 #. Default: "Unconfirmed issues"
 #: ../skins/Poi/poi_tracker_view.pt:188
@@ -747,7 +747,7 @@ msgstr "Poniższe zgłoszenia są stworzone przez Ciebie."
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
 #: ../skins/Poi/poi_tracker_view.pt:104
 msgid "poi_help_open_issues"
-msgstr "Użyj poniższych linków aby zobaczyć zgłoszenia z poszczególnych grup. Zaawansowane wyszukiwanie pozwala na znalezienie zgłoszeń spełniających więcej niże jedno kryterium."
+msgstr "Użyj poniższych linków, aby zobaczyć zgłoszenia z poszczególnych grup. Zaawansowane wyszukiwanie pozwala na znalezienie zgłoszeń spełniających więcej niż jedno kryterium."
 
 #. Default: "The following open issues are not assigned to anyone."
 #: ../skins/Poi/poi_tracker_view.pt:253
