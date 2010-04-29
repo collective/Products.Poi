@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-1.2.9 (unreleased)
+1.2.9 (2010-04-29)
 ------------------
 
 - Fixed syntax error in Dutch translations.
