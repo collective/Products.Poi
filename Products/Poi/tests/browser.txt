@@ -103,7 +103,7 @@ We check the values of this response::
     1
     >>> response.changes[0]
     {'before': 'Medium', 'after': 'Important', 'id': 'severity', 'name': u'Severity'}
-    >>> response.creator
+    >>> str(response.creator)
     'test_user_1_'
     >>> response.date
     DateTime(...)
@@ -154,7 +154,7 @@ We check the values of the response::
     {'before': 'Unconfirmed', 'after': 'Confirmed', 'id': 'review_state', 'name': u'Issue state'}
     >>> response.changes[1]
     {'before': '(UNASSIGNED)', 'after': 'test_user_1_', 'id': 'responsibleManager', 'name': u'Responsible manager'}
-    >>> response.creator
+    >>> str(response.creator)
     'test_user_1_'
     >>> response.date
     DateTime(...)
