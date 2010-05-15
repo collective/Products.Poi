@@ -822,7 +822,7 @@ msgstr "Soumis par "
 #. Default: "Submitted on"
 #: ../skins/Poi/poi_issue_view.pt:73
 msgid "poi_label_submitted_on"
-msgstr "Soumis sur"
+msgstr "Soumis le"
 
 #. Default: "Tags:"
 #: ../skins/Poi/poi_issue_view.pt:139
