@@ -26,6 +26,7 @@
       permission="zope2.View"
       class=".response.AddForm"
       template="response.pt"
+      for="Products.Poi.interfaces.IIssue"
       />
 
   <browser:page

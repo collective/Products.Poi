@@ -5,7 +5,9 @@ Changelog for Poi
 1.2.10 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Register the poi.response.add viewlet manager (provider) only for
+  issues.  Fixes http://plone.org/products/poi/issues/241
+  [maurits]
 
 
 1.2.9 (2010-04-29)
