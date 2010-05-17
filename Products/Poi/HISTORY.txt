@@ -25,17 +25,8 @@ Changelog for Poi
 2.0a1 (2010-02-27)
 ------------------
 
-- When a response contains an attachment, add info about this to the
-  e-mail.  Fixes http://plone.org/products/poi/issues/238
-  [maurits]
-
 - Depend on collective.watcherlist >= 0.2 for sending the resolved
   email only to the initial poster.
-  [maurits]
-
-- When deleting a response, do not remove it, but set it to None.
-  This avoid problems when one user is editing a response and another
-  user is removing it.
   [maurits]
 
 - Polish translation
@@ -46,9 +37,6 @@ Changelog for Poi
  
 - Minor fixes for i18n support
   [sargo]
-
-- PoiIssue: there is no reason why contactEmail is mandatory
-  [ajung]
 
 - Added upgrade step to remove the local Manager role from all tracker
   managers and instead give them the TrackerManager role.
@@ -102,6 +90,37 @@ Changelog for Poi
 
 - Cleaned up code that was meant for PoiResponses.  The class itself
   is still there for migration.  [maurits]
+
+
+1.2.10 (unreleased)
+-------------------
+
+- Register the poi.response.add viewlet manager (provider) only for
+  issues.  Fixes http://plone.org/products/poi/issues/241
+  [maurits]
+
+
+1.2.9 (2010-04-29)
+------------------
+
+- Fixed syntax error in Dutch translations.
+  [maurits]
+
+
+1.2.8 (2010-02-27)
+------------------
+
+- When a response contains an attachment, add info about this to the
+  e-mail.  Fixes http://plone.org/products/poi/issues/238
+  [maurits]
+
+- When deleting a response, do not remove it, but set it to None.
+  This avoid problems when one user is editing a response and another
+  user is removing it.
+  [maurits]
+
+- PoiIssue: there is no reason why contactEmail is mandatory
+ [ajung]
 
 
 1.2.7 (2009-10-24)
