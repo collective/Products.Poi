@@ -65,7 +65,7 @@ msgstr "Aucun texte de réponse ajouté et aucune modification effectuée."
 
 #: ../content/PoiIssue.py:503
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."
