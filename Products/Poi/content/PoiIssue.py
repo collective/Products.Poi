@@ -509,7 +509,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         tracker = self.getTracker()
         items = tracker.getManagers()
         vocab = DisplayList()
-        vocab.add('(UNASSIGNED)', _(u'None'), 'poi_vocab_none')
+        vocab.add('(UNASSIGNED)', _(u'None'))
         for item in items:
             vocab.add(item, item)
         return vocab
@@ -533,7 +533,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         (UNASSIGNED) to denote that a release is not yet assigned.
         """
         vocab = DisplayList()
-        vocab.add('(UNASSIGNED)', _(u'None'), 'poi_vocab_none')
+        vocab.add('(UNASSIGNED)', _(u'None'))
         tracker = self.getTracker()
         trackerVocab = tracker.getReleasesVocab()
         for k in trackerVocab.keys():
