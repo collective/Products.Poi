@@ -131,3 +131,6 @@ msgstr ""
 
 msgid "Protected against anonymous views"
 msgstr ""
+
+msgid "Resolve immediately"
+msgstr ""

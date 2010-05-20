@@ -129,3 +129,5 @@ msgstr "Testé et validé par les utilisateurs"
 msgid "Unconfirmed"
 msgstr "Non confirmé"
 
+msgid "Resolve immediately"
+msgstr "Résoudre immédiatement"
