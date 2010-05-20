@@ -60,10 +60,10 @@ msgstr "Gestionnaire de tickets"
 
 # browser/respsonse.py:transitions_for_display
 msgid "No change"
-msgstr ""
+msgstr "Pas de changement"
 
 msgid "Only members can submit"
-msgstr ""
+msgstr "Soumission réservée aux membres"
 
 msgid "Open"
 msgstr "Ouvert"
