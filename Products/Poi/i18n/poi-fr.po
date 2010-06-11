@@ -556,7 +556,6 @@ msgstr "Type"
 
 #. Default: "If you can, please log in before submitting your issue."
 #: ../skins/Poi/poi_tracker_view.pt:48
-#, fuzzy
 msgid "login_suggestion"
 msgstr "Si vous le pouvez, vous devriez <a href=\"${DYNAMIC_CONTENT}\">identifiant</a> avant d'intervenir dans ce tracker."
 
@@ -846,13 +845,11 @@ msgstr "Distribution :"
 
 #. Default: "Last modified on ${modification_time}"
 #: ../skins/Poi/poi_issue_view.pt:134
-#, fuzzy
 msgid "poi_last_modified_on"
 msgstr "Dernière modification sur ${DYNAMIC_CONTENT}"
 
 #. Default: "Last modified on ${modification_time} by ${modification_actor}"
 #: ../skins/Poi/poi_issue_view.pt:128
-#, fuzzy
 msgid "poi_last_modified_on_by"
 msgstr "Dernière modification sur ${DYNAMIC_CONTENT} par ${DYNAMIC_CONTENT}"
 
@@ -874,18 +871,17 @@ msgstr "Nouveau ticket ${name} ajouté par ${author}"
 #. Default: "${author} added a new response to ${name}:"
 #: ../browser/log.pt:40
 msgid "poi_new_response_added"
-msgstr ""
+msgstr "Nouvelle réponse ${author} ajoutée par ${name}"
 
 #. Default: "Return to search"
 #: ../skins/Poi/poi_issue_search.pt:36
-#, fuzzy
 msgid "poi_return_to_search"
 msgstr "Retour aux résultats de recherche"
 
 #. Default: "Return to search results"
 #: ../skins/Poi/poi_issue_view.pt:104
 msgid "poi_return_to_search_results"
-msgstr ""
+msgstr "Retour aux résultats de recherche"
 
 #. Default: "Return to tracker"
 #: ../skins/Poi/poi_issue_search_form.pt:19
