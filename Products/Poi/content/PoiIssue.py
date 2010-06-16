@@ -27,6 +27,8 @@
 __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
+import logging
+
 from AccessControl import ClassSecurityInfo
 from Acquisition import aq_chain
 
@@ -70,6 +72,8 @@ from Products.Poi.interfaces import IIssue
 from Products.Poi.interfaces import ITracker
 from Products.Poi import PoiMessageFactory as _
 from plone.memoize import instance
+
+logger = logging.getLogger('Poi')
 
 schema = Schema((
 
@@ -373,31 +377,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
 
     def getDefaultContactEmail(self):
         """Get the default email address, that of the creating user"""
-        portal_membership = getToolByName(self, 'portal_membership')
-        member = portal_membership.getAuthenticatedMember()
-        email = member.getProperty('email', '')
-        return email
-
-    def setContactEmail(self, value):
-        field = self.getField('contactEmail')
-        if field.get(self) == value:
-            # No change
-            return
-        field.set(self, value)
-        # Add to the watchers; but try to add the userid instead of
-        # the email.
-        if not value:
-            return
-        member_email = get_member_email()
-        if member_email == value:
-            # We can add the userid instead of the email.
-            portal_membership = getToolByName(self, 'portal_membership')
-            member = portal_membership.getAuthenticatedMember()
-            value = member.getId()
-        watchers = list(self.getWatchers())
-        if value not in watchers:
-            watchers.append(value)
-            self.setWatchers(tuple(watchers))
+        return get_member_email()
 
     def _renameAfterCreation(self, check_auto_id=False):
         parent = self.getTracker()

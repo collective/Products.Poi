@@ -2,9 +2,37 @@ import logging
 
 from Products.CMFCore.utils import getToolByName
 from collective.watcherlist.interfaces import IWatcherList
+from collective.watcherlist.utils import get_member_email
 from Products.Poi.interfaces import IIssue
 
 logger = logging.getLogger('Poi')
+
+
+def add_contact_to_issue_watchers(object, event=None):
+    """Add the contactEmail of the issue to the watchers.
+
+    Try to add the userid instead of the email.
+
+    Called when an issue has been initialized or edited.
+    """
+    value = object.getContactEmail()
+    logger.info('Calling add_contact_to_issue_watchers with value: %r', value)
+    if not value:
+        logger.info('No value; done.')
+        return
+    member_email = get_member_email()
+    if member_email == value:
+        logger.info('member email is value')
+        # We can add the userid instead of the email.
+        portal_membership = getToolByName(object, 'portal_membership')
+        member = portal_membership.getAuthenticatedMember()
+        value = member.getId()
+    watchers = list(object.getWatchers())
+    if value not in watchers:
+        logger.info('value not in watchers, so adding')
+        watchers.append(value)
+        object.setWatchers(tuple(watchers))
+    logger.info('done')
 
 
 def post_issue(object, event):
@@ -22,6 +50,7 @@ def post_issue(object, event):
     portal_membership = getToolByName(object, 'portal_membership')
     if portal_membership.isAnonymousUser():
         object.setCreators(('(anonymous)',))
+    add_contact_to_issue_watchers(object, event)
     portal_workflow = getToolByName(object, 'portal_workflow')
     portal_workflow.doActionFor(object, 'post')
 

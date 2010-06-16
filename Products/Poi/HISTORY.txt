@@ -5,6 +5,12 @@ Changelog for Poi
 2.0a2 (unreleased)
 ------------------
 
+- Instead of adding the contact email field of an issue to its
+  watchers field in the setContactEmail method, we now do that in an
+  event handler; this fixes a problem no watchers being set initially
+  when the contactEmail field remained at its default value.
+  [maurits]
+
 - Send parameter names in notifications
   [sargo]
 
