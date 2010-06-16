@@ -1,26 +1,20 @@
 <?xml version="1.0"?>
-<dc-workflow workflow_id="poi_issue_workflow"
-             title="Poi issue workflow" description=""
-             state_variable="review_state"
-             initial_state="new">
+<dc-workflow workflow_id="poi_issue_workflow" title="Poi issue workflow" description="" state_variable="review_state" initial_state="new" manager_bypass="False">
  <permission>Delete objects</permission>
  <permission>Modify portal content</permission>
  <permission>Poi: Modify issue state</permission>
- <state state_id="closed"
-        title="Tested and confirmed closed">
+ <state state_id="closed" title="Tested and confirmed closed">
   <exit-transition transition_id="open-closed"/>
   <permission-map name="Delete objects" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
-  <permission-map name="Modify portal content"
-                  acquired="True">
+  <permission-map name="Modify portal content" acquired="True">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
-  <permission-map name="Poi: Modify issue state"
-                  acquired="False">
+  <permission-map name="Poi: Modify issue state" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>TrackerManager</permission-role>
@@ -33,14 +27,12 @@
    <permission-role>Manager</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
-  <permission-map name="Modify portal content"
-                  acquired="True">
+  <permission-map name="Modify portal content" acquired="True">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
-  <permission-map name="Poi: Modify issue state"
-                  acquired="False">
+  <permission-map name="Poi: Modify issue state" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
@@ -53,15 +45,13 @@
    <permission-role>Owner</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
-  <permission-map name="Modify portal content"
-                  acquired="True">
+  <permission-map name="Modify portal content" acquired="True">
    <permission-role>Anonymous</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
-  <permission-map name="Poi: Modify issue state"
-                  acquired="False">
+  <permission-map name="Poi: Modify issue state" acquired="False">
    <permission-role>Anonymous</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
@@ -77,14 +67,12 @@
    <permission-role>Manager</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
-  <permission-map name="Modify portal content"
-                  acquired="True">
+  <permission-map name="Modify portal content" acquired="True">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
-  <permission-map name="Poi: Modify issue state"
-                  acquired="False">
+  <permission-map name="Poi: Modify issue state" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
@@ -96,14 +84,12 @@
    <permission-role>Manager</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
-  <permission-map name="Modify portal content"
-                  acquired="True">
+  <permission-map name="Modify portal content" acquired="True">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
-  <permission-map name="Poi: Modify issue state"
-                  acquired="False">
+  <permission-map name="Poi: Modify issue state" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
@@ -114,14 +100,12 @@
    <permission-role>Manager</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
-  <permission-map name="Modify portal content"
-                  acquired="True">
+  <permission-map name="Modify portal content" acquired="True">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
-  <permission-map name="Poi: Modify issue state"
-                  acquired="False">
+  <permission-map name="Poi: Modify issue state" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
@@ -133,14 +117,12 @@
    <permission-role>Manager</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
-  <permission-map name="Modify portal content"
-                  acquired="True">
+  <permission-map name="Modify portal content" acquired="True">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
-  <permission-map name="Poi: Modify issue state"
-                  acquired="False">
+  <permission-map name="Poi: Modify issue state" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>TrackerManager</permission-role>
@@ -155,193 +137,149 @@
    <permission-role>Manager</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
-  <permission-map name="Modify portal content"
-                  acquired="True">
+  <permission-map name="Modify portal content" acquired="True">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
-  <permission-map name="Poi: Modify issue state"
-                  acquired="False">
+  <permission-map name="Poi: Modify issue state" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
- <transition transition_id="accept-unconfirmed" title="Open"
-             new_state="open" trigger="USER"
-             before_script="" after_script="">
-  <action url="" category="workflow">Open</action>
+ <transition transition_id="accept-unconfirmed" title="Open" new_state="open" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow" icon="">Open</action>
   <guard>
    <guard-permission>Poi: Modify issue state</guard-permission>
   </guard>
  </transition>
- <transition transition_id="begin-open" title="Begin work"
-             new_state="in-progress" trigger="USER"
-             before_script="" after_script="">
-  <action url="" category="workflow">Begin work</action>
+ <transition transition_id="begin-open" title="Begin work" new_state="in-progress" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow" icon="">Begin work</action>
   <guard>
    <guard-permission>Poi: Modify issue state</guard-permission>
   </guard>
  </transition>
- <transition transition_id="confirm-resolved"
-             title="Confirm resolved" new_state="closed"
-             trigger="USER" before_script="" after_script="">
-  <action url="" category="workflow">Confirm resolved</action>
+ <transition transition_id="confirm-resolved" title="Confirm resolved" new_state="closed" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow" icon="">Confirm resolved</action>
   <guard>
    <guard-permission>Poi: Modify issue state</guard-permission>
   </guard>
  </transition>
- <transition transition_id="hold-open" title="Put on hold"
-             new_state="postponed" trigger="USER"
-             before_script="" after_script="">
-  <action url="" category="workflow">Put on hold</action>
+ <transition transition_id="hold-open" title="Put on hold" new_state="postponed" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow" icon="">Put on hold</action>
   <guard>
    <guard-permission>Poi: Modify issue state</guard-permission>
   </guard>
  </transition>
- <transition transition_id="open-closed" title="Re-open"
-             new_state="open" trigger="USER"
-             before_script="" after_script="">
-  <action url="" category="workflow">Re-open</action>
+ <transition transition_id="open-closed" title="Re-open" new_state="open" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow" icon="">Re-open</action>
   <guard>
    <guard-permission>Poi: Modify issue state</guard-permission>
   </guard>
  </transition>
- <transition transition_id="open-postponed" title="Re-open"
-             new_state="open" trigger="USER"
-             before_script="" after_script="">
-  <action url="" category="workflow">Re-open</action>
+ <transition transition_id="open-postponed" title="Re-open" new_state="open" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow" icon="">Re-open</action>
   <guard>
    <guard-permission>Poi: Modify issue state</guard-permission>
   </guard>
  </transition>
- <transition transition_id="open-rejected" title="Open"
-             new_state="open" trigger="USER"
-             before_script="" after_script="">
-  <action url="" category="workflow">Open</action>
+ <transition transition_id="open-rejected" title="Open" new_state="open" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow" icon="">Open</action>
   <guard>
    <guard-permission>Poi: Modify issue state</guard-permission>
   </guard>
  </transition>
- <transition transition_id="open-resolved" title="Re-open"
-             new_state="open" trigger="USER"
-             before_script="" after_script="">
-  <action url="" category="workflow">Re-open</action>
+ <transition transition_id="open-resolved" title="Re-open" new_state="open" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow" icon="">Re-open</action>
   <guard>
    <guard-permission>Poi: Modify issue state</guard-permission>
   </guard>
  </transition>
- <transition transition_id="post" title="Post issue on save"
-             new_state="unconfirmed" trigger="USER"
-             before_script=""
-             after_script="">
-  <action url="" category="workflow">Post issue on save</action>
+ <transition transition_id="post" title="Post issue on save" new_state="unconfirmed" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow" icon="">Post issue on save</action>
   <guard>
    <guard-expression>here/isValid</guard-expression>
   </guard>
  </transition>
- <transition transition_id="postpone" title="Postpone"
-             new_state="postponed" trigger="USER"
-             before_script="" after_script="">
-  <action url="" category="workflow">Postpone</action>
+ <transition transition_id="postpone" title="Postpone" new_state="postponed" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow" icon="">Postpone</action>
   <guard>
    <guard-permission>Poi: Modify issue state</guard-permission>
   </guard>
  </transition>
- <transition transition_id="postpone-unconfirmed"
-             title="Postpone" new_state="postponed"
-             trigger="USER" before_script="" after_script="">
-  <action url="" category="workflow">Postpone</action>
+ <transition transition_id="postpone-unconfirmed" title="Postpone" new_state="postponed" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow" icon="">Postpone</action>
   <guard>
    <guard-permission>Poi: Modify issue state</guard-permission>
   </guard>
  </transition>
- <transition transition_id="re-start" title="Begin work"
-             new_state="in-progress" trigger="USER"
-             before_script="" after_script="">
-  <action url="" category="workflow">Begin work</action>
+ <transition transition_id="re-start" title="Begin work" new_state="in-progress" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow" icon="">Begin work</action>
   <guard>
    <guard-permission>Poi: Modify issue state</guard-permission>
   </guard>
  </transition>
- <transition transition_id="reject-open" title="Reject"
-             new_state="rejected" trigger="USER"
-             before_script="" after_script="">
-  <action url="" category="workflow">Reject</action>
+ <transition transition_id="reject-open" title="Reject" new_state="rejected" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow" icon="">Reject</action>
   <guard>
    <guard-permission>Poi: Modify issue state</guard-permission>
   </guard>
  </transition>
- <transition transition_id="reject-unconfirmed"
-             title="Reject" new_state="rejected"
-             trigger="USER" before_script="" after_script="">
-  <action url="" category="workflow">Reject</action>
+ <transition transition_id="reject-unconfirmed" title="Reject" new_state="rejected" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow" icon="">Reject</action>
   <guard>
    <guard-permission>Poi: Modify issue state</guard-permission>
   </guard>
  </transition>
- <transition transition_id="resolve-in-progress"
-             title="Resolve" new_state="resolved"
-             trigger="USER" before_script=""
-             after_script="">
-  <action url="" category="workflow">Resolve</action>
+ <transition transition_id="resolve-in-progress" title="Resolve" new_state="resolved" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow" icon="">Resolve</action>
   <guard>
    <guard-permission>Poi: Modify issue state</guard-permission>
   </guard>
  </transition>
- <transition transition_id="resolve-open" title="Resolve"
-             new_state="resolved" trigger="USER"
-             before_script=""
-             after_script="">
-  <action url="" category="workflow">Resolve</action>
+ <transition transition_id="resolve-open" title="Resolve" new_state="resolved" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow" icon="">Resolve</action>
   <guard>
    <guard-permission>Poi: Modify issue state</guard-permission>
   </guard>
  </transition>
- <transition transition_id="resolve-unconfirmed"
-             title="Resolve immediately"
-             new_state="resolved" trigger="USER"
-             before_script="" after_script="">
-  <action url="" category="workflow">Resolve immediately</action>
+ <transition transition_id="resolve-unconfirmed" title="Resolve immediately" new_state="resolved" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow" icon="">Resolve immediately</action>
   <guard>
    <guard-permission>Poi: Modify issue state</guard-permission>
   </guard>
  </transition>
- <variable variable_id="action" for_catalog="False"
-           for_status="True" update_always="True">
+ <variable variable_id="action" for_catalog="False" for_status="True" update_always="True">
   <description>The last transition</description>
   <default>
-
+   
    <expression>transition/getId|nothing</expression>
   </default>
   <guard>
   </guard>
  </variable>
- <variable variable_id="actor" for_catalog="False"
-           for_status="True" update_always="True">
+ <variable variable_id="actor" for_catalog="False" for_status="True" update_always="True">
   <description>The ID of the user who performed the last transition</description>
   <default>
-
+   
    <expression>user/getId</expression>
   </default>
   <guard>
   </guard>
  </variable>
- <variable variable_id="comments" for_catalog="False"
-           for_status="True" update_always="True">
+ <variable variable_id="comments" for_catalog="False" for_status="True" update_always="True">
   <description>Comments about the last transition</description>
   <default>
-
+   
    <expression>python:state_change.kwargs.get('comment', '')</expression>
   </default>
   <guard>
   </guard>
  </variable>
- <variable variable_id="review_history" for_catalog="False"
-           for_status="False" update_always="False">
+ <variable variable_id="review_history" for_catalog="False" for_status="False" update_always="False">
   <description>Provides access to workflow history</description>
   <default>
-
+   
    <expression>state_change/getHistory</expression>
   </default>
   <guard>
@@ -349,11 +287,10 @@
    <guard-permission>Review portal content</guard-permission>
   </guard>
  </variable>
- <variable variable_id="time" for_catalog="False"
-           for_status="True" update_always="True">
+ <variable variable_id="time" for_catalog="False" for_status="True" update_always="True">
   <description>Time of the last transition</description>
   <default>
-
+   
    <expression>state_change/getDateTime</expression>
   </default>
   <guard>
