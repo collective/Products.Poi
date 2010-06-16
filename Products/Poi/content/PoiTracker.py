@@ -40,7 +40,6 @@ from Products.Poi import permissions
 from Products.DataGridField.DataGridWidget import DataGridWidget
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
-from AccessControl import Unauthorized
 from Products.CMFCore.utils import getToolByName
 
 from zope.interface import implements
@@ -339,8 +338,8 @@ class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
 
     security.declareProtected(permissions.ModifyPortalContent, 'setManagers')
     def setManagers(self, managers):
-        """
-        Set the list of tracker managers, and give them the Manager local role.
+        """Set the list of tracker managers, and give them the
+        TrackerManager local role.
         """
         field = self.getField('managers')
         currentManagers = field.get(self)
@@ -400,27 +399,5 @@ class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
         """The default list of managers should include the tracker owner"""
         return (self.Creator(), )
 
-    def _getMemberEmail(self, username, portal_membership=None):
-        """Query portal_membership to figure out the specified email address
-        for the given user (via the username parameter) or return None if none
-        is present.
-        """
-
-        if portal_membership is None:
-            portal_membership = getToolByName(self, 'portal_membership')
-
-        member = portal_membership.getMemberById(username)
-        if member is None:
-            return None
-
-        try:
-            email = member.getProperty('email')
-        except Unauthorized:
-            # this will happen if CMFMember is installed and the email
-            # property is protected via AT security
-            email = member.getField('email').getAccessor(member)()
-        return email
-
 
 atapi.registerType(PoiTracker, PROJECTNAME)
-# end of class PoiTracker
