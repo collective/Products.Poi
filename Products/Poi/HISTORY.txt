@@ -5,6 +5,9 @@ Changelog for Poi
 2.0a2 (unreleased)
 ------------------
 
+- Purge references to old workflow scripts in the poi_issue_workflow.
+  [Maurits]
+
 - Instead of adding the contact email field of an issue to its
   watchers field in the setContactEmail method, we now do that in an
   event handler; this fixes a problem no watchers being set initially

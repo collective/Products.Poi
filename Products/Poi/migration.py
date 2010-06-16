@@ -12,6 +12,7 @@ from Products.Poi.adapters import Response
 from Products.Poi.adapters import IResponseContainer
 from Products.Poi.browser.response import Create
 
+
 logger = logging.getLogger("Poi")
 PROFILE_ID = 'profile-Products.Poi:default'
 
@@ -349,3 +350,22 @@ def run_sharing_step(context):
 
 def run_types_step(context):
     context.runImportStepFromProfile(PROFILE_ID, 'typeinfo')
+
+
+def purge_workflow_scripts(context):
+    """Remove reference to old workflow scripts.
+
+    We used to have some external methods hooked up to the issue
+    workflow, but this is now done with events.  Having the scripts
+    mentioned in the ZMI does not seem to cause problems, but it is
+    cleaner to remove them, as we do not need them.  Also, a workflow
+    export and import would fail.
+    """
+    wf_tool = getToolByName(context, 'portal_workflow')
+    wf_id = 'poi_issue_workflow'
+    bad_scripts = ('sendInitialEmail', 'sendResolvedMail')
+    wf = wf_tool.getWorkflowById(wf_id)
+    for script_name in bad_scripts:
+        if script_name in wf.scripts.objectIds():
+            wf.scripts._delObject(script_name)
+            logger.info('Removed script %s from %s', script_name, wf_id)

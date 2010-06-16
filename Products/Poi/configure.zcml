@@ -188,4 +188,12 @@
       handler="Products.Poi.migration.run_types_step"
       profile="Products.Poi:default" />
 
+  <gs:upgradeStep
+      title="Purge workflow scripts"
+      description="Purge no longer existing workflow scripts from the issue workflow."
+      source="2000"
+      destination="2001"
+      handler="Products.Poi.migration.purge_workflow_scripts"
+      profile="Products.Poi:default" />
+
 </configure>
