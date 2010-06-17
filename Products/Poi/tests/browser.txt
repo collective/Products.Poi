@@ -211,10 +211,10 @@ We can toggle if we want to 'watch' this issue or not; meaning: do we
 want to receive emails or not.
 
     >>> issue.getWatchers()
-    ('maurits@vanrees.org',)
-    >>> browser.open(tracker.absolute_url() + '/1/@@toggle_watching')
-    >>> issue.getWatchers()
     ('maurits@vanrees.org', 'test_user_1_')
     >>> browser.open(tracker.absolute_url() + '/1/@@toggle_watching')
     >>> issue.getWatchers()
     ('maurits@vanrees.org',)
+    >>> browser.open(tracker.absolute_url() + '/1/@@toggle_watching')
+    >>> issue.getWatchers()
+    ('maurits@vanrees.org', 'test_user_1_')

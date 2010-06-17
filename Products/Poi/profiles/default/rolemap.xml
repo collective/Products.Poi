@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <rolemap>
   <roles>
+    <role name="Technician"/>
     <role name="TrackerManager"/>
   </roles>
   <permissions>
@@ -19,35 +20,43 @@
     </permission>
     <permission name="Poi: Edit response" acquire="True">
       <role name="Manager"/>
+      <role name="Technician"/>
       <role name="TrackerManager" />
     </permission>
     <permission name="Poi: Modify issue severity" acquire="True">
       <role name="Manager"/>
+      <role name="Technician"/>
       <role name="TrackerManager" />
     </permission>
     <permission name="Poi: Modify issue assignment" acquire="True">
       <role name="Manager"/>
+      <role name="Technician"/>
       <role name="TrackerManager" />
     </permission>
     <permission name="Poi: Modify issue state" acquire="True">
       <role name="Manager"/>
+      <role name="Technician"/>
       <role name="TrackerManager" />
     </permission>
     <permission name="Poi: Modify issue tags" acquire="True">
       <role name="Manager"/>
+      <role name="Technician"/>
       <role name="TrackerManager" />
     </permission>
     <permission name="Poi: Modify issue watchers" acquire="True">
       <role name="Manager"/>
+      <role name="Technician"/>
       <role name="TrackerManager" />
     </permission>
     <permission name="Poi: Modify issue target release" acquire="True">
       <role name="Manager"/>
+      <role name="Technician"/>
       <role name="TrackerManager" />
     </permission>
     <permission name="Poi: Upload attachment" acquire="True">
       <role name="Manager"/>
       <role name="Member" />
+      <role name="Technician"/>
       <role name="TrackerManager" />
     </permission>
   </permissions>

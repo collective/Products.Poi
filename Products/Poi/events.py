@@ -16,23 +16,68 @@ def add_contact_to_issue_watchers(object, event=None):
     Called when an issue has been initialized or edited.
     """
     value = object.getContactEmail()
-    logger.info('Calling add_contact_to_issue_watchers with value: %r', value)
     if not value:
-        logger.info('No value; done.')
         return
     member_email = get_member_email()
     if member_email == value:
-        logger.info('member email is value')
         # We can add the userid instead of the email.
         portal_membership = getToolByName(object, 'portal_membership')
         member = portal_membership.getAuthenticatedMember()
         value = member.getId()
     watchers = list(object.getWatchers())
-    if value not in watchers:
-        logger.info('value not in watchers, so adding')
-        watchers.append(value)
-        object.setWatchers(tuple(watchers))
-    logger.info('done')
+    if value in watchers:
+        return
+    logger.info('Adding contact %s to watchers of issue %r.', value, object)
+    watchers.append(value)
+    object.setWatchers(tuple(watchers))
+
+
+def add_manager_to_issue_watchers(object, event=None):
+    """Add manager to issue watchers.
+
+    Add the responsible manager (can be TrackerManager or Technician)
+    of the issue to the watchers.
+
+    It might make sense to only do this when the manager is a
+    Technician.  Some thoughts about this:
+
+    - It should not matter, as TrackerManagers currently cannot opt
+      out of receiving issue emails; but maybe that will change in the
+      future.
+
+    - But when a user is a TrackerManager, gets assigned an issue, and
+      is then made Technician instead, he should still be a watcher.
+
+    - But in any case, when a response is added to the issue, this
+      method will get called, so the currently responsible manager
+      will be added as watcher.
+
+    """
+    manager = object.getResponsibleManager()
+    if not manager or manager == '(UNASSIGNED)':
+        return
+    watchers = list(object.getWatchers())
+    if manager in watchers:
+        return
+    logger.info('Adding manager %s to watchers of issue %r.', manager, object)
+    watchers.append(manager)
+    object.setWatchers(tuple(watchers))
+
+
+def merge_response_changes_to_issue(issue):
+    """Update the issue with possible changes due to responses.
+
+    Responses can influence their issue in several ways:
+
+    - The text of the response should be added to the searchable text
+      of the issue.
+
+    - The responsible manager may have changed, so the watchers field
+      may need to be updated.
+    """
+    add_manager_to_issue_watchers(issue, event=None)
+    issue.reindexObject(idxs=['SearchableText'])
+    issue.notifyModified()
 
 
 def post_issue(object, event):
@@ -51,6 +96,7 @@ def post_issue(object, event):
     if portal_membership.isAnonymousUser():
         object.setCreators(('(anonymous)',))
     add_contact_to_issue_watchers(object, event)
+    add_manager_to_issue_watchers(object, event)
     portal_workflow = getToolByName(object, 'portal_workflow')
     portal_workflow.doActionFor(object, 'post')
 
@@ -75,19 +121,16 @@ def mail_issue_change(object, event):
 def removedResponse(object, event):
     issue = event.oldParent
     if IIssue.providedBy(issue):
-        issue.reindexObject(idxs=['SearchableText'])
-        issue.notifyModified()
+        merge_response_changes_to_issue(issue)
 
 
 def modifiedNewStyleResponse(object, event):
     """A response is modified or created so update its parent.
     """
-
     if len(event.descriptions) > 0:
         parent = event.descriptions[0]
         if IIssue.providedBy(parent):
-            parent.reindexObject(idxs=['SearchableText'])
-            parent.notifyModified()
+            merge_response_changes_to_issue(parent)
 
 
 def addedNewStyleResponse(object, event):
@@ -95,8 +138,7 @@ def addedNewStyleResponse(object, event):
     """
     issue = event.newParent
     if IIssue.providedBy(issue):
-        issue.reindexObject(idxs=['SearchableText'])
-        issue.notifyModified()
+        merge_response_changes_to_issue(issue)
         sendResponseNotificationMail(issue)
 
 

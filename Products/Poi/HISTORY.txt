@@ -5,6 +5,13 @@ Changelog for Poi
 2.0a2 (unreleased)
 ------------------
 
+- Added Technician role.  You can give a user this role by adding the
+  user id in the new 'technicians' field of a tracker.  Technicians
+  have slightly less permissions than TrackerManagers, and will only
+  get an email for issues that have been assigned to them (now or in
+  the past).
+  [maurits]
+
 - Purge references to old workflow scripts in the poi_issue_workflow.
   [Maurits]
 

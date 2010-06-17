@@ -16,6 +16,7 @@
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Add portal content" acquired="False">
@@ -34,10 +35,12 @@
   </permission-map>
   <permission-map name="Poi: Add Response" acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Edit response" acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="View" acquired="False">
@@ -45,6 +48,7 @@
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
@@ -57,6 +61,7 @@
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Add portal content" acquired="False">
@@ -64,6 +69,7 @@
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content" acquired="False">
@@ -76,6 +82,7 @@
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Add Response" acquired="False">
@@ -83,11 +90,13 @@
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Edit response" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="View" acquired="False">
@@ -95,6 +104,7 @@
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
@@ -109,12 +119,14 @@
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>Reader</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Add portal content" acquired="False">
    <permission-role>Contributor</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content" acquired="False">
@@ -127,17 +139,20 @@
    <permission-role>Contributor</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Add Response" acquired="False">
    <permission-role>Contributor</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Edit response" acquired="False">
    <permission-role>Editor</permission-role>
    <permission-role>Manager</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="View" acquired="False">
@@ -146,6 +161,7 @@
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>Reader</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
@@ -159,12 +175,14 @@
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Add portal content" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content" acquired="False">
@@ -176,17 +194,20 @@
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Add Response" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="Poi: Edit response" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
   <permission-map name="View" acquired="False">
@@ -194,6 +215,7 @@
    <permission-role>Manager</permission-role>
    <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>

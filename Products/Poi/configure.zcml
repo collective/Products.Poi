@@ -196,4 +196,20 @@
       handler="Products.Poi.migration.purge_workflow_scripts"
       profile="Products.Poi:default" />
 
+  <gs:upgradeStep
+      title="Run rolemap import step"
+      description="Apply our own rolemap.xml file."
+      source="2001"
+      destination="2002"
+      handler="Products.Poi.migration.run_rolemap_step"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Run workflow import step"
+      description="Apply our own workflow.xml file."
+      source="2002"
+      destination="2003"
+      handler="Products.Poi.migration.run_workflow_step"
+      profile="Products.Poi:default" />
+
 </configure>

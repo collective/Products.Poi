@@ -481,18 +481,34 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         field = tracker.getField('availableIssueTypes')
         return field.getAsDisplayList(tracker)
 
-    def getManagersVocab(self):
+    def getManagersVocab(self, strict=False):
         """
         Get the managers available as a DisplayList. The first item is 'None',
         with a key of '(UNASSIGNED)'.
+
+        Note, we now also allow Technicians here, unless we are called
+        with 'strict' is True.
         """
         tracker = self.getTracker()
-        items = tracker.getManagers()
         vocab = DisplayList()
         vocab.add('(UNASSIGNED)', _(u'None'))
-        for item in items:
+        for item in tracker.getManagers():
             vocab.add(item, item)
+        if not strict:
+            for item in tracker.getTechnicians():
+                vocab.add(item, item)
         return vocab
+
+    def getStrictManagersVocab(self):
+        """
+        Get the managers available as a DisplayList. The first item is 'None',
+        with a key of '(UNASSIGNED)'.
+
+        Note, this vocabulary is strictly for TrackerManagers, so not
+        for Technicians.  It is not actually used by default, but can
+        be handy for third parties.
+        """
+        return self.getManagersVocab(strict=True)
 
     security.declareProtected(permissions.View, 'getTagsVocab')
     def getTagsVocab(self):

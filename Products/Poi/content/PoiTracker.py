@@ -200,6 +200,20 @@ schema = atapi.Schema((
         default_method="getDefaultManagers"
     ),
 
+    atapi.LinesField(
+        name='technicians',
+        widget=atapi.LinesWidget(
+            label="Technicians",
+            description=("Enter the user ids of the users who will be "
+                         "responsible for solving the issues, one per line. "
+                         "Note that having only managers and no technicians "
+                         "is fine: managers can solve issues too."),
+            label_msgid='Poi_label_technicians',
+            description_msgid='Poi_help_technicians',
+            i18n_domain='Poi',
+        ),
+    ),
+
     atapi.BooleanField(
         name='sendNotificationEmails',
         default=True,
@@ -209,7 +223,8 @@ schema = atapi.Schema((
                          "each time a new issue or response is posted, and "
                          "issue submitters will receive an email when there "
                          "is a new response and when an issue has been "
-                         "resolved, awaiting confirmation."),
+                         "resolved, awaiting confirmation. Technicians will "
+                         "get an email when an issue is assigned to them."),
             label_msgid='Poi_label_sendNotificationEmails',
             description_msgid='Poi_help_sendNotificationEmails',
             i18n_domain='Poi',
@@ -336,38 +351,59 @@ class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
         """Explicitly disallow selection of a default-page."""
         return False
 
+    def _updateRolesField(self, field_name, new_values):
+        """Update the roles belonging to the field, and set the field value.
+
+        For the 'managers' field: set the list of tracker managers,
+        and give them the TrackerManager local role.
+
+        For the 'techniciancs' field: set the list of technicians, and
+        give them the Technician local role.
+
+        Also clean up old roles.
+        """
+        if field_name == 'managers':
+            role = 'TrackerManager'
+        elif field_name == 'technicians':
+            role = 'Technician'
+        else:
+            raise ValueError("Wrong tracker field name %s" % field_name)
+
+        field = self.getField(field_name)
+        current_values = field.get(self)
+        field.set(self, new_values)
+
+        to_remove = [m for m in current_values if m not in new_values]
+        to_add_or_keep = new_values
+        for user_id in to_remove:
+            local_roles = list(self.get_local_roles_for_userid(user_id))
+            if role in local_roles:
+                local_roles.remove(role)
+                # manage_setLocalRoles fails when called with zero roles.
+                if local_roles:
+                    self.manage_setLocalRoles(user_id, local_roles)
+                else:
+                    self.manage_delLocalRoles(to_remove)
+        for user_id in to_add_or_keep:
+            local_roles = list(self.get_local_roles_for_userid(user_id))
+            if not role in local_roles:
+                local_roles.append(role)
+                self.manage_setLocalRoles(user_id, local_roles)
+
     security.declareProtected(permissions.ModifyPortalContent, 'setManagers')
     def setManagers(self, managers):
         """Set the list of tracker managers, and give them the
         TrackerManager local role.
         """
-        field = self.getField('managers')
-        currentManagers = field.get(self)
-        field.set(self, managers)
+        self._updateRolesField('managers', managers)
 
-        toRemove = [m for m in currentManagers if m not in managers]
-        toAdd = [m for m in managers if m not in currentManagers]
-        toKeep = [m for m in managers if m in currentManagers]
-        for userId in toRemove:
-            local_roles = list(self.get_local_roles_for_userid(userId))
-            if 'TrackerManager' in local_roles:
-                local_roles.remove('TrackerManager')
-                if local_roles:
-                    # One or more roles must be given
-                    self.manage_setLocalRoles(userId, local_roles)
-                else:
-                    self.manage_delLocalRoles(toRemove)
-        for userId in toAdd:
-            local_roles = list(self.get_local_roles_for_userid(userId))
-            local_roles.append('TrackerManager')
-            self.manage_setLocalRoles(userId, local_roles)
-        # When creating a tracker as non-manager you used to become
-        # only Owner and not Manager, which is not what we want.
-        for userId in toKeep:
-            local_roles = list(self.get_local_roles_for_userid(userId))
-            if not 'TrackerManager' in local_roles:
-                local_roles.append('TrackerManager')
-                self.manage_setLocalRoles(userId, local_roles)
+    security.declareProtected(
+        permissions.ModifyPortalContent, 'setTechnicians')
+    def setTechnicians(self, technicians):
+        """Set the list of technicians, and give them the
+        Technician local role.
+        """
+        self._updateRolesField('technicians', technicians)
 
     security.declarePublic('getIssueWorkflowStates')
     def getIssueWorkflowStates(self):
@@ -381,19 +417,25 @@ class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
             vocab.add(id, state.title)
         return vocab.sortedByValue()
 
+    def _validate_user_ids(self, user_ids):
+        """Make sure the user ids are actual user ids"""
+        membership = getToolByName(self, 'portal_membership')
+        not_found = []
+        for user_id in user_ids:
+            member = membership.getMemberById(user_id)
+            if member is None:
+                not_found.append(user_id)
+        if not_found:
+            return "The following user ids could not be found: %s" % \
+                ','.join(not_found)
+
     def validate_managers(self, value):
         """Make sure issue tracker managers are actual user ids"""
-        membership = getToolByName(self, 'portal_membership')
-        notFound = []
-        for userId in value:
-            member = membership.getMemberById(userId)
-            if member is None:
-                notFound.append(userId)
-        if notFound:
-            return "The following user ids could not be found: %s" % \
-                ','.join(notFound)
-        else:
-            return None
+        return self._validate_user_ids(value)
+
+    def validate_technicians(self, value):
+        """Make sure issue technicians are actual user ids"""
+        return self._validate_user_ids(value)
 
     def getDefaultManagers(self):
         """The default list of managers should include the tracker owner"""
