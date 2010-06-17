@@ -274,3 +274,14 @@ msgstr ""
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
 msgid "Poi_help_svnurl"
 msgstr ""
+
+#. Default: "Technicians"
+# ./content/PoiTracker.py
+msgid "Poi_label_technicians"
+msgstr ""
+
+#. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
+# ./content/PoiTracker.py
+msgid "Poi_help_technicians"
+msgstr ""
+

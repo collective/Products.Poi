@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2010-02-27 00:48+0000\n"
+"POT-Creation-Date: 2010-06-17 00:20+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Kevin Deldycke <kevin@deldycke.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -63,7 +63,7 @@ msgstr "Aucune réponse n'est sélectionnée."
 msgid "No response text added and no issue changes made."
 msgstr "Aucun texte de réponse ajouté et aucune modification effectuée."
 
-#: ../content/PoiIssue.py:503
+#: ../content/PoiIssue.py:494
 msgid "None"
 msgstr "Aucun"
 
@@ -217,6 +217,11 @@ msgstr "Entrez s'il vous plaît l'Url vers le dépôt SVN correspondant, e.g.: h
 #. Default: "Release this issue is targetted to be fixed in"
 msgid "Poi_help_targetRelease"
 msgstr "Distribution cible de correction du ticket"
+
+# ./content/PoiTracker.py
+#. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
+msgid "Poi_help_technicians"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
@@ -384,6 +389,11 @@ msgstr "URL du SVN"
 #. Default: "Target release"
 msgid "Poi_label_targetRelease"
 msgstr "Distribution cible"
+
+# ./content/PoiTracker.py
+#. Default: "Technicians"
+msgid "Poi_label_technicians"
+msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Tracker name"
@@ -605,17 +615,17 @@ msgid "poi_all_pending_issues"
 msgstr "Tous les tickets en attente"
 
 #. Default: "An attachment has been added with id ${attachment_id}"
-#: ../browser/notifications.py:149
+#: ../browser/notifications.py:151
 msgid "poi_attachment_added"
 msgstr ""
 
 #. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
-#: ../browser/notifications.py:245
+#: ../browser/notifications.py:247
 msgid "poi_email_issue_resolved_subject_template"
 msgstr "[${tracker_title}] Ticket #${issue_id} résolu - ${issue_title}"
 
 #. Default: "The issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ../browser/notifications.py:215
+#: ../browser/notifications.py:217
 msgid "poi_email_issue_resolved_template"
 msgstr ""
 "Le ticket **${issue_title}** du gestionnaire **${tracker_title}**\n"
@@ -659,12 +669,12 @@ msgstr ""
 "* Ceci est un email automatique, merci de ne pas répondre - ${from_name}"
 
 #. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
-#: ../browser/notifications.py:188
+#: ../browser/notifications.py:190
 msgid "poi_email_new_response_subject_template"
 msgstr "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
 
 #. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ../browser/notifications.py:157
+#: ../browser/notifications.py:159
 msgid "poi_email_new_response_template"
 msgstr ""
 "Une nouvelle réponse à été donnée à propos du ticket **${issue_title}**\n"

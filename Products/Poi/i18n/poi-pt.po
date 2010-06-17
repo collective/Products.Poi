@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi 1.1.2\n"
-"POT-Creation-Date: 2010-02-27 00:48+0000\n"
+"POT-Creation-Date: 2010-06-17 00:20+0000\n"
 "PO-Revision-Date: 2008-11-19 17:32-0000\n"
 "Last-Translator: Nuno Cruz <nuno.cruz@inst-informatica.pt>\n"
 "Language-Team: NWEB <nwebmaster@inst-informatica.pt>\n"
@@ -61,7 +61,7 @@ msgstr ""
 msgid "No response text added and no issue changes made."
 msgstr ""
 
-#: ../content/PoiIssue.py:503
+#: ../content/PoiIssue.py:494
 msgid "None"
 msgstr ""
 
@@ -192,6 +192,11 @@ msgstr ""
 #. Default: "Release this issue is targetted to be fixed in"
 msgid "Poi_help_targetRelease"
 msgstr "Esta ocorrência será contemplada na versão"
+
+# ./content/PoiTracker.py
+#. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
+msgid "Poi_help_technicians"
+msgstr ""
 
 #. Default: "Enter a descriptive name for this tracker"
 msgid "Poi_help_tracker_title"
@@ -333,6 +338,11 @@ msgstr ""
 #. Default: "Target release"
 msgid "Poi_label_targetRelease"
 msgstr "Versão alvo"
+
+# ./content/PoiTracker.py
+#. Default: "Technicians"
+msgid "Poi_label_technicians"
+msgstr ""
 
 #. Default: "Tracker name"
 msgid "Poi_label_tracker_title"
@@ -552,17 +562,17 @@ msgid "poi_all_pending_issues"
 msgstr "Todas as ocorrências pendentes"
 
 #. Default: "An attachment has been added with id ${attachment_id}"
-#: ../browser/notifications.py:149
+#: ../browser/notifications.py:151
 msgid "poi_attachment_added"
 msgstr ""
 
 #. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
-#: ../browser/notifications.py:245
+#: ../browser/notifications.py:247
 msgid "poi_email_issue_resolved_subject_template"
 msgstr ""
 
 #. Default: "The issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ../browser/notifications.py:215
+#: ../browser/notifications.py:217
 msgid "poi_email_issue_resolved_template"
 msgstr ""
 
@@ -577,12 +587,12 @@ msgid "poi_email_new_issue_template"
 msgstr ""
 
 #. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
-#: ../browser/notifications.py:188
+#: ../browser/notifications.py:190
 msgid "poi_email_new_response_subject_template"
 msgstr ""
 
 #. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ../browser/notifications.py:157
+#: ../browser/notifications.py:159
 msgid "poi_email_new_response_template"
 msgstr ""
 

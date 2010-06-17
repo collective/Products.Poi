@@ -113,6 +113,9 @@ msgstr "Rejeté"
 msgid "Resolve"
 msgstr "Résoudre"
 
+msgid "Resolve immediately"
+msgstr "Résoudre immédiatement"
+
 msgid "Resolved"
 msgstr "Résolu"
 
@@ -129,5 +132,3 @@ msgstr "Testé et validé par les utilisateurs"
 msgid "Unconfirmed"
 msgstr "Non confirmé"
 
-msgid "Resolve immediately"
-msgstr "Résoudre immédiatement"

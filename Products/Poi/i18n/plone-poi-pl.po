@@ -110,6 +110,9 @@ msgstr "Odrzucone"
 msgid "Resolve"
 msgstr "Rozwiąż"
 
+msgid "Resolve immediately"
+msgstr ""
+
 msgid "Resolved"
 msgstr "Rozwiązane"
 

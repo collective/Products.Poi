@@ -111,6 +111,9 @@ msgstr "已拒绝"
 msgid "Resolve"
 msgstr "解决"
 
+msgid "Resolve immediately"
+msgstr ""
+
 msgid "Resolved"
 msgstr "已解决"
 

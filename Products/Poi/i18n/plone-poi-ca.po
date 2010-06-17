@@ -111,6 +111,9 @@ msgstr "Rebutjada"
 msgid "Resolve"
 msgstr "Resoldre"
 
+msgid "Resolve immediately"
+msgstr ""
+
 msgid "Resolved"
 msgstr "Resolta"
 

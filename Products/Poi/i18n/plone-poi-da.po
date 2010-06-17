@@ -111,6 +111,9 @@ msgstr "Afvist"
 msgid "Resolve"
 msgstr "Løs"
 
+msgid "Resolve immediately"
+msgstr ""
+
 msgid "Resolved"
 msgstr "Løst"
 

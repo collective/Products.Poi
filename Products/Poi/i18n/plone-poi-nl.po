@@ -112,6 +112,9 @@ msgstr "Afgekeurd"
 msgid "Resolve"
 msgstr "Los op"
 
+msgid "Resolve immediately"
+msgstr ""
+
 msgid "Resolved"
 msgstr "Opgelost"
 

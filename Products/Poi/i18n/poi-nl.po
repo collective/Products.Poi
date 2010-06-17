@@ -1,12 +1,12 @@
 # Dutch Poi translations
 # Translators:
 # Ralph Jacobs <ralph@fourdigits.nl>, 2008
-# Maurits van Rees <maurits@vanrees.org>, 2008-2009
+# Maurits van Rees <maurits@vanrees.org>, 2008-2010
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2010-02-27 00:48+0000\n"
-"PO-Revision-Date: 2010-02-27 01:51+0100\n"
+"POT-Creation-Date: 2010-06-17 00:20+0000\n"
+"PO-Revision-Date: 2010-06-17 02:23+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -61,7 +61,7 @@ msgstr "Geen reactie geselecteerd."
 msgid "No response text added and no issue changes made."
 msgstr "Geen tekst toegevoegd in deze reactie en geen wijzigingen aan de issue gemaakt."
 
-#: ../content/PoiIssue.py:503
+#: ../content/PoiIssue.py:494
 msgid "None"
 msgstr "Geen"
 
@@ -215,6 +215,11 @@ msgstr "Vul alstublieft de url in naar de relevante SVN repository, bijvoorbeeld
 #. Default: "Release this issue is targetted to be fixed in"
 msgid "Poi_help_targetRelease"
 msgstr "Release waarin het de bedoeling is om deze issue te fixen."
+
+# ./content/PoiTracker.py
+#. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
+msgid "Poi_help_technicians"
+msgstr "Geef de gebruiksnamen van gebruikers op die verantwoordelijk zijn voor het oplossen van de issues, een per regel. Merk op dat het prima is om alleen managers en geen technici te hebben: managers kunnen ook issues oplossen."
 
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
@@ -382,6 +387,11 @@ msgstr "Url naar subversion"
 #. Default: "Target release"
 msgid "Poi_label_targetRelease"
 msgstr "Doelrelease"
+
+# ./content/PoiTracker.py
+#. Default: "Technicians"
+msgid "Poi_label_technicians"
+msgstr "Technici"
 
 # ./content/PoiTracker.py
 #. Default: "Tracker name"
@@ -603,17 +613,17 @@ msgid "poi_all_pending_issues"
 msgstr "Alle openstaande issues"
 
 #. Default: "An attachment has been added with id ${attachment_id}"
-#: ../browser/notifications.py:149
+#: ../browser/notifications.py:151
 msgid "poi_attachment_added"
 msgstr "Een bijlage is toegevoegd met id ${attachment_id}"
 
 #. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
-#: ../browser/notifications.py:245
+#: ../browser/notifications.py:247
 msgid "poi_email_issue_resolved_subject_template"
 msgstr "[${tracker_title}] #${issue_id} opgelost - ${issue_title}"
 
 #. Default: "The issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ../browser/notifications.py:215
+#: ../browser/notifications.py:217
 msgid "poi_email_issue_resolved_template"
 msgstr ""
 "Het issue **${issue_title}** in de **${tracker_title}**\n"
@@ -657,12 +667,12 @@ msgstr ""
 "* Dit is een automatische e-mail, gelieven niet de e-mail te beantwoorden - ${from_name}"
 
 #. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
-#: ../browser/notifications.py:188
+#: ../browser/notifications.py:190
 msgid "poi_email_new_response_subject_template"
 msgstr "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
 
 #. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ../browser/notifications.py:157
+#: ../browser/notifications.py:159
 msgid "poi_email_new_response_template"
 msgstr ""
 "Er is een nieuwe reactie gegeven op het issue **${issue_title}**\n"

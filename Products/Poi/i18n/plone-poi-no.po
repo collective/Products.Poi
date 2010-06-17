@@ -110,6 +110,9 @@ msgstr "Avvist"
 msgid "Resolve"
 msgstr "L‚àö‚àès"
 
+msgid "Resolve immediately"
+msgstr ""
+
 msgid "Resolved"
 msgstr "Løst"
 

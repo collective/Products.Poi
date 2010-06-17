@@ -109,6 +109,9 @@ msgstr "Rifiutato"
 msgid "Resolve"
 msgstr "Risolto"
 
+msgid "Resolve immediately"
+msgstr ""
+
 msgid "Resolved"
 msgstr "Risolto"
 
