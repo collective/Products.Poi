@@ -43,9 +43,3 @@ General:
 
     o Move completely from i18n to locales?  Not sure if this is
         needed/useful.  [maurits]
-
-    o Add Technician role:
-
-      - assign issues to managers or technicians (see getManagersVocab)
-
-      - initially only send email to managers, not to technicians
