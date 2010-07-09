@@ -82,232 +82,236 @@ schema = Schema((
         widget=StringWidget(
             visible={'view': 'invisible', 'edit': 'visible'},
             modes=('view', ),
-            label='Id',
-            label_msgid='Poi_label_id',
-            i18n_domain='Poi',
-        ),
+            label=_(u'Poi_label_issue_id',
+                    default=u'Id'),
+            ),
         mode="r"
-    ),
+        ),
 
     StringField(
         name='title',
         widget=StringWidget(
-            label="Title",
-            description=("Enter a short, descriptive title for the issue. "
-                         "A good title will make it easier for project "
-                         "managers to identify and respond to the issue."),
-            label_msgid="Poi_label_issue_title",
-            description_msgid="Poi_help_issue_title",
-            i18n_domain='Poi',
-        ),
+            label=_(u"Poi_label_issue_title",
+                    default=u"Title"),
+            description=_(
+                    u'Poi_help_issue_title',
+                    default=(
+                        u"Enter a short, descriptive title for the issue. "
+                        u"A good title will make it easier for project "
+                        u"managers to identify and respond to the issue.")),
+            ),
         required=True,
         accessor="Title",
         searchable=True
-    ),
+        ),
 
     StringField(
         name='release',
         default="(UNASSIGNED)",
         index="FieldIndex:schema",
         widget=SelectionWidget(
-            label="Version",
-            description="Select the version the issue was found in.",
+            label=_(u'Poi_label_release',
+                    default=u"Version"),
+            description=_(u'Poi_help_release',
+                          default=(
+                        u"Select the version the issue was found in.")),
             condition="object/isUsingReleases",
-            label_msgid='Poi_label_release',
-            description_msgid='Poi_help_release',
-            i18n_domain='Poi',
-        ),
+            ),
         required=True,
         vocabulary='getReleasesVocab'
-    ),
+        ),
 
     TextField(
         name='details',
         allowable_content_types=ISSUE_MIME_TYPES,
         widget=RichWidget(
-            label="Details",
-            description="Please provide further details",
+            label=_(u'Poi_label_details',
+                    default=u"Details"),
+            description=_(u'Poi_help_details',
+                          default=u"Please provide further details"),
             rows=15,
             allow_file_upload=False,
-            label_msgid='Poi_label_details',
-            description_msgid='Poi_help_details',
-            i18n_domain='Poi',
-        ),
+            ),
         required=True,
         default_content_type=DEFAULT_ISSUE_MIME_TYPE,
         searchable=True,
         default_output_type="text/html"
-    ),
+        ),
 
     TextField(
         name='steps',
         allowable_content_types=ISSUE_MIME_TYPES,
         widget=RichWidget(
-            label="Steps to reproduce",
-            description=("If applicable, please provide the steps to "
-                         "reproduce the error or identify the issue, one per "
-                         "line."),
+            label=_(u'Poi_label_steps',
+                    default=u"Steps to reproduce"),
+            description=_(
+                    u'Poi_help_steps',
+                    default=(
+                        u"If applicable, please provide the steps to "
+                        u"reproduce the error or identify the issue, one per "
+                        u"line.")),
             rows=6,
             allow_file_upload=False,
-            label_msgid='Poi_label_steps',
-            description_msgid='Poi_help_steps',
-            i18n_domain='Poi',
-        ),
+            ),
         default_output_type="text/html",
         default_content_type=DEFAULT_ISSUE_MIME_TYPE,
         searchable=True
-    ),
+        ),
 
     FileField(
         name='attachment',
         widget=FileWidget(
-            label="Attachment",
-            description=("You may optionally upload a file attachment. Please "
-                         "do not upload unnecessarily large files."),
-            label_msgid='Poi_label_attachment',
-            description_msgid='Poi_help_attachment',
-            i18n_domain='Poi',
-        ),
+            label=_(u'Poi_label_attachment',
+                    default=u"Attachment"),
+            description=_(
+                    u'Poi_help_attachment',
+                    default=(
+                        u"You may optionally upload a file attachment. Please "
+                        u"do not upload unnecessarily large files.")),
+            ),
         storage=AttributeStorage(),
         write_permission=permissions.UploadAttachment
-    ),
+        ),
 
     StringField(
         name='area',
         index="FieldIndex:schema",
         widget=SelectionWidget(
-            label="Area",
-            description="Select the area this issue is relevant to.",
-            label_msgid='Poi_label_area',
-            description_msgid='Poi_help_area',
-            i18n_domain='Poi',
-        ),
+            label=_(u'Poi_label_area',
+                    default=u"Area"),
+            description=_(
+                    u'Poi_help_area',
+                    default=u"Select the area this issue is relevant to."),
+            ),
         enforceVocabulary=True,
         default_method='getDefaultArea',
         vocabulary='getAreasVocab',
         required=True
-    ),
+        ),
 
     StringField(
         name='issueType',
         index="FieldIndex:schema",
         widget=SelectionWidget(
-            label="Issue type",
-            description="Select the type of issue.",
-            label_msgid='Poi_label_issueType',
-            description_msgid='Poi_help_issueType',
-            i18n_domain='Poi',
-        ),
+            label=_(u'Poi_label_issueType',
+                    default=u"Issue type"),
+            description=_(
+                    u'Poi_help_issueType',
+                    default=u"Select the type of issue."),
+            ),
         enforceVocabulary=True,
         default_method='getDefaultIssueType',
         vocabulary='getIssueTypesVocab',
         required=True
-    ),
+        ),
 
     StringField(
         name='severity',
         index="FieldIndex:schema",
         widget=SelectionWidget(
-            label="Severity",
-            description="Select the severity of this issue.",
+            label=_(u'Poi_label_severity',
+                    default=u"Severity"),
+            description=_(
+                    u'Poi_help_severity',
+                    default=u"Select the severity of this issue."),
             format="radio",
-            label_msgid='Poi_label_severity',
-            description_msgid='Poi_help_severity',
-            i18n_domain='Poi',
-        ),
+            ),
         vocabulary='getAvailableSeverities',
         default_method='getDefaultSeverity',
         required=True,
         write_permission=permissions.ModifyIssueSeverity
-    ),
+        ),
 
     StringField(
         name='targetRelease',
         index="FieldIndex:schema",
         widget=SelectionWidget(
-            label="Target release",
-            description="Release this issue is targetted to be fixed in",
+            label=_(u'Poi_label_targetRelease',
+                    default=u"Target release"),
+            description=_(
+                    u'Poi_help_targetRelease',
+                    default=u"Release this issue is targetted to be fixed in"),
             condition="object/isUsingReleases",
-            label_msgid='Poi_label_targetRelease',
-            description_msgid='Poi_help_targetRelease',
-            i18n_domain='Poi',
-        ),
+            ),
         vocabulary='getReleasesVocab',
         default="(UNASSIGNED)",
         required=True,
         write_permission=permissions.ModifyIssueTargetRelease
-    ),
+        ),
 
     StringField(
         name='responsibleManager',
         index="FieldIndex:schema",
         widget=SelectionWidget(
-            label="Responsible",
-            description=("Select which manager, if any, is responsible for "
-                         "this issue."),
-            label_msgid='Poi_label_responsibleManager',
-            description_msgid='Poi_help_responsibleManager',
-            i18n_domain='Poi',
-        ),
+            label=_(u'Poi_label_responsibleManager',
+                    default=u"Responsible"),
+            description=_(
+                    u'Poi_help_responsibleManager',
+                    default=(
+                        u"Select which manager, if any, is responsible for "
+                        u"this issue.")),
+            ),
         vocabulary='getManagersVocab',
         default="(UNASSIGNED)",
         required=True,
         write_permission=permissions.ModifyIssueAssignment
-    ),
+        ),
 
     StringField(
         name='contactEmail',
         validators=('isEmail', ),
         widget=StringWidget(
-            label="Contact email address",
-            description=("Please provide an email address where you can be "
-                         "contacted for further information or when a "
-                         "resolution is available. Note that your email "
-                         "address will not be displayed to others."),
-            label_msgid='Poi_label_contactEmail',
-            description_msgid='Poi_help_contactEmail',
-            i18n_domain='Poi',
-        ),
+            label=_(u'Poi_label_contactEmail',
+                    default=u"Contact email address"),
+            description=_(
+                    u'Poi_help_contactEmail',
+                    default=(
+                        u"Please provide an email address where you can be "
+                        u"contacted for further information or when a "
+                        u"resolution is available. Note that your email "
+                        u"address will not be displayed to others.")),
+            ),
         required=False,
         default_method='getDefaultContactEmail'
-    ),
+        ),
 
     LinesField(
         name='watchers',
         widget=LinesWidget(
-            label="Issue watchers",
-            description=("Enter the user names of members who are watching "
-                         "this issue, one per line. These members will "
-                         "receive an email when a response is added to the "
-                         "issue. Members can also add themselves as "
-                         "watchers."),
-            label_msgid='Poi_label_watchers',
-            description_msgid='Poi_help_watchers',
-            i18n_domain='Poi',
-        ),
+            label=_(u'Poi_label_watchers',
+                    default=u"Issue watchers"),
+            description=_(
+                    u'Poi_help_watchers',
+                    default=(
+                        u"Enter the user names of members who are watching "
+                        u"this issue, one per line. These members will "
+                        u"receive an email when a response is added to the "
+                        u"issue. Members can also add themselves as "
+                        u"watchers.")),
+            ),
         write_permission=permissions.ModifyIssueWatchers
-    ),
+        ),
 
     LinesField(
         name='subject',
         widget=AddRemoveWidget(
-            label="Tags",
-            description=("Tags can be used to add arbitrary categorisation to "
-                         "issues. The list below shows existing tags which "
-                         "you can select, or you can add new ones."),
-            label_msgid='Poi_label_subject',
-            description_msgid='Poi_help_subject',
-            i18n_domain='Poi',
-        ),
+            label=_(u'Poi_label_subject',
+                    default=u"Tags"),
+            description=_(
+                    u'Poi_help_subject',
+                    default=(
+                        u"Tags can be used to add arbitrary categorisation to "
+                        u"issues. The list below shows existing tags which "
+                        u"you can select, or you can add new ones.")),
+            ),
         searchable=True,
         vocabulary='getTagsVocab',
         enforceVocabulary=False,
         write_permission=permissions.ModifyIssueTags,
         accessor="Subject"
-    ),
+        ),
 
-),
-)
+))
 
 PoiIssue_schema = BaseFolderSchema.copy() + \
     schema.copy()

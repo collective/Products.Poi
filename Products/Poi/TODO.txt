@@ -38,8 +38,5 @@ User interface:
 
 General:
 
-    o Modernize i18n of the content type fields; current definition is
-        old style.  [maurits]
-
     o Move completely from i18n to locales?  Not sure if this is
         needed/useful.  [maurits]
