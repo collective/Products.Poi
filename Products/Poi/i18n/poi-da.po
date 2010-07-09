@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.1.2\n"
-"POT-Creation-Date: 2010-07-09 22:50+0000\n"
+"POT-Creation-Date: 2010-07-09 23:01+0000\n"
 "PO-Revision-Date: 2008-12-08 09:42+0100\n"
 "Last-Translator: Jonas Nielsen <jonas@magenta-aps.dk>\n"
 "Language-Team: DA\n"
@@ -146,7 +146,7 @@ msgid "Poi_help_issue_title"
 msgstr "Angiv en kort, beskrivende titel. En velvalgt titel vil gøre det nemmere at svare på sagen."
 
 # ./content/PoiTracker.py
-#. Default: "If given, and if \"Send notification emails\" is\nselected, an email will be sent to this address each time a new issue or\nresponse is posted. If no mailing list address is given, managers will\nreceive individual emails."
+#. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails."
 #: ../content/PoiTracker.py:243
 #, fuzzy
 msgid "Poi_help_mailingList"
@@ -220,8 +220,8 @@ msgstr "Hvis muligt, beskriv trinene, som er nødvendige for at reproducere fejl
 msgid "Poi_help_subject"
 msgstr "Etiketter kan bruges til at tilføje en selvvalgt kategorisering af sager. Listen nedenfor viser ekeisterende etiketter, du kan vælge, eller du kan addere nye."
 
-#. Default: "Please enter the Url to the related SVN repository,\ne.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the\nPlone collective."
-#: ../content/PoiTracker.py:259
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+#: ../content/PoiTracker.py:261
 #, fuzzy
 msgid "Poi_help_svnurl"
 msgstr "Indtast venligst URL'en til SVN-repositoriet, f.eks. http://dev.plone.org/collective/changeset/%(rev)s hvis det er et produkt i 'The Plone Collective'"
@@ -413,7 +413,7 @@ msgid "Poi_label_subject"
 msgstr "Etiketter"
 
 #. Default: "URL to SVN"
-#: ../content/PoiTracker.py:257
+#: ../content/PoiTracker.py:259
 msgid "Poi_label_svnurl"
 msgstr "URL til SVN"
 

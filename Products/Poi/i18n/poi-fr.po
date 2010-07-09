@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2010-07-09 22:50+0000\n"
+"POT-Creation-Date: 2010-07-09 23:01+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Kevin Deldycke <kevin@deldycke.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -148,7 +148,7 @@ msgid "Poi_help_issue_title"
 msgstr "Entrer un titre court et descriptif pour ce ticket. Un bon titre rendra plus facile pour les chefs de projets l'identification et pour réponse à ce ticket."
 
 # ./content/PoiTracker.py
-#. Default: "If given, and if \"Send notification emails\" is\nselected, an email will be sent to this address each time a new issue or\nresponse is posted. If no mailing list address is given, managers will\nreceive individual emails."
+#. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails."
 #: ../content/PoiTracker.py:243
 #, fuzzy
 msgid "Poi_help_mailingList"
@@ -223,8 +223,8 @@ msgid "Poi_help_subject"
 msgstr "Des étiquettes peuvent être employées pour ajouter une catégorisation arbitraire aux tickets. La liste ci dessous montre les étiquettes existantes que vous pouvez choisir, ou vous peut en ajouter des nouvelles."
 
 # ./content/PoiTracker.py
-#. Default: "Please enter the Url to the related SVN repository,\ne.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the\nPlone collective."
-#: ../content/PoiTracker.py:259
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+#: ../content/PoiTracker.py:261
 #, fuzzy
 msgid "Poi_help_svnurl"
 msgstr "Entrez s'il vous plaît l'Url vers le dépôt SVN correspondant, e.g.: http://dev.plone.org/collective/changeset/%(rev)s pour les Products de Plone collective."
@@ -419,7 +419,7 @@ msgstr "Étiquettes"
 
 # ./content/PoiTracker.py
 #. Default: "URL to SVN"
-#: ../content/PoiTracker.py:257
+#: ../content/PoiTracker.py:259
 msgid "Poi_label_svnurl"
 msgstr "URL du SVN"
 

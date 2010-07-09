@@ -242,10 +242,12 @@ schema = atapi.Schema((
                     default=u"Mailing list"),
             description=_(
                     u'Poi_help_mailingList',
-                    default=u"""If given, and if "Send notification emails" is
-selected, an email will be sent to this address each time a new issue or
-response is posted. If no mailing list address is given, managers will
-receive individual emails."""),
+                    default=(
+                        u"If given, and if 'Send notification emails' is "
+                        u"selected, an email will be sent to this address "
+                        u"each time a new issue or response is posted. If no "
+                        u"mailing list address is given, managers will "
+                        u"receive individual emails.")),
             ),
         required=False,
         validators=('isEmail',)
@@ -258,9 +260,11 @@ receive individual emails."""),
                     default=u"URL to SVN"),
             description=_(
                     u'Poi_help_svnurl',
-                    default=u"""Please enter the Url to the related SVN repository,
-e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the
-Plone collective."""),
+                    default=(
+                        u"Please enter the Url to the related SVN repository, "
+                        u"e.g.: "
+                        u"http://dev.plone.org/collective/changeset/%(rev)s "
+                        u"for products in the Plone collective.")),
             size='90',
             ),
         required=False,

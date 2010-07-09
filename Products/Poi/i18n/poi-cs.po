@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2010-07-09 22:50+0000\n"
+"POT-Creation-Date: 2010-07-09 23:01+0000\n"
 "PO-Revision-Date: 2005-11-13 16:47 +0000\n"
 "Last-Translator: Lukas Zdych <lukas.zdych@corenet.cz>\n"
 "Language-Team: SureCase.org <www.surecase.org>\n"
@@ -144,7 +144,7 @@ msgid "Poi_help_issue_title"
 msgstr "Zadejte krátký, ale výstižný nadpis pro tuto úlohu. Dobrý nadpis usnadní správcům projektu rozpoznat a reagovat na tuto úlohu."
 
 # ./content/PoiTracker.py
-#. Default: "If given, and if \"Send notification emails\" is\nselected, an email will be sent to this address each time a new issue or\nresponse is posted. If no mailing list address is given, managers will\nreceive individual emails."
+#. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails."
 #: ../content/PoiTracker.py:243
 #, fuzzy
 msgid "Poi_help_mailingList"
@@ -219,8 +219,8 @@ msgid "Poi_help_subject"
 msgstr "Značky mohou být použity pro tvorbu libovolné kategorizace úloh. Níže uvedený seznam zobrazuje existující značky, které můžete vybrat nebo můžete přidat nové."
 
 # ./content/PoiTracker.py
-#. Default: "Please enter the Url to the related SVN repository,\ne.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the\nPlone collective."
-#: ../content/PoiTracker.py:259
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+#: ../content/PoiTracker.py:261
 msgid "Poi_help_svnurl"
 msgstr ""
 
@@ -413,7 +413,7 @@ msgstr "Značky"
 
 # ./content/PoiTracker.py
 #. Default: "URL to SVN"
-#: ../content/PoiTracker.py:257
+#: ../content/PoiTracker.py:259
 msgid "Poi_label_svnurl"
 msgstr ""
 
