@@ -13,7 +13,7 @@
 # - Problems?  Ask for help on the internationalization forum:
 #   http://www.nabble.com/Internationalization-f6748.html
 
-i18ndude rebuild-pot --pot poi.pot --create Poi --merge poi-manual.pot --exclude="poi-my-issues-rss.xml.pt poi-orphaned-issues-rss.xml.pt poi-issue-search-rss.xml.pt" ../
+i18ndude rebuild-pot --pot poi.pot --create Poi --exclude="poi-my-issues-rss.xml.pt poi-orphaned-issues-rss.xml.pt poi-issue-search-rss.xml.pt" ../
 
 i18ndude sync --pot plone-poi.pot `find . -iregex '.*plone-.*\.po$'`
 
