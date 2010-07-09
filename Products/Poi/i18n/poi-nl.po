@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2010-07-09 22:50+0000\n"
-"PO-Revision-Date: 2010-06-17 02:23+0200\n"
+"PO-Revision-Date: 2010-07-10 00:57+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -78,21 +78,18 @@ msgstr "U kan optioneel een bijlage (bestand) uploaden. Alstublieft geen onnodig
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker."
 #: ../content/PoiTracker.py:112
-#, fuzzy
 msgid "Poi_help_availableAreas"
-msgstr "Geef de issue onderwerpen/gebieden op voor deze tracker, een specificatie per regel. Het formaat is \"Korte naam | Titel | Omschrijving \"."
+msgstr "Geef de issue onderwerpen/gebieden op voor deze tracker."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker."
 #: ../content/PoiTracker.py:137
-#, fuzzy
 msgid "Poi_help_availableIssueTypes"
-msgstr "Geef de issue types op voor deze tracks, een specificatie per regel. Het formaat is \"Korte naam | Titel | Omschrijving \"."
+msgstr "Geef de issue types op voor deze tracker."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release."
 #: ../content/PoiTracker.py:181
-#, fuzzy
 msgid "Poi_help_availableReleases"
 msgstr "Geef op aan welke releases de issues gekoppeld kunnen worden, een per regel. Als er geen releases zijn ingevoerd, kunnen de issues niet per release gecategorizeerd worden"
 
@@ -105,9 +102,8 @@ msgstr "Geef de verschillende types van issue prioriteiten op die beschikbaar mo
 # ./content/PoiIssue.py
 #. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
 #: ../content/PoiIssue.py:266
-#, fuzzy
 msgid "Poi_help_contactEmail"
-msgstr "Optioneel, geef een e-mailadres op, waar de voortgang van de issue gemeld kan worden."
+msgstr "Optioneel, geef een e-mailadres op, waar de voortgang van de issue gemeld kan worden. Merk op dat dit emailadres niet aan anderen getoond zal worden."
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
@@ -179,9 +175,8 @@ msgstr "Geef de doelrelease op voor deze issue"
 # ./content/PoiIssue.py
 #. Default: "Select the version the issue was found in."
 #: ../content/PoiIssue.py:115
-#, fuzzy
 msgid "Poi_help_release"
-msgstr "Selecteer de release waar deze issue op van toepassing is."
+msgstr "Selecteer de versie waar deze issue op van toepassing is."
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
@@ -198,9 +193,8 @@ msgstr "Selecteer welke manager, als er een is, verantwoordelijk is voor deze is
 # ./content/PoiTracker.py
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
 #: ../content/PoiTracker.py:226
-#, fuzzy
 msgid "Poi_help_sendNotificationEmails"
-msgstr "Indien geselecteerd, tracker manager krijgen een e-mail elke keer een nieuwe issue of reactie is geplaatst. Issue toevoegers ontvangen een e-mail als er een nieuwe reactie is geplaatst of een issue is opgelost."
+msgstr "Indien geselecteerd, krijgen tracker managers een e-mail elke keer als een nieuwe issue of reactie is geplaatst. Issue toevoegers ontvangen een e-mail als er een nieuwe reactie is geplaatst of een issue is opgelost. Technici krijgen een e-mail als een issue aan hen is toegekend."
 
 # ./content/PoiIssue.py
 #. Default: "Select the severity of this issue."
@@ -223,7 +217,6 @@ msgstr "Tags kunnen gebruikt worden om extra categorizatie toe te voegen aan iss
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository,\ne.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the\nPlone collective."
 #: ../content/PoiTracker.py:259
-#, fuzzy
 msgid "Poi_help_svnurl"
 msgstr "Vul alstublieft de url in naar de relevante SVN repository, bijvoorbeeld http://dev.plone.org/collective/changeset/%(rev)s voor producten in de Plone collective."
 
@@ -314,9 +307,8 @@ msgstr "Details"
 # ./content/PoiTracker.py
 #. Default: "Help text"
 #: ../content/PoiTracker.py:86
-#, fuzzy
 msgid "Poi_label_helpText"
-msgstr "Help tekst"
+msgstr "Helptekst"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
@@ -374,9 +366,8 @@ msgstr "Verander doelrelease"
 # ./content/PoiIssue.py
 #. Default: "Version"
 #: ../content/PoiIssue.py:113
-#, fuzzy
 msgid "Poi_label_release"
-msgstr "Release"
+msgstr "Versie"
 
 # ./content/PoiIssue.py
 #. Default: "Response"
