@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2010-07-09 22:41+0000\n"
+"POT-Creation-Date: 2010-07-09 22:50+0000\n"
 "PO-Revision-Date: 2005-12-26 03:19 +0000\n"
 "Last-Translator: Junyong Pan <panjy@zopechina.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,9 +16,6 @@ msgstr ""
 "Preferred-Encodings: utf-8\n"
 "Domain: Poi\n"
 "X-Is-Fallback-For: zh-cn zh-hk zh-mo zh-sg\n"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr ""
 
 #: ../browser/response.py:498
 msgid "Changes saved to response id ${response_id}."
@@ -118,11 +115,6 @@ msgid "Poi_help_defaultSeverity"
 msgstr "选择问题的默认严重性"
 
 # ./content/PoiIssue.py
-#. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
-msgid "Poi_help_description"
-msgstr "输入一个问题的简短描述。附加在标题后面，一个简短、有意义的描述将方便项目管理人员评估和响应这个问题。"
-
-# ./content/PoiIssue.py
 #. Default: "Please provide further details"
 #: ../content/PoiIssue.py:130
 msgid "Poi_help_details"
@@ -195,11 +187,6 @@ msgstr "选择这个问题属于的版本。"
 #: ../browser/response.pt:108
 msgid "Poi_help_response"
 msgstr "请在下面填写答复"
-
-# ./content/PoiIssue.py
-#. Default: "Enter a brief subject for this response, e.g. \"Fixed\" or \"Will be fixed in next release\".""
-msgid "Poi_help_response_title"
-msgstr "为这个答复填写一个简短的标题，如“解决”或者“下个版本解决”。"
 
 # ./content/PoiIssue.py
 #. Default: "Select which manager, if any, is responsible for this issue."
@@ -317,12 +304,6 @@ msgid "Poi_label_defaultSeverity"
 msgstr "默认严重性"
 
 # ./content/PoiIssue.py
-#. Default: "Tracker description"
-#, fuzzy
-msgid "Poi_label_description"
-msgstr "概述"
-
-# ./content/PoiIssue.py
 #. Default: "Details"
 #: ../content/PoiIssue.py:128
 msgid "Poi_label_details"
@@ -333,11 +314,6 @@ msgstr "详细说明"
 #: ../content/PoiTracker.py:86
 msgid "Poi_label_helpText"
 msgstr ""
-
-# ./content/PoiIssue.py
-#. Default: "Id"
-msgid "Poi_label_id"
-msgstr "代号"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
@@ -405,11 +381,6 @@ msgstr "版本"
 #: ../browser/response.pt:105
 msgid "Poi_label_response"
 msgstr "答复"
-
-# ./content/PoiIssue.py
-#. Default: "Subject"
-msgid "Poi_label_response_title"
-msgstr "主题"
 
 # ./content/PoiIssue.py
 #. Default: "Responsible"

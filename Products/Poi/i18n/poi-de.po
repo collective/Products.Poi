@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2010-07-09 22:41+0000\n"
+"POT-Creation-Date: 2010-07-09 22:50+0000\n"
 "PO-Revision-Date: 2010-01-19 18:19 +0200\n"
 "Last-Translator: Ida Ebkes <ida.ebkes@veit-schiele.de>\n"
 "Language-Team: DE <de@li.org>\n"
@@ -15,9 +15,6 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: Poi\n"
 "X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Eine Problemstellung. Problemstellungen beginnen im Status 'nicht bestätigt' und können nur von Projektmanagern beantwortet werden."
 
 #: ../browser/response.py:498
 msgid "Changes saved to response id ${response_id}."
@@ -117,11 +114,6 @@ msgid "Poi_help_defaultSeverity"
 msgstr "Wählen sie eine Gewichtung, die als Vorgabe verwendet werden soll."
 
 # ./content/PoiIssue.py
-#. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
-msgid "Poi_help_description"
-msgstr "Geben Sie einen groben Überblick der Problemstellung. Zusammen mit dem Titel soll dieser eine aussagekräftige Beschreibung sein, die es Projektmanagern einfacher macht Problemstellungen einzuschätzen und zu beantworten."
-
-# ./content/PoiIssue.py
 #. Default: "Please provide further details"
 #: ../content/PoiIssue.py:130
 msgid "Poi_help_details"
@@ -194,11 +186,6 @@ msgstr "Wählen sie die von diesem Problem betroffene Version/ Ausgabe."
 #: ../browser/response.pt:108
 msgid "Poi_help_response"
 msgstr "Bitte geben sie unten ihre antwort an."
-
-# ./content/PoiIssue.py
-#. Default: "Enter a brief subject for this response, e.g. \"Fixed\" or \"Will be fixed in next release\".""
-msgid "Poi_help_response_title"
-msgstr "Geben Sie einen kurzen Betreff für diese Antwort an, z.B. 'Erledigt' oder 'Wird erst in der nächsten Version erledigt'."
 
 # ./content/PoiIssue.py
 #. Default: "Select which manager, if any, is responsible for this issue."
@@ -317,12 +304,6 @@ msgid "Poi_label_defaultSeverity"
 msgstr "Vorgabe für die Gewichtung"
 
 # ./content/PoiIssue.py
-#. Default: "Tracker description"
-#, fuzzy
-msgid "Poi_label_description"
-msgstr "Beschreibung des Trackers"
-
-# ./content/PoiIssue.py
 #. Default: "Details"
 #: ../content/PoiIssue.py:128
 msgid "Poi_label_details"
@@ -334,11 +315,6 @@ msgstr "Details"
 #, fuzzy
 msgid "Poi_label_helpText"
 msgstr "Hilfe Text"
-
-# ./content/PoiIssue.py
-#. Default: "Id"
-msgid "Poi_label_id"
-msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
@@ -406,11 +382,6 @@ msgstr "Ausgabe/ Version"
 #: ../browser/response.pt:105
 msgid "Poi_label_response"
 msgstr "Antwort"
-
-# ./content/PoiIssue.py
-#. Default: "Subject"
-msgid "Poi_label_response_title"
-msgstr "Betreff"
 
 # ./content/PoiIssue.py
 #. Default: "Responsible"

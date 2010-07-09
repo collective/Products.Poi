@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2010-07-09 22:41+0000\n"
+"POT-Creation-Date: 2010-07-09 22:50+0000\n"
 "PO-Revision-Date: 2006-01-22 18:00+0900\n"
 "Last-Translator: TANIGUCHI Takaki <takaki@asis.media-as.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,9 +15,6 @@ msgstr ""
 "Language-Name: Japanese\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: Poi\n"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr ""
 
 #: ../browser/response.py:498
 msgid "Changes saved to response id ${response_id}."
@@ -117,11 +114,6 @@ msgid "Poi_help_defaultSeverity"
 msgstr "新規の課題のデフォルトの重要度を選択して下さい。"
 
 # ./content/PoiIssue.py
-#. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
-msgid "Poi_help_description"
-msgstr "課題の説明の概略を入力して下さい。タイトルと共に，簡明でわかりやすい記述はプロジェクトマネージャーが課題を評価または対応することを容易にします。"
-
-# ./content/PoiIssue.py
 #. Default: "Please provide further details"
 #: ../content/PoiIssue.py:130
 msgid "Poi_help_details"
@@ -194,11 +186,6 @@ msgstr "この課題に関連するリリースを選択して下さい。"
 #: ../browser/response.pt:108
 msgid "Poi_help_response"
 msgstr "対応を入力して下さい"
-
-# ./content/PoiIssue.py
-#. Default: "Enter a brief subject for this response, e.g. \"Fixed\" or \"Will be fixed in next release\".""
-msgid "Poi_help_response_title"
-msgstr "対応の簡略な表題を入力して下さい，例えば「修正済」や「次リリースで修正」などです。"
 
 # ./content/PoiIssue.py
 #. Default: "Select which manager, if any, is responsible for this issue."
@@ -316,12 +303,6 @@ msgid "Poi_label_defaultSeverity"
 msgstr "デフォルトの重要度"
 
 # ./content/PoiIssue.py
-#. Default: "Tracker description"
-#, fuzzy
-msgid "Poi_label_description"
-msgstr "概観"
-
-# ./content/PoiIssue.py
 #. Default: "Details"
 #: ../content/PoiIssue.py:128
 msgid "Poi_label_details"
@@ -332,11 +313,6 @@ msgstr "詳細"
 #: ../content/PoiTracker.py:86
 msgid "Poi_label_helpText"
 msgstr ""
-
-# ./content/PoiIssue.py
-#. Default: "Id"
-msgid "Poi_label_id"
-msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
@@ -404,11 +380,6 @@ msgstr "リリース"
 #: ../browser/response.pt:105
 msgid "Poi_label_response"
 msgstr "対応"
-
-# ./content/PoiIssue.py
-#. Default: "Subject"
-msgid "Poi_label_response_title"
-msgstr "題目"
 
 # ./content/PoiIssue.py
 #. Default: "Responsible"

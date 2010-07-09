@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2010-07-09 22:41+0000\n"
+"POT-Creation-Date: 2010-07-09 22:50+0000\n"
 "PO-Revision-Date: 2005-11-13 16:47 +0000\n"
 "Last-Translator: Lukas Zdych <lukas.zdych@corenet.cz>\n"
 "Language-Team: SureCase.org <www.surecase.org>\n"
@@ -15,9 +15,6 @@ msgstr ""
 "Language-Name: Czech\n"
 "Preferred-Encodings: utf-8 latin2\n"
 "Domain: Poi\n"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr ""
 
 #: ../browser/response.py:498
 msgid "Changes saved to response id ${response_id}."
@@ -117,11 +114,6 @@ msgid "Poi_help_defaultSeverity"
 msgstr "Zvolte výchozí důležitost pro nové úlohy."
 
 # ./content/PoiIssue.py
-#. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
-msgid "Poi_help_description"
-msgstr "Zadejte stručný popis úlohy. Spolu s nadpisem a smysluplným popisem bude pro správce projektu snažší pochopit a případně vyřešit úlohu."
-
-# ./content/PoiIssue.py
 #. Default: "Please provide further details"
 #: ../content/PoiIssue.py:130
 msgid "Poi_help_details"
@@ -194,11 +186,6 @@ msgstr "Zvolte vydání, ke kterému tato úloha patří."
 #: ../browser/response.pt:108
 msgid "Poi_help_response"
 msgstr "Prosíme níže zadejte vaší reakci"
-
-# ./content/PoiIssue.py
-#. Default: "Enter a brief subject for this response, e.g. \"Fixed\" or \"Will be fixed in next release\".""
-msgid "Poi_help_response_title"
-msgstr "Zadejte výstižný předmět této reakce, např.: \"Opraveno\" nebo \"Bude opraveno v příštím vydání.\""
 
 # ./content/PoiIssue.py
 #. Default: "Select which manager, if any, is responsible for this issue."
@@ -316,12 +303,6 @@ msgid "Poi_label_defaultSeverity"
 msgstr "Výchozí důležitost"
 
 # ./content/PoiIssue.py
-#. Default: "Tracker description"
-#, fuzzy
-msgid "Poi_label_description"
-msgstr "Souhrn"
-
-# ./content/PoiIssue.py
 #. Default: "Details"
 #: ../content/PoiIssue.py:128
 msgid "Poi_label_details"
@@ -332,11 +313,6 @@ msgstr "Detaily"
 #: ../content/PoiTracker.py:86
 msgid "Poi_label_helpText"
 msgstr ""
-
-# ./content/PoiIssue.py
-#. Default: "Id"
-msgid "Poi_label_id"
-msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
@@ -404,11 +380,6 @@ msgstr "Vydání"
 #: ../browser/response.pt:105
 msgid "Poi_label_response"
 msgstr "Reakce"
-
-# ./content/PoiIssue.py
-#. Default: "Subject"
-msgid "Poi_label_response_title"
-msgstr "Předmět"
 
 # ./content/PoiIssue.py
 #. Default: "Responsible"

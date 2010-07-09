@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2010-07-09 22:41+0000\n"
+"POT-Creation-Date: 2010-07-09 22:50+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Kevin Deldycke <kevin@deldycke.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -20,9 +20,6 @@ msgstr ""
 "Domain: Poi\n"
 "X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
 "X-Generator: KBabel 1.11.4\n"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Un ticket. Les tickets sont créés dans l'état « non confirmé », et peuvent être traités par les gestionnaires du projet."
 
 #: ../browser/response.py:498
 msgid "Changes saved to response id ${response_id}."
@@ -121,11 +118,6 @@ msgid "Poi_help_defaultSeverity"
 msgstr "Sélectionnez une criticité par défaut pour les nouveaux tickets."
 
 # ./content/PoiIssue.py
-#. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
-msgid "Poi_help_description"
-msgstr "Entrer un bref résumé du ticket. Comme avec le titre; une description concise et parlante rendra plus facile pour les chefs de projets de gérer et répondre à un ticket."
-
-# ./content/PoiIssue.py
 #. Default: "Please provide further details"
 #: ../content/PoiIssue.py:130
 msgid "Poi_help_details"
@@ -198,11 +190,6 @@ msgstr "Sélectionnez la distribution concernée par ce ticket."
 #: ../browser/response.pt:108
 msgid "Poi_help_response"
 msgstr "Veuillez saisir votre réponse ci-dessous"
-
-# ./content/PoiIssue.py
-#. Default: "Enter a brief subject for this response, e.g. \"Fixed\" or \"Will be fixed in next release\".""
-msgid "Poi_help_response_title"
-msgstr "Entrer un sujet bref pour cette réponse, comme « Résolu » ou « Sera résolu dans la prochaine distribution »."
 
 # ./content/PoiIssue.py
 #. Default: "Select which manager, if any, is responsible for this issue."
@@ -321,11 +308,6 @@ msgid "Poi_label_defaultSeverity"
 msgstr "Criticité par défaut"
 
 # ./content/PoiIssue.py
-#. Default: "Tracker description"
-msgid "Poi_label_description"
-msgstr "Description du gestionnaire de tickets"
-
-# ./content/PoiIssue.py
 #. Default: "Details"
 #: ../content/PoiIssue.py:128
 msgid "Poi_label_details"
@@ -337,11 +319,6 @@ msgstr "Détails"
 #, fuzzy
 msgid "Poi_label_helpText"
 msgstr "Notice d'emploi"
-
-# ./content/PoiIssue.py
-#. Default: "Id"
-msgid "Poi_label_id"
-msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
@@ -409,11 +386,6 @@ msgstr "Distribution"
 #: ../browser/response.pt:105
 msgid "Poi_label_response"
 msgstr "Réponse"
-
-# ./content/PoiIssue.py
-#. Default: "Subject"
-msgid "Poi_label_response_title"
-msgstr "Sujet"
 
 # ./content/PoiIssue.py
 #. Default: "Responsible"

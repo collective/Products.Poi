@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi 1.1.2\n"
-"POT-Creation-Date: 2010-07-09 22:41+0000\n"
+"POT-Creation-Date: 2010-07-09 22:50+0000\n"
 "PO-Revision-Date: 2008-11-19 17:32-0000\n"
 "Last-Translator: Nuno Cruz <nuno.cruz@inst-informatica.pt>\n"
 "Language-Team: NWEB <nwebmaster@inst-informatica.pt>\n"
@@ -18,9 +18,6 @@ msgstr ""
 "X-Poedit-Language: Portuguese\n"
 "X-Poedit-Country: PORTUGAL\n"
 "X-Is-Fallback-For: pt-pt\n"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Uma Ocorrência. Às ocorrências é atribuido o estado 'não confirmado' e podem ser respondidas pelos responsáveis do projeto."
 
 #: ../browser/response.py:498
 msgid "Changes saved to response id ${response_id}."
@@ -110,10 +107,6 @@ msgstr "Indique um endereço de email para informações adicionais ou quando um
 msgid "Poi_help_defaultSeverity"
 msgstr "Selecione a gravidade padrão para novas ocorrências."
 
-#. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
-msgid "Poi_help_description"
-msgstr "Faça uma breve descrição da ocorrência de uma forma concisa e descritiva. Isto ajudará aos responsáveis pelo projecto a avaliar e responder à ocorrência."
-
 #. Default: "Please provide further details"
 #: ../content/PoiIssue.py:130
 msgid "Poi_help_details"
@@ -179,10 +172,6 @@ msgstr "Seleccione a versão a que esta ocorrência pertence."
 #: ../browser/response.pt:108
 msgid "Poi_help_response"
 msgstr "Por favor, dê a sua resposta."
-
-#. Default: "Enter a brief subject for this response, e.g. \"Fixed\" or \"Will be fixed in next release\".""
-msgid "Poi_help_response_title"
-msgstr "Indique resumidamente o assunto para esta resposta, por exemplo: \"Resolvido\" ou \"Será resolvido na próxima versão\"."
 
 #. Default: "Select which manager, if any, is responsible for this issue."
 #: ../content/PoiIssue.py:248
@@ -284,10 +273,6 @@ msgstr "Email para contacto"
 msgid "Poi_label_defaultSeverity"
 msgstr "Gravidade padrão"
 
-#. Default: "Tracker description"
-msgid "Poi_label_description"
-msgstr "Descrição do gestor"
-
 #. Default: "Details"
 #: ../content/PoiIssue.py:128
 msgid "Poi_label_details"
@@ -299,10 +284,6 @@ msgstr "Detalhes"
 #, fuzzy
 msgid "Poi_label_helpText"
 msgstr "Texto explicativo"
-
-#. Default: "Id"
-msgid "Poi_label_id"
-msgstr "Identificação"
 
 #. Default: "Change issue state"
 #: ../browser/response.pt:169
@@ -363,10 +344,6 @@ msgstr "Versão"
 #: ../browser/response.pt:105
 msgid "Poi_label_response"
 msgstr "Resposta"
-
-#. Default: "Subject"
-msgid "Poi_label_response_title"
-msgstr "Assunto"
 
 #. Default: "Responsible"
 #: ../content/PoiIssue.py:246

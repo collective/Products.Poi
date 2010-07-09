@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2010-07-09 22:41+0000\n"
+"POT-Creation-Date: 2010-07-09 22:50+0000\n"
 "PO-Revision-Date: 2010-06-17 02:23+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
@@ -18,9 +18,6 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: Poi\n"
 "X-Is-Fallback-For: nl-be nl-nl\n"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Een issue. Issues beginnen in de 'niet bevestigd' status en kan beantwoord worden door de project managers."
 
 #: ../browser/response.py:498
 msgid "Changes saved to response id ${response_id}."
@@ -119,11 +116,6 @@ msgid "Poi_help_defaultSeverity"
 msgstr "Kies de standaard prioriteit voor nieuwe issues"
 
 # ./content/PoiIssue.py
-#. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
-msgid "Poi_help_description"
-msgstr "Geef een korte beschrijving over de issue. Een duidelijke omschrijving maakt het makkelijker voor projectmanagers om een probleem te begrijpen en te reageren op een issue."
-
-# ./content/PoiIssue.py
 #. Default: "Please provide further details"
 #: ../content/PoiIssue.py:130
 msgid "Poi_help_details"
@@ -196,11 +188,6 @@ msgstr "Selecteer de release waar deze issue op van toepassing is."
 #: ../browser/response.pt:108
 msgid "Poi_help_response"
 msgstr "Geef aub hieronder uw reactie."
-
-# ./content/PoiIssue.py
-#. Default: "Enter a brief subject for this response, e.g. \"Fixed\" or \"Will be fixed in next release\".""
-msgid "Poi_help_response_title"
-msgstr "Geef een een kort onderwerp op voor deze reactie. Bijv. \"Opgelost\" of \"Wordt opgelost in de volgende release\"."
 
 # ./content/PoiIssue.py
 #. Default: "Select which manager, if any, is responsible for this issue."
@@ -319,11 +306,6 @@ msgid "Poi_label_defaultSeverity"
 msgstr "Standaard prioriteit"
 
 # ./content/PoiIssue.py
-#. Default: "Tracker description"
-msgid "Poi_label_description"
-msgstr "Tracker omschrijving"
-
-# ./content/PoiIssue.py
 #. Default: "Details"
 #: ../content/PoiIssue.py:128
 msgid "Poi_label_details"
@@ -335,11 +317,6 @@ msgstr "Details"
 #, fuzzy
 msgid "Poi_label_helpText"
 msgstr "Help tekst"
-
-# ./content/PoiIssue.py
-#. Default: "Id"
-msgid "Poi_label_id"
-msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
@@ -407,11 +384,6 @@ msgstr "Release"
 #: ../browser/response.pt:105
 msgid "Poi_label_response"
 msgstr "Reactie"
-
-# ./content/PoiIssue.py
-#. Default: "Subject"
-msgid "Poi_label_response_title"
-msgstr "Onderwerp"
 
 # ./content/PoiIssue.py
 #. Default: "Responsible"

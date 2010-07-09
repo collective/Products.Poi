@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2010-07-09 22:41+0000\n"
+"POT-Creation-Date: 2010-07-09 22:50+0000\n"
 "PO-Revision-Date: 2007-05-06 17:00+0000\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: None <plone-i18n@lists.sourceforge.net>\n"
@@ -16,9 +16,6 @@ msgstr ""
 "Preferred-Encodings: utf-8 iso-8859-1\n"
 "Domain: Poi\n"
 "X-Is-Fallback-For: nb nb-no no-bok\n"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr ""
 
 #: ../browser/response.py:498
 msgid "Changes saved to response id ${response_id}."
@@ -117,11 +114,6 @@ msgid "Poi_help_defaultSeverity"
 msgstr "'Default alvorlighetsgrad' for nye emner."
 
 # ./content/PoiIssue.py
-#. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
-msgid "Poi_help_description"
-msgstr "Lag en kort beskrivelse av emnet. Som ved tittelen, vil meningsfullet beskrivelser gjøre videre arbeid lettere."
-
-# ./content/PoiIssue.py
 #. Default: "Please provide further details"
 #: ../content/PoiIssue.py:130
 msgid "Poi_help_details"
@@ -194,11 +186,6 @@ msgstr "Select the release this issue pertains to.."
 #: ../browser/response.pt:108
 msgid "Poi_help_response"
 msgstr "Vennligst skriv inn ditt svar nedenfor"
-
-# ./content/PoiIssue.py
-#. Default: "Enter a brief subject for this response, e.g. \"Fixed\" or \"Will be fixed in next release\".""
-msgid "Poi_help_response_title"
-msgstr "Velg et kort subjekt for svaret, f.eks. \"Fikset\" eller \"Kan ikke fikses\"."
 
 # ./content/PoiIssue.py
 #. Default: "Select which manager, if any, is responsible for this issue."
@@ -316,12 +303,6 @@ msgid "Poi_label_defaultSeverity"
 msgstr "'Default alvorlighetsgrad'"
 
 # ./content/PoiIssue.py
-#. Default: "Tracker description"
-#, fuzzy
-msgid "Poi_label_description"
-msgstr "Oversikt"
-
-# ./content/PoiIssue.py
 #. Default: "Details"
 #: ../content/PoiIssue.py:128
 msgid "Poi_label_details"
@@ -332,11 +313,6 @@ msgstr "Detaljer"
 #: ../content/PoiTracker.py:86
 msgid "Poi_label_helpText"
 msgstr ""
-
-# ./content/PoiIssue.py
-#. Default: "Id"
-msgid "Poi_label_id"
-msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
@@ -404,11 +380,6 @@ msgstr "Versjon"
 #: ../browser/response.pt:105
 msgid "Poi_label_response"
 msgstr "Svar"
-
-# ./content/PoiIssue.py
-#. Default: "Subject"
-msgid "Poi_label_response_title"
-msgstr "Subjekt"
 
 # ./content/PoiIssue.py
 #. Default: "Responsible"
