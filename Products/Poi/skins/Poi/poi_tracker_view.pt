@@ -10,12 +10,11 @@
     </metal:css>
   </head>
 
-
 <body>
-  <div metal:fill-slot="main">
-    <div metal:define-macro="body"
-      tal:define="
-                  member context/@@plone_portal_state/member;
+<metal:content-core fill-slot="content-core">
+  <metal:content-core
+      define-macro="content-core"
+      tal:define="member context/@@plone_portal_state/member;
                   isAnon context/@@plone_portal_state/anonymous;
                   is_editable context/@@plone_context_state/is_editable;
                   portal context/@@plone_portal_state/portal;
@@ -29,8 +28,6 @@
                   issuefolder context/@@issuefolder;
                   isManager python:member.getId() in here.getManagers()">
 
-      <h1 tal:content="here/Title" class="documentFirstHeading" />
-
       <div id="issue-quicksearch-box">
          <form action="@@poi_issue_quicksearch">
             <input type="text" name="searchText" size="15" />
@@ -40,8 +37,6 @@
             tal:attributes="href string:${here/absolute_url}/poi_issue_search_form"
             i18n:translate="poi_issue_search">Advanced issue search</a>
       </div>
-
-      <div class="documentDescription" tal:content="here/Description" />
 
       <div class="formControls">
         <div class="login-suggestion" tal:condition="isAnon">
@@ -276,9 +271,8 @@
            href="http://plone.org/products/poi">Poi</a>
       </div>
 
-    </div>
-
-  </div>
+    </metal:content-core>
+</metal:content-core>
 </body>
 
 </html>

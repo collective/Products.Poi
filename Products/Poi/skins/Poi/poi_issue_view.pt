@@ -13,22 +13,31 @@
   </head>
 
 <body>
-<div metal:fill-slot="main"
-        tal:define="
-                    member context/@@plone_portal_state/member;
-                    template_id template/getId;
-                    isAnon context/@@plone_portal_state/anonymous;
-                    wftool here/portal_workflow;
-                    isManager python:member.getId() in here.getManagers();
-                    isSubmitter python:member.getId() == here.Creator();
-                    pas_member context/@@pas_member;">
 
-    <div metal:define-macro="body">
+<metal:title fill-slot="content-title">
+  <h1 class="documentFirstHeading">
+    #<span tal:replace="context/getId" /> &mdash;
+    <metal:field use-macro="python:context.widget('title', mode='view')">
+      Body text
+    </metal:field>
+  </h1>
+</metal:title>
+<metal:description fill-slot="content-description">
+  <metal:comment tal:content="nothing">
+    The description field is normally not set. We use the details field instead.
+  </metal:comment>
+</metal:description>
 
-      <h1 class="documentFirstHeading">
-          #<span tal:replace="here/getId" /> &mdash;
-          <span tal:replace="here/Title" />
-      </h1>
+<metal:content-core fill-slot="content-core">
+  <metal:content-core
+      define-macro="content-core"
+      tal:define="member context/@@plone_portal_state/member;
+                  template_id template/getId;
+                  isAnon context/@@plone_portal_state/anonymous;
+                  wftool here/portal_workflow;
+                  isManager python:member.getId() in here.getManagers();
+                  isSubmitter python:member.getId() == here.Creator();
+                  pas_member context/@@pas_member;">
 
       <table class="vertical listing issue-info-box"
              tal:define="releases here/getReleasesVocab">
@@ -99,40 +108,24 @@
           </tr>
       </table>
 
-      <tal:block define="backURL request/HTTP_REFERER | nothing;
-                         cameFromTracker python:backURL and backURL.startswith(here.aq_inner.aq_parent.absolute_url() + '/poi_issue_search');">
+      <div class="return-to-search"
+           tal:define="backURL request/HTTP_REFERER | nothing;
+                       cameFromTracker python:backURL and backURL.startswith(here.aq_inner.aq_parent.absolute_url() + '/poi_issue_search');">
          <a href=""
-            class="return-to-search"
+            class="link-parent"
             tal:condition="cameFromTracker"
             tal:attributes="href backURL"
             i18n:translate="poi_return_to_search_results">
            Return to search results
          </a>
          <a href=""
-            class="return-to-search"
+            class="link-parent"
             tal:condition="not:cameFromTracker"
             tal:define="parentURL python:here.navigationParent(here, template_id)"
             i18n:translate="poi_return_to_tracker"
             tal:attributes="href parentURL">
            Return to tracker
          </a>
-
-      </tal:block>
-
-      <div class="modification-info"
-           tal:define="user here/getLastModificationUser;
-                       time here/modified">
-         <span tal:condition="nocall:user" i18n:translate="poi_last_modified_on_by">Last modified on
-            <tal:block i18n:name="modification_time" tal:content="python:here.toLocalizedTime(time)" />
-            by
-            <tal:block
-                i18n:name="modification_actor"
-                define="actor python:pas_member.info(user)"
-                content="actor/name_or_id" />
-         </span>
-         <span tal:condition="not:nocall:user" i18n:translate="poi_last_modified_on">Last modified on
-            <tal:block i18n:name="modification_time" tal:content="python:here.toLocalizedTime(time)"/>
-         </span>
       </div>
 
       <div class="issue-tags" tal:condition="here/Subject">
@@ -189,8 +182,7 @@
       <div tal:replace="structure provider:poi.response.add" />
 
       <div class="visualClear"><!----></div>
-  </div>
-</div>
-
+  </metal:content-core>
+</metal:content-core>
 </body>
 </html>

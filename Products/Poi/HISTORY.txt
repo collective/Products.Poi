@@ -5,6 +5,10 @@ Changelog for Poi
 2.0a2 (unreleased)
 ------------------
 
+- Slightly alter the templates of tracker and issue to use the
+  content-core slot of Plone 4.
+  [maurits]
+
 - Added Technician role.  You can give a user this role by adding the
   user id in the new 'technicians' field of a tracker.  Technicians
   have slightly less permissions than TrackerManagers, and will only
