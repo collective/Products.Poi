@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2010-07-17 00:27+0000\n"
-"PO-Revision-Date: 2010-07-10 01:02+0200\n"
+"PO-Revision-Date: 2010-07-17 02:32+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -234,7 +234,7 @@ msgstr "Geef de gebruiksnamen van gebruikers op die verantwoordelijk zijn voor h
 #. Default: "Describe the purpose of this tracker"
 #: ../content/PoiTracker.py:72
 msgid "Poi_help_tracker_description"
-msgstr ""
+msgstr "Beschrijf het doel van deze tracker"
 
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
@@ -324,7 +324,7 @@ msgstr "Issue type"
 #. Default: "Id"
 #: ../content/PoiIssue.py:85
 msgid "Poi_label_issue_id"
-msgstr ""
+msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Title"
@@ -425,7 +425,7 @@ msgstr "Technici"
 #. Default: "Tracker description"
 #: ../content/PoiTracker.py:70
 msgid "Poi_label_tracker_description"
-msgstr ""
+msgstr "Beschrijving van de tracker"
 
 # ./content/PoiTracker.py
 #. Default: "Tracker name"
@@ -774,7 +774,7 @@ msgstr "Details van reactie"
 #. Default: "Issue search results"
 #: ../skins/Poi/poi_issue_search.pt:34
 msgid "poi_heading_search_results"
-msgstr "Issue zoek resultaten"
+msgstr "Issue zoekresultaten"
 
 #. Default: "Unconfirmed issues"
 #: ../skins/Poi/poi_tracker_view.pt:184
