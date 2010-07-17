@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"
      xmlns:tal="http://xml.zope.org/namespaces/tal"
-     xmlns:metal="http://xml.zope.org/namespaces/metal"
      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
      i18n:domain="Poi"
      tal:define="dummy python:request.RESPONSE.setHeader('Content-Type', 'text/xml');
@@ -9,7 +8,7 @@
 
   <channel tal:define="memberId request/memberId;
                        issuefolder context/@@issuefolder;
-                       results  python:issuefolder.getOrphanedIssues(memberId=memberId);
+                       results python:issuefolder.getOrphanedIssues(memberId=memberId);
                        DateTime python:modules['DateTime'].DateTime;">
     <title  i18n:translate="poi_heading_my_issues"><span i18n:name="tracker" tal:omit-tag="" tal:content="here/getExternalTitle" /> - Orphaned issues</title>
     <link tal:content="string:${here/absolute_url}/poi-my-issues-rss.xml?memberId=${memberId}" />

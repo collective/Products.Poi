@@ -1,14 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
       lang="en-US"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="Poi">
 
-  <head>
-    <metal:css fill-slot="style_slot">
-      <style type="text/css" media="all"
-        tal:content="string:@import url($portal_url/poi.css);"></style>
-    </metal:css>
-  </head>
+<head>
+  <metal:css fill-slot="style_slot">
+    <style type="text/css" media="all"
+           tal:content="string:@import url($portal_url/poi.css);"></style>
+  </metal:css>
+</head>
 
 <body>
 <metal:content-core fill-slot="content-core">
@@ -28,252 +31,252 @@
                   issuefolder context/@@issuefolder;
                   isManager python:member.getId() in here.getManagers()">
 
-      <div id="issue-quicksearch-box">
-         <form action="@@poi_issue_quicksearch">
-            <input type="text" name="searchText" size="15" />
-            <input class="searchButton" type="submit" value="Search" i18n:attributes="value"/>
-         </form>
-         <a id="issue-search-link"
-            tal:attributes="href string:${here/absolute_url}/poi_issue_search_form"
-            i18n:translate="poi_issue_search">Advanced issue search</a>
+    <div id="issue-quicksearch-box">
+      <form action="@@poi_issue_quicksearch">
+        <input type="text" name="searchText" size="15" />
+        <input class="searchButton" type="submit" value="Search" i18n:attributes="value"/>
+      </form>
+      <a id="issue-search-link"
+         tal:attributes="href string:${here/absolute_url}/poi_issue_search_form"
+         i18n:translate="poi_issue_search">Advanced issue search</a>
+    </div>
+
+    <div class="formControls">
+      <div class="login-suggestion" tal:condition="isAnon">
+        <tal:block i18n:translate="login_suggestion">
+          If you can, please log in before submitting your issue.
+        </tal:block>
+
       </div>
-
-      <div class="formControls">
-        <div class="login-suggestion" tal:condition="isAnon">
-          <tal:block i18n:translate="login_suggestion">
-            If you can, please log in before submitting your issue.
-          </tal:block>
-
-        </div>
-        <table>
-          <tr>
-            <td>
-              <form action="createObject"
-                    id="poi-submit-new-issue-form"
-                    tal:condition="python: user.has_permission('Poi: Add Issue', here)">
-                <input name="type_name"
-                       type="hidden"
-                       value="PoiIssue"
+      <table>
+        <tr>
+          <td>
+            <form action="createObject"
+                  id="poi-submit-new-issue-form"
+                  tal:condition="python: user.has_permission('Poi: Add Issue', here)">
+              <input name="type_name"
+                     type="hidden"
+                     value="PoiIssue"
+                     />
+              <div class="formControls">
+                <input class="context"
+                       type="submit"
+                       i18n:attributes="value"
+                       value="Submit new issue"
                        />
-                <div class="formControls">
-                  <input class="context"
-                         type="submit"
-                         i18n:attributes="value"
-                         value="Submit new issue"
-                         />
-                </div>
-              </form>
-            </td>
-            <td>
-              <form
-                  tal:condition="isAnon"
-                  tal:attributes="action string:${portal/absolute_url}/login_form?came_from=${here/absolute_url}">
-                <div class="formControls">
-                  <input class="context"
-                         type="submit"
-                         value="Log in"
-                         i18n:domain="plone"
-                         i18n:attributes="value label_log_in;"
-                         />
-                </div>
-              </form>
-            </td>
-          </tr>
-        </table>
+              </div>
+            </form>
+          </td>
+          <td>
+            <form
+                tal:condition="isAnon"
+                tal:attributes="action string:${portal/absolute_url}/login_form?came_from=${here/absolute_url}">
+              <div class="formControls">
+                <input class="context"
+                       type="submit"
+                       value="Log in"
+                       i18n:domain="plone"
+                       i18n:attributes="value label_log_in;"
+                       />
+              </div>
+            </form>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <p class="portalMessage"
+       i18n:translate="description_cannot_add_issues_before_opened"
+       tal:condition="python: is_editable and wtool.getInfoFor(here, 'review_state')=='closed'">
+      Others cannot submit issues to your tracker until you open it for
+      submissions using the 'state' drop down in the green bar above.
+    </p>
+
+    <div tal:content="structure here/getHelpText"/>
+
+
+    <h2 i18n:translate="poi_heading_open_issues">Open issues</h2>
+
+
+
+    <p i18n:translate="poi_help_open_issues">
+      Click an area, release or issue state to see all open issues in that
+      category. For more advanced search options, click "search for issues".
+    </p>
+
+
+    <div id="open-issues-by-area" class="issue-quick-search-box">
+      <h3 i18n:translate="poi_heading_by_area">By area</h3>
+      <ul>
+        <tal:areas repeat="area here/getAvailableAreas">
+          <li tal:define="areaId          area/id;
+                          areaTitle       area/title;
+                          areaDescription area/description;
+                          issues          python:issuefolder.getFilteredIssues(area=areaId, state=openStates)">
+            <a tal:attributes="href string:${issueQueryString}&amp;area=${areaId};
+                               title areaDescription"
+               tal:content="areaTitle" /> (<span tal:replace="python:len(issues)" />)
+          </li>
+        </tal:areas>
+      </ul>
+    </div>
+
+    <div id="open-issues-by-release" class="issue-quick-search-box"
+         tal:condition="here/isUsingReleases">
+      <h3 i18n:translate="poi_heading_by_release">By target release</h3>
+      <ul tal:define="releases here/getReleasesVocab;">
+        <tal:releases repeat="release releases">
+          <li tal:define="issues python:issuefolder.getFilteredIssues(targetRelease=release, state=openStates)">
+            <a tal:attributes="href string:${issueQueryString}&amp;targetRelease=${release}"
+               tal:content="python:releases.getValue(release)" /> (<span tal:replace="python:len(issues)" />)
+          </li>
+        </tal:releases>
+      </ul>
+    </div>
+
+    <div id="open-issues-by-state" class="issue-quick-search-box"
+         tal:define="issueStates here/getIssueWorkflowStates;">
+      <h3 i18n:translate="poi_heading_by_state">By state</h3>
+      <ul>
+        <li tal:define="issues python:issuefolder.getFilteredIssues(state=openStates)">
+          <a tal:attributes="href string:${issueQueryString}"
+             i18n:translate="poi_all_pending_issues">All pending issues</a> (<span tal:replace="python:len(issues)" />)
+        </li>
+        <tal:releases repeat="state issueStates">
+          <tal:block condition="python:state not in ignoredStates">
+            <li tal:define="issues python:issuefolder.getFilteredIssues(state=state)">
+              <a tal:attributes="href string:${here/absolute_url}/poi_issue_search?state=${state}"
+                 i18n:translate=""
+                 i18n:domain="plone"
+                 tal:content="python:issueStates.getValue(state)" /> (<span tal:replace="python:len(issues)" />)
+            </li>
+          </tal:block>
+        </tal:releases>
+      </ul>
+    </div>
+
+    <div class="visualClear"><!----></div>
+
+    <div id="open-issues-by-tag" class="issue-quick-search-box"
+         tal:define="tags here/getTagsInUse"
+         tal:condition="python:isManager and len(tags) > 0">
+      <h3 i18n:translate="poi_heading_by_tag">By tag</h3>
+      <div>
+        <span tal:repeat="tag tags">
+          <a tal:attributes="href string:${issueQueryString}&amp;tags=${tag}"
+             tal:content="tag" />
+          <span tal:condition="not:repeat/tag/end"> ~ </span>
+        </span>
+      </div>
+    </div>
+
+    <div style="clear:both"><!----></div>
+
+    <tal:manager condition="isManager">
+
+      <div id="unassigned-issues"
+           tal:define="issues python:issuefolder.getFilteredIssues(state='unconfirmed');
+                       rssQueryString python:issuefolder.getIssueSearchQueryString(state='unconfirmed')"
+           tal:condition="nocall:issues">
+
+        <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
+          <metal:intro fill-slot="intro-text">
+            <h2 i18n:translate="poi_heading_unconfirmed_issues">Unconfirmed issues</h2>
+            <p i18n:translate="poi_help_unconfirmed_issues">
+              The following issues have not yet been confirmed. Please
+              review them and take the appropriate action.
+            </p>
+          </metal:intro>
+
+          <metal:rss fill-slot="rss-button">
+            <div class="issue-search-rss">
+              <a href="" tal:attributes="href string:${here/absolute_url}/poi-issue-search-rss.xml?${rssQueryString}">
+                <img i18n:attributes="title title_rss_feed_unconfirmed; alt label_rss_feed;"
+                     tal:attributes="src string:$portal_url/rss.gif"
+                     src="rss.gif"
+                     alt="RSS Feed"
+                     title="RSS feed of unconfirmed issues" />
+              </a>
+            </div>
+          </metal:rss>
+        </metal:table>
+
       </div>
 
-      <p class="portalMessage"
-         i18n:translate="description_cannot_add_issues_before_opened"
-         tal:condition="python: is_editable and wtool.getInfoFor(here, 'review_state')=='closed'">
-         Others cannot submit issues to your tracker until you open it for
-         submissions using the 'state' drop down in the green bar above.
-      </p>
+    </tal:manager>
+    <tal:loggedIn condition="not:isAnon">
+      <div id="my-issues"
+           tal:define="issues python:issuefolder.getMyIssues(manager=False)"
+           tal:condition="nocall:issues">
 
-      <div tal:content="structure here/getHelpText"/>
+        <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
 
+          <metal:intro fill-slot="intro-text">
+            <h2 i18n:translate="poi_heading_my_issues">My issues</h2>
+            <p tal:condition="isManager" i18n:translate="poi_help_my_issues_manager">
+              The following open issues were either submitted by you, or have been assigned to you.
+              Note that the RSS feed for this list will include unconfirmed and orphaned issues as well,
+              to make it possible to subscribe to a single feed with all the issues you may be interested
+              in.
+            </p>
 
-      <h2 i18n:translate="poi_heading_open_issues">Open issues</h2>
-
-
-
-      <p i18n:translate="poi_help_open_issues">
-          Click an area, release or issue state to see all open issues in that
-          category. For more advanced search options, click "search for issues".
-      </p>
-
-
-      <div id="open-issues-by-area" class="issue-quick-search-box">
-          <h3 i18n:translate="poi_heading_by_area">By area</h3>
-          <ul>
-              <tal:areas repeat="area here/getAvailableAreas">
-                <li tal:define="areaId          area/id;
-                                areaTitle       area/title;
-                                areaDescription area/description;
-                                issues          python:issuefolder.getFilteredIssues(area=areaId, state=openStates)">
-                <a tal:attributes="href string:${issueQueryString}&amp;area=${areaId};
-                                   title areaDescription"
-                   tal:content="areaTitle" /> (<span tal:replace="python:len(issues)" />)
-                </li>
-              </tal:areas>
-          </ul>
+            <p tal:condition="not:isManager" i18n:translate="poi_help_my_issues_not_manager">
+              The following open issues were submitted by you.
+            </p>
+          </metal:intro>
+          <metal:rss fill-slot="rss-button">
+            <div class="issue-search-rss">
+              <a href="" tal:attributes="href string:${here/absolute_url}/poi-my-issues-rss.xml?memberId=${member/getId}&amp;isManager:boolean=${isManager}">
+                <img i18n:attributes="title title_rss_feed_my_issues; alt label_rss_feed;"
+                     tal:attributes="src string:$portal_url/rss.gif"
+                     src="rss.gif"
+                     alt="RSS Feed"
+                     title="RSS feed of my issues" />
+              </a>
+            </div>
+          </metal:rss>
+        </metal:table>
       </div>
+    </tal:loggedIn>
+    <tal:manager condition="isManager">
+      <div id="orphaned-issues"
+           tal:define="issues issuefolder/getOrphanedIssues"
+           tal:condition="nocall:issues">
 
-      <div id="open-issues-by-release" class="issue-quick-search-box"
-           tal:condition="here/isUsingReleases">
-          <h3 i18n:translate="poi_heading_by_release">By target release</h3>
-          <ul tal:define="releases here/getReleasesVocab;">
-              <tal:releases repeat="release releases">
-                  <li tal:define="issues python:issuefolder.getFilteredIssues(targetRelease=release, state=openStates)">
-                    <a tal:attributes="href string:${issueQueryString}&amp;targetRelease=${release}"
-                       tal:content="python:releases.getValue(release)" /> (<span tal:replace="python:len(issues)" />)
-                  </li>
-              </tal:releases>
-          </ul>
+        <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
+
+          <metal:intro fill-slot="intro-text">
+            <h2 i18n:translate="poi_heading_orphaned_issues">Orphaned issues</h2>
+            <p i18n:translate="poi_help_orphaned_issues_">
+              The following open issues are not assigned to anyone.
+            </p>
+          </metal:intro>
+
+          <metal:rss fill-slot="rss-button">
+            <div class="issue-search-rss">
+              <a href="" tal:attributes="href string:${here/absolute_url}/poi-orphaned-issues-rss.xml?memberId=${member/getId}">
+                <img i18n:attributes="title title_rss_feed_orphaned; alt label_rss_feed;"
+                     tal:attributes="src string:$portal_url/rss.gif"
+                     src="rss.gif"
+                     alt="RSS Feed"
+                     title="RSS feed of orphaned issues" />
+              </a>
+            </div>
+          </metal:rss>
+        </metal:table>
       </div>
+    </tal:manager>
 
-      <div id="open-issues-by-state" class="issue-quick-search-box"
-           tal:define="issueStates here/getIssueWorkflowStates;">
-          <h3 i18n:translate="poi_heading_by_state">By state</h3>
-          <ul>
-             <li tal:define="issues python:issuefolder.getFilteredIssues(state=openStates)">
-                 <a tal:attributes="href string:${issueQueryString}"
-                    i18n:translate="poi_all_pending_issues">All pending issues</a> (<span tal:replace="python:len(issues)" />)
-             </li>
-              <tal:releases repeat="state issueStates">
-                  <tal:block condition="python:state not in ignoredStates">
-                      <li tal:define="issues python:issuefolder.getFilteredIssues(state=state)">
-                        <a tal:attributes="href string:${here/absolute_url}/poi_issue_search?state=${state}"
-                           i18n:translate=""
-                           i18n:domain="plone"
-                           tal:content="python:issueStates.getValue(state)" /> (<span tal:replace="python:len(issues)" />)
-                      </li>
-                  </tal:block>
-              </tal:releases>
-          </ul>
-      </div>
+    <div class="poweredBy">
+      <tal:powered i18n:translate="label_powered_by">
+        Powered by
+      </tal:powered>
+      <a class="link-plain"
+         href="http://plone.org/products/poi">Poi</a>
+    </div>
 
-      <div class="visualClear"><!----></div>
-
-      <div id="open-issues-by-tag" class="issue-quick-search-box"
-          tal:define="tags here/getTagsInUse"
-          tal:condition="python:isManager and len(tags) > 0">
-          <h3 i18n:translate="poi_heading_by_tag">By tag</h3>
-          <div>
-            <span tal:repeat="tag tags">
-                <a tal:attributes="href string:${issueQueryString}&amp;tags=${tag}"
-                   tal:content="tag" />
-                <span tal:condition="not:repeat/tag/end"> ~ </span>
-            </span>
-          </div>
-      </div>
-
-      <div style="clear:both"><!----></div>
-
-      <tal:manager condition="isManager">
-
-          <div id="unassigned-issues"
-               tal:define="issues python:issuefolder.getFilteredIssues(state='unconfirmed');
-                           rssQueryString python:issuefolder.getIssueSearchQueryString(state='unconfirmed')"
-               tal:condition="nocall:issues">
-
-               <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
-
-                  <div metal:fill-slot="intro-text">
-
-                     <h2 i18n:translate="poi_heading_unconfirmed_issues">Unconfirmed issues</h2>
-                     <p i18n:translate="poi_help_unconfirmed_issues">
-                         The following issues have not yet been confirmed. Please
-                         review them and take the appropriate action.
-                     </p>
-
-                  </div>
-
-                  <div class="issue-search-rss" metal:fill-slot="rss-button">
-                      <a href="" tal:attributes="href string:${here/absolute_url}/poi-issue-search-rss.xml?${rssQueryString}">
-                        <img i18n:attributes="title title_rss_feed_unconfirmed; alt label_rss_feed;"
-                             tal:attributes="src string:$portal_url/rss.gif"
-                             src="rss.gif"
-                             alt="RSS Feed"
-                             title="RSS feed of unconfirmed issues" />
-                      </a>
-                  </div>
-
-               </metal:table>
-
-          </div>
-
-      </tal:manager>
-      <tal:loggedIn condition="not:isAnon">
-          <div id="my-issues"
-               tal:define="issues python:issuefolder.getMyIssues(manager=False)"
-               tal:condition="nocall:issues">
-
-               <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
-
-                  <div metal:fill-slot="intro-text">
-                     <h2 i18n:translate="poi_heading_my_issues">My issues</h2>
-                     <p tal:condition="isManager" i18n:translate="poi_help_my_issues_manager">
-                         The following open issues were either submitted by you, or have been assigned to you.
-                         Note that the RSS feed for this list will include unconfirmed and orphaned issues as well,
-                         to make it possible to subscribe to a single feed with all the issues you may be interested
-                         in.
-                     </p>
-
-                     <p tal:condition="not:isManager" i18n:translate="poi_help_my_issues_not_manager">
-                         The following open issues were submitted by you.
-                     </p>
-                  </div>
-
-                   <div class="issue-search-rss" metal:fill-slot="rss-button">
-                        <a href="" tal:attributes="href string:${here/absolute_url}/poi-my-issues-rss.xml?memberId=${member/getId}&amp;isManager:boolean=${isManager}">
-                            <img i18n:attributes="title title_rss_feed_my_issues; alt label_rss_feed;"
-                                tal:attributes="src string:$portal_url/rss.gif"
-                                src="rss.gif"
-                                alt="RSS Feed"
-                                title="RSS feed of my issues" />
-                        </a>
-                    </div>
-               </metal:table>
-          </div>
-      </tal:loggedIn>
-      <tal:manager condition="isManager">
-          <div id="orphaned-issues"
-               tal:define="issues issuefolder/getOrphanedIssues"
-               tal:condition="nocall:issues">
-
-               <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
-
-                   <div metal:fill-slot="intro-text">
-                     <h2 i18n:translate="poi_heading_orphaned_issues">Orphaned issues</h2>
-                     <p i18n:translate="poi_help_orphaned_issues_">
-                         The following open issues are not assigned to anyone.
-                     </p>
-                   </div>
-
-                   <div class="issue-search-rss" metal:fill-slot="rss-button">
-                        <a href="" tal:attributes="href string:${here/absolute_url}/poi-orphaned-issues-rss.xml?memberId=${member/getId}">
-                            <img i18n:attributes="title title_rss_feed_orphaned; alt label_rss_feed;"
-                                tal:attributes="src string:$portal_url/rss.gif"
-                                src="rss.gif"
-                                alt="RSS Feed"
-                                title="RSS feed of orphaned issues" />
-                        </a>
-                    </div>
-               </metal:table>
-          </div>
-      </tal:manager>
-
-      <div class="poweredBy">
-        <tal:powered i18n:translate="label_powered_by">
-          Powered by
-        </tal:powered>
-        <a class="link-plain"
-           href="http://plone.org/products/poi">Poi</a>
-      </div>
-
-    </metal:content-core>
+  </metal:content-core>
 </metal:content-core>
 </body>
-
 </html>
 

@@ -1,4 +1,7 @@
 <div class="response-adder"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:metal="http://xml.zope.org/namespaces/metal"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
      i18n:domain="Poi">
   <tal:responses repeat="response_info view/responses">
     <div class="response-reply"
@@ -96,196 +99,195 @@
     </form>
   </div>
   <tal:add condition="python:user.has_permission('Poi: Add Response', here)">
-  <h3 i18n:translate="title_add_response">Add response</h3>
+    <h3 i18n:translate="title_add_response">Add response</h3>
 
-  <form method="post" action="@@create_response"
-        enctype="multipart/form-data">
+    <form method="post" action="@@create_response"
+          enctype="multipart/form-data">
 
-    <div class="field">
-      <label for="response"
-             i18n:translate="Poi_label_response">Response</label>
+      <div class="field">
+        <label for="response"
+               i18n:translate="Poi_label_response">Response</label>
 
-      <div class="formHelp" id="response_help"
-           i18n:translate="Poi_help_response">
-        Please enter your response below
-      </div>
-      <div>
+        <div class="formHelp" id="response_help"
+             i18n:translate="Poi_help_response">
+          Please enter your response below
+        </div>
+        <div>
 
-        <tal:wysiwyg
-            tal:condition="view/use_wysiwyg">
-          <tal:comment replace="nothing">
-            The tal:defines below are here so that both kupu and
-            FCKeditor work.  Partly it is taken from FCKeditor.
-          </tal:comment>
-          <tal:block
-              define="inputname string:response;
-                      inputvalue string:;
-                      member python:context.portal_membership.getAuthenticatedMember();
-                      editor python:member.getProperty('wysiwyg_editor', 'plone_wysiwyg').lower();
-                      portal_url context/portal_url;
-                      portal context/portal_url/getPortalObject;
-                      here_url context/portal_url;
-                      support python: path('nocall:here/%s_wysiwyg_support|here/%s/wysiwyg_support|here/portal_skins/plone_wysiwyg/wysiwyg_support' % (editor, editor));"
-              on-error="string:$editor not installed correctly: ${error/value}">
+          <tal:wysiwyg
+              tal:condition="view/use_wysiwyg">
+            <tal:comment replace="nothing">
+              The tal:defines below are here so that both kupu and
+              FCKeditor work.  Partly it is taken from FCKeditor.
+            </tal:comment>
+            <tal:block
+                define="inputname string:response;
+                        inputvalue string:;
+                        member python:context.portal_membership.getAuthenticatedMember();
+                        editor python:member.getProperty('wysiwyg_editor', 'plone_wysiwyg').lower();
+                        portal_url context/portal_url;
+                        portal context/portal_url/getPortalObject;
+                        here_url context/portal_url;
+                        support python: path('nocall:here/%s_wysiwyg_support|here/%s/wysiwyg_support|here/portal_skins/plone_wysiwyg/wysiwyg_support' % (editor, editor));"
+                on-error="string:$editor not installed correctly: ${error/value}">
 
+              <metal:block use-macro="support/macros/wysiwygEditorBox" />
+            </tal:block>
+          </tal:wysiwyg>
 
-            <metal:block metal:use-macro="support/macros/wysiwygEditorBox" />
-          </tal:block>
-        </tal:wysiwyg>
-
-        <textarea
-            tal:condition="not:view/use_wysiwyg"
-            cols="40" rows="15" name="response" id="response"></textarea>
-
-      </div>
-
-    </div>
-
-    <div class="field" id="poi-fieldname-attachment"
-         tal:condition="view/upload_allowed">
-      <label for="attachment"
-             i18n:translate="Poi_label_attachment">Attachment</label>
-
-      <div class="formHelp" id="attachment_help"
-           i18n:translate="Poi_help_attachment">
-        You may optionally upload a file attachment. Please do not
-        upload unnecessarily large files.
-      </div>
-
-      <div style="padding-top: 1em;">
-
-        <div style="padding-left: 1.5em; padding-top: 0.5em;">
-
-          <input size="30" name="attachment" id="attachment" type="file" />
+          <textarea
+              tal:condition="not:view/use_wysiwyg"
+              cols="40" rows="15" name="response" id="response"></textarea>
 
         </div>
 
       </div>
 
-    </div>
+      <div class="field" id="poi-fieldname-attachment"
+           tal:condition="view/upload_allowed">
+        <label for="attachment"
+               i18n:translate="Poi_label_attachment">Attachment</label>
 
-    <div class="field"
-         tal:condition="view/transitions_for_display">
-      <label for="transition"
-             i18n:translate="Poi_label_issueTransition">
-        Change issue state
-      </label>
+        <div class="formHelp" id="attachment_help"
+             i18n:translate="Poi_help_attachment">
+          You may optionally upload a file attachment. Please do not
+          upload unnecessarily large files.
+        </div>
 
-      <div class="formHelp"
-           id="issueTransition_help"
-           i18n:translate="Poi_help_issueTransition">
-        Select a change of state in the issue this response is for, if applicable
+        <div style="padding-top: 1em;">
+
+          <div style="padding-left: 1.5em; padding-top: 0.5em;">
+
+            <input size="30" name="attachment" id="attachment" type="file" />
+
+          </div>
+
+        </div>
+
       </div>
 
-      <tal:transitions
-          repeat="transition view/transitions_for_display">
-        <input class="noborder" name="transition"
-               value="" id="transition_1" type="radio"
-               tal:attributes="value transition/value;
-                               id transition/value;
-                               checked transition/checked;" />
+      <div class="field"
+           tal:condition="view/transitions_for_display">
+        <label for="transition"
+               i18n:translate="Poi_label_issueTransition">
+          Change issue state
+        </label>
 
-        <label
-            i18n:domain="plone"
-            i18n:translate=""
-            tal:attributes="for transition/value"
-            tal:content="transition/label" />
+        <div class="formHelp"
+             id="issueTransition_help"
+             i18n:translate="Poi_help_issueTransition">
+          Select a change of state in the issue this response is for, if applicable
+        </div>
 
-        <br />
-      </tal:transitions>
-    </div>
+        <tal:transitions
+            repeat="transition view/transitions_for_display">
+          <input class="noborder" name="transition"
+                 value="" id="transition_1" type="radio"
+                 tal:attributes="value transition/value;
+                                 id transition/value;
+                                 checked transition/checked;" />
 
+          <label
+              i18n:domain="plone"
+              i18n:translate=""
+              tal:attributes="for transition/value"
+              tal:content="transition/label" />
 
-    <div class="field"
-         tal:condition="view/severities_for_display">
-      <label for="severity"
-           i18n:translate="Poi_label_newSeverity">
-        Change issue severity
-      </label>
-
-      <div class="formHelp" id="severity_help"
-           i18n:translate="Poi_help_newSeverity">
-        Select the severity for this issue
+          <br />
+        </tal:transitions>
       </div>
 
-      <tal:options
-          repeat="option view/severities_for_display">
-        <input class="noborder" name="severity"
-               value="" id="" type="radio"
-               tal:attributes="value option/value;
-                               id option/value;
-                               checked option/checked;" />
 
-        <label
-            tal:attributes="for option/value"
-            tal:content="option/label" />
+      <div class="field"
+           tal:condition="view/severities_for_display">
+        <label for="severity"
+               i18n:translate="Poi_label_newSeverity">
+          Change issue severity
+        </label>
 
-        <br />
-      </tal:options>
-    </div>
+        <div class="formHelp" id="severity_help"
+             i18n:translate="Poi_help_newSeverity">
+          Select the severity for this issue
+        </div>
 
-    <div class="field"
-         tal:condition="view/show_target_releases">
-      <label for="newTargetRelease"
-           i18n:translate="Poi_label_newTargetRelease">
-        Change target release
-      </label>
+        <tal:options
+            repeat="option view/severities_for_display">
+          <input class="noborder" name="severity"
+                 value="" id="" type="radio"
+                 tal:attributes="value option/value;
+                                 id option/value;
+                                 checked option/checked;" />
 
-      <div class="formHelp" id="newTargetRelease_help"
-           i18n:translate="Poi_help_newTargetRelease">
-        Set the target release for this issue
+          <label
+              tal:attributes="for option/value"
+              tal:content="option/label" />
+
+          <br />
+        </tal:options>
       </div>
 
-      <tal:options
-          repeat="option view/releases_for_display">
-        <input class="noborder" name="targetRelease"
-               value="" id="" type="radio"
-               tal:attributes="value option/value;
-                               id option/value;
-                               checked option/checked;" />
+      <div class="field"
+           tal:condition="view/show_target_releases">
+        <label for="newTargetRelease"
+               i18n:translate="Poi_label_newTargetRelease">
+          Change target release
+        </label>
 
-        <label
-            i18n:translate=""
-            tal:attributes="for option/value"
-            tal:content="option/label" />
+        <div class="formHelp" id="newTargetRelease_help"
+             i18n:translate="Poi_help_newTargetRelease">
+          Set the target release for this issue
+        </div>
 
-        <br />
-      </tal:options>
-    </div>
+        <tal:options
+            repeat="option view/releases_for_display">
+          <input class="noborder" name="targetRelease"
+                 value="" id="" type="radio"
+                 tal:attributes="value option/value;
+                                 id option/value;
+                                 checked option/checked;" />
 
-    <div class="field"
-         tal:condition="view/managers_for_display">
-      <label for="responsibleManager"
-             i18n:translate="Poi_label_newResponsibleManager">
-        Change responsible manager
-      </label>
+          <label
+              i18n:translate=""
+              tal:attributes="for option/value"
+              tal:content="option/label" />
 
-      <div class="formHelp" id="manager_help"
-           i18n:translate="Poi_help_newResponsibleManager">
-        Select the responsible manager for this issue
+          <br />
+        </tal:options>
       </div>
 
-      <tal:options
-          repeat="option view/managers_for_display">
-        <input class="noborder" name="responsibleManager"
-               value="" id="" type="radio"
-               tal:attributes="value option/value;
-                               id option/value;
-                               checked option/checked;" />
+      <div class="field"
+           tal:condition="view/managers_for_display">
+        <label for="responsibleManager"
+               i18n:translate="Poi_label_newResponsibleManager">
+          Change responsible manager
+        </label>
 
-        <label
-            i18n:translate=""
-            tal:attributes="for option/value"
-            tal:content="option/label" />
+        <div class="formHelp" id="manager_help"
+             i18n:translate="Poi_help_newResponsibleManager">
+          Select the responsible manager for this issue
+        </div>
 
-        <br />
-      </tal:options>
-    </div>
+        <tal:options
+            repeat="option view/managers_for_display">
+          <input class="noborder" name="responsibleManager"
+                 value="" id="" type="radio"
+                 tal:attributes="value option/value;
+                                 id option/value;
+                                 checked option/checked;" />
 
-    <div class="formControls">
-      <input class="standalone" value="Submit" type="submit"
-             i18n:domain="plone" i18n:attributes="value"/>
-    </div>
-  </form>
+          <label
+              i18n:translate=""
+              tal:attributes="for option/value"
+              tal:content="option/label" />
+
+          <br />
+        </tal:options>
+      </div>
+
+      <div class="formControls">
+        <input class="standalone" value="Submit" type="submit"
+               i18n:domain="plone" i18n:attributes="value"/>
+      </div>
+    </form>
   </tal:add>
 </div>

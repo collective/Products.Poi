@@ -5,6 +5,9 @@ Changelog for Poi
 2.0a2 (unreleased)
 ------------------
 
+- Modernize, cleanup and reindent all templates.
+  [maurits]
+
 - Slightly alter the templates of tracker and issue to use the
   content-core slot of Plone 4.
   [maurits]

@@ -1,270 +1,277 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="Poi">
 <head>
-    <metal:css fill-slot="style_slot">
-      <style type="text/css" media="all"
-        tal:content="string:@import url($portal_url/poi.css);"></style>
-    </metal:css>
+  <metal:block fill-slot="top_slot"
+               tal:define="dummy python:request.set('disable_border',1)" />
+  <metal:css fill-slot="style_slot">
+    <style type="text/css" media="all"
+           tal:content="string:@import url($portal_url/poi.css);"></style>
+  </metal:css>
 </head>
 <body>
-<div metal:fill-slot="main">
-
-    <h1 i18n:translate="poi_heading_issue_search">Issue search</h1>
+<metal:main fill-slot="main">
+  <metal:main define-macro="main">
+    <h1 class="documentFirstHeading" i18n:translate="poi_heading_issue_search">Issue search</h1>
 
     <a href=""
-          class="link-parent visualNoPrint"
-          tal:attributes="href string:${here/absolute_url}">
-          <span i18n:translate="poi_return_to_tracker">Return to tracker</span>
-      </a>
+       class="link-parent visualNoPrint"
+       tal:attributes="href string:${here/absolute_url}">
+      <span i18n:translate="poi_return_to_tracker">Return to tracker</span>
+    </a>
 
-    <p i18n:translate="poi_issue_search_description">
-    This form allows you to search for issue according to a variety of
-    criteria. Please make your selection below and click Search.
+    <p class="documentDescription" i18n:translate="poi_issue_search_description">
+      This form allows you to search for issue according to a variety of
+      criteria. Please make your selection below and click Search.
     </p>
 
-  	<form action="poi_issue_search"
-          method="get"
-          name="poi_issue_search">
+    <div id="content-core">
+      <form action="poi_issue_search"
+            method="get"
+            name="poi_issue_search">
 
         <fieldset>
 
-            <legend i18n:translate="poi_legend_search_terms">Search Terms</legend>
+          <legend i18n:translate="poi_legend_search_terms">Search Terms</legend>
 
-            <div class="field">
+          <div class="field">
 
-                <label for="text" i18n:translate="poi_search_label_id">Issue number</label>
+            <label for="text" i18n:translate="poi_search_label_id">Issue number</label>
 
-                <div class="formHelp" i18n:translate="poi_search_help_id">
-                    If you wish to search for a particular issue, please
-                    enter its number.
-                </div>
-
-                <input type="text"
-                       id="id"
-                       name="id"
-                       size="5" />
+            <div class="formHelp" i18n:translate="poi_search_help_id">
+              If you wish to search for a particular issue, please
+              enter its number.
             </div>
 
-            <div class="field">
+            <input type="text"
+                   id="id"
+                   name="id"
+                   size="5" />
+          </div>
 
-                <label for="text" i18n:translate="poi_search_label_text">Issue text</label>
+          <div class="field">
 
-                <div class="formHelp" i18n:translate="poi_search_help_text">
-                    Enter any text you wish the issue to include.
-                </div>
+            <label for="text" i18n:translate="poi_search_label_text">Issue text</label>
 
-                <input type="text"
-                       id="text"
-                       name="text"
-                       size="30" />
+            <div class="formHelp" i18n:translate="poi_search_help_text">
+              Enter any text you wish the issue to include.
             </div>
 
-            <div class="field">
+            <input type="text"
+                   id="text"
+                   name="text"
+                   size="30" />
+          </div>
 
-                <label for="creator" i18n:translate="poi_search_label_creator">Submitter</label>
+          <div class="field">
 
-                <div class="formHelp" i18n:translate="poi_search_help_creator">
-                    Enter the username of the issue submitter,
-                </div>
+            <label for="creator" i18n:translate="poi_search_label_creator">Submitter</label>
 
-                <input id="creator" name="creator" size="15" />
-
+            <div class="formHelp" i18n:translate="poi_search_help_creator">
+              Enter the username of the issue submitter,
             </div>
 
-            <div class="field" tal:condition="here/isUsingReleases">
+            <input id="creator" name="creator" size="15" />
 
-                <label for="release" i18n:translate="poi_search_label_release">Version</label>
+          </div>
 
-                <div class="formHelp" i18n:translate="poi_search_help_release">
-                    Select the version for which the bugs you want to find
-                    were reported.
-                </div>
+          <div class="field" tal:condition="here/isUsingReleases">
 
-                <select id="release"
-                        size="5"
-                        multiple="multiple"
-                        name="release:list"
-                        tal:define="releases here/getReleasesVocab">
-                    <option i18n:translate="not_assigned"
-                            value="(UNASSIGNED)">(Not assigned)</option>
-                    <option tal:repeat="item releases"
-                            tal:attributes="value item"
-                            tal:content="python:releases.getValue(item)" />
-                </select>
+            <label for="release" i18n:translate="poi_search_label_release">Version</label>
 
+            <div class="formHelp" i18n:translate="poi_search_help_release">
+              Select the version for which the bugs you want to find
+              were reported.
             </div>
 
-            <div class="field" tal:condition="here/isUsingReleases">
+            <select id="release"
+                    size="5"
+                    multiple="multiple"
+                    name="release:list"
+                    tal:define="releases here/getReleasesVocab">
+              <option i18n:translate="not_assigned"
+                      value="(UNASSIGNED)">(Not assigned)</option>
+              <option tal:repeat="item releases"
+                      tal:attributes="value item"
+                      tal:content="python:releases.getValue(item)" />
+            </select>
 
-                <label for="release" i18n:translate="poi_search_label_target_release">Target release</label>
+          </div>
 
-                <div class="formHelp" i18n:translate="poi_search_help_target_release">
-                    Select the assigned target release you wish to search for.
-                </div>
+          <div class="field" tal:condition="here/isUsingReleases">
 
-                <select id="targetRelease"
-                        size="5"
-                        multiple="multiple"
-                        name="targetRelease:list"
-                        tal:define="releases here/getReleasesVocab">
-                    <option i18n:translate="not_assigned"
-                            value="(UNASSIGNED)">(Not assigned)</option>
-                    <option tal:repeat="item releases"
-                            tal:attributes="value item"
-                            tal:content="python:releases.getValue(item)" />
-                </select>
+            <label for="release" i18n:translate="poi_search_label_target_release">Target release</label>
 
+            <div class="formHelp" i18n:translate="poi_search_help_target_release">
+              Select the assigned target release you wish to search for.
             </div>
 
-            <div class="field">
+            <select id="targetRelease"
+                    size="5"
+                    multiple="multiple"
+                    name="targetRelease:list"
+                    tal:define="releases here/getReleasesVocab">
+              <option i18n:translate="not_assigned"
+                      value="(UNASSIGNED)">(Not assigned)</option>
+              <option tal:repeat="item releases"
+                      tal:attributes="value item"
+                      tal:content="python:releases.getValue(item)" />
+            </select>
 
-                <label for="area" i18n:translate="poi_search_label_area">Area</label>
+          </div>
 
-                <div class="formHelp" i18n:translate="poi_search_help_area">
-                    Select the areas you wish to search for.
-                </div>
+          <div class="field">
 
-                <select id="area"
-                        size="5"
-                        multiple="multiple"
-                        name="area:list"
-                        tal:define="areas python:here.getWrappedField('availableAreas').getAsDisplayList(here)">
-                    <option tal:repeat="item areas"
-                            tal:attributes="value nocall:item"
-                            tal:content="python:areas.getValue(item)" />
-                </select>
+            <label for="area" i18n:translate="poi_search_label_area">Area</label>
 
+            <div class="formHelp" i18n:translate="poi_search_help_area">
+              Select the areas you wish to search for.
             </div>
 
-            <div class="field">
+            <select id="area"
+                    size="5"
+                    multiple="multiple"
+                    name="area:list"
+                    tal:define="areas python:here.getWrappedField('availableAreas').getAsDisplayList(here)">
+              <option tal:repeat="item areas"
+                      tal:attributes="value nocall:item"
+                      tal:content="python:areas.getValue(item)" />
+            </select>
 
-                <label for="issueType" i18n:translate="poi_search_label_issue_type">Issue type</label>
+          </div>
 
-                <div class="formHelp" i18n:translate="poi_search_help_issue_type">
-                    Select the issue types you wish to search for.
-                </div>
+          <div class="field">
 
-                <select id="issueType"
-                        size="5"
-                        multiple="multiple"
-                        name="issueType:list"
-                        tal:define="issueTypes python:here.getWrappedField('availableIssueTypes').getAsDisplayList(here)">
-                    <option tal:repeat="item issueTypes"
-                            tal:attributes="value nocall:item"
-                            tal:content="python:issueTypes.getValue(item)" />
-                </select>
+            <label for="issueType" i18n:translate="poi_search_label_issue_type">Issue type</label>
 
+            <div class="formHelp" i18n:translate="poi_search_help_issue_type">
+              Select the issue types you wish to search for.
             </div>
 
-            <div class="field">
+            <select id="issueType"
+                    size="5"
+                    multiple="multiple"
+                    name="issueType:list"
+                    tal:define="issueTypes python:here.getWrappedField('availableIssueTypes').getAsDisplayList(here)">
+              <option tal:repeat="item issueTypes"
+                      tal:attributes="value nocall:item"
+                      tal:content="python:issueTypes.getValue(item)" />
+            </select>
 
-                <label for="severity" i18n:translate="poi_search_label_severity">Severity</label>
+          </div>
 
-                <div class="formHelp" i18n:translate="poi_search_help_severity">
-                    Select the severities you wish to search for.
-                </div>
+          <div class="field">
 
-                <select id="severity"
-                        size="5"
-                        multiple="multiple"
-                        name="severity:list"
-                        tal:define="severities here/getAvailableSeverities">
-                    <option tal:repeat="item severities"
-                            tal:attributes="value item"
-                            tal:content="item" />
-                </select>
+            <label for="severity" i18n:translate="poi_search_label_severity">Severity</label>
 
+            <div class="formHelp" i18n:translate="poi_search_help_severity">
+              Select the severities you wish to search for.
             </div>
 
-            <div class="field">
+            <select id="severity"
+                    size="5"
+                    multiple="multiple"
+                    name="severity:list"
+                    tal:define="severities here/getAvailableSeverities">
+              <option tal:repeat="item severities"
+                      tal:attributes="value item"
+                      tal:content="item" />
+            </select>
 
-                <label for="state" i18n:translate="poi_search_label_state">State</label>
+          </div>
 
-                <div class="formHelp" i18n:translate="poi_search_help_state">
-                    Select the states you wish to search for.
-                </div>
+          <div class="field">
 
-                <select id="state"
-                        size="5"
-                        multiple="multiple"
-                        name="state:list"
-                        tal:define="states here/getIssueWorkflowStates">
-                    <option tal:repeat="item states"
-                            tal:attributes="value item"
-                            i18n:translate=""
-                            i18n:domain="plone"
-                            tal:content="python:states.getValue(item)" />
-                </select>
+            <label for="state" i18n:translate="poi_search_label_state">State</label>
 
+            <div class="formHelp" i18n:translate="poi_search_help_state">
+              Select the states you wish to search for.
             </div>
 
-            <div class="field">
+            <select id="state"
+                    size="5"
+                    multiple="multiple"
+                    name="state:list"
+                    tal:define="states here/getIssueWorkflowStates">
+              <option tal:repeat="item states"
+                      tal:attributes="value item"
+                      i18n:translate=""
+                      i18n:domain="plone"
+                      tal:content="python:states.getValue(item)" />
+            </select>
 
-                <label for="responsible" i18n:translate="poi_search_label_responsible">Responsible tracker managers</label>
+          </div>
 
-                <div class="formHelp" i18n:translate="poi_search_help_responsible">
-                    Select the responsible managers you wish to search for.
-                </div>
+          <div class="field">
 
-                <select id="responsible"
-                        size="5"
-                        multiple="multiple"
-                        name="responsible:list"
-                        tal:define="managers here/getManagers">
-                    <option i18n:translate="not_assigned"
-                            value="(UNASSIGNED)">(Not assigned)</option>
-                    <option tal:repeat="item managers"
-                            tal:attributes="value item"
-                            tal:content="item" />
-                </select>
+            <label for="responsible" i18n:translate="poi_search_label_responsible">Responsible tracker managers</label>
 
+            <div class="formHelp" i18n:translate="poi_search_help_responsible">
+              Select the responsible managers you wish to search for.
             </div>
 
-            <div class="field">
+            <select id="responsible"
+                    size="5"
+                    multiple="multiple"
+                    name="responsible:list"
+                    tal:define="managers here/getManagers">
+              <option i18n:translate="not_assigned"
+                      value="(UNASSIGNED)">(Not assigned)</option>
+              <option tal:repeat="item managers"
+                      tal:attributes="value item"
+                      tal:content="item" />
+            </select>
 
-                <label for="tags" i18n:translate="poi_search_label_tags">Tags</label>
+          </div>
 
-                <div class="formHelp" i18n:translate="poi_search_help_tags">
-                    Tags are keywords assigned by tracker managers to issues to
-                    allow finer-grained organisation of issues. Select the tag
-                    or tags you wish to search for.
-                </div>
+          <div class="field">
 
-                <select id="tags"
-                        size="5"
-                        multiple="multiple"
-                        name="tags.query:record:list"
-                        tal:define="tags here/getTagsInUse">
-                    <option tal:repeat="item tags"
-                            tal:attributes="value item"
-                            tal:content="item" />
-                </select>
+            <label for="tags" i18n:translate="poi_search_label_tags">Tags</label>
 
+            <div class="formHelp" i18n:translate="poi_search_help_tags">
+              Tags are keywords assigned by tracker managers to issues to
+              allow finer-grained organisation of issues. Select the tag
+              or tags you wish to search for.
             </div>
 
-            <div>
-              <input type="checkbox" name="tags.operator:record"
-                     id="and_tags" value="and" checked="checked" />
-              <label for="and_tags"
-                     i18n:translate="poi_match_all_tags">Match all tags</label>
-            </div>
+            <select id="tags"
+                    size="5"
+                    multiple="multiple"
+                    name="tags.query:record:list"
+                    tal:define="tags here/getTagsInUse">
+              <option tal:repeat="item tags"
+                      tal:attributes="value item"
+                      tal:content="item" />
+            </select>
 
-            <div class="formControls">
-                <input class="context searchButton"
-                       type="submit"
-                       name="submit"
-                       value="Search"
-                       id="poi_advanced_search"
-                       i18n:attributes="value label_search;"
-                       />
-            </div>
+          </div>
+
+          <div>
+            <input type="checkbox" name="tags.operator:record"
+                   id="and_tags" value="and" checked="checked" />
+            <label for="and_tags"
+                   i18n:translate="poi_match_all_tags">Match all tags</label>
+          </div>
+
+          <div class="formControls">
+            <input class="context searchButton"
+                   type="submit"
+                   name="submit"
+                   value="Search"
+                   id="poi_advanced_search"
+                   i18n:attributes="value label_search;"
+                   />
+          </div>
 
         </fieldset>
 
-    </form>
-
-</div>
+      </form>
+    </div>
+  </metal:main>
+</metal:main>
 </body>
 </html>
