@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2010-07-09 23:01+0000\n"
+"POT-Creation-Date: 2010-07-17 00:27+0000\n"
 "PO-Revision-Date: 2010-07-10 01:02+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
@@ -24,17 +24,17 @@ msgid "Changes saved to response id ${response_id}."
 msgstr "Wijzigingen opgeslagen voor reactie met id ${response_id}."
 
 #. Default: "Delete"
-#: ../browser/response.pt:27
+#: ../browser/response.pt:30
 msgid "Delete"
 msgstr "Verwijder"
 
 #. Default: "Edit"
-#: ../browser/response.pt:17
+#: ../browser/response.pt:20
 msgid "Edit"
 msgstr "Bewerk"
 
 #. Default: "Edit issue"
-#: ../skins/Poi/poi_issue_view.pt:179
+#: ../skins/Poi/poi_issue_view.pt:175
 msgid "Edit issue"
 msgstr "Bewerk issue"
 
@@ -70,7 +70,7 @@ msgstr "Selecteer het gebied waar wat relevant is voor deze issue"
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ../browser/response.pt:149
+#: ../browser/response.pt:151
 #: ../content/PoiIssue.py:166
 msgid "Poi_help_attachment"
 msgstr "U kan optioneel een bijlage (bestand) uploaden. Alstublieft geen onnodige grote files uploaden."
@@ -125,7 +125,7 @@ msgstr "Geef een introductie helptekst op die getoond wordt op de tracker front 
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ../browser/response.pt:174
+#: ../browser/response.pt:176
 msgid "Poi_help_issueTransition"
 msgstr "Selecteer een verandering van status van de issue waar deze response op toepassing van is."
 
@@ -155,19 +155,19 @@ msgstr "Geef de user id's van gebruikers op die deze tracker mogen beheren, een 
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
-#: ../browser/response.pt:263
+#: ../browser/response.pt:265
 msgid "Poi_help_newResponsibleManager"
 msgstr "Selecteer de verantwoordelijke manager voor deze issue."
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ../browser/response.pt:206
+#: ../browser/response.pt:208
 msgid "Poi_help_newSeverity"
 msgstr "Selecteer de prioriteit voor deze issue"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ../browser/response.pt:234
+#: ../browser/response.pt:236
 msgid "Poi_help_newTargetRelease"
 msgstr "Geef de doelrelease op voor deze issue"
 
@@ -179,7 +179,7 @@ msgstr "Selecteer de versie waar deze issue op van toepassing is."
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
-#: ../browser/response.pt:108
+#: ../browser/response.pt:111
 msgid "Poi_help_response"
 msgstr "Geef aub hieronder uw reactie."
 
@@ -256,7 +256,7 @@ msgstr "Gebied"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
-#: ../browser/response.pt:146
+#: ../browser/response.pt:148
 #: ../content/PoiIssue.py:164
 msgid "Poi_label_attachment"
 msgstr "Bijlage"
@@ -311,7 +311,7 @@ msgstr "Helptekst"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
-#: ../browser/response.pt:169
+#: ../browser/response.pt:171
 msgid "Poi_label_issueTransition"
 msgstr "Verander issue status"
 
@@ -346,19 +346,19 @@ msgstr "Tracker managers"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
-#: ../browser/response.pt:258
+#: ../browser/response.pt:260
 msgid "Poi_label_newResponsibleManager"
 msgstr "Verander verantwoordelijke manager"
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ../browser/response.pt:201
+#: ../browser/response.pt:203
 msgid "Poi_label_newSeverity"
 msgstr "Verander prioriteit van issue"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ../browser/response.pt:229
+#: ../browser/response.pt:231
 msgid "Poi_label_newTargetRelease"
 msgstr "Verander doelrelease"
 
@@ -370,8 +370,7 @@ msgstr "Versie"
 
 # ./content/PoiIssue.py
 #. Default: "Response"
-#: ../browser/edit_response.pt:50
-#: ../browser/response.pt:105
+#: ../browser/response.pt:108
 msgid "Poi_label_response"
 msgstr "Reactie"
 
@@ -482,12 +481,12 @@ msgid "Severity"
 msgstr "Prioriteit"
 
 #. Default: "Stop watching this issue"
-#: ../skins/Poi/poi_issue_view.pt:150
+#: ../skins/Poi/poi_issue_view.pt:146
 msgid "Stop watching this issue"
 msgstr "Volg deze issue niet meer"
 
 #. Default: "Submit new issue"
-#: ../skins/Poi/poi_tracker_view.pt:64
+#: ../skins/Poi/poi_tracker_view.pt:62
 msgid "Submit new issue"
 msgstr "Voeg nieuwe issue toe"
 
@@ -496,7 +495,7 @@ msgid "Target release"
 msgstr "Doelrelease"
 
 #. Default: "Watch this issue"
-#: ../skins/Poi/poi_issue_view.pt:156
+#: ../skins/Poi/poi_issue_view.pt:152
 msgid "Watch this issue"
 msgstr "Volg deze issue"
 
@@ -509,17 +508,17 @@ msgid "You are not allowed to edit responses."
 msgstr "U mag geen reacties bewerken."
 
 #. Default: "${number} items matching your criteria."
-#: ../skins/Poi/poi_issue_search.pt:44
+#: ../skins/Poi/poi_issue_search.pt:47
 msgid "batch_x_items_matching_your_criteria"
 msgstr "${number} items die voldoen aan je criteria"
 
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ../skins/Poi/poi_tracker_view.pt:90
+#: ../skins/Poi/poi_tracker_view.pt:88
 msgid "description_cannot_add_issues_before_opened"
 msgstr "Anderen kunnen geen issues toevoegen aan uw tracker, totdat u de status veranderd naar 'open' in het status dropdown menu in de groene balk hierboven."
 
 #. Default: "No results were found."
-#: ../skins/Poi/poi_issue_search.pt:40
+#: ../skins/Poi/poi_issue_search.pt:43
 msgid "description_no_results_found"
 msgstr "Er zijn resultaten gevonden"
 
@@ -528,124 +527,119 @@ msgstr "Er zijn resultaten gevonden"
 msgid "label_edit_response_not_allowed"
 msgstr "Het is u niet toegestaan om deze reactie te bewerken."
 
-#. Default: "Please enter your response below"
-#: ../browser/edit_response.pt:53
-msgid "label_enter_response"
-msgstr "Vul alstublieft hieronder uw reactie in."
-
 #. Default: "Powered by"
-#: ../skins/Poi/poi_tracker_view.pt:272
+#: ../skins/Poi/poi_tracker_view.pt:271
 msgid "label_powered_by"
 msgstr "Aangedreven door"
 
 #. Default: "Return to issue."
-#: ../browser/edit_response.pt:26
+#: ../browser/edit_response.pt:28
 msgid "label_return_to_issue"
 msgstr "Ga terug naar issue"
 
 #. Default: "RSS Feed"
-#: ../skins/Poi/poi_issue_search_results.pt:6
-#: ../skins/Poi/poi_tracker_view.pt:198
+#: ../skins/Poi/poi_issue_search_results.pt:10
+#: ../skins/Poi/poi_tracker_view.pt:194
 msgid "label_rss_feed"
 msgstr "RSS Feed"
 
 #. Default: "Search"
-#: ../skins/Poi/poi_issue_search_form.pt:255
+#: ../skins/Poi/poi_issue_search_form.pt:261
 msgid "label_search"
 msgstr "Zoeken"
 
 #. Default: "Area"
-#: ../skins/Poi/poi_issue_search_results.pt:26
+#: ../skins/Poi/poi_issue_search_results.pt:31
 msgid "listingheader_area"
 msgstr "Gebied"
 
 #. Default: "#"
-#: ../skins/Poi/poi_issue_search_results.pt:22
+#: ../skins/Poi/poi_issue_search_results.pt:27
 msgid "listingheader_number"
 msgstr "#"
 
 #. Default: "Target"
-#: ../skins/Poi/poi_issue_search_results.pt:24
+#: ../skins/Poi/poi_issue_search_results.pt:29
 msgid "listingheader_release"
 msgstr "Doel"
 
 #. Default: "Responsible"
-#: ../skins/Poi/poi_issue_search_results.pt:29
+#: ../skins/Poi/poi_issue_search_results.pt:34
 msgid "listingheader_responsible"
 msgstr "Verantwoordelijke"
 
 #. Default: "Severity"
-#: ../skins/Poi/poi_issue_search_results.pt:28
+#: ../skins/Poi/poi_issue_search_results.pt:33
 msgid "listingheader_severity"
 msgstr "Prioriteit"
 
 #. Default: "State"
-#: ../skins/Poi/poi_issue_search_results.pt:31
+#: ../skins/Poi/poi_issue_search_results.pt:36
 msgid "listingheader_state"
 msgstr "Status"
 
 #. Default: "Tags"
-#: ../skins/Poi/poi_issue_search_results.pt:30
+#: ../skins/Poi/poi_issue_search_results.pt:35
 msgid "listingheader_tags"
 msgstr "Tags"
 
 #. Default: "Title"
-#: ../skins/Poi/poi_issue_search_results.pt:23
+#: ../skins/Poi/poi_issue_search_results.pt:28
 msgid "listingheader_title"
 msgstr "Titel"
 
 #. Default: "Type"
-#: ../skins/Poi/poi_issue_search_results.pt:27
+#: ../skins/Poi/poi_issue_search_results.pt:32
 msgid "listingheader_type"
 msgstr "Type"
 
 #. Default: "If you can, please log in before submitting your issue."
-#: ../skins/Poi/poi_tracker_view.pt:48
+#: ../skins/Poi/poi_tracker_view.pt:46
 msgid "login_suggestion"
 msgstr "Als het mogelijk is, log aub in voordat u een issue plaatst."
 
 #. Default: "If you can, please log in before submitting a reaction."
-#: ../browser/response.pt:84
+#: ../browser/response.pt:87
 msgid "login_suggestion_response"
 msgstr "Als het mogelijk is, log aub in voordat u een reactie plaatst."
 
 #. Default: "No responses can be added."
-#: ../browser/response.pt:76
+#: ../browser/response.pt:79
 msgid "msg_no_responses_can_be_added"
 msgstr "Er kunnen geen reacties worden toegevoegd."
 
 #. Default: "(Not assigned)"
-#: ../skins/Poi/poi_issue_search_form.pt:90
+#: ../skins/Poi/poi_issue_search_form.pt:96
 msgid "not_assigned"
 msgstr "(Niet toegewezen)"
 
 #. Default: "Added by"
-#: ../browser/response.pt:36
+#: ../browser/response.pt:39
 msgid "poi_added_by"
 msgstr "Toegevoegd door"
 
 #. Default: "Added ${count} day(s) ago."
-#: ../browser/log.pt:80
+#: ../browser/log.pt:83
 msgid "poi_added_days_ago"
 msgstr "${count} dag(en) geleden toegevoegd."
 
 #. Default: "Added ${count} hour(s) ago."
-#: ../browser/log.pt:73
+#: ../browser/log.pt:76
 msgid "poi_added_hours_ago"
 msgstr "${count} uur geleden toegevoegd."
 
 #. Default: "Added ${count} minute(s) ago."
-#: ../browser/log.pt:66
+#: ../browser/log.pt:69
 msgid "poi_added_minutes_ago"
 msgstr "${count} minu(u)t(en) geleden toegevoegd."
 
 #. Default: "on"
-#: ../browser/response.pt:41
+#: ../browser/response.pt:44
 msgid "poi_added_on"
 msgstr "op"
 
 #. Default: "All pending issues"
-#: ../skins/Poi/poi_tracker_view.pt:144
+#: ../skins/Poi/poi_tracker_view.pt:142
 msgid "poi_all_pending_issues"
 msgstr "Alle openstaande issues"
 
@@ -728,47 +722,47 @@ msgstr ""
 "* Dit is een automatische e-mail, gelieven niet de e-mail te beantwoorden - ${from_name}"
 
 #. Default: "By area"
-#: ../skins/Poi/poi_tracker_view.pt:111
+#: ../skins/Poi/poi_tracker_view.pt:109
 msgid "poi_heading_by_area"
 msgstr "Per gebied"
 
 #. Default: "By target release"
-#: ../skins/Poi/poi_tracker_view.pt:128
+#: ../skins/Poi/poi_tracker_view.pt:126
 msgid "poi_heading_by_release"
 msgstr "Per doelrelease"
 
 #. Default: "By state"
-#: ../skins/Poi/poi_tracker_view.pt:141
+#: ../skins/Poi/poi_tracker_view.pt:139
 msgid "poi_heading_by_state"
 msgstr "Per status"
 
 #. Default: "By tag"
-#: ../skins/Poi/poi_tracker_view.pt:165
+#: ../skins/Poi/poi_tracker_view.pt:163
 msgid "poi_heading_by_tag"
 msgstr "Per tag"
 
 #. Default: "Issue search"
-#: ../skins/Poi/poi_issue_search_form.pt:14
+#: ../skins/Poi/poi_issue_search_form.pt:19
 msgid "poi_heading_issue_search"
 msgstr "Issue zoeken"
 
 #. Default: "Tracker log"
-#: ../browser/log.pt:17
+#: ../browser/log.pt:19
 msgid "poi_heading_log"
 msgstr "Tracker log"
 
 #. Default: "My issues"
-#: ../skins/Poi/poi_tracker_view.pt:219
+#: ../skins/Poi/poi_tracker_view.pt:215
 msgid "poi_heading_my_issues"
 msgstr "Mijn issues"
 
 #. Default: "Open issues"
-#: ../skins/Poi/poi_tracker_view.pt:100
+#: ../skins/Poi/poi_tracker_view.pt:98
 msgid "poi_heading_open_issues"
 msgstr "Openstaande issues"
 
 #. Default: "Orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:252
+#: ../skins/Poi/poi_tracker_view.pt:249
 msgid "poi_heading_orphaned_issues"
 msgstr "Verlaten issues"
 
@@ -778,42 +772,42 @@ msgid "poi_heading_response_details"
 msgstr "Details van reactie"
 
 #. Default: "Issue search results"
-#: ../skins/Poi/poi_issue_search.pt:31
+#: ../skins/Poi/poi_issue_search.pt:34
 msgid "poi_heading_search_results"
 msgstr "Issue zoek resultaten"
 
 #. Default: "Unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:188
+#: ../skins/Poi/poi_tracker_view.pt:184
 msgid "poi_heading_unconfirmed_issues"
 msgstr "Onbevestigde issues"
 
 #. Default: "An overview of recent activity in the tracker."
-#: ../browser/log.pt:19
+#: ../browser/log.pt:21
 msgid "poi_help_log"
 msgstr "Een overview van de laatste activiteiten in de tracker"
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ../skins/Poi/poi_tracker_view.pt:220
+#: ../skins/Poi/poi_tracker_view.pt:216
 msgid "poi_help_my_issues_manager"
 msgstr "The volgende openstaande issues zijn of naar uw gestuurd, of gekoppeld aan u. Let op dat de RSS for deze lijst ook onbevestigde en orphaned issues bevat. Dit maakt het mogelijk dat u zich kunt inschrijven voor één feed die alle issues bevat waar u in geînteresseerd bent."
 
 #. Default: "The following open issues were submitted by you."
-#: ../skins/Poi/poi_tracker_view.pt:227
+#: ../skins/Poi/poi_tracker_view.pt:223
 msgid "poi_help_my_issues_not_manager"
 msgstr "De volgende openstaande issues zijn naar u gestuurd"
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
-#: ../skins/Poi/poi_tracker_view.pt:104
+#: ../skins/Poi/poi_tracker_view.pt:102
 msgid "poi_help_open_issues"
 msgstr "Klik op een gebied, release of issue status om alle opstaande issues te zien in die categorie. Voor meer geadvanceerde zoek opties klik op \"Zoek voor issues\". "
 
 #. Default: "The following open issues are not assigned to anyone."
-#: ../skins/Poi/poi_tracker_view.pt:253
+#: ../skins/Poi/poi_tracker_view.pt:250
 msgid "poi_help_orphaned_issues_"
 msgstr "De volgende openstaande issues zijn niet gekoppeld aan iemand."
 
 #. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
-#: ../skins/Poi/poi_tracker_view.pt:189
+#: ../skins/Poi/poi_tracker_view.pt:185
 msgid "poi_help_unconfirmed_issues"
 msgstr "De volgende issues zijn nog niet bevestigd. Graag deze issues bekijken en de juiste actie ondernemen."
 
@@ -823,229 +817,219 @@ msgid "poi_issue_search"
 msgstr "Geavanceerde issue zoeken"
 
 #. Default: "This form allows you to search for issue according to a variety of criteria. Please make your selection below and click Search."
-#: ../skins/Poi/poi_issue_search_form.pt:22
+#: ../skins/Poi/poi_issue_search_form.pt:27
 msgid "poi_issue_search_description"
 msgstr "Dit formulier maakt het mogelijk om te zoeken naar een issue op verschillende crititia. Maak uw selectie en klik op Zoeken."
 
 #. Default: "Area"
-#: ../skins/Poi/poi_issue_view.pt:54
+#: ../skins/Poi/poi_issue_view.pt:66
 msgid "poi_label_area"
 msgstr "Gebied"
 
 #. Default: "Attached:"
-#: ../browser/response.pt:61
-#: ../skins/Poi/poi_issue_view.pt:172
+#: ../browser/response.pt:64
+#: ../skins/Poi/poi_issue_view.pt:168
 msgid "poi_label_attachment"
 msgstr "Bijlage:"
 
 #. Default: "Responsible"
-#: ../skins/Poi/poi_issue_view.pt:77
+#: ../skins/Poi/poi_issue_view.pt:89
 msgid "poi_label_responsible"
 msgstr "Verantwoordelijke"
 
 #. Default: "Severity"
-#: ../skins/Poi/poi_issue_view.pt:62
+#: ../skins/Poi/poi_issue_view.pt:74
 msgid "poi_label_severity"
 msgstr "Prioriteit"
 
 #. Default: "State"
-#: ../skins/Poi/poi_issue_view.pt:38
+#: ../skins/Poi/poi_issue_view.pt:50
 msgid "poi_label_state"
 msgstr "Status"
 
 #. Default: "Steps to reproduce:"
-#: ../skins/Poi/poi_issue_view.pt:167
+#: ../skins/Poi/poi_issue_view.pt:163
 msgid "poi_label_steps"
 msgstr "Stappen om te reproduceren:"
 
 #. Default: "Submitted by"
-#: ../skins/Poi/poi_issue_view.pt:66
+#: ../skins/Poi/poi_issue_view.pt:78
 msgid "poi_label_submitted_by"
 msgstr "Ingediend door"
 
 #. Default: "Submitted on"
-#: ../skins/Poi/poi_issue_view.pt:73
+#: ../skins/Poi/poi_issue_view.pt:85
 msgid "poi_label_submitted_on"
 msgstr "Ingediend op"
 
 #. Default: "Tags:"
-#: ../skins/Poi/poi_issue_view.pt:139
+#: ../skins/Poi/poi_issue_view.pt:135
 msgid "poi_label_tags"
 msgstr "Tags"
 
 #. Default: "Target release:"
-#: ../skins/Poi/poi_issue_view.pt:91
+#: ../skins/Poi/poi_issue_view.pt:103
 msgid "poi_label_target_release"
 msgstr "Doel release:"
 
 #. Default: "Issue type"
-#: ../skins/Poi/poi_issue_view.pt:58
+#: ../skins/Poi/poi_issue_view.pt:70
 msgid "poi_label_type"
 msgstr "Issue type"
 
 #. Default: "Version:"
-#: ../skins/Poi/poi_issue_view.pt:44
+#: ../skins/Poi/poi_issue_view.pt:56
 msgid "poi_label_version"
 msgstr "Versie"
 
-#. Default: "Last modified on ${modification_time}"
-#: ../skins/Poi/poi_issue_view.pt:134
-msgid "poi_last_modified_on"
-msgstr "Laatst aangepast op ${modification_time}"
-
-#. Default: "Last modified on ${modification_time} by ${modification_actor}"
-#: ../skins/Poi/poi_issue_view.pt:128
-msgid "poi_last_modified_on_by"
-msgstr "Laatst aangepast op ${modification_time} door ${modification_actor}"
-
 #. Default: "Search Terms"
-#: ../skins/Poi/poi_issue_search_form.pt:33
+#: ../skins/Poi/poi_issue_search_form.pt:39
 msgid "poi_legend_search_terms"
 msgstr "Zoektermen"
 
 #. Default: "Match all tags"
-#: ../skins/Poi/poi_issue_search_form.pt:250
+#: ../skins/Poi/poi_issue_search_form.pt:256
 msgid "poi_match_all_tags"
 msgstr "Zoek op de combinatie van alle geselecteerde tags"
 
 #. Default: "New issue ${name} added by ${author}"
-#: ../browser/log.pt:33
+#: ../browser/log.pt:36
 msgid "poi_new_issue_added"
 msgstr "Nieuw issue ${name} toegevoegd door ${author}"
 
 #. Default: "${author} added a new response to ${name}:"
-#: ../browser/log.pt:40
+#: ../browser/log.pt:43
 msgid "poi_new_response_added"
 msgstr "${author} heeft een nieuwe reactie toegevoegd aan ${name}:"
 
 #. Default: "Return to search"
-#: ../skins/Poi/poi_issue_search.pt:36
+#: ../skins/Poi/poi_issue_search.pt:39
 msgid "poi_return_to_search"
 msgstr "Ga terug naar het zoekscherm"
 
 #. Default: "Return to search results"
-#: ../skins/Poi/poi_issue_view.pt:104
+#: ../skins/Poi/poi_issue_view.pt:117
 msgid "poi_return_to_search_results"
 msgstr "Ga terug naar de zoekresultaten"
 
 #. Default: "Return to tracker"
-#: ../skins/Poi/poi_issue_search_form.pt:19
-#: ../skins/Poi/poi_issue_view.pt:111
+#: ../skins/Poi/poi_issue_search_form.pt:24
+#: ../skins/Poi/poi_issue_view.pt:124
 msgid "poi_return_to_tracker"
 msgstr "Ga terug naar de tracker"
 
 #. Default: "Select the areas you wish to search for."
-#: ../skins/Poi/poi_issue_search_form.pt:125
+#: ../skins/Poi/poi_issue_search_form.pt:131
 msgid "poi_search_help_area"
 msgstr "Selecteer de gebieden waarin u wilt zoeken."
 
 #. Default: "Enter the username of the issue submitter,"
-#: ../skins/Poi/poi_issue_search_form.pt:68
+#: ../skins/Poi/poi_issue_search_form.pt:74
 msgid "poi_search_help_creator"
 msgstr "Vul de gebruikersnaam van de issue indiener in"
 
 #. Default: "If you wish to search for a particular issue, please enter its number."
-#: ../skins/Poi/poi_issue_search_form.pt:39
+#: ../skins/Poi/poi_issue_search_form.pt:45
 msgid "poi_search_help_id"
 msgstr "Als u op een specifieke issue wilt zoeken, vul het nummer in."
 
 #. Default: "Select the issue types you wish to search for."
-#: ../skins/Poi/poi_issue_search_form.pt:145
+#: ../skins/Poi/poi_issue_search_form.pt:151
 msgid "poi_search_help_issue_type"
 msgstr "Selecteer de issue types waarop u wilt zoeken"
 
 #. Default: "Select the version for which the bugs you want to find were reported."
-#: ../skins/Poi/poi_issue_search_form.pt:80
+#: ../skins/Poi/poi_issue_search_form.pt:86
 msgid "poi_search_help_release"
 msgstr "Selecteer de versie voor de bugs die u wilde vinden, werden gemeld."
 
 #. Default: "Select the responsible managers you wish to search for."
-#: ../skins/Poi/poi_issue_search_form.pt:207
+#: ../skins/Poi/poi_issue_search_form.pt:213
 msgid "poi_search_help_responsible"
 msgstr "Selecteer de verantwoordelijke managers waarop u wilt zoeken"
 
 #. Default: "Select the severities you wish to search for."
-#: ../skins/Poi/poi_issue_search_form.pt:165
+#: ../skins/Poi/poi_issue_search_form.pt:171
 msgid "poi_search_help_severity"
 msgstr "Selecteer de ernst waarop u wilt zoeken."
 
 #. Default: "Select the states you wish to search for."
-#: ../skins/Poi/poi_issue_search_form.pt:185
+#: ../skins/Poi/poi_issue_search_form.pt:191
 msgid "poi_search_help_state"
 msgstr "Selecteer de status waarop u wilt zoeken."
 
 #. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
-#: ../skins/Poi/poi_issue_search_form.pt:229
+#: ../skins/Poi/poi_issue_search_form.pt:235
 msgid "poi_search_help_tags"
 msgstr "Tags zijn sleutelwoorden aangemaakt door tracker managers, hiermee is het mogelijk om extra categorizatie aan te brengen. Selecteer de tag of tags waar u op wilt zoeken."
 
 #. Default: "Select the assigned target release you wish to search for."
-#: ../skins/Poi/poi_issue_search_form.pt:103
+#: ../skins/Poi/poi_issue_search_form.pt:109
 msgid "poi_search_help_target_release"
 msgstr "Selecteer de toegewezen doel release waarop u wilt zoeken."
 
 #. Default: "Enter any text you wish the issue to include."
-#: ../skins/Poi/poi_issue_search_form.pt:54
+#: ../skins/Poi/poi_issue_search_form.pt:60
 msgid "poi_search_help_text"
 msgstr "Voeg elke tekst toe die de issue moet toevoegen."
 
 #. Default: "Area"
-#: ../skins/Poi/poi_issue_search_form.pt:123
+#: ../skins/Poi/poi_issue_search_form.pt:129
 msgid "poi_search_label_area"
 msgstr "Gebied"
 
 #. Default: "Submitter"
-#: ../skins/Poi/poi_issue_search_form.pt:66
+#: ../skins/Poi/poi_issue_search_form.pt:72
 msgid "poi_search_label_creator"
 msgstr "Indiener"
 
 #. Default: "Issue number"
-#: ../skins/Poi/poi_issue_search_form.pt:37
+#: ../skins/Poi/poi_issue_search_form.pt:43
 msgid "poi_search_label_id"
 msgstr "Issue nummer"
 
 #. Default: "Issue type"
-#: ../skins/Poi/poi_issue_search_form.pt:143
+#: ../skins/Poi/poi_issue_search_form.pt:149
 msgid "poi_search_label_issue_type"
 msgstr "Issue type"
 
 #. Default: "Version"
-#: ../skins/Poi/poi_issue_search_form.pt:78
+#: ../skins/Poi/poi_issue_search_form.pt:84
 msgid "poi_search_label_release"
 msgstr "Versie"
 
 #. Default: "Responsible tracker managers"
-#: ../skins/Poi/poi_issue_search_form.pt:205
+#: ../skins/Poi/poi_issue_search_form.pt:211
 msgid "poi_search_label_responsible"
 msgstr "Verantwoordelijke tracker managers"
 
 #. Default: "Severity"
-#: ../skins/Poi/poi_issue_search_form.pt:163
+#: ../skins/Poi/poi_issue_search_form.pt:169
 msgid "poi_search_label_severity"
 msgstr "Prioriteit"
 
 #. Default: "State"
-#: ../skins/Poi/poi_issue_search_form.pt:183
+#: ../skins/Poi/poi_issue_search_form.pt:189
 msgid "poi_search_label_state"
 msgstr "Status"
 
 #. Default: "Tags"
-#: ../skins/Poi/poi_issue_search_form.pt:227
+#: ../skins/Poi/poi_issue_search_form.pt:233
 msgid "poi_search_label_tags"
 msgstr "Tags"
 
 #. Default: "Target release"
-#: ../skins/Poi/poi_issue_search_form.pt:101
+#: ../skins/Poi/poi_issue_search_form.pt:107
 msgid "poi_search_label_target_release"
 msgstr "Doelrelease"
 
 #. Default: "Issue text"
-#: ../skins/Poi/poi_issue_search_form.pt:52
+#: ../skins/Poi/poi_issue_search_form.pt:58
 msgid "poi_search_label_text"
 msgstr "Issue tekst"
 
 #. Default: "Add response"
-#: ../browser/response.pt:99
+#: ../browser/response.pt:102
 msgid "title_add_response"
 msgstr "Voeg reactie toe"
 
@@ -1060,22 +1044,22 @@ msgid "title_error_no_response"
 msgstr "Fout: geen reactie gevonden om te bewerken."
 
 #. Default: "RSS feed of these search results"
-#: ../skins/Poi/poi_issue_search_results.pt:6
+#: ../skins/Poi/poi_issue_search_results.pt:10
 msgid "title_rss_feed"
 msgstr "RSS feed van deze zoekresultaten"
 
 #. Default: "RSS feed of my issues"
-#: ../skins/Poi/poi_tracker_view.pt:234
+#: ../skins/Poi/poi_tracker_view.pt:230
 msgid "title_rss_feed_my_issues"
 msgstr "RSS feed van mijn issues"
 
 #. Default: "RSS feed of orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:260
+#: ../skins/Poi/poi_tracker_view.pt:258
 msgid "title_rss_feed_orphaned"
 msgstr "RSS feed van open, niet toegewezen issues"
 
 #. Default: "RSS feed of unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:198
+#: ../skins/Poi/poi_tracker_view.pt:194
 msgid "title_rss_feed_unconfirmed"
 msgstr "RSS feed van niet bevestigde issues"
 
