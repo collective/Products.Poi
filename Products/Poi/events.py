@@ -64,6 +64,31 @@ def add_manager_to_issue_watchers(object, event=None):
     object.setWatchers(tuple(watchers))
 
 
+def update_tracker_watchers(object, event=None):
+    """Update tracker watchers.
+
+    If there is a mailing list, make sure it is in the
+    extra_addresses.  Okay, this is actually handled automatically by
+    the adapter.
+
+    If there is NO mailing list, make sure all tracker managers are
+    watchers.
+
+    Note that this means that tracker managers can only temporarily
+    unsubscribe: once someone edits the tracker, all tracker managers
+    are added again, unless a mailing list has been set.
+
+    """
+    #if object.getMailingList():
+    #    return
+    watcher_list = IWatcherList(object)
+    for manager in object.getManagers():
+        if manager not in watcher_list.watchers:
+            logger.info('Adding manager %s to watchers of tracker %r.',
+                        manager, object)
+            watcher_list.watchers.append(manager)
+
+
 def merge_response_changes_to_issue(issue):
     """Update the issue with possible changes due to responses.
 

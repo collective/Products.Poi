@@ -30,25 +30,25 @@ class IssueWatcherList(WatcherList):
 
 class TrackerWatcherList(WatcherList):
 
-    def __get_watchers(self):
-        managers = self.context.getManagers()
-        mailing_list = self.context.getMailingList()
-        if mailing_list:
-            return [mailing_list]
-        return list(managers)
-
-    def __set_watchers(self, v):
-        logger.warn("Setting watchers on a tracker is not supported yet.")
-
-    watchers = property(__get_watchers, __set_watchers)
-
     def __get_send_emails(self):
         return self.context.getSendNotificationEmails()
 
     def __set_send_emails(self, v):
-        self.tracker.setSendNotificationEmails(v)
+        self.context.setSendNotificationEmails(v)
 
     send_emails = property(__get_send_emails, __set_send_emails)
+
+    def __get_extra_addresses(self):
+        # Return a tuple, not a string!
+        return (self.context.getMailingList(), )
+
+    def __set_extra_addresses(self, v):
+        if not isinstance(v, basestring):
+            # turn tuple or list into string
+            v = '.'.join(v)
+        self.context.setMailingList(v)
+
+    extra_addresses = property(__get_extra_addresses, __set_extra_addresses)
 
 
 class IResponseContainer(Interface):

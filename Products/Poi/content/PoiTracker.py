@@ -245,9 +245,10 @@ schema = atapi.Schema((
                     default=(
                         u"If given, and if 'Send notification emails' is "
                         u"selected, an email will be sent to this address "
-                        u"each time a new issue or response is posted. If no "
-                        u"mailing list address is given, managers will "
-                        u"receive individual emails.")),
+                        u"each time a new issue or response is posted. "
+                        u"Managers will receive individual emails as well. "
+                        u"If this is not wanted, you may want to make them "
+                        u"technician instead.")),
             ),
         required=False,
         validators=('isEmail',)

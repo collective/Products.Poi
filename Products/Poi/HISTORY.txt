@@ -5,6 +5,13 @@ Changelog for Poi
 2.0a2 (unreleased)
 ------------------
 
+- Allow members to not only watch individual issues, but an entire
+  tracker.  Side effect: tracker managers always get an email, also if
+  a mailing list has been set.  If this is not wanted, you can make
+  the tracker manager a technician instead, or the tracker manager can
+  unsubscribe from the mailing list.
+  [maurits]
+
 - Modernize, cleanup and reindent all templates.
   [maurits]
 

@@ -13,3 +13,8 @@ class WatcherView(BrowserView):
         watchers = IWatcherList(context)
         watchers.toggle_watching()
         self.request.RESPONSE.redirect(context.absolute_url())
+
+    def is_watching(self):
+        context = aq_inner(self.context)
+        watchers = IWatcherList(context)
+        return watchers.isWatching()

@@ -81,6 +81,27 @@
               </div>
             </form>
           </td>
+          <td>
+            <form style="display: inline" action="@@toggle_watching"
+                  id="poi-watch-tracker-form"
+                  tal:condition="python:not isAnon">
+              <div class="formControls"
+                   tal:define="is_watching context/@@toggle_watching/is_watching;">
+                <input tal:condition="is_watching"
+                       class="standalone"
+                       type="submit"
+                       i18n:attributes="value"
+                       value="Stop watching this tracker"
+                       />
+                <input tal:condition="not:is_watching"
+                       class="context"
+                       type="submit"
+                       i18n:attributes="value"
+                       value="Watch this tracker"
+                       />
+              </div>
+            </form>
+          </td>
         </tr>
       </table>
     </div>

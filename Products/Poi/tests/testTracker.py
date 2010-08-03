@@ -178,7 +178,8 @@ class TestEmailNotifications(ptc.PoiTestCase):
     def testGetAddressesOnNewIssueWithList(self):
         self.tracker.setMailingList('list@example.com')
         addresses = IWatcherList(self.tracker).addresses
-        self.assertEqual(len(addresses), 1)
+        # Addresses are the mailing list and the tracker managers.
+        self.assertEqual(len(addresses), 3)
         self.failUnless('list@example.com' in addresses)
 
     def testGetAddressesOnNewResponse(self):
@@ -200,16 +201,18 @@ class TestEmailNotifications(ptc.PoiTestCase):
             self.tracker, contactEmail='submitter@example.com',
             watchers=('member2', 'member3'))
         addresses = IWatcherList(issue).addresses
-        self.assertEqual(len(addresses), 4)
+        self.assertEqual(len(addresses), 5)
+        # mailing list:
         self.failUnless('list@example.com' in addresses)
+        # submitter:
         self.failUnless('submitter@example.com' in addresses)
+        # tracker manager:
+        self.failUnless('member1@example.com' in addresses)
+        # direct subscribers:
         self.failUnless('member2@example.com' in addresses)
         self.failUnless('member3@example.com' in addresses)
         # A mail is sent immediately on creation of this issue.
-
-        # Note that member1 should not get an email, as it should go
-        # to the mailing list.
-        self.assertEqual(len(self.portal.MailHost.messages), 4)
+        self.assertEqual(len(self.portal.MailHost.messages), 5)
 
     def testGetTagsInUse(self):
         self.createIssue(self.tracker, tags=('A', 'B'))

@@ -101,6 +101,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         tracker.setSendNotificationEmails(sendNotificationEmails)
         tracker.setMailingList(mailingList)
         tracker.reindexObject()
+        notify(ObjectInitializedEvent(tracker))
         self.setRoles(['Member'])
 
         return tracker

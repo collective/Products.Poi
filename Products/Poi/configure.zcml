@@ -26,6 +26,18 @@
       />
 
   <subscriber
+      for="Products.Poi.interfaces.ITracker
+           Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler=".events.update_tracker_watchers"
+        />
+
+  <subscriber
+      for="Products.Poi.interfaces.ITracker
+           Products.Archetypes.interfaces.IObjectEditedEvent"
+        handler=".events.update_tracker_watchers"
+        />
+
+  <subscriber
       for="Products.Poi.interfaces.IIssue
            Products.Archetypes.interfaces.IObjectInitializedEvent"
         handler=".events.post_issue"
