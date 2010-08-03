@@ -41,9 +41,10 @@ def add_manager_to_issue_watchers(object, event=None):
     It might make sense to only do this when the manager is a
     Technician.  Some thoughts about this:
 
-    - It should not matter, as TrackerManagers currently cannot opt
-      out of receiving issue emails; but maybe that will change in the
-      future.
+    - It should not matter, as TrackerManagers currently cannot really
+      opt out of receiving issue emails, except temporarily until
+      someone edits the tracker (see the update_tracker_watchers
+      method).
 
     - But when a user is a TrackerManager, gets assigned an issue, and
       is then made Technician instead, he should still be a watcher.
