@@ -246,11 +246,11 @@ def update_tracker_managers(context, testing=False):
     """Make sure all managers of a tracker get the TrackerManager role.
 
     We used to give users in the 'managers' field of a tracker the
-    local Manager.  Now we give them the new TrackerManager role.  In
-    this upgrade step we remove the local Manager role from all users.
-    Instead we give them the TrackerManager role.  This might give a
-    few 'false positives', where a user has been intentionally given
-    the local Manager role and will now lose it.  That can't be
+    local Manager role.  Now we give them the new TrackerManager role.
+    In this upgrade step we remove the local Manager role from all
+    users.  Instead we give them the TrackerManager role.  This might
+    give a few 'false positives', where a user has been intentionally
+    given the local Manager role and will now lose it.  That can't be
     helped and is not expected to be a big problem.
 
     If testing is True, do not commit; this avoids some problems when
