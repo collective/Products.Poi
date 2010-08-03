@@ -108,7 +108,6 @@ schema = Schema((
     StringField(
         name='release',
         default="(UNASSIGNED)",
-        index="FieldIndex:schema",
         widget=SelectionWidget(
             label=_(u'Poi_label_release',
                     default=u"Version"),
@@ -175,7 +174,6 @@ schema = Schema((
 
     StringField(
         name='area',
-        index="FieldIndex:schema",
         widget=SelectionWidget(
             label=_(u'Poi_label_area',
                     default=u"Area"),
@@ -191,7 +189,6 @@ schema = Schema((
 
     StringField(
         name='issueType',
-        index="FieldIndex:schema",
         widget=SelectionWidget(
             label=_(u'Poi_label_issueType',
                     default=u"Issue type"),
@@ -207,7 +204,6 @@ schema = Schema((
 
     StringField(
         name='severity',
-        index="FieldIndex:schema",
         widget=SelectionWidget(
             label=_(u'Poi_label_severity',
                     default=u"Severity"),
@@ -224,7 +220,6 @@ schema = Schema((
 
     StringField(
         name='targetRelease',
-        index="FieldIndex:schema",
         widget=SelectionWidget(
             label=_(u'Poi_label_targetRelease',
                     default=u"Target release"),
@@ -241,7 +236,6 @@ schema = Schema((
 
     StringField(
         name='responsibleManager',
-        index="FieldIndex:schema",
         widget=SelectionWidget(
             label=_(u'Poi_label_responsibleManager',
                     default=u"Responsible"),
