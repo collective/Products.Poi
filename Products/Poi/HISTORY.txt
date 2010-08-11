@@ -150,7 +150,7 @@ Changelog for Poi
   [maurits]
 
 - PoiIssue: there is no reason why contactEmail is mandatory
- [ajung]
+  [ajung]
 
 
 1.2.7 (2009-10-24)
