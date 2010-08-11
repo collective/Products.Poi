@@ -40,3 +40,6 @@ General:
 
     o Move completely from i18n to locales?  Not sure if this is
         needed/useful.  [maurits]
+
+    o Move to blob storage for the attachment in PoiIssue and in the
+        new style responses.  [maurits]
