@@ -5,7 +5,8 @@ Changelog for Poi
 2.0b2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Make xmllint (and probably Chameleon) happy with valid xml.
+  [maurits]
 
 
 2.0b1 (2010-08-11)

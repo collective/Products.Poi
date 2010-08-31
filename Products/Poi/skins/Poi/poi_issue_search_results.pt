@@ -52,7 +52,7 @@
                   tal:condition="python:item.getTargetRelease != '(UNASSIGNED)'"
                   tal:replace="python:releases.getValue(item.getTargetRelease)" />
             <div tal:condition="python:item.getTargetRelease == '(UNASSIGNED)'"
-                 style="text-align:center">&mdash;</div>
+                 style="text-align:center">&#8212;</div>
           </td>
           <td tal:content="python:here.getWrappedField('availableAreas').lookup(here, item.getArea, 'title')"
               tal:on-error="item/getArea"/>
@@ -64,7 +64,7 @@
                   tal:define="manager python:pas_member.info(item.getResponsibleManager)"
                   tal:replace="manager/name_or_id" />
             <div tal:condition="python:item.getResponsibleManager == '(UNASSIGNED)'"
-                 style="text-align:center">&mdash;</div>
+                 style="text-align:center">&#8212;</div>
           </td>
           <td tal:content="python:', '.join(item.Subject)" />
           <td tal:attributes="class string:issue-${item/review_state}"

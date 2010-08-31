@@ -29,7 +29,7 @@
               i18n:translate="poi_new_issue_added">
             New issue
             <a tal:attributes="href entry/url"
-               tal:content="structure string:&raquo;${entry/title}&laquo;"
+               tal:content="structure string:&#0187;${entry/title}&#0171;"
                i18n:name="name">
               Issue name
             </a>
@@ -41,7 +41,7 @@
             <span tal:replace="entry/author" i18n:name="author"/>
             added a new response to
             <a tal:attributes="href entry/url"
-               tal:content="structure string:&raquo;${entry/issue}&laquo;"
+               tal:content="structure string:&#0187;${entry/issue}&#0171;"
                i18n:name="name" />:
           </dt>
           <dd>
@@ -54,7 +54,7 @@
                 <span i18n:translate="" tal:content="string:${delta/name}" />:
                 <span class="issueChange"
                       i18n:translate="" tal:content="delta/before" />
-                &rarr;
+                &#8594;
                 <span class="issueChange"
                       i18n:translate=""
                       tal:content="delta/after" />.

@@ -19,7 +19,7 @@
 
 <metal:title fill-slot="content-title">
   <h1 class="documentFirstHeading">
-    #<span tal:replace="context/getId" /> &mdash;
+    #<span tal:replace="context/getId" /> &#8212;
     <metal:field use-macro="python:context.widget('title', mode='view')">
       Body text
     </metal:field>
@@ -58,7 +58,7 @@
           <span tal:condition="python:here.getRelease() != '(UNASSIGNED)'"
                 tal:replace="python:releases.getValue(here.getRelease())" />
           <div tal:condition="python:here.getRelease() == '(UNASSIGNED)'" class="unassigned-field">
-            &mdash;
+            &#8212;
           </div>
         </td>
       </tr>
@@ -95,7 +95,7 @@
           </tal:condition>
 
           <div tal:condition="python:responsibleManager == '(UNASSIGNED)'" class="unassigned-field">
-            &mdash;
+            &#8212;
           </div>
         </td>
       </tr>
@@ -105,7 +105,7 @@
           <span tal:condition="python:here.getTargetRelease() != '(UNASSIGNED)'"
                 tal:replace="python:releases.getValue(here.getTargetRelease())" />
           <div tal:condition="python:here.getTargetRelease() == '(UNASSIGNED)'" class="unassigned-field">
-            &mdash;
+            &#8212;
           </div>
         </td>
       </tr>
