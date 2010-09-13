@@ -3,8 +3,9 @@
 
 # Do you want to add translations for a new language?  Great!
 # You need to know your language code.  Say it is xx.  Then do this:
-# - Copy poi.pot to poi-xx.po
-# - Copy plone-poi.pot to plone-poi-xx.po
+# - Create directories locales/xx and locales/xx/LC_MESSAGES
+# - Copy locales/poi.pot to locales/xx/LC_MESSAGES/poi.po
+# - Copy locales/plone.pot to locales/xx/LC_MESSAGES/plone.po
 # - Change the headers in those new files to fit your language.
 # - Add your translations in those files.
 # - Commit the new files to the Plone collective, or:
@@ -13,8 +14,9 @@
 # - Problems?  Ask for help on the internationalization forum:
 #   http://www.nabble.com/Internationalization-f6748.html
 
-i18ndude rebuild-pot --pot poi.pot --create Poi --exclude="poi-my-issues-rss.xml.pt poi-orphaned-issues-rss.xml.pt poi-issue-search-rss.xml.pt" ../
+i18ndude rebuild-pot --pot locales/poi.pot --create Poi --exclude="poi-my-issues-rss.xml.pt poi-orphaned-issues-rss.xml.pt poi-issue-search-rss.xml.pt" .
 
-i18ndude sync --pot plone-poi.pot `find . -iregex '.*plone-.*\.po$'`
+# Sync plone po files; but commented out by default as we have no code that updates the plone.pot file.
+# i18ndude sync --pot locales/plone.pot $(find . -name 'plone-.po')
 
-i18ndude  sync --pot poi.pot  `find . -iregex '.*\.po$'|grep -v plone`
+i18ndude sync --pot locales/poi.pot $(find . -name 'poi.po')
