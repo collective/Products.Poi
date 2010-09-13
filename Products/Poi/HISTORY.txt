@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.0b2 (unreleased)
+2.0b2 (2010-09-14)
 ------------------
 
 - Updated minimum dependencies to Plone 4.0 (was 4.0a1),
