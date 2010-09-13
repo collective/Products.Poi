@@ -5,6 +5,9 @@ Changelog for Poi
 2.0b2 (unreleased)
 ------------------
 
+- Move from i18n to locales.
+  [maurits]
+
 - Make xmllint (and probably Chameleon) happy with valid xml.
   [maurits]
 
