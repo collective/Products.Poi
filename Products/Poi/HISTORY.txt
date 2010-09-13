@@ -5,6 +5,11 @@ Changelog for Poi
 2.0b2 (unreleased)
 ------------------
 
+- Updated minimum dependencies to Plone 4.0 (was 4.0a1),
+  Products.AddRemoveWidget 1.4.4 (was 1.4.2) and
+  Products.DataGridField 1.8b1 (was 1.8a1).
+  [maurits]
+
 - Move from i18n to locales.
   [maurits]
 
