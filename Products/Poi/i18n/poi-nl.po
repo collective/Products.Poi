@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2010-07-17 00:27+0000\n"
+"POT-Creation-Date: 2010-09-13 21:09+0000\n"
 "PO-Revision-Date: 2010-07-17 02:32+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
@@ -58,20 +58,20 @@ msgstr "Geen reactie geselecteerd."
 msgid "No response text added and no issue changes made."
 msgstr "Geen tekst toegevoegd in deze reactie en geen wijzigingen aan de issue gemaakt."
 
-#: ../content/PoiIssue.py:498
+#: ../content/PoiIssue.py:492
 msgid "None"
 msgstr "Geen"
 
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."
-#: ../content/PoiIssue.py:182
+#: ../content/PoiIssue.py:180
 msgid "Poi_help_area"
 msgstr "Selecteer het gebied waar wat relevant is voor deze issue"
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
 #: ../browser/response.pt:151
-#: ../content/PoiIssue.py:166
+#: ../content/PoiIssue.py:165
 msgid "Poi_help_attachment"
 msgstr "U kan optioneel een bijlage (bestand) uploaden. Alstublieft geen onnodige grote files uploaden."
 
@@ -101,7 +101,7 @@ msgstr "Geef de verschillende types van issue prioriteiten op die beschikbaar mo
 
 # ./content/PoiIssue.py
 #. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
-#: ../content/PoiIssue.py:266
+#: ../content/PoiIssue.py:260
 msgid "Poi_help_contactEmail"
 msgstr "Optioneel, geef een e-mailadres op, waar de voortgang van de issue gemeld kan worden. Merk op dat dit emailadres niet aan anderen getoond zal worden."
 
@@ -113,7 +113,7 @@ msgstr "Kies de standaard prioriteit voor nieuwe issues"
 
 # ./content/PoiIssue.py
 #. Default: "Please provide further details"
-#: ../content/PoiIssue.py:130
+#: ../content/PoiIssue.py:129
 msgid "Poi_help_details"
 msgstr "Geef meer details op, aub."
 
@@ -131,7 +131,7 @@ msgstr "Selecteer een verandering van status van de issue waar deze response op 
 
 # ./content/PoiIssue.py
 #. Default: "Select the type of issue."
-#: ../content/PoiIssue.py:198
+#: ../content/PoiIssue.py:195
 msgid "Poi_help_issueType"
 msgstr "Selecteer het type van de issue"
 
@@ -142,8 +142,9 @@ msgid "Poi_help_issue_title"
 msgstr "Geef een korte omschrijvende titel op voor de issue. Een goede titel maakt het makkelijker project managers om een probleem te begrijpen en te reageren op een issue."
 
 # ./content/PoiTracker.py
-#. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails."
+#. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
 #: ../content/PoiTracker.py:243
+#, fuzzy
 msgid "Poi_help_mailingList"
 msgstr "Indien opgegeven en 'Stuur notificatie e-mails' is geselecteerd, wordt er een e-mail gestuurd naar dit address zodra er een nieuwe issue of reactie geplaatst wordt. Als er geen mailinglist adres is opgegeven, ontvangen alle managers individueel een e-mail."
 
@@ -173,7 +174,7 @@ msgstr "Geef de doelrelease op voor deze issue"
 
 # ./content/PoiIssue.py
 #. Default: "Select the version the issue was found in."
-#: ../content/PoiIssue.py:115
+#: ../content/PoiIssue.py:114
 msgid "Poi_help_release"
 msgstr "Selecteer de versie waar deze issue op van toepassing is."
 
@@ -185,7 +186,7 @@ msgstr "Geef aub hieronder uw reactie."
 
 # ./content/PoiIssue.py
 #. Default: "Select which manager, if any, is responsible for this issue."
-#: ../content/PoiIssue.py:248
+#: ../content/PoiIssue.py:242
 msgid "Poi_help_responsibleManager"
 msgstr "Selecteer welke manager, als er een is, verantwoordelijk is voor deze issue."
 
@@ -197,31 +198,31 @@ msgstr "Indien geselecteerd, krijgen tracker managers een e-mail elke keer als e
 
 # ./content/PoiIssue.py
 #. Default: "Select the severity of this issue."
-#: ../content/PoiIssue.py:214
+#: ../content/PoiIssue.py:210
 msgid "Poi_help_severity"
 msgstr "Selecteer de prioriteit van deze issue"
 
 # ./content/PoiIssue.py
 #. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
-#: ../content/PoiIssue.py:147
+#: ../content/PoiIssue.py:146
 msgid "Poi_help_steps"
 msgstr "Als het van toepassing is, geef de stappen op om de fout of issue the reproduceren, een stap per regel"
 
 # ./content/PoiIssue.py
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: ../content/PoiIssue.py:300
+#: ../content/PoiIssue.py:294
 msgid "Poi_help_subject"
 msgstr "Tags kunnen gebruikt worden om extra categorizatie toe te voegen aan issues. De lijst hier beneden laat de bestaande tags zien die u kunt selecteren of u kunt nieuwe toevoegen."
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
-#: ../content/PoiTracker.py:261
+#: ../content/PoiTracker.py:262
 msgid "Poi_help_svnurl"
 msgstr "Vul alstublieft de url in naar de relevante SVN repository, bijvoorbeeld http://dev.plone.org/collective/changeset/%(rev)s voor producten in de Plone collective."
 
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"
-#: ../content/PoiIssue.py:231
+#: ../content/PoiIssue.py:226
 msgid "Poi_help_targetRelease"
 msgstr "Release waarin het de bedoeling is om deze issue te fixen."
 
@@ -244,20 +245,20 @@ msgstr "Geef een omschrijvende naam op voor deze tracker"
 
 # ./content/PoiIssue.py
 #. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
-#: ../content/PoiIssue.py:283
+#: ../content/PoiIssue.py:277
 msgid "Poi_help_watchers"
 msgstr "Geef de gebruikersnamen van leden op die deze issue volgen, een per regel. Deze leden krijgen een e-mail als er een reactie is geplaatst op deze issue. Leden kunnen zichzelf toevoegen als volgers"
 
 # ./content/PoiIssue.py
 #. Default: "Area"
-#: ../content/PoiIssue.py:180
+#: ../content/PoiIssue.py:178
 msgid "Poi_label_area"
 msgstr "Gebied"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
 #: ../browser/response.pt:148
-#: ../content/PoiIssue.py:164
+#: ../content/PoiIssue.py:163
 msgid "Poi_label_attachment"
 msgstr "Bijlage"
 
@@ -287,7 +288,7 @@ msgstr "Beschikbare prioriteiten"
 
 # ./content/PoiIssue.py
 #. Default: "Contact email address"
-#: ../content/PoiIssue.py:264
+#: ../content/PoiIssue.py:258
 msgid "Poi_label_contactEmail"
 msgstr "Contact e-mailadres"
 
@@ -299,7 +300,7 @@ msgstr "Standaard prioriteit"
 
 # ./content/PoiIssue.py
 #. Default: "Details"
-#: ../content/PoiIssue.py:128
+#: ../content/PoiIssue.py:127
 msgid "Poi_label_details"
 msgstr "Details"
 
@@ -317,7 +318,7 @@ msgstr "Verander issue status"
 
 # ./content/PoiIssue.py
 #. Default: "Issue type"
-#: ../content/PoiIssue.py:196
+#: ../content/PoiIssue.py:193
 msgid "Poi_label_issueType"
 msgstr "Issue type"
 
@@ -364,7 +365,7 @@ msgstr "Verander doelrelease"
 
 # ./content/PoiIssue.py
 #. Default: "Version"
-#: ../content/PoiIssue.py:113
+#: ../content/PoiIssue.py:112
 msgid "Poi_label_release"
 msgstr "Versie"
 
@@ -376,7 +377,7 @@ msgstr "Reactie"
 
 # ./content/PoiIssue.py
 #. Default: "Responsible"
-#: ../content/PoiIssue.py:246
+#: ../content/PoiIssue.py:240
 msgid "Poi_label_responsibleManager"
 msgstr "Verantwoordelijke"
 
@@ -388,31 +389,31 @@ msgstr "Stuur notificatie e-mails"
 
 # ./content/PoiIssue.py
 #. Default: "Severity"
-#: ../content/PoiIssue.py:212
+#: ../content/PoiIssue.py:208
 msgid "Poi_label_severity"
 msgstr "Prioriteit"
 
 # ./content/PoiIssue.py
 #. Default: "Steps to reproduce"
-#: ../content/PoiIssue.py:145
+#: ../content/PoiIssue.py:144
 msgid "Poi_label_steps"
 msgstr "Stappen om het te reproduceren"
 
 # ./content/PoiIssue.py
 #. Default: "Tags"
-#: ../content/PoiIssue.py:298
+#: ../content/PoiIssue.py:292
 msgid "Poi_label_subject"
 msgstr "Tags"
 
 # ./content/PoiTracker.py
 #. Default: "URL to SVN"
-#: ../content/PoiTracker.py:259
+#: ../content/PoiTracker.py:260
 msgid "Poi_label_svnurl"
 msgstr "Url naar subversion"
 
 # ./content/PoiIssue.py
 #. Default: "Target release"
-#: ../content/PoiIssue.py:229
+#: ../content/PoiIssue.py:224
 msgid "Poi_label_targetRelease"
 msgstr "Doelrelease"
 
@@ -435,7 +436,7 @@ msgstr "Tracker naam"
 
 # ./content/PoiIssue.py
 #. Default: "Issue watchers"
-#: ../content/PoiIssue.py:281
+#: ../content/PoiIssue.py:275
 msgid "Poi_label_watchers"
 msgstr "Issue volgers"
 
@@ -485,6 +486,10 @@ msgstr "Prioriteit"
 msgid "Stop watching this issue"
 msgstr "Volg deze issue niet meer"
 
+#: ../skins/Poi/poi_tracker_view.pt:90
+msgid "Stop watching this tracker"
+msgstr ""
+
 #. Default: "Submit new issue"
 #: ../skins/Poi/poi_tracker_view.pt:62
 msgid "Submit new issue"
@@ -498,6 +503,10 @@ msgstr "Doelrelease"
 #: ../skins/Poi/poi_issue_view.pt:152
 msgid "Watch this issue"
 msgstr "Volg deze issue"
+
+#: ../skins/Poi/poi_tracker_view.pt:96
+msgid "Watch this tracker"
+msgstr ""
 
 #: ../browser/response.py:520
 msgid "You are not allowed to delete responses."
@@ -513,7 +522,7 @@ msgid "batch_x_items_matching_your_criteria"
 msgstr "${number} items die voldoen aan je criteria"
 
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ../skins/Poi/poi_tracker_view.pt:88
+#: ../skins/Poi/poi_tracker_view.pt:109
 msgid "description_cannot_add_issues_before_opened"
 msgstr "Anderen kunnen geen issues toevoegen aan uw tracker, totdat u de status veranderd naar 'open' in het status dropdown menu in de groene balk hierboven."
 
@@ -528,7 +537,7 @@ msgid "label_edit_response_not_allowed"
 msgstr "Het is u niet toegestaan om deze reactie te bewerken."
 
 #. Default: "Powered by"
-#: ../skins/Poi/poi_tracker_view.pt:271
+#: ../skins/Poi/poi_tracker_view.pt:292
 msgid "label_powered_by"
 msgstr "Aangedreven door"
 
@@ -539,7 +548,7 @@ msgstr "Ga terug naar issue"
 
 #. Default: "RSS Feed"
 #: ../skins/Poi/poi_issue_search_results.pt:10
-#: ../skins/Poi/poi_tracker_view.pt:194
+#: ../skins/Poi/poi_tracker_view.pt:215
 msgid "label_rss_feed"
 msgstr "RSS Feed"
 
@@ -639,7 +648,7 @@ msgid "poi_added_on"
 msgstr "op"
 
 #. Default: "All pending issues"
-#: ../skins/Poi/poi_tracker_view.pt:142
+#: ../skins/Poi/poi_tracker_view.pt:163
 msgid "poi_all_pending_issues"
 msgstr "Alle openstaande issues"
 
@@ -722,22 +731,22 @@ msgstr ""
 "* Dit is een automatische e-mail, gelieven niet de e-mail te beantwoorden - ${from_name}"
 
 #. Default: "By area"
-#: ../skins/Poi/poi_tracker_view.pt:109
+#: ../skins/Poi/poi_tracker_view.pt:130
 msgid "poi_heading_by_area"
 msgstr "Per gebied"
 
 #. Default: "By target release"
-#: ../skins/Poi/poi_tracker_view.pt:126
+#: ../skins/Poi/poi_tracker_view.pt:147
 msgid "poi_heading_by_release"
 msgstr "Per doelrelease"
 
 #. Default: "By state"
-#: ../skins/Poi/poi_tracker_view.pt:139
+#: ../skins/Poi/poi_tracker_view.pt:160
 msgid "poi_heading_by_state"
 msgstr "Per status"
 
 #. Default: "By tag"
-#: ../skins/Poi/poi_tracker_view.pt:163
+#: ../skins/Poi/poi_tracker_view.pt:184
 msgid "poi_heading_by_tag"
 msgstr "Per tag"
 
@@ -752,17 +761,17 @@ msgid "poi_heading_log"
 msgstr "Tracker log"
 
 #. Default: "My issues"
-#: ../skins/Poi/poi_tracker_view.pt:215
+#: ../skins/Poi/poi_tracker_view.pt:236
 msgid "poi_heading_my_issues"
 msgstr "Mijn issues"
 
 #. Default: "Open issues"
-#: ../skins/Poi/poi_tracker_view.pt:98
+#: ../skins/Poi/poi_tracker_view.pt:119
 msgid "poi_heading_open_issues"
 msgstr "Openstaande issues"
 
 #. Default: "Orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:249
+#: ../skins/Poi/poi_tracker_view.pt:270
 msgid "poi_heading_orphaned_issues"
 msgstr "Verlaten issues"
 
@@ -777,7 +786,7 @@ msgid "poi_heading_search_results"
 msgstr "Issue zoekresultaten"
 
 #. Default: "Unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:184
+#: ../skins/Poi/poi_tracker_view.pt:205
 msgid "poi_heading_unconfirmed_issues"
 msgstr "Onbevestigde issues"
 
@@ -787,27 +796,27 @@ msgid "poi_help_log"
 msgstr "Een overview van de laatste activiteiten in de tracker"
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ../skins/Poi/poi_tracker_view.pt:216
+#: ../skins/Poi/poi_tracker_view.pt:237
 msgid "poi_help_my_issues_manager"
 msgstr "The volgende openstaande issues zijn of naar uw gestuurd, of gekoppeld aan u. Let op dat de RSS for deze lijst ook onbevestigde en orphaned issues bevat. Dit maakt het mogelijk dat u zich kunt inschrijven voor één feed die alle issues bevat waar u in geînteresseerd bent."
 
 #. Default: "The following open issues were submitted by you."
-#: ../skins/Poi/poi_tracker_view.pt:223
+#: ../skins/Poi/poi_tracker_view.pt:244
 msgid "poi_help_my_issues_not_manager"
 msgstr "De volgende openstaande issues zijn naar u gestuurd"
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
-#: ../skins/Poi/poi_tracker_view.pt:102
+#: ../skins/Poi/poi_tracker_view.pt:123
 msgid "poi_help_open_issues"
 msgstr "Klik op een gebied, release of issue status om alle opstaande issues te zien in die categorie. Voor meer geadvanceerde zoek opties klik op \"Zoek voor issues\". "
 
 #. Default: "The following open issues are not assigned to anyone."
-#: ../skins/Poi/poi_tracker_view.pt:250
+#: ../skins/Poi/poi_tracker_view.pt:271
 msgid "poi_help_orphaned_issues_"
 msgstr "De volgende openstaande issues zijn niet gekoppeld aan iemand."
 
 #. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
-#: ../skins/Poi/poi_tracker_view.pt:185
+#: ../skins/Poi/poi_tracker_view.pt:206
 msgid "poi_help_unconfirmed_issues"
 msgstr "De volgende issues zijn nog niet bevestigd. Graag deze issues bekijken en de juiste actie ondernemen."
 
@@ -1049,17 +1058,17 @@ msgid "title_rss_feed"
 msgstr "RSS feed van deze zoekresultaten"
 
 #. Default: "RSS feed of my issues"
-#: ../skins/Poi/poi_tracker_view.pt:230
+#: ../skins/Poi/poi_tracker_view.pt:251
 msgid "title_rss_feed_my_issues"
 msgstr "RSS feed van mijn issues"
 
 #. Default: "RSS feed of orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:258
+#: ../skins/Poi/poi_tracker_view.pt:279
 msgid "title_rss_feed_orphaned"
 msgstr "RSS feed van open, niet toegewezen issues"
 
 #. Default: "RSS feed of unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:194
+#: ../skins/Poi/poi_tracker_view.pt:215
 msgid "title_rss_feed_unconfirmed"
 msgstr "RSS feed van niet bevestigde issues"
 

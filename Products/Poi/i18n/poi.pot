@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-07-17 00:27+0000\n"
+"POT-Creation-Date: 2010-09-13 21:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,18 +53,18 @@ msgstr ""
 msgid "No response text added and no issue changes made."
 msgstr ""
 
-#: ../content/PoiIssue.py:498
+#: ../content/PoiIssue.py:492
 msgid "None"
 msgstr ""
 
 #. Default: "Select the area this issue is relevant to."
-#: ../content/PoiIssue.py:182
+#: ../content/PoiIssue.py:180
 msgid "Poi_help_area"
 msgstr ""
 
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
 #: ../browser/response.pt:151
-#: ../content/PoiIssue.py:166
+#: ../content/PoiIssue.py:165
 msgid "Poi_help_attachment"
 msgstr ""
 
@@ -89,7 +89,7 @@ msgid "Poi_help_availableSeverities"
 msgstr ""
 
 #. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
-#: ../content/PoiIssue.py:266
+#: ../content/PoiIssue.py:260
 msgid "Poi_help_contactEmail"
 msgstr ""
 
@@ -99,7 +99,7 @@ msgid "Poi_help_defaultSeverity"
 msgstr ""
 
 #. Default: "Please provide further details"
-#: ../content/PoiIssue.py:130
+#: ../content/PoiIssue.py:129
 msgid "Poi_help_details"
 msgstr ""
 
@@ -114,7 +114,7 @@ msgid "Poi_help_issueTransition"
 msgstr ""
 
 #. Default: "Select the type of issue."
-#: ../content/PoiIssue.py:198
+#: ../content/PoiIssue.py:195
 msgid "Poi_help_issueType"
 msgstr ""
 
@@ -123,7 +123,7 @@ msgstr ""
 msgid "Poi_help_issue_title"
 msgstr ""
 
-#. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails."
+#. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
 #: ../content/PoiTracker.py:243
 msgid "Poi_help_mailingList"
 msgstr ""
@@ -149,7 +149,7 @@ msgid "Poi_help_newTargetRelease"
 msgstr ""
 
 #. Default: "Select the version the issue was found in."
-#: ../content/PoiIssue.py:115
+#: ../content/PoiIssue.py:114
 msgid "Poi_help_release"
 msgstr ""
 
@@ -159,7 +159,7 @@ msgid "Poi_help_response"
 msgstr ""
 
 #. Default: "Select which manager, if any, is responsible for this issue."
-#: ../content/PoiIssue.py:248
+#: ../content/PoiIssue.py:242
 msgid "Poi_help_responsibleManager"
 msgstr ""
 
@@ -169,27 +169,27 @@ msgid "Poi_help_sendNotificationEmails"
 msgstr ""
 
 #. Default: "Select the severity of this issue."
-#: ../content/PoiIssue.py:214
+#: ../content/PoiIssue.py:210
 msgid "Poi_help_severity"
 msgstr ""
 
 #. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
-#: ../content/PoiIssue.py:147
+#: ../content/PoiIssue.py:146
 msgid "Poi_help_steps"
 msgstr ""
 
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: ../content/PoiIssue.py:300
+#: ../content/PoiIssue.py:294
 msgid "Poi_help_subject"
 msgstr ""
 
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
-#: ../content/PoiTracker.py:261
+#: ../content/PoiTracker.py:262
 msgid "Poi_help_svnurl"
 msgstr ""
 
 #. Default: "Release this issue is targetted to be fixed in"
-#: ../content/PoiIssue.py:231
+#: ../content/PoiIssue.py:226
 msgid "Poi_help_targetRelease"
 msgstr ""
 
@@ -209,18 +209,18 @@ msgid "Poi_help_tracker_title"
 msgstr ""
 
 #. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
-#: ../content/PoiIssue.py:283
+#: ../content/PoiIssue.py:277
 msgid "Poi_help_watchers"
 msgstr ""
 
 #. Default: "Area"
-#: ../content/PoiIssue.py:180
+#: ../content/PoiIssue.py:178
 msgid "Poi_label_area"
 msgstr ""
 
 #. Default: "Attachment"
 #: ../browser/response.pt:148
-#: ../content/PoiIssue.py:164
+#: ../content/PoiIssue.py:163
 msgid "Poi_label_attachment"
 msgstr ""
 
@@ -245,7 +245,7 @@ msgid "Poi_label_availableSeverities"
 msgstr ""
 
 #. Default: "Contact email address"
-#: ../content/PoiIssue.py:264
+#: ../content/PoiIssue.py:258
 msgid "Poi_label_contactEmail"
 msgstr ""
 
@@ -255,7 +255,7 @@ msgid "Poi_label_defaultSeverity"
 msgstr ""
 
 #. Default: "Details"
-#: ../content/PoiIssue.py:128
+#: ../content/PoiIssue.py:127
 msgid "Poi_label_details"
 msgstr ""
 
@@ -270,7 +270,7 @@ msgid "Poi_label_issueTransition"
 msgstr ""
 
 #. Default: "Issue type"
-#: ../content/PoiIssue.py:196
+#: ../content/PoiIssue.py:193
 msgid "Poi_label_issueType"
 msgstr ""
 
@@ -310,7 +310,7 @@ msgid "Poi_label_newTargetRelease"
 msgstr ""
 
 #. Default: "Version"
-#: ../content/PoiIssue.py:113
+#: ../content/PoiIssue.py:112
 msgid "Poi_label_release"
 msgstr ""
 
@@ -320,7 +320,7 @@ msgid "Poi_label_response"
 msgstr ""
 
 #. Default: "Responsible"
-#: ../content/PoiIssue.py:246
+#: ../content/PoiIssue.py:240
 msgid "Poi_label_responsibleManager"
 msgstr ""
 
@@ -330,27 +330,27 @@ msgid "Poi_label_sendNotificationEmails"
 msgstr ""
 
 #. Default: "Severity"
-#: ../content/PoiIssue.py:212
+#: ../content/PoiIssue.py:208
 msgid "Poi_label_severity"
 msgstr ""
 
 #. Default: "Steps to reproduce"
-#: ../content/PoiIssue.py:145
+#: ../content/PoiIssue.py:144
 msgid "Poi_label_steps"
 msgstr ""
 
 #. Default: "Tags"
-#: ../content/PoiIssue.py:298
+#: ../content/PoiIssue.py:292
 msgid "Poi_label_subject"
 msgstr ""
 
 #. Default: "URL to SVN"
-#: ../content/PoiTracker.py:259
+#: ../content/PoiTracker.py:260
 msgid "Poi_label_svnurl"
 msgstr ""
 
 #. Default: "Target release"
-#: ../content/PoiIssue.py:229
+#: ../content/PoiIssue.py:224
 msgid "Poi_label_targetRelease"
 msgstr ""
 
@@ -370,7 +370,7 @@ msgid "Poi_label_tracker_title"
 msgstr ""
 
 #. Default: "Issue watchers"
-#: ../content/PoiIssue.py:281
+#: ../content/PoiIssue.py:275
 msgid "Poi_label_watchers"
 msgstr ""
 
@@ -418,6 +418,10 @@ msgstr ""
 msgid "Stop watching this issue"
 msgstr ""
 
+#: ../skins/Poi/poi_tracker_view.pt:90
+msgid "Stop watching this tracker"
+msgstr ""
+
 #: ../skins/Poi/poi_tracker_view.pt:62
 msgid "Submit new issue"
 msgstr ""
@@ -428,6 +432,10 @@ msgstr ""
 
 #: ../skins/Poi/poi_issue_view.pt:152
 msgid "Watch this issue"
+msgstr ""
+
+#: ../skins/Poi/poi_tracker_view.pt:96
+msgid "Watch this tracker"
 msgstr ""
 
 #: ../browser/response.py:520
@@ -444,7 +452,7 @@ msgid "batch_x_items_matching_your_criteria"
 msgstr ""
 
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ../skins/Poi/poi_tracker_view.pt:88
+#: ../skins/Poi/poi_tracker_view.pt:109
 msgid "description_cannot_add_issues_before_opened"
 msgstr ""
 
@@ -459,7 +467,7 @@ msgid "label_edit_response_not_allowed"
 msgstr ""
 
 #. Default: "Powered by"
-#: ../skins/Poi/poi_tracker_view.pt:271
+#: ../skins/Poi/poi_tracker_view.pt:292
 msgid "label_powered_by"
 msgstr ""
 
@@ -470,7 +478,7 @@ msgstr ""
 
 #. Default: "RSS Feed"
 #: ../skins/Poi/poi_issue_search_results.pt:10
-#: ../skins/Poi/poi_tracker_view.pt:194
+#: ../skins/Poi/poi_tracker_view.pt:215
 msgid "label_rss_feed"
 msgstr ""
 
@@ -570,7 +578,7 @@ msgid "poi_added_on"
 msgstr ""
 
 #. Default: "All pending issues"
-#: ../skins/Poi/poi_tracker_view.pt:142
+#: ../skins/Poi/poi_tracker_view.pt:163
 msgid "poi_all_pending_issues"
 msgstr ""
 
@@ -610,22 +618,22 @@ msgid "poi_email_new_response_template"
 msgstr ""
 
 #. Default: "By area"
-#: ../skins/Poi/poi_tracker_view.pt:109
+#: ../skins/Poi/poi_tracker_view.pt:130
 msgid "poi_heading_by_area"
 msgstr ""
 
 #. Default: "By target release"
-#: ../skins/Poi/poi_tracker_view.pt:126
+#: ../skins/Poi/poi_tracker_view.pt:147
 msgid "poi_heading_by_release"
 msgstr ""
 
 #. Default: "By state"
-#: ../skins/Poi/poi_tracker_view.pt:139
+#: ../skins/Poi/poi_tracker_view.pt:160
 msgid "poi_heading_by_state"
 msgstr ""
 
 #. Default: "By tag"
-#: ../skins/Poi/poi_tracker_view.pt:163
+#: ../skins/Poi/poi_tracker_view.pt:184
 msgid "poi_heading_by_tag"
 msgstr ""
 
@@ -640,17 +648,17 @@ msgid "poi_heading_log"
 msgstr ""
 
 #. Default: "My issues"
-#: ../skins/Poi/poi_tracker_view.pt:215
+#: ../skins/Poi/poi_tracker_view.pt:236
 msgid "poi_heading_my_issues"
 msgstr ""
 
 #. Default: "Open issues"
-#: ../skins/Poi/poi_tracker_view.pt:98
+#: ../skins/Poi/poi_tracker_view.pt:119
 msgid "poi_heading_open_issues"
 msgstr ""
 
 #. Default: "Orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:249
+#: ../skins/Poi/poi_tracker_view.pt:270
 msgid "poi_heading_orphaned_issues"
 msgstr ""
 
@@ -665,7 +673,7 @@ msgid "poi_heading_search_results"
 msgstr ""
 
 #. Default: "Unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:184
+#: ../skins/Poi/poi_tracker_view.pt:205
 msgid "poi_heading_unconfirmed_issues"
 msgstr ""
 
@@ -675,27 +683,27 @@ msgid "poi_help_log"
 msgstr ""
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ../skins/Poi/poi_tracker_view.pt:216
+#: ../skins/Poi/poi_tracker_view.pt:237
 msgid "poi_help_my_issues_manager"
 msgstr ""
 
 #. Default: "The following open issues were submitted by you."
-#: ../skins/Poi/poi_tracker_view.pt:223
+#: ../skins/Poi/poi_tracker_view.pt:244
 msgid "poi_help_my_issues_not_manager"
 msgstr ""
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
-#: ../skins/Poi/poi_tracker_view.pt:102
+#: ../skins/Poi/poi_tracker_view.pt:123
 msgid "poi_help_open_issues"
 msgstr ""
 
 #. Default: "The following open issues are not assigned to anyone."
-#: ../skins/Poi/poi_tracker_view.pt:250
+#: ../skins/Poi/poi_tracker_view.pt:271
 msgid "poi_help_orphaned_issues_"
 msgstr ""
 
 #. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
-#: ../skins/Poi/poi_tracker_view.pt:185
+#: ../skins/Poi/poi_tracker_view.pt:206
 msgid "poi_help_unconfirmed_issues"
 msgstr ""
 
@@ -937,17 +945,17 @@ msgid "title_rss_feed"
 msgstr ""
 
 #. Default: "RSS feed of my issues"
-#: ../skins/Poi/poi_tracker_view.pt:230
+#: ../skins/Poi/poi_tracker_view.pt:251
 msgid "title_rss_feed_my_issues"
 msgstr ""
 
 #. Default: "RSS feed of orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:258
+#: ../skins/Poi/poi_tracker_view.pt:279
 msgid "title_rss_feed_orphaned"
 msgstr ""
 
 #. Default: "RSS feed of unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:194
+#: ../skins/Poi/poi_tracker_view.pt:215
 msgid "title_rss_feed_unconfirmed"
 msgstr ""
 

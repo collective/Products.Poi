@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2010-07-17 00:27+0000\n"
+"POT-Creation-Date: 2010-09-13 21:09+0000\n"
 "PO-Revision-Date: 2010-01-24 15:00+0010\n"
 "Last-Translator: STX Next <info@stxnext.pl>\n"
 "Language-Team: STX Next <info@stxnext.pl>\n"
@@ -54,19 +54,19 @@ msgstr "Nie zaznaczyłeś odpowiedzi."
 msgid "No response text added and no issue changes made."
 msgstr "Nie dodano tekstu ani zgłoszenie nie zostało zmienione."
 
-#: ../content/PoiIssue.py:498
+#: ../content/PoiIssue.py:492
 msgid "None"
 msgstr "Brak"
 
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."
-#: ../content/PoiIssue.py:182
+#: ../content/PoiIssue.py:180
 msgid "Poi_help_area"
 msgstr "Wybierz obszar powiązany ze zgłoszeniem."
 
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
 #: ../browser/response.pt:151
-#: ../content/PoiIssue.py:166
+#: ../content/PoiIssue.py:165
 msgid "Poi_help_attachment"
 msgstr "Możesz przesłać załącznik. Proszę nie przesyłać niepotrzebnych plików."
 
@@ -99,7 +99,7 @@ msgstr "Pozwala na ustawienie dostępnych priorytetów. Jeden wpis na linię."
 
 # ./content/PoiIssue.py
 #. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
-#: ../content/PoiIssue.py:266
+#: ../content/PoiIssue.py:260
 #, fuzzy
 msgid "Poi_help_contactEmail"
 msgstr "Adres e-mail służący do komunikacji (w celu otrzymania dodatkowych informacji lub powiadomienia o rozwiązaniu)."
@@ -112,7 +112,7 @@ msgstr "Domyślny priorytet dla nowego zgłoszenia."
 
 # ./content/PoiIssue.py
 #. Default: "Please provide further details"
-#: ../content/PoiIssue.py:130
+#: ../content/PoiIssue.py:129
 msgid "Poi_help_details"
 msgstr "Dodatkowy opis"
 
@@ -129,7 +129,7 @@ msgstr "Wybierz zmianę stanu zgłoszenia."
 
 # ./content/PoiIssue.py
 #. Default: "Select the type of issue."
-#: ../content/PoiIssue.py:198
+#: ../content/PoiIssue.py:195
 msgid "Poi_help_issueType"
 msgstr "Wybierz typ zgłoszenia."
 
@@ -140,7 +140,7 @@ msgid "Poi_help_issue_title"
 msgstr "Krótki opisowy tytuł ułatwi ocenę i reakcję na problem."
 
 # ./content/PoiTracker.py
-#. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails."
+#. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
 #: ../content/PoiTracker.py:243
 #, fuzzy
 msgid "Poi_help_mailingList"
@@ -169,7 +169,7 @@ msgstr "Wybierz docelowe wydanie dla tego zgłoszenia"
 
 # ./content/PoiIssue.py
 #. Default: "Select the version the issue was found in."
-#: ../content/PoiIssue.py:115
+#: ../content/PoiIssue.py:114
 #, fuzzy
 msgid "Poi_help_release"
 msgstr "Wybierz wydanie do którego odnosi się to zgłoszenie."
@@ -181,7 +181,7 @@ msgstr "Wpisz odpowiedź poniżej"
 
 # ./content/PoiIssue.py
 #. Default: "Select which manager, if any, is responsible for this issue."
-#: ../content/PoiIssue.py:248
+#: ../content/PoiIssue.py:242
 msgid "Poi_help_responsibleManager"
 msgstr "Wybierz osobę odpowiedzialną za rozwiązanie tego zgłoszenia."
 
@@ -194,32 +194,32 @@ msgstr "Opcja aktywuje wysyłanie powiadomień. Osoby odpowiedzialne dostaną wi
 
 # ./content/PoiIssue.py
 #. Default: "Select the severity of this issue."
-#: ../content/PoiIssue.py:214
+#: ../content/PoiIssue.py:210
 msgid "Poi_help_severity"
 msgstr "Wybierz priorytet dla tego zgłoszenia"
 
 # ./content/PoiIssue.py
 #. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
-#: ../content/PoiIssue.py:147
+#: ../content/PoiIssue.py:146
 msgid "Poi_help_steps"
 msgstr "Kroki pozwalające na odtworzenie błędu lub identyfikację problemu. Jeden wpis na linię."
 
 # ./content/PoiIssue.py
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: ../content/PoiIssue.py:300
+#: ../content/PoiIssue.py:294
 msgid "Poi_help_subject"
 msgstr "Kategorie (także znane jako słowa kluczowe, etykiety lub znaczniki) mogą być używane do grupowania zgłoszeń. Lista poniżej pokazuje istniejące kategorie, które mogą zostać wybrane. Możesz także dopisać nowe."
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
-#: ../content/PoiTracker.py:261
+#: ../content/PoiTracker.py:262
 #, fuzzy
 msgid "Poi_help_svnurl"
 msgstr "Powiązane repozytorium SVN, np. http://dev.plone.org/collective/changeset/%(rev)s dla produktów z repozytorium Plone collective."
 
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"
-#: ../content/PoiIssue.py:231
+#: ../content/PoiIssue.py:226
 msgid "Poi_help_targetRelease"
 msgstr "Planowane wydanie które będzie zawierało rozwiązanie zgłoszenia."
 
@@ -242,19 +242,19 @@ msgstr "Opisowa nazwa Systemu Zgłoszeniowego"
 
 # ./content/PoiIssue.py
 #. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
-#: ../content/PoiIssue.py:283
+#: ../content/PoiIssue.py:277
 msgid "Poi_help_watchers"
 msgstr "Nazwy użytkowników obserwujących zgłoszenie. Jeden wpis na linię. Ci użytkownicy otrzymają powiadomienie o nowych odpowiedziach."
 
 # ./content/PoiIssue.py
 #. Default: "Area"
-#: ../content/PoiIssue.py:180
+#: ../content/PoiIssue.py:178
 msgid "Poi_label_area"
 msgstr "Obszar"
 
 #. Default: "Attachment"
 #: ../browser/response.pt:148
-#: ../content/PoiIssue.py:164
+#: ../content/PoiIssue.py:163
 msgid "Poi_label_attachment"
 msgstr "Załącznik"
 
@@ -284,7 +284,7 @@ msgstr "Dostępne priorytety"
 
 # ./content/PoiIssue.py
 #. Default: "Contact email address"
-#: ../content/PoiIssue.py:264
+#: ../content/PoiIssue.py:258
 msgid "Poi_label_contactEmail"
 msgstr "Kontaktowy adres e-mail"
 
@@ -296,7 +296,7 @@ msgstr "Domyślny priorytet"
 
 # ./content/PoiIssue.py
 #. Default: "Details"
-#: ../content/PoiIssue.py:128
+#: ../content/PoiIssue.py:127
 msgid "Poi_label_details"
 msgstr "Szczegóły"
 
@@ -314,7 +314,7 @@ msgstr "Zamień stan zgłoszenia"
 
 # ./content/PoiIssue.py
 #. Default: "Issue type"
-#: ../content/PoiIssue.py:196
+#: ../content/PoiIssue.py:193
 msgid "Poi_label_issueType"
 msgstr "Typ zgłoszenia"
 
@@ -358,7 +358,7 @@ msgstr "Zmień docelowe wydanie"
 
 # ./content/PoiIssue.py
 #. Default: "Version"
-#: ../content/PoiIssue.py:113
+#: ../content/PoiIssue.py:112
 #, fuzzy
 msgid "Poi_label_release"
 msgstr "Wydanie"
@@ -370,7 +370,7 @@ msgstr "Odpowiedź"
 
 # ./content/PoiIssue.py
 #. Default: "Responsible"
-#: ../content/PoiIssue.py:246
+#: ../content/PoiIssue.py:240
 msgid "Poi_label_responsibleManager"
 msgstr "Osoba odpowiedzialna"
 
@@ -382,31 +382,31 @@ msgstr "Powiadomienia e-mail"
 
 # ./content/PoiIssue.py
 #. Default: "Severity"
-#: ../content/PoiIssue.py:212
+#: ../content/PoiIssue.py:208
 msgid "Poi_label_severity"
 msgstr "Priorytet"
 
 # ./content/PoiIssue.py
 #. Default: "Steps to reproduce"
-#: ../content/PoiIssue.py:145
+#: ../content/PoiIssue.py:144
 msgid "Poi_label_steps"
 msgstr "Kroki"
 
 # ./content/PoiIssue.py
 #. Default: "Tags"
-#: ../content/PoiIssue.py:298
+#: ../content/PoiIssue.py:292
 msgid "Poi_label_subject"
 msgstr "Kategorie"
 
 # ./content/PoiTracker.py
 #. Default: "URL to SVN"
-#: ../content/PoiTracker.py:259
+#: ../content/PoiTracker.py:260
 msgid "Poi_label_svnurl"
 msgstr "URL do SVN"
 
 # ./content/PoiIssue.py
 #. Default: "Target release"
-#: ../content/PoiIssue.py:229
+#: ../content/PoiIssue.py:224
 msgid "Poi_label_targetRelease"
 msgstr "Docelowe wydanie"
 
@@ -429,7 +429,7 @@ msgstr "Tytuł Systemu Zgłoszeniowego"
 
 # ./content/PoiIssue.py
 #. Default: "Issue watchers"
-#: ../content/PoiIssue.py:281
+#: ../content/PoiIssue.py:275
 msgid "Poi_label_watchers"
 msgstr "Osoby obserwujące"
 
@@ -479,6 +479,10 @@ msgstr "Priorytet"
 msgid "Stop watching this issue"
 msgstr "Przestań śledzić to zgłoszenie"
 
+#: ../skins/Poi/poi_tracker_view.pt:90
+msgid "Stop watching this tracker"
+msgstr ""
+
 #. Default: "Submit new issue"
 #: ../skins/Poi/poi_tracker_view.pt:62
 msgid "Submit new issue"
@@ -492,6 +496,10 @@ msgstr "Docelowe wydanie"
 #: ../skins/Poi/poi_issue_view.pt:152
 msgid "Watch this issue"
 msgstr "Śledz to zgłoszenie"
+
+#: ../skins/Poi/poi_tracker_view.pt:96
+msgid "Watch this tracker"
+msgstr ""
 
 #: ../browser/response.py:520
 msgid "You are not allowed to delete responses."
@@ -507,7 +515,7 @@ msgid "batch_x_items_matching_your_criteria"
 msgstr "${number} zgłoszeń spełnia kryteria"
 
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ../skins/Poi/poi_tracker_view.pt:88
+#: ../skins/Poi/poi_tracker_view.pt:109
 msgid "description_cannot_add_issues_before_opened"
 msgstr "Aby umożliwić dodawanie zgłoszeń należy otworzyć System Zgłoszeniowy używając menu 'Status' z powyższej zielonej belki."
 
@@ -522,7 +530,7 @@ msgid "label_edit_response_not_allowed"
 msgstr "Nie masz uprawnień aby edytować tę odpowiedz."
 
 #. Default: "Powered by"
-#: ../skins/Poi/poi_tracker_view.pt:271
+#: ../skins/Poi/poi_tracker_view.pt:292
 msgid "label_powered_by"
 msgstr ""
 
@@ -533,7 +541,7 @@ msgstr "Wróć do zgłoszenia."
 
 #. Default: "RSS Feed"
 #: ../skins/Poi/poi_issue_search_results.pt:10
-#: ../skins/Poi/poi_tracker_view.pt:194
+#: ../skins/Poi/poi_tracker_view.pt:215
 msgid "label_rss_feed"
 msgstr "RSS Feed"
 
@@ -633,7 +641,7 @@ msgid "poi_added_on"
 msgstr "-"
 
 #. Default: "All pending issues"
-#: ../skins/Poi/poi_tracker_view.pt:142
+#: ../skins/Poi/poi_tracker_view.pt:163
 msgid "poi_all_pending_issues"
 msgstr "Wszystkie oczekujące zgłoszenia"
 
@@ -721,22 +729,22 @@ msgstr ""
 "${from_name}"
 
 #. Default: "By area"
-#: ../skins/Poi/poi_tracker_view.pt:109
+#: ../skins/Poi/poi_tracker_view.pt:130
 msgid "poi_heading_by_area"
 msgstr "Według obszaru"
 
 #. Default: "By target release"
-#: ../skins/Poi/poi_tracker_view.pt:126
+#: ../skins/Poi/poi_tracker_view.pt:147
 msgid "poi_heading_by_release"
 msgstr "Według docelowego wydania"
 
 #. Default: "By state"
-#: ../skins/Poi/poi_tracker_view.pt:139
+#: ../skins/Poi/poi_tracker_view.pt:160
 msgid "poi_heading_by_state"
 msgstr "Według statusu"
 
 #. Default: "By tag"
-#: ../skins/Poi/poi_tracker_view.pt:163
+#: ../skins/Poi/poi_tracker_view.pt:184
 msgid "poi_heading_by_tag"
 msgstr "Według kategorii"
 
@@ -751,17 +759,17 @@ msgid "poi_heading_log"
 msgstr "Historia zmian"
 
 #. Default: "My issues"
-#: ../skins/Poi/poi_tracker_view.pt:215
+#: ../skins/Poi/poi_tracker_view.pt:236
 msgid "poi_heading_my_issues"
 msgstr "Moje zgłoszenia"
 
 #. Default: "Open issues"
-#: ../skins/Poi/poi_tracker_view.pt:98
+#: ../skins/Poi/poi_tracker_view.pt:119
 msgid "poi_heading_open_issues"
 msgstr "Otwarte zgłoszenia"
 
 #. Default: "Orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:249
+#: ../skins/Poi/poi_tracker_view.pt:270
 msgid "poi_heading_orphaned_issues"
 msgstr "Osierocone zgłoszenia"
 
@@ -776,7 +784,7 @@ msgid "poi_heading_search_results"
 msgstr "Wyniki wyszukiwania zgłoszeń"
 
 #. Default: "Unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:184
+#: ../skins/Poi/poi_tracker_view.pt:205
 msgid "poi_heading_unconfirmed_issues"
 msgstr "Niezaakceptowane zgłoszenia"
 
@@ -786,27 +794,27 @@ msgid "poi_help_log"
 msgstr "Przegląd ostatnich zmian w Systemie Zgłoszeniowym."
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ../skins/Poi/poi_tracker_view.pt:216
+#: ../skins/Poi/poi_tracker_view.pt:237
 msgid "poi_help_my_issues_manager"
 msgstr "Poniższe zgłoszenia są stworzone bądź przypisane do Ciebie. Kanał RSS dla tej listy zawiera także niepotwierdzone i osierocone zgłoszenia."
 
 #. Default: "The following open issues were submitted by you."
-#: ../skins/Poi/poi_tracker_view.pt:223
+#: ../skins/Poi/poi_tracker_view.pt:244
 msgid "poi_help_my_issues_not_manager"
 msgstr "Poniższe zgłoszenia są stworzone przez Ciebie."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
-#: ../skins/Poi/poi_tracker_view.pt:102
+#: ../skins/Poi/poi_tracker_view.pt:123
 msgid "poi_help_open_issues"
 msgstr "Użyj poniższych linków, aby zobaczyć zgłoszenia z poszczególnych grup. Zaawansowane wyszukiwanie pozwala na znalezienie zgłoszeń spełniających więcej niż jedno kryterium."
 
 #. Default: "The following open issues are not assigned to anyone."
-#: ../skins/Poi/poi_tracker_view.pt:250
+#: ../skins/Poi/poi_tracker_view.pt:271
 msgid "poi_help_orphaned_issues_"
 msgstr "Poniższe zgłoszenia nie się przypisane do żadnej z osób."
 
 #. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
-#: ../skins/Poi/poi_tracker_view.pt:185
+#: ../skins/Poi/poi_tracker_view.pt:206
 msgid "poi_help_unconfirmed_issues"
 msgstr "Poniższe zgłoszenia są niezaakceptowane. Proszę zapoznaj się z nimi."
 
@@ -1048,17 +1056,17 @@ msgid "title_rss_feed"
 msgstr "Kanał RSS z wynikami wyszykiwania"
 
 #. Default: "RSS feed of my issues"
-#: ../skins/Poi/poi_tracker_view.pt:230
+#: ../skins/Poi/poi_tracker_view.pt:251
 msgid "title_rss_feed_my_issues"
 msgstr "Kanał RSS dla moich zgłoszeń"
 
 #. Default: "RSS feed of orphaned issues"
-#: ../skins/Poi/poi_tracker_view.pt:258
+#: ../skins/Poi/poi_tracker_view.pt:279
 msgid "title_rss_feed_orphaned"
 msgstr "Kanał RSS dla osieroconych zgłoszeń"
 
 #. Default: "RSS feed of unconfirmed issues"
-#: ../skins/Poi/poi_tracker_view.pt:194
+#: ../skins/Poi/poi_tracker_view.pt:215
 msgid "title_rss_feed_unconfirmed"
 msgstr "Kanał RSS dla niezaakceptowanych zgłoszeń"
 
