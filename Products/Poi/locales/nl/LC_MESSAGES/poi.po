@@ -144,9 +144,8 @@ msgstr "Geef een korte omschrijvende titel op voor de issue. Een goede titel maa
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
 #: ./content/PoiTracker.py:243
-#, fuzzy
 msgid "Poi_help_mailingList"
-msgstr "Indien opgegeven en 'Stuur notificatie e-mails' is geselecteerd, wordt er een e-mail gestuurd naar dit address zodra er een nieuwe issue of reactie geplaatst wordt. Als er geen mailinglist adres is opgegeven, ontvangen alle managers individueel een e-mail."
+msgstr "Indien opgegeven en 'Stuur notificatie e-mails' is geselecteerd, wordt er een e-mail gestuurd naar dit adres zodra er een nieuwe issue of reactie geplaatst wordt. Trackermanagers ontvangen ook individueel een e-mail. Als dit niet gewenst is, kan het beter zijn van een trackermanager een technicus te maken."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
