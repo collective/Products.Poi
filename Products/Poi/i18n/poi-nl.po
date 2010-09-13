@@ -488,7 +488,7 @@ msgstr "Volg deze issue niet meer"
 
 #: ../skins/Poi/poi_tracker_view.pt:90
 msgid "Stop watching this tracker"
-msgstr ""
+msgstr "Stop het volgen van deze tracker"
 
 #. Default: "Submit new issue"
 #: ../skins/Poi/poi_tracker_view.pt:62
@@ -506,7 +506,7 @@ msgstr "Volg deze issue"
 
 #: ../skins/Poi/poi_tracker_view.pt:96
 msgid "Watch this tracker"
-msgstr ""
+msgstr "Volg deze tracker"
 
 #: ../browser/response.py:520
 msgid "You are not allowed to delete responses."
