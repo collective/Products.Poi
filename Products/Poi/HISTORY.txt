@@ -5,7 +5,9 @@ Changelog for Poi
 2.0b3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Do not advise users to click on 'search for issues' as that link is
+  nowhere; instead it should be 'Advanced issue search'.
+  [maurits]
 
 
 2.0b2 (2010-09-14)

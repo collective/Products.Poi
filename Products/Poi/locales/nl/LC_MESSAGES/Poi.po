@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2010-09-13 21:37+0000\n"
+"POT-Creation-Date: 2010-10-05 10:23+0000\n"
 "PO-Revision-Date: 2010-10-05 12:22+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
@@ -804,7 +804,7 @@ msgstr "The volgende openstaande issues zijn of naar uw gestuurd, of gekoppeld a
 msgid "poi_help_my_issues_not_manager"
 msgstr "De volgende openstaande issues zijn naar u gestuurd"
 
-#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
+#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
 #: ./skins/Poi/poi_tracker_view.pt:123
 msgid "poi_help_open_issues"
 msgstr "Klik op een gebied, release of issue status om alle opstaande issues te zien in die categorie. Voor meer uitgebreide zoekopties klik op \"Uitgebreid issues zoeken\". "

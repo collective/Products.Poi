@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2010-09-13 21:37+0000\n"
+"POT-Creation-Date: 2010-10-05 10:23+0000\n"
 "PO-Revision-Date: 2007-05-06 17:00+0000\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: None <plone-i18n@lists.sourceforge.net>\n"
@@ -771,8 +771,9 @@ msgstr "De følgende åpne emner ble enten sent av deg, eller de er blitt tildelt 
 msgid "poi_help_my_issues_not_manager"
 msgstr "De følgende åpne emner ble enten sent av deg."
 
-#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
+#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
 #: ./skins/Poi/poi_tracker_view.pt:123
+#, fuzzy
 msgid "poi_help_open_issues"
 msgstr "Klikk et område eller emne-tilstand for å se alle åpne emner i den kategorien. For mere avanserte søkevalg, klikk  \"Søk etter emner\"."
 

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-es\n"
-"POT-Creation-Date: 2010-09-13 21:37+0000\n"
+"POT-Creation-Date: 2010-10-05 10:23+0000\n"
 "PO-Revision-Date: 2009-08-11 13:53-0400\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Plone Cono Sur <plone-conosur@lists.plone.org>\n"
@@ -819,8 +819,9 @@ msgstr "Las siguientes incidencias fueron enviadas por usted, o le han sido asig
 msgid "poi_help_my_issues_not_manager"
 msgstr "Las siguientes incidencias fueron enviadas por usted."
 
-#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
+#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
 #: ./skins/Poi/poi_tracker_view.pt:123
+#, fuzzy
 msgid "poi_help_open_issues"
 msgstr "Haga click en un área, una versión o un estado para ver todas las incidencias abiertas de esa categoría. Para realizar una búsqueda avanzada, haga click en \"Buscar incidencias\""
 

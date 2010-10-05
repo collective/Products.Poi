@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.1.2\n"
-"POT-Creation-Date: 2010-09-13 21:37+0000\n"
+"POT-Creation-Date: 2010-10-05 10:23+0000\n"
 "PO-Revision-Date: 2008-12-08 09:42+0100\n"
 "Last-Translator: Jonas Nielsen <jonas@magenta-aps.dk>\n"
 "Language-Team: DA\n"
@@ -766,8 +766,9 @@ msgstr "Disse åbne sager er enten oprettet af dig eller er tildelt til dig. Væ
 msgid "poi_help_my_issues_not_manager"
 msgstr "Følgende åbne sager er oprettet af dig."
 
-#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
+#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
 #: ./skins/Poi/poi_tracker_view.pt:123
+#, fuzzy
 msgid "poi_help_open_issues"
 msgstr "Klik på område, udgivelse eller tilstand for at se alle åbne sager i den enkelte kategori. For mere avancerede søgefunktioner, klik på \"Avanceret søgning\"."
 

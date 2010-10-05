@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi 1.1.2\n"
-"POT-Creation-Date: 2010-09-13 21:37+0000\n"
+"POT-Creation-Date: 2010-10-05 10:23+0000\n"
 "PO-Revision-Date: 2008-11-19 17:32-0000\n"
 "Last-Translator: Nuno Cruz <nuno.cruz@inst-informatica.pt>\n"
 "Language-Team: NWEB <nwebmaster@inst-informatica.pt>\n"
@@ -724,8 +724,9 @@ msgstr "As seguintes ocorrências abertas foram submetidas por si, ou foram-lhe 
 msgid "poi_help_my_issues_not_manager"
 msgstr "As seguintes ocorrências foram submetidas por si."
 
-#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
+#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
 #: ./skins/Poi/poi_tracker_view.pt:123
+#, fuzzy
 msgid "poi_help_open_issues"
 msgstr "Escolha uma área, versão ou estado da ocorrência para ver todas as ocorrências abertas nessa categoria. Para opções mais avançadas de pesquisa, selecione \"Pesquisa avançada de ocorrências\"."
 

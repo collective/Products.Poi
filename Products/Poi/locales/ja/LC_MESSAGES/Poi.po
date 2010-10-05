@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2010-09-13 21:37+0000\n"
+"POT-Creation-Date: 2010-10-05 10:23+0000\n"
 "PO-Revision-Date: 2006-01-22 18:00+0900\n"
 "Last-Translator: TANIGUCHI Takaki <takaki@asis.media-as.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -771,8 +771,9 @@ msgstr "以下の未解決の課題は，あなたが報告した，もしくは
 msgid "poi_help_my_issues_not_manager"
 msgstr "以下の未解決の課題はあなたが報告しました。"
 
-#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
+#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
 #: ./skins/Poi/poi_tracker_view.pt:123
+#, fuzzy
 msgid "poi_help_open_issues"
 msgstr "領域またはリリース，課題の状態をクリックすることでこの分類の全ての未解決の課題を見ることができます。さらに詳細な検索をするには「課題を検索」をクリックしてください。"
 

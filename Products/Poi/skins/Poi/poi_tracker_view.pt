@@ -122,7 +122,7 @@
 
     <p i18n:translate="poi_help_open_issues">
       Click an area, release or issue state to see all open issues in that
-      category. For more advanced search options, click "search for issues".
+      category. For more advanced search options, click "Advanced issue search".
     </p>
 
 

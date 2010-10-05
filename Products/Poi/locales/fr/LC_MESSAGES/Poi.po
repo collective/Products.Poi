@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2010-09-13 21:37+0000\n"
+"POT-Creation-Date: 2010-10-05 10:23+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Kevin Deldycke <kevin@deldycke.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -816,8 +816,9 @@ msgstr "Les tickets ouverts suivants sont soumis par vous, ou vous sont assigné
 msgid "poi_help_my_issues_not_manager"
 msgstr "Les tickets ouverts suivants vous ont été soumis par vous."
 
-#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
+#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
 #: ./skins/Poi/poi_tracker_view.pt:123
+#, fuzzy
 msgid "poi_help_open_issues"
 msgstr "Cliquez sur une zone, une distribution ou un état de ticket pour voir tout les tickets ouverts dans cette catégorie. Pour des options de recherche plus avancées, cliquez sur « Recherche de tickets »."
 
