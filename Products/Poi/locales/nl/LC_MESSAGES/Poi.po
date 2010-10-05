@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2010-09-13 21:37+0000\n"
-"PO-Revision-Date: 2010-07-17 02:32+0200\n"
+"PO-Revision-Date: 2010-10-05 12:22+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -807,7 +807,7 @@ msgstr "De volgende openstaande issues zijn naar u gestuurd"
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
 #: ./skins/Poi/poi_tracker_view.pt:123
 msgid "poi_help_open_issues"
-msgstr "Klik op een gebied, release of issue status om alle opstaande issues te zien in die categorie. Voor meer geadvanceerde zoek opties klik op \"Zoek voor issues\". "
+msgstr "Klik op een gebied, release of issue status om alle opstaande issues te zien in die categorie. Voor meer uitgebreide zoekopties klik op \"Uitgebreid issues zoeken\". "
 
 #. Default: "The following open issues are not assigned to anyone."
 #: ./skins/Poi/poi_tracker_view.pt:271
@@ -822,7 +822,7 @@ msgstr "De volgende issues zijn nog niet bevestigd. Graag deze issues bekijken e
 #. Default: "Advanced issue search"
 #: ./skins/Poi/poi_tracker_view.pt:39
 msgid "poi_issue_search"
-msgstr "Geavanceerde issue zoeken"
+msgstr "Uitgebreid issues zoeken"
 
 #. Default: "This form allows you to search for issue according to a variety of criteria. Please make your selection below and click Search."
 #: ./skins/Poi/poi_issue_search_form.pt:27
