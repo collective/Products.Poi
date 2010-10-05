@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-1.2.10 (unreleased)
+1.2.10 (2010-10-05)
 -------------------
 
 - Register the poi.response.add viewlet manager (provider) only for
