@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2010-02-27 01:00+0000\n"
-"PO-Revision-Date: 2010-10-05 12:28+0200\n"
+"POT-Creation-Date: 2010-10-05 10:31+0000\n"
+"PO-Revision-Date: 2010-10-05 12:32+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -887,10 +887,14 @@ msgstr "Nieuw issue ${name} toegevoegd door ${author}"
 msgid "poi_response_title"
 msgstr "Reactie #${responseNumber} op \"${issueTitle}\""
 
-#. Default: "Return to search results"
+#. Default: "Return to search"
 #: ../skins/Poi/poi_issue_search.pt:36
-#: ../skins/Poi/poi_issue_view.pt:95
 msgid "poi_return_to_search"
+msgstr "Ga terug naar het zoekformulier"
+
+#. Default: "Return to search results"
+#: ../skins/Poi/poi_issue_view.pt:95
+msgid "poi_return_to_search_results"
 msgstr "Ga terug naar de zoekresultaten"
 
 #. Default: "Return to tracker"

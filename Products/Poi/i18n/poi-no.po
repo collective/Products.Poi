@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2010-02-27 01:00+0000\n"
+"POT-Creation-Date: 2010-10-05 10:31+0000\n"
 "PO-Revision-Date: 2007-05-06 17:00+0000\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: None <plone-i18n@lists.sourceforge.net>\n"
@@ -851,12 +851,16 @@ msgstr ""
 msgid "poi_response_title"
 msgstr "Svar # ${responseNumber} til \" ${issueTitle} \""
 
-#. Default: "Return to search results"
+#. Default: "Return to search"
 #: ../skins/Poi/poi_issue_search.pt:36
-#: ../skins/Poi/poi_issue_view.pt:95
 #, fuzzy
 msgid "poi_return_to_search"
 msgstr "Tilbake til søk"
+
+#. Default: "Return to search results"
+#: ../skins/Poi/poi_issue_view.pt:95
+msgid "poi_return_to_search_results"
+msgstr ""
 
 #. Default: "Return to tracker"
 #: ../skins/Poi/poi_issue_search_form.pt:19

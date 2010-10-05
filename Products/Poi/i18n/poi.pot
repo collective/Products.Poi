@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2010-02-27 01:00+0000\n"
+"POT-Creation-Date: 2010-10-05 10:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -821,10 +821,14 @@ msgstr ""
 msgid "poi_response_title"
 msgstr ""
 
-#. Default: "Return to search results"
+#. Default: "Return to search"
 #: ../skins/Poi/poi_issue_search.pt:36
-#: ../skins/Poi/poi_issue_view.pt:95
 msgid "poi_return_to_search"
+msgstr ""
+
+#. Default: "Return to search results"
+#: ../skins/Poi/poi_issue_view.pt:95
+msgid "poi_return_to_search_results"
 msgstr ""
 
 #. Default: "Return to tracker"

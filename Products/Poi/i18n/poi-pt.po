@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi 1.1.2\n"
-"POT-Creation-Date: 2010-02-27 01:00+0000\n"
+"POT-Creation-Date: 2010-10-05 10:31+0000\n"
 "PO-Revision-Date: 2008-11-19 17:32-0000\n"
 "Last-Translator: Nuno Cruz <nuno.cruz@inst-informatica.pt>\n"
 "Language-Team: NWEB <nwebmaster@inst-informatica.pt>\n"
@@ -793,11 +793,16 @@ msgstr "Nova ocorrência ${name} adicionado por ${author}"
 msgid "poi_response_title"
 msgstr "Resposta n. ${responseNumber} a \"${issueTitle}\""
 
-#. Default: "Return to search results"
+#. Default: "Return to search"
 #: ../skins/Poi/poi_issue_search.pt:36
-#: ../skins/Poi/poi_issue_view.pt:95
+#, fuzzy
 msgid "poi_return_to_search"
 msgstr "Voltar aos resultados da pesquisa"
+
+#. Default: "Return to search results"
+#: ../skins/Poi/poi_issue_view.pt:95
+msgid "poi_return_to_search_results"
+msgstr ""
 
 #. Default: "Return to tracker"
 #: ../skins/Poi/poi_issue_search_form.pt:19

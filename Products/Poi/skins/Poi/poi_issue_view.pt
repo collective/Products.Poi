@@ -96,7 +96,7 @@
             class="return-to-search"
             tal:condition="cameFromTracker"
             tal:attributes="href backURL"
-            i18n:translate="poi_return_to_search">
+            i18n:translate="poi_return_to_search_results">
            Return to search results
          </a>
          <a href=""

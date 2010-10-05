@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-pt-br\n"
-"POT-Creation-Date: 2010-02-27 01:00+0000\n"
+"POT-Creation-Date: 2010-10-05 10:31+0000\n"
 "PO-Revision-Date: 2009-07-22 20:21-0300\n"
 "Last-Translator: Erico Andrei <erico@simplesconsultoria.com.br>\n"
 "Language-Team: Simples Consultoria <contato@simplesconsultoria.com.br>\n"
@@ -827,11 +827,16 @@ msgstr "Nova ocorrência ${name} adicionada por ${author}"
 msgid "poi_response_title"
 msgstr "Resposta n. ${responseNumber} para \"${issueTitle}\""
 
-#. Default: "Return to search results"
+#. Default: "Return to search"
 #: ../skins/Poi/poi_issue_search.pt:36
-#: ../skins/Poi/poi_issue_view.pt:95
+#, fuzzy
 msgid "poi_return_to_search"
 msgstr "Retorne aos resultados de busca"
+
+#. Default: "Return to search results"
+#: ../skins/Poi/poi_issue_view.pt:95
+msgid "poi_return_to_search_results"
+msgstr ""
 
 #. Default: "Return to tracker"
 #: ../skins/Poi/poi_issue_search_form.pt:19

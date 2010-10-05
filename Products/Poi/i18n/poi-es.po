@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-es\n"
-"POT-Creation-Date: 2010-02-27 01:00+0000\n"
+"POT-Creation-Date: 2010-10-05 10:31+0000\n"
 "PO-Revision-Date: 2009-08-11 13:53-0400\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Plone Cono Sur <plone-conosur@lists.plone.org>\n"
@@ -892,11 +892,16 @@ msgstr "Nuevo incidente ${name} agregado por ${author}"
 msgid "poi_response_title"
 msgstr "Respuesta # ${responseNumber} a \" ${issueTitle} \""
 
-#. Default: "Return to search results"
+#. Default: "Return to search"
 #: ../skins/Poi/poi_issue_search.pt:36
-#: ../skins/Poi/poi_issue_view.pt:95
+#, fuzzy
 msgid "poi_return_to_search"
 msgstr "Volver a la búsqueda"
+
+#. Default: "Return to search results"
+#: ../skins/Poi/poi_issue_view.pt:95
+msgid "poi_return_to_search_results"
+msgstr ""
 
 #. Default: "Return to tracker"
 #: ../skins/Poi/poi_issue_search_form.pt:19
