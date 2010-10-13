@@ -109,6 +109,9 @@ msgstr "却下"
 msgid "Resolve"
 msgstr "解決"
 
+msgid "Resolve immediately"
+msgstr ""
+
 msgid "Resolved"
 msgstr "解決済み"
 

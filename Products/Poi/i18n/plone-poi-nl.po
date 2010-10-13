@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2009-09-05 23:00+0000\n"
-"PO-Revision-Date: 2009-09-06 01:00+0200\n"
+"PO-Revision-Date: 2010-10-13 12:35+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -111,6 +111,9 @@ msgstr "Afgekeurd"
 
 msgid "Resolve"
 msgstr "Los op"
+
+msgid "Resolve immediately"
+msgstr "Los meteen op"
 
 msgid "Resolved"
 msgstr "Opgelost"

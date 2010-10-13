@@ -107,6 +107,9 @@ msgstr ""
 msgid "Resolve"
 msgstr ""
 
+msgid "Resolve immediately"
+msgstr ""
+
 # response states
 
 msgid "Posted"

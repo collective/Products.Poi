@@ -110,6 +110,9 @@ msgstr "Odmítnuto"
 msgid "Resolve"
 msgstr "Vyřešit"
 
+msgid "Resolve immediately"
+msgstr ""
+
 msgid "Resolved"
 msgstr "Vyřešeno"
 

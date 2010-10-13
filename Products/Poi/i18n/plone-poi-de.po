@@ -110,6 +110,9 @@ msgstr "Zurückgewiesen"
 msgid "Resolve"
 msgstr "Lösen"
 
+msgid "Resolve immediately"
+msgstr ""
+
 msgid "Resolved"
 msgstr "Gelöst"
 

@@ -111,6 +111,9 @@ msgstr "Rejeitado"
 msgid "Resolve"
 msgstr "Resolver"
 
+msgid "Resolve immediately"
+msgstr ""
+
 msgid "Resolved"
 msgstr "Resolvido"
 
