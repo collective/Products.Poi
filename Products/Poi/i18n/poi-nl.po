@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2010-10-05 10:31+0000\n"
-"PO-Revision-Date: 2010-10-05 12:32+0200\n"
+"PO-Revision-Date: 2010-10-14 14:06+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -80,7 +80,7 @@ msgstr "Selecteer het gebied waar wat relevant is voor deze issue"
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
 #: ../browser/response.pt:147
 msgid "Poi_help_attachment"
-msgstr "U kan optioneel een bijlage (bestand) uploaden. Alstublieft geen onnodige grote files uploaden."
+msgstr "U kan optioneel een bijlage (bestand) uploaden. Alstublieft geen onnodig grote files uploaden."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker, one specification per line. The format is \"Short name | Title | Description\"."

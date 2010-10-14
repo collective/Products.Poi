@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2009-09-05 23:00+0000\n"
-"PO-Revision-Date: 2010-10-13 12:35+0200\n"
+"PO-Revision-Date: 2010-10-13 12:49+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -59,7 +59,7 @@ msgstr "Issue Tracker"
 
 # browser/response.py:transitions_for_display
 msgid "No change"
-msgstr "Niet veranderen"
+msgstr "Ongewijzigd"
 
 msgid "Only members can submit"
 msgstr "Alleen leden kunnen indienen"
@@ -98,7 +98,7 @@ msgid "Protected against anonymous views"
 msgstr "Beschermd tegen anonieme bezoeken"
 
 msgid "Put on hold"
-msgstr "In de wacht"
+msgstr "Uitstellen"
 
 msgid "Re-open"
 msgstr "Her-open"
@@ -110,10 +110,10 @@ msgid "Rejected"
 msgstr "Afgekeurd"
 
 msgid "Resolve"
-msgstr "Los op"
+msgstr "Opgelost"
 
 msgid "Resolve immediately"
-msgstr "Los meteen op"
+msgstr "Direct opgelost"
 
 msgid "Resolved"
 msgstr "Opgelost"
