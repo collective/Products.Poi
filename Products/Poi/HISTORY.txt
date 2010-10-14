@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-1.2.11 (unreleased)
+1.2.11 (2010-10-14)
 -------------------
 
 - Added missing msgid for 'Resolve immediately' transition.
