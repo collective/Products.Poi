@@ -39,7 +39,7 @@ setup(name='Products.Poi',
       install_requires=[
           'setuptools',
           'Plone>=4.0',
-          'Products.AddRemoveWidget>=1.4.4',
+          'Products.AddRemoveWidget>=1.4.2',
           'Products.DataGridField>=1.8b1',
           'collective.autopermission',
           'collective.watcherlist>=0.2',

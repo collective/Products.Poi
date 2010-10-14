@@ -5,6 +5,12 @@ Changelog for Poi
 2.0b3 (unreleased)
 ------------------
 
+- Lower the minimum dependency on Products.AddRemoveWidget to 1.4.2
+  again, as I had a report about a performance hit in 1.4.3 in corner
+  cases not related to Poi itself; and 1.4.2 is fine really, though
+  1.4.4 has a fix for Plone 4 in a part that Poi does not use.
+  [maurits]
+
 - Do not advise users to click on 'search for issues' as that link is
   nowhere; instead it should be 'Advanced issue search'.
   [maurits]
