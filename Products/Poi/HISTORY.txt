@@ -2,8 +2,8 @@ Changelog for Poi
 =================
 
 
-2.0b3 (unreleased)
-------------------
+2.0 (2010-10-14)
+----------------
 
 - Lower the minimum dependency on Products.AddRemoveWidget to 1.4.2
   again, as I had a report about a performance hit in 1.4.3 in corner
