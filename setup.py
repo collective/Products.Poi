@@ -41,7 +41,6 @@ setup(name='Products.Poi',
           'Plone>=4.0',
           'Products.AddRemoveWidget>=1.4.2',
           'Products.DataGridField>=1.8b1',
-          'collective.autopermission',
           'collective.watcherlist>=0.2',
       ],
       entry_points="""

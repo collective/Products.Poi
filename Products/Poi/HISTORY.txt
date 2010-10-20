@@ -5,7 +5,9 @@ Changelog for Poi
 2.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Removed our dependency on collective.autopermission, as its
+  functionality is integrated in Zope 2.12 (Plone 4.0).
+  [maurits]
 
 
 2.0 (2010-10-14)

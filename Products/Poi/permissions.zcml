@@ -2,7 +2,6 @@
            i18n_domain="poi">
 
   <!-- Define permissions. See also permissions.py -->
-  <include package="collective.autopermission" />
 
   <permission
     id="Poi.AddTracker"
