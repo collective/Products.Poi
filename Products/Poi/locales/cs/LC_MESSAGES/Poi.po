@@ -466,7 +466,7 @@ msgstr "Id reakce ${response_id} není celé číslo."
 
 #: ./browser/response.py:399
 msgid "Responsible manager"
-msgstr "Odpovědní správce"
+msgstr "Odpovědný správce"
 
 #. Default: "Search"
 #: ./skins/Poi/poi_tracker_view.pt:37
