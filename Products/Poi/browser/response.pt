@@ -184,13 +184,14 @@
           <input class="noborder" name="transition"
                  value="" id="transition_1" type="radio"
                  tal:attributes="value transition/value;
-                                 id transition/value;
+                                 id python:transition['value'] or 'issuetransition-novalue';
                                  checked transition/checked;" />
+
 
           <label
               i18n:domain="plone"
               i18n:translate=""
-              tal:attributes="for transition/value"
+              tal:attributes="for python:transition['value'] or 'issuetransition-novalue'"
               tal:content="transition/label" />
 
           <br />
