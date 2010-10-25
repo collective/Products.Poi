@@ -1,0 +1,142 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    i18n_domain="poi">
+
+  <!-- Register the GenericSetup extension profile so that we can
+       install the product. -->
+  <gs:registerProfile
+      name="default"
+      title="Poi"
+      directory="profiles/default"
+      description="A friendly issue tracker"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <gs:importStep
+      name="poi_various"
+      title="Poi various import handlers"
+      description=""
+      handler="Products.Poi.setuphandlers.import_various">
+    <depends name="catalog"/>
+  </gs:importStep>
+
+  <gs:upgradeStep
+      title="Issue descriptions"
+      description="Fix description of issues."
+      source="1.1.9"
+      destination="1.2"
+      handler="Products.Poi.migration.fix_descriptions"
+      sortkey="1"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Poi responses"
+      description="Migrate old style to new style Poi responses."
+      source="1.1.9"
+      destination="1.2"
+      handler="Products.Poi.migration.migrate_responses"
+      sortkey="2"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Workflow titles in responses"
+      description="Migrate workflow changes from ids to titles."
+      source="1.1.9"
+      destination="1.2"
+      handler="Products.Poi.migration.migrate_workflow_changes"
+      sortkey="3"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Poi responses second try"
+      description="Alternative migration from old style to new style Poi responses."
+      source="1.1.9"
+      destination="1.2"
+      checker="Products.Poi.migration.has_old_responses"
+      handler="Products.Poi.migration.migrate_responses_alternative"
+      sortkey="4"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Run workflow import step"
+      description="Apply our own workflow.xml file."
+      source="1204"
+      destination="1205"
+      handler="Products.Poi.migration.run_workflow_step"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Remove PoiResponse contenttype"
+      description="Remove old content types from the portal_types tool."
+      source="1299"
+      destination="1300"
+      handler="Products.Poi.migration.remove_response_content_type"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Remove poi_issue_post form controller action"
+      description=""
+      source="1300"
+      destination="1301"
+      handler="Products.Poi.migration.remove_form_controller_action"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Run rolemap import step"
+      description="Apply our own rolemap.xml file."
+      source="1301"
+      destination="1302"
+      handler="Products.Poi.migration.run_rolemap_step"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Give all tracker managers the TrackerManager role"
+      description="Make sure all the tracker manager actually have the
+                   local TrackerManager role instead of the Manager role."
+      source="1302"
+      destination="1303"
+      handler="Products.Poi.migration.update_tracker_managers"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Run workflow import step"
+      description="Apply our own workflow.xml file."
+      source="1303"
+      destination="1304"
+      handler="Products.Poi.migration.run_workflow_step"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Run types import step"
+      description="Apply our own types.xml file."
+      source="1304"
+      destination="2000"
+      handler="Products.Poi.migration.run_types_step"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Purge workflow scripts"
+      description="Purge no longer existing workflow scripts from the issue workflow."
+      source="2000"
+      destination="2001"
+      handler="Products.Poi.migration.purge_workflow_scripts"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Run rolemap import step"
+      description="Apply our own rolemap.xml file."
+      source="2001"
+      destination="2002"
+      handler="Products.Poi.migration.run_rolemap_step"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Run workflow import step"
+      description="Apply our own workflow.xml file."
+      source="2002"
+      destination="2003"
+      handler="Products.Poi.migration.run_workflow_step"
+      profile="Products.Poi:default" />
+
+</configure>
