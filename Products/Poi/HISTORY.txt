@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.0.1 (unreleased)
+2.0.1 (2010-11-11)
 ------------------
 
 - Split profile registration and upgrade steps from configure.zcml
