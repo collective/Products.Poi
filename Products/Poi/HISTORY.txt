@@ -9,6 +9,9 @@ Changelog for Poi
   into a new profiles.zcml as it is quite big already.
   [maurits]
 
+- Fix: for the 'no change' label and input the ids were empty.
+  [thomasdesvenain]
+
 - Removed our dependency on collective.autopermission, as its
   functionality is integrated in Zope 2.12 (Plone 4.0).
   [maurits]
