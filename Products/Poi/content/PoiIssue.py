@@ -48,7 +48,11 @@ from Products.Archetypes.atapi import StringWidget
 from Products.Archetypes.atapi import TextField
 from Products.Archetypes.atapi import IntegerField
 from Products.Archetypes.atapi import DateTimeField
-from Products.Archetypes.atapi import CalendarWidget
+try:
+    from collective.calendarwidget.widget import CalendarWidget
+except ImportError:
+    from Products.Archetypes.atapi import CalendarWidget
+
 from Products.CMFPlone.utils import safe_unicode
 
 from Products.Poi.interfaces.Issue import Issue
@@ -303,7 +307,8 @@ schema = Schema((
             description=("Date until this issues needs to be resolved."),
             label_msgid="Poi_label_deadline",
             description_msgid="Poi_help_deadline",
-            i18n_domain="Poi"),
+            i18n_domain="Poi",
+            with_time=1),
     ),  
 
 
@@ -732,6 +737,12 @@ ${issue_details}
         raise Exception(
             "Could not find PoiTracker in acquisition chain of %r" %
             self)
+
+    def getWholeDay(self):
+        """ Returns False  """
+        # asked for by collective.calendarwidget
+        return False
+
 
 
 # XXX get rid of this modify_fti function.  We can do that in
