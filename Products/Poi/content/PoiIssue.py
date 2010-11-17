@@ -251,7 +251,8 @@ schema = Schema((
         vocabulary='getManagersVocab',
         default="(UNASSIGNED)",
         required=True,
-        write_permission=permissions.ModifyIssueAssignment
+        write_permission=permissions.ModifyIssueAssignment, 
+        edit_accessor='getResponsibleManagerRaw'
     ),
 
     StringField(
@@ -502,6 +503,32 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
             value = safe_unicode(value, encoding)
         return value
 
+    def getResponsibleManagerRaw(self):
+        """ Edit accessor for responsibleManager """
+        return self.getField('responsibleManager').get(self)
+
+    def getResponsibleManager(self):
+        """ Returns the Responsible Manager """
+        UNASSIGNED = '(UNASSIGNED)'
+        AREAMANAGER =  '(AREAMANAGER)'
+        value = self.getField('responsibleManager').get(self)
+        if value == AREAMANAGER:
+            area = self.getArea()
+            if not area:
+                return UNASSIGNED
+            else:
+                tracker = self.getTracker()
+                rfield = tracker.getField('availableAreas')
+                responsible = rfield.lookup(tracker, area, 'responsible')
+                managers = tracker.managers
+                if responsible and responsible in managers:
+                    return responsible
+                else:
+                    return UNASSIGNED
+        else:
+            return value
+
+
     def validate_watchers(self, value):
         """Make sure watchers are actual user ids"""
         membership = getToolByName(self, 'portal_membership')
@@ -574,6 +601,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         items = tracker.getManagers()
         vocab = DisplayList()
         vocab.add('(UNASSIGNED)', _(u'None'), 'poi_vocab_none')
+        vocab.add('(AREAMANAGER)', _(u'Area Manager'), 'poi_vocab_area_manager')
         for item in items:
             vocab.add(item, item)
         return vocab

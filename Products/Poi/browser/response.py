@@ -223,7 +223,7 @@ class Base(BrowserView):
     @property
     def responsibleManager(self):
         context = aq_inner(self.context)
-        return context.getResponsibleManager()
+        return context.getResponsibleManagerRaw()
 
     @property
     @memoize

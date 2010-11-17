@@ -109,7 +109,8 @@ schema = Schema((
 
     DataGridField(
         name='availableAreas',
-        default=({'id' : 'ui', 'title' : 'User interface', 'description' : 'User interface issues'}, {'id' : 'functionality', 'title' : 'Functionality', 'description' : 'Issues with the basic functionality'}, {'id' : 'process', 'title' : 'Process', 'description' : 'Issues relating to the development process itself'}),
+        default=({'id' : 'ui', 'title' : 'User interface', 'description' : 'User interface issues', 'responsible':''}, {'id' : 'functionality', 'title' : 'Functionality', 'description' : 'Issues with the basic functionality', 'responsible':''}, {'id' : 'process', 'title' : 'Process', 'description' : 'Issues relating to the development process itself','responsible':''}),
+
         widget=DataGridWidget(
             label="Areas",
             description="Enter the issue topics/areas for this tracker.",
@@ -121,7 +122,7 @@ schema = Schema((
         allow_empty_rows=False,
         required=True,
         validators=('isDataGridFilled', ),
-        columns=('id', 'title', 'description',)
+        columns=('id', 'title', 'description', 'responsible')
     ),
 
     DataGridField(
@@ -391,10 +392,10 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
                     creator = issue.Creator()
                     addresses.add(self._getMemberEmail(creator, portal_membership))
 
-        if self.getSendNotificationEmailsToResponsibleManagers():
+        if self.getSendNotificationEmailsToResponsibleManager():
             if issue is not None:
                 rm = issue.getResponsibleManager()
-                adresses.add(self._getMemberEmail(rm, portal_membership))
+                addresses.add(self._getMemberEmail(rm, portal_membership))
 
         if issue is not None:
             addresses.union_update([self._getMemberEmail(x, portal_membership)
