@@ -205,6 +205,30 @@ schema = Schema((
         )
     ),
 
+    BooleanField(
+        name='sendNotificationEmailsToReporter',
+        default=True,
+        widget=BooleanWidget(
+            label="Send notification emails to issue reporter",
+            description="",
+            label_msgid='Poi_label_sendNotificationEmailsToReporter',
+            description_msgid='Poi_help_sendNotificationEmailsToReporter',
+            i18n_domain='Poi',
+        )
+    ),
+
+    BooleanField(
+        name='sendNotificationEmailsToResponsibleManager',
+        default=True,
+        widget=BooleanWidget(
+            label="Send notification emails to responsible manager",
+            description="",
+            label_msgid='Poi_label_sendNotificationEmailsToResponsibleManager',
+            description_msgid='Poi_help_sendNotificationEmailsToResponsibleManager',
+            i18n_domain='Poi',
+        )
+    ),
+
     StringField(
         name='mailingList',
         widget=StringWidget(
@@ -341,8 +365,8 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         issue poster and any watchers will also be included.
         """
 
-        if not self.getSendNotificationEmails():
-            return []
+#        if not self.getSendNotificationEmails():
+#            return []
 
         portal_membership = getToolByName(self, 'portal_membership')
 
@@ -355,12 +379,24 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         mailingList = self.getMailingList()
         if mailingList:
             addresses.add(mailingList)
-        else:
+
+        if self.getSendNotificationEmails():
             addresses.union_update([self._getMemberEmail(x, portal_membership)
                                     for x in self.getManagers() or []])
 
+        if self.getSendNotificationEmailsToReporter():
+            if issue is not None:
+                addresses.add(issue.getContactEmail())
+                if not issue.getContactEmail():
+                    creator = issue.Creator()
+                    addresses.add(self._getMemberEmail(creator, portal_membership))
+
+        if self.getSendNotificationEmailsToResponsibleManagers():
+            if issue is not None:
+                rm = issue.getResponsibleManager()
+                adresses.add(self._getMemberEmail(rm, portal_membership))
+
         if issue is not None:
-            addresses.add(issue.getContactEmail())
             addresses.union_update([self._getMemberEmail(x, portal_membership)
                                     for x in issue.getWatchers() or []])
 
