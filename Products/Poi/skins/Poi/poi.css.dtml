@@ -205,4 +205,19 @@ ul.issue-tags-tags a {
     color: &dtml-linkColor;;
 }
 
+/*
+issue pressure
+*/
+.issue-overdue {
+    background-color:#FC8DA5;
+}
+.issue-startsoon {
+    background-color:#F4FAB4;
+}
+.issue-sparetime {
+    background-color:#CDF5BA;
+}
+
+
+
 /* </dtml-with> */

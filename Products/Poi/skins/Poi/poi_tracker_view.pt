@@ -151,6 +151,17 @@
           </ul>
       </div>
 
+      <div id="open-issues-in-priority" class="issue-quick-search-box">
+          <h3 i18n:translate="poi_heading_in_priority">In priority order</h3>
+          <ul>
+                  <li tal:define="issues python:issuefolder.getFilteredIssues(state=openStates)">
+                  <a tal:attributes="href string:${context/absolute_url}/poi_issue_pressure"
+                       tal:content="string: All pending issues" /> (<span tal:replace="python:len(issues)" />)
+                  </li>
+          </ul>
+      </div>
+
+
       <div class="visualClear"><!----></div>
 
       <div id="open-issues-by-tag" class="issue-quick-search-box"

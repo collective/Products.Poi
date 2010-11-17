@@ -2,17 +2,24 @@ from Acquisition import aq_inner
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 from ZTUtils import make_query
+from DateTime import DateTime
+from math import sqrt
 
 
 class IssueFolderView(BrowserView):
 
-    def getFilteredIssues(self, criteria=None, **kwargs):
+    def getFilteredIssues(self, criteria=None, sort_on_priority=True, **kwargs):
         """Get the contained issues in the given criteria.
         """
         context = aq_inner(self.context)
         query = self.buildIssueSearchQuery(criteria, **kwargs)
         catalog = getToolByName(context, 'portal_catalog')
-        return catalog.searchResults(query)
+        results = catalog.searchResults(query)
+
+        if sort_on_priority:
+            results = sorted(results, key=lambda i:(self.getPriorityForIssue(i), self.getSeverityMeasure(i)), reverse=True)
+         
+        return results
 
     def getIssueSearchQueryString(self, criteria=None, **kwargs):
         """Return a query string for an issue query.
@@ -145,3 +152,103 @@ class IssueFolderView(BrowserView):
                 issues.append(i)
 
         return issues
+
+    def getPressureForIssue(self, issue):
+        """ Calculates the pressure of an issue on its brain.
+        
+        Returns an integer as pressure state:
+            1: Overdue
+            2: Needs to be worked on today
+            3: Still time left
+        """
+        if not issue.getDeadline:
+            pressure = 3
+        else:
+            daysleft = self.getDaysLeft(issue)
+
+            if daysleft < 0:
+                pressure = 1
+            elif daysleft < 2:
+                pressure = 2
+            else:
+                pressure = 3
+
+        return pressure
+
+    def getTimeEstimateDays(self, issue):
+        if not issue.getTimeEstimate:
+            return 0
+
+        token = issue.getTimeEstimate
+        days = int(token.split('d')[0].strip() or 0)
+        token = token.split('d')[-1]
+        hours = int(token.split('h')[0].strip() or 0)
+        token = token.split('h')[-1]
+        minutes = int(token.split('m')[0].strip() or 0)
+
+        in_days = days + (hours / 24.) + (minutes / 1140.)
+        return in_days
+
+
+    def getDaysLeft(self, issue):
+        today = DateTime()
+        lstartdate = (issue.getDeadline - (self.getTimeEstimateDays(issue) * \
+                        (1 - issue.getProgress / 100)))
+
+        return( lstartdate - today ) 
+        
+    def getSchedulePressure(self, issue):
+
+        delta = self.getDaysLeft(issue)
+
+        if delta < 0:  # overdue
+            P = 7
+        elif delta < 1:  # today
+            P = 5
+        elif delta < 3:  # within 3 days
+            P = 3
+        elif delta < 7:  # this week
+            P = 2.5
+        elif delta < 15:  # within 2 weeks
+            P = 2
+        elif delta < 30:  # this month
+            P = 1.5
+        elif delta < 90:  # this quarter
+            P = 1
+        elif delta < 180:  # this half year
+            P = 1
+        else:  # > 6 months
+            P = 1
+        return P
+
+    def getSeverityMeasure(self, issue):
+        """ Translates the severity value into an integer.
+        """
+
+        severity_vocab = self.context.getAvailableSeverities()
+        severity_max = len(severity_vocab)
+        lseverities = list(severity_vocab)
+        return severity_max - lseverities.index(issue.getSeverity)
+        
+    def getPriorityForIssue(self, issue):
+        """Calculates the priority of an issue on its brain. 
+        
+           The priority is dependent on the issues severity,
+           schedule pressure and efford needed. 
+        """
+
+        S = self.getSeverityMeasure(issue)
+        
+        if issue.getDeadline:
+            P = self.getSchedulePressure(issue)
+        else:
+            P = S
+
+        E = self.getTimeEstimateDays(issue)
+
+        if issue.getProgress:
+            E = E * 0.01 * issue.getProgress
+
+        priority = sqrt(2*S*S+2*P*P+E*E)/sqrt(5)
+        return priority
+

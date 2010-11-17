@@ -47,6 +47,8 @@ from Products.Archetypes.atapi import StringField
 from Products.Archetypes.atapi import StringWidget
 from Products.Archetypes.atapi import TextField
 from Products.Archetypes.atapi import IntegerField
+from Products.Archetypes.atapi import DateTimeField
+from Products.Archetypes.atapi import CalendarWidget
 from Products.CMFPlone.utils import safe_unicode
 
 from Products.Poi.interfaces.Issue import Issue
@@ -74,9 +76,6 @@ from Products.Poi.interfaces import IIssue
 from Products.Poi.interfaces import ITracker
 from Products.Poi import PoiMessageFactory as _
 from plone.memoize import instance
-
-from DateTime import DateTime
-from math import sqrt
 
 schema = Schema((
 
@@ -293,6 +292,20 @@ schema = Schema((
         write_permission=permissions.ModifyIssueTags,
         accessor="Subject"
     ),
+
+    DateTimeField(
+        'deadline',
+#        mutator = 'setEffectiveDate',
+        languageIndependent = True,
+        #default=FLOOR_DATE,
+        widget=CalendarWidget(
+            label="Deadline",
+            description=("Date until this issues needs to be resolved."),
+            label_msgid="Poi_label_deadline",
+            description_msgid="Poi_help_deadline",
+            i18n_domain="Poi"),
+    ),  
+
 
     IntegerField(
         name='progress',
@@ -719,67 +732,6 @@ ${issue_details}
         raise Exception(
             "Could not find PoiTracker in acquisition chain of %r" %
             self)
-
-    def getTimeEstimateDays(self):
-        if not self.getTimeEstimate():
-            return 0
-
-        token = self.getTimeEstimate()
-        days = int(token.split('d')[0].strip() or 0)
-        token = token.split('d')[1]
-        hours = int(token.split('h')[0].strip() or 0)
-        token = token.split('h')[1]
-        minutes = int(token.split('m')[0].strip() or 0)
-
-        in_days = days + (hours / 24.) + (minutes / 1140.)
-        return in_days
-
-    def _schedule_pressure(self):
-
-        today = DateTime().earliestTime()
-        delta = (self.getExpirationDate() - today) - self.getTimeEstimateDays()
-
-        if delta < 0:  # overdue
-            P = 6
-        elif delta < 1:  # today
-            P = 5
-        elif delta < 3:  # within 3 days
-            P = 4.5
-        elif delta < 7:  # this week
-            P = 4
-        elif delta < 15:  # within 2 weeks
-            P = 3.5
-        elif delta < 30:  # this month
-            P = 3
-        elif delta < 90:  # this quarter
-            P = 2
-        elif delta < 180:  # this half year
-            P = 1.5
-        else:  # > 6 months
-            P = 1
-        return P
-        
-    
-    security.declareProtected(permissions.View, 'calculatePriority')
-    def calculatePriority(self):
-        """ test  """
-        severity_vocab = self.getAvailableSeverities()
-        severity_max = len(severity_vocab)
-        lseverities = list(severity_vocab)
-        S = severity_max - lseverities.index(self.severity)
-        
-        if self.getExpirationDate():
-            P = self._schedule_pressure()
-        else:
-            P = S
-
-        if self.getProgress():
-            P = P * 0.01 * self.getProgress()
-
-        E = self.getTimeEstimateDays()
-
-        priority = sqrt(2*S*S+2*P*P+E*E)/sqrt(5)
-        return priority
 
 
 # XXX get rid of this modify_fti function.  We can do that in

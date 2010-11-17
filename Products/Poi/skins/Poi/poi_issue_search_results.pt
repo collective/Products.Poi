@@ -27,13 +27,16 @@
                <th i18n:translate="listingheader_severity">Severity</th>
                <th i18n:translate="listingheader_responsible">Responsible</th>
                <th i18n:translate="listingheader_tags">Tags</th>
+               <th i18n:translate="listingheader_deadline">Deadline</th>
+               <th i18n:translate="listingheader_time_estimate">Time estimate</th>
+               <th i18n:translate="listingheader_progress">Progress</th>
                <th i18n:translate="listingheader_state">State</th>
            </tr>
        </thead>
        <tbody>
            <tal:issues repeat="item issues">
-               <tr tal:define="oddrow repeat/item/odd"
-                   tal:attributes="class python:test(oddrow, 'even', 'odd')">
+                <tr tal:define="pressure python: issuefolder.getPressureForIssue(item)"
+                   tal:attributes="class python: (pressure == 1 and 'issue-overdue' or pressure == 2 and 'issue-startsoon' or 'issue-sparetime')">
                    <td tal:content="item/getId">
                    </td>
                    <td>
@@ -60,6 +63,9 @@
                             style="text-align:center">&mdash;</div>
                    </td>
                    <td tal:content="python:', '.join(item.Subject)" />
+                   <td tal:content="item/getDeadline" />
+                   <td tal:content="item/getTimeEstimate" />
+                   <td tal:content="python: item.getProgress and '%d%%' % item.getProgress or ''" />
                    <td tal:attributes="class string:issue-${item/review_state}"
                        i18n:translate="" i18n:domain="plone"
                        tal:content="python:states.getValue(item.review_state)" />

@@ -37,6 +37,14 @@ class IIssueFolderView(Interface):
         by the given user.
         """
 
+    def getPressureForIssue(issue):
+        """Calculates the pressure of an issue on its brain.
+        
+        Returns an integer as pressure state:
+            1: Overdue
+            2: Needs to be worked on today
+            3: Still time left
+        """
 
 class IResponseAdder(IViewletManager):
 

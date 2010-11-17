@@ -59,7 +59,7 @@ def addCatalogIndexes(site, out):
     catalog = getToolByName(site, 'portal_catalog')
     indexes = catalog.indexes()
     wanted = ("getRelease", "getArea", "getIssueType", "getSeverity",
-              "getTargetRelease", "getResponsibleManager")
+              "getTargetRelease", "getResponsibleManager", "getDeadline")
 
     for idx in wanted:
         if idx not in indexes:
