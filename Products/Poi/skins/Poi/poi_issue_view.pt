@@ -180,6 +180,14 @@
                    value="Edit issue"
                    />
           </form>
+          <form style="display: inline" action="createSubsequentIssue"
+              tal:condition="python: user.has_permission('Modify portal content', here)">
+            <input class="context"
+                   type="submit"
+                   i18n:attributes="value"
+                   value="Create subsequent issue"
+                   />
+          </form>
       </div>
 
       <dl tal:condition="here/getReferences">

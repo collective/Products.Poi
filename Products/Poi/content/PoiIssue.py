@@ -209,11 +209,11 @@ schema = Schema((
     ReferenceField(
         name='references',
         index="FieldIndex:schema",
-        relationship='Preceedes',
+        relationship='preceedes',
         allowed_types='PoiIssue',
         multiValued=True,
         widget=ReferenceBrowserWidget( 
-                label="consecutive issues",
+                label="subsequent issues",
                 allow_browse=False,
                 allow_search=True,
             )
@@ -784,8 +784,31 @@ ${issue_details}
         """ Returns False  """
         # asked for by collective.calendarwidget
         return False
+    
+    def _createIssue(self):
+        parent = self.getTracker()
+        id = self.generateUniqueId()
+        parent.invokeFactory(id=id, type_name='PoiIssue')
+        issue = getattr(parent, id)
+        return issue 
 
-
+    security.declareProtected(permissions.ModifyPortalContent, 'createSubsequentIssue')
+    def createSubsequentIssue(self, REQUEST=None):
+        """Creates a new issue and adds a reference from this issue to
+        the newly created issue. 
+        """
+        issue = self._createIssue()
+        references = self.getReferences()
+        references.append(issue)
+        self.setReferences(references)
+        issue.indexObject()
+        
+        if REQUEST:
+            return REQUEST.RESPONSE.redirect( '%s%s' % (issue.absolute_url(),
+                         self.getTypeInfo().getActionInfo('object/edit')['url']
+                                            ))
+        else:
+            return issue 
 
 # XXX get rid of this modify_fti function.  We can do that in
 # types/PoiIssue.xml
