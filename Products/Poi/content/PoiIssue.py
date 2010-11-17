@@ -298,9 +298,7 @@ schema = Schema((
 
     DateTimeField(
         'deadline',
-#        mutator = 'setEffectiveDate',
         languageIndependent = True,
-        #default=FLOOR_DATE,
         widget=CalendarWidget(
             label="Deadline",
             description=("Date until this issues needs to be resolved."),
@@ -313,8 +311,8 @@ schema = Schema((
     IntegerField(
         name='progress',
         widget=SelectionWidget(
-            label="Progress status in %",
-            description="Enter the amount of progress archieved for this issue in percent.",
+            label="Progress achieved",
+            description="Select the amount of progress archieved for this issue.",
             label_msgid='Poi_label_progress',
             description_msgid='Poi_help_progress',
             i18n_domain='Poi',
@@ -329,11 +327,12 @@ schema = Schema((
         name='timeEstimate',
         widget=StringWidget(
             label="Time estimate",
-            description="Enter the estimated time to resolve this issue in the format 1d 1h 1m.",
+            description="Enter the estimated time to resolve this issue in the format $Nd $Nh $Nm, e.g. 2d 1h 30m.",
             label_msgid='Poi_label_time_estimate',
             description_msgid='Poi_help_time_estimate',
             i18n_domain='Poi',
         ),
+        validators=("timeestimate",),
         required=False,
     ),
 

@@ -1060,3 +1060,57 @@ msgstr "RSS-Feed von verwaisten Problemstellungen"
 msgid "title_rss_feed_unconfirmed"
 msgstr "RSS-Feed von unbestätigten Problemstellungen"
 
+#. Default: "Deadline"
+#: ../content/PoiIssue.py:303
+msgid "Poi_label_deadline"
+msgstr "Fertigstellungstermin"
+
+#. Default: "Date until this issue needs to be resolved."
+#: ../content/PoiIssue.py:304
+msgid "Poi_help_deadline"
+msgstr "Termin bis zu dem dieses Problem behoben werden muss."
+
+#. Default: "Progress achieved"
+#: ../content/PoiIssue.py:314
+msgid "Poi_label_progress"
+msgstr "Fortschritt"
+
+#. Default: "Select the amount of progress achieved for this issue"
+#: ../content/PoiIssue.py:315
+msgid "Poi_help_progress"
+msgstr "Wählen Sie ihren aktuellen Fortschritt bis zur Fertigstellung."
+
+#. Default: "Time estimate":
+#: ../content/PoiIssue.py:329
+msgid "Poi_label_time_estimate"
+msgstr "Zeitschätzung"
+
+#. Default: "Enter the estimated time to resolve this issue in the format $Nd $Nh $Nm, e.g. 2d 1h 30m."
+#: ../content/PoiIssue.py:330
+msgid "Poi_help_time_estimate"
+msgstr "Geben Sie eine Aufwandsschätzung der benötigten Zeit im Format $Nd $Nh $Nm, z.B. 2d 1h 30m."
+
+#. Default: "Deadline"
+#: ../skins/Poi/poi_issue_search_results.pt:30
+msgid "listingheader_deadline"
+msgstr "Fertigstellungstermin"
+
+#. Default: "Time estimate"
+#: ../skins/Poi/poi_issue_search_results.pt:31
+msgid "listingheader_time_estimate"
+msgstr "Zeitschätzung"
+
+#. Default: "Progress"
+#: ../skins/Poi/poi_issue_search_results.pt:32
+msgid "listingheader_progress"
+msgstr "Fortschritt"
+
+#. Default: "Time estimate"
+#: ../skins/Poi/poi_issue_view.pt:92
+msgid "poi_label_time_estimate"
+msgstr "Zeitschätzung"
+
+#. Default: "Progress"
+#: ../skins/Poi/poi_issue_view.pt:96
+msgid "poi_label_progress"
+msgstr "Fortschritt"

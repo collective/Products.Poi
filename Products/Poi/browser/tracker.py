@@ -4,6 +4,7 @@ from Products.CMFCore.utils import getToolByName
 from ZTUtils import make_query
 from DateTime import DateTime
 from math import sqrt
+import re
 
 
 class IssueFolderView(BrowserView):
@@ -175,22 +176,34 @@ class IssueFolderView(BrowserView):
 
         return pressure
 
+    te_re = re.compile( \
+        r'\s*((?P<days>\d)+d)?\s*((?P<hours>\d)+h)?\s*((?P<minutes>\d)+m)?\s*')
+
     def getTimeEstimateDays(self, issue):
+        """ Returns the time estimate of the given issue in hours.
+        """
+        
         if not issue.getTimeEstimate:
             return 0
 
-        token = issue.getTimeEstimate
-        days = int(token.split('d')[0].strip() or 0)
-        token = token.split('d')[-1]
-        hours = int(token.split('h')[0].strip() or 0)
-        token = token.split('h')[-1]
-        minutes = int(token.split('m')[0].strip() or 0)
+        m = self.te_re.match(issue.getTimeEstimate)
+
+        days = m.groupdict()['days'] or 0
+        days = int(days)
+        hours = m.groupdict()['hours'] or 0
+        hours = int(hours)
+        minutes = m.groupdict()['minutes'] or 0
+        minutes = int(minutes)
 
         in_days = days + (hours / 24.) + (minutes / 1140.)
         return in_days
 
 
     def getDaysLeft(self, issue):
+        """ Calculates how many days are left until the deadline for the
+        given issue is reached.
+        """
+
         today = DateTime()
         lstartdate = (issue.getDeadline - (self.getTimeEstimateDays(issue) * \
                         (1 - issue.getProgress / 100)))
@@ -198,6 +211,10 @@ class IssueFolderView(BrowserView):
         return( lstartdate - today ) 
         
     def getSchedulePressure(self, issue):
+        """ Caculates a pressure measure for the given issue.
+        The pressure depends on how many days are left until the 
+        deadline for the issue is reached.
+        """
 
         delta = self.getDaysLeft(issue)
 
