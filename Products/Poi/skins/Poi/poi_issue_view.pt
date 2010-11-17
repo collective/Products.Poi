@@ -182,6 +182,15 @@
           </form>
       </div>
 
+      <dl tal:condition="here/getReferences">
+          <dt> Folgeproblemstellungen </dt>
+          <dd>
+          <tal:for repeat="issue here/getReferences">
+          <a href="" tal:attributes="href issue/absolute_url" tal:content="issue/Title"></a><br />
+          </tal:for>
+          </dd>
+      </dl>
+
       <div class="visualClear"><!----></div>
 
       <div tal:replace="structure provider:poi.response.add" />

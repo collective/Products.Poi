@@ -62,6 +62,21 @@ from Products.Poi.interfaces import ITracker
 from Products.Poi.utils import linkSvn
 from Products.Poi.utils import linkBugs
 
+# Email settings constances
+EMAIL_SEND_TRACKER_MANAGER = "email_send_tracker_manager"
+EMAIL_SEND_REPORTER = "email_send_reporter"
+EMAIL_SEND_RESPONSIBLE_MANAGER = "email_send_responsible_manager"
+EMAIL_SEND_MAILINGLIST = "email_send_mailingslist"
+EMAIL_SEND_WATCHING_MEMBERS = "email_send_watching_members"
+EMAIL_OPTIONS = (
+                    ( EMAIL_SEND_TRACKER_MANAGER, "Tracker manager"),
+                    ( EMAIL_SEND_REPORTER, "Issue reporter"),
+                    ( EMAIL_SEND_RESPONSIBLE_MANAGER, "Responsible manager"),
+                    ( EMAIL_SEND_WATCHING_MEMBERS, "Members watching the issue"),
+                    ( EMAIL_SEND_MAILINGLIST, "Mailinglist"),
+                )
+
+
 schema = Schema((
 
     StringField(
@@ -194,47 +209,26 @@ schema = Schema((
         default_method="getDefaultManagers"
     ),
 
-    BooleanField(
-        name='sendNotificationEmails',
-        default=True,
-        widget=BooleanWidget(
+    LinesField(
+        name='sendNotificationEmailsTo',
+        widget=MultiSelectionWidget(
             label="Send notification emails",
-            description="If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation.",
+            description="Selected to which recipient notification emails will be send. Notification emails are send each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation.",
             label_msgid='Poi_label_sendNotificationEmails',
             description_msgid='Poi_help_sendNotificationEmails',
             i18n_domain='Poi',
-        )
-    ),
-
-    BooleanField(
-        name='sendNotificationEmailsToReporter',
-        default=True,
-        widget=BooleanWidget(
-            label="Send notification emails to issue reporter",
-            description="",
-            label_msgid='Poi_label_sendNotificationEmailsToReporter',
-            description_msgid='Poi_help_sendNotificationEmailsToReporter',
-            i18n_domain='Poi',
-        )
-    ),
-
-    BooleanField(
-        name='sendNotificationEmailsToResponsibleManager',
-        default=True,
-        widget=BooleanWidget(
-            label="Send notification emails to responsible manager",
-            description="",
-            label_msgid='Poi_label_sendNotificationEmailsToResponsibleManager',
-            description_msgid='Poi_help_sendNotificationEmailsToResponsibleManager',
-            i18n_domain='Poi',
-        )
+            format="checkbox",
+        ),
+        enforceVocabulary=True,
+        vocabulary="getEmailSettingsVocab",
+        default=(),
     ),
 
     StringField(
         name='mailingList',
         widget=StringWidget(
             label="Mailing list",
-            description="""If given, and if "Send notification emails" is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails.""",
+            description="""If given, and if the mailing list option is selected in "Send notification emails", an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails.""",
             label_msgid='Poi_label_mailingList',
             description_msgid='Poi_help_mailingList',
             i18n_domain='Poi',
@@ -357,17 +351,31 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
             vocab.add(item, item)
         return vocab
 
+    security.declareProtected(permissions.View, 'getEmailSettingsVocab')
+    def getEmailSettingsVocab(self):
+        """
+        Returns the available recipient options for the email notification
+        """
+        items = EMAIL_OPTIONS
+        vocab = DisplayList()
+        for item in items:
+            vocab.add(item[0], item[1])
+        return vocab
+
     security.declarePrivate('getNotificationEmailAddresses')
     def getNotificationEmailAddresses(self, issue=None):
         """
         Upon activity for the given issue, get the list of email
         addresses to which notifications should be sent. May return an
-        empty list if notification is turned off. If issue is given, the
-        issue poster and any watchers will also be included.
+        empty list if notification is turned off. If issue is given and
+        the corresponding options are set, the issue poster and any 
+        watchers will also be included.
         """
 
-#        if not self.getSendNotificationEmails():
-#            return []
+        email_options = self.getSendNotificationEmailsTo()
+
+        if not email_options:
+            return []
 
         portal_membership = getToolByName(self, 'portal_membership')
 
@@ -377,29 +385,31 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         # make sure no duplicates are added
         addresses = sets.Set()
 
-        mailingList = self.getMailingList()
-        if mailingList:
-            addresses.add(mailingList)
+        if EMAIL_SEND_RESPONSIBLE_MANAGER in email_options:
+            if issue is not None:
+                rm = issue.getResponsibleManager()
+                addresses.add(self._getMemberEmail(rm, portal_membership))
 
-        if self.getSendNotificationEmails():
-            addresses.union_update([self._getMemberEmail(x, portal_membership)
-                                    for x in self.getManagers() or []])
-
-        if self.getSendNotificationEmailsToReporter():
+        if EMAIL_SEND_REPORTER in email_options:
             if issue is not None:
                 addresses.add(issue.getContactEmail())
                 if not issue.getContactEmail():
                     creator = issue.Creator()
                     addresses.add(self._getMemberEmail(creator, portal_membership))
 
-        if self.getSendNotificationEmailsToResponsibleManager():
+        if EMAIL_SEND_WATCHING_MEMBERS in email_options:
             if issue is not None:
-                rm = issue.getResponsibleManager()
-                addresses.add(self._getMemberEmail(rm, portal_membership))
+                addresses.union_update([self._getMemberEmail(x, portal_membership)
+                                        for x in issue.getWatchers() or []])
 
-        if issue is not None:
+        if EMAIL_SEND_MAILINGLIST in email_options:
+            mailingList = self.getMailingList()
+            if mailingList:
+                addresses.add(mailingList)
+
+        if EMAIL_SEND_TRACKER_MANAGER in email_options:
             addresses.union_update([self._getMemberEmail(x, portal_membership)
-                                    for x in issue.getWatchers() or []])
+                                    for x in self.getManagers() or []])
 
         addresses.discard(None)
         addresses.discard(email)
@@ -416,7 +426,7 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
         http://mg.pov.lt/blog/unicode-emails-in-python.html
         """
 
-        if not self.getSendNotificationEmails() or not addresses:
+        if not self.getSendNotificationEmailsTo() or not addresses:
             return
 
         portal_url  = getToolByName(self, 'portal_url')

@@ -48,6 +48,8 @@ from Products.Archetypes.atapi import StringWidget
 from Products.Archetypes.atapi import TextField
 from Products.Archetypes.atapi import IntegerField
 from Products.Archetypes.atapi import DateTimeField
+from Products.Archetypes.atapi import ReferenceField
+from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 try:
     from collective.calendarwidget.widget import CalendarWidget
 except ImportError:
@@ -202,6 +204,19 @@ schema = Schema((
         default_method='getDefaultIssueType',
         vocabulary='getIssueTypesVocab',
         required=True
+    ),
+
+    ReferenceField(
+        name='references',
+        index="FieldIndex:schema",
+        relationship='Preceedes',
+        allowed_types='PoiIssue',
+        multiValued=True,
+        widget=ReferenceBrowserWidget( 
+                label="consecutive issues",
+                allow_browse=False,
+                allow_search=True,
+            )
     ),
 
     StringField(
