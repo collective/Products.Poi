@@ -52,7 +52,6 @@ try:
     from collective.calendarwidget.widget import CalendarWidget
 except ImportError:
     from Products.Archetypes.atapi import CalendarWidget
-
 from Products.CMFPlone.utils import safe_unicode
 
 from Products.Poi.interfaces.Issue import Issue
@@ -311,18 +310,19 @@ schema = Schema((
             with_time=1),
     ),  
 
-
     IntegerField(
         name='progress',
-        widget=StringWidget(
+        widget=SelectionWidget(
             label="Progress status in %",
             description="Enter the amount of progress archieved for this issue in percent.",
             label_msgid='Poi_label_progress',
             description_msgid='Poi_help_progress',
             i18n_domain='Poi',
+            format='select',
         ),
         required=False,
-        default=0
+        default=0,
+        vocabulary=DisplayList( [(p,'%d%%' % p) for p in range(0,110,10)] )
     ),
 
     StringField(
