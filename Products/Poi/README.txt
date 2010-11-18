@@ -140,6 +140,29 @@ connected, take a look at the attachment added by bethor to this
 issue: http://plone.org/products/poi/issues/179
 
 
+Timemanagement
+--------------
+
+Two new fields were added in the timemanagement branch by mkoch. 
+These are
+
+- "Completed" with values of 0-100% in 10% increments
+- "Time estimate" in days, hours and minutes.
+
+Using the due date you can generate a list sorted by urgency. If two 
+problems have the same value their priorities are evaluated for 
+differences.
+
+Designwise colours are used to show three levels of urgency:
+
+- overdue
+- begin today
+- everything green 
+
+Issues and their ETAs may compete against each other and the i
+priorities may accumulate. 
+
+
 Using HTML/kupu and other markups for issue text:
 -------------------------------------------------
 
@@ -171,6 +194,7 @@ Credits
 If you have contributed to Poi in some fashion, be sure to add
 yourself in the hall of fame here!
 
+ 
  o Design and development by Martin Aspeli <optilude@gmx.net>
 
  o Bug fixes and general critiquing by Rocky Burt <rocky@serverzen.com>
@@ -186,3 +210,6 @@ yourself in the hall of fame here!
 
  o Bug fixes, modernizing of responses, maintenance by Maurits van
    Rees
+
+ o Progress and time due mechanics by Matthias Koch <mkoch@banality.de>
+
