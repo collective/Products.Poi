@@ -126,7 +126,8 @@ will get an email when there are new issues and responses, optionally
 via a mailing list. Issue submitters will also get emails upon issue
 responses. Additionally, when an issue is marked as "resolved" by a
 tracker manager, the submitter will receive an email asking him or her
-to mark the issue as confirmed closed.
+to mark the issue as confirmed closed. See 'Timemanagement' for 
+additional features.
 
 To use with the PloneSoftwareCenter, install PSC and *then* install
 Poi. This will ensure PoiPscTracker is added to the list of allowed
@@ -143,15 +144,18 @@ issue: http://plone.org/products/poi/issues/179
 Timemanagement
 --------------
 
-Two new fields were added in the timemanagement branch by mkoch. 
-These are
+Branching Products.Poi from revision 111900:
+http://dev.plone.org/collective/changeset/111900 
 
-- "Completed" with values of 0-100% in 10% increments
-- "Time estimate" in days, hours and minutes.
+Two new fields were added in the timemanagement branch by mkoch, 
+extending Products.Poi by:
 
-Using the due date you can generate a list sorted by urgency. If two 
-problems have the same value their priorities are evaluated for 
-differences.
+- field "Completed" with values of 0-100% in 10% increments
+- field "Time estimate" in days, hours and minutes.
+
+Using the due date you can generate an issue list sorted by urgency. 
+If two problems have the same value their priorities are evaluated 
+for differences.
 
 Designwise colours are used to show three levels of urgency:
 
@@ -159,8 +163,28 @@ Designwise colours are used to show three levels of urgency:
 - begin today
 - everything green 
 
-Issues and their ETAs may compete against each other and the i
-priorities may accumulate. 
+Issues and their ETAs may compete against each other and the 
+priorities may accumulate.
+
+
+Notification system
+-------------------
+
+In the timemanagement branch there is now a notification system that 
+provides feedback: 
+
+- the tracker manager may be notified of all changes
+- the creator of an issue may be notified of changes to this issue
+- assignees of an issue may be notified of changes to this issue
+
+
+Organization
+------------
+
+In the timemanagement branch you can organize issues like this:
+
+- Assign different task areas to different people
+- Issues can refer to follow-up issues
 
 
 Using HTML/kupu and other markups for issue text:
@@ -211,5 +235,12 @@ yourself in the hall of fame here!
  o Bug fixes, modernizing of responses, maintenance by Maurits van
    Rees
 
- o Progress and time due mechanics by Matthias Koch <mkoch@banality.de>
+ o Progress and time due mechanics (timemanagement branch) by Matthias Koch <mkoch@banality.de> and Veit Schiele <products.poi@veit-schiele.de>
+
+References
+----------
+
+The timemanagement branch is used here:
+
+Immanuel Diakonie Group: www.immanuel.de
 
