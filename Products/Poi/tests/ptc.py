@@ -78,7 +78,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
                         defaultSeverity='Medium',
                         availableReleases=['2.0', '1.0'],
                         managers=[],
-                        sendNotificationEmails=False,
+                        sendNotificationEmailsTo=[],
                         mailingList=''):
         """Create a new tracker in the given folder"""
         self.setRoles(['Manager'])
@@ -93,7 +93,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         tracker.setDefaultSeverity(defaultSeverity)
         tracker.setAvailableReleases(availableReleases)
         tracker.setManagers(managers)
-        tracker.setSendNotificationEmails(sendNotificationEmails)
+        tracker.setSendNotificationEmailsTo(sendNotificationEmailsTo)
         tracker.setMailingList(mailingList)
         tracker.reindexObject()
         self.setRoles(['Member'])

@@ -107,13 +107,13 @@ def migrate_responses(context):
             continue
         # We definitely do not want to send any emails for responses
         # added or removed during this migration.
-        original_send_emails = tracker.getSendNotificationEmails()
-        tracker.setSendNotificationEmails(False)
+        original_send_emails = tracker.getSendNotificationEmailsTo()
+        tracker.setSendNotificationEmailsTo(())
         logger.info("Migrating %s issues in tracker %s",
                     len(tracker.contentIds()), tracker.absolute_url())
         for issue in tracker.contentValues():
             replace_old_with_new_responses(issue)
-        tracker.setSendNotificationEmails(original_send_emails)
+        tracker.setSendNotificationEmailsTo(original_send_emails)
         # We do a transaction commit here.  Otherwise on large sites
         # (say plone.org) it may be virtually impossible to finish
         # this very big migration.

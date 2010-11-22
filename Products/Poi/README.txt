@@ -35,6 +35,13 @@ See http://plone.org/products/poi for the latest release and the development
 road map.
 
 
+Branch: Timemanagement
+----------------------
+
+This is the timemanagement branch, off Poi 1.2.8 (rev 111900)
+
+See https://dev.plone.org/collective/browser/Products.Poi/branches/timemanagement 
+
 Installation and dependencies
 -----------------------------
 
@@ -126,8 +133,8 @@ will get an email when there are new issues and responses, optionally
 via a mailing list. Issue submitters will also get emails upon issue
 responses. Additionally, when an issue is marked as "resolved" by a
 tracker manager, the submitter will receive an email asking him or her
-to mark the issue as confirmed closed. See 'Timemanagement' for 
-additional features.
+to mark the issue as confirmed closed. See section 'Timemanagement' 
+for additional features.
 
 To use with the PloneSoftwareCenter, install PSC and *then* install
 Poi. This will ensure PoiPscTracker is added to the list of allowed
@@ -144,8 +151,8 @@ issue: http://plone.org/products/poi/issues/179
 Timemanagement
 --------------
 
-Branching Products.Poi from revision 111900:
-http://dev.plone.org/collective/changeset/111900 
+Branching Products.Poi from revision 111900 (see:
+http://dev.plone.org/collective/changeset/111900) 
 
 Two new fields were added in the timemanagement branch by mkoch, 
 extending Products.Poi by:
@@ -236,6 +243,7 @@ yourself in the hall of fame here!
    Rees
 
  o Progress and time due mechanics (timemanagement branch) by Matthias Koch <mkoch@banality.de> and Veit Schiele <products.poi@veit-schiele.de>
+
 
 References
 ----------

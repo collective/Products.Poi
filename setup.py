@@ -19,7 +19,7 @@ setup(name='Products.Poi',
       version=version,
       description="Poi: A friendly issue tracker",
       long_description=long_description,
-      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
+      # Get more strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
         "Framework :: Zope2",
@@ -38,8 +38,8 @@ setup(name='Products.Poi',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'Products.AddRemoveWidget<1.5dev',
-          'Products.DataGridField>=1.6b3,<1.8dev',
+          'Products.AddRemoveWidget',
+          'collective.autopermission',
       ],
       entry_points="""
       # -*- Entry points: -*-

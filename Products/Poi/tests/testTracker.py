@@ -3,6 +3,7 @@ from Testing import ZopeTestCase
 from Products.Poi.tests import ptc
 from Products.CMFCore.utils import getToolByName
 from Products.Poi.events import sendResponseNotificationMail
+from Products.Poi.content.PoiTracker import EMAIL_OPTIONS
 
 default_user = ZopeTestCase.user_name
 
@@ -33,7 +34,7 @@ class TestTracker(ptc.PoiTestCase):
         self.tracker.setDefaultSeverity('two')
         self.tracker.setAvailableReleases(('1.0', '2.0'))
         self.tracker.setManagers(('member1', 'member2'))
-        self.tracker.setSendNotificationEmails(False)
+        self.tracker.setSendNotificationEmailsTo(())
         self.tracker.setMailingList('list@list.com')
 
         self.assertEqual(self.tracker.Title(), 'title')
@@ -41,7 +42,7 @@ class TestTracker(ptc.PoiTestCase):
         self.assertEqual(self.tracker.getHelpText(), '<p>help text</p>')
         self.assertEqual(
             self.tracker.getAvailableAreas(),
-            ({'id': 'area', 'title': 'Area', 'description': 'Issue area'}, ))
+            ({'title': 'Area', 'responsible': '', 'description': 'Issue area', 'id': 'area'}, ))
         self.assertEqual(
             self.tracker.getAvailableIssueTypes(),
             ({'id': 'type', 'title': 'Type', 'description': 'Issue type'}, ))
@@ -49,7 +50,7 @@ class TestTracker(ptc.PoiTestCase):
         self.assertEqual(self.tracker.getDefaultSeverity(), 'two')
         self.assertEqual(self.tracker.getAvailableReleases(), ('1.0', '2.0'))
         self.assertEqual(self.tracker.getManagers(), ('member1', 'member2'))
-        self.assertEqual(self.tracker.getSendNotificationEmails(), False)
+        self.assertEqual(self.tracker.getSendNotificationEmailsTo(), ())
         self.assertEqual(self.tracker.getMailingList(), 'list@list.com')
 
     def testDataGridFields(self):
@@ -136,10 +137,10 @@ class TestEmailNotifications(ptc.PoiTestCase):
                        ['Member'], '2005-01-01')
         self.tracker = self.createTracker(
             self.folder, 'issue-tracker', managers = ('member1', 'member2'),
-            sendNotificationEmails = True)
+            sendNotificationEmailsTo = ([option[0] for option in EMAIL_OPTIONS]))
 
     def testGetAddressesWithNotificationsOff(self):
-        self.tracker.setSendNotificationEmails(False)
+        self.tracker.setSendNotificationEmailsTo(())
         issue = self.createIssue(
             self.tracker, contactEmail='submitter@domain.com',
             watchers=('member2', 'member3'))
@@ -155,7 +156,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
     def testGetAddressesOnNewIssueWithList(self):
         self.tracker.setMailingList('list@list.com')
         addresses = self.tracker.getNotificationEmailAddresses()
-        self.failUnless(len(addresses) == 1)
+        self.failUnless(len(addresses) == 3)
         self.failUnless('list@list.com' in addresses)
 
     def testGetAddressesOnNewResponse(self):
@@ -175,7 +176,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
             self.tracker, contactEmail='submitter@domain.com',
             watchers=('member2', 'member3'))
         addresses = self.tracker.getNotificationEmailAddresses(issue)
-        self.failUnless(len(addresses) == 4)
+        self.failUnless(len(addresses) == 5)
         self.failUnless('list@list.com' in addresses)
         self.failUnless('submitter@domain.com' in addresses)
         self.failUnless('member2@member.com' in addresses)
@@ -193,7 +194,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
     # -- begin email tests
 
     def testNewIssueEmail(self):
-        self.tracker.setSendNotificationEmails(True)
+        self.tracker.setSendNotificationEmailsTo(([option[0] for option in EMAIL_OPTIONS]))
         self.tracker.update(title='Random Tracker')
         issue = self.createIssue(self.tracker,
                                  contactEmail='submitter@domain.com',
@@ -201,7 +202,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
         issue.sendNotificationMail()
 
     def testSpecialCharacterIssueEmail(self):
-        self.tracker.setSendNotificationEmails(True)
+        self.tracker.setSendNotificationEmailsTo(([option[0] for option in EMAIL_OPTIONS]))
         self.tracker.update(title='Random Tracker')
         issue = self.createIssue(
             self.tracker,
@@ -229,7 +230,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
         sendResponseNotificationMail(issue, response)
 
     def testNewResponseEmail(self):
-        self.tracker.setSendNotificationEmails(True)
+        self.tracker.setSendNotificationEmailsTo(([option[0] for option in EMAIL_OPTIONS]))
         self.tracker.update(title='Random Tracker')
         issue = self.createIssue(self.tracker,
                                  contactEmail='submitter@domain.com',
@@ -238,7 +239,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
         sendResponseNotificationMail(issue, response)
 
     def testResolvedEmail(self):
-        self.tracker.setSendNotificationEmails(True)
+        self.tracker.setSendNotificationEmailsTo(([option[0] for option in EMAIL_OPTIONS]))
         self.tracker.update(title='Random Tracker')
 
         issue = self.createIssue(self.tracker,

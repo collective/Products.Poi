@@ -95,8 +95,12 @@
           <tr>
               <th i18n:translate="poi_label_progress">Progress</th>
               <td tal:content="python: here.getProgress() and '%d%%' % here.getProgress() or ''" />
-
           </tr>
+          <tr>
+              <th i18n:translate="Poi_label_deadline">Deadline</th>
+              <td tal:content="here/getDeadline" />
+          </tr>
+
       </table>
 
       <tal:block define="backURL request/HTTP_REFERER | nothing;

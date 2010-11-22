@@ -47,7 +47,7 @@ def sendResolvedMail(self, state_change, **kw):
     issue = state_change.object
     tracker = issue.aq_parent
 
-    if not tracker.getSendNotificationEmails():
+    if not tracker.getSendNotificationEmailsTo():
         return
 
     issueEmail = issue.getContactEmail()
