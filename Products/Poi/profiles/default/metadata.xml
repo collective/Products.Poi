@@ -2,10 +2,7 @@
 <metadata>
   <version>1206</version>
   <dependencies>
-<!--
-    AddRemoveWidget version 1.5+ needed, uncomment after released
     <dependency>profile-Products.AddRemoveWidget:default</dependency>
--->
     <dependency>profile-Products.DataGridField:default</dependency>
   </dependencies>
 </metadata>
