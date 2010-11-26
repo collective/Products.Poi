@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2010-10-05 10:31+0000\n"
-"PO-Revision-Date: 2010-10-14 14:06+0200\n"
+"PO-Revision-Date: 2010-11-26 14:39+0100\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -764,12 +764,12 @@ msgstr "Een overview van de laatste activiteiten in de tracker"
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
 #: ../skins/Poi/poi_tracker_view.pt:214
 msgid "poi_help_my_issues_manager"
-msgstr "The volgende openstaande issues zijn of naar uw gestuurd, of gekoppeld aan u. Let op dat de RSS for deze lijst ook onbevestigde en orphaned issues bevat. Dit maakt het mogelijk dat u zich kunt inschrijven voor één feed die alle issues bevat waar u in geînteresseerd bent."
+msgstr "De volgende openstaande issues zijn of door u ingedient, of toegekend aan u. Let op dat de RSS voor deze lijst ook onbevestigde en orphaned issues bevat. Dit maakt het mogelijk dat u zich kunt inschrijven voor één feed die alle issues bevat waar u in geïnteresseerd bent."
 
 #. Default: "The following open issues were submitted by you."
 #: ../skins/Poi/poi_tracker_view.pt:221
 msgid "poi_help_my_issues_not_manager"
-msgstr "De volgende openstaande issues zijn naar u gestuurd"
+msgstr "De volgende openstaande issues zijn door u ingediend."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
 #: ../skins/Poi/poi_tracker_view.pt:98
