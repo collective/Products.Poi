@@ -1,10 +1,11 @@
 # Jens Klein <jens@bluedynamics.com>, 2006.
+# Carsten Raddatz <carsten.raddatz@veit-schiele.de>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: Poi\n"
+"Project-Id-Version: Poi timemanagement branch\n"
 "POT-Creation-Date: 2010-02-27 01:00+0000\n"
-"PO-Revision-Date: 2006-09-08 21:01 +0200\n"
-"Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
+"PO-Revision-Date: 2010-11-26 15:01 +0200\n"
+"Last-Translator: Carsten Raddatz <carsten.raddatz@veit-schiele.de>\n"
 "Language-Team: DE <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -17,7 +18,11 @@ msgstr ""
 "X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
 
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Eine Problemstellung. Problemstellungen beginnen im Status 'nicht bestätigt' und können nur von Projektmanagern beantwortet werden."
+msgstr "Eine Aufgabe. Aufgaben beginnen im Status 'nicht bestätigt' und können nur von Projektmanagern beantwortet werden."
+
+#: Poi/content/PoiIssue.py:619
+msgid "Area Manager"
+msgstr "Verantwortlicher für den Bereich"
 
 #. Default: "Cancel"
 #: ../skins/Poi/poi_response_delete_confirm.cpt:41
@@ -28,11 +33,19 @@ msgstr "Abbrechen"
 msgid "Changes saved to response id ${response_id}."
 msgstr "Änderungen an Antwort mit ID ${response_id} wurden gespeichert."
 
+#: Poi/skins/Poi/poi_issue_view.pt:189
+msgid "Create subsequent issue"
+msgstr "Folgeaufgabe anlegen"
+
 #. Default: "Delete"
 #: ../browser/response.pt:27
 #: ../skins/Poi/poi_response_delete_confirm.cpt:34
 msgid "Delete"
 msgstr "Löschen"
+
+#: Poi/content/PoiTracker.py:133
+msgid "Description"
+msgstr "Beschreibung"
 
 #. Default: "Edit"
 #: ../browser/response.pt:17
@@ -42,11 +55,23 @@ msgstr "Bearbeiten"
 #. Default: "Edit issue"
 #: ../skins/Poi/poi_issue_view.pt:168
 msgid "Edit issue"
-msgstr "Problemstellung bearbeiten"
+msgstr "Aufgabe bearbeiten"
+
+#: Poi/content/PoiTracker.py:74
+msgid "Issue reporter"
+msgstr "Übermittler der Aufgabe"
 
 #: ../browser/response.py:396
 msgid "Issue state"
-msgstr "Status der Problemstellung"
+msgstr "Status der Aufgabe"
+
+#: Poi/content/PoiTracker.py:77
+msgid "Mailinglist"
+msgstr "Mailing-Liste"
+
+#: Poi/content/PoiTracker.py:76
+msgid "Members watching the issue"
+msgstr "Benutzer, die die Aufgabe beobachten"
 
 #: ../browser/response.py:532
 msgid "No response selected for removal."
@@ -62,7 +87,7 @@ msgstr "Es wurde keine Antwort ausgewählt."
 
 #: ../browser/response.py:442
 msgid "No response text added and no issue changes made."
-msgstr "Es wurde kein Antwort-Text hinzugefügt und keine "
+msgstr "Es wurde kein Antwort-Text hinzugefügt und keine Änderung an der Aufgabe vorgenommen."
 
 #: ../content/PoiIssue.py:530
 msgid "None"
@@ -71,7 +96,7 @@ msgstr "Keiner"
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."
 msgid "Poi_help_area"
-msgstr "Wählen Sie, zu welchem Bereich diese Problemstellung passt."
+msgstr "Wählen Sie, zu welchem Bereich diese Aufgabe passt."
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
@@ -83,22 +108,22 @@ msgstr "Sie können optional eine Datei als Anhang hochladen. Bitte laden sie ke
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker, one specification per line. The format is \"Short name | Title | Description\"."
 msgid "Poi_help_availableAreas"
-msgstr "Geben Sie für die Problemstellung die passensen Themen/ Bereiche an. Eine pro Zeile. Das Format ist: \"Kurzname | Titel | Beschreibung\"."
+msgstr "Geben Sie für die Aufgabe die passenden Themen/Bereiche an. Eine pro Zeile. Das Format ist Kurzname, Titel, Beschreibung."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker, one specification per line.  The format is \"Short name | Title | Description\"."
 msgid "Poi_help_availableIssueTypes"
-msgstr "Geben Sie die Arten von Problemstellungen für diesem Tracker an. Eine pro Zeile. Eine pro Zeile. Das Format ist: \"Kurzname | Titel | Beschreibung\"."
+msgstr "Geben Sie die Arten von Aufgabenstellungen für diese Aufgabenverwaltung an. Eine pro Zeile. Eine pro Zeile. Das Format ist Kurzname, Titel, Beschreibung."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line.  If no releases are entered, issues will not be organised by release."
 msgid "Poi_help_availableReleases"
-msgstr "Geben Sie die Ausgaben/ Versionen an, die einer einer Problemstellung zugewiesen werden können. Eine pro Zeile. Wird nichts angegeben, so werden die Problemstellungen nicht nach diesem Kriterium organisiert angezeigt."
+msgstr "Geben Sie die Ausgaben/Versionen an, die einer einer Aufgabe zugewiesen werden können. Eine pro Zeile. Wird nichts angegeben, so werden die Aufgaben nicht nach diesem Kriterium organisiert angezeigt."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
 msgid "Poi_help_availableSeverities"
-msgstr "Geben Sie die verschiedenen Gewichtungen an, die für eine Problemstellungzur Auswahl stehen sollen. Eine pro Zeile."
+msgstr "Geben Sie die verschiedenen Gewichtungen an, die für eine Aufgabe zur Auswahl stehen sollen. Eine pro Zeile."
 
 # ./content/PoiIssue.py
 #. Default: "Optionally, provide an email address where you can be contacted for further information or when a resolution is available."
@@ -113,7 +138,7 @@ msgstr "Wählen sie eine Gewichtung, die als Vorgabe verwendet werden soll."
 # ./content/PoiIssue.py
 #. Default: "Enter a brief overview of the issue. As with the title, a concise, meaningful description will make it easier for project managers to assess and respond to an issue."
 msgid "Poi_help_description"
-msgstr "Geben Sie einen groben Überblick der Problemstellung. Zusammen mit dem Titel soll dieser eine aussagekräftige Beschreibung sein, die es Projektmanagern einfacher macht Problemstellungen einzuschätzen und zu beantworten."
+msgstr "Geben Sie einen groben Überblick der Aufgabe. Zusammen mit dem Titel soll dieser eine aussagekräftige Beschreibung sein, die es Projektmanagern einfacher macht Aufgaben einzuschätzen und zu beantworten."
 
 # ./content/PoiIssue.py
 #. Default: "Please provide further details"
@@ -123,62 +148,62 @@ msgstr "Bitte geben Sie weitere Details an"
 # ./content/PoiTracker.py
 #. Default: "Enter any introductory help text you'd like to display on the tracker front page."
 msgid "Poi_help_helpText"
-msgstr "Geben Sie einen einführenden Text zur Anzeige auf der Titelseite des Trackers an, wenn Sie dies wünschen."
+msgstr "Geben Sie einen einführenden Text zur Anzeige auf der Titelseite der Aufgabenverwaltung an, wenn Sie dies wünschen."
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
 #: ../browser/response.pt:172
 msgid "Poi_help_issueTransition"
-msgstr "Ändern Sie des Status der Problemstellung mit dieser Antwort, wenn dies zutreffend ist."
+msgstr "Ändern Sie den Status der Aufgabe mit dieser Antwort, wenn dies zutreffend ist."
 
 # ./content/PoiIssue.py
 #. Default: "Select the type of issue."
 msgid "Poi_help_issueType"
-msgstr "Wählen Sie die Art der Problemstellung"
+msgstr "Wählen Sie die Art der Aufgaben"
 
 # ./content/PoiIssue.py
 #. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
 msgid "Poi_help_issue_title"
-msgstr "Wählen sie einen kurzen, beschreibenden Titel zur Identifikation für diese Problemstellung. Ein guter Titel macht es Projektmanagern leichter zu antworten."
+msgstr "Wählen sie einen kurzen, beschreibenden Titel zur Identifikation für diese Aufgabe. Ein guter Titel macht es Projektmanagern leichter zu antworten."
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if "Send notification emails" is selected, an email will be sent to this address each time a new issue or response is posted. If no mailing list address is given, managers will receive individual emails."
 msgid "Poi_help_mailingList"
-msgstr "Wenn angegeben und und die Mailing-Listen-Option in 'Sende Benachrichtungs-Mail' ausgewählt wurde, wird eine E-Mail an diese Adresse gesendet sobald eine neue Problemstellung oder eine neue Antwort erstellt wurde, Wenn keine Mailing-Listen-Adresse angegeben wurde, so erhalten die nur Projektmanager eine Benachrichtigung."
+msgstr "Wenn angegeben und und die Mailing-Listen-Option in 'Sende Benachrichtungs-Mail' ausgewählt wurde, wird eine E-Mail an diese Adresse gesendet sobald eine neue Aufgabe oder eine neue Antwort erstellt wurde, Wenn keine Mailing-Listen-Adresse angegeben wurde, so erhalten die nur Projektmanager eine Benachrichtigung."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
 msgid "Poi_help_managers"
-msgstr "Geben sie die Anmeldenamen von BenutzerInnen ein, welchen erlaubt ist diesen Tracker zu verwalten. Einer pro Zeile."
+msgstr "Geben sie die Anmeldenamen von BenutzerInnen ein, welchen erlaubt ist diese Aufgabenverwaltung zu verwalten. Einer pro Zeile."
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
 #: ../browser/response.pt:261
 msgid "Poi_help_newResponsibleManager"
-msgstr "Wählen Sie den für die Problemstellung zuständigen Verwalter aus."
+msgstr "Wählen Sie den für die Aufgabe zuständigen Verwalter aus."
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
 #: ../browser/response.pt:204
 msgid "Poi_help_newSeverity"
-msgstr "Wählen Sie die Dringlichkeit für diese Problemstellung"
+msgstr "Wählen Sie die Dringlichkeit für diese Aufgabe"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
 #: ../browser/response.pt:232
 msgid "Poi_help_newTargetRelease"
-msgstr "Betroffene Version/ Ausgabe der Problemstellung"
+msgstr "Betroffene Ausgabe/Version der Aufgabe"
 
 # ./content/PoiIssue.py
 #. Default: "Select the release this issue pertains to."
 msgid "Poi_help_release"
-msgstr "Wählen sie die von diesem Problem betroffene Version/ Ausgabe."
+msgstr "Wählen sie die von diesem Problem betroffene Aufgabe/Version."
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
 #: ../browser/response.pt:106
 msgid "Poi_help_response"
-msgstr "Bitte geben sie unten ihre antwort an."
+msgstr "Bitte geben sie unten ihre Antwort an."
 
 # ./content/PoiIssue.py
 #. Default: "Enter a brief subject for this response, e.g. \"Fixed\" or \"Will be fixed in next release\".""
@@ -188,12 +213,12 @@ msgstr "Geben Sie einen kurzen Betreff für diese Antwort an, z.B. 'Erledigt' od
 # ./content/PoiIssue.py
 #. Default: "Select which manager, if any, is responsible for this issue."
 msgid "Poi_help_responsibleManager"
-msgstr "Wählen Sie den verantwortlichen Verwalter dieser Problemstellung."
+msgstr "Wählen Sie den verantwortlichen Verwalter dieser Aufgabe."
 
 # ./content/PoiTracker.py
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation."
 msgid "Poi_help_sendNotificationEmails"
-msgstr "Wählen Sie aus, welche Empfänger eine Benachrichtigung per E-Mail erhalten sollen. Benachrichtigungs-E-Mails werden versand, wenn eine neue Problemstellung oder eine Antwort geschrieben wurde. Übermittler von Problemstellungen erhalten ein E-Mail, sobald eine Antwort geschrieben wurde, bzw. wenn die Problemstellung gelöst wurde und eine Bestätigung gefordert ist."
+msgstr "Wählen Sie aus, welche Empfänger eine Benachrichtigung per E-Mail erhalten sollen. Benachrichtigungs-E-Mails werden versand, wenn eine neue Aufgabe oder eine Antwort geschrieben wurde. Übermittler von Aufgaben erhalten ein E-Mail, sobald eine Antwort geschrieben wurde, bzw. wenn die Aufgabe gelöst wurde und eine Bestätigung gefordert ist."
 
 # ./content/PoiIssue.py
 #. Default: "Select the severity of this issue."
@@ -203,12 +228,12 @@ msgstr "Wichten Sie diesen Eintrag"
 # ./content/PoiIssue.py
 #. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
 msgid "Poi_help_steps"
-msgstr "Wenn es zutrifft stellen Sie bitte genau die notwendigenm Schritte zur Reproduktion des Fehler oder zur Identifikation der Problemstellung dar, ein Schritt pro Zeile."
+msgstr "Wenn es zutrifft stellen Sie bitte genau die notwendigenm Schritte zur Reproduktion des Fehler oder zur Identifikation der Aufgabe dar, ein Schritt pro Zeile."
 
 # ./content/PoiIssue.py
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
 msgid "Poi_help_subject"
-msgstr "Verwenden Sie Stichworte als eine weitere Möglichkeit zur freien Kategorisierung der Problemstellungen. Die Liste zeigt bereits existierende Stichwörter zur Auswahl. Sie können auch neue Stichwörter vergeben."
+msgstr "Verwenden Sie Stichworte als eine weitere Möglichkeit zur freien Kategorisierung der Aufgaben. Die Liste zeigt bereits existierende Stichwörter zur Auswahl. Sie können auch neue Stichwörter vergeben."
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
@@ -218,17 +243,17 @@ msgstr "Bitte geben Sie die URL zum betreffende Version-Controll-System (SVN, GI
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"
 msgid "Poi_help_targetRelease"
-msgstr "Version/ Ausgabe, in der diese Problemstellung behoben sein soll."
+msgstr "Ausgabe/Version, in der diese Aufgabe behoben sein soll."
 
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
 msgid "Poi_help_tracker_title"
-msgstr "Geben Sie einen beschreibenden Namen für diesen Tracker an."
+msgstr "Geben Sie einen beschreibenden Namen für diese Aufgabenverwaltung an."
 
 # ./content/PoiIssue.py
 #. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
 msgid "Poi_help_watchers"
-msgstr "Geben Sie die BenutzerInnen-Namen von Mitgliedern an, die diese Problemstellung beobachten sollen bzw. wollen, einer pro Zeile. Diese Mitglieder erhalten ein E-Mail sobald eine Antwort hinzugefügt wurde. Mitglieder können sich selber als Beobachter eintragen."
+msgstr "Geben Sie die BenutzerInnen-Namen von Mitgliedern an, die diese Aufgabenstellung beobachten sollen bzw. wollen, einer pro Zeile. Diese Mitglieder erhalten ein E-Mail sobald eine Antwort hinzugefügt wurde. Mitglieder können sich selber als Beobachter eintragen."
 
 # ./content/PoiIssue.py
 #. Default: "Area"
@@ -249,12 +274,12 @@ msgstr "Bereiche"
 # ./content/PoiTracker.py
 #. Default: "Issue types"
 msgid "Poi_label_availableIssueTypes"
-msgstr "Arten der Problemstellung"
+msgstr "Arten der Aufgabe"
 
 # ./content/PoiTracker.py
 #. Default: "Available releases"
 msgid "Poi_label_availableReleases"
-msgstr "Verfügbare Ausgaben/ Versionen"
+msgstr "Verfügbare Ausgaben/Versionen"
 
 # ./content/PoiTracker.py
 #. Default: "Available severities"
@@ -272,10 +297,10 @@ msgid "Poi_label_defaultSeverity"
 msgstr "Vorgabe für die Gewichtung"
 
 # ./content/PoiIssue.py
+# /.content/PoiTracker.py
 #. Default: "Tracker description"
-#, fuzzy
 msgid "Poi_label_description"
-msgstr "Beschreibung des Trackers"
+msgstr "Beschreibung der Aufgabenverwaltung"
 
 # ./content/PoiIssue.py
 #. Default: "Details"
@@ -285,23 +310,23 @@ msgstr "Details"
 # ./content/PoiTracker.py
 #. Default: "Help Text"
 msgid "Poi_label_helpText"
-msgstr "Hilfe Text"
+msgstr "Hilfetext"
 
 # ./content/PoiIssue.py
 #. Default: "Id"
 msgid "Poi_label_id"
-msgstr "Id"
+msgstr "Kurzname"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
 #: ../browser/response.pt:167
 msgid "Poi_label_issueTransition"
-msgstr "Ändere Status der Problemstellung"
+msgstr "Ändere Status der Aufgabe"
 
 # ./content/PoiIssue.py
 #. Default: "Issue type"
 msgid "Poi_label_issueType"
-msgstr "Art der Problemstellung"
+msgstr "Art der Aufgabe"
 
 # ./content/PoiIssue.py
 #. Default: "Title"
@@ -316,7 +341,7 @@ msgstr "Mailing-Liste"
 # ./content/PoiTracker.py
 #. Default: "Tracker managers"
 msgid "Poi_label_managers"
-msgstr "Verwalter des Trackers"
+msgstr "Verwalter der Aufgabenverwaltung"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
@@ -328,18 +353,18 @@ msgstr "Ändern des zuständigen Verwalters"
 #. Default: "Change issue severity"
 #: ../browser/response.pt:199
 msgid "Poi_label_newSeverity"
-msgstr "Ändern der Gewichtung der Problemstellung"
+msgstr "Ändern der Gewichtung der Aufgabe"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
 #: ../browser/response.pt:227
 msgid "Poi_label_newTargetRelease"
-msgstr "Ändern der Ausgabe/ Version"
+msgstr "Ändern der Ausgabe/Version"
 
 # ./content/PoiIssue.py
 #. Default: "Release"
 msgid "Poi_label_release"
-msgstr "Ausgabe/ Version"
+msgstr "Ausgabe/Version"
 
 # ./content/PoiIssue.py
 #. Default: "Response"
@@ -381,22 +406,22 @@ msgstr "Stichworte"
 # ./content/PoiTracker.py
 #. Default: "URL to SVN"
 msgid "Poi_label_svnurl"
-msgstr "URL to VCS"
+msgstr "URL des VCS"
 
 # ./content/PoiIssue.py
 #. Default: "Target release"
 msgid "Poi_label_targetRelease"
-msgstr "Betroffene Version/ Ausgabe"
+msgstr "Betroffene Ausgabe/Version"
 
 # ./content/PoiTracker.py
 #. Default: "Tracker name"
 msgid "Poi_label_tracker_title"
-msgstr "Name des Trackers"
+msgstr "Name der Aufgabenverwaltung"
 
 # ./content/PoiIssue.py
 #. Default: "Issue watchers"
 msgid "Poi_label_watchers"
-msgstr "Beobachter der Problemstellung"
+msgstr "Beobachter der Aufgabe"
 
 #: ../browser/response.py:554
 msgid "Removed response id ${response_id}."
@@ -404,7 +429,7 @@ msgstr "Antwort mit ID ${response_id} wurde gelöscht."
 
 #: ../browser/response.py:493
 msgid "Response does not exist anymore; perhaps it was removed by another user."
-msgstr ""
+msgstr "Antwort existiert nicht mehr; wmöglich wurde sie von einem anderen Benutzer entfernt."
 
 #: ../browser/response.py:547
 msgid "Response id ${response_id} does not exist so it cannot be removed."
@@ -420,11 +445,11 @@ msgstr "Antwort mit ID ${response_id} hat keinen Anhang."
 
 #: ../browser/response.py:539
 msgid "Response id ${response_id} is no integer so it cannot be removed."
-msgstr "Antwort ID ${response_id} ist keine Ganzzahl und kann daher nicht entfernt werden."
+msgstr "Antwort ID ${response_id} ist keine ganze Zahl und kann daher nicht entfernt werden."
 
 #: ../browser/response.py:197
 msgid "Response id ${response_id} is no integer."
-msgstr "Antwort ID ${response_id} ist keine Ganzzahl."
+msgstr "Antwort ID ${response_id} ist keine ganze Zahl."
 
 #: ../browser/response.py:402
 msgid "Responsible manager"
@@ -439,24 +464,33 @@ msgstr "Suche"
 msgid "Severity"
 msgstr "Gewichtung"
 
+#: ../content/PoiTracker.py:133
+#: ../content/PoiTracker.py:150
+msgid "Short name"
+msgstr "Kurzname"
+
 #. Default: "Stop watching this issue"
 #: ../skins/Poi/poi_issue_view.pt:139
 msgid "Stop watching this issue"
-msgstr "Diese Problemstellung nicht mehr beobachten"
+msgstr "Diese Aufgabe nicht mehr beobachten"
 
 #. Default: "Submit new issue"
 #: ../skins/Poi/poi_tracker_view.pt:58
 msgid "Submit new issue"
-msgstr "Problemstellung übermitteln"
+msgstr "Aufgabe übermitteln"
 
 #: ../browser/response.py:428
 msgid "Target release"
-msgstr "Betroffene Version/ Ausgabe"
+msgstr "Betroffene Ausgabe/Version"
+
+#: Poi/content/PoiTracker.py:73
+msgid "Tracker manager"
+msgstr "Verantwortlicher der Aufgabenverwaltung"
 
 #. Default: "Watch this issue"
 #: ../skins/Poi/poi_issue_view.pt:145
 msgid "Watch this issue"
-msgstr "Problemstellung beobachten"
+msgstr "Aufgabe beobachten"
 
 #: ../browser/response.py:526
 msgid "You are not allowed to delete responses."
@@ -479,7 +513,7 @@ msgstr "Möchten Sie diese Antwort wirklich löschen?"
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
 #: ../skins/Poi/poi_tracker_view.pt:84
 msgid "description_cannot_add_issues_before_opened"
-msgstr "Solange der Tracker nicht geöffnet ist, kann nieman außer Ihnen Problemstellungen übermitteln. Benutzen Sie das 'Status' Ausklapp-Menu in der Leiste oben."
+msgstr "Solange die Aufgabenverwaltung nicht geöffnet ist, kann niemand außer Ihnen Aufgaben übermitteln. Benutzen Sie das 'Status' Ausklapp-Menu in der Leiste oben."
 
 #. Default: "No results were found."
 #: ../skins/Poi/poi_issue_search.pt:40
@@ -504,7 +538,7 @@ msgstr "ermöglicht durch"
 #. Default: "Return to issue."
 #: ../browser/edit_response.pt:26
 msgid "label_return_to_issue"
-msgstr "Zurück zur Problemstellung"
+msgstr "Zurück zur Aufgabe"
 
 #. Default: "RSS Feed"
 #: ../skins/Poi/poi_issue_search_results.pt:6
@@ -531,7 +565,7 @@ msgstr "Nr."
 #: ../skins/Poi/poi_issue_search_results.pt:23
 #, fuzzy
 msgid "listingheader_release"
-msgstr "Ausgabe/ Version"
+msgstr "Ausgabe/Version"
 
 #. Default: "Responsible"
 #: ../skins/Poi/poi_issue_search_results.pt:28
@@ -566,7 +600,7 @@ msgstr "Art"
 #. Default: "If you can, please log in before submitting your issue."
 #: ../skins/Poi/poi_tracker_view.pt:42
 msgid "login_suggestion"
-msgstr "Wenn Sie können, so loggen Sie sich bitte ein, bevor Sie Ihre Problemstellung übermitteln."
+msgstr "Wenn Sie können, so loggen Sie sich bitte ein, bevor Sie Ihre Aufgabe übermitteln."
 
 #. Default: "If you can, please log in before submitting a reaction."
 #: ../browser/response.pt:82
@@ -611,31 +645,32 @@ msgstr "am"
 #. Default: "All pending issues"
 #: ../skins/Poi/poi_tracker_view.pt:138
 msgid "poi_all_pending_issues"
-msgstr "Alle Problemstellungen in Schwebe"
+msgstr "Alle Aufgaben in Schwebe"
 
 #. Default: "An attachment has been added with id ${attachment_id}"
 #: ../events.py:107
 msgid "poi_attachment_added"
-msgstr ""
+msgstr "Ein Anhang wurde hinzugefügt."
 
 #. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
 #: ../Extensions/poi_issue_workflow_scripts.py:100
 msgid "poi_email_issue_resolved_subject_template"
 msgstr ""
+"Aufgabe **${issue_title}** in **${tracker_title}** von **${response_author}** als gelöst markiert.\n"
 
 #. Default: "The issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n* This is an automated email, please do not reply - ${from_name}"
 #: ../Extensions/poi_issue_workflow_scripts.py:78
 msgid "poi_email_issue_resolved_template"
 msgstr ""
-"Die Problemstellung **${issue_title}** in **${tracker_title}**\n"
+"Die Aufgabe **${issue_title}** in **${tracker_title}**\n"
 "wurde von  **${response_author}** als gelöst markiert.\n"
-"Bitte besuchen Sie die Problemstellung und bestätigen Sie\n"
+"Bitte besuchen Sie die Aufgabe und bestätigen Sie\n"
 "den Erfolg oder öffnen Sie diese erneut.\n"
 "\n"
 "Information zur Antwort\n"
 "--------------------\n"
 "\n"
-"Problemstellung\n"
+"Aufgabe\n"
 "  ${issue_title} (${issue_url})\n"
 "\n"
 "\n"
@@ -646,18 +681,19 @@ msgstr ""
 #: ../content/PoiIssue.py:648
 msgid "poi_email_new_issue_subject_template"
 msgstr ""
+"Neue Aufgabe in Aufgabenverwaltung **${tracker_title}** übermittelt. Autor **${issue_author}** wartet auf Bestätigung.\n"
 
 #. Default: "A new issue has been submitted to the **${tracker_title}**\ntracker by **${issue_author}** and awaits confirmation.\n\nIssue Information\n-----------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n**Issue Details**::\n\n${issue_details}\n\n\n* This is an automated email, please do not reply - ${from_name}"
 #: ../content/PoiIssue.py:622
 msgid "poi_email_new_issue_template"
 msgstr ""
-"Eine neue Problemstellung wurde in Tracker **${tracker_title}** übermittelt.\n"
+"Eine neue Aufgabe wurde in der Aufgabenverwaltung **${tracker_title}** übermittelt.\n"
 "Autor **${issue_author}** wartet auf Bestätigung.\n"
 "\n"
-"Information zur Problemstellung\n"
+"Information zur Aufgabe\n"
 "--------------------------------\n"
 "\n"
-"Problemstellung\n"
+"Aufgabe\n"
 "  ${issue_title} (${issue_url})\n"
 "\n"
 "\n"
@@ -673,6 +709,7 @@ msgstr ""
 #: ../events.py:140
 msgid "poi_email_new_response_subject_template"
 msgstr ""
+"Neue Antwort zu **${issue_title}** in Aufgabenverwaltung **${tracker_title}**, Autor ist **${response_author}**.\n"
 
 #. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
 #: ../events.py:115
@@ -684,7 +721,7 @@ msgstr ""
 "Information zur Antwort\n"
 "-----------------------\n"
 "\n"
-"Problemstellung\n"
+"Aufgabe\n"
 "  ${issue_title} (${issue_url})\n"
 "\n"
 "${changes}\n"
@@ -703,7 +740,7 @@ msgstr "Nach Bereich"
 #: ../skins/Poi/poi_tracker_view.pt:122
 #, fuzzy
 msgid "poi_heading_by_release"
-msgstr "Nach Ausgabe/ Version"
+msgstr "Nach Ausgabe/Version"
 
 #. Default: "By state"
 #: ../skins/Poi/poi_tracker_view.pt:135
@@ -723,27 +760,27 @@ msgstr "Lösche Antwort"
 #. Default: "Issue search"
 #: ../skins/Poi/poi_issue_search_form.pt:14
 msgid "poi_heading_issue_search"
-msgstr "Suche über Problemstellungen"
+msgstr "Suche über Aufgaben"
 
 #. Default: "Tracker log"
 #: ../browser/log.pt:17
 msgid "poi_heading_log"
-msgstr "Historie des Trackers"
+msgstr "Historie der Aufgabenverwaltung"
 
 #. Default: "My issues"
 #: ../skins/Poi/poi_tracker_view.pt:213
 msgid "poi_heading_my_issues"
-msgstr "Meine Problemstellungen"
+msgstr "Meine Aufgaben"
 
 #. Default: "Open issues"
 #: ../skins/Poi/poi_tracker_view.pt:94
 msgid "poi_heading_open_issues"
-msgstr "Offene Problemstellungen"
+msgstr "Offene Aufgaben"
 
 #. Default: "Orphaned issues"
 #: ../skins/Poi/poi_tracker_view.pt:246
 msgid "poi_heading_orphaned_issues"
-msgstr "Verwaiste Problemstellungen"
+msgstr "Verwaiste Aufgaben"
 
 #. Default: "Response Details"
 #: ../events.py:91
@@ -753,55 +790,55 @@ msgstr "Details der Antwort"
 #. Default: "Issue search results"
 #: ../skins/Poi/poi_issue_search.pt:31
 msgid "poi_heading_search_results"
-msgstr "Suchergebnisse über Problemstellungen"
+msgstr "Suchergebnisse über Aufgaben"
 
 #. Default: "Unconfirmed issues"
 #: ../skins/Poi/poi_tracker_view.pt:182
 msgid "poi_heading_unconfirmed_issues"
-msgstr "Unbestätigte Problemstellungen"
+msgstr "Unbestätigte Aufgaben"
 
 #. Default: "An overview of recent activity in the tracker."
 #: ../browser/log.pt:19
 msgid "poi_help_log"
-msgstr "Ein Überblick über die aktuelle Aktivität des Trackers."
+msgstr "Ein Überblick über die aktuelle Aktivität der Aufgabenverwaltung."
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
 #: ../skins/Poi/poi_tracker_view.pt:214
 msgid "poi_help_my_issues_manager"
-msgstr "Die folgenden offenen Problemstellungen wurden von Ihnen übermittelt oder wurden Ihnen zugewiesen. Der RSS-Feed von dieser Liste enthält zudem unbestätigte und verwaiste Problemstellungen um Ihnen eine Möglichkeit zu geben alles auf einmal zu abbonieren."
+msgstr "Die folgenden offenen Aufgaben wurden von Ihnen übermittelt oder wurden Ihnen zugewiesen. Der RSS-Feed von dieser Liste enthält zudem unbestätigte und verwaiste Aufgaben um Ihnen eine Möglichkeit zu geben alles auf einmal zu abbonieren."
 
 #. Default: "The following open issues were submitted by you."
 #: ../skins/Poi/poi_tracker_view.pt:221
 #, fuzzy
 msgid "poi_help_my_issues_not_manager"
-msgstr "Die folgenden offenen Problemstellungen wurden von ihnen übermittelt oder sind ihnen zugewiesen worden."
+msgstr "Die folgenden offenen Aufgaben wurden von ihnen übermittelt oder sind ihnen zugewiesen worden."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"search for issues\"."
 #: ../skins/Poi/poi_tracker_view.pt:98
 msgid "poi_help_open_issues"
-msgstr "Wählen einen Bereich, eine Ausgabe/ Version oder einen Status um alle (offenen) Problemstellungen in dieser Kategorie zu sehen. Für feingliederiges Suchen klicken Sie 'Suche nach Problemstellungen'."
+msgstr "Wählen einen Bereich, eine Ausgabe/Version oder einen Status um alle offenen Aufgaben in dieser Kategorie zu sehen. Für eine differenzierte Suche klicken Sie 'Suche nach Aufgaben'."
 
 #. Default: "The following open issues are not assigned to anyone."
 #: ../skins/Poi/poi_tracker_view.pt:247
 msgid "poi_help_orphaned_issues_"
-msgstr "Die folgenden offenen Problemstellungen sind niemandem zugeordnet."
+msgstr "Die folgenden offenen Aufgaben sind niemandem zugeordnet."
 
 #. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
 #: ../skins/Poi/poi_tracker_view.pt:183
 #, fuzzy
 msgid "poi_help_unconfirmed_issues"
-msgstr "Folgende Problemstellungen sind noch nicht bestätigt oder zugewiesen. Bitte um Durchsicht und Antwort!"
+msgstr "Folgende Aufgaben sind noch nicht bestätigt oder zugewiesen. Bitte um Durchsicht und Antwort!"
 
 #. Default: "Advanced issue search"
 #: ../skins/Poi/poi_tracker_view.pt:33
 #, fuzzy
 msgid "poi_issue_search"
-msgstr "Suche nach Problemstellungen"
+msgstr "Suche nach Aufgaben"
 
 #. Default: "This form allows you to search for issue according to a variety of criteria. Please make your selection below and click Search."
 #: ../skins/Poi/poi_issue_search_form.pt:22
 msgid "poi_issue_search_description"
-msgstr "Dieses Formular befähigt sie zur Suche von Problemstellungen mit einer grossen Auswahl von Kriterien. Bitte wählen sie ihre Einschränkungen aus und klicken sie auf Suchen."
+msgstr "Dieses Formular erlaubt die Suche von Aufgaben anhand einer grossen Auswahl von Kriterien. Bitte wählen sie ihre Kriterien und klicken sie auf Suchen."
 
 #. Default: "Area"
 #: ../skins/Poi/poi_issue_view.pt:49
@@ -852,12 +889,12 @@ msgstr "Kennzeichnungen (Tags)"
 #. Default: "Target release:"
 #: ../skins/Poi/poi_issue_view.pt:82
 msgid "poi_label_target_release"
-msgstr "Betroffene Ausgabe/ Version:"
+msgstr "Betroffene Ausgabe/Version:"
 
 #. Default: "Issue type"
 #: ../skins/Poi/poi_issue_view.pt:53
 msgid "poi_label_type"
-msgstr "Art der Problemstellung"
+msgstr "Art der Aufgabe"
 
 #. Default: "Version:"
 #: ../skins/Poi/poi_issue_view.pt:39
@@ -887,7 +924,7 @@ msgstr "Alle Stichworte einbeziehen"
 #. Default: "New issue ${name} added by ${author}"
 #: ../browser/log.pt:33
 msgid "poi_new_issue_added"
-msgstr "Neue Problemstellung ${name} von ${author} hinzugefügt"
+msgstr "Neue Aufgabe ${name} von ${author} hinzugefügt"
 
 #. Default: "Response #${responseNumber} to \"${issueTitle}\""
 #: ../skins/Poi/poi_response_view.pt:19
@@ -906,7 +943,7 @@ msgstr "Zurück zur Suche"
 #: ../skins/Poi/poi_issue_search_form.pt:19
 #: ../skins/Poi/poi_issue_view.pt:102
 msgid "poi_return_to_tracker"
-msgstr "Zurück zum Tracker"
+msgstr "Zurück zur Aufgabenverwaltung"
 
 #. Default: "Select the areas you wish to search for."
 #: ../skins/Poi/poi_issue_search_form.pt:125
@@ -916,23 +953,23 @@ msgstr "Wählen Sie die Bereiche, nach denen Sie suchen möchten."
 #. Default: "Enter the username of the issue submitter,"
 #: ../skins/Poi/poi_issue_search_form.pt:68
 msgid "poi_search_help_creator"
-msgstr "Geben Sie den Namen des/der BenutzerIn ein, welche die Problemstellung übermittelt hat."
+msgstr "Geben Sie den Namen des/der BenutzerIn ein, welche die Aufgabe übermittelt hat."
 
 #. Default: "If you wish to search for a particular issue, please enter its number."
 #: ../skins/Poi/poi_issue_search_form.pt:39
 msgid "poi_search_help_id"
-msgstr "Wenn Sie zu einer bestimmten Problemstellung springen möchten, geben Sie ihre Nummer ein. "
+msgstr "Wenn Sie zu einer bestimmten Aufgabe springen möchten, geben Sie ihre Nummer ein. "
 
 #. Default: "Select the issue types you wish to search for."
 #: ../skins/Poi/poi_issue_search_form.pt:145
 msgid "poi_search_help_issue_type"
-msgstr "Wählen sie die Arten der Problemstellung, nach denen Sie suchen möchten."
+msgstr "Wählen sie die Arten der Aufgaben, nach denen Sie suchen möchten."
 
 #. Default: "Select the version for which the bugs you want to find were reported."
 #: ../skins/Poi/poi_issue_search_form.pt:80
 #, fuzzy
 msgid "poi_search_help_release"
-msgstr "Wählen Sie die Ausgabe/ Versionen, nach denen Sie suchen möchten."
+msgstr "Wählen Sie die Ausgabe/Versionen, nach denen Sie suchen möchten."
 
 #. Default: "Select the responsible managers you wish to search for."
 #: ../skins/Poi/poi_issue_search_form.pt:207
@@ -947,22 +984,22 @@ msgstr "Wählen Sie die Wichtigkeit, nach der Sie suchen möchten."
 #. Default: "Select the states you wish to search for."
 #: ../skins/Poi/poi_issue_search_form.pt:185
 msgid "poi_search_help_state"
-msgstr "Wählen Sie die Zustände, nach den Sie suchen möchten."
+msgstr "Wählen Sie die Zustände, nach denen Sie suchen möchten."
 
 #. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
 #: ../skins/Poi/poi_issue_search_form.pt:229
 msgid "poi_search_help_tags"
-msgstr "Stichworte sind Schlüsselwörter die von Tracker-Verwaltern zu Problemstellungen zugewiesen werden können. Somit ist eine feingranularere Organisation der Problemstellungen möglich. Wählen Sie ein oder mehrere Stichworte, nach denen Sie suchen möchten."
+msgstr "Kategorien sind Schlüsselwörter die Aufgabenstellungen vom Verantwortlichen der Aufgabenverwaltung zugewiesen werden können. Somit ist eine feingranularere Organisation der Aufgabenstellungen möglich. Wählen Sie ein oder mehrere Kategorien, nach denen Sie suchen möchten."
 
 #. Default: "Select the assigned target release you wish to search for."
 #: ../skins/Poi/poi_issue_search_form.pt:103
 msgid "poi_search_help_target_release"
-msgstr "Wählen Sie die zugewiesene betroffene Ausgabe/ Version nach der Sie suchen möchten."
+msgstr "Wählen Sie die zugewiesene betroffene Ausgabe/Version nach der Sie suchen möchten."
 
 #. Default: "Enter any text you wish the issue to include."
 #: ../skins/Poi/poi_issue_search_form.pt:54
 msgid "poi_search_help_text"
-msgstr "Geben Sie jedweden Text ein, welcher in der Problemstellung einbezogen werden soll."
+msgstr "Geben Sie Text ein, der in der Aufgabenstellung gesucht werden soll."
 
 #. Default: "Area"
 #: ../skins/Poi/poi_issue_search_form.pt:123
@@ -977,23 +1014,23 @@ msgstr "Übermittler"
 #. Default: "Issue number"
 #: ../skins/Poi/poi_issue_search_form.pt:37
 msgid "poi_search_label_id"
-msgstr "Nummer der Problemstellung"
+msgstr "Nummer der Aufgabe"
 
 #. Default: "Issue type"
 #: ../skins/Poi/poi_issue_search_form.pt:143
 msgid "poi_search_label_issue_type"
-msgstr "Art der Problemstellung"
+msgstr "Art der Aufgabe"
 
 #. Default: "Version"
 #: ../skins/Poi/poi_issue_search_form.pt:78
 #, fuzzy
 msgid "poi_search_label_release"
-msgstr "Ausgabe/ Version"
+msgstr "Ausgabe/Version"
 
 #. Default: "Responsible tracker managers"
 #: ../skins/Poi/poi_issue_search_form.pt:205
 msgid "poi_search_label_responsible"
-msgstr "Verantwortliche Tracker Manager"
+msgstr "Verantwortliche der Aufgabenverwaltung"
 
 #. Default: "Severity"
 #: ../skins/Poi/poi_issue_search_form.pt:163
@@ -1013,17 +1050,17 @@ msgstr "Kennzeichnungen"
 #. Default: "Target release"
 #: ../skins/Poi/poi_issue_search_form.pt:101
 msgid "poi_search_label_target_release"
-msgstr "Betroffene Ausgabe/ Version"
+msgstr "Betroffene Ausgabe/Version"
 
 #. Default: "Issue text"
 #: ../skins/Poi/poi_issue_search_form.pt:52
 msgid "poi_search_label_text"
-msgstr "Problemstellungs-Text"
+msgstr "Aufgaben-Text"
 
 #. Default: "View issue in full"
 #: ../skins/Poi/poi_response_view.pt:26
 msgid "poi_up_to_issue"
-msgstr "Vollständige Problemstellung anzeigen"
+msgstr "Vollständige Aufgabe anzeigen"
 
 #. Default: "Add response"
 #: ../browser/response.pt:97
@@ -1048,27 +1085,28 @@ msgstr "RSS-Feed für diese Suchabfrage"
 #. Default: "RSS feed of my issues"
 #: ../skins/Poi/poi_tracker_view.pt:228
 msgid "title_rss_feed_my_issues"
-msgstr "RSS-Feed von meinen Problemstellungen"
+msgstr "RSS-Feed von meinen Aufgaben"
 
 #. Default: "RSS feed of orphaned issues"
 #: ../skins/Poi/poi_tracker_view.pt:254
 msgid "title_rss_feed_orphaned"
-msgstr "RSS-Feed von verwaisten Problemstellungen"
+msgstr "RSS-Feed von verwaisten Aufgaben"
 
 #. Default: "RSS feed of unconfirmed issues"
 #: ../skins/Poi/poi_tracker_view.pt:192
 msgid "title_rss_feed_unconfirmed"
-msgstr "RSS-Feed von unbestätigten Problemstellungen"
+msgstr "RSS-Feed von unbestätigten Aufgaben"
 
 #. Default: "Deadline"
 #: ../content/PoiIssue.py:303
+#: ../skins/Poi/poi_issue_view.pt:100
 msgid "Poi_label_deadline"
 msgstr "Fertigstellungstermin"
 
 #. Default: "Date until this issue needs to be resolved."
 #: ../content/PoiIssue.py:304
 msgid "Poi_help_deadline"
-msgstr "Termin bis zu dem dieses Problem behoben werden muss."
+msgstr "Termin bis zu dem diese Aufgabe gelöst werden muss."
 
 #. Default: "Progress achieved"
 #: ../content/PoiIssue.py:314

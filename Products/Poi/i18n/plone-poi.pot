@@ -1,9 +1,10 @@
-# pot file for Poi Issue Tracker product.
-# Junyong Pan <panjy@zopechina.com>, 2005.
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2009-09-05 23:00+0000\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2010-11-25 11:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,118 +17,134 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-# portal type nams
-
-msgid "Issue Tracker"
+#: Poi/content/PoiIssue.py:619
+msgid "Area Manager"
 msgstr ""
 
-msgid "An issue tracker"
+#: Poi/browser/response.py:503
+msgid "Changes saved to response id ${response_id}."
 msgstr ""
 
-msgid "Issue"
+#: Poi/browser/response.py:396
+msgid "Issue state"
 msgstr ""
 
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
+#: Poi/browser/response.py:532
+msgid "No response selected for removal."
 msgstr ""
 
-msgid "Response"
+#: Poi/browser/response.py:489
+msgid "No response selected for saving."
 msgstr ""
 
-msgid "A response to an issue."
+#: Poi/browser/response.py:189
+msgid "No response selected."
 msgstr ""
 
-# tracker states
-
-msgid "Open for submissions"
+#: Poi/browser/response.py:442
+msgid "No response text added and no issue changes made."
 msgstr ""
 
-msgid "Closed for submissions"
+#: Poi/content/PoiIssue.py:618
+msgid "None"
 msgstr ""
 
-# tracker transitions
-
-msgid "Close tracker"
+#: Poi/browser/response.py:554
+msgid "Removed response id ${response_id}."
 msgstr ""
 
-msgid "Open tracker"
+#: Poi/browser/response.py:493
+msgid "Response does not exist anymore; perhaps it was removed by another user."
 msgstr ""
 
-# issue states
-
-msgid "Tested and confirmed closed"
+#: Poi/browser/response.py:547
+msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr ""
 
-msgid "In progress"
+#: Poi/browser/response.py:203
+msgid "Response id ${response_id} does not exist."
 msgstr ""
 
-msgid "Being created"
+#: Poi/browser/response.py:576
+msgid "Response id ${response_id} has no attachment."
 msgstr ""
 
-msgid "Confirmed"
+#: Poi/browser/response.py:539
+msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr ""
 
-msgid "Open"
+#: Poi/browser/response.py:197
+msgid "Response id ${response_id} is no integer."
 msgstr ""
 
-msgid "Postponed"
+#: Poi/browser/response.py:402
+msgid "Responsible manager"
 msgstr ""
 
-msgid "Rejected"
+#: Poi/browser/response.py:401
+msgid "Severity"
 msgstr ""
 
-msgid "Resolved"
+#: Poi/browser/edit_response.pt:91
+#: Poi/browser/response.pt:284
+msgid "Submit"
 msgstr ""
 
-msgid "Unconfirmed"
+#: Poi/browser/response.py:428
+msgid "Target release"
 msgstr ""
 
-# issue transitions
-
-msgid "Begin work"
+#: Poi/browser/response.py:526
+msgid "You are not allowed to delete responses."
 msgstr ""
 
-msgid "Confirm resolved"
+#: Poi/browser/response.py:483
+msgid "You are not allowed to edit responses."
 msgstr ""
 
-msgid "Put on hold"
+#. Default: "Log in"
+#: Poi/browser/response.pt:88
+#: Poi/skins/Poi/poi_tracker_view.pt:71
+msgid "label_log_in"
 msgstr ""
 
-msgid "Re-open"
+#. Default: "An attachment has been added with id ${attachment_id}"
+#: Poi/events.py:107
+msgid "poi_attachment_added"
 msgstr ""
 
-msgid "Post issue on save"
+#. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
+#: Poi/Extensions/poi_issue_workflow_scripts.py:100
+msgid "poi_email_issue_resolved_subject_template"
 msgstr ""
 
-msgid "Postpone"
+#. Default: "The issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n* This is an automated email, please do not reply - ${from_name}"
+#: Poi/Extensions/poi_issue_workflow_scripts.py:78
+msgid "poi_email_issue_resolved_template"
 msgstr ""
 
-msgid "Reject"
+#. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
+#: Poi/content/PoiIssue.py:737
+msgid "poi_email_new_issue_subject_template"
 msgstr ""
 
-msgid "Resolve"
+#. Default: "A new issue has been submitted to the **${tracker_title}**\ntracker by **${issue_author}** and awaits confirmation.\n\nIssue Information\n-----------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n**Issue Details**::\n\n${issue_details}\n\n\n* This is an automated email, please do not reply - ${from_name}"
+#: Poi/content/PoiIssue.py:711
+msgid "poi_email_new_issue_template"
 msgstr ""
 
-# response states
-
-msgid "Posted"
+#. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
+#: Poi/events.py:140
+msgid "poi_email_new_response_subject_template"
 msgstr ""
 
-# response transitions
-msgid "Post response on save"
+#. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
+#: Poi/events.py:115
+msgid "poi_email_new_response_template"
 msgstr ""
 
-# browser/response.py:transitions_for_display
-msgid "No change"
+#. Default: "Response Details"
+#: Poi/events.py:91
+msgid "poi_heading_response_details"
 msgstr ""
 
-msgid "Restrict tracker"
-msgstr ""
-
-msgid "Only members can submit"
-msgstr ""
-
-msgid "Protect tracker"
-msgstr ""
-
-msgid "Protected against anonymous views"
-msgstr ""

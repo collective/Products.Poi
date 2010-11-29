@@ -41,6 +41,7 @@ from Products.CMFPlone.interfaces.NonStructuralFolder import \
     INonStructuralFolder
 from Products.CMFPlone.utils import safe_unicode
 from Products.Poi.config import PROJECTNAME
+from Products.Poi import PoiMessageFactory as _
 
 from Products.DataGridField.DataGridField import DataGridField
 from Products.Poi import permissions
@@ -69,11 +70,11 @@ EMAIL_SEND_RESPONSIBLE_MANAGER = "email_send_responsible_manager"
 EMAIL_SEND_MAILINGLIST = "email_send_mailingslist"
 EMAIL_SEND_WATCHING_MEMBERS = "email_send_watching_members"
 EMAIL_OPTIONS = (
-                    ( EMAIL_SEND_TRACKER_MANAGER, "Tracker manager"),
-                    ( EMAIL_SEND_REPORTER, "Issue reporter"),
-                    ( EMAIL_SEND_RESPONSIBLE_MANAGER, "Responsible manager"),
-                    ( EMAIL_SEND_WATCHING_MEMBERS, "Members watching the issue"),
-                    ( EMAIL_SEND_MAILINGLIST, "Mailinglist"),
+                    ( EMAIL_SEND_TRACKER_MANAGER, _(u"Tracker manager")),
+                    ( EMAIL_SEND_REPORTER, _(u"Issue reporter")),
+                    ( EMAIL_SEND_RESPONSIBLE_MANAGER, _(u"Responsible manager")),
+                    ( EMAIL_SEND_WATCHING_MEMBERS, _(u"Members watching the issue")),
+                    ( EMAIL_SEND_MAILINGLIST, _(u"Mailinglist")),
                 )
 
 
@@ -129,7 +130,7 @@ schema = Schema((
         widget=DataGridWidget(
             label="Areas",
             description="Enter the issue topics/areas for this tracker.",
-            column_names=('Short name', 'Title', 'Description'),
+            column_names=(_(u'Short name'), _(u'Title'), _(u'Description'),),
             label_msgid='Poi_label_availableAreas',
             description_msgid='Poi_help_availableAreas',
             i18n_domain='Poi',
@@ -146,7 +147,7 @@ schema = Schema((
         widget=DataGridWidget(
             label="Issue types",
             description="Enter the issue types for this tracker.",
-            column_names=('Short name', 'Title', 'Description',),
+            column_names=(_(u'Short name'), _(u'Title'), _(u'Description'),),
             label_msgid='Poi_label_availableIssueTypes',
             description_msgid='Poi_help_availableIssueTypes',
             i18n_domain='Poi',

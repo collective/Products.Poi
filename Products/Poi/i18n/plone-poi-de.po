@@ -1,11 +1,12 @@
 # german po file for Poi Issue Tracker product.
 # Jens Klein <jens@bluedynamics.com>, 2006-2009.
+# Carsten Raddatz <carsten.raddatz@veit-schiele.de>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2009-09-05 23:00+0000\n"
-"PO-Revision-Date: 2009-06-23 13:01 +0200\n"
-"Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
+"PO-Revision-Date: 2010-11-26 15:01 +0200\n"
+"Last-Translator: Carsten Raddatz <carsten.raddatz@veit-schiele.de>\n"
 "Language-Team: DE <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -18,13 +19,13 @@ msgstr ""
 "X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
 
 msgid "A response to an issue."
-msgstr "Eine Antwort auf eine Problemstellung"
+msgstr "Eine Antwort auf eine Aufgabe"
 
 msgid "An issue tracker"
-msgstr "Ein System zum Dokumentieren und Lösen von Problemstellungen."
+msgstr "Ein System zum Dokumentieren und Lösen von Aufgaben."
 
 msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Eine Problemstellung. Problemstellungen beginnen im Status 'nicht bestätigt' und können nur von Projektmanagern beantwortet werden."
+msgstr "Eine Aufgabe. Aufgaben beginnen im Status 'nicht bestätigt' und können nur von Projektmanagern beantwortet werden."
 
 msgid "Begin work"
 msgstr "Arbeit beginnen"
@@ -34,10 +35,10 @@ msgstr "Bei der Erstellung"
 
 # tracker transitions
 msgid "Close tracker"
-msgstr "Schließen des Trackers"
+msgstr "Schließen der Aufgabenverwaltung"
 
 msgid "Closed for submissions"
-msgstr "Keine neuen Problemstellungen einzugeben."
+msgstr "Keine neuen Aufgaben einzugeben."
 
 msgid "Confirm resolved"
 msgstr "Bestätige Lösung"
@@ -49,31 +50,44 @@ msgid "In progress"
 msgstr "In Arbeit"
 
 msgid "Issue"
-msgstr "Problem"
+msgstr "Aufgabe"
 
 # portal type nams
 msgid "Issue Tracker"
-msgstr "Problem Tracker"
+msgstr "Aufgabenverwaltung"
 
 # browser/respsonse.py:transitions_for_display
 msgid "No change"
-msgstr "Kein Änderung"
+msgstr "Keine Änderung"
 
 msgid "Only members can submit"
-msgstr ""
+msgstr "Nur Benutzer dürfen übermitteln"
 
 msgid "Open"
 msgstr "Offen"
 
 # tracker states
 msgid "Open for submissions"
-msgstr "Offen für neue Problemstellungen."
+msgstr "Offen für neue Aufgaben."
+
+# ./content/PoiIssue.py
+#. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
+#: ../browser/response.pt:147
+#, fuzzy
+msgid "Poi_help_attachment"
+msgstr "Sie können optional eine Datei als Anhang hochladen. Bitte laden sie keine unnötig großen Dateien hoch."
+
+#. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
+#: ../skins/Poi/poi_tracker_view.pt:183
+#, fuzzy
+msgid "poi_help_unconfirmed_issues"
+msgstr "Folgende Aufgaben sind noch nicht bestätigt oder zugewiesen. Bitte um Durchsicht und Antwort!"
 
 msgid "Open tracker"
 msgstr "Öffne Tracker"
 
 msgid "Post issue on save"
-msgstr "Verschicke Problemstellung beim Speichern"
+msgstr "Verschicke Aufgabe beim Speichern"
 
 # response transitions
 msgid "Post response on save"
@@ -90,10 +104,10 @@ msgid "Postponed"
 msgstr "Verschoben"
 
 msgid "Protect tracker"
-msgstr ""
+msgstr "Aufgabenverwaltung schützen"
 
 msgid "Protected against anonymous views"
-msgstr ""
+msgstr "Gegen anonyme Betrachtung geschützt"
 
 msgid "Put on hold"
 msgstr "Zurückstellen"
@@ -117,7 +131,7 @@ msgid "Response"
 msgstr "Antwort"
 
 msgid "Restrict tracker"
-msgstr ""
+msgstr "Übermitteln nur für Mitglieder"
 
 # issue states
 msgid "Tested and confirmed closed"
