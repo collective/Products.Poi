@@ -5,7 +5,10 @@ Changelog for Poi
 2.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Do not fail when rendering a response that has a text/x-html-safe
+  mimetype or where the html transform returns nothing.  (Merged from
+  1.2 branch.)
+  [maurits]
 
 
 2.0.1 (2010-11-11)
