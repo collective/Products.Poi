@@ -1,3 +1,4 @@
+import logging
 from AccessControl import Unauthorized
 from Products.CMFCore.utils import getToolByName
 from Products.Poi.browser.interfaces import IResponseAdder
@@ -26,6 +27,8 @@ try:
     FILE_NORMALIZER = True
 except ImportError:
     FILE_NORMALIZER = False
+
+logger = logging.getLogger('Poi')
 
 
 def pretty_size(size):
@@ -94,17 +97,27 @@ class Base(BrowserView):
                 continue
             # Use the already rendered response when available
             if response.rendered_text is None:
-                if response.mimetype == 'text/html':
+                rendering_success = True
+                if response.mimetype in ('text/html', 'text/x-html-safe'):
                     html = response.text
                 else:
                     html = trans.convertTo('text/html',
                                            response.text,
                                            mimetype=response.mimetype)
-                    html = html.getData()
-                # Detect links like #1 and r1234
-                html = linkDetection(html)
-                response.rendered_text = html
-            html = response.rendered_text
+                    if html is None:
+                        logger.warn("Conversion to text/html failed for "
+                                    "response id %s of %s", id,
+                                    context.absolute_url())
+                        html = u''
+                        rendering_success = False
+                    else:
+                        html = html.getData()
+                if rendering_success:
+                    # Detect links like #1 and r1234
+                    html = linkDetection(html)
+                    response.rendered_text = html
+
+            html = response.rendered_text or u''
             info = dict(id=id,
                         response=response,
                         attachment=self.attachment_info(id),
@@ -415,7 +428,6 @@ class Create(Base):
                                             current, new)
                     issue_has_changed = True
 
-
         #('targetRelease', 'Target release', 'available_releases'),
         new = form.get('targetRelease', u'')
         if new and new in self.available_releases:
@@ -492,7 +504,7 @@ class Save(Base):
             elif self.folder[response_id] is None:
                 msg = _(u"Response does not exist anymore; perhaps it was "
                         "removed by another user.")
-                msg = translate(msg, 'Poi', context=self.request)
+                msg = ts.translate(msg, 'Poi', context=self.request)
                 status.addStatusMessage(msg, type='error')
             else:
                 response = self.folder[response_id]
