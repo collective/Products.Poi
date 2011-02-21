@@ -804,6 +804,7 @@ ${issue_details}
         issue.indexObject()
         
         if REQUEST:
+            # patch r232422 by spamsch
             return REQUEST.RESPONSE.redirect( '%s/edit' % issue.absolute_url())
         else:
             return issue 
