@@ -804,9 +804,7 @@ ${issue_details}
         issue.indexObject()
         
         if REQUEST:
-            return REQUEST.RESPONSE.redirect( '%s%s' % (issue.absolute_url(),
-                         self.getTypeInfo().getActionInfo('object/edit')['url']
-                                            ))
+            return REQUEST.RESPONSE.redirect( '%s/edit' % issue.absolute_url())
         else:
             return issue 
 
