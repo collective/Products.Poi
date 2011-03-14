@@ -68,7 +68,7 @@ msgstr "Aucun"
 #. Default: "Select the area this issue is relevant to."
 #: ./content/PoiIssue.py:180
 msgid "Poi_help_area"
-msgstr "Sélectionnez une zone ou ce ticket est approprié."
+msgstr "Sélectionnez le domaine approprié à ce ticket."
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
@@ -80,23 +80,20 @@ msgstr "Vous pouvez télécharger vers le serveur un fichier attaché à votre t
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker."
 #: ./content/PoiTracker.py:112
-#, fuzzy
 msgid "Poi_help_availableAreas"
-msgstr "Entrer les sujets/zones de tickets pour ce gestionnaire, une spécification par ligne. Le format est \"Nom court | Titre | Description\"."
+msgstr "Entrer les sujets/domaines disponibles dans ce gestionnaire de tickets."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker."
 #: ./content/PoiTracker.py:137
-#, fuzzy
 msgid "Poi_help_availableIssueTypes"
-msgstr "Entrer les types de tickets pour ce gestionnaire, une spécification par ligne. Le format est \"Nom court | Titre | Description\"."
+msgstr "Entrer les types de tickets pour ce gestionnaire."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release."
 #: ./content/PoiTracker.py:181
-#, fuzzy
 msgid "Poi_help_availableReleases"
-msgstr "Entrer les distributions où les tickets peuvent être assignés, une par ligne. Si aucune distribution n'est entrée, les tickets ne seront pas organisés en version."
+msgstr "Entrer les versions où les tickets peuvent être assignés, une par ligne. Si aucune version n'est entrée, les tickets ne seront pas organisés par version."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
@@ -107,9 +104,8 @@ msgstr "Entrer les différents types de criticités des tickets disponibles, un 
 # ./content/PoiIssue.py
 #. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
 #: ./content/PoiIssue.py:260
-#, fuzzy
 msgid "Poi_help_contactEmail"
-msgstr "Optionnellement, fournir une adresse courriel où vous pouvez être contacté pour de plus amples informations ou quand une réponse est disponible."
+msgstr "Merci de fournir une adresse de courriel où vous pouvez être contacté pour plus d'information ou être tenu informé quand la résolution sera disponible. Note: cette adresse ne sera pas affiché."
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
@@ -127,7 +123,7 @@ msgstr "Veuillez fournir plus détails"
 #. Default: "Enter any introductory help text you'd like to display on the tracker front page."
 #: ./content/PoiTracker.py:88
 msgid "Poi_help_helpText"
-msgstr "Entrer une notice d'emploi de votre gestionnaire de ticket qui sera affiché en page d'accueil de l'outil."
+msgstr "Entrer une notice d'emploi de votre gestionnaire de tickets qui sera affiché en page d'accueil de l'outil."
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
@@ -150,9 +146,8 @@ msgstr "Entrer un titre court et descriptif pour ce ticket. Un bon titre rendra 
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
 #: ./content/PoiTracker.py:243
-#, fuzzy
 msgid "Poi_help_mailingList"
-msgstr "Si ce champs est rempli, et si « Envoyer des courriels de notification » est sélectionné, un message sera envoyé à cette adresse chaque fois qu'un nouveau ticket ou une nouvelle réponse seront postés. Si aucune adresse de liste de diffusion n'est donnée, les responsables recevront individuellement les messages."
+msgstr "Si ce champs est rempli, et si « Envoyer des courriels de notification » est coché, un message sera envoyé à cette adresse chaque fois qu'un nouveau ticket ou une nouvelle réponse sera postée. Si aucune adresse de liste de diffusion n'est donnée, les responsables recevront individuellement les messages."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
@@ -181,9 +176,8 @@ msgstr "Assignez la distribution voulue pour ce ticket"
 # ./content/PoiIssue.py
 #. Default: "Select the version the issue was found in."
 #: ./content/PoiIssue.py:114
-#, fuzzy
 msgid "Poi_help_release"
-msgstr "Sélectionnez la distribution concernée par ce ticket."
+msgstr "Sélectionnez la version dans laquelle le problème a été découvert."
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
@@ -200,9 +194,8 @@ msgstr "Sélectionnez le gestionnaire de ce ticket, s'il en existe un."
 # ./content/PoiTracker.py
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
 #: ./content/PoiTracker.py:226
-#, fuzzy
 msgid "Poi_help_sendNotificationEmails"
-msgstr "Si c'est sélectionné, les responsables du gestionnaire recevront un message chaque fois qu'un nouveau ticket ou qu'une nouvelle réponse seront créés, et les auteurs recevront un message lorsqu'il y aura une nouvelle réponse et lorsqu'un ticket aura été résolu, attendant la confirmation."
+msgstr "Si coché, les responsables du gestionnaire de tickets recevront un message chaque fois qu'un nouveau ticket ou qu'une nouvelle réponse sera créé, et les rapporteurs de bugs recevront un message lorsqu'il y aura une nouvelle réponse et lorsqu'un ticket aura été résolu, attendant la confirmation. Les techniciens reçoivent un email lorsqu'un bug leur a été assigné."
 
 # ./content/PoiIssue.py
 #. Default: "Select the severity of this issue."
@@ -220,31 +213,30 @@ msgstr "Si cela est applicable, veuillez fournir les étapes pour reproduire l'e
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
 #: ./content/PoiIssue.py:294
 msgid "Poi_help_subject"
-msgstr "Des étiquettes peuvent être employées pour ajouter une catégorisation arbitraire aux tickets. La liste ci dessous montre les étiquettes existantes que vous pouvez choisir, ou vous peut en ajouter des nouvelles."
+msgstr "Des étiquettes peuvent être employées pour ajouter une catégorisation arbitraire aux tickets. La liste ci dessous affiche les étiquettes existantes que vous pouvez sélectionner. Vous pouvez aussi en ajouter de nouvelles."
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
 #: ./content/PoiTracker.py:262
-#, fuzzy
 msgid "Poi_help_svnurl"
-msgstr "Entrez s'il vous plaît l'Url vers le dépôt SVN correspondant, e.g.: http://dev.plone.org/collective/changeset/%(rev)s pour les Products de Plone collective."
+msgstr "Merci de saisir l'Url vers le dépôt SVN correspondant au projet, e.g.: http://dev.plone.org/collective/changeset/%(rev)s pour les modules collective de Plone."
 
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"
 #: ./content/PoiIssue.py:226
 msgid "Poi_help_targetRelease"
-msgstr "Distribution cible de correction du ticket"
+msgstr "Distribution cible dans laquelle ce ticket sera corrigé"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
 #: ./content/PoiTracker.py:210
 msgid "Poi_help_technicians"
-msgstr ""
+msgstr "Entrer les identifiants des utilisateurs qui seront responsable de la correction des bugs, un par ligne. Noter qu'avoir seulement un gérant et pas de technicien est correcte: les gérants peuvent aussi résoudre les bugs."
 
 #. Default: "Describe the purpose of this tracker"
 #: ./content/PoiTracker.py:72
 msgid "Poi_help_tracker_description"
-msgstr ""
+msgstr "Décrire le but de ce gestionnaire de bugs"
 
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
@@ -256,13 +248,13 @@ msgstr "Entrer un nom descriptif pour ce gestionnaire."
 #. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
 #: ./content/PoiIssue.py:277
 msgid "Poi_help_watchers"
-msgstr "Entrez les noms d'utilisateur des membres qui observent ce ticket, une par la ligne. Ces membres recevront un message lorsqu'une réponse sera ajoutée à celui-ci. Les membres peuvent également s'ajouter comme observateurs."
+msgstr "Entrez les noms d'utilisateur des utilisateurs qui observent ce ticket, un par la ligne. Ces utilisateurs recevront un message lorsqu'une réponse sera ajoutée à ce ticket. Les utilisateurs peuvent également s'ajouter comme observateurs."
 
 # ./content/PoiIssue.py
 #. Default: "Area"
 #: ./content/PoiIssue.py:178
 msgid "Poi_label_area"
-msgstr "Zone"
+msgstr "Domaine"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
@@ -275,7 +267,7 @@ msgstr "Pièce-jointe"
 #. Default: "Areas"
 #: ./content/PoiTracker.py:110
 msgid "Poi_label_availableAreas"
-msgstr "Zones"
+msgstr "Domaines"
 
 # ./content/PoiTracker.py
 #. Default: "Issue types"
@@ -316,9 +308,8 @@ msgstr "Détails"
 # ./content/PoiTracker.py
 #. Default: "Help text"
 #: ./content/PoiTracker.py:86
-#, fuzzy
 msgid "Poi_label_helpText"
-msgstr "Notice d'emploi"
+msgstr "Texte d'aide"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
@@ -335,7 +326,7 @@ msgstr "Type du ticket"
 #. Default: "Id"
 #: ./content/PoiIssue.py:85
 msgid "Poi_label_issue_id"
-msgstr ""
+msgstr "Identifiant"
 
 # ./content/PoiIssue.py
 #. Default: "Title"
@@ -376,9 +367,8 @@ msgstr "Modifier la distribution voulue"
 # ./content/PoiIssue.py
 #. Default: "Version"
 #: ./content/PoiIssue.py:112
-#, fuzzy
 msgid "Poi_label_release"
-msgstr "Distribution"
+msgstr "Version"
 
 # ./content/PoiIssue.py
 #. Default: "Response"
@@ -408,7 +398,7 @@ msgstr "Criticité"
 #. Default: "Steps to reproduce"
 #: ./content/PoiIssue.py:144
 msgid "Poi_label_steps"
-msgstr "Étapes à reproduire"
+msgstr "Étapes pour reproduire"
 
 # ./content/PoiIssue.py
 #. Default: "Tags"
@@ -432,12 +422,12 @@ msgstr "Distribution cible"
 #. Default: "Technicians"
 #: ./content/PoiTracker.py:208
 msgid "Poi_label_technicians"
-msgstr ""
+msgstr "Techniciens"
 
 #. Default: "Tracker description"
 #: ./content/PoiTracker.py:70
 msgid "Poi_label_tracker_description"
-msgstr ""
+msgstr "Description du gestionnaire de tickets"
 
 # ./content/PoiTracker.py
 #. Default: "Tracker name"
@@ -457,7 +447,7 @@ msgstr "La réponse « ${response_id} » a été supprimé."
 
 #: ./browser/response.py:488
 msgid "Response does not exist anymore; perhaps it was removed by another user."
-msgstr ""
+msgstr "La réponse n'existe plus; peut être qu'elle a été supprimée par un autre utilisateur."
 
 #: ./browser/response.py:541
 msgid "Response id ${response_id} does not exist so it cannot be removed."
@@ -499,7 +489,7 @@ msgstr "Arrêter de suivre ce ticket"
 
 #: ./skins/Poi/poi_tracker_view.pt:90
 msgid "Stop watching this tracker"
-msgstr ""
+msgstr "Arrêter la surveillance de ce gestionnaire"
 
 #. Default: "Submit new issue"
 #: ./skins/Poi/poi_tracker_view.pt:62
@@ -517,7 +507,7 @@ msgstr "Suivre ce ticket"
 
 #: ./skins/Poi/poi_tracker_view.pt:96
 msgid "Watch this tracker"
-msgstr ""
+msgstr "Surveiller ce gestionnaire"
 
 #: ./browser/response.py:520
 msgid "You are not allowed to delete responses."
@@ -571,7 +561,7 @@ msgstr "Rechercher"
 #. Default: "Area"
 #: ./skins/Poi/poi_issue_search_results.pt:31
 msgid "listingheader_area"
-msgstr "Zone"
+msgstr "Domaine"
 
 #. Default: "#"
 #: ./skins/Poi/poi_issue_search_results.pt:27
@@ -666,7 +656,7 @@ msgstr "Tous les tickets en attente"
 #. Default: "An attachment has been added with id ${attachment_id}"
 #: ./browser/notifications.py:151
 msgid "poi_attachment_added"
-msgstr ""
+msgstr "Une pièce jointe a été ajouté avec l'identifiant ${attachment_id}"
 
 #. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
 #: ./browser/notifications.py:247
@@ -744,7 +734,7 @@ msgstr ""
 #. Default: "By area"
 #: ./skins/Poi/poi_tracker_view.pt:130
 msgid "poi_heading_by_area"
-msgstr "Par zone"
+msgstr "Par domaine"
 
 #. Default: "By target release"
 #: ./skins/Poi/poi_tracker_view.pt:147
@@ -818,9 +808,8 @@ msgstr "Les tickets ouverts suivants vous ont été soumis par vous."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
 #: ./skins/Poi/poi_tracker_view.pt:123
-#, fuzzy
 msgid "poi_help_open_issues"
-msgstr "Cliquez sur une zone, une distribution ou un état de ticket pour voir tout les tickets ouverts dans cette catégorie. Pour des options de recherche plus avancées, cliquez sur « Recherche de tickets »."
+msgstr "Cliquez sur un domaine, une version ou un état de ticket pour voir tous les tickets ouverts dans cette catégorie. Pour avoir plus d'options de recherche, cliquez sur « Recherche avancée de tickets »."
 
 #. Default: "The following open issues are not assigned to anyone."
 #: ./skins/Poi/poi_tracker_view.pt:271
@@ -845,7 +834,7 @@ msgstr "Ce formulaire vous permet de rechercher des tickets selon un ensemble de
 #. Default: "Area"
 #: ./skins/Poi/poi_issue_view.pt:66
 msgid "poi_label_area"
-msgstr "Zone"
+msgstr "Domaine"
 
 #. Default: "Attached:"
 #: ./browser/response.pt:64
@@ -871,7 +860,7 @@ msgstr "État"
 #. Default: "Steps to reproduce:"
 #: ./skins/Poi/poi_issue_view.pt:163
 msgid "poi_label_steps"
-msgstr "Étapes à reproduire :"
+msgstr "Étapes pour reproduire :"
 
 #. Default: "Submitted by"
 #: ./skins/Poi/poi_issue_view.pt:78
@@ -942,7 +931,7 @@ msgstr "Retour au gestionnaire de tickets"
 #. Default: "Select the areas you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:131
 msgid "poi_search_help_area"
-msgstr "Sélectionnez les zones que vous souhaitez rechercher."
+msgstr "Sélectionnez les domaines que vous souhaitez rechercher."
 
 #. Default: "Enter the username of the issue submitter,"
 #: ./skins/Poi/poi_issue_search_form.pt:74
@@ -997,7 +986,7 @@ msgstr "Entrer un texte que vous souhaitez inclure."
 #. Default: "Area"
 #: ./skins/Poi/poi_issue_search_form.pt:129
 msgid "poi_search_label_area"
-msgstr "Zone"
+msgstr "Domaine"
 
 #. Default: "Submitter"
 #: ./skins/Poi/poi_issue_search_form.pt:72

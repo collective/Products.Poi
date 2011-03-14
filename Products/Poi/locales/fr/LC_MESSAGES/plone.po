@@ -46,7 +46,7 @@ msgid "Confirm resolved"
 msgstr "Confirmer la résolution"
 
 msgid "Confirmed"
-msgstr ""
+msgstr "Confirmé"
 
 msgid "In progress"
 msgstr "En cours de résolution"
@@ -93,10 +93,10 @@ msgid "Postponed"
 msgstr "Reporté"
 
 msgid "Protect tracker"
-msgstr ""
+msgstr "Gestionnaire privé"
 
 msgid "Protected against anonymous views"
-msgstr ""
+msgstr "Protégé contre la consultation anonyme"
 
 msgid "Put on hold"
 msgstr "Suspendre"
@@ -123,7 +123,7 @@ msgid "Response"
 msgstr "Réponse"
 
 msgid "Restrict tracker"
-msgstr ""
+msgstr "Gestionnaire restreint"
 
 # issue states
 msgid "Tested and confirmed closed"
