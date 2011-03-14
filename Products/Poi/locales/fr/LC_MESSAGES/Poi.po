@@ -910,7 +910,7 @@ msgstr "Nouveau ticket ${name} ajouté par ${author}"
 #. Default: "${author} added a new response to ${name}:"
 #: ./browser/log.pt:43
 msgid "poi_new_response_added"
-msgstr "Nouvelle réponse ${author} ajoutée par ${name}"
+msgstr "${author} a ajouté une nouvelle réponse dans ${name}"
 
 #. Default: "Return to search"
 #: ./skins/Poi/poi_issue_search.pt:39
