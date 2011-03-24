@@ -245,7 +245,11 @@ class IssueFolderView(BrowserView):
         severity_vocab = self.context.getAvailableSeverities()
         severity_max = len(severity_vocab)
         lseverities = list(severity_vocab)
-        return severity_max - lseverities.index(issue.getSeverity)
+        try:
+            return severity_max - lseverities.index(issue.getSeverity)
+        except:
+            print issue.getPath(), issue.getSeverity
+        return 0
         
     def getPriorityForIssue(self, issue):
         """Calculates the priority of an issue on its brain. 
