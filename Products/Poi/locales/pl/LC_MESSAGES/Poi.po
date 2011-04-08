@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2010-10-05 10:23+0000\n"
+"POT-Creation-Date: 2011-04-08 23:21+0000\n"
 "PO-Revision-Date: 2010-01-24 15:00+0010\n"
 "Last-Translator: STX Next <info@stxnext.pl>\n"
 "Language-Team: STX Next <info@stxnext.pl>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: Poi\n"
 
-#: ./browser/response.py:498
+#: ./browser/response.py:510
 msgid "Changes saved to response id ${response_id}."
 msgstr "Zamiany zostały zapisane dla odpowiedzi o id ${response_id}."
 
@@ -34,23 +34,23 @@ msgstr "Edytuj"
 msgid "Edit issue"
 msgstr "Edytuj zgłoszenie"
 
-#: ./browser/response.py:393
+#: ./browser/response.py:406
 msgid "Issue state"
 msgstr "Status zgłoszenia"
 
-#: ./browser/response.py:526
+#: ./browser/response.py:538
 msgid "No response selected for removal."
 msgstr "Brak zaznaczonych odpowiedzi do usunięcia."
 
-#: ./browser/response.py:484
+#: ./browser/response.py:496
 msgid "No response selected for saving."
 msgstr "Brak zaznaczonych odpowiedzi do zapisania."
 
-#: ./browser/response.py:187
+#: ./browser/response.py:200
 msgid "No response selected."
 msgstr "Nie zaznaczyłeś odpowiedzi."
 
-#: ./browser/response.py:438
+#: ./browser/response.py:450
 msgid "No response text added and no issue changes made."
 msgstr "Nie dodano tekstu ani zgłoszenie nie zostało zmienione."
 
@@ -153,17 +153,17 @@ msgid "Poi_help_managers"
 msgstr "Wpisz osoby odpowiedzialne za zarządzanie systemem oraz za rozwiązywanie zgłoszonych problemów. Jedna nazwa użytkownika na linię."
 
 #. Default: "Select the responsible manager for this issue"
-#: ./browser/response.pt:265
+#: ./browser/response.pt:266
 msgid "Poi_help_newResponsibleManager"
 msgstr "Wybierz osobę odpowiedzialną za rozwiązanie tego zgłoszenia"
 
 #. Default: "Select the severity for this issue"
-#: ./browser/response.pt:208
+#: ./browser/response.pt:209
 msgid "Poi_help_newSeverity"
 msgstr "Wybierz priorytet dla tego zgłoszenia"
 
 #. Default: "Set the target release for this issue"
-#: ./browser/response.pt:236
+#: ./browser/response.pt:237
 msgid "Poi_help_newTargetRelease"
 msgstr "Wybierz docelowe wydanie dla tego zgłoszenia"
 
@@ -342,17 +342,17 @@ msgid "Poi_label_managers"
 msgstr "Osoby odpowiedzialne"
 
 #. Default: "Change responsible manager"
-#: ./browser/response.pt:260
+#: ./browser/response.pt:261
 msgid "Poi_label_newResponsibleManager"
 msgstr "Zmień osobę odpowiedzialną"
 
 #. Default: "Change issue severity"
-#: ./browser/response.pt:203
+#: ./browser/response.pt:204
 msgid "Poi_label_newSeverity"
 msgstr "Zmień priorytet zgłoszenia"
 
 #. Default: "Change target release"
-#: ./browser/response.pt:231
+#: ./browser/response.pt:232
 msgid "Poi_label_newTargetRelease"
 msgstr "Zmień docelowe wydanie"
 
@@ -433,35 +433,35 @@ msgstr "Tytuł Systemu Zgłoszeniowego"
 msgid "Poi_label_watchers"
 msgstr "Osoby obserwujące"
 
-#: ./browser/response.py:548
+#: ./browser/response.py:560
 msgid "Removed response id ${response_id}."
 msgstr "Odpowiedź o id ${response_id} została usunięta."
 
-#: ./browser/response.py:488
+#: ./browser/response.py:500
 msgid "Response does not exist anymore; perhaps it was removed by another user."
 msgstr ""
 
-#: ./browser/response.py:541
+#: ./browser/response.py:553
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr "Odpowiedź o id ${response_id} nie istnieje dlatego nie może być usunięte."
 
-#: ./browser/response.py:201
+#: ./browser/response.py:214
 msgid "Response id ${response_id} does not exist."
 msgstr "Odpowiedź o id ${response_id} nie istnieje."
 
-#: ./browser/response.py:569
+#: ./browser/response.py:581
 msgid "Response id ${response_id} has no attachment."
 msgstr "Odpowiedź o id ${response_id} nie posiada załączników."
 
-#: ./browser/response.py:533
+#: ./browser/response.py:545
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr "Id ${response_id} nie jest liczbą całkowitą, dlatego nie jest możliwe usunięcie odpowiedzi."
 
-#: ./browser/response.py:195
+#: ./browser/response.py:208
 msgid "Response id ${response_id} is no integer."
 msgstr "Id ${response_id} nie jest liczbą całkowitą."
 
-#: ./browser/response.py:399
+#: ./browser/response.py:412
 msgid "Responsible manager"
 msgstr "Osoba odpowiedzialna"
 
@@ -470,7 +470,7 @@ msgstr "Osoba odpowiedzialna"
 msgid "Search"
 msgstr "Szukaj"
 
-#: ./browser/response.py:398
+#: ./browser/response.py:411
 msgid "Severity"
 msgstr "Priorytet"
 
@@ -488,7 +488,7 @@ msgstr ""
 msgid "Submit new issue"
 msgstr "Zgłoś błąd"
 
-#: ./browser/response.py:425
+#: ./browser/response.py:437
 msgid "Target release"
 msgstr "Docelowe wydanie"
 
@@ -501,11 +501,11 @@ msgstr "Śledz to zgłoszenie"
 msgid "Watch this tracker"
 msgstr ""
 
-#: ./browser/response.py:520
+#: ./browser/response.py:532
 msgid "You are not allowed to delete responses."
 msgstr "Nie masz uprawnień do usuwania odpowiedzi."
 
-#: ./browser/response.py:478
+#: ./browser/response.py:490
 msgid "You are not allowed to edit responses."
 msgstr "Nie masz uprawnień do edytowania odpowiedzi."
 

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2010-10-05 10:23+0000\n"
+"POT-Creation-Date: 2011-04-08 23:21+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Kevin Deldycke <kevin@deldycke.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: ./browser/response.py:498
+#: ./browser/response.py:510
 msgid "Changes saved to response id ${response_id}."
 msgstr "Les modifications à la réponses ${response_id} sont enregistrées."
 
@@ -40,23 +40,23 @@ msgstr "Modifier"
 msgid "Edit issue"
 msgstr "Modifier le ticket"
 
-#: ./browser/response.py:393
+#: ./browser/response.py:406
 msgid "Issue state"
 msgstr "État du ticket"
 
-#: ./browser/response.py:526
+#: ./browser/response.py:538
 msgid "No response selected for removal."
 msgstr "Aucune réponse n'est sélectionnée pour la suppression."
 
-#: ./browser/response.py:484
+#: ./browser/response.py:496
 msgid "No response selected for saving."
 msgstr "Aucune réponse n'est sélectionnée pour la sauvegarde."
 
-#: ./browser/response.py:187
+#: ./browser/response.py:200
 msgid "No response selected."
 msgstr "Aucune réponse n'est sélectionnée."
 
-#: ./browser/response.py:438
+#: ./browser/response.py:450
 msgid "No response text added and no issue changes made."
 msgstr "Aucun texte de réponse ajouté et aucune modification effectuée."
 
@@ -157,19 +157,19 @@ msgstr "Entrer les identifiants des utilisateurs qui sont autorisés à gérer c
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
-#: ./browser/response.pt:265
+#: ./browser/response.pt:266
 msgid "Poi_help_newResponsibleManager"
 msgstr "Sélectionnez le gestionnaire responsable du suivi de ce ticket."
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ./browser/response.pt:208
+#: ./browser/response.pt:209
 msgid "Poi_help_newSeverity"
 msgstr "Sélectionnez la criticité de ce ticket"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ./browser/response.pt:236
+#: ./browser/response.pt:237
 msgid "Poi_help_newTargetRelease"
 msgstr "Assignez la distribution voulue pour ce ticket"
 
@@ -348,19 +348,19 @@ msgstr "Responsables du gestionnaire de tickets"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
-#: ./browser/response.pt:260
+#: ./browser/response.pt:261
 msgid "Poi_label_newResponsibleManager"
 msgstr "Modifier le gestionnaire responsable"
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ./browser/response.pt:203
+#: ./browser/response.pt:204
 msgid "Poi_label_newSeverity"
 msgstr "Modifier la criticité du ticket"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ./browser/response.pt:231
+#: ./browser/response.pt:232
 msgid "Poi_label_newTargetRelease"
 msgstr "Modifier la distribution voulue"
 
@@ -441,35 +441,35 @@ msgstr "Nom du gestionnaire de tickets"
 msgid "Poi_label_watchers"
 msgstr "Observateurs du ticket"
 
-#: ./browser/response.py:548
+#: ./browser/response.py:560
 msgid "Removed response id ${response_id}."
 msgstr "La réponse « ${response_id} » a été supprimé."
 
-#: ./browser/response.py:488
+#: ./browser/response.py:500
 msgid "Response does not exist anymore; perhaps it was removed by another user."
 msgstr "La réponse n'existe plus; peut être qu'elle a été supprimée par un autre utilisateur."
 
-#: ./browser/response.py:541
+#: ./browser/response.py:553
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr "La réponse « ${response_id} » n'existe pas donc n'a pu être effacée."
 
-#: ./browser/response.py:201
+#: ./browser/response.py:214
 msgid "Response id ${response_id} does not exist."
 msgstr "La réponse « ${response_id} » n'existe pas."
 
-#: ./browser/response.py:569
+#: ./browser/response.py:581
 msgid "Response id ${response_id} has no attachment."
 msgstr "La réponse « ${response_id} » n'a pas de pièce jointe."
 
-#: ./browser/response.py:533
+#: ./browser/response.py:545
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr "L'identifiant « ${response_id} » de la réponse n'est pas un entier donc elle n'a pu être effacée."
 
-#: ./browser/response.py:195
+#: ./browser/response.py:208
 msgid "Response id ${response_id} is no integer."
 msgstr "L'identifiant « ${response_id} » de la réponse n'est pas un entier."
 
-#: ./browser/response.py:399
+#: ./browser/response.py:412
 msgid "Responsible manager"
 msgstr "Responsable"
 
@@ -478,7 +478,7 @@ msgstr "Responsable"
 msgid "Search"
 msgstr "Rechercher"
 
-#: ./browser/response.py:398
+#: ./browser/response.py:411
 msgid "Severity"
 msgstr "Sévérité"
 
@@ -496,7 +496,7 @@ msgstr "Arrêter la surveillance de ce gestionnaire"
 msgid "Submit new issue"
 msgstr "Soumettre un nouveau ticket"
 
-#: ./browser/response.py:425
+#: ./browser/response.py:437
 msgid "Target release"
 msgstr "Distribution cible"
 
@@ -509,11 +509,11 @@ msgstr "Suivre ce ticket"
 msgid "Watch this tracker"
 msgstr "Surveiller ce gestionnaire"
 
-#: ./browser/response.py:520
+#: ./browser/response.py:532
 msgid "You are not allowed to delete responses."
 msgstr "Vous n'êtes pas autorisé à effacer des réponses."
 
-#: ./browser/response.py:478
+#: ./browser/response.py:490
 msgid "You are not allowed to edit responses."
 msgstr "Vous n'êtes pas autorisé à modifier des réponses."
 
