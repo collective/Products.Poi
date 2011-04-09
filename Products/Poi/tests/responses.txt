@@ -30,7 +30,11 @@ so we need to load some zcml so Zope knows how to annotate an
 AttributeAnnotatable object::
 
     >>> import Products.Five
-    >>> from Products.Five import zcml
+    >>> try:
+    ...     from Zope2.App import zcml
+    ... except ImportError:
+    ...     # BBB Zope 2.12
+    ...     from Products.Five import zcml
     >>> zcml.load_config('configure.zcml', Products.Five)
     >>> import zope.annotation
     >>> zcml.load_config('configure.zcml', zope.annotation)
