@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.0.2 (unreleased)
+2.0.2 (2011-04-09)
 ------------------
 
 - Depend on Products.CMFPlone instead of Plone to improve Plone 4.1
