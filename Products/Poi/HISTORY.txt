@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-1.2.12 (unreleased)
+1.2.12 (2011-05-05)
 -------------------
 
 - Do not fail when rendering a response that has a text/x-html-safe
