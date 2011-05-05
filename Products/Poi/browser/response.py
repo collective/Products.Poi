@@ -104,9 +104,9 @@ class Base(BrowserView):
                                            response.text,
                                            mimetype=response.mimetype)
                     if html is None:
-                        logger.warn("Conversion to text/html failed for "
-                                    "response id %s of %s", id,
-                                    context.absolute_url())
+                        logger.debug("Conversion to text/html failed for "
+                                     "response id %s of %s", id,
+                                     context.absolute_url())
                         html = u''
                         rendering_success = False
                     else:
