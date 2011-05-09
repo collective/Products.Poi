@@ -50,6 +50,7 @@ from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 from AccessControl import Unauthorized
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import log_exc, log
+from Products.MailHost.MailHost import MailHostError
 from Products.PageTemplates.GlobalTranslationService import \
     getGlobalTranslationService
 
@@ -441,7 +442,7 @@ class PoiTracker(BaseBTreeFolder, BrowserDefaultMixin):
                                     mfrom = mfrom,
                                     subject = subject,
                                     charset = charset)
-            except (socket.error, SMTPException), exc:
+            except (socket.error, SMTPException, MailHostError), exc:
                 log_exc(('Could not send email from %s to %s regarding issue '
                          'in tracker %s\ntext is:\n%s\n') % (
                         mfrom, address, self.absolute_url(), email_msg))

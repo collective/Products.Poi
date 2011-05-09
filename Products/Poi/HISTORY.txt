@@ -5,7 +5,8 @@ Changelog for Poi
 1.2.13 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Catch MailHostErrors when sending email.
+  [maurits]
 
 
 1.2.12 (2011-05-05)
