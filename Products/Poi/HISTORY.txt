@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-1.2.13 (unreleased)
+1.2.13 (2011-05-09)
 -------------------
 
 - Catch MailHostErrors when sending email.
