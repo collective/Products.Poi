@@ -5,7 +5,11 @@ Changelog for Poi
 2.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added MANIFEST.in file so that .mo translation files will be
+  included in source distributions (with help from zest.releaser and
+  zest.pocompile).
+  Refs http://plone.org/products/poi/issues/248
+  [maurits]
 
 
 2.0.2 (2011-04-09)
