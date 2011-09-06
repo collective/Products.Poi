@@ -5,6 +5,12 @@ Changelog for Poi
 2.0.3 (unreleased)
 ------------------
 
+- Make sure the issue-info-box does not inherit a 100% width, as is the
+  case on plone.org at the moment (6 September 2011), which is far too
+  wide for this little box.
+  See http://plone.org/products/poi/issues/249
+  [Maurits]
+
 - Added MANIFEST.in file so that .mo translation files will be
   included in source distributions (with help from zest.releaser and
   zest.pocompile).

@@ -82,6 +82,13 @@
 .issue-info-box td {
     text-align: left;
 }
+/* Make sure the issue-info-box does not inherit a 100% width, as is the
+   case on plone.org at the moment (6 September 2011), which is far too
+   wide for this little box.  See http://plone.org/products/poi/issues/249 */
+#content table.issue-info-box {
+    width: 35%;
+}
+
 .unassigned-field {
     text-align: left;
 }
