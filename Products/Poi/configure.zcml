@@ -90,4 +90,12 @@
   <five:deprecatedManageAddDelete
       class=".content.PoiResponse.PoiResponse" />
 
+  <!-- Allow assigning portlets to trackers and issues. -->
+  <class class=".content.PoiTracker.PoiTracker">
+    <implements interface="plone.portlets.interfaces.ILocalPortletAssignable"/>
+  </class>
+  <class class=".content.PoiIssue.PoiIssue">
+    <implements interface="plone.portlets.interfaces.ILocalPortletAssignable"/>
+  </class>
+
 </configure>
