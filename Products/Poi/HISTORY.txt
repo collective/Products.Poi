@@ -5,6 +5,9 @@ Changelog for Poi
 2.0.3 (unreleased)
 ------------------
 
+- Removed htmlrender.py.
+  [maurits[
+
 - Refactored the email notifications by creating a page template
   ``browser/poi_mail.pt`` and a css file ``skins/Poi/poi-email.css``
   and using that instead of hardcoded stuff in a python file
