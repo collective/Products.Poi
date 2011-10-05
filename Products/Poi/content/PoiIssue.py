@@ -28,10 +28,11 @@ __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
 import logging
+import textwrap
 
 from AccessControl import ClassSecurityInfo
 from Acquisition import aq_chain
-
+from Products.AddRemoveWidget.AddRemoveWidget import AddRemoveWidget
 from Products.Archetypes.atapi import AttributeStorage
 from Products.Archetypes.atapi import BaseFolder
 from Products.Archetypes.atapi import BaseFolderSchema
@@ -41,38 +42,33 @@ from Products.Archetypes.atapi import FileField
 from Products.Archetypes.atapi import FileWidget
 from Products.Archetypes.atapi import LinesField
 from Products.Archetypes.atapi import LinesWidget
-from Products.Archetypes.atapi import registerType
 from Products.Archetypes.atapi import RichWidget
 from Products.Archetypes.atapi import Schema
 from Products.Archetypes.atapi import SelectionWidget
 from Products.Archetypes.atapi import StringField
 from Products.Archetypes.atapi import StringWidget
 from Products.Archetypes.atapi import TextField
+from Products.Archetypes.atapi import registerType
+from Products.CMFCore.utils import getToolByName
+from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
+from Products.CMFPlone.utils import getSiteEncoding
 from Products.CMFPlone.utils import safe_unicode
+from collective.watcherlist.utils import get_member_email
+from plone.memoize import instance
+from zope.interface import implements
+import transaction
 
+from Products.Poi import PoiMessageFactory as _
+from Products.Poi import permissions
+from Products.Poi.adapters import IResponseContainer
 from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
 from Products.Poi.config import DESCRIPTION_LENGTH
 from Products.Poi.config import ISSUE_MIME_TYPES
 from Products.Poi.config import PROJECTNAME
-from Products.Poi.adapters import IResponseContainer
-
-from Products.Poi import permissions
-from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
-from Products.AddRemoveWidget.AddRemoveWidget import AddRemoveWidget
-from collective.watcherlist.utils import get_member_email
-
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import getSiteEncoding
-import transaction
-
-import textwrap
-wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
-from zope.interface import implements
 from Products.Poi.interfaces import IIssue
 from Products.Poi.interfaces import ITracker
-from Products.Poi import PoiMessageFactory as _
-from plone.memoize import instance
 
+wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 logger = logging.getLogger('Poi')
 
 schema = Schema((

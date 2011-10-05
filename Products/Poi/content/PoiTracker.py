@@ -28,25 +28,24 @@ __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
 from AccessControl import ClassSecurityInfo
+from Products.CMFCore.utils import getToolByName
+from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
+from Products.DataGridField.DataGridField import DataGridField
+from Products.DataGridField.DataGridWidget import DataGridWidget
+from zope.interface import implements
 try:
     from Products.LinguaPlone import public as atapi
+    atapi  # pyflakes
 except ImportError:
     # No multilingual support
     from Products.Archetypes import atapi
-from Products.Poi.config import PROJECTNAME
 
-from Products.DataGridField.DataGridField import DataGridField
-from Products.Poi import permissions
-from Products.DataGridField.DataGridWidget import DataGridWidget
-from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
-
-from Products.CMFCore.utils import getToolByName
-
-from zope.interface import implements
-from Products.Poi.interfaces import ITracker
-from Products.Poi.utils import linkSvn
-from Products.Poi.utils import linkBugs
 from Products.Poi import PoiMessageFactory as _
+from Products.Poi import permissions
+from Products.Poi.config import PROJECTNAME
+from Products.Poi.interfaces import ITracker
+from Products.Poi.utils import linkBugs
+from Products.Poi.utils import linkSvn
 
 schema = atapi.Schema((
 

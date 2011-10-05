@@ -20,6 +20,7 @@ __docformat__ = 'plaintext'
 __all__ = ('renderHTML', )
 
 import reStructuredText as rst
+
 from collective.watcherlist.utils import get_charset
 
 htmlTemplate = """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

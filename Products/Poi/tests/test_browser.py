@@ -1,6 +1,8 @@
-from zope.testing import doctest
 import unittest
+
+from zope.testing import doctest
 from Testing.ZopeTestCase import FunctionalDocFileSuite as Suite
+
 from Products.Poi.tests.ptc import PoiFunctionalTestCase
 
 OPTIONFLAGS = (doctest.ELLIPSIS |

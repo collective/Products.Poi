@@ -2,16 +2,16 @@
 
 from Products.CMFCore import permissions as CMFCorePermissions
 
-View = CMFCorePermissions.View
-ModifyPortalContent = CMFCorePermissions.ModifyPortalContent
 AccessContentsInformation = CMFCorePermissions.AccessContentsInformation
+ModifyPortalContent = CMFCorePermissions.ModifyPortalContent
+View = CMFCorePermissions.View
 
-ManageTracker = "Poi: Manage tracker"
 EditResponse = "Poi: Edit response"
-ModifyIssueSeverity = "Poi: Modify issue severity"
+ManageTracker = "Poi: Manage tracker"
 ModifyIssueAssignment = "Poi: Modify issue assignment"
+ModifyIssueSeverity = "Poi: Modify issue severity"
 ModifyIssueState = "Poi: Modify issue state"
 ModifyIssueTags = "Poi: Modify issue tags"
-ModifyIssueWatchers = "Poi: Modify issue watchers"
 ModifyIssueTargetRelease = "Poi: Modify issue target release"
+ModifyIssueWatchers = "Poi: Modify issue watchers"
 UploadAttachment = "Poi: Upload attachment"

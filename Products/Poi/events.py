@@ -3,6 +3,7 @@ import logging
 from Products.CMFCore.utils import getToolByName
 from collective.watcherlist.interfaces import IWatcherList
 from collective.watcherlist.utils import get_member_email
+
 from Products.Poi.interfaces import IIssue
 
 logger = logging.getLogger('Poi')

@@ -1,31 +1,33 @@
 import logging
-from zope.i18n import translate
+
 from AccessControl import Unauthorized
-from Products.CMFCore.utils import getToolByName
-from Products.Poi.browser.interfaces import IResponseAdder
-from zope.interface import implements
-from zope.cachedescriptors.property import Lazy
 from Acquisition import aq_inner
-from Products.Five.browser import BrowserView
-from Products.Poi.adapters import IResponseContainer
-from Products.Poi.adapters import Response
-from plone.memoize.view import memoize
-from Products.Archetypes.atapi import DisplayList
-from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
-from Products.CMFPlone import PloneMessageFactory as PMF
-from Products.Poi import PoiMessageFactory as _
-from Products.Poi import permissions
-from Products.statusmessages.interfaces import IStatusMessage
-from zope.lifecycleevent import modified
 from OFS.Image import File
-from Products.CMFPlone.utils import safe_unicode
+from Products.Archetypes.atapi import DisplayList
 from Products.Archetypes.utils import contentDispositionHeader
+from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone import PloneMessageFactory as PMF
+from Products.CMFPlone.utils import safe_unicode
+from Products.Five.browser import BrowserView
+from Products.statusmessages.interfaces import IStatusMessage
+from plone.memoize.view import memoize
+from zope.cachedescriptors.property import Lazy
+from zope.i18n import translate
+from zope.interface import implements
+from zope.lifecycleevent import modified
 try:
     from plone.i18n.normalizer.interfaces import \
         IUserPreferredFileNameNormalizer
     FILE_NORMALIZER = True
 except ImportError:
     FILE_NORMALIZER = False
+
+from Products.Poi import PoiMessageFactory as _
+from Products.Poi import permissions
+from Products.Poi.adapters import IResponseContainer
+from Products.Poi.adapters import Response
+from Products.Poi.browser.interfaces import IResponseAdder
+from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
 
 logger = logging.getLogger('Poi')
 

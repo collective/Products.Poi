@@ -27,9 +27,6 @@
 __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
-# Subpackages
-# Additional
-
 # Classes
 import PoiTracker
 import PoiIssue

@@ -1,14 +1,13 @@
 from Acquisition import aq_base
-from Testing import ZopeTestCase
 from DateTime import DateTime
-from zope.event import notify
-from zope.component import getSiteManager
-from zope.lifecycleevent import ObjectModifiedEvent
 from Products.Archetypes.event import ObjectInitializedEvent
 from Products.MailHost.interfaces import IMailHost
+from Testing import ZopeTestCase
+from zope.component import getSiteManager
+from zope.event import notify
+from zope.lifecycleevent import ObjectModifiedEvent
 
 from Products.Poi.adapters import IResponseContainer
-
 
 # Make the boring stuff load quietly
 ZopeTestCase.installProduct('CMFCore', quiet=1)
@@ -65,7 +64,8 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         self.portal.MailHost = self.portal._original_MailHost
         sm = getSiteManager(context=self.portal)
         sm.unregisterUtility(provided=IMailHost)
-        sm.registerUtility(aq_base(self.portal._original_MailHost), provided=IMailHost)
+        sm.registerUtility(aq_base(self.portal._original_MailHost),
+                           provided=IMailHost)
         PloneTestCase.PloneTestCase._clear(self)
 
     def addMember(self, username, fullname, email, roles, last_login_time):
@@ -76,15 +76,31 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
             {'fullname': fullname, 'email': email,
              'last_login_time': DateTime(last_login_time)})
 
-    def createTracker(self, folder, id, title='', description='', helpText='',
-                        availableAreas=({'id': 'ui', 'title': 'User interface', 'description': 'User interface issues'}, {'id': 'functionality', 'title': 'Functionality', 'description': 'Issues with the basic functionality'}, {'id': 'process', 'title': 'Process', 'description': 'Issues relating to the development process itself'}),
-                        availableIssueTypes=({'id': 'bug', 'title': 'Bug', 'description': 'Functionality bugs in the software'}, {'id': 'feature', 'title': 'Feature', 'description': 'Suggested features'}, {'id': 'patch', 'title': 'Patch', 'description': 'Patches to the software'}),
-                        availableSeverities=['Critical', 'Important', 'Medium', 'Low'],
-                        defaultSeverity='Medium',
-                        availableReleases=['2.0', '1.0'],
-                        managers=[],
-                        sendNotificationEmails=False,
-                        mailingList=''):
+    def createTracker(
+            self, folder, id, title='', description='', helpText='',
+            availableAreas=(
+                {'id': 'ui', 'title': 'User interface',
+                   'description': 'User interface issues'},
+                {'id': 'functionality', 'title': 'Functionality',
+                   'description': 'Issues with the basic functionality'},
+                {'id': 'process', 'title': 'Process',
+                   'description':
+                   'Issues relating to the development process itself'},
+                   ),
+            availableIssueTypes=(
+                {'id': 'bug', 'title': 'Bug',
+                   'description': 'Functionality bugs in the software'},
+                {'id': 'feature', 'title': 'Feature',
+                   'description': 'Suggested features'},
+                {'id': 'patch', 'title': 'Patch',
+                   'description': 'Patches to the software'},
+                   ),
+            availableSeverities=['Critical', 'Important', 'Medium', 'Low'],
+            defaultSeverity='Medium',
+            availableReleases=['2.0', '1.0'],
+            managers=[],
+            sendNotificationEmails=False,
+            mailingList=''):
         """Create a new tracker in the given folder"""
         self.setRoles(['Manager'])
         folder.invokeFactory('PoiTracker', id)
@@ -161,7 +177,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         create_view()
 
         container = IResponseContainer(issue)
-        id = str(len(container) -1)
+        id = str(len(container) - 1)
         response = container[id]
 
         # In tests we need to fire this event manually:
@@ -194,11 +210,11 @@ class PoiMigrationTestCase(PoiTestCase):
     def createOldSampleContent(self):
         from Products.Poi.content.PoiResponse import PoiResponse
         for x in ('foo', 'bar'):
-            dummy = self.portal.invokeFactory('PoiTracker', x,
-                                              availableReleases=['2.0', '1.0'])
+            self.portal.invokeFactory('PoiTracker', x,
+                                      availableReleases=['2.0', '1.0'])
             for y in ('foo', 'bar', 'baz'):
-                dummy = self.portal[x].invokeFactory('PoiIssue', y)
+                self.portal[x].invokeFactory('PoiIssue', y)
                 for z in ('foo', 'bar', 'baz', 'quux'):
                     response = PoiResponse(z)
-                    dummy = self.portal[x][y]._setObject(z, response)
+                    self.portal[x][y]._setObject(z, response)
                     self.portal[x][y][z].reindexObject()

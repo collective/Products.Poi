@@ -1,6 +1,6 @@
-from collective.watcherlist.interfaces import IWatcherList
 from Acquisition import aq_inner
 from Products.Five.browser import BrowserView
+from collective.watcherlist.interfaces import IWatcherList
 
 
 class WatcherView(BrowserView):

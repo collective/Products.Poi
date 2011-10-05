@@ -1,7 +1,7 @@
 from datetime import datetime
-from DateTime import DateTime
 
 from Acquisition import aq_inner
+from DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 

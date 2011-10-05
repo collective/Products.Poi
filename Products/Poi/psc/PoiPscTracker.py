@@ -28,23 +28,20 @@ __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
 from AccessControl import ClassSecurityInfo
-
 from Products.Archetypes.atapi import DisplayList
-from Products.Archetypes.atapi import registerType
 from Products.Archetypes.atapi import Schema
 from Products.Archetypes.atapi import StringField
 from Products.Archetypes.atapi import StringWidget
-
-from Products.Poi.content.PoiTracker import PoiTracker
-from Products.Poi.content.PoiTracker import PoiTracker_schema
-from Products.Poi.config import PROJECTNAME
-from Products.Poi.config import PSC_TRACKER_ID
+from Products.Archetypes.atapi import registerType
+from Products.CMFCore.utils import getToolByName
+from zope.interface import implements
+import transaction
 
 from Products.Poi import permissions
-
-from Products.CMFCore.utils import getToolByName
-import transaction
-from zope.interface import implements
+from Products.Poi.config import PROJECTNAME
+from Products.Poi.config import PSC_TRACKER_ID
+from Products.Poi.content.PoiTracker import PoiTracker
+from Products.Poi.content.PoiTracker import PoiTracker_schema
 from Products.Poi.interfaces import ITracker
 
 schema = Schema((

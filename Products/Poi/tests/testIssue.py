@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from Testing import ZopeTestCase
-from Products.Poi.tests import ptc
+
 from Products.Poi.config import DESCRIPTION_LENGTH
+from Products.Poi.tests import ptc
 
 default_user = ZopeTestCase.user_name
 

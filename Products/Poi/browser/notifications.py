@@ -1,13 +1,15 @@
+import textwrap
+
 from Acquisition import aq_inner, aq_parent
-from zope.app.component.hooks import getSite
-from zope.i18n import translate
 from Products.CMFCore.utils import getToolByName
-from Products.Poi.htmlrender import renderHTML
-from Products.Poi.adapters import IResponseContainer
-from Products.Poi import PoiMessageFactory as _
 from collective.watcherlist.browser import BaseMail
 from collective.watcherlist.utils import su
-import textwrap
+from zope.app.component.hooks import getSite
+from zope.i18n import translate
+
+from Products.Poi import PoiMessageFactory as _
+from Products.Poi.adapters import IResponseContainer
+from Products.Poi.htmlrender import renderHTML
 
 wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 

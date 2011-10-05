@@ -1,18 +1,20 @@
 import logging
-from zope.interface import implements
-from zope.interface import Attribute
-from zope.interface import Interface
-from zope.component import adapts
-from zope.annotation.interfaces import IAnnotations
-from persistent import Persistent
-from persistent.list import PersistentList
-from Products.Poi.interfaces import IIssue
+
 from AccessControl import getSecurityManager
 from DateTime import DateTime
-from zope.app.container.contained import ObjectRemovedEvent
-from zope.app.container.contained import ObjectAddedEvent
-from zope.event import notify
 from collective.watcherlist.watchers import WatcherList
+from persistent import Persistent
+from persistent.list import PersistentList
+from zope.annotation.interfaces import IAnnotations
+from zope.app.container.contained import ObjectAddedEvent
+from zope.app.container.contained import ObjectRemovedEvent
+from zope.component import adapts
+from zope.event import notify
+from zope.interface import Attribute
+from zope.interface import Interface
+from zope.interface import implements
+
+from Products.Poi.interfaces import IIssue
 
 logger = logging.getLogger('Products.Poi.adapters')
 

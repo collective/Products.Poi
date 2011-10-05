@@ -27,28 +27,25 @@
 __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
-
 import logging
+
+from Products.Archetypes import listTypes
+from Products.Archetypes.atapi import process_types
+from Products.CMFCore import DirectoryView
+from Products.CMFCore import utils as cmfutils
+from zope.i18nmessageid import MessageFactory
+
+from Products.Poi.config import ADD_CONTENT_PERMISSIONS
+from Products.Poi.config import DEFAULT_ADD_CONTENT_PERMISSION
+from Products.Poi.config import PROJECTNAME
+from Products.Poi.config import product_globals
+
 logger = logging.getLogger("Poi")
 logger.debug('Start initialization of product.')
-
-from Products.CMFCore import utils as cmfutils
-
-from Products.CMFCore import DirectoryView
-from Products.Archetypes.atapi import process_types
-from Products.Archetypes import listTypes
-
-from Products.Poi.config import PROJECTNAME
-from Products.Poi.config import DEFAULT_ADD_CONTENT_PERMISSION
-from Products.Poi.config import ADD_CONTENT_PERMISSIONS
-from Products.Poi.config import product_globals
-from zope.i18nmessageid import MessageFactory
 PoiMessageFactory = MessageFactory('Poi')
 
-
 DirectoryView.registerDirectory('skins', product_globals)
-DirectoryView.registerDirectory('skins/Poi',
-                                    product_globals)
+DirectoryView.registerDirectory('skins/Poi', product_globals)
 
 
 def initialize(context):

@@ -1,8 +1,8 @@
 from AccessControl import Unauthorized
 from AccessControl import getSecurityManager
 from AccessControl.SecurityManagement import setSecurityManager
-
 from Testing import ZopeTestCase
+
 from Products.Poi.tests import ptc
 
 ZopeTestCase.installProduct('PloneSoftwareCenter')

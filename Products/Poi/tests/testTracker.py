@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
-from Testing import ZopeTestCase
-from Products.Poi.tests import ptc
 from Products.CMFCore.utils import getToolByName
-from Products.Poi.events import sendResponseNotificationMail
+from Testing import ZopeTestCase
 from collective.watcherlist.interfaces import IWatcherList
+
+from Products.Poi.events import sendResponseNotificationMail
+from Products.Poi.tests import ptc
+
 default_user = ZopeTestCase.user_name
 
 

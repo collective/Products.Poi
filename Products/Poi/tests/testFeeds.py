@@ -1,4 +1,5 @@
 from Testing import ZopeTestCase
+
 from Products.Poi.tests import ptc
 
 default_user = ZopeTestCase.user_name

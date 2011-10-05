@@ -29,8 +29,7 @@ class TestResponse(ptc.PoiTestCase):
                 SearchableText="Ren\xc3\xa9")) >= 1
         self.failUnless(found)
 
-        response = self.createResponse(
-            issue, "In Dutch 'seas' is 'zee\xc3\xabn'")
+        self.createResponse(issue, "In Dutch 'seas' is 'zee\xc3\xabn'")
         # That should show up in the issue.
         found = len(catalog.searchResults(
                 portal_type='PoiIssue',
