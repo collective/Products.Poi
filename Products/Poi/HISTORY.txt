@@ -5,6 +5,13 @@ Changelog for Poi
 2.0.3 (unreleased)
 ------------------
 
+- Refactored the email notifications by creating a page template
+  ``browser/poi_mail.pt`` and a css file ``skins/Poi/poi-email.css``
+  and using that instead of hardcoded stuff in a python file
+  ``htmlrender.py``.
+  Fixes http://plone.org/products/poi/issues/251
+  [maurits]
+
 - Allow assigning portlets to trackers and issues.
   Fixes http://plone.org/products/poi/issues/250
   [maurits]

@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xml:lang="en"
+      lang="en"
+      tal:attributes="lang options/lang;
+                      xml:lang options/lang">
+
+  <head>
+    <tal:meta tal:replace="structure string:&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=${options/charset}&quot;&gt;" />
+    <style type="text/css" media="all" tal:content="options/css">
+    </style>
+  </head>
+  <body tal:content="structure options/body">
+  </body>
+</html>

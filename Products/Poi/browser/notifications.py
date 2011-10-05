@@ -1,20 +1,24 @@
+import reStructuredText as rst
 import textwrap
 
 from Acquisition import aq_inner, aq_parent
 from Products.CMFCore.utils import getToolByName
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from collective.watcherlist.browser import BaseMail
 from collective.watcherlist.utils import su
+from collective.watcherlist.utils import get_charset
 from zope.app.component.hooks import getSite
 from zope.i18n import translate
 
 from Products.Poi import PoiMessageFactory as _
 from Products.Poi.adapters import IResponseContainer
-from Products.Poi.htmlrender import renderHTML
 
 wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 
 
 class BasePoiMail(BaseMail):
+
+    index = ViewPageTemplateFile('poi_mail.pt')
 
     @property
     def html(self):
@@ -22,7 +26,37 @@ class BasePoiMail(BaseMail):
 
         So we parse it as reStructuredText.
         """
-        return renderHTML(self.plain)
+        rstText = self.plain
+        lang = 'en'
+        charset = get_charset()
+        ignored, warnings = rst.render(
+            rstText, input_encoding=charset, output_encoding=charset)
+        if len(warnings.messages) == 0:
+            body = rst.HTML(
+                rstText, input_encoding=charset, output_encoding=charset)
+        else:
+            # There are warnings, so we keep it simple.
+            body = '<pre>%s</pre>' % rstText
+
+        # Try to get some styling.
+        css = u''
+        portal = getSite()
+        if portal is not None:
+            try:
+                # Render the css, in a way that seems to work for both
+                # dtml and plain css files.
+                css = '%s' % portal.restrictedTraverse('poi-email.css')
+            except:
+                pass
+
+        # Pass some options to the template and render it.
+        options = dict(
+            lang=lang,
+            charset=charset,
+            body=body,
+            css=css,
+            )
+        return self.index(**options)
 
 
 class NewIssueMail(BasePoiMail):
