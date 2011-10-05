@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2011-04-08 23:21+0000\n"
+"POT-Creation-Date: 2011-10-05 23:28+0000\n"
 "PO-Revision-Date: 2010-10-19 14:38+0100\n"
 "Last-Translator: Lukas Zdych <lukas.zdych@gmail.com>\n"
 "Language-Team: DMS4U <dms4u.cz>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin2\n"
 "Domain: Poi\n"
 
-#: ./browser/response.py:510
+#: ./browser/response.py:512
 msgid "Changes saved to response id ${response_id}."
 msgstr "Změny byly uloženy do reakce s id ${response_id}."
 
@@ -35,88 +35,88 @@ msgstr "Upravit"
 msgid "Edit issue"
 msgstr "Upravit úlohu"
 
-#: ./browser/response.py:406
+#: ./browser/response.py:408
 msgid "Issue state"
 msgstr "Stav úlohy"
 
-#: ./browser/response.py:538
+#: ./browser/response.py:540
 msgid "No response selected for removal."
 msgstr "Nebyly vybrány žádné reakce k odstranění."
 
-#: ./browser/response.py:496
+#: ./browser/response.py:498
 msgid "No response selected for saving."
 msgstr "Nebyly vybrány žádné reakce k uložení."
 
-#: ./browser/response.py:200
+#: ./browser/response.py:202
 msgid "No response selected."
 msgstr "Nebyla vybrána žádná reakce."
 
-#: ./browser/response.py:450
+#: ./browser/response.py:452
 msgid "No response text added and no issue changes made."
 msgstr "Nebyl zadán žádný text reakce ani provedeny změny úlohy."
 
-#: ./content/PoiIssue.py:492
+#: ./content/PoiIssue.py:488
 msgid "None"
 msgstr "Nic"
 
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."
-#: ./content/PoiIssue.py:180
+#: ./content/PoiIssue.py:176
 msgid "Poi_help_area"
 msgstr "Zvolte oblast, ke které se tato úloha vztahuje."
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
 #: ./browser/response.pt:151
-#: ./content/PoiIssue.py:165
+#: ./content/PoiIssue.py:161
 msgid "Poi_help_attachment"
 msgstr "K vaší úloze můžete přiložit soubor jako přílohu. Prosíme nenahrávejte zbytečně velké soubory."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker."
-#: ./content/PoiTracker.py:112
+#: ./content/PoiTracker.py:111
 msgid "Poi_help_availableAreas"
 msgstr "Zadejte témata/oblasti pro úlohy v tomto manažeru úloh."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker."
-#: ./content/PoiTracker.py:137
+#: ./content/PoiTracker.py:136
 msgid "Poi_help_availableIssueTypes"
 msgstr "Zadejte typy úloh pro tento manažer úloh."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release."
-#: ./content/PoiTracker.py:181
+#: ./content/PoiTracker.py:180
 msgid "Poi_help_availableReleases"
 msgstr "Zadejte vydání verzí, ke kterým mohou být úlohy přiřazeny. Každé na samostatný řádek. Pokud nebudou zadána žádná vydání, úlohy podle nich nebudou organizovány."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
-#: ./content/PoiTracker.py:153
+#: ./content/PoiTracker.py:152
 msgid "Poi_help_availableSeverities"
 msgstr "Zadejte různé stupně důležitosti úloh, každý na samostatný řádek."
 
 # ./content/PoiIssue.py
 #. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
-#: ./content/PoiIssue.py:260
+#: ./content/PoiIssue.py:256
 msgid "Poi_help_contactEmail"
 msgstr "Prosíme zadejte emailovou adresu, na které budete k zastižení pro získání více informací nebo v případě vyřešení úlohy. Poznámka: vaše emailová adresa nebude zobrazena ostatním uživatelům."
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
-#: ./content/PoiTracker.py:167
+#: ./content/PoiTracker.py:166
 msgid "Poi_help_defaultSeverity"
 msgstr "Zvolte výchozí důležitost pro nové úlohy."
 
 # ./content/PoiIssue.py
 #. Default: "Please provide further details"
-#: ./content/PoiIssue.py:129
+#: ./content/PoiIssue.py:125
 msgid "Poi_help_details"
 msgstr "Prosíme doplňte další informace"
 
 # ./content/PoiTracker.py
 #. Default: "Enter any introductory help text you'd like to display on the tracker front page."
-#: ./content/PoiTracker.py:88
+#: ./content/PoiTracker.py:87
 msgid "Poi_help_helpText"
 msgstr "Zadejte jakýkoli úvodní text, který bude zobrazen na úvodní stránce manažeru úloh."
 
@@ -128,25 +128,25 @@ msgstr "Pokud je to vhodné, zvolte změnu stavu úlohy, které se tato reakce t
 
 # ./content/PoiIssue.py
 #. Default: "Select the type of issue."
-#: ./content/PoiIssue.py:195
+#: ./content/PoiIssue.py:191
 msgid "Poi_help_issueType"
 msgstr "Zvolte typ úlohy."
 
 # ./content/PoiIssue.py
 #. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
-#: ./content/PoiIssue.py:96
+#: ./content/PoiIssue.py:92
 msgid "Poi_help_issue_title"
 msgstr "Zadejte krátký, ale výstižný nadpis pro tuto úlohu. Dobrý nadpis usnadní správcům projektu rozpoznat a reagovat na tuto úlohu."
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
-#: ./content/PoiTracker.py:243
+#: ./content/PoiTracker.py:242
 msgid "Poi_help_mailingList"
 msgstr "Pokud je zadáno a pokud je zaškrtnuto i 'Zasílat emailová upozornění', bude na tuto adresu odeslán email při každé nové úloze nebo reakci. Správci zároveň obdrží individuální emaily. Pokud toto není žádoucí změťe je na techniky."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
-#: ./content/PoiTracker.py:196
+#: ./content/PoiTracker.py:195
 msgid "Poi_help_managers"
 msgstr "Zadejte identifikátory (login) uživatelů, kterým bude umožněno spravovat tento manažer úloh, každého na samostatný řádek."
 
@@ -170,7 +170,7 @@ msgstr "Zadejte cílové vydání pro tuto úlohu"
 
 # ./content/PoiIssue.py
 #. Default: "Select the version the issue was found in."
-#: ./content/PoiIssue.py:114
+#: ./content/PoiIssue.py:110
 msgid "Poi_help_release"
 msgstr "Zvolte verzi, ve které byla problém zjištěn."
 
@@ -182,127 +182,127 @@ msgstr "Prosíme níže zadejte vaší reakci"
 
 # ./content/PoiIssue.py
 #. Default: "Select which manager, if any, is responsible for this issue."
-#: ./content/PoiIssue.py:242
+#: ./content/PoiIssue.py:238
 msgid "Poi_help_responsibleManager"
 msgstr "Zvolte, který správce, pokud nějaký, je odpovědný za tuto úlohu."
 
 # ./content/PoiTracker.py
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:226
+#: ./content/PoiTracker.py:225
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Pokud je zaškrtnuto, správci manažeru úloh obdrží email při každé nové úloze nebo reakci a autoři úloh obdrží email při každé nové reakci, pokud je úloha vyřešena nebo čekající na potvrzení. Technici obdrží email když jim je úloha přiřazena."
 
 # ./content/PoiIssue.py
 #. Default: "Select the severity of this issue."
-#: ./content/PoiIssue.py:210
+#: ./content/PoiIssue.py:206
 msgid "Poi_help_severity"
 msgstr "Zvolte důležitost této úlohy."
 
 # ./content/PoiIssue.py
 #. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
-#: ./content/PoiIssue.py:146
+#: ./content/PoiIssue.py:142
 msgid "Poi_help_steps"
 msgstr "Pokud je to možné, prosíme popište postup vedoucí k výskytu chyby nebo rozeznání úlohy, každý na samostatný řádek."
 
 # ./content/PoiIssue.py
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: ./content/PoiIssue.py:294
+#: ./content/PoiIssue.py:290
 msgid "Poi_help_subject"
 msgstr "Značky mohou být použity pro tvorbu libovolné kategorizace úloh. Níže uvedený seznam zobrazuje existující značky, které můžete vybrat nebo můžete přidat nové."
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
-#: ./content/PoiTracker.py:262
+#: ./content/PoiTracker.py:261
 msgid "Poi_help_svnurl"
 msgstr "Prosíme zadejte Url souvisejícího SVN repositáře, např.: http://dev.plone.org/collective/changeset/%(rev)s pro produkty v Plone collective."
 
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"
-#: ./content/PoiIssue.py:226
+#: ./content/PoiIssue.py:222
 msgid "Poi_help_targetRelease"
 msgstr "Vydání, ve kterém má být tato úloha vyřešena"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
-#: ./content/PoiTracker.py:210
+#: ./content/PoiTracker.py:209
 msgid "Poi_help_technicians"
 msgstr "Zadejte uživatelská jména uživatelů, kteří budou odpovědni za řešení úloh, každé na samostatný řádek. Poznámka: Je v pořádku definovat pouze správce a žádné techniky, protože správci mohou řešit úlohy také."
 
 #. Default: "Describe the purpose of this tracker"
-#: ./content/PoiTracker.py:72
+#: ./content/PoiTracker.py:71
 msgid "Poi_help_tracker_description"
 msgstr "Popište účel tohoto manažeru úloh."
 
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
-#: ./content/PoiTracker.py:58
+#: ./content/PoiTracker.py:57
 msgid "Poi_help_tracker_title"
 msgstr "Zadejte výstižné jméno pro tento manažer úloh."
 
 # ./content/PoiIssue.py
 #. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
-#: ./content/PoiIssue.py:277
+#: ./content/PoiIssue.py:273
 msgid "Poi_help_watchers"
 msgstr "Zadejte jména uživatelů, kteří sledují tuto úlohu, každého na samostatný řádek. Tito uživatelé obdrží email při vyvoření nové reakce k tého úloze. Uživatelé se také mohou přidat do tohoto seznamu sami."
 
 # ./content/PoiIssue.py
 #. Default: "Area"
-#: ./content/PoiIssue.py:178
+#: ./content/PoiIssue.py:174
 msgid "Poi_label_area"
 msgstr "Oblast"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
 #: ./browser/response.pt:148
-#: ./content/PoiIssue.py:163
+#: ./content/PoiIssue.py:159
 msgid "Poi_label_attachment"
 msgstr "Příloha"
 
 # ./content/PoiTracker.py
 #. Default: "Areas"
-#: ./content/PoiTracker.py:110
+#: ./content/PoiTracker.py:109
 msgid "Poi_label_availableAreas"
 msgstr "Oblasti"
 
 # ./content/PoiTracker.py
 #. Default: "Issue types"
-#: ./content/PoiTracker.py:135
+#: ./content/PoiTracker.py:134
 msgid "Poi_label_availableIssueTypes"
 msgstr "Typy úloh"
 
 # ./content/PoiTracker.py
 #. Default: "Available releases"
-#: ./content/PoiTracker.py:179
+#: ./content/PoiTracker.py:178
 msgid "Poi_label_availableReleases"
 msgstr "Dostupná vydání"
 
 # ./content/PoiTracker.py
 #. Default: "Available severities"
-#: ./content/PoiTracker.py:151
+#: ./content/PoiTracker.py:150
 msgid "Poi_label_availableSeverities"
 msgstr "Dostupné důležitosti"
 
 # ./content/PoiIssue.py
 #. Default: "Contact email address"
-#: ./content/PoiIssue.py:258
+#: ./content/PoiIssue.py:254
 msgid "Poi_label_contactEmail"
 msgstr "Kontaktní emailová adresa"
 
 # ./content/PoiTracker.py
 #. Default: "Default severity"
-#: ./content/PoiTracker.py:165
+#: ./content/PoiTracker.py:164
 msgid "Poi_label_defaultSeverity"
 msgstr "Výchozí důležitost"
 
 # ./content/PoiIssue.py
 #. Default: "Details"
-#: ./content/PoiIssue.py:127
+#: ./content/PoiIssue.py:123
 msgid "Poi_label_details"
 msgstr "Detaily"
 
 # ./content/PoiTracker.py
 #. Default: "Help text"
-#: ./content/PoiTracker.py:86
+#: ./content/PoiTracker.py:85
 msgid "Poi_label_helpText"
 msgstr "Pomocný text"
 
@@ -314,30 +314,30 @@ msgstr "Změnit stav úlohy"
 
 # ./content/PoiIssue.py
 #. Default: "Issue type"
-#: ./content/PoiIssue.py:193
+#: ./content/PoiIssue.py:189
 msgid "Poi_label_issueType"
 msgstr "Druh úlohy"
 
 #. Default: "Id"
-#: ./content/PoiIssue.py:85
+#: ./content/PoiIssue.py:81
 msgid "Poi_label_issue_id"
 msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Title"
-#: ./content/PoiIssue.py:94
+#: ./content/PoiIssue.py:90
 msgid "Poi_label_issue_title"
 msgstr "Nadpis"
 
 # ./content/PoiTracker.py
 #. Default: "Mailing list"
-#: ./content/PoiTracker.py:241
+#: ./content/PoiTracker.py:240
 msgid "Poi_label_mailingList"
 msgstr "Konference"
 
 # ./content/PoiTracker.py
 #. Default: "Tracker managers"
-#: ./content/PoiTracker.py:194
+#: ./content/PoiTracker.py:193
 msgid "Poi_label_managers"
 msgstr "Správci manažeru úloh"
 
@@ -361,7 +361,7 @@ msgstr "Změnit cílové vydání"
 
 # ./content/PoiIssue.py
 #. Default: "Version"
-#: ./content/PoiIssue.py:112
+#: ./content/PoiIssue.py:108
 msgid "Poi_label_release"
 msgstr "Verze"
 
@@ -373,98 +373,98 @@ msgstr "Reakce"
 
 # ./content/PoiIssue.py
 #. Default: "Responsible"
-#: ./content/PoiIssue.py:240
+#: ./content/PoiIssue.py:236
 msgid "Poi_label_responsibleManager"
 msgstr "Odpovědný"
 
 # ./content/PoiTracker.py
 #. Default: "Send notification emails"
-#: ./content/PoiTracker.py:224
+#: ./content/PoiTracker.py:223
 msgid "Poi_label_sendNotificationEmails"
 msgstr "Zasílat emailová upozornění"
 
 # ./content/PoiIssue.py
 #. Default: "Severity"
-#: ./content/PoiIssue.py:208
+#: ./content/PoiIssue.py:204
 msgid "Poi_label_severity"
 msgstr "Důležitost"
 
 # ./content/PoiIssue.py
 #. Default: "Steps to reproduce"
-#: ./content/PoiIssue.py:144
+#: ./content/PoiIssue.py:140
 msgid "Poi_label_steps"
 msgstr "Postup reprodukce"
 
 # ./content/PoiIssue.py
 #. Default: "Tags"
-#: ./content/PoiIssue.py:292
+#: ./content/PoiIssue.py:288
 msgid "Poi_label_subject"
 msgstr "Značky"
 
 # ./content/PoiTracker.py
 #. Default: "URL to SVN"
-#: ./content/PoiTracker.py:260
+#: ./content/PoiTracker.py:259
 msgid "Poi_label_svnurl"
 msgstr "URL SVN repositáře"
 
 # ./content/PoiIssue.py
 #. Default: "Target release"
-#: ./content/PoiIssue.py:224
+#: ./content/PoiIssue.py:220
 msgid "Poi_label_targetRelease"
 msgstr "Cílové vydání"
 
 # ./content/PoiTracker.py
 #. Default: "Technicians"
-#: ./content/PoiTracker.py:208
+#: ./content/PoiTracker.py:207
 msgid "Poi_label_technicians"
 msgstr "Technici"
 
 #. Default: "Tracker description"
-#: ./content/PoiTracker.py:70
+#: ./content/PoiTracker.py:69
 msgid "Poi_label_tracker_description"
 msgstr "Popis manažeru úloh"
 
 # ./content/PoiTracker.py
 #. Default: "Tracker name"
-#: ./content/PoiTracker.py:56
+#: ./content/PoiTracker.py:55
 msgid "Poi_label_tracker_title"
 msgstr "Název manažeru úloh"
 
 # ./content/PoiIssue.py
 #. Default: "Issue watchers"
-#: ./content/PoiIssue.py:275
+#: ./content/PoiIssue.py:271
 msgid "Poi_label_watchers"
 msgstr "Sledující úlohu"
 
-#: ./browser/response.py:560
+#: ./browser/response.py:562
 msgid "Removed response id ${response_id}."
 msgstr "Reakce s id ${response_id} byla odstraněna."
 
-#: ./browser/response.py:500
+#: ./browser/response.py:502
 msgid "Response does not exist anymore; perhaps it was removed by another user."
 msgstr "Reakce již neexistuje; je možné, že byla odstraněna jiným uživatelem."
 
-#: ./browser/response.py:553
+#: ./browser/response.py:555
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr "Reakce s id ${response_id} neexistuje a nemůže být tedy odstraněna."
 
-#: ./browser/response.py:214
+#: ./browser/response.py:216
 msgid "Response id ${response_id} does not exist."
 msgstr "Reakce s id ${reponse_id} neexistuje."
 
-#: ./browser/response.py:581
+#: ./browser/response.py:583
 msgid "Response id ${response_id} has no attachment."
 msgstr "Reakce s id ${response_id} nemá žádné přílohy."
 
-#: ./browser/response.py:545
+#: ./browser/response.py:547
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr "Id reakce ${response_id} není celé číslo, a proto nemůže být odstraněna."
 
-#: ./browser/response.py:208
+#: ./browser/response.py:210
 msgid "Response id ${response_id} is no integer."
 msgstr "Id reakce ${response_id} není celé číslo."
 
-#: ./browser/response.py:412
+#: ./browser/response.py:414
 msgid "Responsible manager"
 msgstr "Odpovědný správce"
 
@@ -473,7 +473,7 @@ msgstr "Odpovědný správce"
 msgid "Search"
 msgstr "Hledat"
 
-#: ./browser/response.py:411
+#: ./browser/response.py:413
 msgid "Severity"
 msgstr "Důležitost"
 
@@ -491,7 +491,7 @@ msgstr "Přestat sledovat tento manažer úloh"
 msgid "Submit new issue"
 msgstr "Zadat novou úlohu"
 
-#: ./browser/response.py:437
+#: ./browser/response.py:439
 msgid "Target release"
 msgstr "Cílové vydání"
 
@@ -504,11 +504,11 @@ msgstr "Sledovat tuto úlohu"
 msgid "Watch this tracker"
 msgstr "Sledovat tento manažer úloh"
 
-#: ./browser/response.py:532
+#: ./browser/response.py:534
 msgid "You are not allowed to delete responses."
 msgstr "Nejste oprávněni odstraňovat reakce."
 
-#: ./browser/response.py:490
+#: ./browser/response.py:492
 msgid "You are not allowed to edit responses."
 msgstr "Nejste oprávněni upravovat reakce."
 
@@ -649,17 +649,17 @@ msgid "poi_all_pending_issues"
 msgstr "Všechny nevyřízené úlohy"
 
 #. Default: "An attachment has been added with id ${attachment_id}"
-#: ./browser/notifications.py:151
+#: ./browser/notifications.py:190
 msgid "poi_attachment_added"
 msgstr "Příloha byla přidána a má id ${attachment_id}."
 
 #. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
-#: ./browser/notifications.py:247
+#: ./browser/notifications.py:286
 msgid "poi_email_issue_resolved_subject_template"
 msgstr "[${tracker_title}] Vyřešeno #${issue_id} - ${issue_title}"
 
 #. Default: "The issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ./browser/notifications.py:217
+#: ./browser/notifications.py:256
 msgid "poi_email_issue_resolved_template"
 msgstr ""
 "Úloha **${issue_title}** v manažeru úloh **${tracker_title}**\n"
@@ -677,12 +677,12 @@ msgstr ""
 "* Toto je automatická zpráva, prosíme neodpovídejte na ni - ${from_name}"
 
 #. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
-#: ./browser/notifications.py:78
+#: ./browser/notifications.py:117
 msgid "poi_email_new_issue_subject_template"
 msgstr "[${tracker_title}] #${issue_id} - Nová úloha: ${issue_title}"
 
 #. Default: "A new issue has been submitted to the **${tracker_title}**\ntracker by **${issue_author}** and awaits confirmation.\n\nIssue Information\n-----------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n**Issue Details**::\n\n${issue_details}\n\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ./browser/notifications.py:45
+#: ./browser/notifications.py:84
 msgid "poi_email_new_issue_template"
 msgstr ""
 "Nová úloha byla vytvořena v manažeru úloh **${tracker_title}**\n"
@@ -703,12 +703,12 @@ msgstr ""
 "* Toto je automatická zpráva, prosíme neodpovídejte na ni - ${from_name}"
 
 #. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
-#: ./browser/notifications.py:190
+#: ./browser/notifications.py:229
 msgid "poi_email_new_response_subject_template"
 msgstr "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
 
 #. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ./browser/notifications.py:159
+#: ./browser/notifications.py:198
 msgid "poi_email_new_response_template"
 msgstr ""
 "Nová reakce byla přidána k úloze **${issue_title}**\n"
@@ -772,7 +772,7 @@ msgid "poi_heading_orphaned_issues"
 msgstr "Nepřiřazené úlohy"
 
 #. Default: "Response Details"
-#: ./browser/notifications.py:133
+#: ./browser/notifications.py:172
 msgid "poi_heading_response_details"
 msgstr "Detail reakce"
 
