@@ -57,6 +57,7 @@ def initialize(context):
     import psc
     import content
 
+    interfaces, psc, content  # pyflakes
 
     # Initialize portal content
     all_content_types, all_constructors, all_ftis = process_types(

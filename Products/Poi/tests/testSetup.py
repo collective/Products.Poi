@@ -5,18 +5,18 @@ class TestInstallation(ptc.PoiTestCase):
     """Ensure product is properly installed"""
 
     def afterSetUp(self):
-        self.skins           = self.portal.portal_skins
-        self.types           = self.portal.portal_types
-        self.factory         = self.portal.portal_factory
-        self.catalog         = self.portal.portal_catalog
-        self.workflow        = self.portal.portal_workflow
-        self.properties      = self.portal.portal_properties
-        self.transforms      = self.portal.portal_transforms
+        self.skins = self.portal.portal_skins
+        self.types = self.portal.portal_types
+        self.factory = self.portal.portal_factory
+        self.catalog = self.portal.portal_catalog
+        self.workflow = self.portal.portal_workflow
+        self.properties = self.portal.portal_properties
+        self.transforms = self.portal.portal_transforms
         self.form_controller = self.portal.portal_form_controller
 
-        self.poiTypes = {'PoiTracker'    : 'poi_tracker_workflow',
-                         'PoiPscTracker' : 'poi_tracker_workflow',
-                         'PoiIssue'      : 'poi_issue_workflow'}
+        self.poiTypes = {'PoiTracker': 'poi_tracker_workflow',
+                         'PoiPscTracker': 'poi_tracker_workflow',
+                         'PoiIssue': 'poi_issue_workflow'}
 
     def testDataGridFieldInstalled(self):
         self.failUnless('DataGridWidget' in self.skins.objectIds())

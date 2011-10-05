@@ -220,7 +220,6 @@ class TestEmailNotifications(ptc.PoiTestCase):
         self.createIssue(self.tracker, tags=('A', 'D'))
         self.assertEqual(self.tracker.getTagsInUse(), ['A', 'B', 'C', 'D'])
 
-
     # The following tests don't map directly to functional methods but are
     # meant to make sure no errors arise from sending emails
     # -- begin email tests
@@ -229,9 +228,9 @@ class TestEmailNotifications(ptc.PoiTestCase):
         self.tracker.setSendNotificationEmails(True)
         self.tracker.update(title='Random Tracker')
         # Just creating it should be enough to send an email.
-        issue = self.createIssue(self.tracker,
-                                 contactEmail='submitter@example.com',
-                                 watchers=('member1', 'member2'))
+        self.createIssue(self.tracker,
+                         contactEmail='submitter@example.com',
+                         watchers=('member1', 'member2'))
         # A mail is sent immediately on creation of this issue.
         self.assertEqual(len(self.portal.MailHost.messages), 3)
 
@@ -243,7 +242,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
             title="accented vocals: à è ì",
             contactEmail='submitter@example.com',
             watchers=('member1', 'member2'))
-        response = self.createResponse(
+        self.createResponse(
             issue, text="more accented vocals: ò ù")
         sendResponseNotificationMail(issue)
 
@@ -257,7 +256,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
             title=u"accented vocals: à è ì ò ù".encode('iso-8859-1'),
             contactEmail='submitter@example.com',
             watchers=('member1', 'member2'))
-        response = self.createResponse(
+        self.createResponse(
             issue, text=u"more accented vocals: ò ù".encode('iso-8859-1'))
         sendResponseNotificationMail(issue)
 
@@ -267,7 +266,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
         issue = self.createIssue(self.tracker,
                                  contactEmail='submitter@example.com',
                                  watchers=('member1', 'member2'))
-        response = self.createResponse(issue)
+        self.createResponse(issue)
         sendResponseNotificationMail(issue)
 
     def testResolvedEmail(self):

@@ -63,7 +63,7 @@ def linkSvn(text, svnUrl, patterns):
             pos = res.start() + 1
             link = '<a href="' + svnUrl % {'rev': rev} + '">' + linktext + \
                 '</a>'
-            text = text[0: pos-1] + link + text[res.end():]
+            text = text[0: pos - 1] + link + text[res.end():]
             pos += len(link)
 
     return text

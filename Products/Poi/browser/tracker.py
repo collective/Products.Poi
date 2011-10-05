@@ -33,21 +33,22 @@ class IssueFolderView(BrowserView):
         else:
             criteria = dict(criteria)
 
-        allowedCriteria = {'release'       : 'getRelease',
-                           'area'          : 'getArea',
-                           'issueType'     : 'getIssueType',
-                           'severity'      : 'getSeverity',
-                           'targetRelease' : 'getTargetRelease',
-                           'state'         : 'review_state',
-                           'tags'          : 'Subject',
-                           'responsible'   : 'getResponsibleManager',
-                           'creator'       : 'Creator',
-                           'text'          : 'SearchableText',
-                           'id'            : 'getId',
-                           }
+        allowedCriteria = {
+            'release': 'getRelease',
+            'area': 'getArea',
+            'issueType': 'getIssueType',
+            'severity': 'getSeverity',
+            'targetRelease': 'getTargetRelease',
+            'state': 'review_state',
+            'tags': 'Subject',
+            'responsible': 'getResponsibleManager',
+            'creator': 'Creator',
+            'text': 'SearchableText',
+            'id': 'getId',
+            }
 
-        query                = {}
-        query['path']        = '/'.join(context.getPhysicalPath())
+        query = {}
+        query['path'] = '/'.join(context.getPhysicalPath())
         query['portal_type'] = ['PoiIssue']
 
         for k, v in allowedCriteria.items():
@@ -72,7 +73,7 @@ class IssueFolderView(BrowserView):
             # "'operator' in subject'" because of the strange
             # instance.
             try:
-                op = subject['operator']
+                subject['operator']
             except TypeError:
                 # Fine: subject is a string or tuple.
                 pass
@@ -81,7 +82,7 @@ class IssueFolderView(BrowserView):
                 pass
             else:
                 try:
-                    dummy = subject['query']
+                    subject['query']
                 except KeyError:
                     del query['Subject']
 

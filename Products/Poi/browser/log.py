@@ -46,7 +46,7 @@ class LogView(BrowserView):
         date = convertDate(zope_date)
         now = datetime.now()
 
-        delta = now-date
+        delta = now - date
 
         # use largest time unit
         minutes = 0
@@ -54,9 +54,9 @@ class LogView(BrowserView):
         days = delta.days
 
         if not days:
-            hours = delta.seconds/3600
+            hours = delta.seconds / 3600
         if not hours and not days:
-            minutes = delta.seconds/60
+            minutes = delta.seconds / 60
 
         return {'minutes': minutes,
                 'hours': hours,

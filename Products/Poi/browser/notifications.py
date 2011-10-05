@@ -140,13 +140,13 @@ class NewResponseMail(BasePoiMail):
         for change in response.changes:
             before = su(change.get('before'))
             after = su(change.get('after'))
-	    name = su(change.get('name'))
+            name = su(change.get('name'))
             # Some changes are workflow changes, which can be translated.
             # Note that workflow changes are in the plone domain.
             before = translate(before, 'plone', context=self.request)
             after = translate(after, 'plone', context=self.request)
-	    name = translate(name, 'Poi', context=self.request)
-	    changes += u"- %s: %s -> %s\n" % (name, before, after)
+            name = translate(name, 'Poi', context=self.request)
+            changes += u"- %s: %s -> %s\n" % (name, before, after)
         if response.attachment:
             extra = _(
                 'poi_attachment_added',
