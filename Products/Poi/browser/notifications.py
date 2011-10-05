@@ -8,6 +8,7 @@ from collective.watcherlist.browser import BaseMail
 from collective.watcherlist.utils import su
 from collective.watcherlist.utils import get_charset
 from zope.app.component.hooks import getSite
+from zope.component import getMultiAdapter
 from zope.i18n import translate
 
 from Products.Poi import PoiMessageFactory as _
@@ -27,7 +28,9 @@ class BasePoiMail(BaseMail):
         So we parse it as reStructuredText.
         """
         rstText = self.plain
-        lang = 'en'
+        pps = getMultiAdapter((self.context, self.request),
+                              name="plone_portal_state")
+        lang = pps.language()
         charset = get_charset()
         ignored, warnings = rst.render(
             rstText, input_encoding=charset, output_encoding=charset)
