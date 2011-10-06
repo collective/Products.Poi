@@ -1,12 +1,12 @@
 # Dutch Poi translations
 # Translators:
 # Ralph Jacobs <ralph@fourdigits.nl>, 2008
-# Maurits van Rees <maurits@vanrees.org>, 2008-2010
+# Maurits van Rees <maurits@vanrees.org>, 2008-2011
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2011-10-05 23:28+0000\n"
-"PO-Revision-Date: 2010-11-26 14:42+0100\n"
+"POT-Creation-Date: 2011-10-06 00:04+0000\n"
+"PO-Revision-Date: 2011-10-06 01:35+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,11 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: Poi\n"
 "X-Is-Fallback-For: nl-be nl-nl\n"
+
+#: ./browser/templates/poi_email_new_issue_html.pt:20
+#: ./browser/templates/poi_email_new_issue_plain.pt:8
+msgid "A new issue has been submitted to the ${tracker_title} tracker by ${issue_author} and awaits confirmation."
+msgstr "Een nieuwe issue is ingediend in de ${tracker_title} tracker door ${issue_author} en wacht op bevestiging."
 
 #: ./browser/response.py:512
 msgid "Changes saved to response id ${response_id}."
@@ -38,9 +43,27 @@ msgstr "Bewerk"
 msgid "Edit issue"
 msgstr "Bewerk issue"
 
+#: ./browser/templates/poi_email_new_issue_html.pt:26
+msgid "Issue"
+msgstr "Issue"
+
+#: ./browser/templates/poi_email_new_issue_html.pt:32
+#: ./browser/templates/poi_email_new_issue_plain.pt:19
+msgid "Issue Details:"
+msgstr "Details van het issue:"
+
+#: ./browser/templates/poi_email_new_issue_html.pt:24
+#: ./browser/templates/poi_email_new_issue_plain.pt:13
+msgid "Issue Information"
+msgstr "Informatie over de reactie"
+
 #: ./browser/response.py:408
 msgid "Issue state"
 msgstr "Issue status"
+
+#: ./browser/templates/poi_email_new_issue_plain.pt:15
+msgid "Issue:"
+msgstr "Issue:"
 
 #: ./browser/response.py:540
 msgid "No response selected for removal."
@@ -498,6 +521,11 @@ msgstr "Voeg nieuwe issue toe"
 msgid "Target release"
 msgstr "Doelrelease"
 
+#: ./browser/templates/poi_email_new_issue_html.pt:35
+#: ./browser/templates/poi_email_new_issue_plain.pt:23
+msgid "This is an automated email, please do not reply &ndash; ${from_name}"
+msgstr "Dit is een automatische e-mail, gelieven niet de e-mail te beantwoorden &ndash; ${from_name}"
+
 #. Default: "Watch this issue"
 #: ./skins/Poi/poi_issue_view.pt:152
 msgid "Watch this issue"
@@ -652,17 +680,17 @@ msgid "poi_all_pending_issues"
 msgstr "Alle openstaande issues"
 
 #. Default: "An attachment has been added with id ${attachment_id}"
-#: ./browser/notifications.py:190
+#: ./browser/notifications.py:166
 msgid "poi_attachment_added"
 msgstr "Een bijlage is toegevoegd met id ${attachment_id}"
 
 #. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
-#: ./browser/notifications.py:286
+#: ./browser/notifications.py:262
 msgid "poi_email_issue_resolved_subject_template"
 msgstr "[${tracker_title}] #${issue_id} opgelost - ${issue_title}"
 
 #. Default: "The issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ./browser/notifications.py:256
+#: ./browser/notifications.py:232
 msgid "poi_email_issue_resolved_template"
 msgstr ""
 "Het issue **${issue_title}** in de **${tracker_title}**\n"
@@ -680,38 +708,17 @@ msgstr ""
 "* Dit is een automatische e-mail, gelieven niet de e-mail te beantwoorden - ${from_name}"
 
 #. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
-#: ./browser/notifications.py:117
+#: ./browser/notifications.py:93
 msgid "poi_email_new_issue_subject_template"
 msgstr "[${tracker_title}] #${issue_id} - Nieuw issue: ${issue_title}"
 
-#. Default: "A new issue has been submitted to the **${tracker_title}**\ntracker by **${issue_author}** and awaits confirmation.\n\nIssue Information\n-----------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n**Issue Details**::\n\n${issue_details}\n\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ./browser/notifications.py:84
-msgid "poi_email_new_issue_template"
-msgstr ""
-"Een nieuwe issue is ingediend in de **${tracker_title}**\n"
-"tracker door **${issue_author}** en wacht op bevestiging.\n"
-"\n"
-"Informatie over de reactie\n"
-"--------------------------\n"
-"\n"
-"Issue\n"
-"  ${issue_title} (${issue_url})\n"
-"\n"
-"\n"
-"**Details van het issue**::\n"
-"\n"
-"${issue_details}\n"
-"\n"
-"\n"
-"* Dit is een automatische e-mail, gelieven niet de e-mail te beantwoorden - ${from_name}"
-
 #. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
-#: ./browser/notifications.py:229
+#: ./browser/notifications.py:205
 msgid "poi_email_new_response_subject_template"
 msgstr "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
 
 #. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ./browser/notifications.py:198
+#: ./browser/notifications.py:174
 msgid "poi_email_new_response_template"
 msgstr ""
 "Er is een nieuwe reactie gegeven op het issue **${issue_title}**\n"
@@ -775,7 +782,7 @@ msgid "poi_heading_orphaned_issues"
 msgstr "Verlaten issues"
 
 #. Default: "Response Details"
-#: ./browser/notifications.py:172
+#: ./browser/notifications.py:148
 msgid "poi_heading_response_details"
 msgstr "Details van reactie"
 

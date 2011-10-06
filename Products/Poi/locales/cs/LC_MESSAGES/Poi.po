@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2011-10-05 23:28+0000\n"
+"POT-Creation-Date: 2011-10-06 00:04+0000\n"
 "PO-Revision-Date: 2010-10-19 14:38+0100\n"
 "Last-Translator: Lukas Zdych <lukas.zdych@gmail.com>\n"
 "Language-Team: DMS4U <dms4u.cz>\n"
@@ -15,6 +15,11 @@ msgstr ""
 "Language-Name: Czech\n"
 "Preferred-Encodings: utf-8 latin2\n"
 "Domain: Poi\n"
+
+#: ./browser/templates/poi_email_new_issue_html.pt:20
+#: ./browser/templates/poi_email_new_issue_plain.pt:8
+msgid "A new issue has been submitted to the ${tracker_title} tracker by ${issue_author} and awaits confirmation."
+msgstr ""
 
 #: ./browser/response.py:512
 msgid "Changes saved to response id ${response_id}."
@@ -35,9 +40,27 @@ msgstr "Upravit"
 msgid "Edit issue"
 msgstr "Upravit úlohu"
 
+#: ./browser/templates/poi_email_new_issue_html.pt:26
+msgid "Issue"
+msgstr ""
+
+#: ./browser/templates/poi_email_new_issue_html.pt:32
+#: ./browser/templates/poi_email_new_issue_plain.pt:19
+msgid "Issue Details:"
+msgstr ""
+
+#: ./browser/templates/poi_email_new_issue_html.pt:24
+#: ./browser/templates/poi_email_new_issue_plain.pt:13
+msgid "Issue Information"
+msgstr ""
+
 #: ./browser/response.py:408
 msgid "Issue state"
 msgstr "Stav úlohy"
+
+#: ./browser/templates/poi_email_new_issue_plain.pt:15
+msgid "Issue:"
+msgstr ""
 
 #: ./browser/response.py:540
 msgid "No response selected for removal."
@@ -495,6 +518,11 @@ msgstr "Zadat novou úlohu"
 msgid "Target release"
 msgstr "Cílové vydání"
 
+#: ./browser/templates/poi_email_new_issue_html.pt:35
+#: ./browser/templates/poi_email_new_issue_plain.pt:23
+msgid "This is an automated email, please do not reply &ndash; ${from_name}"
+msgstr ""
+
 #. Default: "Watch this issue"
 #: ./skins/Poi/poi_issue_view.pt:152
 msgid "Watch this issue"
@@ -649,17 +677,17 @@ msgid "poi_all_pending_issues"
 msgstr "Všechny nevyřízené úlohy"
 
 #. Default: "An attachment has been added with id ${attachment_id}"
-#: ./browser/notifications.py:190
+#: ./browser/notifications.py:166
 msgid "poi_attachment_added"
 msgstr "Příloha byla přidána a má id ${attachment_id}."
 
 #. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
-#: ./browser/notifications.py:286
+#: ./browser/notifications.py:262
 msgid "poi_email_issue_resolved_subject_template"
 msgstr "[${tracker_title}] Vyřešeno #${issue_id} - ${issue_title}"
 
 #. Default: "The issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ./browser/notifications.py:256
+#: ./browser/notifications.py:232
 msgid "poi_email_issue_resolved_template"
 msgstr ""
 "Úloha **${issue_title}** v manažeru úloh **${tracker_title}**\n"
@@ -677,38 +705,17 @@ msgstr ""
 "* Toto je automatická zpráva, prosíme neodpovídejte na ni - ${from_name}"
 
 #. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
-#: ./browser/notifications.py:117
+#: ./browser/notifications.py:93
 msgid "poi_email_new_issue_subject_template"
 msgstr "[${tracker_title}] #${issue_id} - Nová úloha: ${issue_title}"
 
-#. Default: "A new issue has been submitted to the **${tracker_title}**\ntracker by **${issue_author}** and awaits confirmation.\n\nIssue Information\n-----------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n**Issue Details**::\n\n${issue_details}\n\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ./browser/notifications.py:84
-msgid "poi_email_new_issue_template"
-msgstr ""
-"Nová úloha byla vytvořena v manažeru úloh **${tracker_title}**\n"
-"uživatelem **${issue_author}** a čeká na potvrzení.\n"
-"\n"
-"Informace o úloze\n"
-"-----------------\n"
-"\n"
-"Úloha\n"
-"  ${issue_title} (${issue_url})\n"
-"\n"
-"\n"
-"**Detail Úlohy**::\n"
-"\n"
-"${issue_details}\n"
-"\n"
-"\n"
-"* Toto je automatická zpráva, prosíme neodpovídejte na ni - ${from_name}"
-
 #. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
-#: ./browser/notifications.py:229
+#: ./browser/notifications.py:205
 msgid "poi_email_new_response_subject_template"
 msgstr "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
 
 #. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ./browser/notifications.py:198
+#: ./browser/notifications.py:174
 msgid "poi_email_new_response_template"
 msgstr ""
 "Nová reakce byla přidána k úloze **${issue_title}**\n"
@@ -772,7 +779,7 @@ msgid "poi_heading_orphaned_issues"
 msgstr "Nepřiřazené úlohy"
 
 #. Default: "Response Details"
-#: ./browser/notifications.py:172
+#: ./browser/notifications.py:148
 msgid "poi_heading_response_details"
 msgstr "Detail reakce"
 
