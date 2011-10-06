@@ -1,4 +1,3 @@
-import reStructuredText as rst
 import textwrap
 
 from Acquisition import aq_inner, aq_parent
@@ -27,19 +26,10 @@ class BasePoiMail(BaseMail):
 
         So we parse it as reStructuredText.
         """
-        rstText = self.plain
         pps = getMultiAdapter((self.context, self.request),
                               name="plone_portal_state")
         lang = pps.language()
         charset = get_charset()
-        ignored, warnings = rst.render(
-            rstText, input_encoding=charset, output_encoding=charset)
-        if len(warnings.messages) == 0:
-            body = rst.HTML(
-                rstText, input_encoding=charset, output_encoding=charset)
-        else:
-            # There are warnings, so we keep it simple.
-            body = '<pre>%s</pre>' % rstText
 
         # Try to get some styling.
         css = u''
@@ -56,13 +46,16 @@ class BasePoiMail(BaseMail):
         options = dict(
             lang=lang,
             charset=charset,
-            body=body,
             css=css,
             )
         return self.index(**options)
 
 
 class NewIssueMail(BasePoiMail):
+
+    index = ViewPageTemplateFile('templates/poi_email_new_issue_html.pt')
+    plain_index = ViewPageTemplateFile(
+        'templates/poi_email_new_issue_plain.pt')
 
     @property
     def plain(self):
@@ -80,35 +73,18 @@ class NewIssueMail(BasePoiMail):
         paras = issueText.splitlines()
         issueDetails = '\n\n'.join([wrapper.fill(p) for p in paras])
         tracker = context.getTracker()
+        mapping = dict(
+            issue_title=su(context.title_or_id()),
+            tracker_title=su(tracker.title_or_id()),
+            issue_author=su(issueAuthor),
+            issue_details=su(issueDetails),
+            issue_url=su(context.absolute_url()),
+            from_name=su(fromName))
+        # Store these on the view so the templates can use theme.
+        for k, v in mapping.items():
+            setattr(self, k, v)
 
-        mail_text = _(
-            'poi_email_new_issue_template',
-            u"""A new issue has been submitted to the **${tracker_title}**
-tracker by **${issue_author}** and awaits confirmation.
-
-Issue Information
------------------
-
-Issue
-  ${issue_title} (${issue_url})
-
-
-**Issue Details**::
-
-${issue_details}
-
-
-* This is an automated email, please do not reply - ${from_name}""",
-            mapping=dict(
-                issue_title=su(context.title_or_id()),
-                tracker_title=su(tracker.title_or_id()),
-                issue_author=su(issueAuthor),
-                issue_details=su(issueDetails),
-                issue_url=su(context.absolute_url()),
-                from_name=su(fromName)))
-        # Translate the body text
-        mail_text = translate(mail_text, 'Poi', context=self.request)
-        return mail_text
+        return self.plain_index()
 
     @property
     def subject(self):

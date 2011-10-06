@@ -1,0 +1,24 @@
+<tal xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="Poi"
+     tal:omit-tag="">
+<tal:block i18n:translate="">
+A new issue has been submitted to the
+<tal:title i18n:name="tracker_title" tal:content="view/tracker_title" />
+tracker by <tal:author i18n:name="issue_author"
+tal:content="view/issue_author" />
+and awaits confirmation.
+</tal:block>
+
+<tal:block i18n:translate="">Issue Information</tal:block>
+
+<tal:block i18n:translate="">Issue:</tal:block>
+  <tal:title content="view/issue_title" />
+  (<tal:link tal:content="view/issue_url" />)
+
+<tal:block i18n:translate="">Issue Details:</tal:block>
+
+<tal:details tal:content="structure view/issue_details" />
+
+* <tal:block i18n:translate="">This is an automated email, please do not reply &ndash; <tal:name i18n:name="from_name" tal:content="view/from_name" /></tal:block>
+</tal>
