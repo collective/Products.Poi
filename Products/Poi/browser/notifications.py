@@ -1,3 +1,4 @@
+import reStructuredText as rst
 import textwrap
 
 from Acquisition import aq_inner, aq_parent
@@ -31,6 +32,17 @@ class BasePoiMail(BaseMail):
         lang = pps.language()
         charset = get_charset()
 
+        # Get the plain body.  Not always needed.  Refactoring ongoing.
+        rstText = self.plain
+        ignored, warnings = rst.render(
+            rstText, input_encoding=charset, output_encoding=charset)
+        if len(warnings.messages) == 0:
+            body = rst.HTML(
+                rstText, input_encoding=charset, output_encoding=charset)
+        else:
+            # There are warnings, so we keep it simple.
+            body = '<pre>%s</pre>' % rstText
+
         # Try to get some styling.
         css = u''
         portal = getSite()
@@ -44,9 +56,10 @@ class BasePoiMail(BaseMail):
 
         # Pass some options to the template and render it.
         options = dict(
-            lang=lang,
+            body=body,  # Probably not needed when refactoring is finished.
             charset=charset,
             css=css,
+            lang=lang,
             )
         return self.index(**options)
 
