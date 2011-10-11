@@ -21,6 +21,7 @@ wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 class BasePoiMail(BaseMail):
 
     index = ViewPageTemplateFile('templates/poi_mail.pt')
+    plain_index = ''
     css_file_name = 'poi-email.css'
 
     def plain2rst(self):
@@ -59,11 +60,21 @@ class BasePoiMail(BaseMail):
             return u''
         return css
 
+    def options(self):
+        # Options to pass to the templates.
+        return {}
+
+    @property
+    def plain(self):
+        if not self.plain_index:
+            return u''
+        return self.plain_index(**self.options())
+
     @property
     def html(self):
         """Render the html version of the e-mail.
         """
-        return self.index()
+        return self.index(**self.options())
 
 
 class NewIssueMail(BasePoiMail):
@@ -72,8 +83,8 @@ class NewIssueMail(BasePoiMail):
     plain_index = ViewPageTemplateFile(
         'templates/poi_email_new_issue_plain.pt')
 
-    @property
-    def plain(self):
+    # XXX memoize?
+    def options(self):
         context = aq_inner(self.context)
         portal = getSite()
         fromName = portal.getProperty('email_from_name', '')
@@ -95,11 +106,7 @@ class NewIssueMail(BasePoiMail):
             issue_details=su(issueDetails),
             issue_url=su(context.absolute_url()),
             from_name=su(fromName))
-        # Store these on the view so the templates can use theme.
-        for k, v in mapping.items():
-            setattr(self, k, v)
-
-        return self.plain_index()
+        return mapping
 
     @property
     def subject(self):
