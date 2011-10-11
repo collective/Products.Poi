@@ -69,8 +69,6 @@ class BasePoiMail(BaseMail):
         if not self.plain_index:
             return u''
         output = self.plain_index(**self.options())
-        # XXX Put in collective.watcherlist?
-        self.request.response.setHeader('content-type', 'text/plain')
         return output
 
     @property
