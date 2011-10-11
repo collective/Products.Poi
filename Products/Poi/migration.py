@@ -369,3 +369,7 @@ def purge_workflow_scripts(context):
         if script_name in wf.scripts.objectIds():
             wf.scripts._delObject(script_name)
             logger.info('Removed script %s from %s', script_name, wf_id)
+
+
+def run_javascript_step(context):
+    context.runImportStepFromProfile(PROFILE_ID, 'jsregistry')
