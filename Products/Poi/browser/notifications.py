@@ -19,7 +19,7 @@ wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 
 class BasePoiMail(BaseMail):
 
-    index = ViewPageTemplateFile('poi_mail.pt')
+    index = ViewPageTemplateFile('templates/poi_mail.pt')
 
     @property
     def html(self):
