@@ -6,10 +6,13 @@
       xml:lang="en"
       lang="en"
       i18n:domain="Poi"
-      tal:attributes="lang options/lang;
-                      xml:lang options/lang">
+      tal:define="portal_state context/@@plone_portal_state;
+                  lang portal_state/language"
+      tal:attributes="lang lang;
+                      xml:lang lang">
   <head>
-    <tal:meta tal:replace="structure string:&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=${options/charset}&quot;&gt;" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title tal:content="view/subject" />
     <style type="text/css" media="all" tal:content="view/css">
     </style>
   </head>

@@ -63,17 +63,7 @@ class BasePoiMail(BaseMail):
     def html(self):
         """Render the html version of the e-mail.
         """
-        pps = getMultiAdapter((self.context, self.request),
-                              name="plone_portal_state")
-        lang = pps.language()
-        charset = get_charset()
-
-        # Pass some options to the template and render it.
-        options = dict(
-            charset=charset,
-            lang=lang,
-            )
-        return self.index(**options)
+        return self.index()
 
 
 class NewIssueMail(BasePoiMail):
