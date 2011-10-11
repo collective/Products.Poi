@@ -68,7 +68,10 @@ class BasePoiMail(BaseMail):
     def plain(self):
         if not self.plain_index:
             return u''
-        return self.plain_index(**self.options())
+        output = self.plain_index(**self.options())
+        # XXX Put in collective.watcherlist?
+        self.request.response.setHeader('content-type', 'text/plain')
+        return output
 
     @property
     def html(self):
@@ -127,20 +130,19 @@ class NewIssueMail(BasePoiMail):
 
 class NewResponseMail(BasePoiMail):
 
+    index = ViewPageTemplateFile('templates/poi_email_new_response_html.pt')
+    plain_index = ViewPageTemplateFile(
+        'templates/poi_email_new_response_plain.pt')
+
     def __init__(self, context, request):
         super(NewResponseMail, self).__init__(context, request)
         # With -1 we take the last response, which is a sensible default.
         self.response_id = int(self.request.get('response_id', -1))
 
-    @property
-    def plain(self):
-        """When a response is created, send a notification email to all
-        tracker managers, unless emailing is turned off.
-        """
+    def options(self):
         context = aq_inner(self.context)
         folder = IResponseContainer(context)
         response = folder[self.response_id]
-
         tracker = aq_parent(context)
 
         portal_url = getToolByName(context, 'portal_url')
@@ -159,21 +161,13 @@ class NewResponseMail(BasePoiMail):
         responseText = su(response.text)
         paras = responseText.splitlines()
 
-        # Indent the response details so they are correctly interpreted as
-        # a literal block after the double colon behind the 'Response
-        # Details' header.
-        wrapper = textwrap.TextWrapper(initial_indent=u'    ',
-                                       subsequent_indent=u'    ')
+        # Indent the response details so they are correctly
+        # interpreted as a literal block after the double colon behind
+        # the 'Response Details' header.  This only really matters
+        # when someone interprets this as reStructuredText though.
         responseDetails = u'\n\n'.join([wrapper.fill(p) for p in paras])
 
-        if responseDetails:
-            header = _(
-                'poi_heading_response_details',
-                u"Response Details")
-            header = translate(header, 'Poi', context=self.request)
-            responseDetails = u"**%s**::\n\n\n%s" % (header, responseDetails)
-
-        changes = u''
+        changes = []
         for change in response.changes:
             before = su(change.get('before'))
             after = su(change.get('after'))
@@ -183,42 +177,22 @@ class NewResponseMail(BasePoiMail):
             before = translate(before, 'plone', context=self.request)
             after = translate(after, 'plone', context=self.request)
             name = translate(name, 'Poi', context=self.request)
-            changes += u"- %s: %s -> %s\n" % (name, before, after)
+            changes.append(dict(name=name, before=before, after=after))
         if response.attachment:
-            extra = _(
-                'poi_attachment_added',
-                u"An attachment has been added with id ${attachment_id}",
-                mapping=dict(
-                    attachment_id=response.attachment.getId()))
-            extra = translate(extra, 'Poi', context=self.request)
-            changes += extra + "\n"
+            attachment_id = response.attachment.getId()
+        else:
+            attachment_id = u''
 
-        mail_text = _(
-            'poi_email_new_response_template',
-            u"""A new response has been given to the issue **${issue_title}**
-in the tracker **${tracker_title}** by **${response_author}**.
-
-Response Information
---------------------
-
-Issue
-  ${issue_title} (${issue_url})
-
-${changes}
-
-${response_details}
-
-* This is an automated email, please do not reply - ${from_name}""",
-            mapping=dict(
-                issue_title=su(context.title_or_id()),
-                tracker_title=su(tracker.title_or_id()),
-                response_author=responseAuthor,
-                response_details=responseDetails,
-                issue_url=su(context.absolute_url()),
-                changes=changes,
-                from_name=fromName))
-        mail_text = translate(mail_text, 'Poi', context=self.request)
-        return mail_text
+        mapping = dict(
+            issue_title=su(context.title_or_id()),
+            tracker_title=su(tracker.title_or_id()),
+            response_author=responseAuthor,
+            response_details=responseDetails,
+            issue_url=su(context.absolute_url()),
+            changes=changes,
+            from_name=fromName,
+            attachment_id=attachment_id)
+        return mapping
 
     @property
     def subject(self):

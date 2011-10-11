@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xml:lang="en"
+      lang="en"
+      i18n:domain="Poi"
+      tal:define="portal_state context/@@plone_portal_state;
+                  lang portal_state/language"
+      tal:attributes="lang lang;
+                      xml:lang lang">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title tal:content="view/subject" />
+    <style type="text/css" media="all" tal:content="view/css">
+    </style>
+  </head>
+  <body>
+    <p i18n:translate="">
+      A new response has been given to the issue <strong
+      i18n:name="issue_title" tal:content="options/issue_title" /> in
+      the tracker <tal:title i18n:name="tracker_title"
+      tal:content="options/tracker_title" /> by <strong
+      i18n:name="response_author"
+      tal:content="options/response_author" />.
+    </p>
+    <div class="section">
+      <h4 i18n:translate="">Response Information</h4>
+      <dl class="docutils">
+        <dt i18n:translate="">Issue:</dt>
+        <dd>
+          <tal:title content="options/issue_title" />
+          (<a tal:attributes="href options/issue_url" tal:content="options/issue_url" />)
+        </dd>
+      </dl>
+      <ul tal:condition="python:options.get('changes') or options.get('attachment_id')">
+        <li tal:repeat="change options/changes">
+          <tal:name content="change/name" />: <tal:before content="change/before" /> &#8594; <tal:after content="change/after" />
+        </li>
+        <li tal:condition="options/attachment_id" i18n:translate="">An attachment has been added with id
+        <tal:id i18n:name="id" tal:content="options/attachment_id" />.
+        </li>
+      </ul>
+      <p tal:condition="options/response_details"><strong i18n:translate="">Response Details:</strong></p>
+      <pre tal:content="structure options/response_details" />
+    </div>
+    <p class="automated" i18n:translate="">This is an automated email, please do not reply.</p>
+    <p class="from_name" tal:content="options/from_name" />
+  </body>
+</html>

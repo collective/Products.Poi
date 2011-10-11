@@ -1,0 +1,33 @@
+<tal xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="Poi"
+     tal:omit-tag=""
+     ><tal:block i18n:translate="">A new response has been given to the issue
+<tal:title i18n:name="issue_title" tal:content="options/issue_title" />
+in the tracker <tal:title i18n:name="tracker_title" tal:content="options/tracker_title" />
+by <tal:author i18n:name="response_author"
+tal:content="options/response_author" />.
+</tal:block>
+
+<tal:block i18n:translate="">Response Information</tal:block>
+
+<tal:block i18n:translate="">Issue:</tal:block>
+  <tal:title content="options/issue_title" />
+  (<tal:link tal:content="options/issue_url" />)
+
+<tal:changes
+    condition="options/changes" repeat="change options/changes"
+    >- <tal:name content="change/name" />: <tal:before content="change/before" /> -> <tal:after content="change/after" /></tal:changes>
+<tal:attachment
+    condition="options/attachment_id"
+    >- <tal:block i18n:translate="">An attachment has been added with id <tal:id i18n:name="id" tal:content="options/attachment_id" />.</tal:block></tal:attachment>
+<tal:block condition="options/response_details">
+<tal:header i18n:translate="">Response Details:</tal:header>
+
+<tal:details tal:content="options/response_details" />
+</tal:block>
+<tal:block i18n:translate="">This is an automated email, please do not reply</tal:block>
+
+-- 
+<tal:name tal:content="options/from_name" />
+</tal>
