@@ -21,6 +21,21 @@ class BasePoiMail(BaseMail):
 
     index = ViewPageTemplateFile('templates/poi_mail.pt')
 
+    def plain2rst(self):
+        """Try to interpret the plain text as reStructuredText.
+        """
+        charset = get_charset()
+        rstText = self.plain
+        ignored, warnings = rst.render(
+            rstText, input_encoding=charset, output_encoding=charset)
+        if len(warnings.messages) == 0:
+            body = rst.HTML(
+                rstText, input_encoding=charset, output_encoding=charset)
+        else:
+            # There are warnings, so we keep it simple.
+            body = '<pre>%s</pre>' % rstText
+        return body
+
     @property
     def html(self):
         """Render the html version by interpreting the plain text as RST.
@@ -31,17 +46,6 @@ class BasePoiMail(BaseMail):
                               name="plone_portal_state")
         lang = pps.language()
         charset = get_charset()
-
-        # Get the plain body.  Not always needed.  Refactoring ongoing.
-        rstText = self.plain
-        ignored, warnings = rst.render(
-            rstText, input_encoding=charset, output_encoding=charset)
-        if len(warnings.messages) == 0:
-            body = rst.HTML(
-                rstText, input_encoding=charset, output_encoding=charset)
-        else:
-            # There are warnings, so we keep it simple.
-            body = '<pre>%s</pre>' % rstText
 
         # Try to get some styling.
         css = u''
@@ -56,7 +60,6 @@ class BasePoiMail(BaseMail):
 
         # Pass some options to the template and render it.
         options = dict(
-            body=body,  # Probably not needed when refactoring is finished.
             charset=charset,
             css=css,
             lang=lang,

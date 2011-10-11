@@ -13,6 +13,6 @@
     <style type="text/css" media="all" tal:content="options/css">
     </style>
   </head>
-  <body tal:content="structure options/body">
+  <body tal:content="structure view/plain2rst">
   </body>
 </html>
