@@ -10,7 +10,7 @@
 
   <head>
     <tal:meta tal:replace="structure string:&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=${options/charset}&quot;&gt;" />
-    <style type="text/css" media="all" tal:content="options/css">
+    <style type="text/css" media="all" tal:content="view/css">
     </style>
   </head>
   <body tal:content="structure view/plain2rst">

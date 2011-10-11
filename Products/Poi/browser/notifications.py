@@ -4,6 +4,7 @@ import textwrap
 from Acquisition import aq_inner, aq_parent
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from ZODB.POSException import ConflictError
 from collective.watcherlist.browser import BaseMail
 from collective.watcherlist.utils import su
 from collective.watcherlist.utils import get_charset
@@ -20,6 +21,7 @@ wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 class BasePoiMail(BaseMail):
 
     index = ViewPageTemplateFile('templates/poi_mail.pt')
+    css_file_name = 'poi-email.css'
 
     def plain2rst(self):
         """Try to interpret the plain text as reStructuredText.
@@ -37,31 +39,38 @@ class BasePoiMail(BaseMail):
         return body
 
     @property
-    def html(self):
-        """Render the html version by interpreting the plain text as RST.
+    def css(self):
+        """Render the styling for the html e-mail.
+        """
+        if not self.css_file_name:
+            return u''
+        pps = getMultiAdapter((self.context, self.request),
+                              name="plone_portal_state")
+        portal = pps.portal()
+        if not portal:
+            return u''
+        try:
+            # Render the css, in a way that seems to work for both
+            # dtml and plain css files.
+            css = '%s' % portal.restrictedTraverse(self.css_file_name)
+        except (ConflictError, KeyboardInterrupt):
+            raise
+        except:
+            return u''
+        return css
 
-        So we parse it as reStructuredText.
+    @property
+    def html(self):
+        """Render the html version of the e-mail.
         """
         pps = getMultiAdapter((self.context, self.request),
                               name="plone_portal_state")
         lang = pps.language()
         charset = get_charset()
 
-        # Try to get some styling.
-        css = u''
-        portal = getSite()
-        if portal is not None:
-            try:
-                # Render the css, in a way that seems to work for both
-                # dtml and plain css files.
-                css = '%s' % portal.restrictedTraverse('poi-email.css')
-            except:
-                pass
-
         # Pass some options to the template and render it.
         options = dict(
             charset=charset,
-            css=css,
             lang=lang,
             )
         return self.index(**options)
