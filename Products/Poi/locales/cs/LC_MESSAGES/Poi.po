@@ -234,10 +234,10 @@ msgid "Poi_help_subject"
 msgstr "Značky mohou být použity pro tvorbu libovolné kategorizace úloh. Níže uvedený seznam zobrazuje existující značky, které můžete vybrat nebo můžete přidat nové."
 
 # ./content/PoiTracker.py
-#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
 #: ./content/PoiTracker.py:261
 msgid "Poi_help_svnurl"
-msgstr "Prosíme zadejte Url souvisejícího SVN repositáře, např.: http://dev.plone.org/collective/changeset/%(rev)s pro produkty v Plone collective."
+msgstr "Prosíme zadejte Url souvisejícího SVN repositáře, např.: http://dev.plone.org/changeset/%(rev)s/collective pro produkty v Plone collective."
 
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"

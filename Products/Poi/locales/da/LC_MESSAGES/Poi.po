@@ -243,11 +243,11 @@ msgstr "Hvis muligt, beskriv trinene, som er nødvendige for at reproducere fejl
 msgid "Poi_help_subject"
 msgstr "Etiketter kan bruges til at tilføje en selvvalgt kategorisering af sager. Listen nedenfor viser ekeisterende etiketter, du kan vælge, eller du kan addere nye."
 
-#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
 #: ./content/PoiTracker.py:261
 #, fuzzy
 msgid "Poi_help_svnurl"
-msgstr "Indtast venligst URL'en til SVN-repositoriet, f.eks. http://dev.plone.org/collective/changeset/%(rev)s hvis det er et produkt i 'The Plone Collective'"
+msgstr "Indtast venligst URL'en til SVN-repositoriet, f.eks. http://dev.plone.org/changeset/%(rev)s/collective hvis det er et produkt i 'The Plone Collective'"
 
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"

@@ -242,11 +242,11 @@ msgid "Poi_help_subject"
 msgstr "I tag possono essere usati per aggiungere voci di classificazione arbitrarie alla richiesta. La lista qui sotto mostra tag esistenti che possono essere selezionati. E' comunque possibile aggiungere nuovi tag."
 
 # ./content/PoiTracker.py
-#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
 #: ./content/PoiTracker.py:261
 #, fuzzy
 msgid "Poi_help_svnurl"
-msgstr "Per favore inserisci l'URL del repository SVN connessi, ad esempio: http://dev.plone.org/collective/changeset/%(rev)s per i prodotti in Plone collective."
+msgstr "Per favore inserisci l'URL del repository SVN connessi, ad esempio: http://dev.plone.org/changeset/%(rev)s/collective per i prodotti in Plone collective."
 
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"

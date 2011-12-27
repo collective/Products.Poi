@@ -223,7 +223,7 @@ msgid "Poi_help_subject"
 msgstr "Rótulos podem ser usados para adicionar categorias arbitrárias às ocorrências. A lista abaixo mostra rótulos existentes que poderá seleccionar ou adicionar algum novo."
 
 # ./content/PoiTracker.py
-#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
 #: ./content/PoiTracker.py:261
 msgid "Poi_help_svnurl"
 msgstr ""

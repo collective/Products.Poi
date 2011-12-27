@@ -234,11 +234,11 @@ msgid "Poi_help_subject"
 msgstr "Kategorie (także znane jako słowa kluczowe, etykiety lub znaczniki) mogą być używane do grupowania zgłoszeń. Lista poniżej pokazuje istniejące kategorie, które mogą zostać wybrane. Możesz także dopisać nowe."
 
 # ./content/PoiTracker.py
-#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
 #: ./content/PoiTracker.py:261
 #, fuzzy
 msgid "Poi_help_svnurl"
-msgstr "Powiązane repozytorium SVN, np. http://dev.plone.org/collective/changeset/%(rev)s dla produktów z repozytorium Plone collective."
+msgstr "Powiązane repozytorium SVN, np. http://dev.plone.org/changeset/%(rev)s/collective dla produktów z repozytorium Plone collective."
 
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"

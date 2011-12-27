@@ -243,7 +243,7 @@ msgid "Poi_help_subject"
 msgstr "标记用于添加任意的分类到问题。下面的列表显示了可添加的现存标记，你也可添加一个新的。"
 
 # ./content/PoiTracker.py
-#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
 #: ./content/PoiTracker.py:261
 msgid "Poi_help_svnurl"
 msgstr ""

@@ -666,16 +666,16 @@ class TestLinkDetection(ptc.PoiTestCase):
         # I myself like to point to the changesets:
 
         tracker.update(
-            svnUrl="http://dev.plone.org/collective/changeset/%(rev)s")
+            svnUrl="http://dev.plone.org/changeset/%(rev)s/collective")
         self.assertEqual(
             tracker.linkDetection('r42'),
-            '<a href="http://dev.plone.org/collective/changeset/42">r42</a>')
+            '<a href="http://dev.plone.org/changeset/42/collective">r42</a>')
 
         # Of course it is fine to combine issues and revisions:
         self.createIssue(tracker, title="1")
         self.assertEqual(
             tracker.linkDetection('Issue #1 is fixed in r42.'),
-            'Issue <a href="../1">#1</a> is fixed in <a href="http://dev.plone.org/collective/changeset/42">r42</a>.')
+            'Issue <a href="../1">#1</a> is fixed in <a href="http://dev.plone.org/changeset/42/collective">r42</a>.')
 
 
 def test_suite():

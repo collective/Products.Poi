@@ -242,7 +242,7 @@ msgid "Poi_help_subject"
 msgstr "Verwenden Sie Stichworte als eine weitere Möglichkeit zur freien Kategorisierung der Problemstellungen. Die Liste zeigt bereits existierende Stichwörter zur Auswahl. Sie können auch neue Stichwörter vergeben."
 
 # ./content/PoiTracker.py
-#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
 #: ./content/PoiTracker.py:261
 #, fuzzy
 msgid "Poi_help_svnurl"

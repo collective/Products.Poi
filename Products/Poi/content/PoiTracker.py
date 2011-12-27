@@ -263,7 +263,7 @@ schema = atapi.Schema((
                     default=(
                         u"Please enter the Url to the related SVN repository, "
                         u"e.g.: "
-                        u"http://dev.plone.org/collective/changeset/%(rev)s "
+                        u"http://dev.plone.org/changeset/%(rev)s/collective "
                         u"for products in the Plone collective.")),
             size='90',
             ),

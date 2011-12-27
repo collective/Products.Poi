@@ -5,6 +5,9 @@ Changelog for Poi
 2.0.3 (unreleased)
 ------------------
 
+- Fixed example link for collective changesets.
+  [maurits]
+
 - Removed htmlrender.py.
   [maurits[
 

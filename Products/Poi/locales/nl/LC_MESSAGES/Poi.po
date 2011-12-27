@@ -237,10 +237,10 @@ msgid "Poi_help_subject"
 msgstr "Tags kunnen gebruikt worden om extra categorizatie toe te voegen aan issues. De lijst hier beneden laat de bestaande tags zien die u kunt selecteren of u kunt nieuwe toevoegen."
 
 # ./content/PoiTracker.py
-#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/collective/changeset/%(rev)s for products in the Plone collective."
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
 #: ./content/PoiTracker.py:261
 msgid "Poi_help_svnurl"
-msgstr "Vul alstublieft de url in naar de relevante SVN repository, bijvoorbeeld http://dev.plone.org/collective/changeset/%(rev)s voor producten in de Plone collective."
+msgstr "Vul alstublieft de url in naar de relevante SVN repository, bijvoorbeeld http://dev.plone.org/changeset/%(rev)s/collective voor producten in de Plone collective."
 
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"
