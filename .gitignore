@@ -1,0 +1,13 @@
+.installed.cfg
+.mr.developer.cfg
+bin
+coverage
+develop-eggs
+downloads
+eggs
+fake-eggs
+parts
+products
+report
+src
+var
