@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: poi-pt-br\n"
 "POT-Creation-Date: 2011-10-05 23:28+0000\n"
-"PO-Revision-Date: 2009-07-22 20:21-0300\n"
-"Last-Translator: Erico Andrei <erico@simplesconsultoria.com.br>\n"
+"PO-Revision-Date: 2012-04-09 13:59-0300\n"
+"Last-Translator: Gustavo Lepri <lepri@simplesconsultoria.com.br>\n"
 "Language-Team: Simples Consultoria <contato@simplesconsultoria.com.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -216,12 +216,12 @@ msgstr "Versão prevista para a correção desta ocorrência"
 #. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
 #: ./content/PoiTracker.py:209
 msgid "Poi_help_technicians"
-msgstr ""
+msgstr "Insira os ids dos usuários que serão resonsáveis por resolução da ocorrência, um por linha. Note que não tem problema em ter somente gerentes e nenhum técnico: gerentes também podem resolver ocorrências."
 
 #. Default: "Describe the purpose of this tracker"
 #: ./content/PoiTracker.py:71
 msgid "Poi_help_tracker_description"
-msgstr ""
+msgstr "Descreva o propósito desta ocorrência"
 
 #. Default: "Enter a descriptive name for this tracker"
 #: ./content/PoiTracker.py:57
@@ -299,7 +299,7 @@ msgstr "Tipo da Ocorrência"
 #. Default: "Id"
 #: ./content/PoiIssue.py:81
 msgid "Poi_label_issue_id"
-msgstr ""
+msgstr "Id"
 
 #. Default: "Title"
 #: ./content/PoiIssue.py:90
@@ -386,12 +386,12 @@ msgstr "Versão"
 #. Default: "Technicians"
 #: ./content/PoiTracker.py:207
 msgid "Poi_label_technicians"
-msgstr ""
+msgstr "Técnicos"
 
 #. Default: "Tracker description"
 #: ./content/PoiTracker.py:69
 msgid "Poi_label_tracker_description"
-msgstr ""
+msgstr "Descrição da ocorrência"
 
 #. Default: "Tracker name"
 #: ./content/PoiTracker.py:55
@@ -409,7 +409,7 @@ msgstr "Removida a resposta com id ${response_id}"
 
 #: ./browser/response.py:502
 msgid "Response does not exist anymore; perhaps it was removed by another user."
-msgstr ""
+msgstr "A resposta não existe mais; talvez ela foi removida por outro usuário."
 
 #: ./browser/response.py:555
 msgid "Response id ${response_id} does not exist so it cannot be removed."
@@ -451,7 +451,7 @@ msgstr "Parar de Observar esta Ocorrência"
 
 #: ./skins/Poi/poi_tracker_view.pt:90
 msgid "Stop watching this tracker"
-msgstr ""
+msgstr "Parar de observar esta ocorrência"
 
 #. Default: "Submit new issue"
 #: ./skins/Poi/poi_tracker_view.pt:62
@@ -469,7 +469,7 @@ msgstr "Observar a Ocorrência"
 
 #: ./skins/Poi/poi_tracker_view.pt:96
 msgid "Watch this tracker"
-msgstr ""
+msgstr "Observar esta ocorrência"
 
 #: ./browser/response.py:534
 msgid "You are not allowed to delete responses."
@@ -618,12 +618,12 @@ msgstr "Todas as tarefas pendentes"
 #. Default: "An attachment has been added with id ${attachment_id}"
 #: ./browser/notifications.py:190
 msgid "poi_attachment_added"
-msgstr ""
+msgstr "Um anexo foi adicionado com o id ${attachment_id}"
 
 #. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
 #: ./browser/notifications.py:286
 msgid "poi_email_issue_resolved_subject_template"
-msgstr ""
+msgstr "[${tracker_title}] Resolvido #${issue_id} - ${issue_title}"
 
 #. Default: "The issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n* This is an automated email, please do not reply - ${from_name}"
 #: ./browser/notifications.py:256
@@ -645,7 +645,7 @@ msgstr ""
 #. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
 #: ./browser/notifications.py:117
 msgid "poi_email_new_issue_subject_template"
-msgstr ""
+msgstr "[${tracker_title}] #${issue_id} - Nova ocorrência: ${issue_title}"
 
 #. Default: "A new issue has been submitted to the **${tracker_title}**\ntracker by **${issue_author}** and awaits confirmation.\n\nIssue Information\n-----------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n**Issue Details**::\n\n${issue_details}\n\n\n* This is an automated email, please do not reply - ${from_name}"
 #: ./browser/notifications.py:84
@@ -666,7 +666,7 @@ msgstr ""
 #. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
 #: ./browser/notifications.py:229
 msgid "poi_email_new_response_subject_template"
-msgstr ""
+msgstr "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
 
 #. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
 #: ./browser/notifications.py:198
@@ -864,7 +864,7 @@ msgstr "Nova ocorrência ${name} adicionada por ${author}"
 #. Default: "${author} added a new response to ${name}:"
 #: ./browser/log.pt:43
 msgid "poi_new_response_added"
-msgstr ""
+msgstr "${author} adicionou uma nova resposta em ${name}"
 
 #. Default: "Return to search"
 #: ./skins/Poi/poi_issue_search.pt:39
@@ -875,7 +875,7 @@ msgstr "Retorne aos resultados de busca"
 #. Default: "Return to search results"
 #: ./skins/Poi/poi_issue_view.pt:117
 msgid "poi_return_to_search_results"
-msgstr ""
+msgstr "Retornar para o resultado da busca"
 
 #. Default: "Return to tracker"
 #: ./skins/Poi/poi_issue_search_form.pt:24
