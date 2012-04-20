@@ -4,6 +4,10 @@
 
   <include file="notifications.zcml" />
 
+  <browser:resourceDirectory
+      name="poi"
+      directory="resources" />
+
   <browser:page
      name="log"
      for="Products.Poi.interfaces.ITracker"

@@ -69,6 +69,7 @@
           </td>
           <td>
             <form
+                id="poi-login-form"
                 tal:condition="isAnon"
                 tal:attributes="action string:${portal/absolute_url}/login_form?came_from=${here/absolute_url}">
               <div class="formControls">

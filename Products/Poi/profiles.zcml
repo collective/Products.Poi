@@ -139,4 +139,12 @@
       handler="Products.Poi.migration.run_workflow_step"
       profile="Products.Poi:default" />
 
+  <gs:upgradeStep
+      title="Run javascript import step"
+      description="Apply our own jsregistry.xml file."
+      source="2003"
+      destination="2004"
+      handler="Products.Poi.migration.run_javascript_step"
+      profile="Products.Poi:default" />
+
 </configure>
