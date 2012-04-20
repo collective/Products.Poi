@@ -1,7 +1,6 @@
 import unittest
 
-from zope.testing import doctest
-from zope.testing import doctestunit
+import doctest
 
 OPTIONFLAGS = (doctest.ELLIPSIS |
                doctest.NORMALIZE_WHITESPACE)
@@ -9,12 +8,12 @@ OPTIONFLAGS = (doctest.ELLIPSIS |
 
 def test_suite():
     return unittest.TestSuite([
-        doctestunit.DocTestSuite(module='Products.Poi.browser.response',
+        doctest.DocTestSuite(module='Products.Poi.browser.response',
                                  optionflags=OPTIONFLAGS),
-        doctestunit.DocFileSuite('responses.txt',
+        doctest.DocFileSuite('responses.txt',
                                  package='Products.Poi.tests',
                                  optionflags=OPTIONFLAGS),
-        doctestunit.DocFileSuite('linkdetection.txt',
+        doctest.DocFileSuite('linkdetection.txt',
                                  package='Products.Poi.tests',
                                  optionflags=OPTIONFLAGS),
         ])

@@ -84,7 +84,6 @@ class NewIssueMail(BasePoiMail):
     plain_index = ViewPageTemplateFile(
         'templates/poi_email_new_issue_plain.pt')
 
-    # XXX memoize?
     def options(self):
         context = aq_inner(self.context)
         portal = getSite()

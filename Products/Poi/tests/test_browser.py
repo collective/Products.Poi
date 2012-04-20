@@ -1,6 +1,6 @@
 import unittest
 
-from zope.testing import doctest
+import doctest
 from Testing.ZopeTestCase import FunctionalDocFileSuite as Suite
 
 from Products.Poi.tests.ptc import PoiFunctionalTestCase
