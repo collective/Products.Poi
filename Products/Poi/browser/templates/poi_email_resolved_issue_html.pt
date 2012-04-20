@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xml:lang="en"
+      lang="en"
+      i18n:domain="Poi"
+      tal:define="portal_state context/@@plone_portal_state;
+                  lang portal_state/language"
+      tal:attributes="lang lang;
+                      xml:lang lang">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title tal:content="view/subject" />
+    <style type="text/css" media="all" tal:content="view/css">
+    </style>
+  </head>
+  <body>
+    <p i18n:translate="">
+      The issue <strong i18n:name="issue_title" tal:content="options/issue_title" /> in the <strong
+      i18n:name="tracker_title" tal:content="options/tracker_title" />
+      tracker has been marked as resolved by <strong i18n:name="response_author"
+      tal:content="options/response_author" />
+      Please visit the issue and either confirm that it has been
+      satisfactorily resolved or re-open it.
+    </p>
+    <div class="section">
+      <h4 i18n:translate="">Issue Information</h4>
+      <dl class="docutils">
+        <dt i18n:translate="">Issue</dt>
+        <dd>
+          <tal:title content="options/issue_title" />
+          (<a tal:attributes="href options/issue_url" tal:content="options/issue_url" />)
+        </dd>
+      </dl>
+      <ul class="simple">
+        <li i18n:translate="">This is an automated email, please do not reply &ndash; <tal:name i18n:name="from_name" tal:content="options/from_name" /></li>
+      </ul>
+    </div>
+  </body>
+</html>

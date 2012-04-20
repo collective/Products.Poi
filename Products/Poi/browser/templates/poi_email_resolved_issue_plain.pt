@@ -1,0 +1,21 @@
+<tal xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="Poi"
+     tal:omit-tag="">
+<tal:block i18n:translate="">
+The issue <tal:title i18n:name="issue_title" tal:content="options/issue_title" /> in the <tal:title
+i18n:name="tracker_title" tal:content="options/tracker_title" />
+tracker has been marked as resolved by <tal:author i18n:name="response_author"
+tal:content="options/response_author" />
+Please visit the issue and either confirm that it has been
+satisfactorily resolved or re-open it.
+</tal:block>
+
+<tal:block i18n:translate="">Response Information</tal:block>
+
+<tal:block i18n:translate="">Issue:</tal:block>
+  <tal:title content="options/issue_title" />
+  (<tal:link tal:content="options/issue_url" />)
+
+* <tal:block i18n:translate="">This is an automated email, please do not reply &ndash; <tal:name i18n:name="from_name" tal:content="options/from_name" /></tal:block>
+</tal>

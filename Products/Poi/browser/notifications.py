@@ -210,8 +210,11 @@ class NewResponseMail(BasePoiMail):
 
 class ResolvedIssueMail(BasePoiMail):
 
-    @property
-    def plain(self):
+    index = ViewPageTemplateFile('templates/poi_email_resolved_issue_html.pt')
+    plain_index = ViewPageTemplateFile(
+        'templates/poi_email_resolved_issue_plain.pt')
+
+    def options(self):
         context = aq_inner(self.context)
         portal = getSite()
         fromName = portal.getProperty('email_from_name', '')
@@ -222,31 +225,13 @@ class ResolvedIssueMail(BasePoiMail):
         if memberInfo:
             stateChanger = memberInfo['fullname'] or stateChanger
         tracker = context.getTracker()
-        mail_text = _(
-            'poi_email_issue_resolved_template',
-            u"""The issue **${issue_title}** in the **${tracker_title}**
-tracker has been marked as resolved by **${response_author}**.
-Please visit the issue and either confirm that it has been
-satisfactorily resolved or re-open it.
-
-Response Information
---------------------
-
-Issue
-  ${issue_title} (${issue_url})
-
-
-* This is an automated email, please do not reply - ${from_name}""",
-            mapping=dict(
-                issue_title=su(context.title_or_id()),
-                tracker_title=su(tracker.title_or_id()),
-                response_author=su(stateChanger),
-                issue_url=su(context.absolute_url()),
-                from_name=su(fromName)))
-
-        # Translate the body text
-        mail_text = translate(mail_text, 'Poi', context=self.request)
-        return mail_text
+        mapping = dict(
+            issue_title=su(context.title_or_id()),
+            tracker_title=su(tracker.title_or_id()),
+            response_author=su(stateChanger),
+            issue_url=su(context.absolute_url()),
+            from_name=su(fromName))
+        return mapping
 
     @property
     def subject(self):
