@@ -9,7 +9,7 @@ readmefile = open(os.path.join('Products', 'Poi', 'README.txt'))
 readme = readmefile.read().strip()
 readmefile.close()
 
-historyfile = open(os.path.join('Products', 'Poi', 'HISTORY.txt'))
+historyfile = open('CHANGES.txt')
 history = historyfile.read().strip()
 historyfile.close()
 
