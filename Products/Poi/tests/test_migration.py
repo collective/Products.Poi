@@ -3,7 +3,7 @@ import unittest
 import doctest
 from Testing.ZopeTestCase import ZopeDocFileSuite as Suite
 
-from Products.Poi.tests.ptc import PoiMigrationTestCase
+from Products.Poi.tests.ptc import PoiTestCase
 
 OPTIONFLAGS = (doctest.ELLIPSIS |
                doctest.NORMALIZE_WHITESPACE)
@@ -11,25 +11,9 @@ OPTIONFLAGS = (doctest.ELLIPSIS |
 
 def test_suite():
     suites = [
-        Suite('migration_issue_description.txt',
-              package='Products.Poi.tests',
-              optionflags=OPTIONFLAGS,
-              test_class=PoiMigrationTestCase),
-        Suite('migration_workflow_changes.txt',
-              package='Products.Poi.tests',
-              optionflags=OPTIONFLAGS,
-              test_class=PoiMigrationTestCase),
-        Suite('migration_old_responses_original.txt',
-              package='Products.Poi.tests',
-              optionflags=OPTIONFLAGS,
-              test_class=PoiMigrationTestCase),
-        Suite('migration_old_responses_alternative.txt',
-              package='Products.Poi.tests',
-              optionflags=OPTIONFLAGS,
-              test_class=PoiMigrationTestCase),
         Suite('upgrade_steps.txt',
               package='Products.Poi.tests',
               optionflags=OPTIONFLAGS,
-              test_class=PoiMigrationTestCase),
+              test_class=PoiTestCase),
         ]
     return unittest.TestSuite(suites)

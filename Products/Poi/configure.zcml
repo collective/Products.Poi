@@ -87,8 +87,6 @@
       class=".content.PoiTracker.PoiTracker" />
   <five:deprecatedManageAddDelete
       class=".content.PoiIssue.PoiIssue" />
-  <five:deprecatedManageAddDelete
-      class=".content.PoiResponse.PoiResponse" />
 
   <!-- Allow assigning portlets to trackers and issues. -->
   <class class=".content.PoiTracker.PoiTracker">

@@ -30,4 +30,3 @@ __docformat__ = 'plaintext'
 # Classes
 import PoiTracker
 import PoiIssue
-import PoiResponse

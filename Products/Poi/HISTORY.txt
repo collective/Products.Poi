@@ -5,6 +5,12 @@ Changelog for Poi
 2.0.3 (unreleased)
 ------------------
 
+- Get rid of all code that still handled old PoiResponses.  If you
+  still have those (meaning you were using Poi 1.1.x before this),
+  then you must first update to version 2.0.x and run the upgrade
+  steps.
+  [maurits]
+
 - Add an uninstall method and profile, to clean up a bit more.  In
   addition to what the CMFQuickInstaller does, we remove our catalog
   columns and indexes, our skin layer from the skin selections, and

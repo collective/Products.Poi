@@ -7,8 +7,9 @@ then run our workflow upgrade step and check if this fixes it.  But we
 can at least run the step to see if it runs successfully.  Also,
 running a step twice should work too.
 
-Upgrade steps are run with the portal_setup tool as context:
+Upgrade steps are run as admin, with the portal_setup tool as context:
 
+    >>> self.loginAsPortalOwner()
     >>> context = self.portal.portal_setup
 
 Run the workflow step:
@@ -34,24 +35,6 @@ Run the types (typeinfo) step:
     >>> from Products.Poi.migration import run_types_step
     >>> run_types_step(context)
     >>> run_types_step(context)
-
-Remove the response content type:
-
-    >>> from Products.Poi.migration import remove_response_content_type
-    >>> from Products.CMFCore.utils import getToolByName
-    >>> types = getToolByName(self.portal, 'portal_types')
-    >>> 'PoiResponse' in types.objectIds()
-    False
-    >>> types._setObject('PoiResponse', object(), set_owner=0)
-    'PoiResponse'
-    >>> 'PoiResponse' in types.objectIds()
-    True
-    >>> remove_response_content_type(context)
-    >>> 'PoiResponse' in types.objectIds()
-    False
-    >>> remove_response_content_type(context)
-    >>> 'PoiResponse' in types.objectIds()
-    False
 
 Remove a no longer needed form controller action:
 

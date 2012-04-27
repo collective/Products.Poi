@@ -17,126 +17,6 @@ logger = logging.getLogger("Poi")
 PROFILE_ID = 'profile-Products.Poi:default'
 
 
-def has_old_responses(tool):
-    catalog = getToolByName(tool, 'portal_catalog')
-    responses = catalog.searchResults(portal_type='PoiResponse')
-    if len(responses) > 0:
-        logger.info("Found %s old style PoiResponses.", len(responses))
-        logger.warn("Migration is needed.")
-        return True
-    return False
-
-
-def replace_old_with_new_responses(issue):
-    if not IIssue.providedBy(issue):
-        return
-    responses = issue.objectValues(spec='PoiResponse')
-    folder = IResponseContainer(issue)
-    try:
-        request = issue.REQUEST
-    except AttributeError:
-        # When called via prefs_install_products_form (Plone 3.3) we
-        # have no REQUEST object here.  We will use a dummy then.
-        request = TestRequest()
-    createview = Create(issue, request)
-    path = '/'.join(issue.getPhysicalPath())
-    logger.debug("Migrating %s responses for issue at %s",
-                 len(responses), path)
-    if not responses:
-        return
-    for old_response in responses:
-        field = old_response.getField('response')
-        text = field.getRaw(old_response)
-        new_response = Response(text)
-        new_response.mimetype = field.getContentType(old_response)
-        new_response.creator = old_response.Creator()
-        new_response.date = old_response.CreationDate()
-        new_response.type = createview.determine_response_type(new_response)
-        changes = old_response.getIssueChanges()
-        for change in changes:
-            new_response.add_change(**change)
-        attachment_field = old_response.getField('attachment')
-        attachment = attachment_field.getRaw(old_response)
-        if attachment.get_size() > 0:
-            new_response.attachment = attachment
-        folder.add(new_response)
-        issue._delObject(old_response.getId())
-    # This seems a good time to reindex the issue for good measure.
-    issue.reindexObject()
-
-
-def migrate_responses(context):
-    logger.info("Starting migration of old style to new style responses.")
-    catalog = getToolByName(context, 'portal_catalog')
-    tracker_brains = catalog.searchResults(
-        portal_type=('PoiTracker', 'PoiPscTracker'))
-    logger.info("Found %s PoiTrackers.", len(tracker_brains))
-    for brain in tracker_brains:
-        try:
-            tracker = brain.getObject()
-        except (AttributeError, KeyError):
-            logger.warn("AttributeError or KeyError getting tracker object at "
-                        "%s", brain.getURL())
-            continue
-        # We definitely do not want to send any emails for responses
-        # added or removed during this migration.
-        original_send_emails = tracker.getSendNotificationEmails()
-        tracker.setSendNotificationEmails(False)
-        logger.info("Migrating %s issues in tracker %s",
-                    len(tracker.contentIds()), tracker.absolute_url())
-        for issue in tracker.contentValues():
-            replace_old_with_new_responses(issue)
-        tracker.setSendNotificationEmails(original_send_emails)
-        # We do a transaction commit here.  Otherwise on large sites
-        # (say plone.org) it may be virtually impossible to finish
-        # this very big migration.
-        logger.info("Committing transaction after migrating this tracker.")
-        transaction.commit()
-
-
-def migrate_responses_alternative(context):
-    """Alternative way to migrate responses.
-
-    On big sites (like plone.org) it can be hard for the response
-    migration to finish without getting a ConflictError when someone
-    else is adding content at the same time.  And the normal migration
-    wakes up all issues in each tracker, which is not ideal on a big
-    site.
-
-    This alternative migration can help you if a search like this
-    still gives search results:
-    http://plone.org/search?portal_type=PoiResponse
-    """
-    logger.info("Starting alternative migration of old style to new style "
-                "responses.")
-    catalog = getToolByName(context, 'portal_catalog')
-    response_brains = catalog.searchResults(
-        portal_type='PoiResponse')
-
-    def get_parent_path(path):
-        #return '/'.join(path.split('/')[:-1])
-        return path[:path.rfind('/')]
-
-    # Get a list of issues that still have one or more old style responses.
-    issue_paths = sets.Set()
-    logger.info("Found %d old style responses.", len(response_brains))
-    for brain in response_brains:
-        response_path = brain.getPath()
-        issue_paths.add(get_parent_path(response_path))
-    logger.info("Found %d issues with old style responses.", len(issue_paths))
-    for issue_path in issue_paths:
-        tracker_path = get_parent_path(issue_path)
-        tracker = context.restrictedTraverse(tracker_path)
-        issue = tracker.restrictedTraverse(issue_path)
-        original_send_emails = tracker.getSendNotificationEmails()
-        tracker.setSendNotificationEmails(False)
-        logger.info("Migrating issue %s", issue_path)
-        replace_old_with_new_responses(issue)
-        tracker.setSendNotificationEmails(original_send_emails)
-        logger.info("Committing transaction after migrating this issue.")
-        transaction.commit()
-
-
 def migrate_workflow_changes(context):
     """Migrate workflow changes from ids to titles.
 
@@ -186,51 +66,6 @@ def migrate_workflow_changes(context):
                             "%s PoiIssues; still busy... " % fixed)
                 transaction.commit()
     logger.info("Migration completed.  %s PoiIssues needed fixing.", fixed)
-
-
-def fix_descriptions(context):
-    """Fix issue Descriptions.
-
-    In revision 53855 a change was made that caused the Description
-    field of issues that were first strings to now possibly turn into
-    unicode.  That fixed this issue:
-    http://plone.org/products/poi/issues/135
-
-    But as stated at the bottom of that issue, this can give a
-    UnicodeEncodeError when changing the issue or adding a response to
-    it.  The Description string that is in the catalog brain is
-    compared to the unicode Description from the object and this fails
-    when the brain Description has non-ascii characters.
-
-    A good workaround is to clear and rebuild the catalog.  But
-    running this upgrade step also fixes it.
-    """
-    logger.info("Start fixing issue descriptions.")
-    catalog = getToolByName(context, 'portal_catalog')
-    brains = catalog.searchResults(portal_type='PoiIssue')
-    logger.info("Found %s PoiIssues.", len(brains))
-    fixed = 0
-    for brain in brains:
-        if isinstance(brain.Description, str):
-            try:
-                issue = brain.getObject()
-            except (AttributeError, KeyError):
-                logger.warn("AttributeError or KeyError getting tracker "
-                            "object at %s", brain.getURL())
-                continue
-            if isinstance(issue.Description(), unicode):
-                logger.debug("Un/reindexing PoiIssue %s", brain.getURL())
-                # This is the central point really: directly
-                # reindexing this issue can fail if the description
-                # has non-ascii characters.  So we unindex it first.
-                catalog.unindexObject(issue)
-                catalog.reindexObject(issue)
-                fixed += 1
-                if fixed % 100 == 0:
-                    logger.info("Committing transaction after fixing "
-                                "%s PoiIssues; still busy... " % fixed)
-                    transaction.commit()
-    logger.info("Fix completed.  %s PoiIssues needed fixing.", fixed)
 
 
 def run_workflow_step(context):
@@ -291,16 +126,6 @@ def update_tracker_managers(context, testing=False):
             logger.info("Committing after updating roles on tracker %s",
                         tracker.absolute_url())
             transaction.commit()
-
-
-def remove_response_content_type(context):
-    """Remove the PoiResponse content type from the portal_types tool.
-    """
-    types = getToolByName(context, 'portal_types')
-    try:
-        types._delObject('PoiResponse')
-    except AttributeError:
-        pass
 
 
 def remove_form_controller_action(context):
