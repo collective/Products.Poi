@@ -1,12 +1,12 @@
 # Dutch Poi translations
 # Translators:
 # Ralph Jacobs <ralph@fourdigits.nl>, 2008
-# Maurits van Rees <maurits@vanrees.org>, 2008-2011
+# Maurits van Rees <maurits@vanrees.org>, 2008-2012
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2012-04-27 23:40+0000\n"
-"PO-Revision-Date: 2011-10-06 01:35+0200\n"
+"PO-Revision-Date: 2012-04-28 01:42+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,12 +27,12 @@ msgstr "Een nieuwe issue is ingediend in de ${tracker_title} tracker door ${issu
 #: ./browser/templates/poi_email_new_response_html.pt:24
 #: ./browser/templates/poi_email_new_response_plain.pt:8
 msgid "A new response has been given to the issue ${issue_title} in the tracker ${tracker_title} by ${response_author}."
-msgstr ""
+msgstr "Er is een nieuwe reactie gegeven op het issue ${issue_title} in de tracker ${tracker_title} door ${response_author}."
 
 #: ./browser/templates/poi_email_new_response_html.pt:42
 #: ./browser/templates/poi_email_new_response_plain.pt:23
 msgid "An attachment has been added with id ${id}."
-msgstr ""
+msgstr "Een bijlage is toegevoegd met id ${id}"
 
 #: ./browser/response.py:512
 msgid "Changes saved to response id ${response_id}."
@@ -483,13 +483,13 @@ msgstr "Reactie met id ${response_id} verwijderd."
 #: ./browser/templates/poi_email_new_response_html.pt:45
 #: ./browser/templates/poi_email_new_response_plain.pt:25
 msgid "Response Details:"
-msgstr ""
+msgstr "Details van reactie"
 
 #: ./browser/templates/poi_email_new_response_html.pt:29
 #: ./browser/templates/poi_email_new_response_plain.pt:12
 #: ./browser/templates/poi_email_resolved_issue_plain.pt:14
 msgid "Response Information"
-msgstr ""
+msgstr "Informatie over de reactie"
 
 #: ./browser/response.py:502
 msgid "Response does not exist anymore; perhaps it was removed by another user."
@@ -549,11 +549,11 @@ msgstr "Doelrelease"
 #: ./browser/templates/poi_email_resolved_issue_html.pt:23
 #: ./browser/templates/poi_email_resolved_issue_plain.pt:8
 msgid "The issue ${issue_title} in the ${tracker_title} tracker has been marked as resolved by ${response_author} Please visit the issue and either confirm that it has been satisfactorily resolved or re-open it."
-msgstr ""
+msgstr "Het issue ${issue_title} in de ${tracker_title} tracker is opgelost door ${response_author}. Bezoek alstublieft het issue en bevestig dat het naar tevredenheid is opgelost of heropen het."
 
 #: ./browser/templates/poi_email_new_response_plain.pt:29
 msgid "This is an automated email, please do not reply"
-msgstr ""
+msgstr "Dit is een automatische e-mail, gelieven niet de e-mail te beantwoorden"
 
 #: ./browser/templates/poi_email_new_issue_html.pt:38
 #: ./browser/templates/poi_email_new_issue_plain.pt:23
@@ -563,7 +563,7 @@ msgstr "Dit is een automatische e-mail, gelieven niet de e-mail te beantwoorden 
 
 #: ./browser/templates/poi_email_new_response_html.pt:48
 msgid "This is an automated email, please do not reply."
-msgstr ""
+msgstr "Dit is een automatische e-mail, gelieven niet de e-mail te beantwoorden."
 
 #. Default: "Watch this issue"
 #: ./skins/Poi/poi_issue_view.pt:152
