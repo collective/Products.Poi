@@ -5,6 +5,13 @@ Changelog for Poi
 2.0.3 (unreleased)
 ------------------
 
+- Add an uninstall method and profile, to clean up a bit more.  In
+  addition to what the CMFQuickInstaller does, we remove our catalog
+  columns and indexes, our skin layer from the skin selections, and
+  our types from the parentMetaTypesNotToQuery in the
+  navtree_properties.
+  [maurits]
+
 - Refactored all email notifications to templates. This should make it
   easier to customize and translate.
   [maurits]
