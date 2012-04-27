@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2011-10-06 00:04+0000\n"
+"POT-Creation-Date: 2012-04-27 23:40+0000\n"
 "PO-Revision-Date: 2005-12-26 03:19 +0000\n"
 "Last-Translator: Junyong Pan <panjy@zopechina.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,9 +17,19 @@ msgstr ""
 "Domain: Poi\n"
 "X-Is-Fallback-For: zh-cn zh-hk zh-mo zh-sg\n"
 
-#: ./browser/templates/poi_email_new_issue_html.pt:20
+#: ./browser/templates/poi_email_new_issue_html.pt:23
 #: ./browser/templates/poi_email_new_issue_plain.pt:8
 msgid "A new issue has been submitted to the ${tracker_title} tracker by ${issue_author} and awaits confirmation."
+msgstr ""
+
+#: ./browser/templates/poi_email_new_response_html.pt:24
+#: ./browser/templates/poi_email_new_response_plain.pt:8
+msgid "A new response has been given to the issue ${issue_title} in the tracker ${tracker_title} by ${response_author}."
+msgstr ""
+
+#: ./browser/templates/poi_email_new_response_html.pt:42
+#: ./browser/templates/poi_email_new_response_plain.pt:23
+msgid "An attachment has been added with id ${id}."
 msgstr ""
 
 #: ./browser/response.py:512
@@ -41,17 +51,19 @@ msgstr "编辑"
 msgid "Edit issue"
 msgstr ""
 
-#: ./browser/templates/poi_email_new_issue_html.pt:26
+#: ./browser/templates/poi_email_new_issue_html.pt:29
+#: ./browser/templates/poi_email_resolved_issue_html.pt:31
 msgid "Issue"
 msgstr ""
 
-#: ./browser/templates/poi_email_new_issue_html.pt:32
+#: ./browser/templates/poi_email_new_issue_html.pt:35
 #: ./browser/templates/poi_email_new_issue_plain.pt:19
 msgid "Issue Details:"
 msgstr ""
 
-#: ./browser/templates/poi_email_new_issue_html.pt:24
+#: ./browser/templates/poi_email_new_issue_html.pt:27
 #: ./browser/templates/poi_email_new_issue_plain.pt:13
+#: ./browser/templates/poi_email_resolved_issue_html.pt:29
 msgid "Issue Information"
 msgstr ""
 
@@ -60,6 +72,8 @@ msgid "Issue state"
 msgstr ""
 
 #: ./browser/templates/poi_email_new_issue_plain.pt:15
+#: ./browser/templates/poi_email_new_response_html.pt:31
+#: ./browser/templates/poi_email_new_response_plain.pt:14
 msgid "Issue:"
 msgstr ""
 
@@ -473,6 +487,17 @@ msgstr "问题观察人员"
 msgid "Removed response id ${response_id}."
 msgstr ""
 
+#: ./browser/templates/poi_email_new_response_html.pt:45
+#: ./browser/templates/poi_email_new_response_plain.pt:25
+msgid "Response Details:"
+msgstr ""
+
+#: ./browser/templates/poi_email_new_response_html.pt:29
+#: ./browser/templates/poi_email_new_response_plain.pt:12
+#: ./browser/templates/poi_email_resolved_issue_plain.pt:14
+msgid "Response Information"
+msgstr ""
+
 #: ./browser/response.py:502
 msgid "Response does not exist anymore; perhaps it was removed by another user."
 msgstr ""
@@ -515,7 +540,7 @@ msgstr ""
 msgid "Stop watching this issue"
 msgstr "退定这个问题的答复"
 
-#: ./skins/Poi/poi_tracker_view.pt:90
+#: ./skins/Poi/poi_tracker_view.pt:91
 msgid "Stop watching this tracker"
 msgstr ""
 
@@ -528,9 +553,23 @@ msgstr "提交新的问题(提案)"
 msgid "Target release"
 msgstr ""
 
-#: ./browser/templates/poi_email_new_issue_html.pt:35
+#: ./browser/templates/poi_email_resolved_issue_html.pt:23
+#: ./browser/templates/poi_email_resolved_issue_plain.pt:8
+msgid "The issue ${issue_title} in the ${tracker_title} tracker has been marked as resolved by ${response_author} Please visit the issue and either confirm that it has been satisfactorily resolved or re-open it."
+msgstr ""
+
+#: ./browser/templates/poi_email_new_response_plain.pt:29
+msgid "This is an automated email, please do not reply"
+msgstr ""
+
+#: ./browser/templates/poi_email_new_issue_html.pt:38
 #: ./browser/templates/poi_email_new_issue_plain.pt:23
+#: ./browser/templates/poi_email_resolved_issue_html.pt:38
 msgid "This is an automated email, please do not reply &ndash; ${from_name}"
+msgstr ""
+
+#: ./browser/templates/poi_email_new_response_html.pt:48
+msgid "This is an automated email, please do not reply."
 msgstr ""
 
 #. Default: "Watch this issue"
@@ -538,7 +577,7 @@ msgstr ""
 msgid "Watch this issue"
 msgstr "邮件订阅这个问题的答复情况"
 
-#: ./skins/Poi/poi_tracker_view.pt:96
+#: ./skins/Poi/poi_tracker_view.pt:97
 msgid "Watch this tracker"
 msgstr ""
 
@@ -556,7 +595,7 @@ msgid "batch_x_items_matching_your_criteria"
 msgstr "有${number}个条目满足您的条件。"
 
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ./skins/Poi/poi_tracker_view.pt:109
+#: ./skins/Poi/poi_tracker_view.pt:110
 msgid "description_cannot_add_issues_before_opened"
 msgstr ""
 
@@ -571,7 +610,7 @@ msgid "label_edit_response_not_allowed"
 msgstr ""
 
 #. Default: "Powered by"
-#: ./skins/Poi/poi_tracker_view.pt:292
+#: ./skins/Poi/poi_tracker_view.pt:293
 msgid "label_powered_by"
 msgstr ""
 
@@ -582,7 +621,7 @@ msgstr ""
 
 #. Default: "RSS Feed"
 #: ./skins/Poi/poi_issue_search_results.pt:10
-#: ./skins/Poi/poi_tracker_view.pt:215
+#: ./skins/Poi/poi_tracker_view.pt:216
 msgid "label_rss_feed"
 msgstr ""
 
@@ -683,58 +722,43 @@ msgid "poi_added_on"
 msgstr "时间："
 
 #. Default: "All pending issues"
-#: ./skins/Poi/poi_tracker_view.pt:163
+#: ./skins/Poi/poi_tracker_view.pt:164
 msgid "poi_all_pending_issues"
 msgstr ""
 
-#. Default: "An attachment has been added with id ${attachment_id}"
-#: ./browser/notifications.py:166
-msgid "poi_attachment_added"
-msgstr ""
-
 #. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
-#: ./browser/notifications.py:262
+#: ./browser/notifications.py:240
 msgid "poi_email_issue_resolved_subject_template"
 msgstr ""
 
-#. Default: "The issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ./browser/notifications.py:232
-msgid "poi_email_issue_resolved_template"
-msgstr ""
-
 #. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
-#: ./browser/notifications.py:93
+#: ./browser/notifications.py:115
 msgid "poi_email_new_issue_subject_template"
 msgstr ""
 
 #. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
-#: ./browser/notifications.py:205
+#: ./browser/notifications.py:198
 msgid "poi_email_new_response_subject_template"
 msgstr ""
 
-#. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ./browser/notifications.py:174
-msgid "poi_email_new_response_template"
-msgstr ""
-
 #. Default: "By area"
-#: ./skins/Poi/poi_tracker_view.pt:130
+#: ./skins/Poi/poi_tracker_view.pt:131
 msgid "poi_heading_by_area"
 msgstr "按“领域”"
 
 #. Default: "By target release"
-#: ./skins/Poi/poi_tracker_view.pt:147
+#: ./skins/Poi/poi_tracker_view.pt:148
 #, fuzzy
 msgid "poi_heading_by_release"
 msgstr "按“版本”"
 
 #. Default: "By state"
-#: ./skins/Poi/poi_tracker_view.pt:160
+#: ./skins/Poi/poi_tracker_view.pt:161
 msgid "poi_heading_by_state"
 msgstr "按“状态”"
 
 #. Default: "By tag"
-#: ./skins/Poi/poi_tracker_view.pt:184
+#: ./skins/Poi/poi_tracker_view.pt:185
 msgid "poi_heading_by_tag"
 msgstr "按“标记”"
 
@@ -749,23 +773,18 @@ msgid "poi_heading_log"
 msgstr ""
 
 #. Default: "My issues"
-#: ./skins/Poi/poi_tracker_view.pt:236
+#: ./skins/Poi/poi_tracker_view.pt:237
 msgid "poi_heading_my_issues"
 msgstr "我的问题"
 
 #. Default: "Open issues"
-#: ./skins/Poi/poi_tracker_view.pt:119
+#: ./skins/Poi/poi_tracker_view.pt:120
 msgid "poi_heading_open_issues"
 msgstr "开放的问题"
 
 #. Default: "Orphaned issues"
-#: ./skins/Poi/poi_tracker_view.pt:270
+#: ./skins/Poi/poi_tracker_view.pt:271
 msgid "poi_heading_orphaned_issues"
-msgstr ""
-
-#. Default: "Response Details"
-#: ./browser/notifications.py:148
-msgid "poi_heading_response_details"
 msgstr ""
 
 #. Default: "Issue search results"
@@ -774,7 +793,7 @@ msgid "poi_heading_search_results"
 msgstr "问题查找结果"
 
 #. Default: "Unconfirmed issues"
-#: ./skins/Poi/poi_tracker_view.pt:205
+#: ./skins/Poi/poi_tracker_view.pt:206
 msgid "poi_heading_unconfirmed_issues"
 msgstr "未确认的问题"
 
@@ -784,30 +803,30 @@ msgid "poi_help_log"
 msgstr ""
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ./skins/Poi/poi_tracker_view.pt:237
+#: ./skins/Poi/poi_tracker_view.pt:238
 #, fuzzy
 msgid "poi_help_my_issues_manager"
 msgstr "下面的开放问题要么是你提交的，要么是分配给你的"
 
 #. Default: "The following open issues were submitted by you."
-#: ./skins/Poi/poi_tracker_view.pt:244
+#: ./skins/Poi/poi_tracker_view.pt:245
 #, fuzzy
 msgid "poi_help_my_issues_not_manager"
 msgstr "下面的开放问题是你提交的"
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
-#: ./skins/Poi/poi_tracker_view.pt:123
+#: ./skins/Poi/poi_tracker_view.pt:124
 #, fuzzy
 msgid "poi_help_open_issues"
 msgstr "点击一个领域、版本或者问题状态，查看所有这个分类的开放问题。要使用更高级的搜索选项，点击“查找问题”"
 
 #. Default: "The following open issues are not assigned to anyone."
-#: ./skins/Poi/poi_tracker_view.pt:271
+#: ./skins/Poi/poi_tracker_view.pt:272
 msgid "poi_help_orphaned_issues_"
 msgstr ""
 
 #. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
-#: ./skins/Poi/poi_tracker_view.pt:206
+#: ./skins/Poi/poi_tracker_view.pt:207
 #, fuzzy
 msgid "poi_help_unconfirmed_issues"
 msgstr "下面的问题还没有确认或者分配。请审查他们，进行适当的处理。"
@@ -1054,17 +1073,17 @@ msgid "title_rss_feed"
 msgstr ""
 
 #. Default: "RSS feed of my issues"
-#: ./skins/Poi/poi_tracker_view.pt:251
+#: ./skins/Poi/poi_tracker_view.pt:252
 msgid "title_rss_feed_my_issues"
 msgstr ""
 
 #. Default: "RSS feed of orphaned issues"
-#: ./skins/Poi/poi_tracker_view.pt:279
+#: ./skins/Poi/poi_tracker_view.pt:280
 msgid "title_rss_feed_orphaned"
 msgstr ""
 
 #. Default: "RSS feed of unconfirmed issues"
-#: ./skins/Poi/poi_tracker_view.pt:215
+#: ./skins/Poi/poi_tracker_view.pt:216
 msgid "title_rss_feed_unconfirmed"
 msgstr ""
 

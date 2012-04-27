@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2011-10-06 00:04+0000\n"
+"POT-Creation-Date: 2012-04-27 23:40+0000\n"
 "PO-Revision-Date: 2010-01-24 15:00+0010\n"
 "Last-Translator: STX Next <info@stxnext.pl>\n"
 "Language-Team: STX Next <info@stxnext.pl>\n"
@@ -15,9 +15,19 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: Poi\n"
 
-#: ./browser/templates/poi_email_new_issue_html.pt:20
+#: ./browser/templates/poi_email_new_issue_html.pt:23
 #: ./browser/templates/poi_email_new_issue_plain.pt:8
 msgid "A new issue has been submitted to the ${tracker_title} tracker by ${issue_author} and awaits confirmation."
+msgstr ""
+
+#: ./browser/templates/poi_email_new_response_html.pt:24
+#: ./browser/templates/poi_email_new_response_plain.pt:8
+msgid "A new response has been given to the issue ${issue_title} in the tracker ${tracker_title} by ${response_author}."
+msgstr ""
+
+#: ./browser/templates/poi_email_new_response_html.pt:42
+#: ./browser/templates/poi_email_new_response_plain.pt:23
+msgid "An attachment has been added with id ${id}."
 msgstr ""
 
 #: ./browser/response.py:512
@@ -39,17 +49,19 @@ msgstr "Edytuj"
 msgid "Edit issue"
 msgstr "Edytuj zgłoszenie"
 
-#: ./browser/templates/poi_email_new_issue_html.pt:26
+#: ./browser/templates/poi_email_new_issue_html.pt:29
+#: ./browser/templates/poi_email_resolved_issue_html.pt:31
 msgid "Issue"
 msgstr ""
 
-#: ./browser/templates/poi_email_new_issue_html.pt:32
+#: ./browser/templates/poi_email_new_issue_html.pt:35
 #: ./browser/templates/poi_email_new_issue_plain.pt:19
 msgid "Issue Details:"
 msgstr ""
 
-#: ./browser/templates/poi_email_new_issue_html.pt:24
+#: ./browser/templates/poi_email_new_issue_html.pt:27
 #: ./browser/templates/poi_email_new_issue_plain.pt:13
+#: ./browser/templates/poi_email_resolved_issue_html.pt:29
 msgid "Issue Information"
 msgstr ""
 
@@ -58,6 +70,8 @@ msgid "Issue state"
 msgstr "Status zgłoszenia"
 
 #: ./browser/templates/poi_email_new_issue_plain.pt:15
+#: ./browser/templates/poi_email_new_response_html.pt:31
+#: ./browser/templates/poi_email_new_response_plain.pt:14
 msgid "Issue:"
 msgstr ""
 
@@ -460,6 +474,17 @@ msgstr "Osoby obserwujące"
 msgid "Removed response id ${response_id}."
 msgstr "Odpowiedź o id ${response_id} została usunięta."
 
+#: ./browser/templates/poi_email_new_response_html.pt:45
+#: ./browser/templates/poi_email_new_response_plain.pt:25
+msgid "Response Details:"
+msgstr ""
+
+#: ./browser/templates/poi_email_new_response_html.pt:29
+#: ./browser/templates/poi_email_new_response_plain.pt:12
+#: ./browser/templates/poi_email_resolved_issue_plain.pt:14
+msgid "Response Information"
+msgstr ""
+
 #: ./browser/response.py:502
 msgid "Response does not exist anymore; perhaps it was removed by another user."
 msgstr ""
@@ -502,7 +527,7 @@ msgstr "Priorytet"
 msgid "Stop watching this issue"
 msgstr "Przestań śledzić to zgłoszenie"
 
-#: ./skins/Poi/poi_tracker_view.pt:90
+#: ./skins/Poi/poi_tracker_view.pt:91
 msgid "Stop watching this tracker"
 msgstr ""
 
@@ -515,9 +540,23 @@ msgstr "Zgłoś błąd"
 msgid "Target release"
 msgstr "Docelowe wydanie"
 
-#: ./browser/templates/poi_email_new_issue_html.pt:35
+#: ./browser/templates/poi_email_resolved_issue_html.pt:23
+#: ./browser/templates/poi_email_resolved_issue_plain.pt:8
+msgid "The issue ${issue_title} in the ${tracker_title} tracker has been marked as resolved by ${response_author} Please visit the issue and either confirm that it has been satisfactorily resolved or re-open it."
+msgstr ""
+
+#: ./browser/templates/poi_email_new_response_plain.pt:29
+msgid "This is an automated email, please do not reply"
+msgstr ""
+
+#: ./browser/templates/poi_email_new_issue_html.pt:38
 #: ./browser/templates/poi_email_new_issue_plain.pt:23
+#: ./browser/templates/poi_email_resolved_issue_html.pt:38
 msgid "This is an automated email, please do not reply &ndash; ${from_name}"
+msgstr ""
+
+#: ./browser/templates/poi_email_new_response_html.pt:48
+msgid "This is an automated email, please do not reply."
 msgstr ""
 
 #. Default: "Watch this issue"
@@ -525,7 +564,7 @@ msgstr ""
 msgid "Watch this issue"
 msgstr "Śledz to zgłoszenie"
 
-#: ./skins/Poi/poi_tracker_view.pt:96
+#: ./skins/Poi/poi_tracker_view.pt:97
 msgid "Watch this tracker"
 msgstr ""
 
@@ -543,7 +582,7 @@ msgid "batch_x_items_matching_your_criteria"
 msgstr "${number} zgłoszeń spełnia kryteria"
 
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ./skins/Poi/poi_tracker_view.pt:109
+#: ./skins/Poi/poi_tracker_view.pt:110
 msgid "description_cannot_add_issues_before_opened"
 msgstr "Aby umożliwić dodawanie zgłoszeń należy otworzyć System Zgłoszeniowy używając menu 'Status' z powyższej zielonej belki."
 
@@ -558,7 +597,7 @@ msgid "label_edit_response_not_allowed"
 msgstr "Nie masz uprawnień aby edytować tę odpowiedz."
 
 #. Default: "Powered by"
-#: ./skins/Poi/poi_tracker_view.pt:292
+#: ./skins/Poi/poi_tracker_view.pt:293
 msgid "label_powered_by"
 msgstr ""
 
@@ -569,7 +608,7 @@ msgstr "Wróć do zgłoszenia."
 
 #. Default: "RSS Feed"
 #: ./skins/Poi/poi_issue_search_results.pt:10
-#: ./skins/Poi/poi_tracker_view.pt:215
+#: ./skins/Poi/poi_tracker_view.pt:216
 msgid "label_rss_feed"
 msgstr "RSS Feed"
 
@@ -669,87 +708,42 @@ msgid "poi_added_on"
 msgstr "-"
 
 #. Default: "All pending issues"
-#: ./skins/Poi/poi_tracker_view.pt:163
+#: ./skins/Poi/poi_tracker_view.pt:164
 msgid "poi_all_pending_issues"
 msgstr "Wszystkie oczekujące zgłoszenia"
 
-#. Default: "An attachment has been added with id ${attachment_id}"
-#: ./browser/notifications.py:166
-msgid "poi_attachment_added"
-msgstr ""
-
 #. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
-#: ./browser/notifications.py:262
+#: ./browser/notifications.py:240
 msgid "poi_email_issue_resolved_subject_template"
 msgstr "[${tracker_title}] Zamknięto #${issue_id} - ${issue_title}"
 
-#. Default: "The issue **${issue_title}** in the **${tracker_title}**\ntracker has been marked as resolved by **${response_author}**.\nPlease visit the issue and either confirm that it has been\nsatisfactorily resolved or re-open it.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ./browser/notifications.py:232
-msgid "poi_email_issue_resolved_template"
-msgstr ""
-"Zgłoszenie **${issue_title}** w **${tracker_title}**\n"
-" zostało oznaczone przez **${response_author}** jako rozwiązane.\n"
-"Prosimy o potwierdzenie, że rozwiązanie jest prawidłowe lub o ponowne jego otwarcie. \n"
-"\n"
-"Dane odpowiedzi\n"
-"--------------------\n"
-"\n"
-"Zgłoszenie\n"
-"  ${issue_title} (${issue_url})\n"
-"\n"
-"\n"
-"To jest automatyczne przypomnienie, prosimy nie odpowiadać na ten e-mail\n"
-"\n"
-"${from_name}"
-
 #. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
-#: ./browser/notifications.py:93
+#: ./browser/notifications.py:115
 msgid "poi_email_new_issue_subject_template"
 msgstr "[${tracker_title}] Nowe zgłoszenie #${issue_id} - ${issue_title}"
 
 #. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
-#: ./browser/notifications.py:205
+#: ./browser/notifications.py:198
 msgid "poi_email_new_response_subject_template"
 msgstr "[${tracker_title}] Odpowiedz do #${issue_id} - ${issue_title}"
 
-#. Default: "A new response has been given to the issue **${issue_title}**\nin the tracker **${tracker_title}** by **${response_author}**.\n\nResponse Information\n--------------------\n\nIssue\n  ${issue_title} (${issue_url})\n\n${changes}\n\n${response_details}\n\n* This is an automated email, please do not reply - ${from_name}"
-#: ./browser/notifications.py:174
-msgid "poi_email_new_response_template"
-msgstr ""
-"Nowa odpowiedz została dodana do zgłoszenia **${issue_title}**\n"
-" w **${tracker_title}** przez **${response_author}**.\n"
-"\n"
-"Dane odpowiedzi\n"
-"--------------------\n"
-"\n"
-"Zgłoszenie\n"
-"  ${issue_title} (${issue_url})\n"
-"\n"
-"${changes}\n"
-"\n"
-"${response_details}\n"
-"\n"
-"To jest automatyczne przypomnienie, prosimy nie odpowiadać na ten e-mail\n"
-"\n"
-"${from_name}"
-
 #. Default: "By area"
-#: ./skins/Poi/poi_tracker_view.pt:130
+#: ./skins/Poi/poi_tracker_view.pt:131
 msgid "poi_heading_by_area"
 msgstr "Według obszaru"
 
 #. Default: "By target release"
-#: ./skins/Poi/poi_tracker_view.pt:147
+#: ./skins/Poi/poi_tracker_view.pt:148
 msgid "poi_heading_by_release"
 msgstr "Według docelowego wydania"
 
 #. Default: "By state"
-#: ./skins/Poi/poi_tracker_view.pt:160
+#: ./skins/Poi/poi_tracker_view.pt:161
 msgid "poi_heading_by_state"
 msgstr "Według statusu"
 
 #. Default: "By tag"
-#: ./skins/Poi/poi_tracker_view.pt:184
+#: ./skins/Poi/poi_tracker_view.pt:185
 msgid "poi_heading_by_tag"
 msgstr "Według kategorii"
 
@@ -764,24 +758,19 @@ msgid "poi_heading_log"
 msgstr "Historia zmian"
 
 #. Default: "My issues"
-#: ./skins/Poi/poi_tracker_view.pt:236
+#: ./skins/Poi/poi_tracker_view.pt:237
 msgid "poi_heading_my_issues"
 msgstr "Moje zgłoszenia"
 
 #. Default: "Open issues"
-#: ./skins/Poi/poi_tracker_view.pt:119
+#: ./skins/Poi/poi_tracker_view.pt:120
 msgid "poi_heading_open_issues"
 msgstr "Otwarte zgłoszenia"
 
 #. Default: "Orphaned issues"
-#: ./skins/Poi/poi_tracker_view.pt:270
+#: ./skins/Poi/poi_tracker_view.pt:271
 msgid "poi_heading_orphaned_issues"
 msgstr "Osierocone zgłoszenia"
-
-#. Default: "Response Details"
-#: ./browser/notifications.py:148
-msgid "poi_heading_response_details"
-msgstr "Szczegóły odpowiedzi"
 
 #. Default: "Issue search results"
 #: ./skins/Poi/poi_issue_search.pt:34
@@ -789,7 +778,7 @@ msgid "poi_heading_search_results"
 msgstr "Wyniki wyszukiwania zgłoszeń"
 
 #. Default: "Unconfirmed issues"
-#: ./skins/Poi/poi_tracker_view.pt:205
+#: ./skins/Poi/poi_tracker_view.pt:206
 msgid "poi_heading_unconfirmed_issues"
 msgstr "Niezaakceptowane zgłoszenia"
 
@@ -799,28 +788,28 @@ msgid "poi_help_log"
 msgstr "Przegląd ostatnich zmian w Systemie Zgłoszeniowym."
 
 #. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ./skins/Poi/poi_tracker_view.pt:237
+#: ./skins/Poi/poi_tracker_view.pt:238
 msgid "poi_help_my_issues_manager"
 msgstr "Poniższe zgłoszenia są stworzone bądź przypisane do Ciebie. Kanał RSS dla tej listy zawiera także niepotwierdzone i osierocone zgłoszenia."
 
 #. Default: "The following open issues were submitted by you."
-#: ./skins/Poi/poi_tracker_view.pt:244
+#: ./skins/Poi/poi_tracker_view.pt:245
 msgid "poi_help_my_issues_not_manager"
 msgstr "Poniższe zgłoszenia są stworzone przez Ciebie."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
-#: ./skins/Poi/poi_tracker_view.pt:123
+#: ./skins/Poi/poi_tracker_view.pt:124
 #, fuzzy
 msgid "poi_help_open_issues"
 msgstr "Użyj poniższych linków, aby zobaczyć zgłoszenia z poszczególnych grup. Zaawansowane wyszukiwanie pozwala na znalezienie zgłoszeń spełniających więcej niż jedno kryterium."
 
 #. Default: "The following open issues are not assigned to anyone."
-#: ./skins/Poi/poi_tracker_view.pt:271
+#: ./skins/Poi/poi_tracker_view.pt:272
 msgid "poi_help_orphaned_issues_"
 msgstr "Poniższe zgłoszenia nie się przypisane do żadnej z osób."
 
 #. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
-#: ./skins/Poi/poi_tracker_view.pt:206
+#: ./skins/Poi/poi_tracker_view.pt:207
 msgid "poi_help_unconfirmed_issues"
 msgstr "Poniższe zgłoszenia są niezaakceptowane. Proszę zapoznaj się z nimi."
 
@@ -1062,17 +1051,17 @@ msgid "title_rss_feed"
 msgstr "Kanał RSS z wynikami wyszykiwania"
 
 #. Default: "RSS feed of my issues"
-#: ./skins/Poi/poi_tracker_view.pt:251
+#: ./skins/Poi/poi_tracker_view.pt:252
 msgid "title_rss_feed_my_issues"
 msgstr "Kanał RSS dla moich zgłoszeń"
 
 #. Default: "RSS feed of orphaned issues"
-#: ./skins/Poi/poi_tracker_view.pt:279
+#: ./skins/Poi/poi_tracker_view.pt:280
 msgid "title_rss_feed_orphaned"
 msgstr "Kanał RSS dla osieroconych zgłoszeń"
 
 #. Default: "RSS feed of unconfirmed issues"
-#: ./skins/Poi/poi_tracker_view.pt:215
+#: ./skins/Poi/poi_tracker_view.pt:216
 msgid "title_rss_feed_unconfirmed"
 msgstr "Kanał RSS dla niezaakceptowanych zgłoszeń"
 
