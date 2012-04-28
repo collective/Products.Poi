@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2012-04-27 23:40+0000\n"
-"PO-Revision-Date: 2012-04-28 01:42+0200\n"
+"POT-Creation-Date: 2012-04-27 23:58+0000\n"
+"PO-Revision-Date: 2012-04-28 01:59+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -551,16 +551,8 @@ msgstr "Doelrelease"
 msgid "The issue ${issue_title} in the ${tracker_title} tracker has been marked as resolved by ${response_author} Please visit the issue and either confirm that it has been satisfactorily resolved or re-open it."
 msgstr "Het issue ${issue_title} in de ${tracker_title} tracker is opgelost door ${response_author}. Bezoek alstublieft het issue en bevestig dat het naar tevredenheid is opgelost of heropen het."
 
-#: ./browser/templates/poi_email_new_response_plain.pt:29
-msgid "This is an automated email, please do not reply"
-msgstr "Dit is een automatische e-mail, gelieven niet de e-mail te beantwoorden"
-
-#: ./browser/templates/poi_email_new_issue_html.pt:38
+#: ./browser/templates/poi_email_new_issue_html.pt:37
 #: ./browser/templates/poi_email_new_issue_plain.pt:23
-#: ./browser/templates/poi_email_resolved_issue_html.pt:38
-msgid "This is an automated email, please do not reply &ndash; ${from_name}"
-msgstr "Dit is een automatische e-mail, gelieven niet de e-mail te beantwoorden &ndash; ${from_name}"
-
 #: ./browser/templates/poi_email_new_response_html.pt:48
 msgid "This is an automated email, please do not reply."
 msgstr "Dit is een automatische e-mail, gelieven niet de e-mail te beantwoorden."

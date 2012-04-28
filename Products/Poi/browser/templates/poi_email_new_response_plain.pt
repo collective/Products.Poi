@@ -26,8 +26,7 @@ tal:content="options/response_author" />.
 
 <tal:details tal:content="options/response_details" />
 </tal:block>
-<tal:block i18n:translate="">This is an automated email, please do not reply</tal:block>
+<tal:block i18n:translate="">This is an automated email, please do not reply.</tal:block>
 
--- 
 <tal:name tal:content="options/from_name" />
 </tal>

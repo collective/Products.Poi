@@ -17,5 +17,7 @@ satisfactorily resolved or re-open it.
   <tal:title content="options/issue_title" />
   (<tal:link tal:content="options/issue_url" />)
 
-* <tal:block i18n:translate="">This is an automated email, please do not reply &ndash; <tal:name i18n:name="from_name" tal:content="options/from_name" /></tal:block>
+<tal:block i18n:translate="">This is an automated email, please do not reply.</tal:block>
+
+<tal:name tal:content="options/from_name" />
 </tal>

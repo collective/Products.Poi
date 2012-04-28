@@ -34,9 +34,8 @@
       </dl>
       <p><strong i18n:translate="">Issue Details:</strong></p>
       <pre tal:content="structure options/issue_details" />
-      <ul class="simple">
-        <li i18n:translate="">This is an automated email, please do not reply &ndash; <tal:name i18n:name="from_name" tal:content="options/from_name" /></li>
-      </ul>
-    </div>
+      <p class="automated" i18n:translate="">This is an automated email, please do not reply.</p>
+      <p class="from_name" tal:content="options/from_name" />
+   </div>
   </body>
 </html>

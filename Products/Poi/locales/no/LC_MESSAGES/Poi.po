@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2012-04-27 23:40+0000\n"
+"POT-Creation-Date: 2012-04-27 23:58+0000\n"
 "PO-Revision-Date: 2007-05-06 17:00+0000\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: None <plone-i18n@lists.sourceforge.net>\n"
@@ -557,16 +557,8 @@ msgstr ""
 msgid "The issue ${issue_title} in the ${tracker_title} tracker has been marked as resolved by ${response_author} Please visit the issue and either confirm that it has been satisfactorily resolved or re-open it."
 msgstr ""
 
-#: ./browser/templates/poi_email_new_response_plain.pt:29
-msgid "This is an automated email, please do not reply"
-msgstr ""
-
-#: ./browser/templates/poi_email_new_issue_html.pt:38
+#: ./browser/templates/poi_email_new_issue_html.pt:37
 #: ./browser/templates/poi_email_new_issue_plain.pt:23
-#: ./browser/templates/poi_email_resolved_issue_html.pt:38
-msgid "This is an automated email, please do not reply &ndash; ${from_name}"
-msgstr ""
-
 #: ./browser/templates/poi_email_new_response_html.pt:48
 msgid "This is an automated email, please do not reply."
 msgstr ""

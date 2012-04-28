@@ -34,9 +34,8 @@
           (<a tal:attributes="href options/issue_url" tal:content="options/issue_url" />)
         </dd>
       </dl>
-      <ul class="simple">
-        <li i18n:translate="">This is an automated email, please do not reply &ndash; <tal:name i18n:name="from_name" tal:content="options/from_name" /></li>
-      </ul>
+      <p class="automated" i18n:translate="">This is an automated email, please do not reply.</p>
+      <p class="from_name" tal:content="options/from_name" />
     </div>
   </body>
 </html>

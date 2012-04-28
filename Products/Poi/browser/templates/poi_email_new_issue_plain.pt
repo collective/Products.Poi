@@ -20,5 +20,7 @@ and awaits confirmation.
 
 <tal:details tal:content="structure options/issue_details" />
 
-* <tal:block i18n:translate="">This is an automated email, please do not reply &ndash; <tal:name i18n:name="from_name" tal:content="options/from_name" /></tal:block>
+<tal:block i18n:translate="">This is an automated email, please do not reply.</tal:block>
+
+<tal:name tal:content="options/from_name" />
 </tal>
