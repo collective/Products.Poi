@@ -2,8 +2,8 @@ Changelog for Poi
 =================
 
 
-2.1.0 (unreleased)
-------------------
+2.1.0b1 (2012-05-02)
+--------------------
 
 - Get rid of all code that still handled old PoiResponses.  If you
   still have those (meaning you were using Poi 1.1.x before this),
