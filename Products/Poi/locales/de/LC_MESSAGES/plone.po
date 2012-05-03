@@ -60,7 +60,7 @@ msgid "No change"
 msgstr "Kein Änderung"
 
 msgid "Only members can submit"
-msgstr ""
+msgstr "Einreichen nur für Mitglieder"
 
 msgid "Open"
 msgstr "Offen"
@@ -120,7 +120,7 @@ msgid "Response"
 msgstr "Antwort"
 
 msgid "Restrict tracker"
-msgstr ""
+msgstr "Tracker einschränken"
 
 # issue states
 msgid "Tested and confirmed closed"
