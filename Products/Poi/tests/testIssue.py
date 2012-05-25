@@ -94,14 +94,16 @@ class TestIssue(ptc.PoiTestCase):
                               mimetype='text/x-web-intelligent')
         self.assertEqual(
             self.issue.getDetails(),
-            'Make this a link <a href="http://test.com" rel="nofollow">http://test.com</a>')
+            'Make this a link <a href="http://test.com" rel="nofollow">'
+            'http://test.com</a>')
 
     def testTransformSteps(self):
         self.issue.setSteps('Make this a link http://test.com',
                             mimetype='text/x-web-intelligent')
         self.assertEqual(
             self.issue.getSteps(),
-            'Make this a link <a href="http://test.com" rel="nofollow">http://test.com</a>')
+            'Make this a link <a href="http://test.com" rel="nofollow">'
+            'http://test.com</a>')
 
     def testExplicitDescription(self):
         self.issue.setDescription('A description')
@@ -122,7 +124,8 @@ class TestIssue(ptc.PoiTestCase):
                          text[:DESCRIPTION_LENGTH] + '...')
 
     def testReadableDescription(self):
-        text = "When pasting html you can get:\r\n    - ugly line breaks,\r\n    - non-breaking spaces.\r\n" * 20
+        text = ("When pasting html you can get:\r\n    - ugly line breaks,\r\n"
+                "- non-breaking spaces.\r\n") * 20
         self.issue.setDetails(text, mimetype='text/x-web-intelligent')
         self.failUnless(self.issue.Description().startswith(
                 "When pasting html you can get:\r\n    - ugly line breaks"))

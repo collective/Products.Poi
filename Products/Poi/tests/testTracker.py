@@ -675,7 +675,8 @@ class TestLinkDetection(ptc.PoiTestCase):
         self.createIssue(tracker, title="1")
         self.assertEqual(
             tracker.linkDetection('Issue #1 is fixed in r42.'),
-            'Issue <a href="../1">#1</a> is fixed in <a href="http://dev.plone.org/changeset/42/collective">r42</a>.')
+            'Issue <a href="../1">#1</a> is fixed in <'
+            'a href="http://dev.plone.org/changeset/42/collective">r42</a>.')
 
 
 def test_suite():
