@@ -1,3 +1,6 @@
+*.egg-info
+*.pyc
+*.pyo
 .installed.cfg
 .mr.developer.cfg
 bin
