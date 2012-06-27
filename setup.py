@@ -19,7 +19,8 @@ setup(name='Products.Poi',
       version=version,
       description="Poi: A friendly issue tracker",
       long_description=long_description,
-      # Get more strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
+      # Get more strings from
+      # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
         "Framework :: Plone :: 4.0",
