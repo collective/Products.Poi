@@ -249,13 +249,10 @@ class TestEmailNotifications(ptc.PoiTestCase):
         sendResponseNotificationMail(issue)
 
         # Now try a different charset
-        pprop = getToolByName(self.portal, 'portal_properties')
-        site_props = getToolByName(pprop, 'site_properties')
-        site_props.default_charset = 'iso-8859-1'
         self.portal.email_charset = 'iso-8859-1'
         issue = self.createIssue(
             self.tracker,
-            title=u"accented vocals: à è ì ò ù".encode('iso-8859-1'),
+            title=u"accented vocals: à è ì ò ù".encode('utf-8'),
             contactEmail='submitter@example.com',
             watchers=('member1', 'member2'))
         self.createResponse(
