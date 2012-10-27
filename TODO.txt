@@ -1,3 +1,9 @@
+To do
+-----
+
+- Make compatible with Plone 4.3 (check zope.app dependencies).
+
+
 Ideas
 -----
 
