@@ -247,7 +247,7 @@ msgstr "Wichten Sie diesen Eintrag"
 #. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
 #: ./content/PoiIssue.py:142
 msgid "Poi_help_steps"
-msgstr "Wenn es zutrifft stellen Sie bitte genau die notwendigenm Schritte zur Reproduktion des Fehler oder zur Identifikation der Problemstellung dar, ein Schritt pro Zeile."
+msgstr "Wenn es zutrifft stellen Sie bitte genau die notwendigen Schritte zur Reproduktion des Fehler oder zur Identifikation der Problemstellung dar, ein Schritt pro Zeile."
 
 # ./content/PoiIssue.py
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
