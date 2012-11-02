@@ -222,7 +222,7 @@ msgstr "Wählen sie die von diesem Problem betroffene Version/ Ausgabe."
 #. Default: "Please enter your response below"
 #: ./browser/response.pt:111
 msgid "Poi_help_response"
-msgstr "Bitte geben sie unten ihre antwort an."
+msgstr "Bitte geben sie unten ihre Antwort an."
 
 # ./content/PoiIssue.py
 #. Default: "Select which manager, if any, is responsible for this issue."
