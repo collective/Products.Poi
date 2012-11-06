@@ -18,13 +18,13 @@
 
   <subscriber
       for="Products.Poi.adapters.IResponse
-           zope.app.container.interfaces.IObjectAddedEvent"
+           zope.lifecycleevent.interfaces.IObjectAddedEvent"
       handler=".events.addedNewStyleResponse"
       />
 
   <subscriber
       for="Products.Poi.adapters.IResponse
-           zope.app.container.interfaces.IObjectRemovedEvent"
+           zope.lifecycleevent.interfaces.IObjectRemovedEvent"
       handler=".events.removedResponse"
       />
 
