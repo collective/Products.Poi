@@ -20,7 +20,7 @@
      tal:define="issuefolder context/@@issuefolder;
                  rssQueryString python:issuefolder.getIssueSearchQueryString(request);
                  results   python:issuefolder.getFilteredIssues(request);
-                 Batch    python:modules['Products.CMFPlone.PloneBatch'].Batch;
+                 Batch    python:modules['Products.CMFPlone'].Batch;
                  DateTime python:modules['DateTime'].DateTime;
                  b_size   python:30;b_start python:0;b_start request/b_start | b_start;">
   <metal:main define-macro="main"
