@@ -5,7 +5,8 @@ Changelog for Poi
 2.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed packaging error.
+  [maurits]
 
 
 2.1.1 (2012-11-06)
