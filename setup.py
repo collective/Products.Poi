@@ -1,9 +1,4 @@
 from setuptools import setup, find_packages
-import os
-
-versionfile = open(os.path.join('Products', 'Poi', 'version.txt'))
-version = versionfile.read().strip()
-versionfile.close()
 
 readmefile = open('README.rst')
 readme = readmefile.read().strip()
@@ -16,7 +11,7 @@ historyfile.close()
 long_description = readme + "\n\n" + history
 
 setup(name='Products.Poi',
-      version=version,
+      version='2.1.1.dev0',
       description="Poi: A friendly issue tracker",
       long_description=long_description,
       # Get more strings from
