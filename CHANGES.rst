@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.1.2 (unreleased)
+2.1.2 (2012-11-06)
 ------------------
 
 - Fixed packaging error.
