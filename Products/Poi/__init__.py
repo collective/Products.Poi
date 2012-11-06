@@ -49,12 +49,16 @@ DirectoryView.registerDirectory('skins/Poi', product_globals)
 
 
 def initialize(context):
+    from AccessControl import allow_module
+
     # imports packages and types for registration
     import interfaces
     import psc
     import content
 
     interfaces, psc, content  # pyflakes
+
+    allow_module('Products.CMFPlone.PloneBatch')
 
     # Initialize portal content
     all_content_types, all_constructors, all_ftis = process_types(
