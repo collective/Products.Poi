@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.1.1 (unreleased)
+2.1.1 (2012-11-06)
 ------------------
 
 - Made compatible with Plone 4.3.  Lost compatibility with Plone 4.0.
