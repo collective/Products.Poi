@@ -8,7 +8,7 @@ from ZODB.POSException import ConflictError
 from collective.watcherlist.browser import BaseMail
 from collective.watcherlist.utils import su
 from collective.watcherlist.utils import get_charset
-from zope.app.component.hooks import getSite
+from zope.component.hooks import getSite
 from zope.component import getMultiAdapter
 from zope.i18n import translate
 

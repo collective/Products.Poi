@@ -2,10 +2,27 @@ Changelog for Poi
 =================
 
 
-2.1.1 (unreleased)
+2.1.3 (unreleased)
 ------------------
 
+- Nothing changed yet.
+
+
+2.1.2 (2012-11-06)
+------------------
+
+- Fixed packaging error.
+  [maurits]
+
+
+2.1.1 (2012-11-06)
+------------------
+
+- Made compatible with Plone 4.3.  Lost compatibility with Plone 4.0.
+  [maurits]
+
 - Fix Unauthorized/"Insufficient Privileges" error under Plone 4.2.
+  [rpatterson]
 
 
 2.1.0 (2012-06-28)

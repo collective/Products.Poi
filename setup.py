@@ -1,36 +1,31 @@
 from setuptools import setup, find_packages
-import os
 
-versionfile = open(os.path.join('Products', 'Poi', 'version.txt'))
-version = versionfile.read().strip()
-versionfile.close()
-
-readmefile = open('README.rst')
+readmefile = open('README.txt')
 readme = readmefile.read().strip()
 readmefile.close()
 
-historyfile = open('CHANGES.txt')
+historyfile = open('CHANGES.rst')
 history = historyfile.read().strip()
 historyfile.close()
 
 long_description = readme + "\n\n" + history
 
 setup(name='Products.Poi',
-      version=version,
+      version='2.1.3.dev0',
       description="Poi: A friendly issue tracker",
       long_description=long_description,
       # Get more strings from
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
-        "Framework :: Plone",
-        "Framework :: Plone :: 4.0",
-        "Framework :: Plone :: 4.1",
-        "Framework :: Plone :: 4.2",
-        "Framework :: Zope2",
-        "Framework :: Zope3",
-        "Programming Language :: Python",
-        "Topic :: Software Development :: Libraries :: Python Modules",
-        ],
+          "Framework :: Plone",
+          "Framework :: Plone :: 4.1",
+          "Framework :: Plone :: 4.2",
+          "Framework :: Plone :: 4.3",
+          "Framework :: Zope2",
+          "Framework :: Zope3",
+          "Programming Language :: Python",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+          ],
       keywords='',
       author='Martin Aspeli',
       author_email='plone-users@lists.sourceforge.net',
