@@ -5,7 +5,8 @@ Changelog for Poi
 2.1.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Included Products.AddRemoveWidget and Products.DataGridField in configure.zcml
+  [cedricmessiant]
 
 
 2.1.2 (2012-11-06)
