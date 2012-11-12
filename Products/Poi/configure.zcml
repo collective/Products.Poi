@@ -5,6 +5,8 @@
     i18n_domain="poi">
 
   <include package=".browser" />
+  <include package="Products.AddRemoveWidget" />
+  <include package="Products.DataGridField" />
   <include file="permissions.zcml" />
   <include file="profiles.zcml" />
 
