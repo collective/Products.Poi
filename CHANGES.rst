@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.1.3 (unreleased)
+2.1.3 (2012-11-28)
 ------------------
 
 - Fixed reinstall error.  Metadata would be missing in the catalog
