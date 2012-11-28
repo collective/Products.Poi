@@ -5,6 +5,10 @@ Changelog for Poi
 2.1.3 (unreleased)
 ------------------
 
+- Fixed reinstall error.  Metadata would be missing in the catalog
+  brains.
+  [maurits]
+
 - Included Products.AddRemoveWidget and Products.DataGridField in configure.zcml
   [cedricmessiant]
 

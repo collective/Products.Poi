@@ -85,6 +85,15 @@ class TestInstallation(ptc.PoiTestCase):
         self.assertEquals(results(getTargetRelease='1.0'), 1)
         self.assertEquals(results(getResponsibleManager='member1'), 1)
 
+        # We should also be able to access the metadata of the brain.
+        brain = self.catalog.searchResults(getResponsibleManager='member1')[0]
+        self.assertEquals(brain.getArea, 'ui')
+        self.assertEquals(brain.getIssueType, 'bug')
+        self.assertEquals(brain.getSeverity, 'Medium')
+        self.assertEquals(brain.getRelease, '0.1')
+        self.assertEquals(brain.getTargetRelease, '1.0')
+        self.assertEquals(brain.getResponsibleManager, 'member1')
+
         # Now we reinstall Poi.
         quickinstaller = self.portal.portal_quickinstaller
         quickinstaller.reinstallProducts(['Poi'])
@@ -96,6 +105,15 @@ class TestInstallation(ptc.PoiTestCase):
         self.assertEquals(results(getRelease='0.1'), 1)
         self.assertEquals(results(getTargetRelease='1.0'), 1)
         self.assertEquals(results(getResponsibleManager='member1'), 1)
+
+        # We should also still be able to access the metadata of the brain.
+        brain = self.catalog.searchResults(getResponsibleManager='member1')[0]
+        self.assertEquals(brain.getArea, 'ui')
+        self.assertEquals(brain.getIssueType, 'bug')
+        self.assertEquals(brain.getSeverity, 'Medium')
+        self.assertEquals(brain.getRelease, '0.1')
+        self.assertEquals(brain.getTargetRelease, '1.0')
+        self.assertEquals(brain.getResponsibleManager, 'member1')
 
 
 class TestContentCreation(ptc.PoiTestCase):
