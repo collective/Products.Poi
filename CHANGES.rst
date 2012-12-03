@@ -5,7 +5,9 @@ Changelog for Poi
 2.1.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix advanced search form not returning results unless both `Issue
+  number` and `Submitter` were specified.
+  [rpatterson]
 
 
 2.1.3 (2012-11-28)
