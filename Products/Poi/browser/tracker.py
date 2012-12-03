@@ -52,9 +52,9 @@ class IssueFolderView(BrowserView):
         query['portal_type'] = ['PoiIssue']
 
         for k, v in allowedCriteria.items():
-            if k in criteria:
+            if criteria.get(k):
                 query[v] = criteria[k]
-            elif v in criteria:
+            elif criteria.get(v):
                 query[v] = criteria[v]
 
         # Playing nicely with the form.
