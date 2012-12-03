@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.1.4 (unreleased)
+2.1.4 (2012-12-03)
 ------------------
 
 - Fix advanced search form not returning results unless both `Issue
