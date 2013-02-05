@@ -5,7 +5,13 @@ Changelog for Poi
 2.1.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed changes in a response that were being saved with a wrong id.
+  This did not cause missing data, just a duplicate id in the response
+  changes.  This is never shown in the UI, so should only be a problem
+  for third party code that directly accesses this response data
+  structure.
+  https://github.com/collective/Products.Poi/issues/4
+  [maurits]
 
 
 2.1.4 (2012-12-03)
