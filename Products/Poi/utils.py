@@ -22,7 +22,7 @@ def linkBugs(text, ids, patterns):
         pattern = re.compile(raw)
         while True:
             res = pattern.search(text, pos)
-            if res == None:
+            if res is None:
                 break
             pos = res.start()
 
@@ -54,7 +54,7 @@ def linkSvn(text, svnUrl, patterns):
         pattern = re.compile(raw)
         while True:
             res = pattern.search(text, pos)
-            if res == None:
+            if res is None:
                 break
 
             linktext = text[res.start(): res.end()]

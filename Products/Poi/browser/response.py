@@ -163,7 +163,7 @@ class Base(BrowserView):
         filename = getattr(attachment, 'filename', attachment.getId())
         info = dict(
             icon=self.portal_url + '/' + icon,
-            url=context.absolute_url() +\
+            url=context.absolute_url() +
                 '/@@poi_response_attachment?response_id=' + str(id),
             content_type=attachment.content_type,
             size=pretty_size(attachment.size),
@@ -282,7 +282,7 @@ class Base(BrowserView):
         # get vocab from tracker so use aq_inner
         context = aq_inner(self.context)
         if not self.memship.checkPermission(
-            permissions.ModifyIssueSeverity, context):
+                permissions.ModifyIssueSeverity, context):
             return []
         return context.getAvailableSeverities()
 
@@ -308,7 +308,7 @@ class Base(BrowserView):
         # get vocab from issue
         context = aq_inner(self.context)
         if not self.memship.checkPermission(
-            permissions.ModifyIssueTargetRelease, context):
+                permissions.ModifyIssueTargetRelease, context):
             return DisplayList()
         return context.getReleasesVocab()
 
@@ -336,7 +336,7 @@ class Base(BrowserView):
         # get vocab from issue
         context = aq_inner(self.context)
         if not self.memship.checkPermission(
-            permissions.ModifyIssueAssignment, context):
+                permissions.ModifyIssueAssignment, context):
             return DisplayList()
         return context.getManagersVocab()
 

@@ -80,21 +80,21 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
             self, folder, id, title='', description='', helpText='',
             availableAreas=(
                 {'id': 'ui', 'title': 'User interface',
-                   'description': 'User interface issues'},
+                 'description': 'User interface issues'},
                 {'id': 'functionality', 'title': 'Functionality',
-                   'description': 'Issues with the basic functionality'},
+                 'description': 'Issues with the basic functionality'},
                 {'id': 'process', 'title': 'Process',
-                   'description':
-                   'Issues relating to the development process itself'},
-                   ),
+                 'description':
+                 'Issues relating to the development process itself'},
+                 ),
             availableIssueTypes=(
                 {'id': 'bug', 'title': 'Bug',
-                   'description': 'Functionality bugs in the software'},
+                 'description': 'Functionality bugs in the software'},
                 {'id': 'feature', 'title': 'Feature',
-                   'description': 'Suggested features'},
+                 'description': 'Suggested features'},
                 {'id': 'patch', 'title': 'Patch',
-                   'description': 'Patches to the software'},
-                   ),
+                 'description': 'Patches to the software'},
+                 ),
             availableSeverities=['Critical', 'Important', 'Medium', 'Low'],
             defaultSeverity='Medium',
             availableReleases=['2.0', '1.0'],
@@ -156,8 +156,8 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         return issue
 
     def createResponse(self, issue, text='Response text', issueTransition='',
-                        newSeverity=None, newTargetRelease=None,
-                        newResponsibleManager=None, attachment=None):
+                       newSeverity=None, newTargetRelease=None,
+                       newResponsibleManager=None, attachment=None):
         """Create a response to the given tracker, and perform workflow and
         rename-after-creation initialisation"""
         from Products.Poi.browser.response import Create

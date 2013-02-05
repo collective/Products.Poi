@@ -109,7 +109,7 @@ schema = Schema((
                     default=u"Version"),
             description=_(u'Poi_help_release',
                           default=(
-                        u"Select the version the issue was found in.")),
+                              u"Select the version the issue was found in.")),
             condition="object/isUsingReleases",
             ),
         required=True,

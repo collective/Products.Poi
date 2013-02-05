@@ -104,7 +104,7 @@ schema = atapi.Schema((
                  {'id': 'process',
                   'title': 'Process',
                   'description':
-                      'Issues relating to the development process itself'}),
+                  'Issues relating to the development process itself'}),
         widget=DataGridWidget(
             label=_(u'Poi_label_availableAreas',
                     default=u"Areas"),

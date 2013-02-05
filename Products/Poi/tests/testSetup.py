@@ -35,8 +35,8 @@ class TestInstallation(ptc.PoiTestCase):
             self.failUnless(self.workflow.getChainForPortalType(k) == (v, ))
 
     def testIntelligentTextInstalled(self):
-        self.failUnless('web_intelligent_plain_text_to_html' in \
-                            self.transforms.objectIds())
+        self.failUnless('web_intelligent_plain_text_to_html' in
+                        self.transforms.objectIds())
 
     def testPortalFactorySetup(self):
         for t in self.poiTypes.keys():

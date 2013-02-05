@@ -9,11 +9,11 @@ OPTIONFLAGS = (doctest.ELLIPSIS |
 def test_suite():
     return unittest.TestSuite([
         doctest.DocTestSuite(module='Products.Poi.browser.response',
-                                 optionflags=OPTIONFLAGS),
+                             optionflags=OPTIONFLAGS),
         doctest.DocFileSuite('responses.txt',
-                                 package='Products.Poi.tests',
-                                 optionflags=OPTIONFLAGS),
+                             package='Products.Poi.tests',
+                             optionflags=OPTIONFLAGS),
         doctest.DocFileSuite('linkdetection.txt',
-                                 package='Products.Poi.tests',
-                                 optionflags=OPTIONFLAGS),
+                             package='Products.Poi.tests',
+                             optionflags=OPTIONFLAGS),
         ])

@@ -75,8 +75,8 @@ class TestIssue(ptc.PoiTestCase):
     def testValidateWatchers(self):
         self.failUnless(self.issue.validate_watchers(('member1', )) is None)
         self.failIf(self.issue.validate_watchers(('memberX', )) is None)
-        self.failIf(self.issue.validate_watchers(('member1', 'memberX', )) \
-                        is None)
+        self.failIf(self.issue.validate_watchers(('member1', 'memberX', ))
+                    is None)
 
     def testIsWatching(self):
         self.issue.setWatchers(())

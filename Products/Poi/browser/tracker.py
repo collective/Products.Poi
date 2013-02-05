@@ -119,7 +119,7 @@ class IssueFolderView(BrowserView):
             responsible = i.getResponsibleManager
             creator = i.Creator
             if memberId in (creator, responsible) or \
-                   (manager and responsible == '(UNASSIGNED)'):
+                    (manager and responsible == '(UNASSIGNED)'):
                 issues.append(i)
 
         return issues

@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from Products.CMFCore.utils import getToolByName
 from Testing import ZopeTestCase
 from collective.watcherlist.interfaces import IWatcherList
 
