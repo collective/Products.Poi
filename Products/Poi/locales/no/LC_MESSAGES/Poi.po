@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2013-02-05 22:24+0000\n"
+"POT-Creation-Date: 2013-02-05 22:29+0000\n"
 "PO-Revision-Date: 2007-05-06 17:00+0000\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: None <plone-i18n@lists.sourceforge.net>\n"
@@ -93,7 +93,7 @@ msgstr ""
 msgid "No response text added and no issue changes made."
 msgstr ""
 
-#: ./content/PoiIssue.py:488
+#: ./content/PoiIssue.py:489
 msgid "None"
 msgstr ""
 
@@ -251,7 +251,7 @@ msgstr "Hvis det er mulig, beskriv hva/hvordan det skjedde."
 
 # ./content/PoiIssue.py
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: ./content/PoiIssue.py:290
+#: ./content/PoiIssue.py:291
 msgid "Poi_help_subject"
 msgstr "Merkelapper kan brukes for å legge til egne kategorier for emner. Listen under viser eksisterende merkelapper som du kan velge, eller du kan legge til nye."
 
@@ -284,14 +284,15 @@ msgstr ""
 msgid "Poi_help_tracker_title"
 msgstr "Skriv et passende navn for denne 'sporeren'."
 
-#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
 #: ./content/PoiTracker.py:224
 msgid "Poi_help_tracker_watchers"
 msgstr ""
 
 # ./content/PoiIssue.py
-#. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+#. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
 #: ./content/PoiIssue.py:273
+#, fuzzy
 msgid "Poi_help_watchers"
 msgstr "Skriv brukernavn på dem som følger med dette emnet, en per linje. Disse medlemmene vil motta en e-post når et svar blir lagt til emnet. Brukere kan også legge seg selv til som som 'betrakterer'"
 
@@ -448,7 +449,7 @@ msgstr "Hvordan/Hvorfor skjedde dette"
 
 # ./content/PoiIssue.py
 #. Default: "Tags"
-#: ./content/PoiIssue.py:288
+#: ./content/PoiIssue.py:289
 msgid "Poi_label_subject"
 msgstr "Merkelapper"
 

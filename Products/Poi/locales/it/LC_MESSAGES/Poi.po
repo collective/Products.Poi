@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2013-02-05 22:24+0000\n"
+"POT-Creation-Date: 2013-02-05 22:29+0000\n"
 "PO-Revision-Date: 2007-03-22 11:28+0100\n"
 "Last-Translator: Maurizio Delmonte <maurizio.delmonte@redomino.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,7 +92,7 @@ msgstr ""
 msgid "No response text added and no issue changes made."
 msgstr ""
 
-#: ./content/PoiIssue.py:488
+#: ./content/PoiIssue.py:489
 msgid "None"
 msgstr ""
 
@@ -251,7 +251,7 @@ msgstr "Se possibile, per favore fornisci i passi per riprodurre l'errore o per 
 
 # ./content/PoiIssue.py
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: ./content/PoiIssue.py:290
+#: ./content/PoiIssue.py:291
 msgid "Poi_help_subject"
 msgstr "I tag possono essere usati per aggiungere voci di classificazione arbitrarie alla richiesta. La lista qui sotto mostra tag esistenti che possono essere selezionati. E' comunque possibile aggiungere nuovi tag."
 
@@ -285,14 +285,15 @@ msgstr ""
 msgid "Poi_help_tracker_title"
 msgstr "Inserisci un nome descrittivo per questo gestore attività."
 
-#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
 #: ./content/PoiTracker.py:224
 msgid "Poi_help_tracker_watchers"
 msgstr ""
 
 # ./content/PoiIssue.py
-#. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+#. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
 #: ./content/PoiIssue.py:273
+#, fuzzy
 msgid "Poi_help_watchers"
 msgstr "Inserisci gli identificativi (user name) degli utenti interessati alla richiesta, uno per linea. Questi utenti riceveranno una mail quando una risposta sarà aggiunta alla richiesta. Gli utenti possono aggiungersi autonomamente alla lista di notifica."
 
@@ -449,7 +450,7 @@ msgstr "Passi da seguire"
 
 # ./content/PoiIssue.py
 #. Default: "Tags"
-#: ./content/PoiIssue.py:288
+#: ./content/PoiIssue.py:289
 msgid "Poi_label_subject"
 msgstr "Tag"
 

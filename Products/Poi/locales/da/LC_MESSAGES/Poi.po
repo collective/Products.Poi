@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.1.2\n"
-"POT-Creation-Date: 2013-02-05 22:24+0000\n"
+"POT-Creation-Date: 2013-02-05 22:29+0000\n"
 "PO-Revision-Date: 2008-12-08 09:42+0100\n"
 "Last-Translator: Jonas Nielsen <jonas@magenta-aps.dk>\n"
 "Language-Team: DA\n"
@@ -96,7 +96,7 @@ msgstr ""
 msgid "No response text added and no issue changes made."
 msgstr ""
 
-#: ./content/PoiIssue.py:488
+#: ./content/PoiIssue.py:489
 msgid "None"
 msgstr ""
 
@@ -253,7 +253,7 @@ msgstr "Hvis muligt, beskriv trinene, som er nødvendige for at reproducere fejl
 
 # ./content/PoiIssue.py
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: ./content/PoiIssue.py:290
+#: ./content/PoiIssue.py:291
 msgid "Poi_help_subject"
 msgstr "Etiketter kan bruges til at tilføje en selvvalgt kategorisering af sager. Listen nedenfor viser ekeisterende etiketter, du kan vælge, eller du kan addere nye."
 
@@ -285,14 +285,15 @@ msgstr ""
 msgid "Poi_help_tracker_title"
 msgstr "Indtast et beskrivende navn for denne tracker"
 
-#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
 #: ./content/PoiTracker.py:224
 msgid "Poi_help_tracker_watchers"
 msgstr ""
 
 # ./content/PoiIssue.py
-#. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+#. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
 #: ./content/PoiIssue.py:273
+#, fuzzy
 msgid "Poi_help_watchers"
 msgstr "Angiv brugernavne for overvågere af denne sag, ét pr. linje. Disse brugere vil modtage en e-mail, når et svar bliver tilføjet sagen. Brugere kan også tilføje sig selv på listen."
 
@@ -449,7 +450,7 @@ msgstr "Trin for at reproducere"
 
 # ./content/PoiIssue.py
 #. Default: "Tags"
-#: ./content/PoiIssue.py:288
+#: ./content/PoiIssue.py:289
 msgid "Poi_label_subject"
 msgstr "Etiketter"
 

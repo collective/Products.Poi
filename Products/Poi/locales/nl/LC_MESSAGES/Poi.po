@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2013-02-05 22:24+0000\n"
+"POT-Creation-Date: 2013-02-05 22:29+0000\n"
 "PO-Revision-Date: 2013-02-05 23:27+0100\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
@@ -95,7 +95,7 @@ msgstr "Geen reactie geselecteerd."
 msgid "No response text added and no issue changes made."
 msgstr "Geen tekst toegevoegd in deze reactie en geen wijzigingen aan de issue gemaakt."
 
-#: ./content/PoiIssue.py:488
+#: ./content/PoiIssue.py:489
 msgid "None"
 msgstr "Geen"
 
@@ -246,7 +246,7 @@ msgstr "Als het van toepassing is, geef de stappen op om de fout of issue the re
 
 # ./content/PoiIssue.py
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: ./content/PoiIssue.py:290
+#: ./content/PoiIssue.py:291
 msgid "Poi_help_subject"
 msgstr "Tags kunnen gebruikt worden om extra categorizatie toe te voegen aan issues. De lijst hier beneden laat de bestaande tags zien die u kunt selecteren of u kunt nieuwe toevoegen."
 
@@ -279,16 +279,16 @@ msgstr "Beschrijf het doel van deze tracker"
 msgid "Poi_help_tracker_title"
 msgstr "Geef een omschrijvende naam op voor deze tracker"
 
-#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
 #: ./content/PoiTracker.py:224
 msgid "Poi_help_tracker_watchers"
 msgstr "Geef de gebruikersnamen van leden op die deze tracker volgen, één per regel. E-mailadressen zijn ook toegestaan. Deze leden krijgen een e-mail als er een issue of reactie is geplaatst in deze tracker. Leden kunnen zichzelf toevoegen als volgers."
 
 # ./content/PoiIssue.py
-#. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+#. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
 #: ./content/PoiIssue.py:273
 msgid "Poi_help_watchers"
-msgstr "Geef de gebruikersnamen van leden op die deze issue volgen, één per regel. Deze leden krijgen een e-mail als er een reactie is geplaatst op deze issue. Leden kunnen zichzelf toevoegen als volgers."
+msgstr "Geef de gebruikersnamen van leden op die deze issue volgen, één per regel. E-mailadressen zijn ook toegestaan. Deze leden krijgen een e-mail als er een reactie is geplaatst op deze issue. Leden kunnen zichzelf toevoegen als volgers."
 
 # ./content/PoiIssue.py
 #. Default: "Area"
@@ -442,7 +442,7 @@ msgstr "Stappen om het te reproduceren"
 
 # ./content/PoiIssue.py
 #. Default: "Tags"
-#: ./content/PoiIssue.py:288
+#: ./content/PoiIssue.py:289
 msgid "Poi_label_subject"
 msgstr "Tags"
 
@@ -478,7 +478,7 @@ msgstr "Tracker naam"
 #. Default: "Tracker watchers"
 #: ./content/PoiTracker.py:222
 msgid "Poi_label_tracker_watchers"
-msgstr ""
+msgstr "Tracker volgers"
 
 # ./content/PoiIssue.py
 #. Default: "Issue watchers"
