@@ -216,6 +216,24 @@ schema = atapi.Schema((
             ),
         ),
 
+    atapi.LinesField(
+        name='watchers',
+        widget=atapi.LinesWidget(
+            label=_(u'Poi_label_tracker_watchers',
+                    default=u"Tracker watchers"),
+            description=_(
+                u'Poi_help_tracker_watchers',
+                default=(
+                    u"Enter the user ids of members who are watching "
+                    u"this tracker, one per line. E-mail addresses are "
+                    u"allowed too. These persons will "
+                    u"receive an email when a response is added to the "
+                    u"issue. Members can also add themselves as "
+                    u"watchers.")),
+            ),
+        write_permission=permissions.ModifyIssueWatchers
+        ),
+
     atapi.BooleanField(
         name='sendNotificationEmails',
         default=True,
@@ -443,6 +461,22 @@ class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
     def validate_technicians(self, value):
         """Make sure issue technicians are actual user ids"""
         return self._validate_user_ids(value)
+
+    def validate_watchers(self, value):
+        """Make sure watchers are actual user ids or email addresses."""
+        membership = getToolByName(self, 'portal_membership')
+        plone_utils = getToolByName(self, 'plone_utils')
+        notFound = []
+        for userId in value:
+            member = membership.getMemberById(userId)
+            if member is None:
+                # Maybe an email address
+                if not plone_utils.validateSingleEmailAddress(userId):
+                    notFound.append(userId)
+        if notFound:
+            return "The following user ids could not be found: %s" % \
+                ','.join(notFound)
+        return None
 
     def getDefaultManagers(self):
         """The default list of managers should include the tracker owner"""

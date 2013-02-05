@@ -52,6 +52,14 @@ class TrackerWatcherList(WatcherList):
 
     extra_addresses = property(__get_extra_addresses, __set_extra_addresses)
 
+    def __get_watchers(self):
+        return self.context.getWatchers()
+
+    def __set_watchers(self, v):
+        self.context.setWatchers(v)
+
+    watchers = property(__get_watchers, __set_watchers)
+
 
 class IResponseContainer(Interface):
     pass

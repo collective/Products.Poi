@@ -81,14 +81,16 @@ def update_tracker_watchers(object, event=None):
     are added again, unless a mailing list has been set.
 
     """
-    #if object.getMailingList():
-    #    return
-    watcher_list = IWatcherList(object)
+    watchers = list(object.getWatchers())
+    changed = False
     for manager in object.getManagers():
-        if manager not in watcher_list.watchers:
+        if manager not in watchers:
             logger.info('Adding manager %s to watchers of tracker %r.',
                         manager, object)
-            watcher_list.watchers.append(manager)
+            watchers.append(manager)
+            changed = True
+    if changed:
+        object.setWatchers(tuple(watchers))
 
 
 def merge_response_changes_to_issue(issue):

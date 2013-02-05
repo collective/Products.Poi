@@ -3,6 +3,8 @@ import logging
 from ZODB.POSException import ConflictError
 from Products.CMFCore.utils import getToolByName
 from Products.CMFFormController.FormAction import FormActionKey
+from collective.watcherlist.interfaces import IWatcherList
+from zope.annotation.interfaces import IAnnotations
 import transaction
 
 from Products.Poi.adapters import IResponseContainer
@@ -192,3 +194,40 @@ def purge_workflow_scripts(context):
 
 def run_javascript_step(context):
     context.runImportStepFromProfile(PROFILE_ID, 'jsregistry')
+
+
+def migrate_tracker_watchers(context):
+    """Migrate tracker watchers.
+
+    Watchers of a tracker were first stored in annotations, but should
+    now be stored in a LinesField.
+    """
+    logger.info("Starting update of tracker watchers.")
+    catalog = getToolByName(context, 'portal_catalog')
+    tracker_brains = catalog.searchResults(
+        portal_type=('PoiTracker', 'PoiPscTracker'))
+    logger.info("Found %s PoiTrackers.", len(tracker_brains))
+    for brain in tracker_brains:
+        try:
+            tracker = brain.getObject()
+        except (AttributeError, KeyError):
+            logger.warn("AttributeError or KeyError getting tracker object at "
+                        "%s", brain.getURL())
+            continue
+
+        watchers = IWatcherList(tracker)
+        # We would want to check watchers.__mapping, but that fails.
+        # watchers._WatcherList__mapping would work, but it looks
+        # suspicious to me.  So let's get the annotations.
+        annotations = IAnnotations(tracker)
+        mapping = annotations.get(watchers.ANNO_KEY, None)
+        if not mapping:
+            continue
+        try:
+            old_value = mapping['watchers']
+        except KeyError:
+            continue
+        logger.info("Setting watchers of tracker at %s: %r",
+                    tracker.absolute_url(), old_value)
+        tracker.setWatchers(old_value)
+        del mapping['watchers']

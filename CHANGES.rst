@@ -5,6 +5,11 @@ Changelog for Poi
 2.1.5 (unreleased)
 ------------------
 
+- Store the watchers of a tracker in a lines field instead of
+  annotations.  This way, you can edit them as Manager if that is
+  needed.  Added an upgrade step to migrate all existing trackers.
+  [maurits]
+
 - Fixed changes in a response that were being saved with a wrong id.
   This did not cause missing data, just a duplicate id in the response
   changes.  This is never shown in the UI, so should only be a problem

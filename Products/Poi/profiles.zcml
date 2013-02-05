@@ -103,4 +103,12 @@
       handler="Products.Poi.migration.run_javascript_step"
       profile="Products.Poi:default" />
 
+  <gs:upgradeStep
+      title="Migrate tracker watchers"
+      description="Move tracker watcher to a LinesField."
+      source="2004"
+      destination="2005"
+      handler="Products.Poi.migration.migrate_tracker_watchers"
+      profile="Products.Poi:default" />
+
 </configure>
