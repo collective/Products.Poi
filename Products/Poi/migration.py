@@ -1,17 +1,11 @@
 import logging
-import sets
 
 from ZODB.POSException import ConflictError
 from Products.CMFCore.utils import getToolByName
 from Products.CMFFormController.FormAction import FormActionKey
-from zope.publisher.browser import TestRequest
 import transaction
 
-from Products.Poi.interfaces import IIssue
-from Products.Poi.adapters import Response
 from Products.Poi.adapters import IResponseContainer
-from Products.Poi.browser.response import Create
-
 
 logger = logging.getLogger("Poi")
 PROFILE_ID = 'profile-Products.Poi:default'
