@@ -273,8 +273,9 @@ schema = Schema((
             description=_(
                     u'Poi_help_watchers',
                     default=(
-                        u"Enter the user names of members who are watching "
-                        u"this issue, one per line. These members will "
+                        u"Enter the user ids of members who are watching "
+                        u"this issue, one per line. E-mail addresses are "
+                        u"allowed too. These persons will "
                         u"receive an email when a response is added to the "
                         u"issue. Members can also add themselves as "
                         u"watchers.")),

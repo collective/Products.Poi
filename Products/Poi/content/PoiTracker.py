@@ -226,9 +226,9 @@ schema = atapi.Schema((
                 default=(
                     u"Enter the user ids of members who are watching "
                     u"this tracker, one per line. E-mail addresses are "
-                    u"allowed too. These persons will "
-                    u"receive an email when a response is added to the "
-                    u"issue. Members can also add themselves as "
+                    u"allowed too. These persons will receive "
+                    u"an email when an issue or response is added to the "
+                    u"tracker. Members can also add themselves as "
                     u"watchers.")),
             ),
         write_permission=permissions.ModifyIssueWatchers
