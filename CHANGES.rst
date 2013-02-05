@@ -2,8 +2,8 @@ Changelog for Poi
 =================
 
 
-2.1.5 (unreleased)
-------------------
+2.2 (unreleased)
+----------------
 
 - Store the watchers of a tracker in a lines field instead of
   annotations.  This way, you can edit them as Manager if that is
