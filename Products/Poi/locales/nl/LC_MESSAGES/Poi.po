@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2013-02-05 22:24+0000\n"
-"PO-Revision-Date: 2012-04-28 01:59+0200\n"
+"PO-Revision-Date: 2013-02-05 23:27+0100\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -128,13 +128,13 @@ msgstr "Geef de issue types op voor deze tracker."
 #. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release."
 #: ./content/PoiTracker.py:180
 msgid "Poi_help_availableReleases"
-msgstr "Geef op aan welke releases de issues gekoppeld kunnen worden, een per regel. Als er geen releases zijn ingevoerd, kunnen de issues niet per release gecategorizeerd worden"
+msgstr "Geef op aan welke releases de issues gekoppeld kunnen worden, één per regel. Als er geen releases zijn ingevoerd, kunnen de issues niet per release gecategorizeerd worden"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
 #: ./content/PoiTracker.py:152
 msgid "Poi_help_availableSeverities"
-msgstr "Geef de verschillende types van issue prioriteiten op die beschikbaar moeten zijn, een per regel"
+msgstr "Geef de verschillende types van issue prioriteiten op die beschikbaar moeten zijn, één per regel"
 
 # ./content/PoiIssue.py
 #. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
@@ -188,7 +188,7 @@ msgstr "Indien opgegeven en 'Stuur notificatie e-mails' is geselecteerd, wordt e
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
 #: ./content/PoiTracker.py:195
 msgid "Poi_help_managers"
-msgstr "Geef de user id's van gebruikers op die deze tracker mogen beheren, een per regel."
+msgstr "Geef de user id's van gebruikers op die deze tracker mogen beheren, één per regel."
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
@@ -266,7 +266,7 @@ msgstr "Release waarin het de bedoeling is om deze issue te fixen."
 #. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
 #: ./content/PoiTracker.py:209
 msgid "Poi_help_technicians"
-msgstr "Geef de gebruiksnamen van gebruikers op die verantwoordelijk zijn voor het oplossen van de issues, een per regel. Merk op dat het prima is om alleen managers en geen technici te hebben: managers kunnen ook issues oplossen."
+msgstr "Geef de gebruiksnamen van gebruikers op die verantwoordelijk zijn voor het oplossen van de issues, één per regel. Merk op dat het prima is om alleen managers en geen technici te hebben: managers kunnen ook issues oplossen."
 
 #. Default: "Describe the purpose of this tracker"
 #: ./content/PoiTracker.py:71
@@ -282,13 +282,13 @@ msgstr "Geef een omschrijvende naam op voor deze tracker"
 #. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
 #: ./content/PoiTracker.py:224
 msgid "Poi_help_tracker_watchers"
-msgstr ""
+msgstr "Geef de gebruikersnamen van leden op die deze tracker volgen, één per regel. E-mailadressen zijn ook toegestaan. Deze leden krijgen een e-mail als er een issue of reactie is geplaatst in deze tracker. Leden kunnen zichzelf toevoegen als volgers."
 
 # ./content/PoiIssue.py
 #. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
 #: ./content/PoiIssue.py:273
 msgid "Poi_help_watchers"
-msgstr "Geef de gebruikersnamen van leden op die deze issue volgen, een per regel. Deze leden krijgen een e-mail als er een reactie is geplaatst op deze issue. Leden kunnen zichzelf toevoegen als volgers"
+msgstr "Geef de gebruikersnamen van leden op die deze issue volgen, één per regel. Deze leden krijgen een e-mail als er een reactie is geplaatst op deze issue. Leden kunnen zichzelf toevoegen als volgers."
 
 # ./content/PoiIssue.py
 #. Default: "Area"
