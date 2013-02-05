@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.1.2\n"
-"POT-Creation-Date: 2012-04-27 23:58+0000\n"
+"POT-Creation-Date: 2013-02-05 22:24+0000\n"
 "PO-Revision-Date: 2008-12-08 09:42+0100\n"
 "Last-Translator: Jonas Nielsen <jonas@magenta-aps.dk>\n"
 "Language-Team: DA\n"
@@ -184,7 +184,7 @@ msgstr "Angiv en kort, beskrivende titel. En velvalgt titel vil gøre det nemmer
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
-#: ./content/PoiTracker.py:242
+#: ./content/PoiTracker.py:260
 #, fuzzy
 msgid "Poi_help_mailingList"
 msgstr "Hvis angivet, og hvis \"Send notifikations-e-mails\" er valgt, vil en e-mail blive sendt til den angivne adresse hver gang et ny sag eller svar bliver indsendt. Hvis ingen mailadresse opgives, vil administratorer modtage individuelle e-mails."
@@ -234,7 +234,7 @@ msgstr "Vælg evt. en administrator, som er ansvarlig for denne sag."
 
 # ./content/PoiTracker.py
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:225
+#: ./content/PoiTracker.py:243
 #, fuzzy
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Hvis valgt, vil tracker-administratorer modtage en e-mail, hver gang et ny sag eller svar bliver indsendt, og sagsindsendere vil modtage en e-mail, når der er et nyt svar, og når en sag er blevet løst og afventer bekræftelse."
@@ -258,7 +258,7 @@ msgid "Poi_help_subject"
 msgstr "Etiketter kan bruges til at tilføje en selvvalgt kategorisering af sager. Listen nedenfor viser ekeisterende etiketter, du kan vælge, eller du kan addere nye."
 
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
-#: ./content/PoiTracker.py:261
+#: ./content/PoiTracker.py:279
 #, fuzzy
 msgid "Poi_help_svnurl"
 msgstr "Indtast venligst URL'en til SVN-repositoriet, f.eks. http://dev.plone.org/changeset/%(rev)s/collective hvis det er et produkt i 'The Plone Collective'"
@@ -284,6 +284,11 @@ msgstr ""
 #: ./content/PoiTracker.py:57
 msgid "Poi_help_tracker_title"
 msgstr "Indtast et beskrivende navn for denne tracker"
+
+#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+#: ./content/PoiTracker.py:224
+msgid "Poi_help_tracker_watchers"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
@@ -377,7 +382,7 @@ msgstr "Titel"
 
 # ./content/PoiTracker.py
 #. Default: "Mailing list"
-#: ./content/PoiTracker.py:240
+#: ./content/PoiTracker.py:258
 msgid "Poi_label_mailingList"
 msgstr "Postliste"
 
@@ -426,7 +431,7 @@ msgstr "Ansvarlig"
 
 # ./content/PoiTracker.py
 #. Default: "Send notification emails"
-#: ./content/PoiTracker.py:223
+#: ./content/PoiTracker.py:241
 msgid "Poi_label_sendNotificationEmails"
 msgstr "Send notifikations-e-mails"
 
@@ -449,7 +454,7 @@ msgid "Poi_label_subject"
 msgstr "Etiketter"
 
 #. Default: "URL to SVN"
-#: ./content/PoiTracker.py:259
+#: ./content/PoiTracker.py:277
 msgid "Poi_label_svnurl"
 msgstr "URL til SVN"
 
@@ -474,6 +479,11 @@ msgstr ""
 #: ./content/PoiTracker.py:55
 msgid "Poi_label_tracker_title"
 msgstr "Navn på fejlrapporteringsværktøjet"
+
+#. Default: "Tracker watchers"
+#: ./content/PoiTracker.py:222
+msgid "Poi_label_tracker_watchers"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Issue watchers"

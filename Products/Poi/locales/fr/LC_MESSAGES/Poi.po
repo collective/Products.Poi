@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2012-04-27 23:58+0000\n"
+"POT-Creation-Date: 2013-02-05 22:24+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Kevin Deldycke <kevin@deldycke.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -182,7 +182,7 @@ msgstr "Entrer un titre court et descriptif pour ce ticket. Un bon titre rendra 
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
-#: ./content/PoiTracker.py:242
+#: ./content/PoiTracker.py:260
 msgid "Poi_help_mailingList"
 msgstr "Si ce champs est rempli, et si « Envoyer des courriels de notification » est coché, un message sera envoyé à cette adresse chaque fois qu'un nouveau ticket ou une nouvelle réponse sera postée. Si aucune adresse de liste de diffusion n'est donnée, les responsables recevront individuellement les messages."
 
@@ -230,7 +230,7 @@ msgstr "Sélectionnez le gestionnaire de ce ticket, s'il en existe un."
 
 # ./content/PoiTracker.py
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:225
+#: ./content/PoiTracker.py:243
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Si coché, les responsables du gestionnaire de tickets recevront un message chaque fois qu'un nouveau ticket ou qu'une nouvelle réponse sera créé, et les rapporteurs de bugs recevront un message lorsqu'il y aura une nouvelle réponse et lorsqu'un ticket aura été résolu, attendant la confirmation. Les techniciens reçoivent un email lorsqu'un bug leur a été assigné."
 
@@ -254,7 +254,7 @@ msgstr "Des étiquettes peuvent être employées pour ajouter une catégorisatio
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
-#: ./content/PoiTracker.py:261
+#: ./content/PoiTracker.py:279
 msgid "Poi_help_svnurl"
 msgstr "Merci de saisir l'Url vers le dépôt SVN correspondant au projet, e.g.: http://dev.plone.org/changeset/%(rev)s/collective pour les modules collective de Plone."
 
@@ -280,6 +280,11 @@ msgstr "Décrire le but de ce gestionnaire de bugs"
 #: ./content/PoiTracker.py:57
 msgid "Poi_help_tracker_title"
 msgstr "Entrer un nom descriptif pour ce gestionnaire."
+
+#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+#: ./content/PoiTracker.py:224
+msgid "Poi_help_tracker_watchers"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
@@ -373,7 +378,7 @@ msgstr "Titre"
 
 # ./content/PoiTracker.py
 #. Default: "Mailing list"
-#: ./content/PoiTracker.py:240
+#: ./content/PoiTracker.py:258
 msgid "Poi_label_mailingList"
 msgstr "Liste de diffusion"
 
@@ -421,7 +426,7 @@ msgstr "Responsable"
 
 # ./content/PoiTracker.py
 #. Default: "Send notification emails"
-#: ./content/PoiTracker.py:223
+#: ./content/PoiTracker.py:241
 msgid "Poi_label_sendNotificationEmails"
 msgstr "Envoyer des courriels de notification"
 
@@ -445,7 +450,7 @@ msgstr "Étiquettes"
 
 # ./content/PoiTracker.py
 #. Default: "URL to SVN"
-#: ./content/PoiTracker.py:259
+#: ./content/PoiTracker.py:277
 msgid "Poi_label_svnurl"
 msgstr "URL du SVN"
 
@@ -471,6 +476,11 @@ msgstr "Description du gestionnaire de tickets"
 #: ./content/PoiTracker.py:55
 msgid "Poi_label_tracker_title"
 msgstr "Nom du gestionnaire de tickets"
+
+#. Default: "Tracker watchers"
+#: ./content/PoiTracker.py:222
+msgid "Poi_label_tracker_watchers"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Issue watchers"

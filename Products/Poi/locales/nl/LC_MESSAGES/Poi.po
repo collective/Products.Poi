@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2012-04-27 23:58+0000\n"
+"POT-Creation-Date: 2013-02-05 22:24+0000\n"
 "PO-Revision-Date: 2012-04-28 01:59+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
@@ -180,7 +180,7 @@ msgstr "Geef een korte omschrijvende titel op voor de issue. Een goede titel maa
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
-#: ./content/PoiTracker.py:242
+#: ./content/PoiTracker.py:260
 msgid "Poi_help_mailingList"
 msgstr "Indien opgegeven en 'Stuur notificatie e-mails' is geselecteerd, wordt er een e-mail gestuurd naar dit adres zodra er een nieuwe issue of reactie geplaatst wordt. Trackermanagers ontvangen ook individueel een e-mail. Als dit niet gewenst is, kan het beter zijn van een trackermanager een technicus te maken."
 
@@ -228,7 +228,7 @@ msgstr "Selecteer welke manager, als er een is, verantwoordelijk is voor deze is
 
 # ./content/PoiTracker.py
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:225
+#: ./content/PoiTracker.py:243
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Indien geselecteerd, krijgen tracker managers een e-mail elke keer als een nieuwe issue of reactie is geplaatst. Issue toevoegers ontvangen een e-mail als er een nieuwe reactie is geplaatst of een issue is opgelost. Technici krijgen een e-mail als een issue aan hen is toegekend."
 
@@ -252,7 +252,7 @@ msgstr "Tags kunnen gebruikt worden om extra categorizatie toe te voegen aan iss
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
-#: ./content/PoiTracker.py:261
+#: ./content/PoiTracker.py:279
 msgid "Poi_help_svnurl"
 msgstr "Vul alstublieft de url in naar de relevante SVN repository, bijvoorbeeld http://dev.plone.org/changeset/%(rev)s/collective voor producten in de Plone collective."
 
@@ -278,6 +278,11 @@ msgstr "Beschrijf het doel van deze tracker"
 #: ./content/PoiTracker.py:57
 msgid "Poi_help_tracker_title"
 msgstr "Geef een omschrijvende naam op voor deze tracker"
+
+#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+#: ./content/PoiTracker.py:224
+msgid "Poi_help_tracker_watchers"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
@@ -371,7 +376,7 @@ msgstr "Titel"
 
 # ./content/PoiTracker.py
 #. Default: "Mailing list"
-#: ./content/PoiTracker.py:240
+#: ./content/PoiTracker.py:258
 msgid "Poi_label_mailingList"
 msgstr "Mailinglijst"
 
@@ -419,7 +424,7 @@ msgstr "Verantwoordelijke"
 
 # ./content/PoiTracker.py
 #. Default: "Send notification emails"
-#: ./content/PoiTracker.py:223
+#: ./content/PoiTracker.py:241
 msgid "Poi_label_sendNotificationEmails"
 msgstr "Stuur notificatie e-mails"
 
@@ -443,7 +448,7 @@ msgstr "Tags"
 
 # ./content/PoiTracker.py
 #. Default: "URL to SVN"
-#: ./content/PoiTracker.py:259
+#: ./content/PoiTracker.py:277
 msgid "Poi_label_svnurl"
 msgstr "Url naar subversion"
 
@@ -469,6 +474,11 @@ msgstr "Beschrijving van de tracker"
 #: ./content/PoiTracker.py:55
 msgid "Poi_label_tracker_title"
 msgstr "Tracker naam"
+
+#. Default: "Tracker watchers"
+#: ./content/PoiTracker.py:222
+msgid "Poi_label_tracker_watchers"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Issue watchers"

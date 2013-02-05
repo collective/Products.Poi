@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-pt-br\n"
-"POT-Creation-Date: 2012-04-27 23:58+0000\n"
+"POT-Creation-Date: 2013-02-05 22:24+0000\n"
 "PO-Revision-Date: 2012-04-09 13:59-0300\n"
 "Last-Translator: Gustavo Lepri <lepri@simplesconsultoria.com.br>\n"
 "Language-Team: Simples Consultoria <contato@simplesconsultoria.com.br>\n"
@@ -171,7 +171,7 @@ msgid "Poi_help_issue_title"
 msgstr "Informe um título curto e descritivo para a ocorrência. Um bom título facilitará a identificação e resposta da ocorrência pelo responsável pelo projeto."
 
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
-#: ./content/PoiTracker.py:242
+#: ./content/PoiTracker.py:260
 #, fuzzy
 msgid "Poi_help_mailingList"
 msgstr "Se informado, e se \"Enviar emails de notificação\" estiver selecionado, um email será enviado para este endereço cada vez que uma nova ocorrência ou resposta for criada. Se não for informado um endereço de lista, os responsáveis receberão emails individuais."
@@ -216,7 +216,7 @@ msgid "Poi_help_responsibleManager"
 msgstr "Selecione qual o gerente, se existir, é responsável por esta ocorrência. "
 
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:225
+#: ./content/PoiTracker.py:243
 #, fuzzy
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Se selecionado, gerentes de ocorrências receberão um email a cada vez que uma nova ocorrência ou resposta for criada, e os criadores de ocorrências receberão uma mensagem quando tiver uma nova resposta e quando uma ocorrência for resolvida e estiver aguardando confirmação."
@@ -238,7 +238,7 @@ msgstr "Rótulos podem ser usado para adicionar categorias arbitrárias às ocor
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
-#: ./content/PoiTracker.py:261
+#: ./content/PoiTracker.py:279
 #, fuzzy
 msgid "Poi_help_svnurl"
 msgstr "Por favor informe a URL do repositório SVN relativo a este gerenciador. ex.http://dev.plone.org/changeset/%(rev)s/collective para produtos no collective do Plone."
@@ -264,6 +264,11 @@ msgstr "Descreva o propósito desta ocorrência"
 #: ./content/PoiTracker.py:57
 msgid "Poi_help_tracker_title"
 msgstr "Informe um nome que descreva este gerenciador."
+
+#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+#: ./content/PoiTracker.py:224
+msgid "Poi_help_tracker_watchers"
+msgstr ""
 
 #. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
 #: ./content/PoiIssue.py:273
@@ -344,7 +349,7 @@ msgid "Poi_label_issue_title"
 msgstr "Título"
 
 #. Default: "Mailing list"
-#: ./content/PoiTracker.py:240
+#: ./content/PoiTracker.py:258
 msgid "Poi_label_mailingList"
 msgstr "Lista de Emails"
 
@@ -388,7 +393,7 @@ msgid "Poi_label_responsibleManager"
 msgstr "Responsável"
 
 #. Default: "Send notification emails"
-#: ./content/PoiTracker.py:223
+#: ./content/PoiTracker.py:241
 msgid "Poi_label_sendNotificationEmails"
 msgstr "Notificar por Emails"
 
@@ -409,7 +414,7 @@ msgstr "Rótulos"
 
 # ./content/PoiTracker.py
 #. Default: "URL to SVN"
-#: ./content/PoiTracker.py:259
+#: ./content/PoiTracker.py:277
 msgid "Poi_label_svnurl"
 msgstr "URL para o SVN"
 
@@ -434,6 +439,11 @@ msgstr "Descrição da ocorrência"
 #: ./content/PoiTracker.py:55
 msgid "Poi_label_tracker_title"
 msgstr "Nome do Gerenciador"
+
+#. Default: "Tracker watchers"
+#: ./content/PoiTracker.py:222
+msgid "Poi_label_tracker_watchers"
+msgstr ""
 
 #. Default: "Issue watchers"
 #: ./content/PoiIssue.py:271

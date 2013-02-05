@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2012-04-27 23:58+0000\n"
+"POT-Creation-Date: 2013-02-05 22:24+0000\n"
 "PO-Revision-Date: 2010-10-19 14:38+0100\n"
 "Last-Translator: Lukas Zdych <lukas.zdych@gmail.com>\n"
 "Language-Team: DMS4U <dms4u.cz>\n"
@@ -177,7 +177,7 @@ msgstr "Zadejte krátký, ale výstižný nadpis pro tuto úlohu. Dobrý nadpis 
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
-#: ./content/PoiTracker.py:242
+#: ./content/PoiTracker.py:260
 msgid "Poi_help_mailingList"
 msgstr "Pokud je zadáno a pokud je zaškrtnuto i 'Zasílat emailová upozornění', bude na tuto adresu odeslán email při každé nové úloze nebo reakci. Správci zároveň obdrží individuální emaily. Pokud toto není žádoucí změťe je na techniky."
 
@@ -225,7 +225,7 @@ msgstr "Zvolte, který správce, pokud nějaký, je odpovědný za tuto úlohu."
 
 # ./content/PoiTracker.py
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:225
+#: ./content/PoiTracker.py:243
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Pokud je zaškrtnuto, správci manažeru úloh obdrží email při každé nové úloze nebo reakci a autoři úloh obdrží email při každé nové reakci, pokud je úloha vyřešena nebo čekající na potvrzení. Technici obdrží email když jim je úloha přiřazena."
 
@@ -249,7 +249,7 @@ msgstr "Značky mohou být použity pro tvorbu libovolné kategorizace úloh. N�
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
-#: ./content/PoiTracker.py:261
+#: ./content/PoiTracker.py:279
 msgid "Poi_help_svnurl"
 msgstr "Prosíme zadejte Url souvisejícího SVN repositáře, např.: http://dev.plone.org/changeset/%(rev)s/collective pro produkty v Plone collective."
 
@@ -275,6 +275,11 @@ msgstr "Popište účel tohoto manažeru úloh."
 #: ./content/PoiTracker.py:57
 msgid "Poi_help_tracker_title"
 msgstr "Zadejte výstižné jméno pro tento manažer úloh."
+
+#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+#: ./content/PoiTracker.py:224
+msgid "Poi_help_tracker_watchers"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
@@ -368,7 +373,7 @@ msgstr "Nadpis"
 
 # ./content/PoiTracker.py
 #. Default: "Mailing list"
-#: ./content/PoiTracker.py:240
+#: ./content/PoiTracker.py:258
 msgid "Poi_label_mailingList"
 msgstr "Konference"
 
@@ -416,7 +421,7 @@ msgstr "Odpovědný"
 
 # ./content/PoiTracker.py
 #. Default: "Send notification emails"
-#: ./content/PoiTracker.py:223
+#: ./content/PoiTracker.py:241
 msgid "Poi_label_sendNotificationEmails"
 msgstr "Zasílat emailová upozornění"
 
@@ -440,7 +445,7 @@ msgstr "Značky"
 
 # ./content/PoiTracker.py
 #. Default: "URL to SVN"
-#: ./content/PoiTracker.py:259
+#: ./content/PoiTracker.py:277
 msgid "Poi_label_svnurl"
 msgstr "URL SVN repositáře"
 
@@ -466,6 +471,11 @@ msgstr "Popis manažeru úloh"
 #: ./content/PoiTracker.py:55
 msgid "Poi_label_tracker_title"
 msgstr "Název manažeru úloh"
+
+#. Default: "Tracker watchers"
+#: ./content/PoiTracker.py:222
+msgid "Poi_label_tracker_watchers"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Issue watchers"

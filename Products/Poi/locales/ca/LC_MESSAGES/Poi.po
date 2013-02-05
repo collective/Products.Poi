@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Products.Poi 2.0\n"
-"POT-Creation-Date: 2012-04-27 23:58+0000\n"
+"POT-Creation-Date: 2013-02-05 22:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -161,7 +161,7 @@ msgid "Poi_help_issue_title"
 msgstr ""
 
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
-#: ./content/PoiTracker.py:242
+#: ./content/PoiTracker.py:260
 msgid "Poi_help_mailingList"
 msgstr ""
 
@@ -201,7 +201,7 @@ msgid "Poi_help_responsibleManager"
 msgstr ""
 
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:225
+#: ./content/PoiTracker.py:243
 msgid "Poi_help_sendNotificationEmails"
 msgstr ""
 
@@ -221,7 +221,7 @@ msgid "Poi_help_subject"
 msgstr ""
 
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
-#: ./content/PoiTracker.py:261
+#: ./content/PoiTracker.py:279
 msgid "Poi_help_svnurl"
 msgstr ""
 
@@ -243,6 +243,11 @@ msgstr ""
 #. Default: "Enter a descriptive name for this tracker"
 #: ./content/PoiTracker.py:57
 msgid "Poi_help_tracker_title"
+msgstr ""
+
+#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+#: ./content/PoiTracker.py:224
+msgid "Poi_help_tracker_watchers"
 msgstr ""
 
 #. Default: "Enter the user names of members who are watching this issue, one per line. These members will receive an email when a response is added to the issue. Members can also add themselves as watchers."
@@ -322,7 +327,7 @@ msgid "Poi_label_issue_title"
 msgstr ""
 
 #. Default: "Mailing list"
-#: ./content/PoiTracker.py:240
+#: ./content/PoiTracker.py:258
 msgid "Poi_label_mailingList"
 msgstr ""
 
@@ -362,7 +367,7 @@ msgid "Poi_label_responsibleManager"
 msgstr ""
 
 #. Default: "Send notification emails"
-#: ./content/PoiTracker.py:223
+#: ./content/PoiTracker.py:241
 msgid "Poi_label_sendNotificationEmails"
 msgstr ""
 
@@ -382,7 +387,7 @@ msgid "Poi_label_subject"
 msgstr ""
 
 #. Default: "URL to SVN"
-#: ./content/PoiTracker.py:259
+#: ./content/PoiTracker.py:277
 msgid "Poi_label_svnurl"
 msgstr ""
 
@@ -404,6 +409,11 @@ msgstr ""
 #. Default: "Tracker name"
 #: ./content/PoiTracker.py:55
 msgid "Poi_label_tracker_title"
+msgstr ""
+
+#. Default: "Tracker watchers"
+#: ./content/PoiTracker.py:222
+msgid "Poi_label_tracker_watchers"
 msgstr ""
 
 #. Default: "Issue watchers"
