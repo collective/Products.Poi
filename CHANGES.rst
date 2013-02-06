@@ -5,6 +5,10 @@ Changelog for Poi
 2.2 (unreleased)
 ----------------
 
+
+- Completed French translations.
+  [cedricmessiant]
+
 - Store the watchers of a tracker in a lines field instead of
   annotations.  This way, you can edit them as Manager if that is
   needed.  Added an upgrade step to migrate all existing trackers.
