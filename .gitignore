@@ -3,6 +3,9 @@
 *.pyo
 .installed.cfg
 .mr.developer.cfg
+.project
+.pydevproject
+.settings/
 bin
 coverage
 develop-eggs
