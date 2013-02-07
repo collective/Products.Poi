@@ -2,6 +2,12 @@ Changelog for Poi
 =================
 
 
+2.3 (unreleased)
+----------------
+
+- Nothing changed yet.
+
+
 2.2 (2013-02-07)
 ----------------
 

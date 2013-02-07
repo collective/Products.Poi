@@ -11,7 +11,7 @@ historyfile.close()
 long_description = readme + "\n\n" + history
 
 setup(name='Products.Poi',
-      version='2.2',
+      version='2.3.dev0',
       description="Poi: A friendly issue tracker",
       long_description=long_description,
       # Get more strings from
