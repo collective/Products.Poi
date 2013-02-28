@@ -7,6 +7,8 @@ from ZTUtils import make_query
 
 class IssueFolderView(BrowserView):
 
+    issue_portal_type = 'PoiIssue'
+
     def getFilteredIssues(self, criteria=None, **kwargs):
         """Get the contained issues in the given criteria.
         """
@@ -49,7 +51,7 @@ class IssueFolderView(BrowserView):
 
         query = {}
         query['path'] = '/'.join(context.getPhysicalPath())
-        query['portal_type'] = ['PoiIssue']
+        query['portal_type'] = [self.issue_portal_type]
 
         for k, v in allowedCriteria.items():
             if criteria.get(k):
