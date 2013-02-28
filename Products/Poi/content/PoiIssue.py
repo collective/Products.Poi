@@ -487,12 +487,25 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         tracker = self.getTracker()
         vocab = DisplayList()
         vocab.add('(UNASSIGNED)', _(u'None'))
+        mtool = getToolByName(self, 'portal_membership')
         for item in tracker.getManagers():
-            vocab.add(item, item)
+            user = mtool.getMemberById(item)
+            if user:
+                fullname = user.getProperty('fullname', item) or item
+            else:
+                fullname = item
+
+            vocab.add(item, fullname)
         if not strict:
             for item in tracker.getTechnicians():
-                vocab.add(item, item)
-        return vocab
+                user = mtool.getMemberById(item)
+                if user:
+                    fullname = user.getProperty('fullname', item) or item
+                else:
+                    fullname = item
+
+                vocab.add(item, fullname)
+            return vocab
 
     def getStrictManagersVocab(self):
         """

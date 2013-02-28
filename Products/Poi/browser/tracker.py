@@ -4,8 +4,12 @@ from Products.Five.browser import BrowserView
 from Products.PythonScripts.standard import url_quote
 from ZTUtils import make_query
 
+ACTIVE_STATES = ['open', 'in-progress', 'unconfirmed', 'resolved']
 
 class IssueFolderView(BrowserView):
+
+    def getActiveStates(self):
+        return ACTIVE_STATES
 
     def getFilteredIssues(self, criteria=None, **kwargs):
         """Get the contained issues in the given criteria.
@@ -112,10 +116,9 @@ class IssueFolderView(BrowserView):
             if 'unconfirmed' not in openStates:
                 openStates += ['unconfirmed']
 
-        open = self.getFilteredIssues(state=openStates)
         issues = []
 
-        for i in open:
+        for i in self.getFilteredIssues(state=openStates):
             responsible = i.getResponsibleManager
             creator = i.Creator
             if memberId in (creator, responsible) or \
@@ -137,10 +140,9 @@ class IssueFolderView(BrowserView):
             member = mtool.getAuthenticatedMember()
             memberId = member.getId()
 
-        open = self.getFilteredIssues(state=openStates)
         issues = []
 
-        for i in open:
+        for i in self.getFilteredIssues(state=openStates):
             responsible = i.getResponsibleManager
             creator = i.Creator
             if creator != memberId and responsible == '(UNASSIGNED)':

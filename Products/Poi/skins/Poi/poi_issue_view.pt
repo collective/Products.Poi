@@ -40,39 +40,62 @@
                   wftool here/portal_workflow;
                   isManager python:member.getId() in here.getManagers();
                   isSubmitter python:member.getId() == here.Creator();
-                  pas_member context/@@pas_member;">
+                  pas_member context/@@pas_member;
+                  basicOpenStates python:['open', 'in-progress'];
+                  openStates python:['unconfirmed'] + basicOpenStates;
+                  trackerUrl context/aq_parent/absolute_url;
+                  activeStates context/aq_parent/@@issuefolder/getActiveStates;
+                  issueQueryString python:'%s/poi_issue_search?state=%s' %
+                  (here.aq_parent.absolute_url(), '&amp;state='.join(activeStates),);">
 
     <table class="vertical listing issue-info-box"
            tal:define="releases here/getReleasesVocab">
       <tr tal:define="state python:wftool.getInfoFor(here, 'review_state');
-                      state_title python:wftool.getTitleForStateOnType(state,
-                      here.getPortalTypeName());">
+                      state_title python:wftool.getTitleForStateOnType(state, here.getPortalTypeName());">
         <th i18n:translate="poi_label_state">State</th>
-        <td tal:content="state_title"
-            i18n:translate="" i18n:domain="plone"
-            tal:attributes="class string:issue-${state}"/>
+        <td><a tal:content="state_title"
+               i18n:translate="" i18n:domain="plone"
+               tal:attributes="class string:issue-${state};
+                               href string:${trackerUrl}/poi_issue_search?state=${state};"
+             ></a>
+        </td>
       </tr>
       <tr tal:condition="here/isUsingReleases">
         <th i18n:translate="poi_label_version">Version:</th>
-        <td>
-          <span tal:condition="python:here.getRelease() != '(UNASSIGNED)'"
-                tal:replace="python:releases.getValue(here.getRelease())" />
-          <div tal:condition="python:here.getRelease() == '(UNASSIGNED)'" class="unassigned-field">
+        <td tal:define="release here/getRelease">
+          <a tal:condition="python:release != '(UNASSIGNED)'"
+             tal:content="python:releases.getValue(release)"
+             tal:attributes="href string:${issueQueryString}&amp;release=${release};" />
+          <div tal:condition="python:release == '(UNASSIGNED)'" class="unassigned-field">
             &#8212;
           </div>
         </td>
       </tr>
       <tr>
         <th i18n:translate="poi_label_area">Area</th>
-        <td tal:content="python:here.aq_parent.queryDataGrid('availableAreas', 'lookup', [here.getArea(), 'title'])" />
+        <td>
+          <a tal:define="issueArea python:here.aq_parent.queryDataGrid('availableAreas', 'lookup', [here.getArea(), 'title'])"
+             tal:content="issueArea"
+             tal:attributes="href string:${issueQueryString}&area=${here/getArea}"
+              />
+        </td>
       </tr>
       <tr>
         <th i18n:translate="poi_label_type">Issue type</th>
-        <td tal:content="python:here.aq_parent.queryDataGrid('availableIssueTypes', 'lookup', [here.getIssueType(), 'title'])" />
+        <td>
+          <a tal:define="issueType python:here.aq_parent.queryDataGrid('availableIssueTypes', 'lookup', [here.getIssueType(), 'title'])"
+             tal:content="issueType"
+             tal:attributes="href string:${issueQueryString}&issueType=${here/getIssueType}"
+              />
+        </td>
       </tr>
       <tr>
         <th i18n:translate="poi_label_severity">Severity</th>
-        <td tal:content="here/getSeverity" />
+        <td>
+          <a tal:condition="here/getSeverity"
+             tal:content="here/getSeverity"
+             tal:attributes="href string:${issueQueryString}&amp;severity=${here/getSeverity};" />
+        </td>
       </tr>
       <tr>
         <th i18n:translate="poi_label_submitted_by">Submitted by</th>
@@ -88,23 +111,22 @@
       <tr>
         <th i18n:translate="poi_label_responsible">Responsible</th>
         <td tal:define="responsibleManager here/getResponsibleManager">
-          <tal:condition condition="python:responsibleManager != '(UNASSIGNED)'">
-            <span
-                tal:define="manager python:pas_member.info(responsibleManager)"
-                tal:replace="manager/name_or_id" />
-          </tal:condition>
-
-          <div tal:condition="python:responsibleManager == '(UNASSIGNED)'" class="unassigned-field">
-            &#8212;
-          </div>
+           <a tal:condition="python:responsibleManager != '(UNASSIGNED)'"
+              tal:define="manager python:pas_member.info(responsibleManager)"
+              tal:attributes="href string:${issueQueryString}&amp;responsible=${responsibleManager};"
+              tal:content="manager/name_or_id" />
+            <div tal:condition="python:responsibleManager == '(UNASSIGNED)'"
+                 style="text-align:center">&#8212;</div>
         </td>
       </tr>
       <tr tal:condition="here/isUsingReleases">
         <th i18n:translate="poi_label_target_release">Target release:</th>
-        <td>
-          <span tal:condition="python:here.getTargetRelease() != '(UNASSIGNED)'"
-                tal:replace="python:releases.getValue(here.getTargetRelease())" />
-          <div tal:condition="python:here.getTargetRelease() == '(UNASSIGNED)'" class="unassigned-field">
+        <td tal:define="release here/getTargetRelease">
+          <a tal:condition="python:release != '(UNASSIGNED)'"
+             tal:content="python:releases.getValue(release)"
+             tal:attributes="href string:${issueQueryString}&targetRelease=${release}"
+              />
+          <div tal:condition="python:release == '(UNASSIGNED)'" class="unassigned-field">
             &#8212;
           </div>
         </td>
