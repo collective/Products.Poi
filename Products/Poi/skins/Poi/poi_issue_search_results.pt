@@ -18,11 +18,17 @@
 
   <metal:block define-slot="intro-text" />
 
-  <table class="listing nosort issue-search-results"
-         tal:define="states here/getIssueWorkflowStates;
-                     pas_member context/@@pas_member;"
-         tal:condition="nocall:issues">
-    <thead>
+   <table class="listing issue-search-results"
+       tal:define="states here/getIssueWorkflowStates;
+                  activeStates issuefolder/getActiveStates;
+                  trackerUrl here/absolute_url;
+                  issueQueryString python:'%s/poi_issue_search?state=%s' %
+                    (trackerUrl, '&amp;state='.join(activeStates),);
+                  pas_member context/@@pas_member;
+                  can_edit python:checkPermission('Modify portal content', here);
+                  releases here/getReleasesVocab;"
+       tal:condition="nocall:issues">
+       <thead>
       <tr>
         <th i18n:translate="listingheader_number">#</th>
         <th i18n:translate="listingheader_title">Title</th>
@@ -36,44 +42,58 @@
         <th i18n:translate="listingheader_state">State</th>
       </tr>
     </thead>
-    <tbody>
-      <tal:issues repeat="item issues">
-        <tr tal:define="oddrow repeat/item/odd"
-            tal:attributes="class python:test(oddrow, 'even', 'odd')">
-          <td tal:content="item/getId">
-          </td>
-          <td>
-            <a tal:attributes="href  item/getURL;
-                               title item/Description;"
-               tal:content="item/Title" />
-          </td>
-          <td tal:condition="here/isUsingReleases">
-            <span tal:define="releases here/getReleasesVocab"
-                  tal:condition="python:item.getTargetRelease != '(UNASSIGNED)'"
-                  tal:replace="python:releases.getValue(item.getTargetRelease)" />
-            <div tal:condition="python:item.getTargetRelease == '(UNASSIGNED)'"
-                 style="text-align:center">&#8212;</div>
-          </td>
-          <td tal:content="python:here.getWrappedField('availableAreas').lookup(here, item.getArea, 'title')"
-              tal:on-error="item/getArea"/>
-          <td tal:content="python:here.getWrappedField('availableIssueTypes').lookup(here, item.getIssueType, 'title')"
-              tal:on-error="item/getIssueType" />
-          <td tal:content="item/getSeverity" />
-          <td>
-            <span tal:condition="python:item.getResponsibleManager != '(UNASSIGNED)'"
-                  tal:define="manager python:pas_member.info(item.getResponsibleManager)"
-                  tal:replace="manager/name_or_id" />
-            <div tal:condition="python:item.getResponsibleManager == '(UNASSIGNED)'"
-                 style="text-align:center">&#8212;</div>
-          </td>
-          <td tal:content="python:', '.join(item.Subject)" />
-          <td tal:attributes="class string:issue-${item/review_state}"
-              i18n:translate="" i18n:domain="plone"
-              tal:content="python:states.getValue(item.review_state)" />
-        </tr>
-      </tal:issues>
-    </tbody>
-  </table>
+       <tbody>
+           <tal:issues repeat="item issues">
+               <tr tal:define="oddrow repeat/item/odd"
+                   tal:attributes="class python:test(oddrow, 'even', 'odd')">
+                   <td tal:content="item/getId">
+                   </td>
+                   <td>
+                       <a tal:attributes="href  item/getURL;
+                                          title item/Description;"
+                          tal:content="item/Title" />
+                   </td>
+                   <td tal:condition="here/isUsingReleases"
+                       tal:define="release item/getTargetRelease">
+                       <a tal:define="releases here/getReleasesVocab"
+                          tal:attributes="href string:${issueQueryString}&amp;targetRelease=${release};"
+                          tal:content="python:releases.getValue(release)" />
+                       <div tal:condition="python:item.getTargetRelease == '(UNASSIGNED)'"
+		                    style="text-align:center">&#8212;</div>
+                   </td>
+                   <td><a tal:content="python:here.getWrappedField('availableAreas').lookup(here, item.getArea, 'title')"
+                          tal:attributes="href string:${issueQueryString}&amp;area=${item/getArea};"
+                          tal:on-error="item/getArea"/>
+                   </td>
+
+                   <td><a tal:content="python:here.getWrappedField('availableIssueTypes').lookup(here, item.getIssueType, 'title')"
+                          tal:attributes="href string:${issueQueryString}&amp;issueType=${item/getIssueType};"
+                          tal:on-error="item/getIssueType" />
+                   </td>
+		           <td>
+			         <a tal:condition="item/getSeverity"
+			            tal:content="item/getSeverity"
+			            tal:attributes="href string:${issueQueryString}&amp;severity=${item/getSeverity};" />
+			       </td>
+                   <td>
+                      <a tal:condition="python:item.getResponsibleManager != '(UNASSIGNED)'"
+                         tal:define="manager python:pas_member.info(item.getResponsibleManager)"
+                         tal:attributes="href string:${issueQueryString}&amp;responsible=${item/getResponsibleManager};"
+                         tal:content="manager/name_or_id" />
+                       <div tal:condition="python:item.getResponsibleManager == '(UNASSIGNED)'"
+                            style="text-align:center">&#8212;</div>
+                   </td>
+                   <td tal:content="python:', '.join(item.Subject)" />
+                   <td>
+                       <a tal:content="python:states.getValue(item.review_state)"
+                          tal:attributes="href string:${here/absolute_url}/poi_issue_search?state=${item/review_state};
+                                          class string:issue-${item/review_state}"
+                          i18n:translate="" i18n:domain="plone" />
+                   </td>
+               </tr>
+           </tal:issues>
+       </tbody>
+   </table>
 
   <metal:block define-slot="footer" />
 

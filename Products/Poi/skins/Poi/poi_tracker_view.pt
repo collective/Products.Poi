@@ -19,6 +19,7 @@
       define-macro="content-core"
       tal:define="member context/@@plone_portal_state/member;
                   isAnon context/@@plone_portal_state/anonymous;
+                  trackerUrl here/absolute_url;
                   is_editable context/@@plone_context_state/is_editable;
                   portal context/@@plone_portal_state/portal;
                   wtool context/portal_workflow;
@@ -26,20 +27,23 @@
                   openStates python:['unconfirmed'] + basicOpenStates;
                   ignoredStates python:['new'];
                   pendingStates python:openStates + ['resolved'];
-                  issueQueryString python:'%s/poi_issue_search?state=%s' %
-                  (here.absolute_url(), '&amp;state='.join(openStates),);
                   issuefolder context/@@issuefolder;
+                  activeStates issuefolder/getActiveStates;
+                  issueQueryString python:'%s/poi_issue_search?state=%s' %
+                  (trackerUrl, '&amp;state='.join(activeStates),);
+                  mq python:modules['ZTUtils'].make_query;
                   isManager python:member.getId() in here.getManagers()">
 
-    <div id="issue-quicksearch-box">
-      <form action="@@poi_issue_quicksearch">
-        <input type="text" name="searchText" size="15" />
-        <input class="searchButton" type="submit" value="Search" i18n:attributes="value"/>
-      </form>
-      <a id="issue-search-link"
-         tal:attributes="href string:${here/absolute_url}/poi_issue_search_form"
-         i18n:translate="poi_issue_search">Advanced issue search</a>
-    </div>
+      <div id="issue-quicksearch-box">
+         <form action="" tal:attributes="action string:${trackerUrl}/@@poi_issue_quicksearch">
+            <input type="text" name="searchText" size="15"
+                   tal:attributes="value request/SearchableText|nothing" />
+            <input class="searchButton" type="submit" value="Search" i18n:attributes="value"/>
+         </form>
+         <a id="issue-search-link"
+            tal:attributes="href string:${trackerUrl}/poi_issue_search_form"
+            i18n:translate="poi_issue_search">Advanced issue search</a>
+      </div>
 
     <div class="formControls">
       <div class="login-suggestion" tal:condition="isAnon">
@@ -116,7 +120,6 @@
 
     <div tal:content="structure here/getHelpText"/>
 
-
     <h2 i18n:translate="poi_heading_open_issues">Open issues</h2>
 
 
@@ -156,26 +159,28 @@
       </ul>
     </div>
 
-    <div id="open-issues-by-state" class="issue-quick-search-box"
-         tal:define="issueStates here/getIssueWorkflowStates;">
-      <h3 i18n:translate="poi_heading_by_state">By state</h3>
-      <ul>
-        <li tal:define="issues python:issuefolder.getFilteredIssues(state=openStates)">
-          <a tal:attributes="href string:${issueQueryString}"
-             i18n:translate="poi_all_pending_issues">All pending issues</a> (<span tal:replace="python:len(issues)" />)
-        </li>
-        <tal:releases repeat="state issueStates">
-          <tal:block condition="python:state not in ignoredStates">
-            <li tal:define="issues python:issuefolder.getFilteredIssues(state=state)">
-              <a tal:attributes="href string:${here/absolute_url}/poi_issue_search?state=${state}"
-                 i18n:translate=""
-                 i18n:domain="plone"
-                 tal:content="python:issueStates.getValue(state)" /> (<span tal:replace="python:len(issues)" />)
-            </li>
-          </tal:block>
-        </tal:releases>
-      </ul>
-    </div>
+      <div id="open-issues-by-state" class="issue-quick-search-box"
+           tal:define="issueStates here/getIssueWorkflowStates;">
+          <h3 i18n:translate="poi_heading_by_state">By state</h3>
+          <ul>
+             <li tal:define="issues python:issuefolder.getFilteredIssues(state=openStates)">
+                 <a class="issue-unconfirmed"
+                    tal:attributes="href string:${issueQueryString}"
+                    i18n:translate="poi_all_pending_issues">All pending issues</a> (<span tal:replace="python:len(issues)" />)
+             </li>
+              <tal:releases repeat="state issueStates">
+                  <tal:block condition="python:state not in ignoredStates">
+                      <li tal:define="issues python:issuefolder.getFilteredIssues(state=state)">
+                        <a tal:attributes="href string:${here/absolute_url}/poi_issue_search?state=${state};
+                                           class string:issue-${state}"
+                           i18n:translate=""
+                           i18n:domain="plone"
+                           tal:content="python:issueStates.getValue(state)" /> (<span tal:replace="python:len(issues)" />)
+                      </li>
+                  </tal:block>
+              </tal:releases>
+          </ul>
+      </div>
 
     <div class="visualClear"><!----></div>
 

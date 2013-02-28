@@ -5,7 +5,7 @@ Changelog for Poi
 2.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Most metadata are now clickable links.
 
 
 2.2 (2013-02-07)
