@@ -5,7 +5,8 @@ Changelog for Poi
 2.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added issue_portal_type parameter in IssueFolderView. It is now possible to use a custom content type inherited from PoiIssue
+  [cedricmessiant]
 
 
 2.2 (2013-02-07)
