@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi 1.1.2\n"
-"POT-Creation-Date: 2013-03-01 22:48+0000\n"
+"POT-Creation-Date: 2013-03-01 23:40+0000\n"
 "PO-Revision-Date: 2008-11-19 17:32-0000\n"
 "Last-Translator: Nuno Cruz <nuno.cruz@inst-informatica.pt>\n"
 "Language-Team: NWEB <nwebmaster@inst-informatica.pt>\n"
@@ -97,6 +97,10 @@ msgstr ""
 
 #: ./content/PoiIssue.py:489
 msgid "None"
+msgstr ""
+
+#: ./skins/Poi/poi_tracker_view.pt:296
+msgid "Poi"
 msgstr ""
 
 #. Default: "Select the area this issue is relevant to."

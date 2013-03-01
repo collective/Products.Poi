@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.1.2\n"
-"POT-Creation-Date: 2013-03-01 22:48+0000\n"
+"POT-Creation-Date: 2013-03-01 23:40+0000\n"
 "PO-Revision-Date: 2008-12-08 09:42+0100\n"
 "Last-Translator: Jonas Nielsen <jonas@magenta-aps.dk>\n"
 "Language-Team: DA\n"
@@ -98,6 +98,10 @@ msgstr ""
 
 #: ./content/PoiIssue.py:489
 msgid "None"
+msgstr ""
+
+#: ./skins/Poi/poi_tracker_view.pt:296
+msgid "Poi"
 msgstr ""
 
 # ./content/PoiIssue.py

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-pt-br\n"
-"POT-Creation-Date: 2013-03-01 22:48+0000\n"
+"POT-Creation-Date: 2013-03-01 23:40+0000\n"
 "PO-Revision-Date: 2012-04-09 13:59-0300\n"
 "Last-Translator: Gustavo Lepri <lepri@simplesconsultoria.com.br>\n"
 "Language-Team: Simples Consultoria <contato@simplesconsultoria.com.br>\n"
@@ -98,6 +98,10 @@ msgstr "Não foi adicionado um texto à resposta e nenhuma alteração foi reali
 #: ./content/PoiIssue.py:489
 msgid "None"
 msgstr "Ninguém"
+
+#: ./skins/Poi/poi_tracker_view.pt:296
+msgid "Poi"
+msgstr ""
 
 #. Default: "Select the area this issue is relevant to."
 #: ./content/PoiIssue.py:176

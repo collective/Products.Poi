@@ -17,7 +17,7 @@
     <description tal:condition="nocall:results" i18n:translate="batch_x_items_matching_your_criteria">
       <tal:span i18n:name="number" tal:content="python:len(results)"> 234 </tal:span>  items matching your criteria.
     </description>
-    <generator>Poi</generator>
+    <generator i18n:translate="">Poi</generator>
 
     <tal:entry tal:condition="nocall:results"
                tal:repeat="item results">

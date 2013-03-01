@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2013-03-01 22:48+0000\n"
+"POT-Creation-Date: 2013-03-01 23:40+0000\n"
 "PO-Revision-Date: 2006-01-22 18:00+0900\n"
 "Last-Translator: TANIGUCHI Takaki <takaki@asis.media-as.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -94,6 +94,10 @@ msgstr ""
 
 #: ./content/PoiIssue.py:489
 msgid "None"
+msgstr ""
+
+#: ./skins/Poi/poi_tracker_view.pt:296
+msgid "Poi"
 msgstr ""
 
 # ./content/PoiIssue.py

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Products.Poi 2.0\n"
-"POT-Creation-Date: 2013-03-01 22:48+0000\n"
+"POT-Creation-Date: 2013-03-01 23:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,6 +92,10 @@ msgstr ""
 
 #: ./content/PoiIssue.py:489
 msgid "None"
+msgstr ""
+
+#: ./skins/Poi/poi_tracker_view.pt:296
+msgid "Poi"
 msgstr ""
 
 #. Default: "Select the area this issue is relevant to."
