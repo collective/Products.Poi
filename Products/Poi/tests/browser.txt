@@ -82,13 +82,13 @@ occurs::
 Leaving the text empty but changing a value is fine.  We test setting
 the severity::
 
-    >>> '<td>Important</td>' in browser.contents
+    >>> '>Important</a>' in browser.contents
     False
     >>> browser.getControl(name='severity').value = ('Important',)
     >>> browser.getControl('Submit').click()
     >>> issue.getSeverity()
     'Important'
-    >>> '<td>Important</td>' in browser.contents
+    >>> '<a href="http://nohost/plone/issues/poi_issue_search?state=open&amp;state=in-progress&amp;state=unconfirmed&amp;severity=Important">Important</a>' in browser.contents
     True
     >>> "No response text added and no issue changes made." in browser.contents
     False
@@ -104,8 +104,8 @@ We check the values of this response::
     ''
     >>> len(response.changes)
     1
-    >>> response.changes[0]
-    {'before': 'Medium', 'after': 'Important', 'id': 'severity', 'name': u'Severity'}
+    >>> response.changes[0] == {'before': 'Medium', 'after': 'Important', 'id': 'severity', 'name': u'Severity'}
+    True
     >>> str(response.creator)
     'test_user_1_'
     >>> response.date
@@ -124,14 +124,13 @@ Now we add a response::
     >>> browser.getControl('Submit').click()
 
 We check the current status in the browser contents::
-
-    >>> '<td class="issue-open">Confirmed</td>' in browser.contents
+    >>> 'class="issue-open">Confirmed</a>' in browser.contents
     True
-    >>> '<td>User interface</td>' in browser.contents
+    >>> '<a href="http://nohost/plone/issues/poi_issue_search?state=open&amp;state=in-progress&amp;state=unconfirmed&amp;area=ui">User interface</a>' in browser.contents
     True
-    >>> '<td>Bug</td>' in browser.contents
+    >>> '<a href="http://nohost/plone/issues/poi_issue_search?state=open&amp;state=in-progress&amp;state=unconfirmed&amp;issueType=bug">Bug</a>' in browser.contents
     True
-    >>> '<td>Important</td>' in browser.contents
+    >>> '<a href="http://nohost/plone/issues/poi_issue_search?state=open&amp;state=in-progress&amp;state=unconfirmed&amp;severity=Important">Important</a>' in browser.contents
     True
 
 And we check the issue to be sure:
@@ -153,10 +152,10 @@ We check the values of the response::
     'Possibly fixed in r99.'
     >>> len(response.changes)
     2
-    >>> response.changes[0]
-    {'before': 'Unconfirmed', 'after': 'Confirmed', 'id': 'review_state', 'name': u'Issue state'}
-    >>> response.changes[1]
-    {'before': '(UNASSIGNED)', 'after': 'test_user_1_', 'id': 'responsibleManager', 'name': u'Responsible manager'}
+    >>> response.changes[0] == {'before': 'Unconfirmed', 'after': 'Confirmed', 'id': 'review_state', 'name': u'Issue state'}
+    True
+    >>> response.changes[1] == {'before': '(UNASSIGNED)', 'after': 'test_user_1_', 'id': 'responsibleManager', 'name': u'Responsible manager'}
+    True
     >>> str(response.creator)
     'test_user_1_'
     >>> response.date

@@ -18,8 +18,8 @@ So some tests are in order.  First we make a response::
     >>> res.changes
     []
     >>> res.add_change("review_state", "Transition", "unconfirmed", "confirmed")
-    >>> res.changes
-    [{'before': 'unconfirmed', 'after': 'confirmed', 'id': 'review_state', 'name': 'Transition'}]
+    >>> res.changes == [{'before': 'unconfirmed', 'after': 'confirmed', 'id': 'review_state', 'name': 'Transition'}]
+    True
 
 That is everything we need to know about a response really, so our
 basis is fine this way.
@@ -218,12 +218,12 @@ available options for us now::
 
 The view has some methods especially for displaying::
 
-    >>> view.transitions_for_display
-    [{'checked': 'checked', 'value': '', 'label': u'No change'}]
-    >>> view.releases_for_display
-    [{'checked': 'checked', 'value': '(UNASSIGNED)', 'label': u'None'}]
-    >>> view.managers_for_display
-    [{'checked': 'checked', 'value': '(UNASSIGNED)', 'label': u'None'}, {'checked': '', 'value': 'manager', 'label': 'manager'}]
+    >>> view.transitions_for_display == [{'checked': 'checked', 'value': '', 'label': u'No change'}]
+    True
+    >>> view.releases_for_display == [{'checked': 'checked', 'value': '(UNASSIGNED)', 'label': u'None'}]
+    True
+    >>> view.managers_for_display == [{'checked': 'checked', 'value': '(UNASSIGNED)', 'label': u'None'}, {'checked': '', 'value': 'manager', 'label': 'manager'}]
+    True
 
 And of course the responses are visible.  Well, no response has been
 added yet.
@@ -265,7 +265,7 @@ issue changes.  So we create a slightly more interesting response::
     'We are no longer the Knights who say Ni.'
     >>> res.changes
     [{'before': 'Medium', 'after': u'Critical', 'id': 'severity', 'name': u'Severity'}, {'before': '(UNASSIGNED)', 'after': 'manager', 'id': 'responsibleManager', 'name': u'Responsible manager'}]
-
+    
 
 Type of response
 ----------------
