@@ -299,7 +299,7 @@
         Powered by
       </tal:powered>
       <a class="link-plain"
-         href="http://plone.org/products/poi">Poi</a>
+         href="http://plone.org/products/poi" i18n:translate="">Poi</a>
     </div>
 
   </metal:content-core>

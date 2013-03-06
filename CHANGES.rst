@@ -7,6 +7,9 @@ Changelog for Poi
 
 - Most metadata are now clickable links.
 
+- Added issue_portal_type parameter in IssueFolderView. It is now possible to use a custom content type inherited from PoiIssue
+  [cedricmessiant]
+
 
 2.2 (2013-02-07)
 ----------------

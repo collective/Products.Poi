@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2013-02-05 22:29+0000\n"
+"POT-Creation-Date: 2013-03-01 23:40+0000\n"
 "PO-Revision-Date: 2010-01-24 15:00+0010\n"
 "Last-Translator: STX Next <info@stxnext.pl>\n"
 "Language-Team: STX Next <info@stxnext.pl>\n"
@@ -94,6 +94,10 @@ msgstr "Nie dodano tekstu ani zgłoszenie nie zostało zmienione."
 #: ./content/PoiIssue.py:489
 msgid "None"
 msgstr "Brak"
+
+#: ./skins/Poi/poi_tracker_view.pt:296
+msgid "Poi"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."

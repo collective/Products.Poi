@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2013-02-05 22:29+0000\n"
+"POT-Creation-Date: 2013-03-01 23:40+0000\n"
 "PO-Revision-Date: 2010-10-19 14:38+0100\n"
 "Last-Translator: Lukas Zdych <lukas.zdych@gmail.com>\n"
 "Language-Team: DMS4U <dms4u.cz>\n"
@@ -95,6 +95,10 @@ msgstr "Nebyl zadán žádný text reakce ani provedeny změny úlohy."
 #: ./content/PoiIssue.py:489
 msgid "None"
 msgstr "Nic"
+
+#: ./skins/Poi/poi_tracker_view.pt:296
+msgid "Poi"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."
