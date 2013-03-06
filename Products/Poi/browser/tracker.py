@@ -4,7 +4,7 @@ from Products.Five.browser import BrowserView
 from Products.PythonScripts.standard import url_quote
 from ZTUtils import make_query
 
-ACTIVE_STATES = ['open', 'in-progress', 'unconfirmed', 'resolved']
+ACTIVE_STATES = ['open', 'in-progress', 'unconfirmed']
 
 class IssueFolderView(BrowserView):
 
