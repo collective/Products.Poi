@@ -42,7 +42,7 @@ msgid "Confirm resolved"
 msgstr "Conferma risoluzione"
 
 msgid "Confirmed"
-msgstr ""
+msgstr "Confermato"
 
 msgid "In progress"
 msgstr "In gestione"
@@ -56,10 +56,10 @@ msgstr "Gestore Attività"
 
 # browser/respsonse.py:transitions_for_display
 msgid "No change"
-msgstr ""
+msgstr "Nessuna modifica"
 
 msgid "Only members can submit"
-msgstr ""
+msgstr "Solo collaboratori possono inserire"
 
 msgid "Open"
 msgstr "Attiva"
@@ -89,10 +89,10 @@ msgid "Postponed"
 msgstr "Posticipato"
 
 msgid "Protect tracker"
-msgstr ""
+msgstr "Progetti gestore segnalazioni"
 
 msgid "Protected against anonymous views"
-msgstr ""
+msgstr "Proteggi dall'accesso di anonimi"
 
 msgid "Put on hold"
 msgstr "Metti in pausa"
@@ -119,7 +119,7 @@ msgid "Response"
 msgstr "Risposta"
 
 msgid "Restrict tracker"
-msgstr ""
+msgstr "Limita gestione segnalazioni"
 
 # issue states
 msgid "Tested and confirmed closed"
