@@ -146,8 +146,8 @@ msgstr "Inserisci i diversi tipi di priorità delle richieste che dovrebbero ess
 #: ./content/PoiIssue.py:256
 msgid "Poi_help_contactEmail"
 msgstr ""
-"Prego fornisci un indirizzo email dove puoi essere contattato per ulteriori informazioni o quando una risoluzione è disponibile."
-"Nota cje il tuo indirizzo e-mail non sarà visualizzato ad altri."
+"Prego fornisci un indirizzo email dove puoi essere contattato per ulteriori informazioni o quando una risoluzione è disponibile.\n"
+"Nota che il tuo indirizzo e-mail non sarà visualizzato ad altri."
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
@@ -241,7 +241,7 @@ msgstr "Seleziona quali manager, se ci sono, sono responsabili della richiesta."
 #: ./content/PoiTracker.py:243
 msgid "Poi_help_sendNotificationEmails"
 msgstr ""
-"Se selezionato, i manager del gestore attività riceveranno una mail ogni volta che una nuova richiesta o risposta saranno generate, e chi ha inviato la richiesta riceverà una email quando sarà presente una nuova risposta o quando una richiesta verrà risolta, in attesa della conferma."
+"Se selezionato, i manager del gestore attività riceveranno una mail ogni volta che una nuova richiesta o risposta saranno generate, e chi ha inviato la richiesta riceverà una email quando sarà presente una nuova risposta o quando una richiesta verrà risolta, in attesa della conferma.\n"
 "I Tecnici riceveranno delle e-mail quando una segnalazione sarà loro assegnata."
 
 # ./content/PoiIssue.py
@@ -307,8 +307,8 @@ msgstr ""
 #: ./content/PoiIssue.py:273
 msgid "Poi_help_watchers"
 msgstr ""
-msgstr "Inserisci gli identificativi degli utenti interessati alla richiesta, uno per linea.\n
-"Sono permessi ancbe indirizzi e-mail.\n
+"Inserisci gli identificativi degli utenti interessati alla richiesta, uno per linea.\n"
+"Sono permessi anche indirizzi e-mail.\n"
 "Questi utenti riceveranno una mail quando una risposta sarà aggiunta alla richiesta.\n"
 "Gli utenti possono aggiungersi autonomamente alla lista di notifica."
 
