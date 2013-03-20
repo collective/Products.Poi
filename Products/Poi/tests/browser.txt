@@ -18,10 +18,9 @@ We start a test browser::
 We log in::
 
     >>> browser.open(portal.absolute_url() + '/login_form')
-    >>> browser.getLink('Log in').click()
     >>> browser.getControl(name='__ac_name').value = 'test_user_1_'
     >>> browser.getControl(name='__ac_password').value = 'secret'
-    >>> browser.getControl(name='submit').click()
+    >>> browser.getControl('Log in').click()
     >>> 'You are now logged in' in browser.contents
     True
 
@@ -74,8 +73,7 @@ We check some values of the issue before adding a response::
 
 If we just click the submit button without filling in text, an error
 occurs::
-
-    >>> browser.getControl('Submit').click()
+    >>> browser.getForm(action='@@create_response').getControl('Submit').click()
     >>> "No response text added and no issue changes made." in browser.contents
     True
 
@@ -85,7 +83,7 @@ the severity::
     >>> '>Important</a>' in browser.contents
     False
     >>> browser.getControl(name='severity').value = ('Important',)
-    >>> browser.getControl('Submit').click()
+    >>> browser.getForm(action='@@create_response').getControl('Submit').click()
     >>> issue.getSeverity()
     'Important'
     >>> '<a href="http://nohost/plone/issues/poi_issue_search?state=open&amp;state=in-progress&amp;state=unconfirmed&amp;severity=Important">Important</a>' in browser.contents
@@ -121,7 +119,7 @@ Now we add a response::
     >>> browser.getControl(name='response').value = 'Possibly fixed in r99.'
     >>> browser.getControl(name='transition').value = ('accept-unconfirmed',)
     >>> browser.getControl(name='responsibleManager').value = ('test_user_1_',)
-    >>> browser.getControl('Submit').click()
+    >>> browser.getForm(action='@@create_response').getControl('Submit').click()
 
 We check the current status in the browser contents::
     >>> 'class="issue-open">Confirmed</a>' in browser.contents
