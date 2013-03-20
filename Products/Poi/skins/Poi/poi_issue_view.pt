@@ -17,7 +17,14 @@
 
 <body>
 
-<metal:title fill-slot="content-title">
+<metal:title fill-slot="content-title"
+             tal:define="trackerUrl context/aq_parent/absolute_url;">
+
+    <tal:c condition="python:not ajax_load">
+      <metal:header
+      use-macro="here/poi_tracker_view/macros/trackerheader"></metal:header>
+    </tal:c>
+
   <h1 class="documentFirstHeading">
     #<span tal:replace="context/getId" /> &#8212;
     <metal:field use-macro="python:context.widget('title', mode='view')">
@@ -44,6 +51,7 @@
                   basicOpenStates python:['open', 'in-progress'];
                   openStates python:['unconfirmed'] + basicOpenStates;
                   trackerUrl context/aq_parent/absolute_url;
+                  ajax_load request/ajax_load | nothing;
                   activeStates context/aq_parent/@@issuefolder/getActiveStates;
                   issueQueryString python:'%s/poi_issue_search?state=%s' %
                   (here.aq_parent.absolute_url(), '&amp;state='.join(activeStates),);">
