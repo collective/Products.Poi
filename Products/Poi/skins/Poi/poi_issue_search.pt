@@ -18,6 +18,7 @@
 <body>
 <metal:main fill-slot="main"
      tal:define="issuefolder context/@@issuefolder;
+                 trackerUrl here/absolute_url;
                  rssQueryString python:issuefolder.getIssueSearchQueryString(request);
                  results   python:issuefolder.getFilteredIssues(request);
                  Batch    python:modules['Products.CMFPlone'].Batch;
@@ -27,6 +28,7 @@
               tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);
                           issues batch">
 
+    <metal:header use-macro="here/poi_tracker_view/macros/trackerheader"></metal:header>
     <metal:results use-macro="here/poi_issue_search_results/macros/issue_search_results">
 
       <metal:intro fill-slot="intro-text">

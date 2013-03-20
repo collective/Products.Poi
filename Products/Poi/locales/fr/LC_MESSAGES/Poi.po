@@ -809,7 +809,7 @@ msgstr "Les tickets ouverts suivants sont soumis par vous, ou vous sont assigné
 #. Default: "The following open issues were submitted by you."
 #: ./skins/Poi/poi_tracker_view.pt:245
 msgid "poi_help_my_issues_not_manager"
-msgstr "Les tickets ouverts suivants vous ont été soumis par vous."
+msgstr "Les tickets suivants sont les tickets ouverts que vous avez soumis."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
 #: ./skins/Poi/poi_tracker_view.pt:124

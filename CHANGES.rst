@@ -5,7 +5,11 @@ Changelog for Poi
 2.2.1 (unreleased)
 ------------------
 
+- Quick search and add issue button are now available on all pages.
+  [thomasdesvenain]
+
 - Most metadata are now clickable links.
+  [thomasdesvenain]
 
 - Added issue_portal_type parameter in IssueFolderView. It is now possible to use a custom content type inherited from PoiIssue
   [cedricmessiant]

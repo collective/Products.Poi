@@ -14,6 +14,31 @@
 </head>
 
 <body>
+
+<metal:header-additional define-slot="additional-header-actions">
+   <td>
+     <form style="display: inline" action="@@toggle_watching"
+           id="poi-watch-tracker-form"
+           tal:condition="python:not isAnon">
+       <div class="formControls"
+            tal:define="is_watching context/@@toggle_watching/is_watching;">
+         <input tal:condition="is_watching"
+                class="standalone"
+                type="submit"
+                i18n:attributes="value"
+                value="Stop watching this tracker"
+                />
+         <input tal:condition="not:is_watching"
+                class="context"
+                type="submit"
+                i18n:attributes="value"
+                value="Watch this tracker"
+                />
+       </div>
+     </form>
+   </td>
+</metal:header-additional>
+
 <metal:content-core fill-slot="content-core">
   <metal:content-core
       define-macro="content-core"
@@ -33,6 +58,12 @@
                   (trackerUrl, '&amp;state='.join(activeStates),);
                   mq python:modules['ZTUtils'].make_query;
                   isManager python:member.getId() in here.getManagers()">
+
+    <metal:trackerheader define-macro="trackerheader"
+      tal:define="member context/@@plone_portal_state/member;
+                  isManager isManager|python:member.has_role('Manager', context);
+                  isAnon isAnon|context/@@plone_portal_state/anonymous;
+                  trackerUrl trackerUrl|here/absolute_url;">
 
       <div id="issue-quicksearch-box">
          <form action="" tal:attributes="action string:${trackerUrl}/@@poi_issue_quicksearch">
@@ -86,30 +117,13 @@
               </div>
             </form>
           </td>
-          <td>
-            <form style="display: inline" action="@@toggle_watching"
-                  id="poi-watch-tracker-form"
-                  tal:condition="python:not isAnon">
-              <div class="formControls"
-                   tal:define="is_watching context/@@toggle_watching/is_watching;">
-                <input tal:condition="is_watching"
-                       class="standalone"
-                       type="submit"
-                       i18n:attributes="value"
-                       value="Stop watching this tracker"
-                       />
-                <input tal:condition="not:is_watching"
-                       class="context"
-                       type="submit"
-                       i18n:attributes="value"
-                       value="Watch this tracker"
-                       />
-              </div>
-            </form>
-          </td>
+          <metal:additional-slot define-slot="additional-header-actions">
+          </metal:additional-slot>
         </tr>
       </table>
     </div>
+
+    </metal:trackerheader>
 
     <p class="portalMessage"
        i18n:translate="description_cannot_add_issues_before_opened"
