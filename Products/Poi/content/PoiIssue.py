@@ -551,7 +551,10 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         if folder is None:
             # Should Not Happen (TM)
             return text
-        text += ' ' + ' '.join([r.text for r in folder if r])
+        try:
+            text += ' ' + ' '.join([r.text for r in folder if r])
+        except UnicodeDecodeError:
+            text = text.decode('utf-8') + ' ' + ' '.join([r.text.decode('utf-8') for r in folder if r])
         return text
 
     def notifyModified(self):
