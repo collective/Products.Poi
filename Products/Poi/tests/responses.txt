@@ -121,10 +121,11 @@ need some tools and set a Creator for this tracker::
     >>> from Products.CMFPlone.URLTool import URLTool
     >>> from Products.CMFDefault.MembershipTool import MembershipTool
     >>> from Products.CMFPlone.CatalogTool import CatalogTool
+    >>> from Products.PluggableAuthService.PluggableAuthService import addPluggableAuthService
     >>> tracker.portal_workflow = WorkflowTool()
     >>> tracker.portal_url = URLTool()
     >>> tracker.portal_membership = MembershipTool()
-    >>> tracker.acl_users = MembershipTool()
+    >>> addPluggableAuthService(tracker.portal_membership)
     >>> class MockTransformData(object):
     ...     def __init__(self, text):
     ...         self.text = text
