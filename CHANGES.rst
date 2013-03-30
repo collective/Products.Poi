@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.2.1 (unreleased)
+2.2.1 (2013-03-30)
 ------------------
 
 - Issue search form criteria can be pre-selected from request.
