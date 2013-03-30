@@ -64,6 +64,7 @@
             <input type="text"
                    id="text"
                    name="text"
+                   tal:attributes="value request/form/text|nothing"
                    size="30" />
           </div>
 
@@ -75,7 +76,8 @@
               Enter the username of the issue submitter,
             </div>
 
-            <input id="creator" name="creator:ignore_empty" size="15" />
+            <input id="creator" name="creator:ignore_empty" size="15"
+                   tal:attributes="value request/creator|nothing" />
 
           </div>
 
@@ -96,7 +98,8 @@
               <option i18n:translate="not_assigned"
                       value="(UNASSIGNED)">(Not assigned)</option>
               <option tal:repeat="item releases"
-                      tal:attributes="value item"
+                      tal:attributes="value item;
+                                      selected python:item in request.get('release', []) and 'selected' or None"
                       tal:content="python:releases.getValue(item)" />
             </select>
 
@@ -118,7 +121,8 @@
               <option i18n:translate="not_assigned"
                       value="(UNASSIGNED)">(Not assigned)</option>
               <option tal:repeat="item releases"
-                      tal:attributes="value item"
+                      tal:attributes="value item;
+                                      selected python:item in request.get('targetRelease', []) and 'selected' or None"
                       tal:content="python:releases.getValue(item)" />
             </select>
 
@@ -138,7 +142,8 @@
                     name="area:list"
                     tal:define="areas python:here.getWrappedField('availableAreas').getAsDisplayList(here)">
               <option tal:repeat="item areas"
-                      tal:attributes="value nocall:item"
+                      tal:attributes="value nocall:item;
+                                      selected python:item in request.get('area', []) and 'selected' or None"
                       tal:content="python:areas.getValue(item)" />
             </select>
 
@@ -158,7 +163,8 @@
                     name="issueType:list"
                     tal:define="issueTypes python:here.getWrappedField('availableIssueTypes').getAsDisplayList(here)">
               <option tal:repeat="item issueTypes"
-                      tal:attributes="value nocall:item"
+                      tal:attributes="value nocall:item;
+                                      selected python:item in request.get('issueType', []) and 'selected' or None"
                       tal:content="python:issueTypes.getValue(item)" />
             </select>
 
@@ -178,7 +184,8 @@
                     name="severity:list"
                     tal:define="severities here/getAvailableSeverities">
               <option tal:repeat="item severities"
-                      tal:attributes="value item"
+                      tal:attributes="value item;
+                                      selected python:item in request.get('severity', []) and 'selected' or None"
                       tal:content="item" />
             </select>
 
@@ -198,7 +205,8 @@
                     name="state:list"
                     tal:define="states here/getIssueWorkflowStates">
               <option tal:repeat="item states"
-                      tal:attributes="value item"
+                      tal:attributes="value item;
+                                      selected python:item in request.get('state', []) and 'selected' or None"
                       i18n:translate=""
                       i18n:domain="plone"
                       tal:content="python:states.getValue(item)" />
@@ -222,7 +230,8 @@
               <option i18n:translate="not_assigned"
                       value="(UNASSIGNED)">(Not assigned)</option>
               <option tal:repeat="item managers"
-                      tal:attributes="value item"
+                      tal:attributes="value item;
+                                      selected python:item in request.get('responsible', []) and 'selected' or None"
                       tal:content="item" />
             </select>
 
@@ -244,7 +253,8 @@
                     name="tags.query:record:list"
                     tal:define="tags here/getTagsInUse">
               <option tal:repeat="item tags"
-                      tal:attributes="value item"
+                      tal:attributes="value item;
+                                      selected python:item in request.get('tags.query', []) and 'selected' or None"
                       tal:content="item" />
             </select>
 
