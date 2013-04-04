@@ -5,7 +5,8 @@ Changelog for Poi
 2.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed ``KeyError: portal`` on several pages for anonymous users.
+  [maurits]
 
 
 2.2.1 (2013-03-30)

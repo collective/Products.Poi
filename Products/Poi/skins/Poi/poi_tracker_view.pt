@@ -63,6 +63,7 @@
       tal:define="member context/@@plone_portal_state/member;
                   isManager isManager|python:member.has_role('Manager', context);
                   isAnon isAnon|context/@@plone_portal_state/anonymous;
+                  portal_url context/@@plone_portal_state/portal_url;
                   trackerUrl trackerUrl|here/absolute_url;">
 
       <div id="issue-quicksearch-box">
@@ -107,7 +108,7 @@
             <form
                 id="poi-login-form"
                 tal:condition="isAnon"
-                tal:attributes="action string:${portal/absolute_url}/login_form?came_from=${here/absolute_url}">
+                tal:attributes="action string:${portal_url}/login_form?came_from=${here/absolute_url}">
               <div class="formControls">
                 <input class="context"
                        type="submit"
