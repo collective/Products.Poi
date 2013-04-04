@@ -5,6 +5,9 @@ Changelog for Poi
 2.2.2 (unreleased)
 ------------------
 
+- Show the 'Watch/Stop watching this tracker' button again.
+  [maurits]
+
 - Fixed ``KeyError: portal`` on several pages for anonymous users.
   [maurits]
 

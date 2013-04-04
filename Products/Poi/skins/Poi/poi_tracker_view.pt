@@ -15,30 +15,6 @@
 
 <body>
 
-<metal:header-additional define-slot="additional-header-actions">
-   <td>
-     <form style="display: inline" action="@@toggle_watching"
-           id="poi-watch-tracker-form"
-           tal:condition="python:not isAnon">
-       <div class="formControls"
-            tal:define="is_watching context/@@toggle_watching/is_watching;">
-         <input tal:condition="is_watching"
-                class="standalone"
-                type="submit"
-                i18n:attributes="value"
-                value="Stop watching this tracker"
-                />
-         <input tal:condition="not:is_watching"
-                class="context"
-                type="submit"
-                i18n:attributes="value"
-                value="Watch this tracker"
-                />
-       </div>
-     </form>
-   </td>
-</metal:header-additional>
-
 <metal:content-core fill-slot="content-core">
   <metal:content-core
       define-macro="content-core"
@@ -120,6 +96,27 @@
             </form>
           </td>
           <metal:additional-slot define-slot="additional-header-actions">
+            <td>
+              <form style="display: inline" action="@@toggle_watching"
+                    id="poi-watch-tracker-form"
+                    tal:condition="python:not isAnon">
+                <div class="formControls"
+                     tal:define="is_watching context/@@toggle_watching/is_watching;">
+                  <input tal:condition="is_watching"
+                         class="standalone"
+                         type="submit"
+                         i18n:attributes="value"
+                         value="Stop watching this tracker"
+                         />
+                  <input tal:condition="not:is_watching"
+                         class="context"
+                         type="submit"
+                         i18n:attributes="value"
+                         value="Watch this tracker"
+                         />
+                </div>
+              </form>
+            </td>
           </metal:additional-slot>
         </tr>
       </table>
