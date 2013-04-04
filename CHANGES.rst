@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.2.2 (unreleased)
+2.2.2 (2013-04-04)
 ------------------
 
 - Show the 'Watch/Stop watching this tracker' button again.
