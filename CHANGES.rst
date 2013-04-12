@@ -5,8 +5,8 @@ Changelog for Poi
 2.2.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Updated italian translation
+  [keul]
 
 2.2.2 (2013-04-04)
 ------------------

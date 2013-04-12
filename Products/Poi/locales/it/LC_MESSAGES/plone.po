@@ -89,7 +89,7 @@ msgid "Postponed"
 msgstr "Posticipato"
 
 msgid "Protect tracker"
-msgstr "Progetti gestore segnalazioni"
+msgstr "Proteggi gestore segnalazioni"
 
 msgid "Protected against anonymous views"
 msgstr "Proteggi dall'accesso di anonimi"
@@ -110,7 +110,7 @@ msgid "Resolve"
 msgstr "Risolto"
 
 msgid "Resolve immediately"
-msgstr ""
+msgstr "Risolvi immediatamente"
 
 msgid "Resolved"
 msgstr "Risolto"
@@ -126,5 +126,5 @@ msgid "Tested and confirmed closed"
 msgstr "Test effettuati e chiusura confermata"
 
 msgid "Unconfirmed"
-msgstr "Da Confermare"
+msgstr "Da confermare"
 
