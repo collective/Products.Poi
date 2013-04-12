@@ -26,7 +26,7 @@ msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded t
 msgstr "Una attività. Le richieste di attività hanno stato iniziale 'da confermare', e possono essere gestite dai project manager."
 
 msgid "Begin work"
-msgstr "Inizia lavoro"
+msgstr "Avvia attività"
 
 msgid "Being created"
 msgstr "Creato"
@@ -95,7 +95,7 @@ msgid "Protected against anonymous views"
 msgstr "Proteggi dall'accesso di anonimi"
 
 msgid "Put on hold"
-msgstr "Metti in pausa"
+msgstr "Sospendi"
 
 msgid "Re-open"
 msgstr "Ri-attiva"
