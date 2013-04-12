@@ -111,4 +111,12 @@
       handler="Products.Poi.migration.migrate_tracker_watchers"
       profile="Products.Poi:default" />
 
+  <gs:upgradeStep
+      title="Run workflow import step"
+      description="Updating workflow to reflect changes"
+      source="2005"
+      destination="2006"
+      handler="Products.Poi.migration.run_workflow_step"
+      profile="Products.Poi:default" />
+
 </configure>
