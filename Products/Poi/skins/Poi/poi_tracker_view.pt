@@ -124,13 +124,13 @@
 
     </metal:trackerheader>
 
-    <dl class="portalMessage">
+    <dl class="portalMessage"
+	    tal:condition="python: is_editable and wtool.getInfoFor(here, 'review_state')=='closed'">
 	   <dt i18n:translate="">Note</dt>
-	  <dd i18n:translate="description_cannot_add_issues_before_opened"
-          tal:condition="python: is_editable and wtool.getInfoFor(here, 'review_state')=='closed'">
-      Others cannot submit issues to your tracker until you open it for
-      submissions using the 'state' drop down in the green bar above.
-	  </dd>
+	   <dd i18n:translate="description_cannot_add_issues_before_opened">
+          Others cannot submit issues to your tracker until you open it for
+          submissions using the 'state' drop down in the green bar above.
+	   </dd>
     </dl>
 
     <div tal:content="structure here/getHelpText"/>
