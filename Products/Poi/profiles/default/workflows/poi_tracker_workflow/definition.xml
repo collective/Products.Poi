@@ -139,6 +139,7 @@
    <permission-role>Contributor</permission-role>
    <permission-role>Editor</permission-role>
    <permission-role>Manager</permission-role>
+   <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>Reader</permission-role>
    <permission-role>Site Administrator</permission-role>
@@ -187,6 +188,7 @@
    <permission-role>Contributor</permission-role>
    <permission-role>Editor</permission-role>
    <permission-role>Manager</permission-role>
+   <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>Reader</permission-role>
    <permission-role>Site Administrator</permission-role>
