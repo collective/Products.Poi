@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.2.3 (unreleased)
+2.2.3 (2013-04-18)
 ------------------
 
 - Also allow text/plain for the details field.  This fixes a problem
