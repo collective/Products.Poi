@@ -6,6 +6,7 @@ from ZTUtils import make_query
 
 ACTIVE_STATES = ['open', 'in-progress', 'unconfirmed']
 
+
 class IssueFolderView(BrowserView):
 
     issue_portal_type = 'PoiIssue'
