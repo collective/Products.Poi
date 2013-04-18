@@ -5,13 +5,20 @@ Changelog for Poi
 2.2.3 (unreleased)
 ------------------
 
+- Also allow text/plain for the details field.  This fixes a problem
+  with Plone 4.3.
+  [maurits]
+
 - Updated italian translation
   [keul]
+
 - Now supporting the "Site Administrator" role
   [keul]
+
 - Fix tracker security; issues inside private folder
   must not be visible to anonymous users
   [keul]
+
 
 2.2.2 (2013-04-04)
 ------------------
