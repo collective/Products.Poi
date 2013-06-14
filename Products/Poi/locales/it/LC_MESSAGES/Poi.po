@@ -897,7 +897,7 @@ msgstr "Inviato da"
 #. Default: "Submitted on"
 #: ./skins/Poi/poi_issue_view.pt:116
 msgid "poi_label_submitted_on"
-msgstr "Inviato su"
+msgstr "Inviato il"
 
 #. Default: "Tags:"
 #: ./skins/Poi/poi_issue_view.pt:165

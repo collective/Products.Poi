@@ -5,8 +5,8 @@ Changelog for Poi
 2.2.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Removed the text type selection for the tracker description [keul]
+- Some style fixes; removed inline styles [keul]
 
 2.2.3 (2013-04-18)
 ------------------
