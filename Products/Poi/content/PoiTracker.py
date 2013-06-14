@@ -74,7 +74,8 @@ schema = atapi.Schema((
             ),
         use_portal_factory="1",
         accessor="Description",
-        searchable=True
+        searchable=True,
+        allowable_content_types=('text/plain'),
         ),
 
     atapi.TextField(
