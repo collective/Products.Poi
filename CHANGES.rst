@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.2.4 (unreleased)
+2.2.4 (2013-07-02)
 ------------------
 
 - Removed the text type selection for the tracker description.  Note:
