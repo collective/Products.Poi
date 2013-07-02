@@ -5,8 +5,16 @@ Changelog for Poi
 2.2.4 (unreleased)
 ------------------
 
-- Removed the text type selection for the tracker description [keul]
-- Some style fixes; removed inline styles [keul]
+- Removed the text type selection for the tracker description.  Note:
+  when editing and saving an existing tracker and it has html code in
+  its description, you may get a validation error: "Mimetype text/html
+  is not allowed."  In that case you need to edit the description and
+  remove the html tags.
+  [keul]
+
+- Some style fixes; removed inline styles.
+  [keul]
+
 
 2.2.3 (2013-04-18)
 ------------------
