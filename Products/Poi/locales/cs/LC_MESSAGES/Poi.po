@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2013-04-12 15:27+0000\n"
+"POT-Creation-Date: 2013-07-02 11:49+0000\n"
 "PO-Revision-Date: 2010-10-19 14:38+0100\n"
 "Last-Translator: Lukas Zdych <lukas.zdych@gmail.com>\n"
 "Language-Team: DMS4U <dms4u.cz>\n"
@@ -96,7 +96,7 @@ msgstr "Nebyl zadán žádný text reakce ani provedeny změny úlohy."
 msgid "None"
 msgstr "Nic"
 
-#: ./skins/Poi/poi_tracker_view.pt:128
+#: ./skins/Poi/poi_tracker_view.pt:129
 msgid "Note"
 msgstr ""
 
@@ -119,25 +119,25 @@ msgstr "K vaší úloze můžete přiložit soubor jako přílohu. Prosíme nena
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker."
-#: ./content/PoiTracker.py:111
+#: ./content/PoiTracker.py:112
 msgid "Poi_help_availableAreas"
 msgstr "Zadejte témata/oblasti pro úlohy v tomto manažeru úloh."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker."
-#: ./content/PoiTracker.py:136
+#: ./content/PoiTracker.py:137
 msgid "Poi_help_availableIssueTypes"
 msgstr "Zadejte typy úloh pro tento manažer úloh."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release."
-#: ./content/PoiTracker.py:180
+#: ./content/PoiTracker.py:181
 msgid "Poi_help_availableReleases"
 msgstr "Zadejte vydání verzí, ke kterým mohou být úlohy přiřazeny. Každé na samostatný řádek. Pokud nebudou zadána žádná vydání, úlohy podle nich nebudou organizovány."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
-#: ./content/PoiTracker.py:152
+#: ./content/PoiTracker.py:153
 msgid "Poi_help_availableSeverities"
 msgstr "Zadejte různé stupně důležitosti úloh, každý na samostatný řádek."
 
@@ -149,7 +149,7 @@ msgstr "Prosíme zadejte emailovou adresu, na které budete k zastižení pro z�
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
-#: ./content/PoiTracker.py:166
+#: ./content/PoiTracker.py:167
 msgid "Poi_help_defaultSeverity"
 msgstr "Zvolte výchozí důležitost pro nové úlohy."
 
@@ -161,7 +161,7 @@ msgstr "Prosíme doplňte další informace"
 
 # ./content/PoiTracker.py
 #. Default: "Enter any introductory help text you'd like to display on the tracker front page."
-#: ./content/PoiTracker.py:87
+#: ./content/PoiTracker.py:88
 msgid "Poi_help_helpText"
 msgstr "Zadejte jakýkoli úvodní text, který bude zobrazen na úvodní stránce manažeru úloh."
 
@@ -185,13 +185,13 @@ msgstr "Zadejte krátký, ale výstižný nadpis pro tuto úlohu. Dobrý nadpis 
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
-#: ./content/PoiTracker.py:260
+#: ./content/PoiTracker.py:261
 msgid "Poi_help_mailingList"
 msgstr "Pokud je zadáno a pokud je zaškrtnuto i 'Zasílat emailová upozornění', bude na tuto adresu odeslán email při každé nové úloze nebo reakci. Správci zároveň obdrží individuální emaily. Pokud toto není žádoucí změťe je na techniky."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
-#: ./content/PoiTracker.py:195
+#: ./content/PoiTracker.py:196
 msgid "Poi_help_managers"
 msgstr "Zadejte identifikátory (login) uživatelů, kterým bude umožněno spravovat tento manažer úloh, každého na samostatný řádek."
 
@@ -233,7 +233,7 @@ msgstr "Zvolte, který správce, pokud nějaký, je odpovědný za tuto úlohu."
 
 # ./content/PoiTracker.py
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:243
+#: ./content/PoiTracker.py:244
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Pokud je zaškrtnuto, správci manažeru úloh obdrží email při každé nové úloze nebo reakci a autoři úloh obdrží email při každé nové reakci, pokud je úloha vyřešena nebo čekající na potvrzení. Technici obdrží email když jim je úloha přiřazena."
 
@@ -257,7 +257,7 @@ msgstr "Značky mohou být použity pro tvorbu libovolné kategorizace úloh. N�
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
-#: ./content/PoiTracker.py:279
+#: ./content/PoiTracker.py:280
 msgid "Poi_help_svnurl"
 msgstr "Prosíme zadejte Url souvisejícího SVN repositáře, např.: http://dev.plone.org/changeset/%(rev)s/collective pro produkty v Plone collective."
 
@@ -269,7 +269,7 @@ msgstr "Vydání, ve kterém má být tato úloha vyřešena"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
-#: ./content/PoiTracker.py:209
+#: ./content/PoiTracker.py:210
 msgid "Poi_help_technicians"
 msgstr "Zadejte uživatelská jména uživatelů, kteří budou odpovědni za řešení úloh, každé na samostatný řádek. Poznámka: Je v pořádku definovat pouze správce a žádné techniky, protože správci mohou řešit úlohy také."
 
@@ -285,7 +285,7 @@ msgid "Poi_help_tracker_title"
 msgstr "Zadejte výstižné jméno pro tento manažer úloh."
 
 #. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
-#: ./content/PoiTracker.py:224
+#: ./content/PoiTracker.py:225
 msgid "Poi_help_tracker_watchers"
 msgstr ""
 
@@ -311,25 +311,25 @@ msgstr "Příloha"
 
 # ./content/PoiTracker.py
 #. Default: "Areas"
-#: ./content/PoiTracker.py:109
+#: ./content/PoiTracker.py:110
 msgid "Poi_label_availableAreas"
 msgstr "Oblasti"
 
 # ./content/PoiTracker.py
 #. Default: "Issue types"
-#: ./content/PoiTracker.py:134
+#: ./content/PoiTracker.py:135
 msgid "Poi_label_availableIssueTypes"
 msgstr "Typy úloh"
 
 # ./content/PoiTracker.py
 #. Default: "Available releases"
-#: ./content/PoiTracker.py:178
+#: ./content/PoiTracker.py:179
 msgid "Poi_label_availableReleases"
 msgstr "Dostupná vydání"
 
 # ./content/PoiTracker.py
 #. Default: "Available severities"
-#: ./content/PoiTracker.py:150
+#: ./content/PoiTracker.py:151
 msgid "Poi_label_availableSeverities"
 msgstr "Dostupné důležitosti"
 
@@ -341,7 +341,7 @@ msgstr "Kontaktní emailová adresa"
 
 # ./content/PoiTracker.py
 #. Default: "Default severity"
-#: ./content/PoiTracker.py:164
+#: ./content/PoiTracker.py:165
 msgid "Poi_label_defaultSeverity"
 msgstr "Výchozí důležitost"
 
@@ -353,7 +353,7 @@ msgstr "Detaily"
 
 # ./content/PoiTracker.py
 #. Default: "Help text"
-#: ./content/PoiTracker.py:85
+#: ./content/PoiTracker.py:86
 msgid "Poi_label_helpText"
 msgstr "Pomocný text"
 
@@ -382,13 +382,13 @@ msgstr "Nadpis"
 
 # ./content/PoiTracker.py
 #. Default: "Mailing list"
-#: ./content/PoiTracker.py:258
+#: ./content/PoiTracker.py:259
 msgid "Poi_label_mailingList"
 msgstr "Konference"
 
 # ./content/PoiTracker.py
 #. Default: "Tracker managers"
-#: ./content/PoiTracker.py:193
+#: ./content/PoiTracker.py:194
 msgid "Poi_label_managers"
 msgstr "Správci manažeru úloh"
 
@@ -430,7 +430,7 @@ msgstr "Odpovědný"
 
 # ./content/PoiTracker.py
 #. Default: "Send notification emails"
-#: ./content/PoiTracker.py:241
+#: ./content/PoiTracker.py:242
 msgid "Poi_label_sendNotificationEmails"
 msgstr "Zasílat emailová upozornění"
 
@@ -454,7 +454,7 @@ msgstr "Značky"
 
 # ./content/PoiTracker.py
 #. Default: "URL to SVN"
-#: ./content/PoiTracker.py:277
+#: ./content/PoiTracker.py:278
 msgid "Poi_label_svnurl"
 msgstr "URL SVN repositáře"
 
@@ -466,7 +466,7 @@ msgstr "Cílové vydání"
 
 # ./content/PoiTracker.py
 #. Default: "Technicians"
-#: ./content/PoiTracker.py:207
+#: ./content/PoiTracker.py:208
 msgid "Poi_label_technicians"
 msgstr "Technici"
 
@@ -482,7 +482,7 @@ msgid "Poi_label_tracker_title"
 msgstr "Název manažeru úloh"
 
 #. Default: "Tracker watchers"
-#: ./content/PoiTracker.py:222
+#: ./content/PoiTracker.py:223
 msgid "Poi_label_tracker_watchers"
 msgstr ""
 
@@ -596,7 +596,7 @@ msgid "batch_x_items_matching_your_criteria"
 msgstr "${number} úloh splňujících vaše kritéria"
 
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ./skins/Poi/poi_tracker_view.pt:129
+#: ./skins/Poi/poi_tracker_view.pt:130
 msgid "description_cannot_add_issues_before_opened"
 msgstr "Ostatní nemohou zadat úlohy do vašeho manažeru úloh dokud ho neotevřete pro zadávání pomocí rozbalovací nabídky 'stav', nahoře v zelené liště."
 

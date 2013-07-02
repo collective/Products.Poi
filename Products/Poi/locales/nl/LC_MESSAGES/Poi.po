@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2013-04-12 15:27+0000\n"
+"POT-Creation-Date: 2013-07-02 11:49+0000\n"
 "PO-Revision-Date: 2013-04-18 11:09+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
@@ -99,7 +99,7 @@ msgstr "Geen tekst toegevoegd in deze reactie en geen wijzigingen aan de issue g
 msgid "None"
 msgstr "Geen"
 
-#: ./skins/Poi/poi_tracker_view.pt:128
+#: ./skins/Poi/poi_tracker_view.pt:129
 msgid "Note"
 msgstr "Opmerking"
 
@@ -122,25 +122,25 @@ msgstr "U kan optioneel een bijlage (bestand) uploaden. Alstublieft geen onnodig
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker."
-#: ./content/PoiTracker.py:111
+#: ./content/PoiTracker.py:112
 msgid "Poi_help_availableAreas"
 msgstr "Geef de issue onderwerpen/gebieden op voor deze tracker."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker."
-#: ./content/PoiTracker.py:136
+#: ./content/PoiTracker.py:137
 msgid "Poi_help_availableIssueTypes"
 msgstr "Geef de issue types op voor deze tracker."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release."
-#: ./content/PoiTracker.py:180
+#: ./content/PoiTracker.py:181
 msgid "Poi_help_availableReleases"
 msgstr "Geef op aan welke releases de issues gekoppeld kunnen worden, één per regel. Als er geen releases zijn ingevoerd, kunnen de issues niet per release gecategorizeerd worden"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
-#: ./content/PoiTracker.py:152
+#: ./content/PoiTracker.py:153
 msgid "Poi_help_availableSeverities"
 msgstr "Geef de verschillende types van issue prioriteiten op die beschikbaar moeten zijn, één per regel"
 
@@ -152,7 +152,7 @@ msgstr "Optioneel, geef een e-mailadres op, waar de voortgang van de issue gemel
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
-#: ./content/PoiTracker.py:166
+#: ./content/PoiTracker.py:167
 msgid "Poi_help_defaultSeverity"
 msgstr "Kies de standaard prioriteit voor nieuwe issues"
 
@@ -164,7 +164,7 @@ msgstr "Geef meer details op, aub."
 
 # ./content/PoiTracker.py
 #. Default: "Enter any introductory help text you'd like to display on the tracker front page."
-#: ./content/PoiTracker.py:87
+#: ./content/PoiTracker.py:88
 msgid "Poi_help_helpText"
 msgstr "Geef een introductie helptekst op die getoond wordt op de tracker front page."
 
@@ -188,13 +188,13 @@ msgstr "Geef een korte omschrijvende titel op voor de issue. Een goede titel maa
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
-#: ./content/PoiTracker.py:260
+#: ./content/PoiTracker.py:261
 msgid "Poi_help_mailingList"
 msgstr "Indien opgegeven en 'Stuur notificatie e-mails' is geselecteerd, wordt er een e-mail gestuurd naar dit adres zodra er een nieuwe issue of reactie geplaatst wordt. Trackermanagers ontvangen ook individueel een e-mail. Als dit niet gewenst is, kan het beter zijn van een trackermanager een technicus te maken."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
-#: ./content/PoiTracker.py:195
+#: ./content/PoiTracker.py:196
 msgid "Poi_help_managers"
 msgstr "Geef de user id's van gebruikers op die deze tracker mogen beheren, één per regel."
 
@@ -236,7 +236,7 @@ msgstr "Selecteer welke manager, als er een is, verantwoordelijk is voor deze is
 
 # ./content/PoiTracker.py
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:243
+#: ./content/PoiTracker.py:244
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Indien geselecteerd, krijgen tracker managers een e-mail elke keer als een nieuwe issue of reactie is geplaatst. Issue toevoegers ontvangen een e-mail als er een nieuwe reactie is geplaatst of een issue is opgelost. Technici krijgen een e-mail als een issue aan hen is toegekend."
 
@@ -260,7 +260,7 @@ msgstr "Tags kunnen gebruikt worden om extra categorizatie toe te voegen aan iss
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
-#: ./content/PoiTracker.py:279
+#: ./content/PoiTracker.py:280
 msgid "Poi_help_svnurl"
 msgstr "Vul alstublieft de url in naar de relevante SVN repository, bijvoorbeeld http://dev.plone.org/changeset/%(rev)s/collective voor producten in de Plone collective."
 
@@ -272,7 +272,7 @@ msgstr "Release waarin het de bedoeling is om deze issue te fixen."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
-#: ./content/PoiTracker.py:209
+#: ./content/PoiTracker.py:210
 msgid "Poi_help_technicians"
 msgstr "Geef de gebruiksnamen van gebruikers op die verantwoordelijk zijn voor het oplossen van de issues, één per regel. Merk op dat het prima is om alleen managers en geen technici te hebben: managers kunnen ook issues oplossen."
 
@@ -288,7 +288,7 @@ msgid "Poi_help_tracker_title"
 msgstr "Geef een omschrijvende naam op voor deze tracker"
 
 #. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
-#: ./content/PoiTracker.py:224
+#: ./content/PoiTracker.py:225
 msgid "Poi_help_tracker_watchers"
 msgstr "Geef de gebruikersnamen van leden op die deze tracker volgen, één per regel. E-mailadressen zijn ook toegestaan. Deze leden krijgen een e-mail als er een issue of reactie is geplaatst in deze tracker. Leden kunnen zichzelf toevoegen als volgers."
 
@@ -313,25 +313,25 @@ msgstr "Bijlage"
 
 # ./content/PoiTracker.py
 #. Default: "Areas"
-#: ./content/PoiTracker.py:109
+#: ./content/PoiTracker.py:110
 msgid "Poi_label_availableAreas"
 msgstr "Gebieden"
 
 # ./content/PoiTracker.py
 #. Default: "Issue types"
-#: ./content/PoiTracker.py:134
+#: ./content/PoiTracker.py:135
 msgid "Poi_label_availableIssueTypes"
 msgstr "Issue types"
 
 # ./content/PoiTracker.py
 #. Default: "Available releases"
-#: ./content/PoiTracker.py:178
+#: ./content/PoiTracker.py:179
 msgid "Poi_label_availableReleases"
 msgstr "Beschikbare releases"
 
 # ./content/PoiTracker.py
 #. Default: "Available severities"
-#: ./content/PoiTracker.py:150
+#: ./content/PoiTracker.py:151
 msgid "Poi_label_availableSeverities"
 msgstr "Beschikbare prioriteiten"
 
@@ -343,7 +343,7 @@ msgstr "Contact e-mailadres"
 
 # ./content/PoiTracker.py
 #. Default: "Default severity"
-#: ./content/PoiTracker.py:164
+#: ./content/PoiTracker.py:165
 msgid "Poi_label_defaultSeverity"
 msgstr "Standaard prioriteit"
 
@@ -355,7 +355,7 @@ msgstr "Details"
 
 # ./content/PoiTracker.py
 #. Default: "Help text"
-#: ./content/PoiTracker.py:85
+#: ./content/PoiTracker.py:86
 msgid "Poi_label_helpText"
 msgstr "Helptekst"
 
@@ -384,13 +384,13 @@ msgstr "Titel"
 
 # ./content/PoiTracker.py
 #. Default: "Mailing list"
-#: ./content/PoiTracker.py:258
+#: ./content/PoiTracker.py:259
 msgid "Poi_label_mailingList"
 msgstr "Mailinglijst"
 
 # ./content/PoiTracker.py
 #. Default: "Tracker managers"
-#: ./content/PoiTracker.py:193
+#: ./content/PoiTracker.py:194
 msgid "Poi_label_managers"
 msgstr "Tracker managers"
 
@@ -432,7 +432,7 @@ msgstr "Verantwoordelijke"
 
 # ./content/PoiTracker.py
 #. Default: "Send notification emails"
-#: ./content/PoiTracker.py:241
+#: ./content/PoiTracker.py:242
 msgid "Poi_label_sendNotificationEmails"
 msgstr "Stuur notificatie e-mails"
 
@@ -456,7 +456,7 @@ msgstr "Tags"
 
 # ./content/PoiTracker.py
 #. Default: "URL to SVN"
-#: ./content/PoiTracker.py:277
+#: ./content/PoiTracker.py:278
 msgid "Poi_label_svnurl"
 msgstr "Url naar subversion"
 
@@ -468,7 +468,7 @@ msgstr "Doelrelease"
 
 # ./content/PoiTracker.py
 #. Default: "Technicians"
-#: ./content/PoiTracker.py:207
+#: ./content/PoiTracker.py:208
 msgid "Poi_label_technicians"
 msgstr "Technici"
 
@@ -484,7 +484,7 @@ msgid "Poi_label_tracker_title"
 msgstr "Tracker naam"
 
 #. Default: "Tracker watchers"
-#: ./content/PoiTracker.py:222
+#: ./content/PoiTracker.py:223
 msgid "Poi_label_tracker_watchers"
 msgstr "Tracker volgers"
 
@@ -598,7 +598,7 @@ msgid "batch_x_items_matching_your_criteria"
 msgstr "${number} items die voldoen aan je criteria"
 
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ./skins/Poi/poi_tracker_view.pt:129
+#: ./skins/Poi/poi_tracker_view.pt:130
 msgid "description_cannot_add_issues_before_opened"
 msgstr "Anderen kunnen geen issues toevoegen aan uw tracker, totdat u de status veranderd naar 'open' in het status dropdown menu in de groene balk hierboven."
 
