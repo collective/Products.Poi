@@ -27,13 +27,16 @@
       <h4 i18n:translate="">Issue Information</h4>
       <dl class="docutils">
         <dt i18n:translate="">Issue</dt>
-        <dd>
+        <dd><p>
           <tal:title content="options/issue_title" />
-          (<a tal:attributes="href options/issue_url" tal:content="options/issue_url" />)
+          (<a tal:attributes="href options/issue_url" tal:content="options/issue_url" />)</p>
+        </dd>
+        <dt i18n:translate="">Issue Details:</dt>
+        <dd>
+          <p><tal:desc tal:content="structure options/issue_details" />
+          (<a tal:attributes="href options/issue_url" tal:content="options/issue_url" />)</p>
         </dd>
       </dl>
-      <p><strong i18n:translate="">Issue Details:</strong></p>
-      <pre tal:content="structure options/issue_details" />
       <p class="automated" i18n:translate="">This is an automated email, please do not reply.</p>
       <p class="from_name" tal:content="options/from_name" />
    </div>

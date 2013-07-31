@@ -123,8 +123,8 @@
               tal:define="manager python:pas_member.info(responsibleManager)"
               tal:attributes="href string:${issueQueryString}&amp;responsible=${responsibleManager};"
               tal:content="manager/name_or_id" />
-            <div tal:condition="python:responsibleManager == '(UNASSIGNED)'"
-                 style="text-align:center">&#8212;</div>
+            <div class="unassigned" tal:condition="python:responsibleManager == '(UNASSIGNED)'"
+                 >&#8212;</div>
         </td>
       </tr>
       <tr tal:condition="here/isUsingReleases">
@@ -169,7 +169,7 @@
         </li>
       </ul>
     </div>
-    <form style="display: inline" action="@@toggle_watching"
+    <form action="@@toggle_watching"
           id="poi-watch-issue-form"
           tal:condition="python:not isAnon and not isManager and not isSubmitter">
       <div class="formControls">
@@ -200,7 +200,8 @@
     </div>
 
     <div class="formControls">
-      <form style="display: inline" action="edit"
+      <form action="edit"
+            class="editIssue"
             tal:condition="python: user.has_permission('Modify portal content', here)">
         <input class="context"
                type="submit"

@@ -35,7 +35,7 @@
 }
 
 #poi-watch-tracker-form {
-	display: inline;
+    display: inline;
 } 
 
 /* Search table */
@@ -141,6 +141,17 @@ ul.issue-tags-tags a {
 
 }
 
+#poi-watch-issue-form {
+    display: inline;
+}
+
+.issue-info-box .unassigned {
+    text-align: center;
+}
+
+.formControls .editIssue {
+    display: inline;
+}
 
 /* Different response types */
 
@@ -176,6 +187,14 @@ ul.issue-tags-tags a {
 
 .issueChange {
     text-transform: lowercase;
+}
+
+#poi-fieldname-attachment .responseAttachment {
+    padding-top: 1em;
+}
+#poi-fieldname-attachment .responseAttachment div {
+    padding-left: 1.5em;
+    padding-top: 0.5em;
 }
 
 /* Response actions box */
