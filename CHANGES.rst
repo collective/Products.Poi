@@ -5,8 +5,12 @@ Changelog for Poi
 2.2.5 (unreleased)
 ------------------
 
-- Fixed mail templates styles for new issue and new response [cekk]
+- Fixed mail templates styles for new issue and new response
+  [cekk]
 
+- Some style fixes; removed all inline styles left, translated to
+  CSS rules.
+  [keul]
 
 2.2.4 (2013-07-02)
 ------------------
