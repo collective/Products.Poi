@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.2.5 (unreleased)
+2.2.5 (2013-08-22)
 ------------------
 
 - Fixed mail templates styles for new issue and new response
