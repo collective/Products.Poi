@@ -1,12 +1,6 @@
-BODY {
-    font-size: 0.9em;
-}
-
-H4 {
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-DT {
-    font-weight: bold;
-}
+    body { font-size: 12px; font-family: Arial, sans-serif; line-height: 1.5em; }
+    h4 { font-size: 1.2em; font-weight: bold; border-top: 1px dotted #CCC; padding-top: 20px; }
+    dl { margin: 0 0 20px;  border-bottom: 1px dotted #CCC; padding-bottom: 20px;}
+    dt { font-weight: bold; font-size: 13px; margin: 15px 0 5px;}
+    .from_name { font-size: 11px; color: #444;}
+    .automated { font-style: italic; color: #444;}
