@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi 1.1.2\n"
-"POT-Creation-Date: 2013-07-02 11:49+0000\n"
+"POT-Creation-Date: 2013-10-11 20:29+0000\n"
 "PO-Revision-Date: 2008-11-19 17:32-0000\n"
 "Last-Translator: Nuno Cruz <nuno.cruz@inst-informatica.pt>\n"
 "Language-Team: NWEB <nwebmaster@inst-informatica.pt>\n"
@@ -49,7 +49,7 @@ msgid "Edit"
 msgstr "Editar"
 
 #. Default: "Edit issue"
-#: ./skins/Poi/poi_issue_view.pt:205
+#: ./skins/Poi/poi_issue_view.pt:206
 msgid "Edit issue"
 msgstr "Editar ocorrência"
 
@@ -58,7 +58,7 @@ msgstr "Editar ocorrência"
 msgid "Issue"
 msgstr ""
 
-#: ./browser/templates/poi_email_new_issue_html.pt:35
+#: ./browser/templates/poi_email_new_issue_html.pt:34
 #: ./browser/templates/poi_email_new_issue_plain.pt:19
 msgid "Issue Details:"
 msgstr ""
@@ -462,7 +462,7 @@ msgstr "Observadores da ocorrência"
 msgid "Removed response id ${response_id}."
 msgstr ""
 
-#: ./browser/templates/poi_email_new_response_html.pt:45
+#: ./browser/templates/poi_email_new_response_html.pt:47
 #: ./browser/templates/poi_email_new_response_plain.pt:25
 msgid "Response Details:"
 msgstr ""
@@ -533,9 +533,9 @@ msgstr ""
 msgid "The issue ${issue_title} in the ${tracker_title} tracker has been marked as resolved by ${response_author} Please visit the issue and either confirm that it has been satisfactorily resolved or re-open it."
 msgstr ""
 
-#: ./browser/templates/poi_email_new_issue_html.pt:37
+#: ./browser/templates/poi_email_new_issue_html.pt:40
 #: ./browser/templates/poi_email_new_issue_plain.pt:23
-#: ./browser/templates/poi_email_new_response_html.pt:48
+#: ./browser/templates/poi_email_new_response_html.pt:54
 msgid "This is an automated email, please do not reply."
 msgstr ""
 

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2013-07-02 11:49+0000\n"
+"POT-Creation-Date: 2013-10-11 20:29+0000\n"
 "PO-Revision-Date: 2007-03-22 11:28+0100\n"
 "Last-Translator: Luca Fabbri <keul@redturtle.it>\n"
 "Language-Team: Plone Italian Translation Discussion <plone-italian-translation-discussion@lists.coactivate.org>\n"
@@ -46,7 +46,7 @@ msgid "Edit"
 msgstr "Modifica"
 
 #. Default: "Edit issue"
-#: ./skins/Poi/poi_issue_view.pt:205
+#: ./skins/Poi/poi_issue_view.pt:206
 msgid "Edit issue"
 msgstr "Modifica attività"
 
@@ -55,7 +55,7 @@ msgstr "Modifica attività"
 msgid "Issue"
 msgstr "Attività"
 
-#: ./browser/templates/poi_email_new_issue_html.pt:35
+#: ./browser/templates/poi_email_new_issue_html.pt:34
 #: ./browser/templates/poi_email_new_issue_plain.pt:19
 msgid "Issue Details:"
 msgstr "Dettagli attività:"
@@ -516,7 +516,7 @@ msgstr "Lista di notifica"
 msgid "Removed response id ${response_id}."
 msgstr "Rimossa la risposta con id ${response_id}."
 
-#: ./browser/templates/poi_email_new_response_html.pt:45
+#: ./browser/templates/poi_email_new_response_html.pt:47
 #: ./browser/templates/poi_email_new_response_plain.pt:25
 msgid "Response Details:"
 msgstr "Dettagli della risposta:"
@@ -587,9 +587,9 @@ msgstr "Rilascio previsto"
 msgid "The issue ${issue_title} in the ${tracker_title} tracker has been marked as resolved by ${response_author} Please visit the issue and either confirm that it has been satisfactorily resolved or re-open it."
 msgstr "Ll'attività ${issue_title} nel gestore ${tracker_title} è stata indicata come risolta da ${response_author}. Prego visita l'attività e conferma che sia stata risolta con successo o riaprila."
 
-#: ./browser/templates/poi_email_new_issue_html.pt:37
+#: ./browser/templates/poi_email_new_issue_html.pt:40
 #: ./browser/templates/poi_email_new_issue_plain.pt:23
-#: ./browser/templates/poi_email_new_response_html.pt:48
+#: ./browser/templates/poi_email_new_response_html.pt:54
 msgid "This is an automated email, please do not reply."
 msgstr "Questo è una mail generata automaticamente, prego non rispondere a questo messaggio."
 

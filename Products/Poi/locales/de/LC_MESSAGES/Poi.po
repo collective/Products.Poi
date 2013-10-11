@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2013-07-02 11:49+0000\n"
+"POT-Creation-Date: 2013-10-11 20:29+0000\n"
 "PO-Revision-Date: 2012-05-03 11:27 +0200\n"
 "Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
 "Language-Team: DE <de@li.org>\n"
@@ -46,7 +46,7 @@ msgid "Edit"
 msgstr "Bearbeiten"
 
 #. Default: "Edit issue"
-#: ./skins/Poi/poi_issue_view.pt:205
+#: ./skins/Poi/poi_issue_view.pt:206
 msgid "Edit issue"
 msgstr "Problemstellung bearbeiten"
 
@@ -55,7 +55,7 @@ msgstr "Problemstellung bearbeiten"
 msgid "Issue"
 msgstr "Problem"
 
-#: ./browser/templates/poi_email_new_issue_html.pt:35
+#: ./browser/templates/poi_email_new_issue_html.pt:34
 #: ./browser/templates/poi_email_new_issue_plain.pt:19
 msgid "Issue Details:"
 msgstr "Problemdetails:"
@@ -507,7 +507,7 @@ msgstr "Beobachter der Problemstellung"
 msgid "Removed response id ${response_id}."
 msgstr "Antwort mit ID ${response_id} wurde gelöscht."
 
-#: ./browser/templates/poi_email_new_response_html.pt:45
+#: ./browser/templates/poi_email_new_response_html.pt:47
 #: ./browser/templates/poi_email_new_response_plain.pt:25
 msgid "Response Details:"
 msgstr "Details zur Antwort"
@@ -578,9 +578,9 @@ msgstr "Betroffene Version/ Ausgabe"
 msgid "The issue ${issue_title} in the ${tracker_title} tracker has been marked as resolved by ${response_author} Please visit the issue and either confirm that it has been satisfactorily resolved or re-open it."
 msgstr "Das Problem ${issue_title} im Tracker ${tracker_title} wurde von ${response_author} als gelöst markiert. Bitte überprüfen und bestätigen Sie die Richtigkeit der Lösung. Andernfalls können Sie das Problem erneut eröffnen."
 
-#: ./browser/templates/poi_email_new_issue_html.pt:37
+#: ./browser/templates/poi_email_new_issue_html.pt:40
 #: ./browser/templates/poi_email_new_issue_plain.pt:23
-#: ./browser/templates/poi_email_new_response_html.pt:48
+#: ./browser/templates/poi_email_new_response_html.pt:54
 msgid "This is an automated email, please do not reply."
 msgstr "Dies ist ein automatisiertes E-Mail. Bitte nicht Antworten."
 

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2013-07-02 11:49+0000\n"
+"POT-Creation-Date: 2013-10-11 20:29+0000\n"
 "PO-Revision-Date: 2006-01-22 18:00+0900\n"
 "Last-Translator: TANIGUCHI Takaki <takaki@asis.media-as.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,7 +46,7 @@ msgid "Edit"
 msgstr "編集"
 
 #. Default: "Edit issue"
-#: ./skins/Poi/poi_issue_view.pt:205
+#: ./skins/Poi/poi_issue_view.pt:206
 msgid "Edit issue"
 msgstr ""
 
@@ -55,7 +55,7 @@ msgstr ""
 msgid "Issue"
 msgstr ""
 
-#: ./browser/templates/poi_email_new_issue_html.pt:35
+#: ./browser/templates/poi_email_new_issue_html.pt:34
 #: ./browser/templates/poi_email_new_issue_plain.pt:19
 msgid "Issue Details:"
 msgstr ""
@@ -505,7 +505,7 @@ msgstr "課題の監視者"
 msgid "Removed response id ${response_id}."
 msgstr ""
 
-#: ./browser/templates/poi_email_new_response_html.pt:45
+#: ./browser/templates/poi_email_new_response_html.pt:47
 #: ./browser/templates/poi_email_new_response_plain.pt:25
 msgid "Response Details:"
 msgstr ""
@@ -576,9 +576,9 @@ msgstr ""
 msgid "The issue ${issue_title} in the ${tracker_title} tracker has been marked as resolved by ${response_author} Please visit the issue and either confirm that it has been satisfactorily resolved or re-open it."
 msgstr ""
 
-#: ./browser/templates/poi_email_new_issue_html.pt:37
+#: ./browser/templates/poi_email_new_issue_html.pt:40
 #: ./browser/templates/poi_email_new_issue_plain.pt:23
-#: ./browser/templates/poi_email_new_response_html.pt:48
+#: ./browser/templates/poi_email_new_response_html.pt:54
 msgid "This is an automated email, please do not reply."
 msgstr ""
 

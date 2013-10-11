@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2013-07-02 11:49+0000\n"
+"POT-Creation-Date: 2013-10-11 20:29+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Kevin Deldycke <kevin@deldycke.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -51,7 +51,7 @@ msgid "Edit"
 msgstr "Modifier"
 
 #. Default: "Edit issue"
-#: ./skins/Poi/poi_issue_view.pt:205
+#: ./skins/Poi/poi_issue_view.pt:206
 msgid "Edit issue"
 msgstr "Modifier le ticket"
 
@@ -60,7 +60,7 @@ msgstr "Modifier le ticket"
 msgid "Issue"
 msgstr "Ticket"
 
-#: ./browser/templates/poi_email_new_issue_html.pt:35
+#: ./browser/templates/poi_email_new_issue_html.pt:34
 #: ./browser/templates/poi_email_new_issue_plain.pt:19
 msgid "Issue Details:"
 msgstr "Détails du ticket :"
@@ -500,7 +500,7 @@ msgstr "Observateurs du ticket"
 msgid "Removed response id ${response_id}."
 msgstr "La réponse « ${response_id} » a été supprimé."
 
-#: ./browser/templates/poi_email_new_response_html.pt:45
+#: ./browser/templates/poi_email_new_response_html.pt:47
 #: ./browser/templates/poi_email_new_response_plain.pt:25
 msgid "Response Details:"
 msgstr "Détails de la réponse :"
@@ -571,9 +571,9 @@ msgstr "Distribution cible"
 msgid "The issue ${issue_title} in the ${tracker_title} tracker has been marked as resolved by ${response_author} Please visit the issue and either confirm that it has been satisfactorily resolved or re-open it."
 msgstr "Le ticket ${issue_title} du gestionnaire ${tracker_title} a été marqué comme résolu par ${response_author}. Consultez s'il vous plait le ticket pour confirmer qu'il a été résolu de façon acceptable ou le réouvrir le cas échéant."
 
-#: ./browser/templates/poi_email_new_issue_html.pt:37
+#: ./browser/templates/poi_email_new_issue_html.pt:40
 #: ./browser/templates/poi_email_new_issue_plain.pt:23
-#: ./browser/templates/poi_email_new_response_html.pt:48
+#: ./browser/templates/poi_email_new_response_html.pt:54
 msgid "This is an automated email, please do not reply."
 msgstr "Ceci est un email automatique, merci de ne pas répondre."
 
