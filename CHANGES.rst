@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.2.6 (unreleased)
+2.2.6 (2013-10-18)
 ------------------
 
 - Show technicians in the responsible managers list in the search
