@@ -125,7 +125,7 @@ class LogView(BrowserView):
                         'date': item.created(),
                         'url': item.absolute_url(),
                         'timedelta': self.getTimeDelta(item.created()),
-                        'text': item.getDetails()}
+                        'text': item.getTaggedDetails()}
 
             results.append(data)
 
