@@ -43,6 +43,8 @@ except ImportError:
 from Products.Poi import PoiMessageFactory as _
 from Products.Poi import permissions
 from Products.Poi.config import PROJECTNAME
+from Products.Poi.config import ISSUE_RECOGNITION_PATTERNS
+from Products.Poi.config import REVISION_RECOGNITION_PATTERNS
 from Products.Poi.interfaces import ITracker
 from Products.Poi.utils import linkBugs
 from Products.Poi.utils import linkSvn
@@ -321,15 +323,9 @@ class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
         issuefolder = self.restrictedTraverse('@@issuefolder')
         issues = catalog.searchResults(issuefolder.buildIssueSearchQuery(None))
         ids = frozenset([issue.id for issue in issues])
-
-        # XXX/TODO: should these patterns live in the config file?
-        text = linkBugs(text, ids,
-                        ['#[1-9][0-9]*', 'issue:[1-9][0-9]*',
-                         'ticket:[1-9][0-9]*', 'bug:[1-9][0-9]*'])
+        text = linkBugs(text, ids, ISSUE_RECOGNITION_PATTERNS)
         svnUrl = self.getSvnUrl()
-        text = linkSvn(text, svnUrl,
-                       ['r[0-9]+', 'changeset:[0-9]+', '\[[0-9]+\]'])
-
+        text = linkSvn(text, svnUrl, REVISION_RECOGNITION_PATTERNS)
         return text
 
     security.declareProtected(permissions.View, 'isUsingReleases')

@@ -45,6 +45,8 @@ Look for problems::
     True
     >>> getNumberFromString('#007')
     '7'
+    >>> getNumberFromString('my.html#7')
+    '7'
 
 With more numbers, the first one is taken::
 
@@ -64,6 +66,7 @@ text with possibly links::
 
 Now we test this with patterns::
 
+    >>> from Products.Poi.config import ISSUE_RECOGNITION_PATTERNS
     >>> patterns = ['test']
     >>> linkBugs(text, ids, patterns)
     'issue:1 #2 r3 [4] ticket:5.'
@@ -76,13 +79,17 @@ Now we test this with patterns::
     >>> patterns = ['[[1-9][0-9]*]']
     >>> linkBugs(text, ids, patterns)
     'issue:1 #2 r3 <a href="../4">[4]</a> ticket:5.'
-    >>> patterns = ['#[1-9][0-9]*', 'issue:[1-9][0-9]*', 'ticket:[1-9][0-9]*', 'bug:[1-9][0-9]*']
+    >>> patterns = ISSUE_RECOGNITION_PATTERNS
     >>> linkBugs(text, ids, patterns)
     '<a href="../1">issue:1</a> <a href="../2">#2</a> r3 [4] <a href="../5">ticket:5</a>.'
     >>> linkBugs(text, [], patterns)
     'issue:1 #2 r3 [4] ticket:5.'
     >>> linkBugs("#9#9#9", ['9'], ["#9"])
     '<a href="../9">#9</a><a href="../9">#9</a><a href="../9">#9</a>'
+    >>> linkBugs("foo#9 #9a #99 #9", ['9'], patterns)
+    'foo#9 #9a #99 <a href="../9">#9</a>'
+    >>> linkBugs("noticket:5 ticket:5", ['5'], patterns)
+    'noticket:5 <a href="../5">ticket:5</a>'
 
 
 linkSvn
@@ -92,6 +99,7 @@ Replace patterns with links to changesets in a repository.  It does
 not need to be subversion of course.  Specify something to test with::
 
     >>> from Products.Poi.utils import linkSvn
+    >>> from Products.Poi.config import REVISION_RECOGNITION_PATTERNS
     >>> text = "r1 #22 changeset:333 [4444]"
     >>> svnUrl = "someurl?rev=%(rev)s"
 
@@ -103,7 +111,7 @@ And test it::
     >>> patterns = ["r1"]
     >>> linkSvn(text, svnUrl, patterns)
     '<a href="someurl?rev=1">r1</a> #22 changeset:333 [4444]'
-    >>> patterns = ['r[0-9]+', 'changeset:[0-9]+', '\[[0-9]+\]']
+    >>> patterns = REVISION_RECOGNITION_PATTERNS
     >>> linkSvn(text, svnUrl, patterns)
     '<a href="someurl?rev=1">r1</a> #22 <a href="someurl?rev=333">changeset:333</a> <a href="someurl?rev=4444">[4444]</a>'
 
@@ -111,3 +119,14 @@ Of course if you want to be silly, you can::
 
     >>> linkSvn(text, "here", patterns)
     '<a href="here">r1</a> #22 <a href="here">changeset:333</a> <a href="here">[4444]</a>'
+
+Test with multiple similar revisions.  This is more a text of our
+regular expression skills::
+
+    >>> text = "r1 r2 norevisionr3 r4nope (r5) r6."
+    >>> linkSvn(text, svnUrl, patterns)
+    '<a href="someurl?rev=1">r1</a> <a href="someurl?rev=2">r2</a> norevisionr3 r4nope (<a href="someurl?rev=5">r5</a>) <a href="someurl?rev=6">r6</a>.'
+    >>> text = "[1] link[2] [3]."
+    >>> linkSvn(text, svnUrl, patterns)
+    '<a href="someurl?rev=1">[1]</a> link[2] <a href="someurl?rev=3">[3]</a>.'
+

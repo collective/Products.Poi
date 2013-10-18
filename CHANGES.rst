@@ -5,7 +5,12 @@ Changelog for Poi
 2.2.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix corner cases in recognizing links to issues and revisions.  Add
+  the patterns for these two in ``config.py`` so they can be
+  overridden.  Also add the template to use when recognizing a link to
+  another issue there.
+  Fixes http://plone.org/products/poi/issues/262
+  [maurits]
 
 
 2.2.5 (2013-08-22)

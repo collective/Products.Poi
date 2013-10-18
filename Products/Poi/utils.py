@@ -1,5 +1,7 @@
 import re
 
+from .config import ISSUE_LINK_TEMPLATE
+
 
 def getNumberFromString(linktext):
     """
@@ -30,8 +32,7 @@ def linkBugs(text, ids, patterns):
             bug = getNumberFromString(linktext)
 
             if bug is not None and bug in ids:
-                # XXX/TODO: this is a little too hardcoded for my taste
-                link = '<a href="../' + bug + '">' + linktext + '</a>'
+                link = ISSUE_LINK_TEMPLATE % dict(bug=bug, linktext=linktext)
                 text = text[0:pos] + link + text[res.end():]
                 pos += len(link)
             else:
