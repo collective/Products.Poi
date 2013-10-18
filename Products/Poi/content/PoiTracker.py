@@ -28,6 +28,7 @@ __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
 from AccessControl import ClassSecurityInfo
+from Products.Archetypes.atapi import DisplayList
 from Products.CMFCore.utils import getToolByName
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 from Products.DataGridField.DataGridField import DataGridField
@@ -412,6 +413,47 @@ class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
             if not role in local_roles:
                 local_roles.append(role)
                 self.manage_setLocalRoles(user_id, local_roles)
+
+    def getManagersVocab(self, strict=False):
+        """
+        Get the managers available as a DisplayList. The first item is 'None',
+        with a key of '(UNASSIGNED)'.
+
+        Note, we now also allow Technicians here, unless we are called
+        with 'strict' is True.
+        """
+        vocab = DisplayList()
+        vocab.add('(UNASSIGNED)', _(u"not_assigned", default=u'(Not assigned)'))
+        mtool = getToolByName(self, 'portal_membership')
+        for item in self.getManagers():
+            user = mtool.getMemberById(item)
+            if user:
+                fullname = user.getProperty('fullname', item) or item
+            else:
+                fullname = item
+
+            vocab.add(item, fullname)
+        if not strict:
+            for item in self.getTechnicians():
+                user = mtool.getMemberById(item)
+                if user:
+                    fullname = user.getProperty('fullname', item) or item
+                else:
+                    fullname = item
+
+                vocab.add(item, fullname)
+            return vocab
+
+    def getStrictManagersVocab(self):
+        """
+        Get the managers available as a DisplayList. The first item is 'None',
+        with a key of '(UNASSIGNED)'.
+
+        Note, this vocabulary is strictly for TrackerManagers, so not
+        for Technicians.  It is not actually used by default, but can
+        be handy for third parties.
+        """
+        return self.getManagersVocab(strict=True)
 
     security.declareProtected(permissions.ModifyPortalContent, 'setManagers')
     def setManagers(self, managers):

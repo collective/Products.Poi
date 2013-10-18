@@ -476,48 +476,6 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         field = tracker.getField('availableIssueTypes')
         return field.getAsDisplayList(tracker)
 
-    def getManagersVocab(self, strict=False):
-        """
-        Get the managers available as a DisplayList. The first item is 'None',
-        with a key of '(UNASSIGNED)'.
-
-        Note, we now also allow Technicians here, unless we are called
-        with 'strict' is True.
-        """
-        tracker = self.getTracker()
-        vocab = DisplayList()
-        vocab.add('(UNASSIGNED)', _(u'None'))
-        mtool = getToolByName(self, 'portal_membership')
-        for item in tracker.getManagers():
-            user = mtool.getMemberById(item)
-            if user:
-                fullname = user.getProperty('fullname', item) or item
-            else:
-                fullname = item
-
-            vocab.add(item, fullname)
-        if not strict:
-            for item in tracker.getTechnicians():
-                user = mtool.getMemberById(item)
-                if user:
-                    fullname = user.getProperty('fullname', item) or item
-                else:
-                    fullname = item
-
-                vocab.add(item, fullname)
-            return vocab
-
-    def getStrictManagersVocab(self):
-        """
-        Get the managers available as a DisplayList. The first item is 'None',
-        with a key of '(UNASSIGNED)'.
-
-        Note, this vocabulary is strictly for TrackerManagers, so not
-        for Technicians.  It is not actually used by default, but can
-        be handy for third parties.
-        """
-        return self.getManagersVocab(strict=True)
-
     security.declareProtected(permissions.View, 'getTagsVocab')
     def getTagsVocab(self):
         """
@@ -537,7 +495,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         (UNASSIGNED) to denote that a release is not yet assigned.
         """
         vocab = DisplayList()
-        vocab.add('(UNASSIGNED)', _(u'None'))
+        vocab.add('(UNASSIGNED)', _(u"not_assigned", default=u'(Not assigned)'))
         tracker = self.getTracker()
         trackerVocab = tracker.getReleasesVocab()
         for k in trackerVocab.keys():

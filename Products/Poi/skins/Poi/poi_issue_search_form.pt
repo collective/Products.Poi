@@ -226,13 +226,12 @@
                     size="5"
                     multiple="multiple"
                     name="responsible:list"
-                    tal:define="managers here/getManagers">
-              <option i18n:translate="not_assigned"
-                      value="(UNASSIGNED)">(Not assigned)</option>
+                    tal:define="managers here/getManagersVocab">
               <option tal:repeat="item managers"
+                      i18n:translate=""
                       tal:attributes="value item;
                                       selected python:item in request.get('responsible', []) and 'selected' or None"
-                      tal:content="item" />
+                      tal:content="python:managers.getValue(item)" />
             </select>
 
           </div>

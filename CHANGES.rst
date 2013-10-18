@@ -5,6 +5,11 @@ Changelog for Poi
 2.2.6 (unreleased)
 ------------------
 
+- Show technicians in the responsible managers list in the search
+  form.
+  Fixes http://plone.org/products/poi/issues/266
+  [maurits]
+
 - Sort the available releases of trackers in PloneSoftwareCenter by
   id, which means: by version.
   [maurits]

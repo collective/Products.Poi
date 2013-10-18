@@ -211,9 +211,9 @@ available options for us now::
     >>> view.available_transitions
     ['']
     >>> view.available_releases
-    <DisplayList [('(UNASSIGNED)', u'None')] at ...>
+    <DisplayList [('(UNASSIGNED)', u'not_assigned')] at ...>
     >>> view.available_managers
-    <DisplayList [('(UNASSIGNED)', u'None'), ('manager', 'manager')] at ...>
+    <DisplayList [('(UNASSIGNED)', u'not_assigned'), ('manager', 'manager')] at ...>
     >>> view.upload_allowed
     True
 
@@ -221,9 +221,9 @@ The view has some methods especially for displaying::
 
     >>> view.transitions_for_display == [{'checked': 'checked', 'value': '', 'label': u'No change'}]
     True
-    >>> view.releases_for_display == [{'checked': 'checked', 'value': '(UNASSIGNED)', 'label': u'None'}]
+    >>> view.releases_for_display == [{'checked': 'checked', 'value': '(UNASSIGNED)', 'label': u'not_assigned'}]
     True
-    >>> view.managers_for_display == [{'checked': 'checked', 'value': '(UNASSIGNED)', 'label': u'None'}, {'checked': '', 'value': 'manager', 'label': 'manager'}]
+    >>> view.managers_for_display == [{'checked': 'checked', 'value': '(UNASSIGNED)', 'label': u'not_assigned'}, {'checked': '', 'value': 'manager', 'label': 'manager'}]
     True
 
 And of course the responses are visible.  Well, no response has been
