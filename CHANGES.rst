@@ -5,6 +5,10 @@ Changelog for Poi
 2.2.6 (unreleased)
 ------------------
 
+- Sort the available releases of trackers in PloneSoftwareCenter by
+  id, which means: by version.
+  [maurits]
+
 - Fix auto-recognized issue/revision links when displayed in the
   tracker log.  These would point outside of the tracker.  Now we pass
   the absolute url of the tracker.  Note that responses cache their

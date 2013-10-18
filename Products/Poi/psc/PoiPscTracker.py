@@ -102,7 +102,7 @@ class PoiPscTracker(PoiTracker):
         releases = catalog.searchResults(
                         portal_type='PSCRelease',
                         path='/'.join(self.getPhysicalPath()[:-1]),
-                        sort_on='created',
+                        sort_on='getId',
                         )
         return [r.UID for r in releases]
 
@@ -113,6 +113,7 @@ class PoiPscTracker(PoiTracker):
         releases = catalog.searchResults(
                         portal_type='PSCRelease',
                         path='/'.join(self.getPhysicalPath()[:-1]),
+                        sort_on='getId',
                         )
         return DisplayList([(r.UID, r.getId) for r in releases])
 
