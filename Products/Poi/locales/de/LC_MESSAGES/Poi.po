@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2013-10-11 20:29+0000\n"
+"POT-Creation-Date: 2013-10-18 21:04+0000\n"
 "PO-Revision-Date: 2012-05-03 11:27 +0200\n"
 "Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
 "Language-Team: DE <de@li.org>\n"
@@ -92,10 +92,6 @@ msgstr "Es wurde keine Antwort ausgewählt."
 msgid "No response text added and no issue changes made."
 msgstr "Es wurde kein Antwort-Text hinzugefügt und keine "
 
-#: ./content/PoiIssue.py:489
-msgid "None"
-msgstr "Keiner"
-
 #: ./skins/Poi/poi_tracker_view.pt:129
 msgid "Note"
 msgstr ""
@@ -120,28 +116,28 @@ msgstr "Sie können optional eine Datei als Anhang hochladen. Bitte laden sie ke
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker."
-#: ./content/PoiTracker.py:112
+#: ./content/PoiTracker.py:115
 #, fuzzy
 msgid "Poi_help_availableAreas"
 msgstr "Geben Sie für die Problemstellung die passensen Themen/ Bereiche an. Eine pro Zeile. Das Format ist: \"Kurzname | Titel | Beschreibung\"."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker."
-#: ./content/PoiTracker.py:137
+#: ./content/PoiTracker.py:140
 #, fuzzy
 msgid "Poi_help_availableIssueTypes"
 msgstr "Geben Sie die Arten von Problemstellungen für diesem Tracker an. Eine pro Zeile. Eine pro Zeile. Das Format ist: \"Kurzname | Titel | Beschreibung\"."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release."
-#: ./content/PoiTracker.py:181
+#: ./content/PoiTracker.py:184
 #, fuzzy
 msgid "Poi_help_availableReleases"
 msgstr "Geben Sie die Ausgaben/ Versionen an, die einer einer Problemstellung zugewiesen werden können. Eine pro Zeile. Wird nichts angegeben, so werden die Problemstellungen nicht nach diesem Kriterium organisiert angezeigt."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
-#: ./content/PoiTracker.py:153
+#: ./content/PoiTracker.py:156
 msgid "Poi_help_availableSeverities"
 msgstr "Geben Sie die verschiedenen Gewichtungen an, die für eine Problemstellungzur Auswahl stehen sollen. Eine pro Zeile."
 
@@ -154,7 +150,7 @@ msgstr "Optional können sie eine E-Mail-Adresse angeben, über die sie für wei
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
-#: ./content/PoiTracker.py:167
+#: ./content/PoiTracker.py:170
 msgid "Poi_help_defaultSeverity"
 msgstr "Wählen sie eine Gewichtung, die als Vorgabe verwendet werden soll."
 
@@ -166,7 +162,7 @@ msgstr "Bitte geben Sie weitere Details an"
 
 # ./content/PoiTracker.py
 #. Default: "Enter any introductory help text you'd like to display on the tracker front page."
-#: ./content/PoiTracker.py:88
+#: ./content/PoiTracker.py:91
 msgid "Poi_help_helpText"
 msgstr "Geben Sie einen einführenden Text zur Anzeige auf der Titelseite des Trackers an, wenn Sie dies wünschen."
 
@@ -190,14 +186,14 @@ msgstr "Wählen sie einen kurzen, beschreibenden Titel zur Identifikation für d
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
-#: ./content/PoiTracker.py:261
+#: ./content/PoiTracker.py:264
 #, fuzzy
 msgid "Poi_help_mailingList"
 msgstr "Wenn angegeben und 'Sende Benachrichtungs-Mail' ausgewählt wurde, wird eine E-Mail an diese Adresse gesendet sobald eine neue Problemstellung oder eine neue Antwort erstellt wurde, Wenn keine Mailing-Listen-Adresse angegeben wurde, so erhalten die nur Projektmanager eine Benachrichtigung."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
-#: ./content/PoiTracker.py:196
+#: ./content/PoiTracker.py:199
 msgid "Poi_help_managers"
 msgstr "Geben sie die Anmeldenamen von BenutzerInnen ein, welchen erlaubt ist diesen Tracker zu verwalten. Einer pro Zeile."
 
@@ -240,7 +236,7 @@ msgstr "Wählen Sie den verantwortlichen Verwalter dieser Problemstellung."
 
 # ./content/PoiTracker.py
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:244
+#: ./content/PoiTracker.py:247
 #, fuzzy
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Wenn dies ausgewählt ist erhalten Verwalter des Trackers ein jedes Mal ein E-Mail, wenn eine neue Problemstellung oder eine Antwort geschrieben wurde. Übermittler von Problemstellungen erhalten ein E-Mail, sobald eine Antwort geschrieben wurde, bzw. wenn die Problemstellung gelöst wurde und eine Bestätigung gefordert ist."
@@ -265,7 +261,7 @@ msgstr "Verwenden Sie Stichworte als eine weitere Möglichkeit zur freien Katego
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
-#: ./content/PoiTracker.py:280
+#: ./content/PoiTracker.py:283
 #, fuzzy
 msgid "Poi_help_svnurl"
 msgstr "Bitte geben Sie die URL zum betreffende Version-Controll-System (SVN, GIT, BZR, ...) an. Dies kann auch auf einen Webansicht wie z.B. Trac zeigen."
@@ -278,23 +274,23 @@ msgstr "Version/ Ausgabe, in der diese Problemstellung behoben sein soll."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
-#: ./content/PoiTracker.py:210
+#: ./content/PoiTracker.py:213
 msgid "Poi_help_technicians"
 msgstr "Geben Sie die Benutzer Ids jener Nutzer ein, die in der Verantwortung sind das Problem zu lösen. Einen pro Zeile! Es ist ok nur Manager, aber keine Techniker anzugeben, denn Manager können auch Probleme lösen."
 
 #. Default: "Describe the purpose of this tracker"
-#: ./content/PoiTracker.py:71
+#: ./content/PoiTracker.py:74
 msgid "Poi_help_tracker_description"
 msgstr "Beschreiben Sie den Zweck des Trackers"
 
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
-#: ./content/PoiTracker.py:57
+#: ./content/PoiTracker.py:60
 msgid "Poi_help_tracker_title"
 msgstr "Geben Sie einen beschreibenden Namen für diesen Tracker an."
 
 #. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
-#: ./content/PoiTracker.py:225
+#: ./content/PoiTracker.py:228
 msgid "Poi_help_tracker_watchers"
 msgstr ""
 
@@ -320,25 +316,25 @@ msgstr "Anhang"
 
 # ./content/PoiTracker.py
 #. Default: "Areas"
-#: ./content/PoiTracker.py:110
+#: ./content/PoiTracker.py:113
 msgid "Poi_label_availableAreas"
 msgstr "Bereiche"
 
 # ./content/PoiTracker.py
 #. Default: "Issue types"
-#: ./content/PoiTracker.py:135
+#: ./content/PoiTracker.py:138
 msgid "Poi_label_availableIssueTypes"
 msgstr "Arten der Problemstellung"
 
 # ./content/PoiTracker.py
 #. Default: "Available releases"
-#: ./content/PoiTracker.py:179
+#: ./content/PoiTracker.py:182
 msgid "Poi_label_availableReleases"
 msgstr "Verfügbare Ausgaben/ Versionen"
 
 # ./content/PoiTracker.py
 #. Default: "Available severities"
-#: ./content/PoiTracker.py:151
+#: ./content/PoiTracker.py:154
 msgid "Poi_label_availableSeverities"
 msgstr "Verfügbare Gewichtungen"
 
@@ -350,7 +346,7 @@ msgstr "E-Mail Kontakt "
 
 # ./content/PoiTracker.py
 #. Default: "Default severity"
-#: ./content/PoiTracker.py:165
+#: ./content/PoiTracker.py:168
 msgid "Poi_label_defaultSeverity"
 msgstr "Vorgabe für die Gewichtung"
 
@@ -362,7 +358,7 @@ msgstr "Details"
 
 # ./content/PoiTracker.py
 #. Default: "Help text"
-#: ./content/PoiTracker.py:86
+#: ./content/PoiTracker.py:89
 #, fuzzy
 msgid "Poi_label_helpText"
 msgstr "Hilfe Text"
@@ -392,13 +388,13 @@ msgstr "Titel"
 
 # ./content/PoiTracker.py
 #. Default: "Mailing list"
-#: ./content/PoiTracker.py:259
+#: ./content/PoiTracker.py:262
 msgid "Poi_label_mailingList"
 msgstr "Mailing-Liste"
 
 # ./content/PoiTracker.py
 #. Default: "Tracker managers"
-#: ./content/PoiTracker.py:194
+#: ./content/PoiTracker.py:197
 msgid "Poi_label_managers"
 msgstr "Verwalter des Trackers"
 
@@ -441,7 +437,7 @@ msgstr "Verantwortlich"
 
 # ./content/PoiTracker.py
 #. Default: "Send notification emails"
-#: ./content/PoiTracker.py:242
+#: ./content/PoiTracker.py:245
 msgid "Poi_label_sendNotificationEmails"
 msgstr "Sende Benachrichtigungs E-Mails"
 
@@ -465,7 +461,7 @@ msgstr "Stichworte"
 
 # ./content/PoiTracker.py
 #. Default: "URL to SVN"
-#: ./content/PoiTracker.py:278
+#: ./content/PoiTracker.py:281
 msgid "Poi_label_svnurl"
 msgstr "URL to VCS"
 
@@ -477,23 +473,23 @@ msgstr "Betroffene Version/ Ausgabe"
 
 # ./content/PoiTracker.py
 #. Default: "Technicians"
-#: ./content/PoiTracker.py:208
+#: ./content/PoiTracker.py:211
 msgid "Poi_label_technicians"
 msgstr "Techniker"
 
 #. Default: "Tracker description"
-#: ./content/PoiTracker.py:69
+#: ./content/PoiTracker.py:72
 msgid "Poi_label_tracker_description"
 msgstr "Beschreibung des Trackers"
 
 # ./content/PoiTracker.py
 #. Default: "Tracker name"
-#: ./content/PoiTracker.py:55
+#: ./content/PoiTracker.py:58
 msgid "Poi_label_tracker_title"
 msgstr "Name des Trackers"
 
 #. Default: "Tracker watchers"
-#: ./content/PoiTracker.py:223
+#: ./content/PoiTracker.py:226
 msgid "Poi_label_tracker_watchers"
 msgstr ""
 
@@ -638,7 +634,7 @@ msgid "label_rss_feed"
 msgstr "RSS Feed"
 
 #. Default: "Search"
-#: ./skins/Poi/poi_issue_search_form.pt:271
+#: ./skins/Poi/poi_issue_search_form.pt:270
 msgid "label_search"
 msgstr "Suche"
 
@@ -704,6 +700,8 @@ msgid "msg_no_responses_can_be_added"
 msgstr "Es können keine Antworten hinzugefügt werden."
 
 #. Default: "(Not assigned)"
+#: ./content/PoiIssue.py:498
+#: ./content/PoiTracker.py:426
 #: ./skins/Poi/poi_issue_search_form.pt:98
 msgid "not_assigned"
 msgstr "(Niemandem zugewiesen)"
@@ -920,7 +918,7 @@ msgid "poi_legend_search_terms"
 msgstr "Such-Begriffe"
 
 #. Default: "Match all tags"
-#: ./skins/Poi/poi_issue_search_form.pt:266
+#: ./skins/Poi/poi_issue_search_form.pt:265
 msgid "poi_match_all_tags"
 msgstr "Alle Stichworte einbeziehen"
 
@@ -993,7 +991,7 @@ msgid "poi_search_help_state"
 msgstr "Wählen Sie die Zustände, nach den Sie suchen möchten."
 
 #. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt:244
+#: ./skins/Poi/poi_issue_search_form.pt:243
 msgid "poi_search_help_tags"
 msgstr "Stichworte sind Schlüsselwörter die von Tracker-Verwaltern zu Problemstellungen zugewiesen werden können. Somit ist eine feingranularere Organisation der Problemstellungen möglich. Wählen Sie ein oder mehrere Stichworte, nach denen Sie suchen möchten."
 
@@ -1049,7 +1047,7 @@ msgid "poi_search_label_state"
 msgstr "Status"
 
 #. Default: "Tags"
-#: ./skins/Poi/poi_issue_search_form.pt:242
+#: ./skins/Poi/poi_issue_search_form.pt:241
 msgid "poi_search_label_tags"
 msgstr "Kennzeichnungen"
 

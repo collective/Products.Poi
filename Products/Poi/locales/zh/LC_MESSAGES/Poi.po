@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2013-10-11 20:29+0000\n"
+"POT-Creation-Date: 2013-10-18 21:04+0000\n"
 "PO-Revision-Date: 2005-12-26 03:19 +0000\n"
 "Last-Translator: Junyong Pan <panjy@zopechina.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,10 +93,6 @@ msgstr ""
 msgid "No response text added and no issue changes made."
 msgstr ""
 
-#: ./content/PoiIssue.py:489
-msgid "None"
-msgstr ""
-
 #: ./skins/Poi/poi_tracker_view.pt:129
 msgid "Note"
 msgstr ""
@@ -121,28 +117,28 @@ msgstr "你可选择上载一个文件附件到这个问题。请注意不要上
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker."
-#: ./content/PoiTracker.py:112
+#: ./content/PoiTracker.py:115
 #, fuzzy
 msgid "Poi_help_availableAreas"
 msgstr "输入跟踪器中问题的主题或者领域，每行输入一个。格式是“代号 | 标题 | 描述”。"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker."
-#: ./content/PoiTracker.py:137
+#: ./content/PoiTracker.py:140
 #, fuzzy
 msgid "Poi_help_availableIssueTypes"
 msgstr "输入这个跟踪器的问题类型，每行输入一个。格式是“代号 | 标题 | 描述”。"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release."
-#: ./content/PoiTracker.py:181
+#: ./content/PoiTracker.py:184
 #, fuzzy
 msgid "Poi_help_availableReleases"
 msgstr "输入问题可分配的版本号，每行一个。如果没有发行版本，问题就不会按照版本组织。"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
-#: ./content/PoiTracker.py:153
+#: ./content/PoiTracker.py:156
 msgid "Poi_help_availableSeverities"
 msgstr "输入不同类型的问题可选严重性，每行一个。"
 
@@ -155,7 +151,7 @@ msgstr "提供一个邮件地址，以便联系你更多信息，或者问题解
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
-#: ./content/PoiTracker.py:167
+#: ./content/PoiTracker.py:170
 msgid "Poi_help_defaultSeverity"
 msgstr "选择问题的默认严重性"
 
@@ -167,7 +163,7 @@ msgstr "请提供更多详细信息"
 
 # ./content/PoiTracker.py
 #. Default: "Enter any introductory help text you'd like to display on the tracker front page."
-#: ./content/PoiTracker.py:88
+#: ./content/PoiTracker.py:91
 msgid "Poi_help_helpText"
 msgstr ""
 
@@ -191,14 +187,14 @@ msgstr "为这个问题输入一个简短的、描述性的标题。一个好的
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
-#: ./content/PoiTracker.py:261
+#: ./content/PoiTracker.py:264
 #, fuzzy
 msgid "Poi_help_mailingList"
 msgstr "如果提供，而且如果“发送通知邮件”选中，每次张贴新的问题或者答复时，都将有一个通知邮件发送到这个地址。如果没有提供邮件地址，就只有管理人员收到邮件。"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
-#: ./content/PoiTracker.py:196
+#: ./content/PoiTracker.py:199
 msgid "Poi_help_managers"
 msgstr "输入允许管理这个跟踪器的用户代号（登录帐号），每个一行。提交的问题后，可指派由某个管理人员负责处理。"
 
@@ -241,7 +237,7 @@ msgstr "选择哪个管理人员，如果有人负责这个问题。"
 
 # ./content/PoiTracker.py
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:244
+#: ./content/PoiTracker.py:247
 #, fuzzy
 msgid "Poi_help_sendNotificationEmails"
 msgstr "如果选中，一旦张贴新的问题或者答复，管理人员将收到一个通知邮件；问题的提交人将在有新的答复，或问题解决、等待确认的时候收到通知邮件。"
@@ -266,7 +262,7 @@ msgstr "标记用于添加任意的分类到问题。下面的列表显示了可
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
-#: ./content/PoiTracker.py:280
+#: ./content/PoiTracker.py:283
 msgid "Poi_help_svnurl"
 msgstr ""
 
@@ -278,23 +274,23 @@ msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
-#: ./content/PoiTracker.py:210
+#: ./content/PoiTracker.py:213
 msgid "Poi_help_technicians"
 msgstr ""
 
 #. Default: "Describe the purpose of this tracker"
-#: ./content/PoiTracker.py:71
+#: ./content/PoiTracker.py:74
 msgid "Poi_help_tracker_description"
 msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
-#: ./content/PoiTracker.py:57
+#: ./content/PoiTracker.py:60
 msgid "Poi_help_tracker_title"
 msgstr "给跟踪器输入一个描述名"
 
 #. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
-#: ./content/PoiTracker.py:225
+#: ./content/PoiTracker.py:228
 msgid "Poi_help_tracker_watchers"
 msgstr ""
 
@@ -320,25 +316,25 @@ msgstr "附件"
 
 # ./content/PoiTracker.py
 #. Default: "Areas"
-#: ./content/PoiTracker.py:110
+#: ./content/PoiTracker.py:113
 msgid "Poi_label_availableAreas"
 msgstr "领域"
 
 # ./content/PoiTracker.py
 #. Default: "Issue types"
-#: ./content/PoiTracker.py:135
+#: ./content/PoiTracker.py:138
 msgid "Poi_label_availableIssueTypes"
 msgstr "问题类型"
 
 # ./content/PoiTracker.py
 #. Default: "Available releases"
-#: ./content/PoiTracker.py:179
+#: ./content/PoiTracker.py:182
 msgid "Poi_label_availableReleases"
 msgstr "可用的版本"
 
 # ./content/PoiTracker.py
 #. Default: "Available severities"
-#: ./content/PoiTracker.py:151
+#: ./content/PoiTracker.py:154
 msgid "Poi_label_availableSeverities"
 msgstr "可用的严重性"
 
@@ -350,7 +346,7 @@ msgstr "联系邮件地址"
 
 # ./content/PoiTracker.py
 #. Default: "Default severity"
-#: ./content/PoiTracker.py:165
+#: ./content/PoiTracker.py:168
 msgid "Poi_label_defaultSeverity"
 msgstr "默认严重性"
 
@@ -362,7 +358,7 @@ msgstr "详细说明"
 
 # ./content/PoiTracker.py
 #. Default: "Help text"
-#: ./content/PoiTracker.py:86
+#: ./content/PoiTracker.py:89
 msgid "Poi_label_helpText"
 msgstr ""
 
@@ -391,13 +387,13 @@ msgstr "标题"
 
 # ./content/PoiTracker.py
 #. Default: "Mailing list"
-#: ./content/PoiTracker.py:259
+#: ./content/PoiTracker.py:262
 msgid "Poi_label_mailingList"
 msgstr "邮件列表"
 
 # ./content/PoiTracker.py
 #. Default: "Tracker managers"
-#: ./content/PoiTracker.py:194
+#: ./content/PoiTracker.py:197
 msgid "Poi_label_managers"
 msgstr "跟踪器管理人员"
 
@@ -440,7 +436,7 @@ msgstr "负责人"
 
 # ./content/PoiTracker.py
 #. Default: "Send notification emails"
-#: ./content/PoiTracker.py:242
+#: ./content/PoiTracker.py:245
 msgid "Poi_label_sendNotificationEmails"
 msgstr "发送一个通知邮件"
 
@@ -464,7 +460,7 @@ msgstr "标记"
 
 # ./content/PoiTracker.py
 #. Default: "URL to SVN"
-#: ./content/PoiTracker.py:278
+#: ./content/PoiTracker.py:281
 msgid "Poi_label_svnurl"
 msgstr ""
 
@@ -476,23 +472,23 @@ msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Technicians"
-#: ./content/PoiTracker.py:208
+#: ./content/PoiTracker.py:211
 msgid "Poi_label_technicians"
 msgstr ""
 
 #. Default: "Tracker description"
-#: ./content/PoiTracker.py:69
+#: ./content/PoiTracker.py:72
 msgid "Poi_label_tracker_description"
 msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Tracker name"
-#: ./content/PoiTracker.py:55
+#: ./content/PoiTracker.py:58
 msgid "Poi_label_tracker_title"
 msgstr "跟踪器名"
 
 #. Default: "Tracker watchers"
-#: ./content/PoiTracker.py:223
+#: ./content/PoiTracker.py:226
 msgid "Poi_label_tracker_watchers"
 msgstr ""
 
@@ -637,7 +633,7 @@ msgid "label_rss_feed"
 msgstr ""
 
 #. Default: "Search"
-#: ./skins/Poi/poi_issue_search_form.pt:271
+#: ./skins/Poi/poi_issue_search_form.pt:270
 msgid "label_search"
 msgstr "查找"
 
@@ -703,6 +699,8 @@ msgid "msg_no_responses_can_be_added"
 msgstr ""
 
 #. Default: "(Not assigned)"
+#: ./content/PoiIssue.py:498
+#: ./content/PoiTracker.py:426
 #: ./skins/Poi/poi_issue_search_form.pt:98
 msgid "not_assigned"
 msgstr "(未分配)"
@@ -920,7 +918,7 @@ msgid "poi_legend_search_terms"
 msgstr "搜索词"
 
 #. Default: "Match all tags"
-#: ./skins/Poi/poi_issue_search_form.pt:266
+#: ./skins/Poi/poi_issue_search_form.pt:265
 msgid "poi_match_all_tags"
 msgstr ""
 
@@ -993,7 +991,7 @@ msgid "poi_search_help_state"
 msgstr "选择你要查找的状态"
 
 #. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt:244
+#: ./skins/Poi/poi_issue_search_form.pt:243
 msgid "poi_search_help_tags"
 msgstr "标记是有问题跟踪器管理员分配的关键字，用来更细的组织问题。选择你希望查找的标记"
 
@@ -1049,7 +1047,7 @@ msgid "poi_search_label_state"
 msgstr "状态"
 
 #. Default: "Tags"
-#: ./skins/Poi/poi_issue_search_form.pt:242
+#: ./skins/Poi/poi_issue_search_form.pt:241
 msgid "poi_search_label_tags"
 msgstr "标记"
 

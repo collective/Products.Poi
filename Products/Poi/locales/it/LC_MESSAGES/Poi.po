@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2013-10-11 20:29+0000\n"
+"POT-Creation-Date: 2013-10-18 21:04+0000\n"
 "PO-Revision-Date: 2007-03-22 11:28+0100\n"
 "Last-Translator: Luca Fabbri <keul@redturtle.it>\n"
 "Language-Team: Plone Italian Translation Discussion <plone-italian-translation-discussion@lists.coactivate.org>\n"
@@ -92,10 +92,6 @@ msgstr "Nessuna risposta selezionata."
 msgid "No response text added and no issue changes made."
 msgstr "Nessun testo della risposta aggiunto e nessuna modifica effettuata."
 
-#: ./content/PoiIssue.py:489
-msgid "None"
-msgstr "Nessuno"
-
 #: ./skins/Poi/poi_tracker_view.pt:129
 msgid "Note"
 msgstr "Nota"
@@ -121,19 +117,19 @@ msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker."
-#: ./content/PoiTracker.py:112
+#: ./content/PoiTracker.py:115
 msgid "Poi_help_availableAreas"
 msgstr "Inserisci gli argomenti/aree desiderati per questo gestore attività"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker."
-#: ./content/PoiTracker.py:137
+#: ./content/PoiTracker.py:140
 msgid "Poi_help_availableIssueTypes"
 msgstr "Inserisci i tipi di richiesta previsti per questo gestore attività"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release."
-#: ./content/PoiTracker.py:181
+#: ./content/PoiTracker.py:184
 msgid "Poi_help_availableReleases"
 msgstr ""
 "Inserisci i rilasci a cui la richiesta può essere assegnata, uno per linea.\n"
@@ -141,7 +137,7 @@ msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
-#: ./content/PoiTracker.py:153
+#: ./content/PoiTracker.py:156
 msgid "Poi_help_availableSeverities"
 msgstr "Inserisci i diversi tipi di priorità delle richieste che dovrebbero essere disponibili, uno per linea."
 
@@ -155,7 +151,7 @@ msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
-#: ./content/PoiTracker.py:167
+#: ./content/PoiTracker.py:170
 msgid "Poi_help_defaultSeverity"
 msgstr "Seleziona la priorità predefinita da assegnare alle nuove richieste."
 
@@ -167,7 +163,7 @@ msgstr "Per favore fornisci ulteriori dettagli."
 
 # ./content/PoiTracker.py
 #. Default: "Enter any introductory help text you'd like to display on the tracker front page."
-#: ./content/PoiTracker.py:88
+#: ./content/PoiTracker.py:91
 msgid "Poi_help_helpText"
 msgstr "Inserisci il testo introduttivo che vorresti visualizzare nella pagina principale del gestore attività."
 
@@ -191,7 +187,7 @@ msgstr "Inserisci un breve titolo descrittivo della richiesta. Un buon titolo re
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
-#: ./content/PoiTracker.py:261
+#: ./content/PoiTracker.py:264
 msgid "Poi_help_mailingList"
 msgstr ""
 "Se specificato e se \"Invia mail di notifica\" è selezionato, una email sarà inviata a questo indirizzo ogni volta che una nuova richiesta o risposta saranno generate.\n"
@@ -200,7 +196,7 @@ msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
-#: ./content/PoiTracker.py:196
+#: ./content/PoiTracker.py:199
 msgid "Poi_help_managers"
 msgstr "Inserisci l'identificativo degli utenti (username) ai quali sarà permesso amministrare questo gestore attività, uno per linea."
 
@@ -242,7 +238,7 @@ msgstr "Seleziona quali manager, se ci sono, sono responsabili della richiesta."
 
 # ./content/PoiTracker.py
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:244
+#: ./content/PoiTracker.py:247
 msgid "Poi_help_sendNotificationEmails"
 msgstr ""
 "Se selezionato, i manager del gestore attività riceveranno una mail ogni volta che una nuova richiesta o risposta saranno generate, e chi ha inviato la richiesta riceverà una email quando sarà presente una nuova risposta o quando una richiesta verrà risolta, in attesa della conferma.\n"
@@ -268,7 +264,7 @@ msgstr "I tag possono essere usati per aggiungere voci di classificazione arbitr
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
-#: ./content/PoiTracker.py:280
+#: ./content/PoiTracker.py:283
 msgid "Poi_help_svnurl"
 msgstr "Per favore inserisci l'URL del repository SVN connessi, ad esempio: http://dev.plone.org/changeset/%(rev)s/collective per i prodotti nella collective Plone (SVN)."
 
@@ -280,25 +276,25 @@ msgstr "Il rilascio nella per la quale è previsto la chiusura di questa attivit
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
-#: ./content/PoiTracker.py:210
+#: ./content/PoiTracker.py:213
 msgid "Poi_help_technicians"
 msgstr ""
 "Inserisci gli user id degli utenti che saranno responsabili della risoluzione delle attività, uno per riga.\n"
 "Nota che avere solo manager e non tecnici è comunque possibile: anche i manager possono risolvere attività."
 
 #. Default: "Describe the purpose of this tracker"
-#: ./content/PoiTracker.py:71
+#: ./content/PoiTracker.py:74
 msgid "Poi_help_tracker_description"
 msgstr "Descrivi lo scopo del gestore attività"
 
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
-#: ./content/PoiTracker.py:57
+#: ./content/PoiTracker.py:60
 msgid "Poi_help_tracker_title"
 msgstr "Inserisci un nome descrittivo per questo gestore attività."
 
 #. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
-#: ./content/PoiTracker.py:225
+#: ./content/PoiTracker.py:228
 msgid "Poi_help_tracker_watchers"
 msgstr ""
 "Inserisci gli id degli utenti che stanno seguendo questa attività, uno per riga.\n"
@@ -331,25 +327,25 @@ msgstr "Allegato"
 
 # ./content/PoiTracker.py
 #. Default: "Areas"
-#: ./content/PoiTracker.py:110
+#: ./content/PoiTracker.py:113
 msgid "Poi_label_availableAreas"
 msgstr "Aree"
 
 # ./content/PoiTracker.py
 #. Default: "Issue types"
-#: ./content/PoiTracker.py:135
+#: ./content/PoiTracker.py:138
 msgid "Poi_label_availableIssueTypes"
 msgstr "Tipi di richiesta"
 
 # ./content/PoiTracker.py
 #. Default: "Available releases"
-#: ./content/PoiTracker.py:179
+#: ./content/PoiTracker.py:182
 msgid "Poi_label_availableReleases"
 msgstr "Rilasci disponibili"
 
 # ./content/PoiTracker.py
 #. Default: "Available severities"
-#: ./content/PoiTracker.py:151
+#: ./content/PoiTracker.py:154
 msgid "Poi_label_availableSeverities"
 msgstr "Priorità disponibili"
 
@@ -361,7 +357,7 @@ msgstr "Indirizzo mail del contatto"
 
 # ./content/PoiTracker.py
 #. Default: "Default severity"
-#: ./content/PoiTracker.py:165
+#: ./content/PoiTracker.py:168
 msgid "Poi_label_defaultSeverity"
 msgstr "Priorità predefinita"
 
@@ -373,7 +369,7 @@ msgstr "Dettagli"
 
 # ./content/PoiTracker.py
 #. Default: "Help text"
-#: ./content/PoiTracker.py:86
+#: ./content/PoiTracker.py:89
 msgid "Poi_label_helpText"
 msgstr "Testo di aiuto"
 
@@ -402,13 +398,13 @@ msgstr "Titolo"
 
 # ./content/PoiTracker.py
 #. Default: "Mailing list"
-#: ./content/PoiTracker.py:259
+#: ./content/PoiTracker.py:262
 msgid "Poi_label_mailingList"
 msgstr "Mailing list"
 
 # ./content/PoiTracker.py
 #. Default: "Tracker managers"
-#: ./content/PoiTracker.py:194
+#: ./content/PoiTracker.py:197
 msgid "Poi_label_managers"
 msgstr "Manager del gestore attività"
 
@@ -450,7 +446,7 @@ msgstr "Responsabile"
 
 # ./content/PoiTracker.py
 #. Default: "Send notification emails"
-#: ./content/PoiTracker.py:242
+#: ./content/PoiTracker.py:245
 msgid "Poi_label_sendNotificationEmails"
 msgstr "Invia mail di notifica"
 
@@ -474,7 +470,7 @@ msgstr "Tag"
 
 # ./content/PoiTracker.py
 #. Default: "URL to SVN"
-#: ./content/PoiTracker.py:278
+#: ./content/PoiTracker.py:281
 msgid "Poi_label_svnurl"
 msgstr "l'indirizzo del server di versioni di Subversion (SVN)"
 
@@ -486,23 +482,23 @@ msgstr "Obbiettivo del rilascio"
 
 # ./content/PoiTracker.py
 #. Default: "Technicians"
-#: ./content/PoiTracker.py:208
+#: ./content/PoiTracker.py:211
 msgid "Poi_label_technicians"
 msgstr "Tecnici"
 
 #. Default: "Tracker description"
-#: ./content/PoiTracker.py:69
+#: ./content/PoiTracker.py:72
 msgid "Poi_label_tracker_description"
 msgstr "Descrizione del gestore attività"
 
 # ./content/PoiTracker.py
 #. Default: "Tracker name"
-#: ./content/PoiTracker.py:55
+#: ./content/PoiTracker.py:58
 msgid "Poi_label_tracker_title"
 msgstr "Nome del gestore attività"
 
 #. Default: "Tracker watchers"
-#: ./content/PoiTracker.py:223
+#: ./content/PoiTracker.py:226
 msgid "Poi_label_tracker_watchers"
 msgstr "Osservatori del gestore attività"
 
@@ -647,7 +643,7 @@ msgid "label_rss_feed"
 msgstr "Feed RSS"
 
 #. Default: "Search"
-#: ./skins/Poi/poi_issue_search_form.pt:271
+#: ./skins/Poi/poi_issue_search_form.pt:270
 msgid "label_search"
 msgstr "Ricerca"
 
@@ -712,6 +708,8 @@ msgid "msg_no_responses_can_be_added"
 msgstr "Nessuna risposta può essere aggiunta."
 
 #. Default: "(Not assigned)"
+#: ./content/PoiIssue.py:498
+#: ./content/PoiTracker.py:426
 #: ./skins/Poi/poi_issue_search_form.pt:98
 msgid "not_assigned"
 msgstr "(Non assegnato)"
@@ -925,7 +923,7 @@ msgid "poi_legend_search_terms"
 msgstr "Termini di ricerca"
 
 #. Default: "Match all tags"
-#: ./skins/Poi/poi_issue_search_form.pt:266
+#: ./skins/Poi/poi_issue_search_form.pt:265
 msgid "poi_match_all_tags"
 msgstr "Tutti i tag"
 
@@ -996,7 +994,7 @@ msgid "poi_search_help_state"
 msgstr "Seleziona gli stati che desideri cercare"
 
 #. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt:244
+#: ./skins/Poi/poi_issue_search_form.pt:243
 msgid "poi_search_help_tags"
 msgstr "I tag sono le parole-chiave assegnate dai manager del gestore attività alle richieste allo scopo di permettere un'organizzazione più precisa delle richieste stesse. Seleziona il/i tag che desideri cercare."
 
@@ -1051,7 +1049,7 @@ msgid "poi_search_label_state"
 msgstr "Stato"
 
 #. Default: "Tags"
-#: ./skins/Poi/poi_issue_search_form.pt:242
+#: ./skins/Poi/poi_issue_search_form.pt:241
 msgid "poi_search_label_tags"
 msgstr "Tag"
 
