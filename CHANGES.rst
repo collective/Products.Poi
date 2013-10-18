@@ -5,6 +5,15 @@ Changelog for Poi
 2.2.6 (unreleased)
 ------------------
 
+- Fix auto-recognized issue/revision links when displayed in the
+  tracker log.  These would point outside of the tracker.  Now we pass
+  the absolute url of the tracker.  Note that responses cache their
+  rendered html text in a variable ``rendered_text``, which is only
+  updated when you edit the response, so this may not have effect on
+  existing responses.
+  Fixes http://plone.org/products/poi/issues/255
+  [maurits]
+
 - Fix corner cases in recognizing links to issues and revisions.  Add
   the patterns for these two in ``config.py`` so they can be
   overridden.  Also add the template to use when recognizing a link to

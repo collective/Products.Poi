@@ -564,7 +564,7 @@ class TestLinkDetection(ptc.PoiTestCase):
         # Link to that existing issue.
         issue = self.createIssue(self.tracker, details="#1")
         self.assertEqual(issue.getTaggedDetails(),
-                         '<p><a href="../1">#1</a></p>')
+                         '<p><a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a></p>')
 
         # Issue #3 does not exist.
         issue.update(details="#3")
@@ -574,7 +574,7 @@ class TestLinkDetection(ptc.PoiTestCase):
         # Link to an existing issue in the steps
         issue.update(steps="#1")
         self.assertEqual(self.tracker['2'].getTaggedSteps(),
-                         '<p><a href="../1">#1</a></p>')
+                         '<p><a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a></p>')
 
     def testLinksToIssues(self):
         tracker = self.tracker
@@ -602,15 +602,15 @@ class TestLinkDetection(ptc.PoiTestCase):
         # Now we should get html back when we ask for an issue number:
         self.assertEqual(
             tracker.linkDetection("#1"),
-            '<a href="../1">#1</a>')
+            '<a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a>')
         self.assertEqual(
             tracker.linkDetection("Links to #1 and #2."),
-            'Links to <a href="../1">#1</a> and <a href="../2">#2</a>.')
+            'Links to <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a> and <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/2">#2</a>.')
 
         # We are not fooled by a non existing issue:
         self.assertEqual(
             tracker.linkDetection("Issue #1 and non-issue #3."),
-            'Issue <a href="../1">#1</a> and non-issue #3.')
+            'Issue <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a> and non-issue #3.')
 
         # Issues that are added to a different tracker only show up
         # for that tracker:
@@ -621,12 +621,12 @@ class TestLinkDetection(ptc.PoiTestCase):
         self.createIssue(tracker2, title="1")
         self.assertEqual(
             tracker2.linkDetection("#1"),
-            '<a href="../1">#1</a>')
+            '<a href="http://nohost/plone/Members/test_user_1_/tracker2/1">#1</a>')
 
         #A combination of unicode and a link number should be possible::
         self.assertEqual(
             tracker.linkDetection(u'\xfanicode text with a link to #1'),
-            u'\xfanicode text with a link to <a href="../1">#1</a>')
+            u'\xfanicode text with a link to <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a>')
 
     def testLinksToRevisions(self):
         tracker = self.tracker
@@ -671,7 +671,7 @@ class TestLinkDetection(ptc.PoiTestCase):
         self.createIssue(tracker, title="1")
         self.assertEqual(
             tracker.linkDetection('Issue #1 is fixed in r42.'),
-            'Issue <a href="../1">#1</a> is fixed in <'
+            'Issue <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a> is fixed in <'
             'a href="http://dev.plone.org/changeset/42/collective">r42</a>.')
 
 

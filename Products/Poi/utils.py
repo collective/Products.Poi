@@ -15,7 +15,7 @@ def getNumberFromString(linktext):
         return linktext[res.start(): res.end()]
 
 
-def linkBugs(text, ids, patterns):
+def linkBugs(text, ids, patterns, base_url='..'):
     """
     Replace patterns with links to other issues in the same tracker.
     """
@@ -32,7 +32,7 @@ def linkBugs(text, ids, patterns):
             bug = getNumberFromString(linktext)
 
             if bug is not None and bug in ids:
-                link = ISSUE_LINK_TEMPLATE % dict(bug=bug, linktext=linktext)
+                link = ISSUE_LINK_TEMPLATE % dict(base_url=base_url, bug=bug, linktext=linktext)
                 text = text[0:pos] + link + text[res.end():]
                 pos += len(link)
             else:

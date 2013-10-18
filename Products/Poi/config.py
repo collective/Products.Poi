@@ -25,4 +25,4 @@ ISSUE_RECOGNITION_PATTERNS = \
 REVISION_RECOGNITION_PATTERNS = \
     [r'\br[0-9]+\b', r'\bchangeset:[0-9]+\b', r'\B\[[0-9]+\]\B']
 # Template to use when recognizing a link to another issue:
-ISSUE_LINK_TEMPLATE = '<a href="../%(bug)s">%(linktext)s</a>'
+ISSUE_LINK_TEMPLATE = '<a href="%(base_url)s/%(bug)s">%(linktext)s</a>'

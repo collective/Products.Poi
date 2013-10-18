@@ -91,6 +91,14 @@ Now we test this with patterns::
     >>> linkBugs("noticket:5 ticket:5", ['5'], patterns)
     'noticket:5 <a href="../5">ticket:5</a>'
 
+You can pass a base_url to linkBugs.  The default is '..'.  This works
+fine when you view an issue.  But in 'tracker/@@log' such a url will
+point outside of the tracker.  So now we pass the url of the tracker
+when we call the relevant code.
+
+    >>> linkBugs("#1", ['1'], patterns, base_url='http://example.org/issues')
+    '<a href="http://example.org/issues/1">#1</a>'
+
 
 linkSvn
 ~~~~~~~~

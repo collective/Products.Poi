@@ -323,7 +323,8 @@ class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
         issuefolder = self.restrictedTraverse('@@issuefolder')
         issues = catalog.searchResults(issuefolder.buildIssueSearchQuery(None))
         ids = frozenset([issue.id for issue in issues])
-        text = linkBugs(text, ids, ISSUE_RECOGNITION_PATTERNS)
+        text = linkBugs(text, ids, ISSUE_RECOGNITION_PATTERNS,
+                        base_url=self.absolute_url())
         svnUrl = self.getSvnUrl()
         text = linkSvn(text, svnUrl, REVISION_RECOGNITION_PATTERNS)
         return text
