@@ -5,7 +5,8 @@ Changelog for Poi
 2.2.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- When we go to search form, current filters are pre-selected.
+  [thomasdesvenain]
 
 
 2.2.6 (2013-10-18)
