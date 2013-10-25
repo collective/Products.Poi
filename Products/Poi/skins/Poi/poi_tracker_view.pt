@@ -49,7 +49,7 @@
             <input class="searchButton" type="submit" value="Search" i18n:attributes="value"/>
          </form>
          <a id="issue-search-link"
-            tal:attributes="href string:${trackerUrl}/poi_issue_search_form"
+            tal:attributes="href string:${trackerUrl}/poi_issue_search_form?${request/QUERY_STRING}"
             i18n:translate="poi_issue_search">Advanced issue search</a>
       </div>
 
