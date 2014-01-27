@@ -1,4 +1,4 @@
-/* 
+/*
 ** Poi style sheet for CSS2-capable browsers.
 **
 ** Copyright Martin Aspeli - optilude@gmx.net
@@ -13,8 +13,8 @@
 /* Tracker front page */
 
 .issue-quick-search-box {
-    width: 30%; 
-    float: left; 
+    width: 30%;
+    float: left;
     padding: 0 1em 1em 0;
 }
 
@@ -25,7 +25,7 @@
 
 #issue-search-link {
     display: block;
-    background: &dtml-backgroundColor; url(&dtml-portal_url;/search_icon.gif) 2px 1px no-repeat;
+    background: &dtml-backgroundColor; url(&dtml-portal_url;/search_icon.png) 2px 1px no-repeat;
     padding: 1px 1px 1px 18px;
 }
 
@@ -36,7 +36,7 @@
 
 #poi-watch-tracker-form {
     display: inline;
-} 
+}
 
 /* Search table */
 
@@ -51,13 +51,13 @@
 }
 
 #poi_advanced_search {
-    background: White url(&dtml-portal_url;/search_icon.gif) no-repeat scroll 2px 1px;
+    background: White url(&dtml-portal_url;/search_icon.png) no-repeat scroll 2px 1px;
 }
 
 /* Issue display */
 
 .return-to-search {
-    background: transparent url(&dtml-portal_url;/arrowUp.gif) 4px 5px no-repeat;
+    background: transparent url(&dtml-portal_url;/arrowUp.png) 4px 5px no-repeat;
     padding: 1px 0px 5px 16px;
     font-size: &dtml-fontSmallSize;;
     text-decoration: none;
@@ -173,7 +173,7 @@ ul.issue-tags-tags a {
     margin: 1em 0;
     padding: 0.5em;
     border: &dtml-borderWidth; &dtml-borderStyleAnnotations; &dtml-contentViewBorderColor;;
-    clear: both;    
+    clear: both;
 }
 
 /* Response details */

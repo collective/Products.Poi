@@ -5,6 +5,9 @@ Changelog for Poi
 2.2.7 (unreleased)
 ------------------
 
+- Refer to .png Plone images in css instead of .gif.
+  [thomasdesvenain]
+
 - When we go to search form, current filters are pre-selected.
   [thomasdesvenain]
 

@@ -231,3 +231,8 @@ def migrate_tracker_watchers(context):
                     tracker.absolute_url(), old_value)
         tracker.setWatchers(old_value)
         del mapping['watchers']
+
+
+def recook_resources(context):
+    context.portal_javascripts.cookResources()
+    context.portal_css.cookResources()

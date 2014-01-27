@@ -119,4 +119,13 @@
       handler="Products.Poi.migration.run_workflow_step"
       profile="Products.Poi:default" />
 
+  <gs:upgradeStep
+      title="Recook javascript"
+      description="Recook javascript"
+      source="2006"
+      destination="2007"
+      handler="Products.Poi.migration.recook_resources"
+      profile="Products.Poi:default" />
+
+
 </configure>
