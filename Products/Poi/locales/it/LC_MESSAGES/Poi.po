@@ -581,13 +581,13 @@ msgstr "Rilascio previsto"
 #: ./browser/templates/poi_email_resolved_issue_html.pt:23
 #: ./browser/templates/poi_email_resolved_issue_plain.pt:8
 msgid "The issue ${issue_title} in the ${tracker_title} tracker has been marked as resolved by ${response_author} Please visit the issue and either confirm that it has been satisfactorily resolved or re-open it."
-msgstr "Ll'attività ${issue_title} nel gestore ${tracker_title} è stata indicata come risolta da ${response_author}. Prego visita l'attività e conferma che sia stata risolta con successo o riaprila."
+msgstr "L'attività ${issue_title} nel gestore ${tracker_title} è stata indicata come risolta da ${response_author}. Per favore visita l'attività e conferma che sia stata risolta con successo oppure riaprila."
 
 #: ./browser/templates/poi_email_new_issue_html.pt:40
 #: ./browser/templates/poi_email_new_issue_plain.pt:23
 #: ./browser/templates/poi_email_new_response_html.pt:54
 msgid "This is an automated email, please do not reply."
-msgstr "Questo è una mail generata automaticamente, prego non rispondere a questo messaggio."
+msgstr "Questo è una mail generata automaticamente, per favore non rispondere a questo messaggio."
 
 #. Default: "Watch this issue"
 #: ./skins/Poi/poi_issue_view.pt:182
