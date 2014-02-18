@@ -19,7 +19,7 @@ msgstr ""
 #: ./browser/templates/poi_email_new_issue_html.pt:23
 #: ./browser/templates/poi_email_new_issue_plain.pt:8
 msgid "A new issue has been submitted to the ${tracker_title} tracker by ${issue_author} and awaits confirmation."
-msgstr "Una nuova attività è stata inserita nel gestore ${tracker_title} da ${issue_author} e attende una conferma."
+msgstr "Una nuova attività è stata inserita nel gestore ${tracker_title} da ${issue_author} ed attende una conferma."
 
 #: ./browser/templates/poi_email_new_response_html.pt:24
 #: ./browser/templates/poi_email_new_response_plain.pt:8
@@ -98,7 +98,7 @@ msgstr "Nota"
 
 #: ./skins/Poi/poi_tracker_view.pt:316
 msgid "Poi"
-msgstr ""
+msgstr "Poi"
 
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."
@@ -112,7 +112,7 @@ msgstr "Seleziona l'area a cui la richiesta è attinente"
 #: ./content/PoiIssue.py:161
 msgid "Poi_help_attachment"
 msgstr ""
-"Se necessario, puoi caricare un file allegato alla tua richiesta.\n"
+"Se necessario, puoi allegare un file alla tua richiesta.\n"
 "Per favore, non caricare file di grandi dimensioni che non siano necessari."
 
 # ./content/PoiTracker.py
@@ -146,8 +146,8 @@ msgstr "Inserisci i diversi tipi di priorità delle richieste che dovrebbero ess
 #: ./content/PoiIssue.py:256
 msgid "Poi_help_contactEmail"
 msgstr ""
-"Prego fornisci un indirizzo email dove puoi essere contattato per ulteriori informazioni o quando una risoluzione è disponibile.\n"
-"Nota che il tuo indirizzo e-mail non sarà visualizzato ad altri."
+"Per favore fornisci un indirizzo email dove potrai essere contattato in caso di ulteriori informazioni o quando una risoluzione è disponibile.\n"
+"Nota che il tuo indirizzo e-mail non sarà mostrato ad altri."
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
@@ -272,7 +272,7 @@ msgstr "Per favore inserisci l'URL del repository SVN connessi, ad esempio: http
 #. Default: "Release this issue is targetted to be fixed in"
 #: ./content/PoiIssue.py:222
 msgid "Poi_help_targetRelease"
-msgstr "Il rilascio nella per la quale è previsto la chiusura di questa attività"
+msgstr "Il rilascio per la quale è previsto la chiusura di questa attività"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
@@ -587,7 +587,7 @@ msgstr "L'attività ${issue_title} nel gestore ${tracker_title} è stata indicat
 #: ./browser/templates/poi_email_new_issue_plain.pt:23
 #: ./browser/templates/poi_email_new_response_html.pt:54
 msgid "This is an automated email, please do not reply."
-msgstr "Questo è una mail generata automaticamente, per favore non rispondere a questo messaggio."
+msgstr "Questa è una mail generata automaticamente, per favore non rispondere a questo messaggio."
 
 #. Default: "Watch this issue"
 #: ./skins/Poi/poi_issue_view.pt:182
