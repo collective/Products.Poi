@@ -44,6 +44,11 @@ setup(name='Products.Poi',
           'Products.DataGridField>=1.8b1',
           'collective.watcherlist>=0.2',
       ],
+      extras_require={
+          'test': [
+              'Products.PloneTestCase',
+          ],
+      },
       entry_points="""
       # -*- Entry points: -*-
       """,
