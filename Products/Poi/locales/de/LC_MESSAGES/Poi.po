@@ -94,11 +94,11 @@ msgstr "Es wurde kein Antwort-Text hinzugefügt und keine "
 
 #: ./skins/Poi/poi_tracker_view.pt:129
 msgid "Note"
-msgstr ""
+msgstr "Notiz"
 
 #: ./skins/Poi/poi_tracker_view.pt:316
 msgid "Poi"
-msgstr ""
+msgstr "Poi"
 
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."
@@ -110,28 +110,24 @@ msgstr "Wählen Sie, zu welchem Bereich diese Problemstellung passt."
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
 #: ./browser/response.pt:151
 #: ./content/PoiIssue.py:161
-#, fuzzy
 msgid "Poi_help_attachment"
 msgstr "Sie können optional eine Datei als Anhang hochladen. Bitte laden sie keine unnötig großen Dateien hoch."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker."
 #: ./content/PoiTracker.py:115
-#, fuzzy
 msgid "Poi_help_availableAreas"
 msgstr "Geben Sie für die Problemstellung die passensen Themen/ Bereiche an. Eine pro Zeile. Das Format ist: \"Kurzname | Titel | Beschreibung\"."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker."
 #: ./content/PoiTracker.py:140
-#, fuzzy
 msgid "Poi_help_availableIssueTypes"
 msgstr "Geben Sie die Arten von Problemstellungen für diesem Tracker an. Eine pro Zeile. Eine pro Zeile. Das Format ist: \"Kurzname | Titel | Beschreibung\"."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release."
 #: ./content/PoiTracker.py:184
-#, fuzzy
 msgid "Poi_help_availableReleases"
 msgstr "Geben Sie die Ausgaben/ Versionen an, die einer einer Problemstellung zugewiesen werden können. Eine pro Zeile. Wird nichts angegeben, so werden die Problemstellungen nicht nach diesem Kriterium organisiert angezeigt."
 
@@ -144,7 +140,6 @@ msgstr "Geben Sie die verschiedenen Gewichtungen an, die für eine Problemstellu
 # ./content/PoiIssue.py
 #. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
 #: ./content/PoiIssue.py:256
-#, fuzzy
 msgid "Poi_help_contactEmail"
 msgstr "Optional können sie eine E-Mail-Adresse angeben, über die sie für weitere Informationen oder bei Verfügbarkeit einer Lösung kontaktiert werden können."
 
@@ -187,7 +182,6 @@ msgstr "Wählen sie einen kurzen, beschreibenden Titel zur Identifikation für d
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
 #: ./content/PoiTracker.py:264
-#, fuzzy
 msgid "Poi_help_mailingList"
 msgstr "Wenn angegeben und 'Sende Benachrichtungs-Mail' ausgewählt wurde, wird eine E-Mail an diese Adresse gesendet sobald eine neue Problemstellung oder eine neue Antwort erstellt wurde, Wenn keine Mailing-Listen-Adresse angegeben wurde, so erhalten die nur Projektmanager eine Benachrichtigung."
 
@@ -218,7 +212,6 @@ msgstr "Betroffene Version/ Ausgabe der Problemstellung"
 # ./content/PoiIssue.py
 #. Default: "Select the version the issue was found in."
 #: ./content/PoiIssue.py:110
-#, fuzzy
 msgid "Poi_help_release"
 msgstr "Wählen sie die von diesem Problem betroffene Version/ Ausgabe."
 
@@ -237,7 +230,6 @@ msgstr "Wählen Sie den verantwortlichen Verwalter dieser Problemstellung."
 # ./content/PoiTracker.py
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
 #: ./content/PoiTracker.py:247
-#, fuzzy
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Wenn dies ausgewählt ist erhalten Verwalter des Trackers ein jedes Mal ein E-Mail, wenn eine neue Problemstellung oder eine Antwort geschrieben wurde. Übermittler von Problemstellungen erhalten ein E-Mail, sobald eine Antwort geschrieben wurde, bzw. wenn die Problemstellung gelöst wurde und eine Bestätigung gefordert ist."
 
@@ -262,7 +254,6 @@ msgstr "Verwenden Sie Stichworte als eine weitere Möglichkeit zur freien Katego
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
 #: ./content/PoiTracker.py:283
-#, fuzzy
 msgid "Poi_help_svnurl"
 msgstr "Bitte geben Sie die URL zum betreffende Version-Controll-System (SVN, GIT, BZR, ...) an. Dies kann auch auf einen Webansicht wie z.B. Trac zeigen."
 
@@ -292,12 +283,11 @@ msgstr "Geben Sie einen beschreibenden Namen für diesen Tracker an."
 #. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
 #: ./content/PoiTracker.py:228
 msgid "Poi_help_tracker_watchers"
-msgstr ""
+msgstr "Tragen Sie die Benutzer-IDs derjenigen Mitglieder ein, welche diesen Tracker beobachten. Ein Eintrag pro Zeile. E-mail Adressen sind ebenfalls erlaubt. Diese Personen werden eine E-mail erhalten, wenn ein neues Problem oder eine Antwort hinzugefügt werden. Mitglieder können sich auch selbst als Beobachter hinzufügen."
 
 # ./content/PoiIssue.py
 #. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
 #: ./content/PoiIssue.py:273
-#, fuzzy
 msgid "Poi_help_watchers"
 msgstr "Geben Sie die BenutzerInnen-Namen von Mitgliedern an, die diese Problemstellung beobachten sollen bzw. wollen, einer pro Zeile. Diese Mitglieder erhalten ein E-Mail sobald eine Antwort hinzugefügt wurde. Mitglieder können sich selber als Beobachter eintragen."
 
@@ -359,7 +349,6 @@ msgstr "Details"
 # ./content/PoiTracker.py
 #. Default: "Help text"
 #: ./content/PoiTracker.py:89
-#, fuzzy
 msgid "Poi_label_helpText"
 msgstr "Hilfe Text"
 
@@ -419,7 +408,6 @@ msgstr "Ändern der Ausgabe/ Version"
 # ./content/PoiIssue.py
 #. Default: "Version"
 #: ./content/PoiIssue.py:108
-#, fuzzy
 msgid "Poi_label_release"
 msgstr "Ausgabe/ Version"
 
@@ -491,7 +479,7 @@ msgstr "Name des Trackers"
 #. Default: "Tracker watchers"
 #: ./content/PoiTracker.py:226
 msgid "Poi_label_tracker_watchers"
-msgstr ""
+msgstr "Beobachter des Trackers"
 
 # ./content/PoiIssue.py
 #. Default: "Issue watchers"
@@ -650,7 +638,6 @@ msgstr "Nr."
 
 #. Default: "Target"
 #: ./skins/Poi/poi_issue_search_results.pt:35
-#, fuzzy
 msgid "listingheader_release"
 msgstr "Ausgabe/ Version"
 
@@ -758,7 +745,6 @@ msgstr "Nach Bereich"
 
 #. Default: "By target release"
 #: ./skins/Poi/poi_tracker_view.pt:166
-#, fuzzy
 msgid "poi_heading_by_release"
 msgstr "Nach Ausgabe/ Version"
 
@@ -819,13 +805,11 @@ msgstr "Die folgenden offenen Problemstellungen wurden von Ihnen übermittelt od
 
 #. Default: "The following open issues were submitted by you."
 #: ./skins/Poi/poi_tracker_view.pt:265
-#, fuzzy
 msgid "poi_help_my_issues_not_manager"
 msgstr "Die folgenden offenen Problemstellungen wurden von ihnen übermittelt oder sind ihnen zugewiesen worden."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
 #: ./skins/Poi/poi_tracker_view.pt:142
-#, fuzzy
 msgid "poi_help_open_issues"
 msgstr "Wählen einen Bereich, eine Ausgabe/ Version oder einen Status um alle (offenen) Problemstellungen in dieser Kategorie zu sehen. Für feingliederiges Suchen klicken Sie 'Suche nach Problemstellungen'."
 
@@ -836,13 +820,11 @@ msgstr "Die folgenden offenen Problemstellungen sind niemandem zugeordnet."
 
 #. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
 #: ./skins/Poi/poi_tracker_view.pt:227
-#, fuzzy
 msgid "poi_help_unconfirmed_issues"
 msgstr "Folgende Problemstellungen sind noch nicht bestätigt oder zugewiesen. Bitte um Durchsicht und Antwort!"
 
 #. Default: "Advanced issue search"
 #: ./skins/Poi/poi_tracker_view.pt:51
-#, fuzzy
 msgid "poi_issue_search"
 msgstr "Suche nach Problemstellungen"
 
@@ -934,7 +916,6 @@ msgstr "${author} gab eine neue Antwort auf ${name}:"
 
 #. Default: "Return to search"
 #: ./skins/Poi/poi_issue_search.pt:41
-#, fuzzy
 msgid "poi_return_to_search"
 msgstr "Zurück zur Suche"
 
@@ -971,7 +952,6 @@ msgstr "Wählen sie die Arten der Problemstellung, nach denen Sie suchen möchte
 
 #. Default: "Select the version for which the bugs you want to find were reported."
 #: ./skins/Poi/poi_issue_search_form.pt:88
-#, fuzzy
 msgid "poi_search_help_release"
 msgstr "Wählen Sie die Ausgabe/ Versionen, nach denen Sie suchen möchten."
 
@@ -1027,7 +1007,6 @@ msgstr "Art der Problemstellung"
 
 #. Default: "Version"
 #: ./skins/Poi/poi_issue_search_form.pt:86
-#, fuzzy
 msgid "poi_search_label_release"
 msgstr "Ausgabe/ Version"
 

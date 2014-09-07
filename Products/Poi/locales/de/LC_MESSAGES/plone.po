@@ -90,10 +90,10 @@ msgid "Postponed"
 msgstr "Verschoben"
 
 msgid "Protect tracker"
-msgstr ""
+msgstr "Tracker schützen"
 
 msgid "Protected against anonymous views"
-msgstr ""
+msgstr "Vor anonymem Zugriff schützen"
 
 msgid "Put on hold"
 msgstr "Zurückstellen"
@@ -111,7 +111,7 @@ msgid "Resolve"
 msgstr "Lösen"
 
 msgid "Resolve immediately"
-msgstr ""
+msgstr "Sofort lösen"
 
 msgid "Resolved"
 msgstr "Gelöst"
