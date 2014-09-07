@@ -11,6 +11,9 @@ Changelog for Poi
 - When we go to search form, current filters are pre-selected.
   [thomasdesvenain]
 
+- Filled in missing translations for de and removed stale fuzzy entries
+  [pilz]
+
 
 2.2.6 (2013-10-18)
 ------------------
