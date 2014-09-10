@@ -15,5 +15,5 @@ def test_suite():
               package='Products.Poi.tests',
               optionflags=OPTIONFLAGS,
               test_class=PoiFunctionalTestCase),
-        ]
+    ]
     return unittest.TestSuite(suites)

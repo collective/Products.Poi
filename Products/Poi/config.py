@@ -7,7 +7,7 @@ DEFAULT_ADD_CONTENT_PERMISSION = "Add portal content"
 ADD_CONTENT_PERMISSIONS = {
     'PoiTracker': 'Poi: Add Tracker',
     'PoiIssue': 'Poi: Add Issue',
-    }
+}
 
 product_globals = globals()
 

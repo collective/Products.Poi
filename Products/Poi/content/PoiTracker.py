@@ -58,13 +58,13 @@ schema = atapi.Schema((
             label=_(u'Poi_label_tracker_title',
                     default=u"Tracker name"),
             description=_(
-                    u'Poi_help_tracker_title',
-                    default=u"Enter a descriptive name for this tracker"),
-            ),
+                u'Poi_help_tracker_title',
+                default=u"Enter a descriptive name for this tracker"),
+        ),
         required=True,
         accessor="Title",
         searchable=True
-        ),
+    ),
 
     atapi.TextField(
         name='description',
@@ -72,14 +72,14 @@ schema = atapi.Schema((
             label=_(u'Poi_label_tracker_description',
                     default=u"Tracker description"),
             description=_(
-                    u'Poi_help_tracker_description',
-                    default=u"Describe the purpose of this tracker"),
-            ),
+                u'Poi_help_tracker_description',
+                default=u"Describe the purpose of this tracker"),
+        ),
         use_portal_factory="1",
         accessor="Description",
         searchable=True,
         allowable_content_types=('text/plain'),
-        ),
+    ),
 
     atapi.TextField(
         name='helpText',
@@ -89,13 +89,13 @@ schema = atapi.Schema((
             label=_(u'Poi_label_helpText',
                     default=u"Help text"),
             description=_(
-                    u'Poi_help_helpText',
-                    default=(u"Enter any introductory help text you'd like to "
-                             u"display on the tracker front page.")),
-            ),
+                u'Poi_help_helpText',
+                default=(u"Enter any introductory help text you'd like to "
+                         u"display on the tracker front page.")),
+        ),
         default_output_type='text/html',
         searchable=True
-        ),
+    ),
 
     DataGridField(
         name='availableAreas',
@@ -113,15 +113,15 @@ schema = atapi.Schema((
             label=_(u'Poi_label_availableAreas',
                     default=u"Areas"),
             description=_(
-                    u'Poi_help_availableAreas',
-                    default="Enter the issue topics/areas for this tracker."),
+                u'Poi_help_availableAreas',
+                default="Enter the issue topics/areas for this tracker."),
             column_names=('Short name', 'Title', 'Description'),
-            ),
+        ),
         allow_empty_rows=False,
         required=True,
         validators=('isDataGridFilled', ),
         columns=('id', 'title', 'description',)
-        ),
+    ),
 
     DataGridField(
         name='availableIssueTypes',
@@ -140,12 +140,12 @@ schema = atapi.Schema((
             description=_(u'Poi_help_availableIssueTypes',
                           default=u"Enter the issue types for this tracker."),
             column_names=('Short name', 'Title', 'Description',),
-            ),
+        ),
         allow_empty_rows=False,
         required=True,
         validators=('isDataGridFilled',),
         columns=('id', 'title', 'description')
-        ),
+    ),
 
     atapi.LinesField(
         name='availableSeverities',
@@ -154,12 +154,12 @@ schema = atapi.Schema((
             label=_(u'Poi_label_availableSeverities',
                     default=u"Available severities"),
             description=_(
-                    u'Poi_help_availableSeverities',
-                    default=(u"Enter the different type of issue severities "
-                             u"that should be available, one per line.")),
-            ),
-        required=True
+                u'Poi_help_availableSeverities',
+                default=(u"Enter the different type of issue severities "
+                         u"that should be available, one per line.")),
         ),
+        required=True
+    ),
 
     atapi.StringField(
         name='defaultSeverity',
@@ -168,13 +168,13 @@ schema = atapi.Schema((
             label=_(u'Poi_label_defaultSeverity',
                     default=u"Default severity"),
             description=_(
-                    u'Poi_help_defaultSeverity',
-                    default=u"Select the default severity for new issues."),
-            ),
+                u'Poi_help_defaultSeverity',
+                default=u"Select the default severity for new issues."),
+        ),
         enforceVocabulary=True,
         vocabulary='getAvailableSeverities',
         required=True
-        ),
+    ),
 
     atapi.LinesField(
         name='availableReleases',
@@ -182,14 +182,14 @@ schema = atapi.Schema((
             label=_(u'Poi_label_availableReleases',
                     default=u"Available releases"),
             description=_(
-                    u'Poi_help_availableReleases',
-                    default=(
-                        u"Enter the releases which issues can be assigned to, "
-                        u"one per line. If no releases are entered, issues "
-                        u"will not be organised by release.")),
-            ),
-        required=False
+                u'Poi_help_availableReleases',
+                default=(
+                    u"Enter the releases which issues can be assigned to, "
+                    u"one per line. If no releases are entered, issues "
+                    u"will not be organised by release.")),
         ),
+        required=False
+    ),
 
     atapi.LinesField(
         name='managers',
@@ -197,11 +197,11 @@ schema = atapi.Schema((
             label=_(u'Poi_label_managers',
                     default=u"Tracker managers"),
             description=_(
-                    u'Poi_help_managers',
-                    default=(
-                        u"Enter the user ids of the users who will be allowed "
-                        u"to manage this tracker, one per line.")),
-            ),
+                u'Poi_help_managers',
+                default=(
+                    u"Enter the user ids of the users who will be allowed "
+                    u"to manage this tracker, one per line.")),
+        ),
         default_method="getDefaultManagers"
     ),
 
@@ -211,14 +211,14 @@ schema = atapi.Schema((
             label=_(u'Poi_label_technicians',
                     default=u"Technicians"),
             description=_(
-                    u'Poi_help_technicians',
-                    default=(
-                        u"Enter the user ids of the users who will be "
-                        u"responsible for solving the issues, one per line. "
-                        u"Note that having only managers and no technicians "
-                        u"is fine: managers can solve issues too.")),
-            ),
+                u'Poi_help_technicians',
+                default=(
+                    u"Enter the user ids of the users who will be "
+                    u"responsible for solving the issues, one per line. "
+                    u"Note that having only managers and no technicians "
+                    u"is fine: managers can solve issues too.")),
         ),
+    ),
 
     atapi.LinesField(
         name='watchers',
@@ -234,9 +234,9 @@ schema = atapi.Schema((
                     u"an email when an issue or response is added to the "
                     u"tracker. Members can also add themselves as "
                     u"watchers.")),
-            ),
-        write_permission=permissions.ModifyIssueWatchers
         ),
+        write_permission=permissions.ModifyIssueWatchers
+    ),
 
     atapi.BooleanField(
         name='sendNotificationEmails',
@@ -245,16 +245,16 @@ schema = atapi.Schema((
             label=_(u'Poi_label_sendNotificationEmails',
                     default=u"Send notification emails"),
             description=_(
-                    u'Poi_help_sendNotificationEmails',
-                    default=(
-                        u"If selected, tracker managers will receive an email "
-                        u"each time a new issue or response is posted, and "
-                        u"issue submitters will receive an email when there "
-                        u"is a new response and when an issue has been "
-                        u"resolved, awaiting confirmation. Technicians will "
-                        u"get an email when an issue is assigned to them.")),
-            ),
+                u'Poi_help_sendNotificationEmails',
+                default=(
+                    u"If selected, tracker managers will receive an email "
+                    u"each time a new issue or response is posted, and "
+                    u"issue submitters will receive an email when there "
+                    u"is a new response and when an issue has been "
+                    u"resolved, awaiting confirmation. Technicians will "
+                    u"get an email when an issue is assigned to them.")),
         ),
+    ),
 
     atapi.StringField(
         name='mailingList',
@@ -262,18 +262,18 @@ schema = atapi.Schema((
             label=_(u'Poi_label_mailingList',
                     default=u"Mailing list"),
             description=_(
-                    u'Poi_help_mailingList',
-                    default=(
-                        u"If given, and if 'Send notification emails' is "
-                        u"selected, an email will be sent to this address "
-                        u"each time a new issue or response is posted. "
-                        u"Managers will receive individual emails as well. "
-                        u"If this is not wanted, you may want to make them "
-                        u"technician instead.")),
-            ),
+                u'Poi_help_mailingList',
+                default=(
+                    u"If given, and if 'Send notification emails' is "
+                    u"selected, an email will be sent to this address "
+                    u"each time a new issue or response is posted. "
+                    u"Managers will receive individual emails as well. "
+                    u"If this is not wanted, you may want to make them "
+                    u"technician instead.")),
+        ),
         required=False,
         validators=('isEmail',)
-        ),
+    ),
 
     atapi.StringField(
         name='svnUrl',
@@ -281,18 +281,18 @@ schema = atapi.Schema((
             label=_(u'Poi_label_svnurl',
                     default=u"URL to SVN"),
             description=_(
-                    u'Poi_help_svnurl',
-                    default=(
-                        u"Please enter the Url to the related SVN repository, "
-                        u"e.g.: "
-                        u"http://dev.plone.org/changeset/%(rev)s/collective "
-                        u"for products in the Plone collective.")),
+                u'Poi_help_svnurl',
+                default=(
+                    u"Please enter the Url to the related SVN repository, "
+                    u"e.g.: "
+                    u"http://dev.plone.org/changeset/%(rev)s/collective "
+                    u"for products in the Plone collective.")),
             size='90',
-            ),
-        required=False,
         ),
+        required=False,
+    ),
 
-    ))
+))
 
 PoiTracker_schema = atapi.BaseBTreeFolderSchema.copy() + \
     schema.copy()
@@ -312,6 +312,7 @@ class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
     # Methods
 
     security.declarePrivate('linkDetection')
+
     def linkDetection(self, text):
         """
         Detects issues and svn revision tags and creates links.
@@ -331,12 +332,14 @@ class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
         return text
 
     security.declareProtected(permissions.View, 'isUsingReleases')
+
     def isUsingReleases(self):
         """Return a boolean indicating whether this tracker is using releases.
         """
         return len(self.getAvailableReleases()) > 0
 
     security.declareProtected(permissions.View, 'getReleasesVocab')
+
     def getReleasesVocab(self):
         """
         Get the releases available to the tracker as a DisplayList.
@@ -348,6 +351,7 @@ class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
         return vocab
 
     security.declareProtected(permissions.View, 'getTagsInUse')
+
     def getTagsInUse(self):
         """Get a list of the issue tags in use in this tracker."""
         catalog = getToolByName(self, 'portal_catalog')
@@ -362,6 +366,7 @@ class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
         return keys
 
     security.declareProtected(permissions.View, 'getExternalTitle')
+
     def getExternalTitle(self):
         """ Get the external title of this tracker.
 
@@ -423,7 +428,9 @@ class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
         with 'strict' is True.
         """
         vocab = DisplayList()
-        vocab.add('(UNASSIGNED)', _(u"not_assigned", default=u'(Not assigned)'))
+        vocab.add(
+            '(UNASSIGNED)', _(
+                u"not_assigned", default=u'(Not assigned)'))
         mtool = getToolByName(self, 'portal_membership')
         for item in self.getManagers():
             user = mtool.getMemberById(item)
@@ -456,6 +463,7 @@ class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
         return self.getManagersVocab(strict=True)
 
     security.declareProtected(permissions.ModifyPortalContent, 'setManagers')
+
     def setManagers(self, managers):
         """Set the list of tracker managers, and give them the
         TrackerManager local role.
@@ -464,6 +472,7 @@ class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
 
     security.declareProtected(
         permissions.ModifyPortalContent, 'setTechnicians')
+
     def setTechnicians(self, technicians):
         """Set the list of technicians, and give them the
         Technician local role.
@@ -471,6 +480,7 @@ class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
         self._updateRolesField('technicians', technicians)
 
     security.declarePublic('getIssueWorkflowStates')
+
     def getIssueWorkflowStates(self):
         """Get a DisplayList of the workflow states available on issues."""
         portal_workflow = getToolByName(self, 'portal_workflow')

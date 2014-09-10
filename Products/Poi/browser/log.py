@@ -83,7 +83,7 @@ class LogView(BrowserView):
         # the most recently added, or the ones with the most recent
         # responses.
         issues = [i.getObject() for i in issuefolder.getFilteredIssues(
-                sort_on='modified', sort_limit=count, sort_order='reverse')]
+            sort_on='modified', sort_limit=count, sort_order='reverse')]
 
         responses = []
         for issue in issues:

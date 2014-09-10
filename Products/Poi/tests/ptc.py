@@ -86,7 +86,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
                 {'id': 'process', 'title': 'Process',
                  'description':
                  'Issues relating to the development process itself'},
-                 ),
+            ),
             availableIssueTypes=(
                 {'id': 'bug', 'title': 'Bug',
                  'description': 'Functionality bugs in the software'},
@@ -94,7 +94,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
                  'description': 'Suggested features'},
                 {'id': 'patch', 'title': 'Patch',
                  'description': 'Patches to the software'},
-                 ),
+            ),
             availableSeverities=['Critical', 'Important', 'Medium', 'Low'],
             defaultSeverity='Medium',
             availableReleases=['2.0', '1.0'],

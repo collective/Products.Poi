@@ -83,6 +83,7 @@ class PoiPscTracker(PoiTracker):
     security = ClassSecurityInfo()
 
     security.declareProtected(permissions.View, 'getExternalTitle')
+
     def getExternalTitle(self):
         """ The external title of a PSC tracker is <Project> Issue Tracker."""
         return self.aq_inner.aq_parent.Title() + " Issue Tracker"
@@ -96,28 +97,31 @@ class PoiPscTracker(PoiTracker):
             self.setId(PSC_TRACKER_ID)
 
     security.declareProtected(permissions.View, 'getAvailableReleases')
+
     def getAvailableReleases(self):
         """Get the UIDs of the releases available to the tracker."""
         catalog = getToolByName(self, 'portal_catalog')
         releases = catalog.searchResults(
-                        portal_type='PSCRelease',
-                        path='/'.join(self.getPhysicalPath()[:-1]),
-                        sort_on='getId',
-                        )
+            portal_type='PSCRelease',
+            path='/'.join(self.getPhysicalPath()[:-1]),
+            sort_on='getId',
+        )
         return [r.UID for r in releases]
 
     security.declareProtected(permissions.View, 'getReleasesVocab')
+
     def getReleasesVocab(self):
         """Get the releases available to the tracker as a DisplayList."""
         catalog = getToolByName(self, 'portal_catalog')
         releases = catalog.searchResults(
-                        portal_type='PSCRelease',
-                        path='/'.join(self.getPhysicalPath()[:-1]),
-                        sort_on='getId',
-                        )
+            portal_type='PSCRelease',
+            path='/'.join(self.getPhysicalPath()[:-1]),
+            sort_on='getId',
+        )
         return DisplayList([(r.UID, r.getId) for r in releases])
 
     security.declareProtected(permissions.View, 'Title')
+
     def Title(self):
         """The title of an issue tracker is always "Issue tracker"."""
         return "Issue tracker"

@@ -21,19 +21,19 @@ class TestResponse(ptc.PoiTestCase):
             title="\xc3\xa9t\xc3\xa9 est belle.",
             details="C'est plus belle \xc3\xa0 Caf\xc3\xa9 Ren\xc3\xa9.")
         found = len(catalog.searchResults(
-                portal_type='PoiIssue',
-                SearchableText="\xc3\xa9t\xc3\xa9")) >= 1
+            portal_type='PoiIssue',
+            SearchableText="\xc3\xa9t\xc3\xa9")) >= 1
         self.failUnless(found)
         found = len(catalog.searchResults(
-                portal_type='PoiIssue',
-                SearchableText="Ren\xc3\xa9")) >= 1
+            portal_type='PoiIssue',
+            SearchableText="Ren\xc3\xa9")) >= 1
         self.failUnless(found)
 
         self.createResponse(issue, "In Dutch 'seas' is 'zee\xc3\xabn'")
         # That should show up in the issue.
         found = len(catalog.searchResults(
-                portal_type='PoiIssue',
-                SearchableText="zee\xc3\xabn")) >= 1
+            portal_type='PoiIssue',
+            SearchableText="zee\xc3\xabn")) >= 1
         self.failUnless(found)
 
 
@@ -51,7 +51,7 @@ class TestKnownIssues(ptc.PoiTestCase):
 
     def testDeleteResponseLeavesStaleDescription(self):
         found = len(self.catalog.searchResults(
-                portal_type='PoiIssue', SearchableText='a-response')) >= 1
+            portal_type='PoiIssue', SearchableText='a-response')) >= 1
         self.failUnless(found)
 
         from Products.Poi.adapters import IResponseContainer
@@ -59,7 +59,7 @@ class TestKnownIssues(ptc.PoiTestCase):
         container.delete('0')
         self.failIf('a-response' in self.issue.SearchableText())
         found = len(self.catalog.searchResults(
-                portal_type='PoiIssue', SearchableText='a-response')) >= 1
+            portal_type='PoiIssue', SearchableText='a-response')) >= 1
         self.failIf(found, ("OLD ISSUE RAISING ITS HEAD AGAIN: Deleted "
                             "response causes stale issue SearchableText"))
 

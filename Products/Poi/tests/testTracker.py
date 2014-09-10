@@ -302,9 +302,8 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.createIssue(self.tracker, release='2.0')
         self.createIssue(self.tracker, release='2.0')
         self.createIssue(self.tracker, release='1.0')
-        issues = [b.getId
-                  for b in self.issuefolder.getFilteredIssues(release='2.0')]
-        issues.sort()
+        issues = sorted([b.getId
+                         for b in self.issuefolder.getFilteredIssues(release='2.0')])
         self.assertEqual(issues, ['1', '2'])
         issues = [b.getId
                   for b in self.issuefolder.getFilteredIssues(release='1.0')]
@@ -315,9 +314,8 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.createIssue(self.tracker, area='ui')
         self.createIssue(self.tracker, area='ui')
         self.createIssue(self.tracker, area='functionality')
-        issues = [b.getId
-                  for b in self.issuefolder.getFilteredIssues(area='ui')]
-        issues.sort()
+        issues = sorted([b.getId
+                         for b in self.issuefolder.getFilteredIssues(area='ui')])
         self.assertEqual(issues, ['1', '2'])
         issues = [b.getId for b in
                   self.issuefolder.getFilteredIssues(area='functionality')]
@@ -328,9 +326,8 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.createIssue(self.tracker, issueType='bug')
         self.createIssue(self.tracker, issueType='bug')
         self.createIssue(self.tracker, issueType='feature')
-        issues = [b.getId for b in
-                  self.issuefolder.getFilteredIssues(issueType='bug')]
-        issues.sort()
+        issues = sorted([b.getId for b in
+                         self.issuefolder.getFilteredIssues(issueType='bug')])
         self.assertEqual(issues, ['1', '2'])
         issues = [b.getId for b in
                   self.issuefolder.getFilteredIssues(issueType='feature')]
@@ -341,9 +338,8 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.createIssue(self.tracker, severity='Medium')
         self.createIssue(self.tracker, severity='Medium')
         self.createIssue(self.tracker, severity='Critical')
-        issues = [b.getId for b in
-                  self.issuefolder.getFilteredIssues(severity='Medium')]
-        issues.sort()
+        issues = sorted([b.getId for b in
+                         self.issuefolder.getFilteredIssues(severity='Medium')])
         self.assertEqual(issues, ['1', '2'])
         issues = [b.getId for b in
                   self.issuefolder.getFilteredIssues(severity='Critical')]
@@ -354,9 +350,8 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.createIssue(self.tracker, targetRelease='2.0')
         self.createIssue(self.tracker, targetRelease='2.0')
         self.createIssue(self.tracker, targetRelease='1.0')
-        issues = [b.getId for b in
-                  self.issuefolder.getFilteredIssues(targetRelease='2.0')]
-        issues.sort()
+        issues = sorted([b.getId for b in
+                         self.issuefolder.getFilteredIssues(targetRelease='2.0')])
         self.assertEqual(issues, ['1', '2'])
         issues = [b.getId for b in
                   self.issuefolder.getFilteredIssues(targetRelease='1.0')]
@@ -370,9 +365,8 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.setRoles(['TrackerManager'])
         self.workflow.doActionFor(self.tracker['3'], 'accept-unconfirmed')
         self.setRoles(['Member'])
-        issues = [b.getId for b in
-                  self.issuefolder.getFilteredIssues(state='unconfirmed')]
-        issues.sort()
+        issues = sorted([b.getId for b in
+                         self.issuefolder.getFilteredIssues(state='unconfirmed')])
         self.assertEqual(issues, ['1', '2'])
         issues = [b.getId for b in
                   self.issuefolder.getFilteredIssues(state='open')]
@@ -390,9 +384,8 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.tracker['3'].setCreators(('another_member', ))
         self.tracker['3'].reindexObject()
 
-        issues = [b.getId for b in
-                  self.issuefolder.getFilteredIssues(creator='some_member')]
-        issues.sort()
+        issues = sorted([b.getId for b in
+                         self.issuefolder.getFilteredIssues(creator='some_member')])
         self.assertEqual(issues, ['1', '2'])
         issues = [b.getId for b in
                   self.issuefolder.getFilteredIssues(creator='another_member')]
@@ -403,9 +396,8 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.createIssue(self.tracker, responsibleManager='manager1')
         self.createIssue(self.tracker, responsibleManager='manager1')
         self.createIssue(self.tracker, responsibleManager='manager2')
-        issues = [b.getId for b in
-                  self.issuefolder.getFilteredIssues(responsible='manager1')]
-        issues.sort()
+        issues = sorted([b.getId for b in
+                         self.issuefolder.getFilteredIssues(responsible='manager1')])
         self.assertEqual(issues, ['1', '2'])
         issues = [b.getId for b in
                   self.issuefolder.getFilteredIssues(responsible='manager2')]
@@ -416,9 +408,8 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.createIssue(self.tracker, tags=('A', 'B'))
         self.createIssue(self.tracker, tags=('B', 'C'))
         self.createIssue(self.tracker, tags=('A', 'D'))
-        issues = [b.getId for b in
-                  self.issuefolder.getFilteredIssues(tags='B')]
-        issues.sort()
+        issues = sorted([b.getId for b in
+                         self.issuefolder.getFilteredIssues(tags='B')])
         self.assertEqual(issues, ['1', '2'])
         issues = [b.getId for b in
                   self.issuefolder.getFilteredIssues(tags=('A', 'D'))]
@@ -436,9 +427,8 @@ class TestTrackerSearch(ptc.PoiTestCase):
 
     def testGetFilteredIssesByIssueText(self):
         self.createIssue(self.tracker, details="foo")
-        issues = [b.getId
-                  for b in self.issuefolder.getFilteredIssues(text='foo')]
-        issues.sort()
+        issues = sorted([b.getId
+                         for b in self.issuefolder.getFilteredIssues(text='foo')])
         self.assertEqual(issues, ['1'])
         issues = [b.getId
                   for b in self.issuefolder.getFilteredIssues(text='bar')]
@@ -452,9 +442,8 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.createResponse(self.tracker['2'], text='foo')
         self.createResponse(self.tracker['3'], text='bar')
 
-        issues = [b.getId
-                  for b in self.issuefolder.getFilteredIssues(text='foo')]
-        issues.sort()
+        issues = sorted([b.getId
+                         for b in self.issuefolder.getFilteredIssues(text='foo')])
         self.assertEqual(issues, ['1', '2'])
         issues = [b.getId
                   for b in self.issuefolder.getFilteredIssues(text='bar')]
@@ -468,9 +457,8 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.createIssue(
             self.tracker, area="functionality", details="foo", issueType='bug')
 
-        issues = [b.getId for b in
-                  self.issuefolder.getFilteredIssues(text='foo', area='ui')]
-        issues.sort()
+        issues = sorted([b.getId for b in
+                         self.issuefolder.getFilteredIssues(text='foo', area='ui')])
         self.assertEqual(issues, ['1'])
 
         issues = [b.getId for b in
@@ -481,7 +469,7 @@ class TestTrackerSearch(ptc.PoiTestCase):
 
         issues = [b.getId for b in
                   self.issuefolder.getFilteredIssues(area='ui',
-                                       issueType=['feature', 'bug'])]
+                                                     issueType=['feature', 'bug'])]
         issues.sort()
         self.assertEqual(issues, ['1', '2'])
 
@@ -623,7 +611,7 @@ class TestLinkDetection(ptc.PoiTestCase):
             tracker2.linkDetection("#1"),
             '<a href="http://nohost/plone/Members/test_user_1_/tracker2/1">#1</a>')
 
-        #A combination of unicode and a link number should be possible::
+        # A combination of unicode and a link number should be possible::
         self.assertEqual(
             tracker.linkDetection(u'\xfanicode text with a link to #1'),
             u'\xfanicode text with a link to <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a>')

@@ -128,7 +128,7 @@ class TestIssue(ptc.PoiTestCase):
                 "- non-breaking spaces.\r\n") * 20
         self.issue.setDetails(text, mimetype='text/x-web-intelligent')
         self.failUnless(self.issue.Description().startswith(
-                "When pasting html you can get:\r\n    - ugly line breaks"))
+            "When pasting html you can get:\r\n    - ugly line breaks"))
         self.failIf("&nbsp;" in self.issue.Description())
         self.failIf("<br />" in self.issue.Description())
 

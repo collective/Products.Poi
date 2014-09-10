@@ -67,7 +67,7 @@ def initialize(context):
         permission=DEFAULT_ADD_CONTENT_PERMISSION,
         extra_constructors=all_constructors,
         fti=all_ftis,
-        ).initialize(context)
+    ).initialize(context)
 
     # Give it some extra permissions to control them on a per class limit
     for i in range(0, len(all_content_types)):

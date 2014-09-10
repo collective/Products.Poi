@@ -80,9 +80,9 @@ schema = Schema((
             modes=('view', ),
             label=_(u'Poi_label_issue_id',
                     default=u'Id'),
-            ),
-        mode="r"
         ),
+        mode="r"
+    ),
 
     StringField(
         name='title',
@@ -90,16 +90,16 @@ schema = Schema((
             label=_(u"Poi_label_issue_title",
                     default=u"Title"),
             description=_(
-                    u'Poi_help_issue_title',
-                    default=(
-                        u"Enter a short, descriptive title for the issue. "
-                        u"A good title will make it easier for project "
-                        u"managers to identify and respond to the issue.")),
-            ),
+                u'Poi_help_issue_title',
+                default=(
+                    u"Enter a short, descriptive title for the issue. "
+                    u"A good title will make it easier for project "
+                    u"managers to identify and respond to the issue.")),
+        ),
         required=True,
         accessor="Title",
         searchable=True
-        ),
+    ),
 
     StringField(
         name='release',
@@ -111,10 +111,10 @@ schema = Schema((
                           default=(
                               u"Select the version the issue was found in.")),
             condition="object/isUsingReleases",
-            ),
+        ),
         required=True,
         vocabulary='getReleasesVocab'
-        ),
+    ),
 
     TextField(
         name='details',
@@ -126,12 +126,12 @@ schema = Schema((
                           default=u"Please provide further details"),
             rows=15,
             allow_file_upload=False,
-            ),
+        ),
         required=True,
         default_content_type=DEFAULT_ISSUE_MIME_TYPE,
         searchable=True,
         default_output_type="text/html"
-        ),
+    ),
 
     TextField(
         name='steps',
@@ -140,18 +140,18 @@ schema = Schema((
             label=_(u'Poi_label_steps',
                     default=u"Steps to reproduce"),
             description=_(
-                    u'Poi_help_steps',
-                    default=(
-                        u"If applicable, please provide the steps to "
-                        u"reproduce the error or identify the issue, one per "
-                        u"line.")),
+                u'Poi_help_steps',
+                default=(
+                    u"If applicable, please provide the steps to "
+                    u"reproduce the error or identify the issue, one per "
+                    u"line.")),
             rows=6,
             allow_file_upload=False,
-            ),
+        ),
         default_output_type="text/html",
         default_content_type=DEFAULT_ISSUE_MIME_TYPE,
         searchable=True
-        ),
+    ),
 
     FileField(
         name='attachment',
@@ -159,14 +159,14 @@ schema = Schema((
             label=_(u'Poi_label_attachment',
                     default=u"Attachment"),
             description=_(
-                    u'Poi_help_attachment',
-                    default=(
-                        u"You may optionally upload a file attachment. Please "
-                        u"do not upload unnecessarily large files.")),
-            ),
+                u'Poi_help_attachment',
+                default=(
+                    u"You may optionally upload a file attachment. Please "
+                    u"do not upload unnecessarily large files.")),
+        ),
         storage=AttributeStorage(),
         write_permission=permissions.UploadAttachment
-        ),
+    ),
 
     StringField(
         name='area',
@@ -174,14 +174,14 @@ schema = Schema((
             label=_(u'Poi_label_area',
                     default=u"Area"),
             description=_(
-                    u'Poi_help_area',
-                    default=u"Select the area this issue is relevant to."),
-            ),
+                u'Poi_help_area',
+                default=u"Select the area this issue is relevant to."),
+        ),
         enforceVocabulary=True,
         default_method='getDefaultArea',
         vocabulary='getAreasVocab',
         required=True
-        ),
+    ),
 
     StringField(
         name='issueType',
@@ -189,14 +189,14 @@ schema = Schema((
             label=_(u'Poi_label_issueType',
                     default=u"Issue type"),
             description=_(
-                    u'Poi_help_issueType',
-                    default=u"Select the type of issue."),
-            ),
+                u'Poi_help_issueType',
+                default=u"Select the type of issue."),
+        ),
         enforceVocabulary=True,
         default_method='getDefaultIssueType',
         vocabulary='getIssueTypesVocab',
         required=True
-        ),
+    ),
 
     StringField(
         name='severity',
@@ -204,15 +204,15 @@ schema = Schema((
             label=_(u'Poi_label_severity',
                     default=u"Severity"),
             description=_(
-                    u'Poi_help_severity',
-                    default=u"Select the severity of this issue."),
+                u'Poi_help_severity',
+                default=u"Select the severity of this issue."),
             format="radio",
-            ),
+        ),
         vocabulary='getAvailableSeverities',
         default_method='getDefaultSeverity',
         required=True,
         write_permission=permissions.ModifyIssueSeverity
-        ),
+    ),
 
     StringField(
         name='targetRelease',
@@ -220,15 +220,15 @@ schema = Schema((
             label=_(u'Poi_label_targetRelease',
                     default=u"Target release"),
             description=_(
-                    u'Poi_help_targetRelease',
-                    default=u"Release this issue is targetted to be fixed in"),
+                u'Poi_help_targetRelease',
+                default=u"Release this issue is targetted to be fixed in"),
             condition="object/isUsingReleases",
-            ),
+        ),
         vocabulary='getReleasesVocab',
         default="(UNASSIGNED)",
         required=True,
         write_permission=permissions.ModifyIssueTargetRelease
-        ),
+    ),
 
     StringField(
         name='responsibleManager',
@@ -236,16 +236,16 @@ schema = Schema((
             label=_(u'Poi_label_responsibleManager',
                     default=u"Responsible"),
             description=_(
-                    u'Poi_help_responsibleManager',
-                    default=(
-                        u"Select which manager, if any, is responsible for "
-                        u"this issue.")),
-            ),
+                u'Poi_help_responsibleManager',
+                default=(
+                    u"Select which manager, if any, is responsible for "
+                    u"this issue.")),
+        ),
         vocabulary='getManagersVocab',
         default="(UNASSIGNED)",
         required=True,
         write_permission=permissions.ModifyIssueAssignment
-        ),
+    ),
 
     StringField(
         name='contactEmail',
@@ -254,16 +254,16 @@ schema = Schema((
             label=_(u'Poi_label_contactEmail',
                     default=u"Contact email address"),
             description=_(
-                    u'Poi_help_contactEmail',
-                    default=(
-                        u"Please provide an email address where you can be "
-                        u"contacted for further information or when a "
-                        u"resolution is available. Note that your email "
-                        u"address will not be displayed to others.")),
-            ),
+                u'Poi_help_contactEmail',
+                default=(
+                    u"Please provide an email address where you can be "
+                    u"contacted for further information or when a "
+                    u"resolution is available. Note that your email "
+                    u"address will not be displayed to others.")),
+        ),
         required=False,
         default_method='getDefaultContactEmail'
-        ),
+    ),
 
     LinesField(
         name='watchers',
@@ -271,17 +271,17 @@ schema = Schema((
             label=_(u'Poi_label_watchers',
                     default=u"Issue watchers"),
             description=_(
-                    u'Poi_help_watchers',
-                    default=(
-                        u"Enter the user ids of members who are watching "
-                        u"this issue, one per line. E-mail addresses are "
-                        u"allowed too. These persons will "
-                        u"receive an email when a response is added to the "
-                        u"issue. Members can also add themselves as "
-                        u"watchers.")),
-            ),
-        write_permission=permissions.ModifyIssueWatchers
+                u'Poi_help_watchers',
+                default=(
+                    u"Enter the user ids of members who are watching "
+                    u"this issue, one per line. E-mail addresses are "
+                    u"allowed too. These persons will "
+                    u"receive an email when a response is added to the "
+                    u"issue. Members can also add themselves as "
+                    u"watchers.")),
         ),
+        write_permission=permissions.ModifyIssueWatchers
+    ),
 
     LinesField(
         name='subject',
@@ -289,18 +289,18 @@ schema = Schema((
             label=_(u'Poi_label_subject',
                     default=u"Tags"),
             description=_(
-                    u'Poi_help_subject',
-                    default=(
-                        u"Tags can be used to add arbitrary categorisation to "
-                        u"issues. The list below shows existing tags which "
-                        u"you can select, or you can add new ones.")),
-            ),
+                u'Poi_help_subject',
+                default=(
+                    u"Tags can be used to add arbitrary categorisation to "
+                    u"issues. The list below shows existing tags which "
+                    u"you can select, or you can add new ones.")),
+        ),
         searchable=True,
         vocabulary='getTagsVocab',
         enforceVocabulary=False,
         write_permission=permissions.ModifyIssueTags,
         accessor="Subject"
-        ),
+    ),
 
 ))
 
@@ -321,6 +321,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
     security = ClassSecurityInfo()
 
     security.declareProtected(permissions.View, 'getAvailableIssueTransitions')
+
     def getAvailableIssueTransitions(self):
         """
         Get the available transitions for the issue.
@@ -333,6 +334,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         return transitions
 
     security.declareProtected(permissions.View, 'toggleWatching')
+
     def toggleWatching(self):
         """
         Add or remove the current authenticated member from the list of
@@ -351,6 +353,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         self.setWatchers(tuple(watchers))
 
     security.declareProtected(permissions.View, 'isWatching')
+
     def isWatching(self):
         """
         Determine if the current user is watching this issue or not.
@@ -360,6 +363,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         return member.getId() in self.getWatchers()
 
     security.declareProtected(permissions.View, 'getLastModificationUser')
+
     def getLastModificationUser(self):
         """
         Get the user id of the user who last modified the issue, either
@@ -455,6 +459,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         return None
 
     security.declarePublic('isValid')
+
     def isValid(self):
         """Check if the response is valid.
 
@@ -468,6 +473,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
             return True
 
     security.declareProtected(permissions.View, 'getIssueTypesVocab')
+
     def getIssueTypesVocab(self):
         """
         Get the issue types available as a DisplayList.
@@ -477,6 +483,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         return field.getAsDisplayList(tracker)
 
     security.declareProtected(permissions.View, 'getTagsVocab')
+
     def getTagsVocab(self):
         """
         Get the available areas as a DispayList.
@@ -489,13 +496,16 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         return vocab
 
     security.declareProtected(permissions.View, 'getReleasesVocab')
+
     def getReleasesVocab(self):
         """
         Get the vocabulary of available releases, including the item
         (UNASSIGNED) to denote that a release is not yet assigned.
         """
         vocab = DisplayList()
-        vocab.add('(UNASSIGNED)', _(u"not_assigned", default=u'(Not assigned)'))
+        vocab.add(
+            '(UNASSIGNED)', _(
+                u"not_assigned", default=u'(Not assigned)'))
         tracker = self.getTracker()
         trackerVocab = tracker.getReleasesVocab()
         for k in trackerVocab.keys():
@@ -512,7 +522,8 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         try:
             text += ' ' + ' '.join([r.text for r in folder if r])
         except UnicodeDecodeError:
-            text = text.decode('utf-8') + ' ' + ' '.join([r.text.decode('utf-8') for r in folder if r])
+            text = text.decode(
+                'utf-8') + ' ' + ' '.join([r.text.decode('utf-8') for r in folder if r])
         return text
 
     def notifyModified(self):
@@ -522,6 +533,7 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         self._lastModificationUser = member.getId()
 
     security.declareProtected(permissions.View, 'getAreasVocab')
+
     def getAreasVocab(self):
         """
         Get the available areas as a DispayList.

@@ -16,4 +16,4 @@ def test_suite():
         doctest.DocFileSuite('linkdetection.txt',
                              package='Products.Poi.tests',
                              optionflags=OPTIONFLAGS),
-        ])
+    ])

@@ -47,7 +47,7 @@ def migrate_workflow_changes(context):
         made_changes = False
         for response in folder:
             for change in response.changes:
-                #def add_change(self, id, name, before, after):
+                # def add_change(self, id, name, before, after):
                 if change['id'] != 'review_state':
                     continue
                 before = get_state_title(change['before'])

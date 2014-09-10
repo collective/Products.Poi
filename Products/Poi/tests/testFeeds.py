@@ -35,33 +35,32 @@ class TestFeeds(ptc.PoiTestCase):
 
     def testGetMyIssues(self):
         # Creator = default_user
-        #1: owned by default_user, assigned to member1
+        # 1: owned by default_user, assigned to member1
         self.addIssue('A:member1', 'member1')
-        #2: owned by default_user, not assigned to member1
+        # 2: owned by default_user, not assigned to member1
         self.addIssue('A:member2', 'member2')
 
         # Creator = member1
         self.login('member1')
-        #3: owned by member1, not assigned to anyone
+        # 3: owned by member1, not assigned to anyone
         self.addIssue('C:member1')
-        #4: owned by member1, assigned to default_user
+        # 4: owned by member1, assigned to default_user
         self.addIssue('A:default', default_user)
 
         # Creator = member 3 (not in tracker)
         self.login('member3')
-        #5: owned by member3, not assigned to anyone
+        # 5: owned by member3, not assigned to anyone
         self.addIssue('C:member3')
 
         self.login(default_user)
 
         # Wrong state
-        #6: owned by and assigned to default_user, rejected
+        # 6: owned by and assigned to default_user, rejected
         self.addIssue('S:rejected', default_user, 'reject-unconfirmed')
 
         issuefolder = self.tracker.restrictedTraverse('@@issuefolder')
         myIssues = issuefolder.getMyIssues(memberId=default_user)
-        ids = [int(i.getId) for i in myIssues]
-        ids.sort()
+        ids = sorted([int(i.getId) for i in myIssues])
         self.assertEqual([1, 2, 4], ids)
 
         myIssues = issuefolder.getMyIssues(memberId='member1')
@@ -83,33 +82,32 @@ class TestFeeds(ptc.PoiTestCase):
 
     def testGetOrphanedIssues(self):
         # Creator = default_user
-        #1: owned by default_user, assigned to member1
+        # 1: owned by default_user, assigned to member1
         self.addIssue('A:member1', 'member1')
-        #2: owned by default_user, not assigned to member1
+        # 2: owned by default_user, not assigned to member1
         self.addIssue('A:member2', 'member2')
 
         # Creator = member1
         self.login('member1')
-        #3: owned by member1, not assigned to anyone
+        # 3: owned by member1, not assigned to anyone
         self.addIssue('C:member1')
-        #4: owned by member1, assigned to default_user
+        # 4: owned by member1, assigned to default_user
         self.addIssue('A:default', default_user)
 
         # Creator = member 3 (not in tracker)
         self.login('member3')
-        #5: owned by member3, not assigned to anyone
+        # 5: owned by member3, not assigned to anyone
         self.addIssue('C:member3')
 
         self.login(default_user)
 
         # Wrong state
-        #6: owned by and assigned to default_user, rejected
+        # 6: owned by and assigned to default_user, rejected
         self.addIssue('S:rejected', default_user, 'reject-unconfirmed')
 
         issuefolder = self.tracker.restrictedTraverse('@@issuefolder')
         myIssues = issuefolder.getOrphanedIssues(memberId=default_user)
-        ids = [int(i.getId) for i in myIssues]
-        ids.sort()
+        ids = sorted([int(i.getId) for i in myIssues])
         self.assertEqual([3, 5], ids)
 
         myIssues = issuefolder.getOrphanedIssues(memberId='member1')

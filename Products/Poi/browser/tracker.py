@@ -52,7 +52,7 @@ class IssueFolderView(BrowserView):
             'creator': 'Creator',
             'text': 'SearchableText',
             'id': 'getId',
-            }
+        }
 
         query = {}
         query['path'] = '/'.join(context.getPhysicalPath())

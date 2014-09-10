@@ -164,11 +164,11 @@ class Base(BrowserView):
         info = dict(
             icon=self.portal_url + '/' + icon,
             url=context.absolute_url() +
-                '/@@poi_response_attachment?response_id=' + str(id),
+            '/@@poi_response_attachment?response_id=' + str(id),
             content_type=attachment.content_type,
             size=pretty_size(attachment.size),
             filename=filename,
-            )
+        )
         return info
 
     @Lazy
@@ -413,7 +413,7 @@ class Create(Base):
             ('severity', _(u'Severity'), 'available_severities'),
             ('responsibleManager', _(u'Responsible manager'),
              'available_managers'),
-            ]
+        ]
         # Changes that need to be applied to the issue (apart from
         # workflow changes that need to be handled separately).
         changes = {}
@@ -510,7 +510,7 @@ class Save(Base):
                 # Remove cached rendered response.
                 response.rendered_text = None
                 msg = _(u"Changes saved to response id ${response_id}.",
-                      mapping=dict(response_id=response_id))
+                        mapping=dict(response_id=response_id))
                 msg = translate(msg, 'Poi', context=self.request)
                 status.addStatusMessage(msg, type='info')
                 # Fire event.  We put the context in the descriptions
