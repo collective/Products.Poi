@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.2.7 (unreleased)
+2.2.7 (2014-09-10)
 ------------------
 
 - Refer to .png Plone images in css instead of .gif.
