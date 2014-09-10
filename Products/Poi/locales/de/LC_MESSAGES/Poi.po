@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2013-10-18 21:04+0000\n"
+"POT-Creation-Date: 2014-09-10 19:59+0000\n"
 "PO-Revision-Date: 2012-05-03 11:27 +0200\n"
 "Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
 "Language-Team: DE <de@li.org>\n"
@@ -687,8 +687,8 @@ msgid "msg_no_responses_can_be_added"
 msgstr "Es können keine Antworten hinzugefügt werden."
 
 #. Default: "(Not assigned)"
-#: ./content/PoiIssue.py:498
-#: ./content/PoiTracker.py:426
+#: ./content/PoiIssue.py:507
+#: ./content/PoiTracker.py:432
 #: ./skins/Poi/poi_issue_search_form.pt:98
 msgid "not_assigned"
 msgstr "(Niemandem zugewiesen)"

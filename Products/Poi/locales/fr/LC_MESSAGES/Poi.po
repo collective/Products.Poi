@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2013-10-18 21:04+0000\n"
+"POT-Creation-Date: 2014-09-10 19:59+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Kevin Deldycke <kevin@deldycke.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -692,8 +692,8 @@ msgid "msg_no_responses_can_be_added"
 msgstr "Aucune réponse ne peut être ajoutée."
 
 #. Default: "(Not assigned)"
-#: ./content/PoiIssue.py:498
-#: ./content/PoiTracker.py:426
+#: ./content/PoiIssue.py:507
+#: ./content/PoiTracker.py:432
 #: ./skins/Poi/poi_issue_search_form.pt:98
 msgid "not_assigned"
 msgstr "(Non assigné)"
