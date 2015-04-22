@@ -220,16 +220,17 @@
                />
         </td>
         <td tal:attributes="class python:'contenttype-' + normalizeString(item.portal_type)">
-          <img tal:define="icon item/getIcon"
-               tal:condition="icon"
-               tal:attributes="src string:${view/portal_url}/$icon" />
           <a class="browsesite" tal:condition="browsable"
              tal:attributes="
              href python:view.genRefBrowserUrl(item.getURL());
              rel item/Title">
             <label tal:condition="referenceable"
-                   tal:attributes="for uid;"
-                   tal:content="title_or_id">Title</label>
+                   tal:attributes="for uid;">
+                <tal:issue condition="item/id">
+                    #<span tal:replace="item/id">#123</span> --
+                </tal:issue>
+                <tal:title content="title_or_id">Title</tal:title>
+            </label>
             <span tal:condition="not:referenceable" tal:content="title_or_id" />
           </a>
           <tal:foldercheck tal:condition="

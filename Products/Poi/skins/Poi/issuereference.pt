@@ -169,6 +169,9 @@
                        tal:attributes="name string:${fieldName}:list;
                                        value python:helper.getUidFromReference(set);"
                        checked="checked" />
+                <tal:issue condition="set/id">
+                    #<span tal:replace="set/id">#123</span> --
+                </tal:issue>
                 <tal:block replace="python: show_path and '%s (%s)' % (title, obj_path.replace(portal_path, '')) or title" />
               </label>
 
@@ -187,7 +190,7 @@
           tal:define="
               at_url helper/getAtURL;
               startup_directory python:helper.getStartupDirectory(field)">
-        Add:<input type="button" class="searchButton addreference" value="Add..."
+        <input type="button" class="searchButton addreference" value="Search and Add..."
                i18n:attributes="value label_add;"
                tal:define="popup_width widget/popup_width|string:500;
                            popup_height widget/popup_height|string:550;"
