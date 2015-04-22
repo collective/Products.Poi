@@ -118,6 +118,14 @@ jQuery(function(jq) {
       var search_index = wrap.find('select[name=search_index]').attr('value');
       var multi = wrap.find('input[name=multiValued]').attr('value');
       var close_window = wrap.find('input[name=close_window]').attr('value');
+
+      // display error message if no search terms are entered
+      if ((searchvalue == "") && (searchvaluetag == "") && (searchvalueid == "")) {
+          error = "Enter search criteria in the issue number, issue title, and/or tags fields.";
+          jq(".errorMessage").text(error).css("background-color", "#F7F7B9");
+          return false;
+      }
+
       qs = 'searchValue=' + searchvalue + '&searchValueTag=' + searchvaluetag + '&searchValueID=' + searchvalueid;
       // if a search_index is defined (a dropdown list of selectable indexes next to the search input), we insert it to qs
       if (search_index) {

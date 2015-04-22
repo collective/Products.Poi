@@ -85,7 +85,7 @@
                name="searchValueID"
                size="25"
                title="Search Site"
-               placeholder="Search Issue IDs"
+               placeholder="Search Issue Numbers"
                value=""
                i18n:attributes="title referencebrowser_search_site;
                                 placeholder referencebrowser_search_site"
@@ -136,6 +136,9 @@
      <input type="hidden" name="close_window" value=""
             tal:attributes="value view/close_window" />
     </form>
+
+    <p class="errorMessage" style="font-style: italic; padding: 3px 10px;"></p>
+
     <!-- actual list of objects, either searchresults or folder contents -->
     <div id="atrbResults" tal:define="batch view/getResult;">
 
