@@ -42,6 +42,7 @@ from Products.Archetypes.atapi import FileField
 from Products.Archetypes.atapi import FileWidget
 from Products.Archetypes.atapi import LinesField
 from Products.Archetypes.atapi import LinesWidget
+from Products.Archetypes.atapi import ReferenceField
 from Products.Archetypes.atapi import RichWidget
 from Products.Archetypes.atapi import Schema
 from Products.Archetypes.atapi import SelectionWidget
@@ -67,6 +68,7 @@ from Products.Poi.config import ISSUE_MIME_TYPES
 from Products.Poi.config import PROJECTNAME
 from Products.Poi.interfaces import IIssue
 from Products.Poi.interfaces import ITracker
+from Products.Poi.widgets import IssueReferenceWidget
 
 wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 logger = logging.getLogger('Poi')
@@ -301,6 +303,16 @@ schema = Schema((
         write_permission=permissions.ModifyIssueTags,
         accessor="Subject"
     ),
+    
+    ReferenceField('relatedIssue',
+        multiValued=1,
+        relationship='Rel1',
+        allowed_types=('PoiIssue'),
+        widget=IssueReferenceWidget(
+            label=('Related issue(s)'),
+            default_search_index='SearchableText',
+            allow_sorting=1,
+            description='Link related issues')),
 
 ))
 

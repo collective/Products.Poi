@@ -1,5 +1,6 @@
 <configure
    xmlns="http://namespaces.zope.org/five"
+   xmlns:zope="http://namespaces.zope.org/zope"
    xmlns:browser="http://namespaces.zope.org/browser">
 
   <include file="notifications.zcml" />
@@ -92,5 +93,39 @@
      permission="zope2.View"
      class=".response.Download"
      />
+     
+  <!-- related issues -->
+  
+  <!-- was refbrowserhelper -->
+  <browser:page
+      name="issuerefhelper"
+      permission="zope2.Public"
+      for="Products.Poi.interfaces.IIssue"
+      class=".related.ReferenceBrowserHelperView"
+      />
+ 
+  <!-- was refbrowser_popup -->
+  <browser:page
+      name="issueref_popup"
+      permission="zope2.Public"
+      for="*"
+      class=".related.ReferenceBrowserPopup"
+      />
+
+  <!-- was refbrowser_querycatalog -->
+  <browser:page
+      name="issueref_querycatalog"
+      permission="zope2.Public"
+      for="*"
+      class=".related.QueryCatalogView"
+      />
+
+  <!-- was popup -->
+  <zope:adapter
+      for="Products.Five.BrowserView"
+      factory=".related.default_popup_template"
+      name="issuepopup"
+      provides="zope.formlib.namedtemplate.INamedTemplate"
+      />
 
 </configure>
