@@ -175,3 +175,23 @@ def sendResponseNotificationMail(issue):
     # As we take the last response by default, we can keep this simple.
     watchers = IWatcherList(issue)
     watchers.send('new-response-mail')
+
+
+def update_references(object, event=None):
+    """Get list of Related Issues set here, and relate them back
+       Then check the getBRefs to remove references that have been removed
+    """
+    relatedIssues = object.getRelatedIssue()
+    for issue in relatedIssues:
+        others_related = issue.getRelatedIssue()
+        if object not in others_related:
+            others_related.append(object)
+            issue.setRelatedIssue(others_related)
+
+    issuesRelated = object.getBRefs()
+    for issue in issuesRelated:
+        if issue not in object.getRelatedIssue():
+            others_related = issue.getRelatedIssue()
+            if object in others_related:
+                others_related.remove(object)
+                issue.setRelatedIssue(others_related)

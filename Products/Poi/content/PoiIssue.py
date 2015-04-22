@@ -306,7 +306,7 @@ schema = Schema((
     
     ReferenceField('relatedIssue',
         multiValued=1,
-        relationship='Rel1',
+        relationship='related_issue',
         allowed_types=('PoiIssue'),
         widget=IssueReferenceWidget(
             label=('Related issue(s)'),
