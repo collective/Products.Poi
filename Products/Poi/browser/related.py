@@ -193,6 +193,8 @@ class ReferenceBrowserPopup(BrowserView):
         self.at_url = urllib.quote(request.get('at_url'))
         self.fieldName = request.get('fieldName')
         self.fieldRealName = request.get('fieldRealName')
+        self.search_id_text = request.get('searchValueID', '')
+        self.search_tag_text = request.get('searchValueTag', '')
         self.search_text = request.get('searchValue', '')
 
         base_props = getToolByName(aq_inner(context), 'base_properties', None)
@@ -227,7 +229,9 @@ class ReferenceBrowserPopup(BrowserView):
         self.multiValued = int(self.field.multiValued)
         self.search_index = self.request.get('search_index',
                                              self.widget.default_search_index)
-        self.request.set(self.search_index, self.search_text)
+        self.request.set("Title", self.search_text)
+        self.request.set("Subject", self.search_tag_text)
+        self.request.set("id", self.search_id_text)
 
         base_query = self.widget.getBaseQuery(self.at_obj, self.field)
         self.allowed_types = base_query.get('portal_type', '')
@@ -241,9 +245,9 @@ class ReferenceBrowserPopup(BrowserView):
         # with javascript
         self.close_window = int(not self.field.multiValued or
                                 self.widget.force_close_on_insert)
-        popup_name = getattr(self.widget, 'popup_name', 'popup')
+        popup_name = getattr(self.widget, 'popup_name', 'issuepopup')
         self.template = getAdapter(self, namedtemplate.INamedTemplate,
-                                   name=popup_name or 'popup')
+                                   name=popup_name or 'issuepopup')
         self.browsable_types = self.widget.browsable_types
         self._updated = True
 
@@ -264,10 +268,12 @@ class ReferenceBrowserPopup(BrowserView):
         assert self._updated
         result = []
         qc = getMultiAdapter((self.context, self.request),
-                             name='refbrowser_querycatalog')
-        if self.widget.show_results_without_query or self.search_text:
+                             name='issueref_querycatalog')
+        if self.widget.show_results_without_query or self.search_text or \
+           self.search_id_text or self.search_tag_text:
             result = (self.widget.show_results_without_query or \
-                      self.search_text) and \
+                      self.search_text or self.search_id_text or \
+                      self.search_tag_text) and \
                       qc(search_catalog=self.widget.search_catalog)
 
             self.has_queryresults = bool(result)

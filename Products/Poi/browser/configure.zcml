@@ -101,6 +101,7 @@
       name="issuerefhelper"
       permission="zope2.Public"
       for="Products.Poi.interfaces.IIssue"
+      allowed_interface="archetypes.referencebrowserwidget.interfaces.IReferenceBrowserHelperView"
       class=".related.ReferenceBrowserHelperView"
       />
  

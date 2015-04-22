@@ -16,6 +16,8 @@
                   title python:widget.Label(at_obj);
                   search_index view/search_index;
                   search_text view/search_text;
+                  search_tag_text view/search_tag_text;
+                  search_id_text view/search_id_text;
                   available_indexes widget/available_indexes;
                   allow_browse widget/allow_browse;
                   image_portal_types widget/image_portal_types;
@@ -79,11 +81,33 @@
         </tal:indexes>
 
         <input type="text"
-               id="searchGadget"
+               id="search-ids"
+               name="searchValueID"
+               size="25"
+               title="Search Site"
+               placeholder="Search Issue IDs"
+               value=""
+               i18n:attributes="title referencebrowser_search_site;
+                                placeholder referencebrowser_search_site"
+               tal:attributes="value search_id_text;"
+               />
+        <input type="text"
+               id="search-tags"
+               name="searchValueTag"
+               size="25"
+               title="Search Site"
+               placeholder="Search Issue Tags"
+               value=""
+               i18n:attributes="title referencebrowser_search_site;
+                                placeholder referencebrowser_search_site"
+               tal:attributes="value search_tag_text;"
+               />
+        <input type="text"
+               id="search-titles"
                name="searchValue"
                size="25"
                title="Search Site"
-               placeholder="Search Site"
+               placeholder="Search Issue Titles"
                value=""
                i18n:attributes="title referencebrowser_search_site;
                                 placeholder referencebrowser_search_site"

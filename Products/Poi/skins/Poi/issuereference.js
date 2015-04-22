@@ -113,10 +113,12 @@ jQuery(function(jq) {
       var fieldrealname = wrap.find('input[name=fieldRealName]').attr('value');
       var at_url = wrap.find('input[name=at_url]').attr('value');
       var searchvalue = encodeURI(wrap.find('input[name=searchValue]').attr('value'));
+      var searchvaluetag = encodeURI(wrap.find('input[name=searchValueTag]').attr('value'));
+      var searchvalueid = encodeURI(wrap.find('input[name=searchValueID]').attr('value'));
       var search_index = wrap.find('select[name=search_index]').attr('value');
       var multi = wrap.find('input[name=multiValued]').attr('value');
       var close_window = wrap.find('input[name=close_window]').attr('value');
-      qs = 'searchValue=' + searchvalue;
+      qs = 'searchValue=' + searchvalue + '&searchValueTag=' + searchvaluetag + '&searchValueID=' + searchvalueid;
       // if a search_index is defined (a dropdown list of selectable indexes next to the search input), we insert it to qs
       if (search_index) {
           qs += '&search_index=' + search_index;

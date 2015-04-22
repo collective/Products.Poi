@@ -36,7 +36,7 @@ class IssueReferenceWidget(ReferenceWidget):
         'hide_inaccessible': 0,
         'popup_width': 500,
         'popup_height': 550,
-        'popup_name': 'popup',
+        'popup_name': 'issuepopup',
         'browsable_types': (),
         'top_popup_helper': None,
         'bottom_popup_helper': None,
