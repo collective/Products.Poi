@@ -180,14 +180,20 @@ def sendResponseNotificationMail(issue):
 def update_references(object, event=None):
     """Get list of Related Issues set here, and relate them back
        Then check the getBRefs to remove references that have been removed
+       Sort the issues in descending id order
     """
-    relatedIssues = object.getRelatedIssue()
+    relatedIssues = sorted(object.getRelatedIssue(),
+                           key=lambda issue: int(issue.id),
+                           reverse=True)
+    object.setRelatedIssue(relatedIssues)
     for issue in relatedIssues:
         others_related = issue.getRelatedIssue()
         if object in others_related:
             continue
         others_related.append(object)
-        issue.setRelatedIssue(others_related)
+        issue.setRelatedIssue(sorted(others_related,
+                              key=lambda issue: int(issue.id),
+                              reverse=True))
 
     issuesRelated = object.getBRefs('related_issue')
     for issue in issuesRelated:

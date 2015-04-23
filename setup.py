@@ -43,6 +43,8 @@ setup(name='Products.Poi',
           'Products.AddRemoveWidget>=1.4.2',
           'Products.DataGridField>=1.8b1',
           'collective.watcherlist>=0.2',
+          'Products.PopupCalendarWidget',
+          'Products.OrderableReferenceField',
       ],
       extras_require={
           'test': [

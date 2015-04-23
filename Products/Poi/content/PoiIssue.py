@@ -42,7 +42,6 @@ from Products.Archetypes.atapi import FileField
 from Products.Archetypes.atapi import FileWidget
 from Products.Archetypes.atapi import LinesField
 from Products.Archetypes.atapi import LinesWidget
-from Products.Archetypes.atapi import ReferenceField
 from Products.Archetypes.atapi import RichWidget
 from Products.Archetypes.atapi import Schema
 from Products.Archetypes.atapi import SelectionWidget
@@ -54,6 +53,8 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 from Products.CMFPlone.utils import getSiteEncoding
 from Products.CMFPlone.utils import safe_unicode
+from Products.OrderableReferenceField import OrderableReferenceField
+from Products.PopupCalendarWidget.PopupCalendarWidget import PopupCalendarWidget
 from collective.watcherlist.utils import get_member_email
 from plone.memoize import instance
 from zope.interface import implements
@@ -303,15 +304,13 @@ schema = Schema((
         write_permission=permissions.ModifyIssueTags,
         accessor="Subject"
     ),
-    
-    ReferenceField('relatedIssue',
+
+    OrderableReferenceField('relatedIssue',
         multiValued=1,
         relationship='related_issue',
         allowed_types=('PoiIssue'),
         widget=IssueReferenceWidget(
             label=('Related issue(s)'),
-            default_search_index='SearchableText',
-            allow_sorting=1,
             description='Link related issues')),
 
 ))
