@@ -184,14 +184,17 @@ def update_references(object, event=None):
     relatedIssues = object.getRelatedIssue()
     for issue in relatedIssues:
         others_related = issue.getRelatedIssue()
-        if object not in others_related:
-            others_related.append(object)
-            issue.setRelatedIssue(others_related)
+        if object in others_related:
+            continue
+        others_related.append(object)
+        issue.setRelatedIssue(others_related)
 
-    issuesRelated = object.getBRefs()
+    issuesRelated = object.getBRefs('related_issue')
     for issue in issuesRelated:
-        if issue not in object.getRelatedIssue():
-            others_related = issue.getRelatedIssue()
-            if object in others_related:
-                others_related.remove(object)
-                issue.setRelatedIssue(others_related)
+        if issue in object.getRelatedIssue():
+            continue
+        others_related = issue.getRelatedIssue()
+        if object not in others_related:
+            continue
+        others_related.remove(object)
+        issue.setRelatedIssue(others_related)
