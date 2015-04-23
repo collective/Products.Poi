@@ -39,6 +39,7 @@
         <th i18n:translate="listingheader_severity">Severity</th>
         <th i18n:translate="listingheader_responsible">Responsible</th>
         <th i18n:translate="listingheader_tags">Tags</th>
+        <th i18n:translate="listingheader_related">Related Issue(s)</th>
         <th i18n:translate="listingheader_state">State</th>
       </tr>
     </thead>
@@ -84,6 +85,13 @@
                             style="text-align:center">&#8212;</div>
                    </td>
                    <td tal:content="python:', '.join(item.Subject)" />
+                   <td tal:define="obj item/getObject">
+                       <tal:related repeat="relate obj/getRelatedIssue">
+                           <a tal:content="string:#${relate/id}"
+                              tal:attributes="href relate/absolute_url;
+                                              title relate/Title" />
+                       </tal:related>
+                   </td>
                    <td>
                        <a tal:content="python:states.getValue(item.review_state)"
                           tal:attributes="href string:${here/absolute_url}/poi_issue_search?state=${item/review_state};
