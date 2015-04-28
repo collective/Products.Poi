@@ -229,7 +229,7 @@ class ReferenceBrowserPopup(BrowserView):
         self.multiValued = int(self.field.multiValued)
         self.search_index = self.request.get('search_index',
                                              self.widget.default_search_index)
-        self.request.set("Title", self.search_text)
+        self.request.set("SearchableText", self.search_text)
         self.request.set("Subject", self.search_tag_text)
         self.request.set("id", self.search_id_text)
 

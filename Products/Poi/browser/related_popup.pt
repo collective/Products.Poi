@@ -107,7 +107,7 @@
                name="searchValue"
                size="25"
                title="Search Site"
-               placeholder="Search Issue Titles"
+               placeholder="Search Issue Text"
                value=""
                i18n:attributes="title referencebrowser_search_site;
                                 placeholder referencebrowser_search_site"
