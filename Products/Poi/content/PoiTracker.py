@@ -119,7 +119,6 @@ schema = atapi.Schema((
         ),
         allow_empty_rows=False,
         required=True,
-        validators=('isDataGridFilled', ),
         columns=('id', 'title', 'description',)
     ),
 
@@ -143,7 +142,6 @@ schema = atapi.Schema((
         ),
         allow_empty_rows=False,
         required=True,
-        validators=('isDataGridFilled',),
         columns=('id', 'title', 'description')
     ),
 

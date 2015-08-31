@@ -5,7 +5,11 @@ Changelog for Poi
 2.2.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Require Products.DataGridField 1.9.2 as minimum.  This means we no
+  longer use the ``isDataGridFilled`` validator, but simply rely on
+  ``required=True`` for the ``availableAreas`` and
+  ``availableIssueTypes`` fields of the trackers.
+  [maurits]
 
 
 2.2.7 (2014-09-10)

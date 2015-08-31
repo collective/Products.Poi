@@ -41,7 +41,7 @@ setup(name='Products.Poi',
           'setuptools',
           'Products.CMFPlone>=4.0b1',
           'Products.AddRemoveWidget>=1.4.2',
-          'Products.DataGridField>=1.8b1',
+          'Products.DataGridField>=1.9.2',
           'collective.watcherlist>=0.2',
       ],
       extras_require={

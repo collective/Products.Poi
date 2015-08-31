@@ -65,25 +65,37 @@ class TestTracker(ptc.PoiTestCase):
         real_entry = {'description': 'Something nice.',
                       'id': 'something',
                       'orderindex_': '1',
-                      'title': 'Something'},
+                      'title': 'Something'}
 
         # Test the availableAreas field.
         field = self.tracker.getField('availableAreas')
         input = [hidden_entry]
+        errors = {}
         self.assertEqual(
-            field.validate(input, self.tracker),
-            'Validation failed(isDataGridFilled): Need at least one entry.')
+            field.validate(input, self.tracker, errors),
+            u'Areas is required, please correct.')
+        self.assertTrue('availableAreas' in errors)
+        self.assertEqual(errors['availableAreas'],
+                         'Areas is required, please correct.')
         input = [real_entry, hidden_entry]
-        self.assertEqual(field.validate(input, self.tracker), None)
+        errors = {}
+        self.assertEqual(field.validate(input, self.tracker, errors), None)
+        self.assertFalse(errors)
 
         # Test the availableIssueTypes field.
         field = self.tracker.getField('availableIssueTypes')
         input = [hidden_entry]
+        errors = {}
         self.assertEqual(
-            field.validate(input, self.tracker),
-            'Validation failed(isDataGridFilled): Need at least one entry.')
+            field.validate(input, self.tracker, errors),
+            u'Issue types is required, please correct.')
+        self.assertTrue('availableIssueTypes' in errors)
+        self.assertEqual(errors['availableIssueTypes'],
+                         'Issue types is required, please correct.')
         input = [real_entry, hidden_entry]
-        self.assertEqual(field.validate(input, self.tracker), None)
+        errors = {}
+        self.assertEqual(field.validate(input, self.tracker, errors), None)
+        self.assertFalse(errors)
 
     def testValidateTrackerManagers(self):
         self.failUnless(self.tracker.validate_managers(('member1', )) is None)
