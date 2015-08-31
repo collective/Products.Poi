@@ -352,7 +352,6 @@ class Base(BrowserView):
 
 class AddForm(Base):
     implements(IResponseAdder)
-    #template = ViewPageTemplateFile('response.pt')
 
     def __init__(self, context, request, view):
         super(AddForm, self).__init__(context, request)
@@ -427,7 +426,6 @@ class Create(Base):
                                             current, new)
                     issue_has_changed = True
 
-        #('targetRelease', 'Target release', 'available_releases'),
         new = form.get('targetRelease', u'')
         if new and new in self.available_releases:
             current = self.targetRelease

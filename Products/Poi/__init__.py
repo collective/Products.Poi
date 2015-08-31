@@ -72,7 +72,7 @@ def initialize(context):
     # Give it some extra permissions to control them on a per class limit
     for i in range(0, len(all_content_types)):
         klassname = all_content_types[i].__name__
-        if not klassname in ADD_CONTENT_PERMISSIONS:
+        if klassname not in ADD_CONTENT_PERMISSIONS:
             continue
 
         context.registerClass(meta_type=all_ftis[i]['meta_type'],

@@ -111,7 +111,7 @@ def update_tracker_managers(context, testing=False):
                             user_id)
                 local_roles.remove('Manager')
                 user_changed = True
-            if not 'TrackerManager' in local_roles:
+            if 'TrackerManager' not in local_roles:
                 logger.info("Giving user %s TrackerManager role.", user_id)
                 local_roles.append('TrackerManager')
                 user_changed = True

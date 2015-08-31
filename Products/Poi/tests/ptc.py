@@ -32,7 +32,6 @@ ZopeTestCase.installProduct('AddRemoveWidget')
 ZopeTestCase.installProduct('Poi')
 
 from Products.PloneTestCase import PloneTestCase
-#from Products.CMFPlone.tests.test_mails import MockMailHostTestCase
 from Products.CMFPlone.tests.utils import MockMailHost
 PloneTestCase.setupPloneSite(products=['Poi'])
 

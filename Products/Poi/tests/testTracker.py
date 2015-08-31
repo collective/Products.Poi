@@ -278,7 +278,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
         workflow = self.portal.portal_workflow
         workflow.doActionFor(issue, 'resolve-unconfirmed')
 
-   # -- end email tests
+    # -- end email tests
 
 
 class TestTrackerSearch(ptc.PoiTestCase):

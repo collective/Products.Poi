@@ -28,3 +28,5 @@ __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
 import PoiPscTracker
+
+PoiPscTracker  # pyflakes

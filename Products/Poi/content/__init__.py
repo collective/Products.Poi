@@ -30,3 +30,5 @@ __docformat__ = 'plaintext'
 # Classes
 import PoiTracker
 import PoiIssue
+
+PoiTracker, PoiIssue  # pyflakes

@@ -415,7 +415,7 @@ class PoiTracker(atapi.BaseBTreeFolder, BrowserDefaultMixin):
                     self.manage_delLocalRoles(to_remove)
         for user_id in to_add_or_keep:
             local_roles = list(self.get_local_roles_for_userid(user_id))
-            if not role in local_roles:
+            if role not in local_roles:
                 local_roles.append(role)
                 self.manage_setLocalRoles(user_id, local_roles)
 
