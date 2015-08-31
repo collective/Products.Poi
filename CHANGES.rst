@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.2.8 (unreleased)
+2.2.8 (2015-08-31)
 ------------------
 
 - Require Products.DataGridField 1.9.2 as minimum.  This means we no
