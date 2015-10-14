@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-readmefile = open('README.txt')
+readmefile = open('README.rst')
 readme = readmefile.read().strip()
 readmefile.close()
 
@@ -11,7 +11,7 @@ historyfile.close()
 long_description = readme + "\n\n" + history
 
 setup(name='Products.Poi',
-      version='2.2.9.dev0',
+      version='3.0.dev0',
       description="Poi: A friendly issue tracker",
       long_description=long_description,
       # Get more strings from
@@ -21,6 +21,7 @@ setup(name='Products.Poi',
           "Framework :: Plone :: 4.1",
           "Framework :: Plone :: 4.2",
           "Framework :: Plone :: 4.3",
+          "Framework :: Plone :: 5.0",
           "Framework :: Zope2",
           "Framework :: Zope3",
           "Programming Language :: Python",

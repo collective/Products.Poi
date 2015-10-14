@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.2.9 (unreleased)
+3.0 (unreleased)
 ------------------
 
 - Nothing changed yet.
