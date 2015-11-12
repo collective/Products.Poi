@@ -6,4 +6,4 @@
   <layer name="Poi"
     insert-after="custom" remove="True"/>
  </skin-path>
-</object>
+</object> 

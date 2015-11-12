@@ -29,7 +29,6 @@ __docformat__ = 'plaintext'
 
 import logging
 
-from Products.CMFCore import DirectoryView
 from zope.i18nmessageid import MessageFactory
 
 from Products.Poi.config import product_globals
@@ -37,8 +36,5 @@ from Products.Poi.config import product_globals
 logger = logging.getLogger("Poi")
 logger.debug('Start initialization of product.')
 PoiMessageFactory = MessageFactory('Poi')
-
-DirectoryView.registerDirectory('skins', product_globals)
-DirectoryView.registerDirectory('skins/Poi', product_globals)
 
 
