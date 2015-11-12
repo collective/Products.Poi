@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
 "POT-Creation-Date: 2015-11-12 01:25+0000\n"
-"PO-Revision-Date: 2013-04-18 11:09+0200\n"
+"PO-Revision-Date: 2015-11-12 -2:28+0100\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: ./profiles.zcml:14
 msgid "A friendly issue tracker"
-msgstr ""
+msgstr "Een vriendelijke issue tracker"
 
 #: ./browser/templates/poi_email_new_issue_html.pt:23
 #: ./browser/templates/poi_email_new_issue_plain.pt:8
@@ -105,7 +105,7 @@ msgstr "Opmerking"
 
 #: ./profiles.zcml:23
 msgid "Partial uninstall profile for Poi, in addition to the QI one."
-msgstr ""
+msgstr "Gedeeltelijk deïnstallatie profiel voor Poi, in aanvulling op wat QI al doet."
 
 #: ./profiles.zcml:14
 #: ./skins/Poi/poi_tracker_view.pt:316
@@ -1086,4 +1086,3 @@ msgstr "RSS feed van open, niet toegewezen issues"
 #: ./skins/Poi/poi_tracker_view.pt:236
 msgid "title_rss_feed_unconfirmed"
 msgstr "RSS feed van niet bevestigde issues"
-
