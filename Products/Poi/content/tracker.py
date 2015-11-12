@@ -111,7 +111,7 @@ class ITracker(model.Schema):
     available_severities = schema.List(
         title=_(u'Poi_label_availableSeverities',
                 default=u"Available severities"),
-        #        default=[s.value for s in severities],
+        default=[_(u'Critical'), _(u'Important'), _(u'Medium'), _(u'Low')],
         description=_(
             u'Poi_help_availableSeverities',
             default=(u"Enter the different type of issue severities "
