@@ -6,9 +6,6 @@
   <type type_id="PoiIssue">
    <bound-workflow workflow_id="poi_issue_workflow"/>
   </type>
-  <type type_id="PoiPscTracker">
-   <bound-workflow workflow_id="poi_tracker_workflow"/>
-  </type>
   <type type_id="PoiTracker">
    <bound-workflow workflow_id="poi_tracker_workflow"/>
   </type>
