@@ -38,6 +38,7 @@ from plone.autoform.directives import widget
 from plone.autoform.directives import write_permission
 from plone.dexterity.content import Container
 from plone.supermodel import model
+from plone.z3cform.textlines import TextLinesFieldWidget
 from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
 
 
@@ -150,6 +151,7 @@ class ITracker(model.Schema):
         value_type=DictRow(title=_(u'Issue Type'), schema=IBasicData),
     )
 
+    widget(available_severities=TextLinesFieldWidget)
     available_severities = schema.List(
         title=_(u'Poi_label_availableSeverities',
                 default=u"Available severities"),
@@ -174,6 +176,7 @@ class ITracker(model.Schema):
         source=possibleSeverities,
     )
 
+    widget(available_releases=TextLinesFieldWidget)
     available_releases = schema.List(
         title=_(
             u'Poi_label_availableReleases',
@@ -189,12 +192,14 @@ class ITracker(model.Schema):
         required=False,
     )
 
+    widget(assignees=TextLinesFieldWidget)
     assignees = schema.List(
         title=_(u'Poi_label_assignees', default=u'Assignees'),
         description=_(u'Users assigned to this issue'),
     )
 
     write_permission(watchers=permissions.ModifyIssueWatchers)
+    widget(watchers=TextLinesFieldWidget)
     watchers = schema.List(
         title=_(u'Poi_label_tracker_watchers'),
         description=_(

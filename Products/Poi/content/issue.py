@@ -3,8 +3,10 @@ from zope.interface import implementer
 from zope import schema
 
 from plone.app.textfield import RichText
+from plone.autoform.directives import widget
 from plone.dexterity.content import Container
 from plone.supermodel import model
+from plone.z3cform.textlines import TextLinesFieldWidget
 
 from Acquisition import aq_chain
 from Products.Poi import PoiMessageFactory as _
@@ -82,6 +84,7 @@ class IIssue(model.Schema):
                       u"address will not be displayed to others.")
     )
 
+    widget(watchers=TextLinesFieldWidget)
     watchers = schema.List(
         title=_(u'Watchers'),
         description=_(u"Enter the user ids of members who are watching "
@@ -92,6 +95,7 @@ class IIssue(model.Schema):
                       u"watchers."),
     )
 
+    widget(subject=TextLinesFieldWidget)
     subject = schema.List(
         title=_(u'Subject'),
         description=_(u"Tags can be used to add arbitrary categorisation to "
