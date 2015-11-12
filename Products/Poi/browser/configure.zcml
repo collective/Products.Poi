@@ -93,4 +93,67 @@
      class=".response.Download"
      />
 
+  <browser:page
+     name="poi-issue-search-rss.xml"
+     for="*"
+     permission="zope2.View"
+     template="templates/poi-issue-search-rss.xml.pt"
+     />
+
+  <browser:page
+     name="poi-my-issues-rss.xml"
+     for="*"
+     permission="zope2.View"
+     template="templates/poi-my-issues-rss.xml.pt"
+     />
+
+  <browser:page
+     name="poi-orphaned-issues-rss.xml"
+     for="*"
+     permission="zope2.View"
+     template="templates/poi-orphaned-issues-rss.xml.pt"
+     />
+
+  <browser:page
+     name="poi_issue_search"
+     for="*"
+     permission="zope2.View"
+     template="templates/poi_issue_search.pt"
+     />
+
+  <browser:page
+     name="poi_issue_search_form"
+     for="*"
+     permission="zope2.View"
+     template="templates/poi_issue_search_form.pt"
+     />
+
+  <browser:page
+     name="poi_issue_search_results"
+     for="*"
+     permission="zope2.View"
+     template="templates/poi_issue_search_results.pt"
+     />
+
+  <browser:page
+     name="poi_issue_view"
+     for="*"
+     permission="zope2.View"
+     template="templates/poi_issue_view.pt"
+     />
+
+  <browser:page
+     name="poi_tracker_view"
+     for="*"
+     permission="zope2.View"
+     template="templates/poi_tracker_view.pt"
+     />
+
+  <browser:page
+     name="poiissue_edit"
+     for="*"
+     permission="zope2.View"
+     template="templates/poiissue_edit.pt"
+     />
+     
 </configure>

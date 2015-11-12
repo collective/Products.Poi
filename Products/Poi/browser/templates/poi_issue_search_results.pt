@@ -44,8 +44,7 @@
     </thead>
        <tbody>
            <tal:issues repeat="item issues">
-               <tr tal:define="oddrow repeat/item/odd"
-                   tal:attributes="class python:test(oddrow, 'even', 'odd')">
+               <tr>
                    <td tal:content="item/getId">
                    </td>
                    <td>
