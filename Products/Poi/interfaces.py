@@ -1,17 +1,10 @@
 from zope.interface import Interface
+from .content.tracker import ITracker
+from .content.issue import IIssue
 
-
-class ITracker(Interface):
-    """Marker interface for Poi issue tracker."""
-
-
-class IIssue(Interface):
-    """Marker interface for Poi issue.
-    """
-    pass
+ITracker, IIssue
 
 
 class IResponse(Interface):
     """Marker interface for Poi response.
     """
-    pass
