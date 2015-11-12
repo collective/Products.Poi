@@ -6,13 +6,6 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="Poi">
 
-<head>
-  <metal:css fill-slot="style_slot">
-    <style type="text/css" media="all"
-      tal:content="string:@import url($portal_url/poi.css);"></style>
-  </metal:css>
-</head>
-
 <body>
 <metal:main fill-slot="main">
   <metal:body define-macro="body">

@@ -8,8 +8,6 @@
 **
 */
 
-/* <dtml-with base_properties> */
-
 /* Tracker front page */
 
 .issue-quick-search-box {
@@ -25,7 +23,7 @@
 
 #issue-search-link {
     display: block;
-    background: &dtml-backgroundColor; url(&dtml-portal_url;/search_icon.png) 2px 1px no-repeat;
+    background: #ffffff url(search_icon.png) 2px 1px no-repeat;
     padding: 1px 1px 1px 18px;
 }
 
@@ -51,29 +49,30 @@
 }
 
 #poi_advanced_search {
-    background: White url(&dtml-portal_url;/search_icon.png) no-repeat scroll 2px 1px;
+    background: White url(search_icon.png) no-repeat scroll 2px 1px;
 }
 
 /* Issue display */
 
 .return-to-search {
-    background: transparent url(&dtml-portal_url;/arrowUp.png) 4px 5px no-repeat;
+    background: transparent url(arrowUp.png) 4px 5px no-repeat;
     padding: 1px 0px 5px 16px;
-    font-size: &dtml-fontSmallSize;;
+    font-size: 90%;
     text-decoration: none;
 }
 
 .issue-details {
     font-family: Monaco, "Courier New", Courier, monospace;
     font-size: 100%;
-    color: &dtml-fontColor;;
+    color: #4D4D4D;
     padding: 0 0.1em;;
 }
 
 .modification-info {
     margin: 0 0 0.5em 0;
-    color: &dtml-discreetColor;;
-    font-size: &dtml-fontSmallSize;;
+    color: #777;
+    font-weight: 300;
+    font-size: 90%;
 
 }
 
@@ -100,7 +99,7 @@
 .steps-to-reproduce dd {
     font-family: Monaco, "Courier New", Courier, monospace;
     font-size: 100%;
-    color: &dtml-fontColor;;
+    color: #4D4D4D;
     padding: 0 0.1em;;
     margin: 0.5em 0 0 1em;
 }
@@ -158,29 +157,30 @@ ul.issue-tags-tags a {
 .response-clarification {
     margin: 1em 0;
     padding: 0.5em;
-    border: &dtml-borderWidth; &dtml-borderStyleAnnotations; &dtml-globalBorderColor;;
+    border: 1px solid #777;
     clear: both;
 }
 
 .response-reply {
     margin: 1em 0;
     padding: 0.5em;
-    border: &dtml-borderWidth; &dtml-borderStyleAnnotations; &dtml-notifyBorderColor;;
+    border: 1px solid #9C6E3D;
     clear: both;
 }
 
 .response-additional {
     margin: 1em 0;
     padding: 0.5em;
-    border: &dtml-borderWidth; &dtml-borderStyleAnnotations; &dtml-contentViewBorderColor;;
+    border: 1px solid #74ae0b;
     clear: both;
 }
 
 /* Response details */
 
 .response-info {
-    color: &dtml-discreetColor;;
-    font-size: &dtml-fontSmallSize;;
+    color: #777;
+    font-weight: 300;
+    font-size: 90%;
     font-weight: normal;
     margin-bottom: 0.5em;
 }
@@ -218,11 +218,12 @@ ul.issue-tags-tags a {
 }
 
 .issue-in-progress {
-    color: &dtml-notifyBorderColor;;
+    color: #9C6E3D;
 }
 
 .issue-postponed .issue-rejected {
-    color: &dtml-discreetColor;;
+    color: #777;
+    font-weight: 300;
 }
 
 .issue-resolved {
@@ -230,7 +231,5 @@ ul.issue-tags-tags a {
 }
 
 .issue-closed {
-    color: &dtml-linkColor;;
+    color: #007BB3;
 }
-
-/* </dtml-with> */
