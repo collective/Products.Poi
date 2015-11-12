@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from zope.interface import implementer
 from zope.interface import directlyProvides
-from zope.schema.interface import IContextSourceBinder
+from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary
 from zope import schema
 
@@ -10,6 +10,54 @@ from plone.dexterity.content import Container
 from plone.supermodel import model
 
 from Products.Poi import PoiMessageFactory as _
+
+
+def possibleAreas(context):
+    """
+    Get the available areas as a Vocabulary.
+    """
+    tracker = context.getTracker()
+    terms = [(tt.id, tt.title) for tt in tracker.available_areas]
+    return SimpleVocabulary.fromItems(terms)
+
+
+def possibleIssueTypes(context):
+    """
+    Get the available issue types as a Vocabulary.
+    """
+    tracker = context.getTracker()
+    terms = [(tt.id, tt.title) for tt in tracker.available_issue_types]
+    return SimpleVocabulary.fromItems(terms)
+
+
+def possibleSeverities(context):
+    """
+    Get the available severities as a Vocabulary.
+    """
+    tracker = context.getTracker()
+    return SimpleVocabulary.fromValues(tracker.available_severities)
+
+
+def possibleTargetReleases(context):
+    """
+    Get the available target release as a Vocabulary.
+    """
+    tracker = context.getTracker()
+    return SimpleVocabulary.fromValues(tracker.available_releases)
+
+
+def possibleAssignees(context):
+    """
+    Get the available assignees as a DispayList.
+    """
+    tracker = context.getTracker()
+    return SimpleVocabulary.fromValues(tracker.assignees)
+
+directlyProvides(possibleAreas, IContextSourceBinder)
+directlyProvides(possibleIssueTypes, IContextSourceBinder)
+directlyProvides(possibleSeverities, IContextSourceBinder)
+directlyProvides(possibleTargetReleases, IContextSourceBinder)
+directlyProvides(possibleAssignees, IContextSourceBinder)
 
 
 class IIssue(model.Schema):
@@ -115,51 +163,3 @@ class Issue(Container):
         raise Exception(
             "Could not find PoiTracker in acquisition chain of %r" %
             self)
-
-
-def possibleAreas(context):
-    """
-    Get the available areas as a Vocabulary.
-    """
-    tracker = context.getTracker()
-    terms = [(tt.id, tt.title) for tt in tracker.available_areas]
-    return SimpleVocabulary.fromItems(terms)
-
-
-def possibleIssueTypes(context):
-    """
-    Get the available issue types as a Vocabulary.
-    """
-    tracker = context.getTracker()
-    terms = [(tt.id, tt.title) for tt in tracker.available_issue_types]
-    return SimpleVocabulary.fromItems(terms)
-
-
-def possibleSeverities(context):
-    """
-    Get the available severities as a Vocabulary.
-    """
-    tracker = context.getTracker()
-    return SimpleVocabulary.fromValues(tracker.available_severities)
-
-
-def possibleTargetReleases(context):
-    """
-    Get the available target release as a Vocabulary.
-    """
-    tracker = context.getTracker()
-    return SimpleVocabulary.fromValues(tracker.available_releases)
-
-
-def possibleAssignees(context):
-    """
-    Get the available assignees as a DispayList.
-    """
-    tracker = context.getTracker()
-    return SimpleVocabulary.fromValues(tracker.assignees)
-
-directlyProvides(possibleAreas, IContextSourceBinder)
-directlyProvides(possibleIssueTypes, IContextSourceBinder)
-directlyProvides(possibleSeverities, IContextSourceBinder)
-directlyProvides(possibleTargetReleases, IContextSourceBinder)
-directlyProvides(possibleAssignees, IContextSourceBinder)
