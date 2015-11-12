@@ -201,7 +201,6 @@ class ITracker(model.Schema):
         required=False,
     )
 
-    # TODO remove references to SVN from localizations
     repo_url = schema.TextLine(
         label=_(u'Poi_label_svnurl',
                 default=u"URL to Repository"),

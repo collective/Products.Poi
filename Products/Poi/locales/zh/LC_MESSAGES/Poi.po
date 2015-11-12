@@ -459,7 +459,7 @@ msgid "Poi_label_subject"
 msgstr "标记"
 
 # ./content/PoiTracker.py
-#. Default: "URL to SVN"
+#. Default: "URL to Repository"
 #: ./content/PoiTracker.py:281
 msgid "Poi_label_svnurl"
 msgstr ""

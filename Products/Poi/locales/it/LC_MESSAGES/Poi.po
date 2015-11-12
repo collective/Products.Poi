@@ -469,7 +469,7 @@ msgid "Poi_label_subject"
 msgstr "Tag"
 
 # ./content/PoiTracker.py
-#. Default: "URL to SVN"
+#. Default: "URL to Repository"
 #: ./content/PoiTracker.py:281
 msgid "Poi_label_svnurl"
 msgstr "l'indirizzo del server di versioni di Subversion (SVN)"
