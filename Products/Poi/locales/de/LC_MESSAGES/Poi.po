@@ -228,7 +228,7 @@ msgid "Poi_help_responsibleManager"
 msgstr "Wählen Sie den verantwortlichen Verwalter dieser Problemstellung."
 
 # ./content/PoiTracker.py
-#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
+#. Default: "If selected, tracker assignees will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
 #: ./content/PoiTracker.py:247
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Wenn dies ausgewählt ist erhalten Verwalter des Trackers ein jedes Mal ein E-Mail, wenn eine neue Problemstellung oder eine Antwort geschrieben wurde. Übermittler von Problemstellungen erhalten ein E-Mail, sobald eine Antwort geschrieben wurde, bzw. wenn die Problemstellung gelöst wurde und eine Bestätigung gefordert ist."
@@ -382,9 +382,9 @@ msgid "Poi_label_mailingList"
 msgstr "Mailing-Liste"
 
 # ./content/PoiTracker.py
-#. Default: "Tracker managers"
-#: ./content/PoiTracker.py:197
-msgid "Poi_label_managers"
+#. Default: "Tracker assignees"
+#: ./content/tracker.py:147
+msgid "msgid "Poi_label_assignees""
 msgstr "Verwalter des Trackers"
 
 # ./content/PoiResponse.py
@@ -448,7 +448,7 @@ msgid "Poi_label_subject"
 msgstr "Stichworte"
 
 # ./content/PoiTracker.py
-#. Default: "URL to SVN"
+#. Default: "URL to Repository"
 #: ./content/PoiTracker.py:281
 msgid "Poi_label_svnurl"
 msgstr "URL to VCS"
@@ -458,12 +458,6 @@ msgstr "URL to VCS"
 #: ./content/PoiIssue.py:220
 msgid "Poi_label_targetRelease"
 msgstr "Betroffene Version/ Ausgabe"
-
-# ./content/PoiTracker.py
-#. Default: "Technicians"
-#: ./content/PoiTracker.py:211
-msgid "Poi_label_technicians"
-msgstr "Techniker"
 
 #. Default: "Tracker description"
 #: ./content/PoiTracker.py:72

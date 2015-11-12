@@ -228,7 +228,7 @@ msgid "Poi_help_responsibleManager"
 msgstr "Zvolte, který správce, pokud nějaký, je odpovědný za tuto úlohu."
 
 # ./content/PoiTracker.py
-#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
+#. Default: "If selected, tracker assignees will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
 #: ./content/PoiTracker.py:247
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Pokud je zaškrtnuto, správci manažeru úloh obdrží email při každé nové úloze nebo reakci a autoři úloh obdrží email při každé nové reakci, pokud je úloha vyřešena nebo čekající na potvrzení. Technici obdrží email když jim je úloha přiřazena."
@@ -383,9 +383,9 @@ msgid "Poi_label_mailingList"
 msgstr "Konference"
 
 # ./content/PoiTracker.py
-#. Default: "Tracker managers"
-#: ./content/PoiTracker.py:197
-msgid "Poi_label_managers"
+#. Default: "Tracker assignees"
+#: ./content/tracker.py:147
+msgid "msgid "Poi_label_assignees""
 msgstr "Správci manažeru úloh"
 
 # ./content/PoiResponse.py
@@ -449,7 +449,7 @@ msgid "Poi_label_subject"
 msgstr "Značky"
 
 # ./content/PoiTracker.py
-#. Default: "URL to SVN"
+#. Default: "URL to Repository"
 #: ./content/PoiTracker.py:281
 msgid "Poi_label_svnurl"
 msgstr "URL SVN repositáře"
@@ -459,12 +459,6 @@ msgstr "URL SVN repositáře"
 #: ./content/PoiIssue.py:220
 msgid "Poi_label_targetRelease"
 msgstr "Cílové vydání"
-
-# ./content/PoiTracker.py
-#. Default: "Technicians"
-#: ./content/PoiTracker.py:211
-msgid "Poi_label_technicians"
-msgstr "Technici"
 
 #. Default: "Tracker description"
 #: ./content/PoiTracker.py:72

@@ -237,7 +237,7 @@ msgid "Poi_help_responsibleManager"
 msgstr "Vælg evt. en administrator, som er ansvarlig for denne sag."
 
 # ./content/PoiTracker.py
-#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
+#. Default: "If selected, tracker assignees will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
 #: ./content/PoiTracker.py:247
 #, fuzzy
 msgid "Poi_help_sendNotificationEmails"
@@ -392,9 +392,9 @@ msgid "Poi_label_mailingList"
 msgstr "Postliste"
 
 # ./content/PoiTracker.py
-#. Default: "Tracker managers"
-#: ./content/PoiTracker.py:197
-msgid "Poi_label_managers"
+#. Default: "Tracker assignees"
+#: ./content/tracker.py:147
+msgid "msgid "Poi_label_assignees""
 msgstr "Tracker-administratorer"
 
 # ./content/PoiResponse.py
@@ -458,7 +458,7 @@ msgstr "Trin for at reproducere"
 msgid "Poi_label_subject"
 msgstr "Etiketter"
 
-#. Default: "URL to SVN"
+#. Default: "URL to Repository"
 #: ./content/PoiTracker.py:281
 msgid "Poi_label_svnurl"
 msgstr "URL til SVN"
@@ -468,12 +468,6 @@ msgstr "URL til SVN"
 #: ./content/PoiIssue.py:220
 msgid "Poi_label_targetRelease"
 msgstr "Release hvor opgaven skal være løst i"
-
-# ./content/PoiTracker.py
-#. Default: "Technicians"
-#: ./content/PoiTracker.py:211
-msgid "Poi_label_technicians"
-msgstr ""
 
 #. Default: "Tracker description"
 #: ./content/PoiTracker.py:72

@@ -6,7 +6,7 @@
  <property name="description">Version of the PoiTracker which supports the
       PloneSoftwareCenter. Intended to be added inside a PSCProject.
       </property>
- <property name="content_icon">PoiTracker.gif</property>
+ <property name="content_icon">++resource++poi/PoiTracker.gif</property>
  <property name="content_meta_type">PoiPscTracker</property>
  <property name="product">Poi</property>
  <property name="factory">addPoiPscTracker</property>

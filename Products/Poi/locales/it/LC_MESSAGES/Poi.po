@@ -237,7 +237,7 @@ msgid "Poi_help_responsibleManager"
 msgstr "Seleziona quali manager, se ci sono, sono responsabili della richiesta."
 
 # ./content/PoiTracker.py
-#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
+#. Default: "If selected, tracker assignees will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
 #: ./content/PoiTracker.py:247
 msgid "Poi_help_sendNotificationEmails"
 msgstr ""
@@ -403,9 +403,9 @@ msgid "Poi_label_mailingList"
 msgstr "Mailing list"
 
 # ./content/PoiTracker.py
-#. Default: "Tracker managers"
-#: ./content/PoiTracker.py:197
-msgid "Poi_label_managers"
+#. Default: "Tracker assignees"
+#: ./content/tracker.py:147
+msgid "msgid "Poi_label_assignees""
 msgstr "Manager del gestore attività"
 
 # ./content/PoiResponse.py
@@ -469,7 +469,7 @@ msgid "Poi_label_subject"
 msgstr "Tag"
 
 # ./content/PoiTracker.py
-#. Default: "URL to SVN"
+#. Default: "URL to Repository"
 #: ./content/PoiTracker.py:281
 msgid "Poi_label_svnurl"
 msgstr "l'indirizzo del server di versioni di Subversion (SVN)"
@@ -479,12 +479,6 @@ msgstr "l'indirizzo del server di versioni di Subversion (SVN)"
 #: ./content/PoiIssue.py:220
 msgid "Poi_label_targetRelease"
 msgstr "Obbiettivo del rilascio"
-
-# ./content/PoiTracker.py
-#. Default: "Technicians"
-#: ./content/PoiTracker.py:211
-msgid "Poi_label_technicians"
-msgstr "Tecnici"
 
 #. Default: "Tracker description"
 #: ./content/PoiTracker.py:72
