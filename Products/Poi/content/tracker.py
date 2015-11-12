@@ -42,6 +42,14 @@ from plone.z3cform.textlines import TextLinesFieldWidget
 from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
 
 
+DEFAULT_SEVERITIES = [
+    _(u'Critical'),
+    _(u'Important'),
+    _(u'Medium'),
+    _(u'Low')
+]
+
+
 def possibleAreas(context):
     """
     Get the available areas as a Vocabulary.
@@ -64,8 +72,10 @@ def possibleSeverities(context):
     """
     Get the available severities as a Vocabulary.
     """
-    tracker = context.getTracker()
-    return SimpleVocabulary.fromValues(tracker.available_severities)
+    if hasattr(context, 'getTracker'):
+        tracker = context.getTracker()
+        return SimpleVocabulary.fromValues(tracker.available_severities)
+    return SimpleVocabulary.fromValues(DEFAULT_SEVERITIES)
 
 
 def possibleTargetReleases(context):
@@ -155,7 +165,7 @@ class ITracker(model.Schema):
     available_severities = schema.List(
         title=_(u'Poi_label_availableSeverities',
                 default=u"Available severities"),
-        default=[_(u'Critical'), _(u'Important'), _(u'Medium'), _(u'Low')],
+        default=DEFAULT_SEVERITIES,
         description=_(
             u'Poi_help_availableSeverities',
             default=(u"Enter the different type of issue severities "
