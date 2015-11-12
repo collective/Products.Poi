@@ -31,26 +31,26 @@
       />
 
   <subscriber
-      for="Products.Poi.interfaces.ITracker
-           Products.Archetypes.interfaces.IObjectInitializedEvent"
+      for="Products.Poi.content.tracker.ITracker
+           zope.lifecycleevent.interfaces.IObjectAddedEvent"
         handler=".events.update_tracker_watchers"
         />
 
   <subscriber
-      for="Products.Poi.interfaces.ITracker
-           Products.Archetypes.interfaces.IObjectEditedEvent"
+      for="Products.Poi.content.tracker.ITracker
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
         handler=".events.update_tracker_watchers"
         />
 
   <subscriber
-      for="Products.Poi.interfaces.IIssue
-           Products.Archetypes.interfaces.IObjectInitializedEvent"
+      for="Products.Poi.content.issue.IIssue
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
         handler=".events.post_issue"
         />
 
   <subscriber
-      for="Products.Poi.interfaces.IIssue
-           Products.Archetypes.interfaces.IObjectEditedEvent"
+      for="Products.Poi.content.issue.IIssue
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
         handler=".events.add_contact_to_issue_watchers"
         />
 
