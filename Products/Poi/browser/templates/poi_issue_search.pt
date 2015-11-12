@@ -10,10 +10,6 @@
   <metal:block fill-slot="top_slot"
                tal:define="disable_border python:request.set('disable_border',1);
                            disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
-  <metal:css fill-slot="style_slot">
-    <style type="text/css" media="all"
-           tal:content="string:@import url($portal_url/poi.css);"></style>
-  </metal:css>
 </head>
 <body>
 <metal:main fill-slot="main"
