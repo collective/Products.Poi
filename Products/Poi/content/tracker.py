@@ -218,7 +218,7 @@ class ITracker(model.Schema):
 
 
 @implementer(ITracker)
-class Issue(Container):
+class Tracker(Container):
     """
     An issue in the Poi Tracker
     """
