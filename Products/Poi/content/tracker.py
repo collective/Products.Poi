@@ -144,9 +144,8 @@ class ITracker(model.Schema):
         required=False,
     )
 
-    # TODO localization (add this and remove managers/technicians)
     assignees = schema.List(
-        title=_(u'Assignees'),
+        title=_(u'Poi_label_assignees', default=u'Assignees'),
         description=_(u'Users assigned to this issue'),
     )
 

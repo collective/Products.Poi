@@ -231,7 +231,7 @@ msgid "Poi_help_responsibleManager"
 msgstr "Selecteer welke manager, als er een is, verantwoordelijk is voor deze issue."
 
 # ./content/PoiTracker.py
-#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
+#. Default: "If selected, tracker assignees will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
 #: ./content/PoiTracker.py:247
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Indien geselecteerd, krijgen tracker managers een e-mail elke keer als een nieuwe issue of reactie is geplaatst. Issue toevoegers ontvangen een e-mail als er een nieuwe reactie is geplaatst of een issue is opgelost. Technici krijgen een e-mail als een issue aan hen is toegekend."
@@ -385,10 +385,10 @@ msgid "Poi_label_mailingList"
 msgstr "Mailinglijst"
 
 # ./content/PoiTracker.py
-#. Default: "Tracker managers"
-#: ./content/PoiTracker.py:197
-msgid "Poi_label_managers"
-msgstr "Tracker managers"
+#. Default: "Tracker assignees"
+#: ./content/tracker.py:147
+msgid "msgid "Poi_label_assignees""
+msgstr "Tracker assignees"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
@@ -461,12 +461,6 @@ msgstr "Url naar subversion"
 #: ./content/PoiIssue.py:220
 msgid "Poi_label_targetRelease"
 msgstr "Doelrelease"
-
-# ./content/PoiTracker.py
-#. Default: "Technicians"
-#: ./content/PoiTracker.py:211
-msgid "Poi_label_technicians"
-msgstr "Technici"
 
 #. Default: "Tracker description"
 #: ./content/PoiTracker.py:72

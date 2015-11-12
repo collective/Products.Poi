@@ -204,7 +204,7 @@ msgstr ""
 msgid "Poi_help_responsibleManager"
 msgstr ""
 
-#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
+#. Default: "If selected, tracker assignees will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
 #: ./content/PoiTracker.py:247
 msgid "Poi_help_sendNotificationEmails"
 msgstr ""
@@ -335,9 +335,9 @@ msgstr ""
 msgid "Poi_label_mailingList"
 msgstr ""
 
-#. Default: "Tracker managers"
-#: ./content/PoiTracker.py:197
-msgid "Poi_label_managers"
+#. Default: "Tracker assignees"
+#: ./content/tracker.py:147
+msgid "msgid "Poi_label_assignees""
 msgstr ""
 
 #. Default: "Change responsible manager"
@@ -398,11 +398,6 @@ msgstr ""
 #. Default: "Target release"
 #: ./content/PoiIssue.py:220
 msgid "Poi_label_targetRelease"
-msgstr ""
-
-#. Default: "Technicians"
-#: ./content/PoiTracker.py:211
-msgid "Poi_label_technicians"
 msgstr ""
 
 #. Default: "Tracker description"
