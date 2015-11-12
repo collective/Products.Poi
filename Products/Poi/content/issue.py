@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 from zope.interface import implementer
-from zope.interface import directlyProvides
-from zope.schema.interfaces import IContextSourceBinder
-from zope.schema.vocabulary import SimpleVocabulary
 from zope import schema
 
 from plone.app.textfield import RichText
@@ -12,54 +9,11 @@ from plone.supermodel import model
 from Acquisition import aq_chain
 from Products.Poi import PoiMessageFactory as _
 from .tracker import ITracker
-
-
-def possibleAreas(context):
-    """
-    Get the available areas as a Vocabulary.
-    """
-    tracker = context.getTracker()
-    terms = [(tt.id, tt.title) for tt in tracker.available_areas]
-    return SimpleVocabulary.fromItems(terms)
-
-
-def possibleIssueTypes(context):
-    """
-    Get the available issue types as a Vocabulary.
-    """
-    tracker = context.getTracker()
-    terms = [(tt.id, tt.title) for tt in tracker.available_issue_types]
-    return SimpleVocabulary.fromItems(terms)
-
-
-def possibleSeverities(context):
-    """
-    Get the available severities as a Vocabulary.
-    """
-    tracker = context.getTracker()
-    return SimpleVocabulary.fromValues(tracker.available_severities)
-
-
-def possibleTargetReleases(context):
-    """
-    Get the available target release as a Vocabulary.
-    """
-    tracker = context.getTracker()
-    return SimpleVocabulary.fromValues(tracker.available_releases)
-
-
-def possibleAssignees(context):
-    """
-    Get the available assignees as a DispayList.
-    """
-    tracker = context.getTracker()
-    return SimpleVocabulary.fromValues(tracker.assignees)
-
-directlyProvides(possibleAreas, IContextSourceBinder)
-directlyProvides(possibleIssueTypes, IContextSourceBinder)
-directlyProvides(possibleSeverities, IContextSourceBinder)
-directlyProvides(possibleTargetReleases, IContextSourceBinder)
-directlyProvides(possibleAssignees, IContextSourceBinder)
+from .tracker import possibleAreas
+from .tracker import possibleIssueTypes
+from .tracker import possibleSeverities
+from .tracker import possibleTargetReleases
+from .tracker import possibleAssignees
 
 
 class IIssue(model.Schema):

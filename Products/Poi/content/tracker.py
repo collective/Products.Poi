@@ -27,7 +27,9 @@ __docformat__ = 'plaintext'
 from zope.interface import implementer
 from zope import schema
 from zope.interface import Interface
-from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
+from zope.interface import directlyProvides
+from zope.schema.interfaces import IContextSourceBinder
+from zope.schema.vocabulary import SimpleVocabulary
 
 from Products.Poi import PoiMessageFactory as _
 from Products.Poi import permissions
@@ -39,12 +41,52 @@ from plone.supermodel import model
 from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
 
 
-severities = SimpleVocabulary([
-    SimpleTerm(value=u'Critical', title=_(u'Critical')),
-    SimpleTerm(value=u'Important', title=_(u'Important')),
-    SimpleTerm(value=u'Medium', title=_(u'Medium')),
-    SimpleTerm(value=u'Low', title=_(u'Low')),
-])
+def possibleAreas(context):
+    """
+    Get the available areas as a Vocabulary.
+    """
+    tracker = context.getTracker()
+    terms = [(tt.id, tt.title) for tt in tracker.available_areas]
+    return SimpleVocabulary.fromItems(terms)
+
+
+def possibleIssueTypes(context):
+    """
+    Get the available issue types as a Vocabulary.
+    """
+    tracker = context.getTracker()
+    terms = [(tt.id, tt.title) for tt in tracker.available_issue_types]
+    return SimpleVocabulary.fromItems(terms)
+
+
+def possibleSeverities(context):
+    """
+    Get the available severities as a Vocabulary.
+    """
+    tracker = context.getTracker()
+    return SimpleVocabulary.fromValues(tracker.available_severities)
+
+
+def possibleTargetReleases(context):
+    """
+    Get the available target release as a Vocabulary.
+    """
+    tracker = context.getTracker()
+    return SimpleVocabulary.fromValues(tracker.available_releases)
+
+
+def possibleAssignees(context):
+    """
+    Get the available assignees as a DispayList.
+    """
+    tracker = context.getTracker()
+    return SimpleVocabulary.fromValues(tracker.assignees)
+
+directlyProvides(possibleAreas, IContextSourceBinder)
+directlyProvides(possibleIssueTypes, IContextSourceBinder)
+directlyProvides(possibleSeverities, IContextSourceBinder)
+directlyProvides(possibleTargetReleases, IContextSourceBinder)
+directlyProvides(possibleAssignees, IContextSourceBinder)
 
 
 class IBasicData(Interface):
@@ -129,7 +171,7 @@ class ITracker(model.Schema):
             u'Poi_help_defaultSeverity',
             default=u"Select the default severity for new issues."
         ),
-        source=severities,
+        source=possibleSeverities,
     )
 
     available_releases = schema.List(
