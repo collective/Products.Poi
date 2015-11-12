@@ -28,4 +28,3 @@ def import_various(context):
     logger = context.getLogger('Poi')
     site = context.getSite()
     add_catalog_indexes(site, logger)
-    allow_psc_tracker(site, logger)
