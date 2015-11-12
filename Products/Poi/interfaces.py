@@ -1,9 +1,8 @@
 from zope.interface import Interface
-from .content.tracker import ITracker
 from .content.issue import IIssue
+from .content.tracker import ITracker
 
-
-ITracker, IIssue
+IIssue, ITracker
 
 
 class IResponse(Interface):

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from zope.interface import implementer
 from zope.interface import directlyProvides
 from zope.schema.interface import IContextSourceBinder
@@ -13,10 +14,10 @@ class IIssue(model.Schema):
     """Marker interface for Poi issue"""
 
     title = schema.TextLine(
-        title=_(u'Title'),
-        description=_(u"Enter a short, descriptive title for the issue. "
-                      u"A good title will make it easier for project "
-                      u"managers to identify and respond to the issue."),
+        title=(u'Title'),
+        description=(u"Enter a short, descriptive title for the issue. "
+                     u"A good title will make it easier for project "
+                     u"managers to identify and respond to the issue."),
     )
 
     release = schema.TextLine(
