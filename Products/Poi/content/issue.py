@@ -9,7 +9,9 @@ from plone.app.textfield import RichText
 from plone.dexterity.content import Container
 from plone.supermodel import model
 
+from Acquisition import aq_chain
 from Products.Poi import PoiMessageFactory as _
+from .tracker import ITracker
 
 
 def possibleAreas(context):
