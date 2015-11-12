@@ -271,6 +271,7 @@ class ITracker(model.Schema):
                 u"http://dev.plone.org/changeset/%(rev)s/collective "
                 u"for products in the Plone collective.")
         ),
+        required=False,
     )
 
 
