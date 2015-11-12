@@ -44,6 +44,7 @@ setup(name='Products.Poi',
           'Products.AddRemoveWidget>=1.4.2',
           'Products.DataGridField>=1.9.2',
           'collective.watcherlist>=0.2',
+          'collective.z3cform.datagridfield>=1.1',
       ],
       extras_require={
           'test': [
