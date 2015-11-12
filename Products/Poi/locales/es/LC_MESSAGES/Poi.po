@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-es\n"
-"POT-Creation-Date: 2014-09-10 19:59+0000\n"
+"POT-Creation-Date: 2015-11-12 01:25+0000\n"
 "PO-Revision-Date: 2009-08-11 13:53-0400\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Plone Cono Sur <plone-conosur@lists.plone.org>\n"
@@ -20,6 +20,10 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: Poi\n"
 "X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+
+#: ./profiles.zcml:14
+msgid "A friendly issue tracker"
+msgstr ""
 
 #: ./browser/templates/poi_email_new_issue_html.pt:23
 #: ./browser/templates/poi_email_new_issue_plain.pt:8
@@ -36,7 +40,7 @@ msgstr ""
 msgid "An attachment has been added with id ${id}."
 msgstr ""
 
-#: ./browser/response.py:512
+#: ./browser/response.py:510
 msgid "Changes saved to response id ${response_id}."
 msgstr "Se han guardado los cambios a la respuesta id ${response_id}."
 
@@ -71,7 +75,7 @@ msgstr ""
 msgid "Issue Information"
 msgstr ""
 
-#: ./browser/response.py:408
+#: ./browser/response.py:407
 msgid "Issue state"
 msgstr "Estado de la incidencia"
 
@@ -81,11 +85,11 @@ msgstr "Estado de la incidencia"
 msgid "Issue:"
 msgstr ""
 
-#: ./browser/response.py:540
+#: ./browser/response.py:538
 msgid "No response selected for removal."
 msgstr "No hay respuesta seleccionados para su eliminación."
 
-#: ./browser/response.py:498
+#: ./browser/response.py:496
 msgid "No response selected for saving."
 msgstr "No hay respuesta seleccionados para ser guardadas."
 
@@ -93,7 +97,7 @@ msgstr "No hay respuesta seleccionados para ser guardadas."
 msgid "No response selected."
 msgstr "No hay respuesta seleccionadas."
 
-#: ./browser/response.py:452
+#: ./browser/response.py:450
 msgid "No response text added and no issue changes made."
 msgstr "No hay respuesta en el texto añadido y no hay incidencia de cambios realizados."
 
@@ -101,6 +105,11 @@ msgstr "No hay respuesta en el texto añadido y no hay incidencia de cambios rea
 msgid "Note"
 msgstr ""
 
+#: ./profiles.zcml:23
+msgid "Partial uninstall profile for Poi, in addition to the QI one."
+msgstr ""
+
+#: ./profiles.zcml:14
 #: ./skins/Poi/poi_tracker_view.pt:316
 msgid "Poi"
 msgstr ""
@@ -127,21 +136,21 @@ msgstr "Indique las categorías de incidencia para este gestor, una por línea. 
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker."
-#: ./content/PoiTracker.py:140
+#: ./content/PoiTracker.py:139
 #, fuzzy
 msgid "Poi_help_availableIssueTypes"
 msgstr "Indique los tipos de incidencia para este gestor, uno por línea. El formato es \"Nombre corto | Título | Descripción\"."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release."
-#: ./content/PoiTracker.py:184
+#: ./content/PoiTracker.py:182
 #, fuzzy
 msgid "Poi_help_availableReleases"
 msgstr "Indique a que versiones a las que se pueden asignar incidencias, una por línea. Si no se indicar versiones, las incidencias no se organizarán por versión."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
-#: ./content/PoiTracker.py:156
+#: ./content/PoiTracker.py:154
 msgid "Poi_help_availableSeverities"
 msgstr "Indique los diferentes tipos de importancia, uno por línea."
 
@@ -154,7 +163,7 @@ msgstr "Opcionalmente, indique un correo electrónico al que contactar para obte
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
-#: ./content/PoiTracker.py:170
+#: ./content/PoiTracker.py:168
 msgid "Poi_help_defaultSeverity"
 msgstr "Seleccione el nivel de importancia por defecto."
 
@@ -190,14 +199,14 @@ msgstr "Escriba un título corto y descriptivo de la incidencia. Un buen título
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
-#: ./content/PoiTracker.py:264
+#: ./content/PoiTracker.py:262
 #, fuzzy
 msgid "Poi_help_mailingList"
 msgstr "Si se indica, y se selecciona \"Enviar notificaciones\", se enviará un mensaje a esta dirección cada vez que se publique una nueva incidencia o respuesta. Si no se indica un dirección, los gestores recibirán mensajes individuales."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
-#: ./content/PoiTracker.py:199
+#: ./content/PoiTracker.py:197
 msgid "Poi_help_managers"
 msgstr "Indique los nombres de los usuario que pueden administrar este gestor, uno por línea."
 
@@ -240,7 +249,7 @@ msgstr "Selecciones que gestor, si lo hay, es el responsable de esta incidencia.
 
 # ./content/PoiTracker.py
 #. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:247
+#: ./content/PoiTracker.py:245
 #, fuzzy
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Si se selecciona, los administradores recibirán un mensaje cada vez que se envíe una nueva incidencia o repuesta, y los que envíen incidencias recibirán un mensaje cuando sean respondidos y cuando se resuelvan las incidencias, esperando confirmación."
@@ -265,7 +274,7 @@ msgstr "Las etiquetas se pueden usar para agregar categorías extra a las incide
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
-#: ./content/PoiTracker.py:283
+#: ./content/PoiTracker.py:281
 #, fuzzy
 msgid "Poi_help_svnurl"
 msgstr "Por favor ingrese la ruta hacia el repositorio SVN relacionado, e.j.: http://dev.plone.org/changeset/%(rev)s/collective para productos en el Plone collective."
@@ -278,7 +287,7 @@ msgstr "La publicación está dirigida a ser fijo en"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
-#: ./content/PoiTracker.py:213
+#: ./content/PoiTracker.py:211
 msgid "Poi_help_technicians"
 msgstr ""
 
@@ -294,7 +303,7 @@ msgid "Poi_help_tracker_title"
 msgstr "Escriba un nombre para este gestor."
 
 #. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
-#: ./content/PoiTracker.py:228
+#: ./content/PoiTracker.py:226
 msgid "Poi_help_tracker_watchers"
 msgstr ""
 
@@ -326,19 +335,19 @@ msgstr "Áreas"
 
 # ./content/PoiTracker.py
 #. Default: "Issue types"
-#: ./content/PoiTracker.py:138
+#: ./content/PoiTracker.py:137
 msgid "Poi_label_availableIssueTypes"
 msgstr "Tipos de incidencia"
 
 # ./content/PoiTracker.py
 #. Default: "Available releases"
-#: ./content/PoiTracker.py:182
+#: ./content/PoiTracker.py:180
 msgid "Poi_label_availableReleases"
 msgstr "Versiones disponibles"
 
 # ./content/PoiTracker.py
 #. Default: "Available severities"
-#: ./content/PoiTracker.py:154
+#: ./content/PoiTracker.py:152
 msgid "Poi_label_availableSeverities"
 msgstr "Niveles de importancia"
 
@@ -350,7 +359,7 @@ msgstr "Dirección de contacto"
 
 # ./content/PoiTracker.py
 #. Default: "Default severity"
-#: ./content/PoiTracker.py:168
+#: ./content/PoiTracker.py:166
 msgid "Poi_label_defaultSeverity"
 msgstr "Importancia por defecto"
 
@@ -392,13 +401,13 @@ msgstr "Título"
 
 # ./content/PoiTracker.py
 #. Default: "Mailing list"
-#: ./content/PoiTracker.py:262
+#: ./content/PoiTracker.py:260
 msgid "Poi_label_mailingList"
 msgstr "Lista de correo"
 
 # ./content/PoiTracker.py
 #. Default: "Tracker managers"
-#: ./content/PoiTracker.py:197
+#: ./content/PoiTracker.py:195
 msgid "Poi_label_managers"
 msgstr "Administradores del gestor"
 
@@ -441,7 +450,7 @@ msgstr "Responsable"
 
 # ./content/PoiTracker.py
 #. Default: "Send notification emails"
-#: ./content/PoiTracker.py:245
+#: ./content/PoiTracker.py:243
 msgid "Poi_label_sendNotificationEmails"
 msgstr "Enviar notificaciones"
 
@@ -465,7 +474,7 @@ msgstr "Etiquetas"
 
 # ./content/PoiTracker.py
 #. Default: "URL to SVN"
-#: ./content/PoiTracker.py:281
+#: ./content/PoiTracker.py:279
 msgid "Poi_label_svnurl"
 msgstr "Ruta del servidor de versiones Subversión (SVN)"
 
@@ -477,7 +486,7 @@ msgstr "Destino de publicación"
 
 # ./content/PoiTracker.py
 #. Default: "Technicians"
-#: ./content/PoiTracker.py:211
+#: ./content/PoiTracker.py:209
 msgid "Poi_label_technicians"
 msgstr ""
 
@@ -493,7 +502,7 @@ msgid "Poi_label_tracker_title"
 msgstr "Nombre del gestor"
 
 #. Default: "Tracker watchers"
-#: ./content/PoiTracker.py:226
+#: ./content/PoiTracker.py:224
 msgid "Poi_label_tracker_watchers"
 msgstr ""
 
@@ -503,7 +512,7 @@ msgstr ""
 msgid "Poi_label_watchers"
 msgstr "Usuarios relacionados"
 
-#: ./browser/response.py:562
+#: ./browser/response.py:560
 msgid "Removed response id ${response_id}."
 msgstr "Eliminada ID de respuesta"
 
@@ -518,11 +527,11 @@ msgstr ""
 msgid "Response Information"
 msgstr ""
 
-#: ./browser/response.py:502
+#: ./browser/response.py:500
 msgid "Response does not exist anymore; perhaps it was removed by another user."
 msgstr ""
 
-#: ./browser/response.py:555
+#: ./browser/response.py:553
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr "Respuesta del ID ${response_id} no existe por lo que no se puede quitar."
 
@@ -530,11 +539,11 @@ msgstr "Respuesta del ID ${response_id} no existe por lo que no se puede quitar.
 msgid "Response id ${response_id} does not exist."
 msgstr "Respuesta del ID ${response_id} no existe."
 
-#: ./browser/response.py:583
+#: ./browser/response.py:581
 msgid "Response id ${response_id} has no attachment."
 msgstr "Respuesta del ID ${response_id} no tiene adjunto."
 
-#: ./browser/response.py:547
+#: ./browser/response.py:545
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr "Respuesta del ID ${response_id} no es entero por lo que no se puede quitar."
 
@@ -542,7 +551,7 @@ msgstr "Respuesta del ID ${response_id} no es entero por lo que no se puede quit
 msgid "Response id ${response_id} is no integer."
 msgstr "Respuesta del ID ${response_id} no es entero."
 
-#: ./browser/response.py:414
+#: ./browser/response.py:413
 msgid "Responsible manager"
 msgstr "Administrador responsable"
 
@@ -551,7 +560,7 @@ msgstr "Administrador responsable"
 msgid "Search"
 msgstr "Búsqueda"
 
-#: ./browser/response.py:413
+#: ./browser/response.py:412
 msgid "Severity"
 msgstr "Severidad"
 
@@ -569,7 +578,7 @@ msgstr ""
 msgid "Submit new issue"
 msgstr "Notificar nueva incidencia"
 
-#: ./browser/response.py:439
+#: ./browser/response.py:437
 msgid "Target release"
 msgstr "Destino de publicación"
 
@@ -593,11 +602,11 @@ msgstr "Seguir esta incidencia"
 msgid "Watch this tracker"
 msgstr ""
 
-#: ./browser/response.py:534
+#: ./browser/response.py:532
 msgid "You are not allowed to delete responses."
 msgstr "No está permitido eliminar las respuestas."
 
-#: ./browser/response.py:492
+#: ./browser/response.py:490
 msgid "You are not allowed to edit responses."
 msgstr "No está permitido editar las respuestas."
 
@@ -704,7 +713,7 @@ msgstr "Las respuestas no se pueden agregar."
 
 #. Default: "(Not assigned)"
 #: ./content/PoiIssue.py:507
-#: ./content/PoiTracker.py:432
+#: ./content/PoiTracker.py:430
 #: ./skins/Poi/poi_issue_search_form.pt:98
 msgid "not_assigned"
 msgstr "(No asignado)"
