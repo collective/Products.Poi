@@ -1,5 +1,5 @@
 <configure xmlns="http://namespaces.zope.org/zope"
-           i18n_domain="poi">
+           i18n_domain="Poi">
 
   <!-- Define permissions. See also permissions.py -->
 
