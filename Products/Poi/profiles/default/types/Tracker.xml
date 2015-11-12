@@ -16,7 +16,7 @@
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
-  <property name="schema">Products.Poi.interfaces.ITracker</property>
+  <property name="schema">Products.Poi.content.tracker.ITracker</property>
   <property name="klass">Products.Poi.content.tracker.Tracker</property>
 
   <property name="behaviors">
