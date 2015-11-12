@@ -1,24 +1,23 @@
 <?xml version="1.0"?>
-<object name="Issue" meta_type="Dexterity FTI"
+<object name="Tracker" meta_type="Dexterity FTI"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="Products.Poi">
 
   <!-- Basic metadata -->
-  <property name="title" i18n:translate="">Issue</property>
-  <property name="description" i18n:translate="">An Issue in a Poi Tracker</property>
-  <property name="icon_expr">string:${portal_url}/PoiIssue.gif</property>
-  <property name="factory">Products.Poi.content.issue.Issue</property>
-  <property name="global_allow">False</property>
+  <property name="title" i18n:translate="">Tracker</property>
+  <property name="description" i18n:translate="">A Poi Issue Tracker</property>
+  <property name="icon_expr">string:${portal_url}/PoiTracker.gif</property>
+  <property name="factory">Products.Poi.content.tracker.Tracker</property>
+  <property name="global_allow">True</property>
   <property name="filter_content_types">True</property>
   <property name="allowed_content_types">
-    <element name="Image" />
-    <element name="File" />
+    <element name="Issue" />
   </property>
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
-  <property name="schema">Products.Poi.interfaces.IIssue</property>
-  <property name="klass">Products.Poi.content.issue.Issue</property>
+  <property name="schema">Products.Poi.interfaces.ITracker</property>
+  <property name="klass">Products.Poi.content.tracker.Tracker</property>
 
   <property name="behaviors">
     <element value="plone.app.content.interfaces.INameFromTitle" />
@@ -27,7 +26,7 @@
   <!-- View information -->
   <property name="link_target"></property>
   <property name="immediate_view">view</property>
-  <property name="default_view">poi_issue_view</property>
+  <property name="default_view">poi_tracker_view</property>
   <property name="view_methods">
     <element value="view"/>
   </property>
@@ -49,4 +48,9 @@
       url_expr="string:${object_url}/edit" visible="True">
     <permission value="Modify portal content" />
   </action>
+  <action title="Folder Listing" action_id="folderlisting" category="folder"
+    condition_expr="object/isPrincipiaFolderish"
+    url_expr="string:${folder_url}/view" visible="False">
+  <permission value="View"/>
+ </action>
 </object>
