@@ -25,8 +25,10 @@ __docformat__ = 'plaintext'
 
 
 from Products.Poi import PoiMessageFactory as _
+from Products.Poi import permissions
 from plone.app.textfield import RichText
 from plone.autoform.directives import widget
+from plone.autoform.directives import write_permission
 from plone.supermodel import model
 from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
 from zope import schema
@@ -148,7 +150,7 @@ class ITracker(model.Schema):
         description=_(u'Users assigned to this issue'),
     )
 
-    # TODO permissions?
+    write_permission(watchers=permissions.ModifyIssueWatchers)
     watchers = schema.List(
         title=_(u'Poi_label_tracker_watchers'),
         description=_(

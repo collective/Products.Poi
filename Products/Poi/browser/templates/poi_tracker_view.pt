@@ -40,7 +40,8 @@
                   isManager isManager|python:member.has_role('Manager', context);
                   isAnon isAnon|context/@@plone_portal_state/anonymous;
                   portal_url context/@@plone_portal_state/portal_url;
-                  trackerUrl trackerUrl|here/absolute_url;">
+                  trackerUrl trackerUrl|here/absolute_url;
+                  logUrl string:$trackerUrl/log">
 
       <div id="issue-quicksearch-box">
          <form action="" tal:attributes="action string:${trackerUrl}/@@poi_issue_quicksearch">
@@ -51,6 +52,7 @@
          <a id="issue-search-link"
             tal:attributes="href string:${trackerUrl}/poi_issue_search_form?${request/QUERY_STRING}"
             i18n:translate="poi_issue_search">Advanced issue search</a>
+
       </div>
 
     <div class="formControls">
@@ -81,6 +83,13 @@
             </form>
           </td>
           <td>
+            <form action="showLogs" id="poi-show-log-form">
+              <div class="formControls">
+                <input name="gotoLog" type="searchButton" class="standalone" tal:attributes="href logUrl" value="Log"></input>
+              </div>
+            </form>
+          </td>
+          <td>
             <form
                 id="poi-login-form"
                 tal:condition="isAnon"
@@ -95,6 +104,7 @@
               </div>
             </form>
           </td>
+
           <metal:additional-slot define-slot="additional-header-actions">
             <td>
               <form action="@@toggle_watching"
