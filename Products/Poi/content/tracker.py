@@ -24,16 +24,19 @@ __author__ = """Rob McBroom <rob@sixfeetup.com>"""
 __docformat__ = 'plaintext'
 
 
+from zope.interface import implementer
+from zope import schema
+from zope.interface import Interface
+from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
+
 from Products.Poi import PoiMessageFactory as _
 from Products.Poi import permissions
 from plone.app.textfield import RichText
 from plone.autoform.directives import widget
 from plone.autoform.directives import write_permission
+from plone.dexterity.content import Container
 from plone.supermodel import model
 from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
-from zope import schema
-from zope.interface import Interface
-from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
 
 severities = SimpleVocabulary([
@@ -116,7 +119,7 @@ class ITracker(model.Schema):
         ),
     )
 
-    default_severity = schema.TextLine(
+    default_severity = schema.Choice(
         title=_(
             u'Poi_label_defaultSeverity',
             default=u"Default severity",
@@ -126,7 +129,7 @@ class ITracker(model.Schema):
             u'Poi_help_defaultSeverity',
             default=u"Select the default severity for new issues."
         ),
-        vocabulary=severities,
+        source=severities,
     )
 
     available_releases = schema.List(
@@ -180,7 +183,7 @@ class ITracker(model.Schema):
                 u"resolved, awaiting confirmation. Technicians will "
                 u"get an email when an issue is assigned to them.")
         ),
-    ),
+    )
 
     # TODO validation?
     mailing_list = schema.TextLine(
@@ -203,7 +206,7 @@ class ITracker(model.Schema):
 
     # TODO remove references to SVN from localizations
     repo_url = schema.TextLine(
-        label=_(u'Poi_label_svnurl',
+        title=_(u'Poi_label_svnurl',
                 default=u"URL to Repository"),
         description=_(
             u'Poi_help_svnurl',
@@ -214,3 +217,10 @@ class ITracker(model.Schema):
                 u"for products in the Plone collective.")
         ),
     )
+
+@implementer(IIssue)
+class Issue(Container):
+    """
+    An issue in the Poi Tracker
+    """
+

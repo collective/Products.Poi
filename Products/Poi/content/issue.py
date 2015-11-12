@@ -19,7 +19,7 @@ class IIssue(model.Schema):
         title=(u'Title'),
         description=_(u"Enter a short, descriptive title for the issue. "
                      u"A good title will make it easier for project "
-                     u"managers to identify and respond to the issue."),
+                     u"managers to identify and respond to the issue.")
     )
 
     release = schema.TextLine(
@@ -42,32 +42,32 @@ class IIssue(model.Schema):
     area = schema.Choice(
         title=_(u'Area'),
         description=_(u"Select the area this issue is relevant to."),
-        source=possibleAreas,
+        source=possibleAreas
     )
 
     issue_type = schema.Choice(
         title=_(u'Issue Type'),
         description=_(u"Select the type of issue."),
-        source=possibleIssueTypes,
+        source=possibleIssueTypes
     )
 
     severity = schema.Choice(
         title=_(u'Severity'),
         description=_(u"Select the severity of this issue."),
-        source=possibleSeverities,
+        source=possibleSeverities
     )
 
     target_release = schema.Choice(
         title=_(u'Target Release'),
         description=_(u"Release this issue is targetted to be fixed in"),
-        source=possibleTargetReleases,
+        source=possibleTargetReleases
     )
 
     assignee = schema.Choice(
         title=_(u'Assignee'),
         description=_(u"Select which person, if any, is assigned to"
                       u"this issue."),
-        source=possibleAssignees,
+        source=possibleAssignees
     )
 
     contact_email = schema.TextLine(
@@ -75,7 +75,7 @@ class IIssue(model.Schema):
         description=_(u"Please provide an email address where you can be "
                       u"contacted for further information or when a "
                       u"resolution is available. Note that your email "
-                      u"address will not be displayed to others."),
+                      u"address will not be displayed to others.")
     )
 
     watchers = schema.List(
