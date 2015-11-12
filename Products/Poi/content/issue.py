@@ -9,13 +9,15 @@ from plone.app.textfield import RichText
 from plone.dexterity.content import Container
 from plone.supermodel import model
 
+from Products.Poi import PoiMessageFactory as _
+
 
 class IIssue(model.Schema):
     """Marker interface for Poi issue"""
 
     title = schema.TextLine(
         title=(u'Title'),
-        description=(u"Enter a short, descriptive title for the issue. "
+        description=_(u"Enter a short, descriptive title for the issue. "
                      u"A good title will make it easier for project "
                      u"managers to identify and respond to the issue."),
     )

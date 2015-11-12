@@ -26,7 +26,7 @@ __docformat__ = 'plaintext'
 
 from Products.Poi import PoiMessageFactory as _
 from plone.app.textfield import RichText
-from plone.directives import form
+from plone.autoform.directives import widget
 from plone.supermodel import model
 from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
 from zope import schema
@@ -81,7 +81,7 @@ class ITracker(model.Schema):
         ),
     )
 
-    form.widget(available_areas=DataGridFieldFactory)
+    widget(available_areas=DataGridFieldFactory)
     available_areas = schema.List(
         title=_(u'Poi_label_availableAreas',
                 default=u"Areas"),
@@ -92,7 +92,7 @@ class ITracker(model.Schema):
         value_type=DictRow(title=_(u'Area'), schema=IBasicData),
     )
 
-    form.widget(available_issue_types=DataGridFieldFactory)
+    widget(available_issue_types=DataGridFieldFactory)
     available_issue_types = schema.List(
         title=_(u'Poi_label_availableIssueTypes',
                 default=u"Issue types"),
