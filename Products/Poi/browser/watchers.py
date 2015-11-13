@@ -17,4 +17,6 @@ class WatcherView(BrowserView):
     def is_watching(self):
         context = aq_inner(self.context)
         watchers = IWatcherList(context)
-        return watchers.isWatching()
+        if watchers:
+            return watchers.isWatching()
+        return False
