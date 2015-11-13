@@ -115,7 +115,7 @@ class IBasicData(Interface):
 
 class ITracker(model.Schema):
     title = schema.TextLine(
-        title=_(u'title'),
+        title=_(u'title', default=u'Title'),
         description=_(
             u'Poi_help_tracker_title',
             default=u"Enter a descriptive name for this tracker"
@@ -123,7 +123,7 @@ class ITracker(model.Schema):
     )
 
     description = RichText(
-        title=_(u'description'),
+        title=_(u'description', default=u'Description'),
         description=_(
             u'Poi_help_tracker_description',
             default=u"Describe the purpose of this tracker"
@@ -131,7 +131,7 @@ class ITracker(model.Schema):
     )
 
     help_text = RichText(
-        title=_(u'help_text'),
+        title=_(u'help_text', default=u'Help Text'),
         description=_(
             u'Poi_help_helpText',
             default=(u"Enter any introductory help text you'd like to "
