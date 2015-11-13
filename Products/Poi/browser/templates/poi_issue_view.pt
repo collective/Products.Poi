@@ -23,9 +23,7 @@
 
   <h1 class="documentFirstHeading">
     #<span tal:replace="context/getId" /> &#8212;
-    <metal:field use-macro="python:context.widget('title', mode='view')">
-      Body text
-    </metal:field>
+    <span tal:replace="context/title"/>
   </h1>
 </metal:title>
 <metal:description fill-slot="content-description">
@@ -41,7 +39,7 @@
                   template_id template/getId;
                   isAnon context/@@plone_portal_state/anonymous;
                   wftool here/portal_workflow;
-                  isManager python:member.getId() in here.getManagers();
+                  isManager isManager|python:member.has_role('Manager', context);
                   isSubmitter python:member.getId() == here.Creator();
                   pas_member context/@@pas_member;
                   basicOpenStates python:['open', 'in-progress'];
@@ -96,9 +94,9 @@
       <tr>
         <th i18n:translate="poi_label_severity">Severity</th>
         <td>
-          <a tal:condition="here/getSeverity"
-             tal:content="here/getSeverity"
-             tal:attributes="href string:${issueQueryString}&amp;severity=${here/getSeverity};" />
+          <a tal:condition="context/severity"
+             tal:content="context/severity"
+             tal:attributes="href string:${issueQueryString}&amp;severity=${context/severity};" />
         </td>
       </tr>
       <tr>
