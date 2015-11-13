@@ -124,7 +124,7 @@ class ITracker(model.Schema):
         ),
     )
 
-    description = RichText(
+    description = schema.Text(
         title=_(u'description', default=u'Description'),
         description=_(
             u'Poi_help_tracker_description',
