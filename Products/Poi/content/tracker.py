@@ -33,6 +33,7 @@ from zope.schema.vocabulary import SimpleVocabulary
 
 from Products.Poi import PoiMessageFactory as _
 from Products.Poi import permissions
+from plone import api
 from plone.app.textfield import RichText
 from plone.autoform.directives import widget
 from plone.autoform.directives import write_permission
@@ -284,3 +285,31 @@ class Tracker(Container):
     """
     An issue in the Poi Tracker
     """
+
+    def getTagsInUse(self):
+        """Get a list of the issue tags in use in this tracker."""
+        issues = api.content.find(portal_type='PoiIssue',
+                                  path='/'.join(self.getPhysicalPath()))
+        tags = {}
+        for i in issues:
+            for s in i.Subject:
+                tags[s] = 1
+        keys = tags.keys()
+        keys.sort(lambda x, y: cmp(x.lower(), y.lower()))
+        return keys
+
+    def getIssueWorkflowStates(self):
+        """Get a DisplayList of the workflow states available on issues."""
+        portal_workflow = api.portal.get_tool(name='portal_workflow')
+        chain = portal_workflow.getChainForPortalType('Issue')
+        workflow = getattr(portal_workflow, chain[0])
+        states = getattr(workflow, 'states')
+        vocab = []
+        for id, state in states.items():
+            vocab.append((id, state.title))
+        return vocab
+
+    def isUsingReleases(self):
+        """Return a boolean indicating whether this tracker is using releases.
+        """
+        return bool(self.available_releases)

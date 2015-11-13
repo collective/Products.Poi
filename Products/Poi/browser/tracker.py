@@ -1,8 +1,9 @@
 from Acquisition import aq_inner
-from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from Products.PythonScripts.standard import url_quote
 from ZTUtils import make_query
+
+from plone import api
 
 ACTIVE_STATES = ['open', 'in-progress', 'unconfirmed']
 
@@ -17,10 +18,8 @@ class IssueFolderView(BrowserView):
     def getFilteredIssues(self, criteria=None, **kwargs):
         """Get the contained issues in the given criteria.
         """
-        context = aq_inner(self.context)
         query = self.buildIssueSearchQuery(criteria, **kwargs)
-        catalog = getToolByName(context, 'portal_catalog')
-        return catalog.searchResults(query)
+        return api.content.find(**query)
 
     def getIssueSearchQueryString(self, criteria=None, **kwargs):
         """Return a query string for an issue query.
@@ -55,7 +54,7 @@ class IssueFolderView(BrowserView):
         }
 
         query = {}
-        query['path'] = '/'.join(context.getPhysicalPath())
+        query['context'] = context
         query['portal_type'] = [self.issue_portal_type]
 
         for k, v in allowedCriteria.items():
@@ -109,11 +108,8 @@ class IssueFolderView(BrowserView):
 
         If manager is True, add unconfirmed to the states.
         """
-        context = aq_inner(self.context)
         if not memberId:
-            mtool = getToolByName(context, 'portal_membership')
-            member = mtool.getAuthenticatedMember()
-            memberId = member.getId()
+            memberId = api.user.get_current()
 
         if manager:
             if 'unconfirmed' not in openStates:
@@ -122,10 +118,10 @@ class IssueFolderView(BrowserView):
         issues = []
 
         for i in self.getFilteredIssues(state=openStates):
-            responsible = i.getResponsibleManager
+            assignee = i.assignee
             creator = i.Creator
-            if memberId in (creator, responsible) or \
-                    (manager and responsible == '(UNASSIGNED)'):
+            if memberId in (creator, assignee) or \
+                    (manager and assignee == '(UNASSIGNED)'):
                 issues.append(i)
 
         return issues
@@ -137,18 +133,15 @@ class IssueFolderView(BrowserView):
         Meaning: all open issues not assigned to anyone and not owned
         by the given user.
         """
-        context = aq_inner(self.context)
         if not memberId:
-            mtool = getToolByName(context, 'portal_membership')
-            member = mtool.getAuthenticatedMember()
-            memberId = member.getId()
+            memberId = api.user.get_current()
 
         issues = []
 
         for i in self.getFilteredIssues(state=openStates):
-            responsible = i.getResponsibleManager
+            assignee = i.assignee
             creator = i.Creator
-            if creator != memberId and responsible == '(UNASSIGNED)':
+            if creator != memberId and assignee == '(UNASSIGNED)':
                 issues.append(i)
 
         return issues

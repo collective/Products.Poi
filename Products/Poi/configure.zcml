@@ -31,18 +31,6 @@
       />
 
   <subscriber
-      for="Products.Poi.content.tracker.ITracker
-           zope.lifecycleevent.interfaces.IObjectAddedEvent"
-        handler=".events.update_tracker_watchers"
-        />
-
-  <subscriber
-      for="Products.Poi.content.tracker.ITracker
-           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
-        handler=".events.update_tracker_watchers"
-        />
-
-  <subscriber
       for="Products.Poi.content.issue.IIssue
            zope.lifecycleevent.interfaces.IObjectModifiedEvent"
         handler=".events.post_issue"

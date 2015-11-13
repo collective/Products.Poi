@@ -25,8 +25,8 @@
                   activeStates issuefolder/getActiveStates;
                   issueQueryString python:'%s/poi_issue_search?state=%s' %
                   (trackerUrl, '&amp;state='.join(activeStates),);
-                  mq python:modules['ZTUtils'].make_query;
-                  isManager python:member.getId() in here.getManagers()">
+                  isManager isManager|python:member.has_role('Manager', context);
+                  mq python:modules['ZTUtils'].make_query;">
 
     <metal:trackerheader define-macro="trackerheader"
       tal:define="member context/@@plone_portal_state/member;
@@ -136,7 +136,7 @@
 	   </dd>
     </dl>
 
-    <div tal:content="structure here/getHelpText"/>
+    <div tal:content="structure context/help_text"/>
 
     <h2 i18n:translate="poi_heading_open_issues">Open issues</h2>
 
@@ -151,7 +151,7 @@
     <div id="open-issues-by-area" class="issue-quick-search-box">
       <h3 i18n:translate="poi_heading_by_area">By area</h3>
       <ul>
-        <tal:areas repeat="area here/getAvailableAreas">
+        <tal:areas repeat="area context/available_areas">
           <li tal:define="areaId          area/id;
                           areaTitle       area/title;
                           areaDescription area/description;
@@ -167,11 +167,11 @@
     <div id="open-issues-by-release" class="issue-quick-search-box"
          tal:condition="here/isUsingReleases">
       <h3 i18n:translate="poi_heading_by_release">By target release</h3>
-      <ul tal:define="releases here/getReleasesVocab;">
+      <ul tal:define="releases context/available_releases;">
         <tal:releases repeat="release releases">
           <li tal:define="issues python:issuefolder.getFilteredIssues(targetRelease=release, state=openStates)">
             <a tal:attributes="href string:${issueQueryString}&amp;targetRelease=${release}"
-               tal:content="python:releases.getValue(release)" /> (<span tal:replace="python:len(issues)" />)
+               tal:content="release" /> (<span tal:replace="python:len(issues)" />)
           </li>
         </tal:releases>
       </ul>
@@ -193,7 +193,7 @@
                                            class string:issue-${state}"
                            i18n:translate=""
                            i18n:domain="plone"
-                           tal:content="python:issueStates.getValue(state)" /> (<span tal:replace="python:len(issues)" />)
+                           tal:content="state" /> (<span tal:replace="python:len(issues)" />)
                       </li>
                   </tal:block>
               </tal:releases>
@@ -203,7 +203,7 @@
     <div class="visualClear"><!----></div>
 
     <div id="open-issues-by-tag" class="issue-quick-search-box"
-         tal:define="tags here/getTagsInUse"
+         tal:define="tags context/getTagsInUse"
          tal:condition="python:isManager and len(tags) > 0">
       <h3 i18n:translate="poi_heading_by_tag">By tag</h3>
       <div>

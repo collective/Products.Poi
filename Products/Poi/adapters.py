@@ -22,10 +22,10 @@ logger = logging.getLogger('Products.Poi.adapters')
 class IssueWatcherList(WatcherList):
 
     def __get_watchers(self):
-        return self.context.getWatchers()
+        return self.context.watchers
 
     def __set_watchers(self, v):
-        self.context.setWatchers(v)
+        self.context.watchers = v
 
     watchers = property(__get_watchers, __set_watchers)
 
@@ -53,10 +53,10 @@ class TrackerWatcherList(WatcherList):
     extra_addresses = property(__get_extra_addresses, __set_extra_addresses)
 
     def __get_watchers(self):
-        return self.context.getWatchers()
+        return self.context.watchers
 
     def __set_watchers(self, v):
-        self.context.setWatchers(v)
+        self.context.watchers = v
 
     watchers = property(__get_watchers, __set_watchers)
 
