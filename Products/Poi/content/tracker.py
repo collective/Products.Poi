@@ -171,6 +171,7 @@ class ITracker(model.Schema):
             default=(u"Enter the different type of issue severities "
                      u"that should be available, one per line.")
         ),
+        value_type=schema.TextLine(),
     )
 
     default_severity = schema.Choice(
@@ -199,6 +200,7 @@ class ITracker(model.Schema):
                 u"one per line. If no releases are entered, issues "
                 u"will not be organized by release.")
         ),
+        value_type=schema.TextLine(),
         required=False,
     )
 
@@ -206,6 +208,7 @@ class ITracker(model.Schema):
     assignees = schema.List(
         title=_(u'Poi_label_assignees', default=u'Assignees'),
         description=_(u'Users assigned to this issue'),
+        value_type=schema.TextLine(),
     )
 
     write_permission(watchers=permissions.ModifyIssueWatchers)
@@ -222,6 +225,7 @@ class ITracker(model.Schema):
                 u"tracker. Members can also add themselves as "
                 u"watchers.")
         ),
+        value_type=schema.TextLine(),
     )
 
     notification_emails = schema.Bool(
