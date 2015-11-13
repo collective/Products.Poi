@@ -188,12 +188,14 @@
              </li>
               <tal:releases repeat="state issueStates">
                   <tal:block condition="python:state not in ignoredStates">
-                      <li tal:define="issues python:issuefolder.getFilteredIssues(state=state)">
-                        <a tal:attributes="href string:${here/absolute_url}/poi_issue_search?state=${state};
-                                           class string:issue-${state}"
+                      <li tal:define="issues python:issuefolder.getFilteredIssues(state=state); 
+                                      state_id python:state[0];
+                                      state_text python:state[1]">
+                        <a tal:attributes="href string:${here/absolute_url}/poi_issue_search?state=${state_id};
+                                           class string:issue-${state_id}"
                            i18n:translate=""
                            i18n:domain="plone"
-                           tal:content="state" /> (<span tal:replace="python:len(issues)" />)
+                           tal:content="state_text" /> (<span tal:replace="python:len(issues)" />)
                       </li>
                   </tal:block>
               </tal:releases>
