@@ -33,6 +33,7 @@ from zope.schema.vocabulary import SimpleVocabulary
 
 from Products.Poi import PoiMessageFactory as _
 from Products.Poi import permissions
+from Products.Poi.utils import isEmail
 from plone.app.textfield import RichText
 from plone.autoform.directives import widget
 from plone.autoform.directives import write_permission
@@ -247,7 +248,6 @@ class ITracker(model.Schema):
         ),
     )
 
-    # TODO validation?
     mailing_list = schema.TextLine(
         title=_(
             u'Poi_label_mailingList',
@@ -264,6 +264,7 @@ class ITracker(model.Schema):
                 u"technician instead.")
         ),
         required=False,
+        constraint=isEmail,
     )
 
     repo_url = schema.TextLine(
