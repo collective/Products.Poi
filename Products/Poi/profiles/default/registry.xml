@@ -5,6 +5,7 @@
         <element>Tracker</element>
         <element>Issue</element>
     </default>
+    <value_type type="plone.registry.field.TextLine"/>
   </field>
 </record>
 </registry>
