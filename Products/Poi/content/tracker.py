@@ -214,7 +214,7 @@ class ITracker(model.Schema):
     write_permission(watchers=permissions.ModifyIssueWatchers)
     widget(watchers=TextLinesFieldWidget)
     watchers = schema.List(
-        title=_(u'Poi_label_tracker_watchers'),
+        title=_(u'Poi_label_tracker_watchers', default=u'Watchers'),
         description=_(
             u'Poi_help_tracker_watchers',
             default=(
