@@ -56,7 +56,10 @@ def possibleAreas(context):
     """
     Get the available areas as a Vocabulary.
     """
-    tracker = context.getTracker()
+    if ITracker.providedBy(context):
+        tracker = context
+    else:
+        tracker = context.getTracker()
     terms = [(tt.id, tt.title) for tt in tracker.available_areas]
     return SimpleVocabulary.fromItems(terms)
 
@@ -65,7 +68,10 @@ def possibleIssueTypes(context):
     """
     Get the available issue types as a Vocabulary.
     """
-    tracker = context.getTracker()
+    if ITracker.providedBy(context):
+        tracker = context
+    else:
+        tracker = context.getTracker()
     terms = [(tt.id, tt.title) for tt in tracker.available_issue_types]
     return SimpleVocabulary.fromItems(terms)
 
@@ -84,15 +90,23 @@ def possibleTargetReleases(context):
     """
     Get the available target release as a Vocabulary.
     """
-    tracker = context.getTracker()
-    return SimpleVocabulary.fromValues(tracker.available_releases)
+    if ITracker.providedBy(context):
+        tracker = context
+    else:
+        tracker = context.getTracker()
+    if tracker.available_releases:
+        return SimpleVocabulary.fromValues(tracker.available_releases)
+    return SimpleVocabulary([])
 
 
 def possibleAssignees(context):
     """
     Get the available assignees as a DispayList.
     """
-    tracker = context.getTracker()
+    if ITracker.providedBy(context):
+        tracker = context
+    else:
+        tracker = context.getTracker()
     return SimpleVocabulary.fromValues(tracker.assignees)
 
 directlyProvides(possibleAreas, IContextSourceBinder)

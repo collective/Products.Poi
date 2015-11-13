@@ -30,7 +30,8 @@ class IIssue(model.Schema):
 
     release = schema.TextLine(
         title=_(u'Release'),
-        description=_(u"Select the version the issue was found in.")
+        description=_(u"Select the version the issue was found in."),
+        required=False,
     )
 
     details = RichText(
@@ -66,7 +67,8 @@ class IIssue(model.Schema):
     target_release = schema.Choice(
         title=_(u'Target Release'),
         description=_(u"Release this issue is targetted to be fixed in"),
-        source=possibleTargetReleases
+        source=possibleTargetReleases,
+        required=False,
     )
 
     assignee = schema.Choice(
@@ -74,14 +76,6 @@ class IIssue(model.Schema):
         description=_(u"Select which person, if any, is assigned to"
                       u"this issue."),
         source=possibleAssignees
-    )
-
-    contact_email = schema.TextLine(
-        title=_(u'Contact Email'),
-        description=_(u"Please provide an email address where you can be "
-                      u"contacted for further information or when a "
-                      u"resolution is available. Note that your email "
-                      u"address will not be displayed to others.")
     )
 
     widget(watchers=TextLinesFieldWidget)
@@ -93,6 +87,8 @@ class IIssue(model.Schema):
                       u"receive an email when a response is added to the "
                       u"issue. Members can also add themselves as "
                       u"watchers."),
+        value_type=schema.TextLine(),
+        required=False,
     )
 
     widget(subject=TextLinesFieldWidget)
@@ -101,6 +97,8 @@ class IIssue(model.Schema):
         description=_(u"Tags can be used to add arbitrary categorisation to "
                       u"issues. The list below shows existing tags which "
                       u"you can select, or you can add new ones."),
+        value_type=schema.TextLine(),
+        required=False,
     )
 
 
