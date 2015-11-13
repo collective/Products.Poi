@@ -1,0 +1,10 @@
+<registry>
+<record name="plone.parent_types_not_to_query" interface="Products.CMFPlone.interfaces.controlpanel.INavigationSchema" field="parent_types_not_to_query">
+  <field type="plone.registry.field.List">
+    <default>
+        <element>Tracker</element>
+        <element>Issue</element>
+    </default>
+  </field>
+</record>
+</registry>

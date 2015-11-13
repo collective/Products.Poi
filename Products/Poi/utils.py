@@ -71,3 +71,7 @@ def linkSvn(text, svnUrl, patterns):
             pos += len(link)
 
     return text
+
+def isEmail(value):
+    expr = re.compile(r"^(\w&.%#$&'\*+-/=?^_`{}|~]+!)*[\w&.%#$&'\*+-/=?^_`{}|~]+@(([0-9a-z]([0-9a-z-]*[0-9a-z])?\.)+[a-z]{2,6}|([0-9]{1,3}\.){3}[0-9]{1,3})$", re.IGNORECASE)
+    return bool(expr.match(value))

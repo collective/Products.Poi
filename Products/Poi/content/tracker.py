@@ -34,6 +34,7 @@ from zope.schema.vocabulary import SimpleVocabulary
 from Products.Poi import PoiMessageFactory as _
 from Products.Poi import permissions
 from plone import api
+from Products.Poi.utils import isEmail
 from plone.app.textfield import RichText
 from plone.autoform.directives import widget
 from plone.autoform.directives import write_permission
@@ -116,7 +117,7 @@ class IBasicData(Interface):
 
 class ITracker(model.Schema):
     title = schema.TextLine(
-        title=_(u'title'),
+        title=_(u'title', default=u'Title'),
         description=_(
             u'Poi_help_tracker_title',
             default=u"Enter a descriptive name for this tracker"
@@ -124,7 +125,7 @@ class ITracker(model.Schema):
     )
 
     description = RichText(
-        title=_(u'description'),
+        title=_(u'description', default=u'Description'),
         description=_(
             u'Poi_help_tracker_description',
             default=u"Describe the purpose of this tracker"
@@ -132,7 +133,7 @@ class ITracker(model.Schema):
     )
 
     help_text = RichText(
-        title=_(u'help_text'),
+        title=_(u'help_text', default=u'Help Text'),
         description=_(
             u'Poi_help_helpText',
             default=(u"Enter any introductory help text you'd like to "
@@ -208,14 +209,15 @@ class ITracker(model.Schema):
     widget(assignees=TextLinesFieldWidget)
     assignees = schema.List(
         title=_(u'Poi_label_assignees', default=u'Assignees'),
-        description=_(u'Users assigned to this issue'),
+        description=_(u'A list of users, one per line, that '
+                      u'issues can be assigned to'),
         value_type=schema.TextLine(),
     )
 
     write_permission(watchers=permissions.ModifyIssueWatchers)
     widget(watchers=TextLinesFieldWidget)
     watchers = schema.List(
-        title=_(u'Poi_label_tracker_watchers'),
+        title=_(u'Poi_label_tracker_watchers', default=u'Watchers'),
         description=_(
             u'Poi_help_tracker_watchers',
             default=(
@@ -227,6 +229,7 @@ class ITracker(model.Schema):
                 u"watchers.")
         ),
         value_type=schema.TextLine(),
+        required=False,
     )
 
     notification_emails = schema.Bool(
@@ -246,7 +249,6 @@ class ITracker(model.Schema):
         ),
     )
 
-    # TODO validation?
     mailing_list = schema.TextLine(
         title=_(
             u'Poi_label_mailingList',
@@ -263,6 +265,7 @@ class ITracker(model.Schema):
                 u"technician instead.")
         ),
         required=False,
+        constraint=isEmail,
     )
 
     repo_url = schema.TextLine(
