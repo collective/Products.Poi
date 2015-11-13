@@ -61,10 +61,9 @@
             <form action="createObject"
                   id="poi-submit-new-issue-form"
                   tal:condition="python: user.has_permission('Poi: Add Issue', here)"
-                  tal:attributes="action string:${trackerUrl}/createObject">
-              <input name="type_name"
-                     type="hidden"
-                     value="PoiIssue"
+                  tal:attributes="action string:${trackerUrl}/++add++Issue">
+              <input type="hidden"
+                     value="Issue"
                      />
               <div class="formControls">
                 <input class="context"
