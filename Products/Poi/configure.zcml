@@ -5,8 +5,6 @@
     i18n_domain="poi">
 
   <include package=".browser" />
-  <include package="Products.AddRemoveWidget" />
-  <include package="Products.DataGridField" />
   <include file="permissions.zcml" />
   <include file="profiles.zcml" />
 
@@ -72,18 +70,14 @@
       for="Products.Poi.interfaces.IIssue"
       />
 
-  <!-- Avoid deprecation warnings for manage_afterAdd and friends. -->
-  <five:deprecatedManageAddDelete
-      class=".content.PoiTracker.PoiTracker" />
-  <five:deprecatedManageAddDelete
-      class=".content.PoiIssue.PoiIssue" />
-
   <!-- Allow assigning portlets to trackers and issues. -->
+  <!--
   <class class=".content.PoiTracker.PoiTracker">
     <implements interface="plone.portlets.interfaces.ILocalPortletAssignable"/>
   </class>
   <class class=".content.PoiIssue.PoiIssue">
     <implements interface="plone.portlets.interfaces.ILocalPortletAssignable"/>
   </class>
+  -->
 
 </configure>

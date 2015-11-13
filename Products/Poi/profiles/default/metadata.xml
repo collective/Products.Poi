@@ -2,7 +2,6 @@
 <metadata>
   <version>2007</version>
   <dependencies>
-    <dependency>profile-Products.AddRemoveWidget:default</dependency>
-    <dependency>profile-Products.DataGridField:default</dependency>
+    <dependency>profile-collective.z3cform.datagridfield:default</dependency>
   </dependencies>
 </metadata>
