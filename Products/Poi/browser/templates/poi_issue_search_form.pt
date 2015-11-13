@@ -136,15 +136,16 @@
                     size="5"
                     multiple="multiple"
                     name="area:list"
-                    tal:define="areas python:here.getWrappedField('availableAreas').getAsDisplayList(here)">
+                    tal:define="areas python:context.available_areas">
               <option tal:repeat="item areas"
-                      tal:attributes="value nocall:item;
-                                      selected python:item in request.get('area', []) and 'selected' or None"
-                      tal:content="python:areas.getValue(item)" />
+                      tal:attributes="value item/short_name;
+                                      selected python:item.get('short_name') in request.get('area', []) and 'selected' or None"
+                      tal:content="item/title" />
             </select>
 
           </div>
 
+          <!--
           <div class="field">
 
             <label for="issueType" i18n:translate="poi_search_label_issue_type">Issue type</label>
@@ -178,7 +179,7 @@
                     size="5"
                     multiple="multiple"
                     name="severity:list"
-                    tal:define="severities here/getAvailableSeverities">
+                    tal:define="severities context/getAvailableSeverities">
               <option tal:repeat="item severities"
                       tal:attributes="value item;
                                       selected python:item in request.get('severity', []) and 'selected' or None"
@@ -199,17 +200,21 @@
                     size="5"
                     multiple="multiple"
                     name="state:list"
-                    tal:define="states here/getIssueWorkflowStates">
+                    tal:define="states context/getIssueWorkflowStates">
               <option tal:repeat="item states"
+                      tal:define="item_id python:item[0];
+                                  item_text python:item[1]"
                       tal:attributes="value item;
                                       selected python:item in request.get('state', []) and 'selected' or None"
                       i18n:translate=""
                       i18n:domain="plone"
-                      tal:content="python:states.getValue(item)" />
-            </select>
+                      tal:content="item_text" />
+            </select
 
           </div>
 
+         --!>
+          <!--
           <div class="field">
 
             <label for="responsible" i18n:translate="poi_search_label_responsible">Responsible tracker managers</label>
@@ -232,6 +237,7 @@
 
           </div>
 
+          --!>
           <div class="field">
 
             <label for="tags" i18n:translate="poi_search_label_tags">Tags</label>
@@ -246,7 +252,7 @@
                     size="5"
                     multiple="multiple"
                     name="tags.query:record:list"
-                    tal:define="tags here/getTagsInUse">
+                    tal:define="tags context/getTagsInUse">
               <option tal:repeat="item tags"
                       tal:attributes="value item;
                                       selected python:item in request.get('tags.query', []) and 'selected' or None"

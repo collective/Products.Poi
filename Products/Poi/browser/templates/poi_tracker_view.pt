@@ -151,7 +151,7 @@
       <h3 i18n:translate="poi_heading_by_area">By area</h3>
       <ul>
         <tal:areas repeat="area context/available_areas">
-          <li tal:define="areaId          area/id;
+          <li tal:define="areaId          area/short_name;
                           areaTitle       area/title;
                           areaDescription area/description;
                           issues          python:issuefolder.getFilteredIssues(area=areaId, state=openStates)">
