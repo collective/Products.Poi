@@ -207,7 +207,7 @@ class ITracker(model.Schema):
     widget(assignees=TextLinesFieldWidget)
     assignees = schema.List(
         title=_(u'Poi_label_assignees', default=u'Assignees'),
-        description=_(u'A list of users, one-per-line, that '
+        description=_(u'A list of users, one per line, that '
                       u'issues can be assigned to'),
         value_type=schema.TextLine(),
     )
