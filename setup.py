@@ -43,6 +43,7 @@ setup(name='Products.Poi',
           'Products.CMFPlone>=4.3',
           'collective.watcherlist>=0.2',
           'collective.z3cform.datagridfield>=1.1',
+          'plone.app.registry>=1.3.6',
       ],
       extras_require={
           'test': [
