@@ -22,7 +22,7 @@ logger = logging.getLogger('Products.Poi.adapters')
 class IssueWatcherList(WatcherList):
 
     def __get_watchers(self):
-        return self.context.watchers
+        return self.context.watchers or []
 
     def __set_watchers(self, v):
         self.context.watchers = v
