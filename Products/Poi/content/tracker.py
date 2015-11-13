@@ -226,6 +226,7 @@ class ITracker(model.Schema):
                 u"watchers.")
         ),
         value_type=schema.TextLine(),
+        required=False,
     )
 
     notification_emails = schema.Bool(
