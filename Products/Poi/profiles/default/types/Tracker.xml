@@ -11,7 +11,7 @@
   <property name="global_allow">True</property>
   <property name="filter_content_types">True</property>
   <property name="allowed_content_types">
-    <element name="Issue" />
+    <element value="Issue"/>
   </property>
   <property name="allow_discussion">False</property>
 
