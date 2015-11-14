@@ -77,7 +77,9 @@
           <td>
             <form action="showLogs" id="poi-show-log-form">
               <div class="formControls">
-                <input name="gotoLog" type="searchButton" class="standalone" tal:attributes="href logUrl" value="Log"></input>
+                <input name="gotoLog" type="searchButton" class="standalone"
+                       value="View Issue Logs"
+                       tal:attributes="href logUrl"></input>
               </div>
             </form>
           </td>
@@ -87,12 +89,13 @@
                 tal:condition="isAnon"
                 tal:attributes="action string:${portal_url}/login_form?came_from=${here/absolute_url}">
               <div class="formControls">
-                <input class="context"
-                       type="submit"
-                       value="Log in"
-                       i18n:domain="plone"
-                       i18n:attributes="value label_log_in;"
-                       />
+                  <a class="context pat-plone-modal" id="poi-login-form" href="#"
+                     data-pat-plone-modal='{"prependContent": ".portalMessage", "title": "Log in", "width": "26em"}'
+                     tal:attributes="href string:${portal_url}/login"
+                     i18n:domain="plone"
+                     i18n:attributes="value label_log_in;">
+                     Log In
+                  </a>
               </div>
             </form>
           </td>
