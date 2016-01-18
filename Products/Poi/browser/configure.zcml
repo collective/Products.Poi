@@ -144,7 +144,7 @@
 
   <browser:page
      name="poi_tracker_view"
-     for="Products.Poi.interfaces.ITracker"
+     for="*"
      permission="zope2.View"
      template="templates/poi_tracker_view.pt"
      />

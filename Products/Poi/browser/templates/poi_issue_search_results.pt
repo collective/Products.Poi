@@ -19,14 +19,14 @@
   <metal:block define-slot="intro-text" />
 
    <table class="listing issue-search-results"
-       tal:define="states here/getIssueWorkflowStates;
+       tal:define="states context/getIssueWorkflowStates;
                   activeStates issuefolder/getActiveStates;
-                  trackerUrl here/absolute_url;
+                  trackerUrl context/absolute_url;
                   issueQueryString python:'%s/poi_issue_search?state=%s' %
                     (trackerUrl, '&amp;state='.join(activeStates),);
                   pas_member context/@@pas_member;
                   can_edit python:checkPermission('Modify portal content', here);
-                  releases here/getReleasesVocab;"
+                  releases context/getReleasesVocab;"
        tal:condition="nocall:issues">
        <thead>
       <tr>

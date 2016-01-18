@@ -18,7 +18,7 @@
 
     <tal:c condition="python:not ajax_load">
       <metal:header
-      use-macro="here/poi_tracker_view/macros/trackerheader"></metal:header>
+      use-macro="context/@@poi_tracker_view/macros/trackerheader"></metal:header>
     </tal:c>
 
   <h1 class="documentFirstHeading">
@@ -62,7 +62,7 @@
              ></a>
         </td>
       </tr>
-      <tr tal:condition="here/isUsingReleases">
+      <tr tal:condition="context/isUsingReleases">
         <th i18n:translate="poi_label_version">Version:</th>
         <td tal:define="release here/getRelease">
           <a tal:condition="python:release != '(UNASSIGNED)'"
