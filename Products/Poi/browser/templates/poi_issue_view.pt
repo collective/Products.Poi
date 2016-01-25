@@ -76,18 +76,18 @@
       <tr>
         <th i18n:translate="poi_label_area">Area</th>
         <td>
-          <a tal:define="issueArea python:here.aq_parent.queryDataGrid('availableAreas', 'lookup', [here.getArea(), 'title'])"
+            <a tal:define="issueArea context/area"
              tal:content="issueArea"
-             tal:attributes="href string:${issueQueryString}&area=${here/getArea}"
+             tal:attributes="href string:${issueQueryString}&area=${issueArea}"
               />
         </td>
       </tr>
       <tr>
         <th i18n:translate="poi_label_type">Issue type</th>
         <td>
-          <a tal:define="issueType python:here.aq_parent.queryDataGrid('availableIssueTypes', 'lookup', [here.getIssueType(), 'title'])"
+            <a tal:define="issueType context/issue_type"
              tal:content="issueType"
-             tal:attributes="href string:${issueQueryString}&issueType=${here/getIssueType}"
+             tal:attributes="href string:${issueQueryString}&issueType=${issueType}"
               />
         </td>
       </tr>
@@ -112,13 +112,8 @@
       </tr>
       <tr>
         <th i18n:translate="poi_label_responsible">Responsible</th>
-        <td tal:define="responsibleManager here/getResponsibleManager">
-           <a tal:condition="python:responsibleManager != '(UNASSIGNED)'"
-              tal:define="manager python:pas_member.info(responsibleManager)"
-              tal:attributes="href string:${issueQueryString}&amp;responsible=${responsibleManager};"
-              tal:content="manager/name_or_id" />
-            <div class="unassigned" tal:condition="python:responsibleManager == '(UNASSIGNED)'"
-                 >&#8212;</div>
+        <td tal:define="issueAssignee context/assignee">
+           <a tal:condition="python:issueAssignee != '(UNASSIGNED)'" tal:content="issueAssignee" />
         </td>
       </tr>
       <tr tal:condition="here/isUsingReleases">
@@ -181,17 +176,12 @@
                />
       </div>
     </form>
-    <div class="issue-details" tal:content="structure here/getTaggedDetails" />
+    <div class="issue-details" tal:content="structure context/details/output" />
 
-    <dl class="steps-to-reproduce" tal:define="steps here/getTaggedSteps" tal:condition="nocall:steps">
+    <dl class="steps-to-reproduce" tal:define="steps context/steps/output" tal:condition="nocall:steps">
       <dt i18n:translate="poi_label_steps">Steps to reproduce:</dt>
       <dd tal:content="structure steps" />
     </dl>
-
-    <div class="issue-attachment" tal:condition="python:here.getAttachment().get_size() &gt; 0">
-      <div class="issue-attachment-label" i18n:translate="poi_label_attachment">Attached:</div>
-      <metal:attachment use-macro="python:here.widget('attachment')"/>
-    </div>
 
     <div class="formControls">
       <form action="edit"
@@ -207,9 +197,6 @@
 
     <div class="visualClear"><!----></div>
 
-    <div tal:replace="structure provider:poi.response.add" />
-
-    <div class="visualClear"><!----></div>
   </metal:content-core>
 </metal:content-core>
 </body>
