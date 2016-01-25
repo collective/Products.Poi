@@ -336,7 +336,4 @@ class Tracker(Container):
         Get the releases available to the tracker as a DisplayList.
         """
         items = possibleTargetReleases(self)
-        vocab = []
-        for item in items:
-            vocab.add((item, item))
-        return vocab
+        return SimpleVocabulary(items)
