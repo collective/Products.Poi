@@ -64,11 +64,11 @@
       </tr>
       <tr tal:condition="context/isUsingReleases">
         <th i18n:translate="poi_label_version">Version:</th>
-        <td tal:define="release here/getRelease">
-          <a tal:condition="python:release != '(UNASSIGNED)'"
-             tal:content="python:releases.getValue(release)"
+        <td tal:define="release context/release">
+          <a tal:condition="python:release is not None"
+             tal:content="python:release"
              tal:attributes="href string:${issueQueryString}&amp;release=${release};" />
-          <div tal:condition="python:release == '(UNASSIGNED)'" class="unassigned-field">
+          <div tal:condition="python:release is None" class="unassigned-field">
             &#8212;
           </div>
         </td>
