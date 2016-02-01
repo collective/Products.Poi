@@ -30,7 +30,7 @@ def add_contact_to_issue_watchers(object, event=None):
         return
     logger.info('Adding contact %s to watchers of issue %r.', value, object)
     watchers.append(value)
-    object.setWatchers(tuple(watchers))
+    object.watchers = watchers
 
 
 def add_manager_to_issue_watchers(object, event=None):
@@ -63,7 +63,7 @@ def add_manager_to_issue_watchers(object, event=None):
         return
     logger.info('Adding manager %s to watchers of issue %r.', manager, object)
     watchers.append(manager)
-    object.setWatchers(tuple(watchers))
+    object.watchers = watchers
 
 
 def merge_response_changes_to_issue(issue):

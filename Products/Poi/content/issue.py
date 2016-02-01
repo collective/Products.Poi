@@ -2,6 +2,7 @@
 from zope.interface import implementer
 from zope import schema
 
+from plone import api
 from plone.app.textfield import RichText
 from plone.autoform.directives import widget
 from plone.dexterity.content import Container
@@ -16,6 +17,8 @@ from .tracker import possibleIssueTypes
 from .tracker import possibleSeverities
 from .tracker import possibleTargetReleases
 from .tracker import possibleAssignees
+
+from Products.Poi.utils import isEmail
 
 
 class IIssue(model.Schema):
@@ -121,3 +124,14 @@ class Issue(Container):
         raise Exception(
             "Could not find PoiTracker in acquisition chain of %r" %
             self)
+
+    def getContactEmail(self):
+        return api.user.get(self.assignee).getProperty('email')
+
+    def getWatchers(self):
+        watchers = []
+        for watcher in self.watchers:
+            if not isEmail(watcher):
+                watcher = api.user.get(watcher).getProperty('email')
+            watchers.append(watcher)
+        return watchers
