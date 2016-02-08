@@ -130,8 +130,21 @@ class Issue(Container):
 
     def getWatchers(self):
         watchers = []
-        for watcher in self.watchers:
-            if not isEmail(watcher):
-                watcher = api.user.get(watcher).getProperty('email')
-            watchers.append(watcher)
+        if self.watchers:
+            for watcher in self.watchers:
+                if not isEmail(watcher):
+                    watcher = api.user.get(watcher).getProperty('email')
+                watchers.append(watcher)
         return watchers
+
+    def isValid(self):
+
+        """Check if the response is valid.
+
+        Meaning: a response has been filled in.
+        """
+        errors = schema.getValidationErrors(IIssue, self)
+        if errors:
+            return False
+        else:
+            return True
