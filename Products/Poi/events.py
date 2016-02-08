@@ -33,8 +33,8 @@ def add_contact_to_issue_watchers(object, event=None):
     object.watchers = watchers
 
 
-def add_manager_to_issue_watchers(object, event=None):
-    """Add manager to issue watchers.
+def add_assignee_to_issue_watchers(object, event=None):
+    """Add assignee to issue watchers.
 
     Add the responsible manager (can be TrackerManager or Technician)
     of the issue to the watchers.
@@ -55,14 +55,15 @@ def add_manager_to_issue_watchers(object, event=None):
       will be added as watcher.
 
     """
-    manager = object.getResponsibleManager()
-    if not manager or manager == '(UNASSIGNED)':
+    assignee = object.assignee
+    if not assignee or assignee == '(UNASSIGNED)':
         return
+    assignee_email = object.getContactEmail()
     watchers = list(object.getWatchers())
-    if manager in watchers:
+    if assignee_email in watchers:
         return
-    logger.info('Adding manager %s to watchers of issue %r.', manager, object)
-    watchers.append(manager)
+    logger.info('Adding assignee %s to watchers of issue %r.', assignee, object)
+    watchers.append(assignee)
     object.watchers = watchers
 
 
@@ -77,7 +78,7 @@ def merge_response_changes_to_issue(issue):
     - The responsible manager may have changed, so the watchers field
       may need to be updated.
     """
-    add_manager_to_issue_watchers(issue, event=None)
+    add_assignee_to_issue_watchers(issue, event=None)
     issue.reindexObject(idxs=['SearchableText'])
     issue.notifyModified()
 
@@ -98,7 +99,7 @@ def post_issue(object, event):
     if portal_membership.isAnonymousUser():
         object.setCreators(('(anonymous)',))
     add_contact_to_issue_watchers(object, event)
-    add_manager_to_issue_watchers(object, event)
+    add_assignee_to_issue_watchers(object, event)
     portal_workflow = getToolByName(object, 'portal_workflow')
     portal_workflow.doActionFor(object, 'post')
 
