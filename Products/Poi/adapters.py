@@ -33,10 +33,10 @@ class IssueWatcherList(WatcherList):
 class TrackerWatcherList(WatcherList):
 
     def __get_send_emails(self):
-        return self.context.getSendNotificationEmails()
+        return self.context.notification_emails
 
     def __set_send_emails(self, v):
-        self.context.setSendNotificationEmails(v)
+        self.context.notification_emails = v
 
     send_emails = property(__get_send_emails, __set_send_emails)
 
