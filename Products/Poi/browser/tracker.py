@@ -10,7 +10,7 @@ ACTIVE_STATES = ['open', 'in-progress', 'unconfirmed']
 
 class IssueFolderView(BrowserView):
 
-    issue_portal_type = 'PoiIssue'
+    issue_portal_type = 'Issue'
 
     def getActiveStates(self):
         return ACTIVE_STATES
