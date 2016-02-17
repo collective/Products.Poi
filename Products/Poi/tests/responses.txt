@@ -24,7 +24,7 @@ So some tests are in order.  First we make a response::
 That is everything we need to know about a response really, so our
 basis is fine this way.
 
-One thing that a PoiIssue does is being a container for responses.  We
+One thing that a Issue does is being a container for responses.  We
 can factor that out into an adapter.  We use annotations to do that,
 so we need to load some zcml so Zope knows how to annotate an
 AttributeAnnotatable object::
@@ -41,7 +41,7 @@ AttributeAnnotatable object::
     >>> from zope.annotation.interfaces import IAttributeAnnotatable
 
 Now we make a mock issue (just to show that we do not need a full
-blown PoiIssue) and turn it into a response container::
+blown Issue) and turn it into a response container::
 
     >>> from Products.Poi.adapters import ResponseContainer
     >>> from zope.interface import implements
@@ -103,15 +103,15 @@ Browser views
 
 We have a browser view that takes care of showing the responses and
 adding a response.  To properly test that, we really need a normal
-PoiIssue within a PoiTracker.  To have this work we also need to load
+Issue within a Tracker.  To have this work we also need to load
 a bit of zcml::
 
     >>> import Products.Archetypes.Schema
     >>> zcml.load_config('configure.zcml', Products.Archetypes.Schema)
-    >>> from Products.Poi.content.PoiTracker import PoiTracker
-    >>> from Products.Poi.content.PoiIssue import PoiIssue
-    >>> tracker = PoiTracker("issues")
-    >>> tracker.issue = PoiIssue("one")
+    >>> from Products.Poi.content.tracker import Tracker
+    >>> from Products.Poi.content.issue import Issue
+    >>> tracker = Tracker("issues")
+    >>> tracker.issue = Issue("one")
     >>> issue = tracker.issue
 
 We get some very basic Plone functionality going here.  At least we
@@ -168,7 +168,7 @@ We need to have an adapter for our issues::
     >>> provideAdapter(ResponseContainer, adapts=(IIssue,),
     ...                provides=IResponseContainer)
     >>> from zope.interface import classImplements
-    >>> classImplements(PoiIssue, IAttributeAnnotatable)
+    >>> classImplements(Issue, IAttributeAnnotatable)
 
 And for Plone 3.1 we need an IWorkflowChain adapter::
 

@@ -32,7 +32,7 @@ We create a tracker::
 
     >>> url = self.portal.absolute_url()
     >>> browser.open(url)
-    >>> browser.open(url + '/createObject?type_name=PoiTracker')
+    >>> browser.open(url + '/createObject?type_name=Tracker')
     >>> browser.getControl(name='title').value = 'Issues'
     >>> try:
     ...     button = browser.getControl(name='form.button.save')
@@ -44,7 +44,7 @@ We create a tracker::
 Now we create an issue::
 
     >>> url = tracker.absolute_url()
-    >>> browser.open(url + '/createObject?type_name=PoiIssue')
+    >>> browser.open(url + '/createObject?type_name=Issue')
     >>> browser.getControl(name='title').value = 'Something is wrong.'
     >>> browser.getControl(name='details').value = '#1 is a big issue.'
     >>> browser.getControl(name='area').value = ('ui',)

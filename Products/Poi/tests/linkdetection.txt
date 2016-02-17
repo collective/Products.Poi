@@ -1,9 +1,9 @@
 Link Detection
 ==============
 
-Some fields of PoiIssues and responses can have text like #42 to
+Some fields of Issues and responses can have text like #42 to
 point to an issue and r1000 to point to a revision or changeset.  This
-is governed by settings in the PoiTracker.
+is governed by settings in the Tracker.
 
 The linkDetection method was split up into several methods.  These
 will be tested here.  See the testTracker.TestLinkDetection class for

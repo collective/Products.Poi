@@ -14,8 +14,8 @@ class TestInstallation(ptc.PoiTestCase):
         self.transforms = self.portal.portal_transforms
         self.form_controller = self.portal.portal_form_controller
 
-        self.poiTypes = {'PoiTracker': 'poi_tracker_workflow',
-                         'PoiIssue': 'poi_issue_workflow'}
+        self.poiTypes = {'Tracker': 'poi_tracker_workflow',
+                         'Issue': 'poi_issue_workflow'}
 
     def testDataGridFieldInstalled(self):
         self.failUnless('DataGridWidget' in self.skins.objectIds())
@@ -46,7 +46,7 @@ class TestInstallation(ptc.PoiTestCase):
 
     def testParentMetaTypesNotToQuery(self):
         p = self.properties.navtree_properties
-        for t in ('PoiTracker', 'PoiIssue'):
+        for t in ('Tracker', 'Issue'):
             self.failUnless(t in p.getProperty('parentMetaTypesNotToQuery'))
 
     def testReinstall(self):
