@@ -126,7 +126,7 @@ class Issue(Container):
             self)
 
     def getContactEmail(self):
-        return api.user.get(self.assignee).getProperty('email')
+        return api.user.get(self.Creator()).getProperty('email')
 
     def getWatchers(self):
         watchers = []
