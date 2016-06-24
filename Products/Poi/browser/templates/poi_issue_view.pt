@@ -118,9 +118,9 @@
       </tr>
       <tr tal:condition="here/isUsingReleases">
         <th i18n:translate="poi_label_target_release">Target release:</th>
-        <td tal:define="release here/getTargetRelease">
+        <td tal:define="release here/target_release">
           <a tal:condition="python:release != '(UNASSIGNED)'"
-             tal:content="python:releases.getValue(release)"
+             tal:content="python:release"
              tal:attributes="href string:${issueQueryString}&targetRelease=${release}"
               />
           <div tal:condition="python:release == '(UNASSIGNED)'" class="unassigned-field">
