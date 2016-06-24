@@ -30,13 +30,13 @@
 
   <subscriber
       for="Products.Poi.content.issue.IIssue
-           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+           zope.lifecycleevent.IObjectAddedEvent"
         handler=".events.post_issue"
         />
 
   <subscriber
       for="Products.Poi.content.issue.IIssue
-           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+           zope.lifecycleevent.IObjectAddedEvent"
         handler=".events.add_contact_to_issue_watchers"
         />
 
