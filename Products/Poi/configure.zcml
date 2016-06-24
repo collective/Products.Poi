@@ -35,12 +35,6 @@
         />
 
   <subscriber
-      for="Products.Poi.content.issue.IIssue
-           zope.lifecycleevent.IObjectAddedEvent"
-        handler=".events.add_contact_to_issue_watchers"
-        />
-
-  <subscriber
       for="Products.Poi.interfaces.IIssue
            Products.DCWorkflow.interfaces.IAfterTransitionEvent"
         handler=".events.mail_issue_change"
