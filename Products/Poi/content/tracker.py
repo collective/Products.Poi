@@ -163,6 +163,18 @@ class ITracker(model.Schema):
             u'Poi_help_availableAreas',
             default="Enter the issue topics/areas for this tracker."
         ),
+        default=[
+            {'short_name': 'ui',
+             'title': 'User interface',
+             'description': 'User interface issues'},
+            {'short_name': 'functionality',
+             'title': 'Functionality',
+             'description': 'Issues with the basic functionality'},
+            {'short_name': 'process',
+             'title': 'Process',
+             'description':
+             'Issues relating to the development process itself'},
+        ],
         value_type=DictRow(title=_(u'Area'), schema=IBasicData),
     )
 
@@ -174,6 +186,17 @@ class ITracker(model.Schema):
             u'Poi_help_availableIssueTypes',
             default=u"Enter the issue types for this tracker."
         ),
+        default=[
+            {'short_name': 'bug',
+             'title': 'Bug',
+             'description': 'Functionality bugs in the software'},
+            {'short_name': 'feature',
+             'title': 'Feature',
+             'description': 'Suggested features'},
+            {'short_name': 'patch',
+             'title': 'Patch',
+             'description': 'Patches to the software'},
+        ],
         value_type=DictRow(title=_(u'Issue Type'), schema=IBasicData),
     )
 
