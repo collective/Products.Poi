@@ -31,6 +31,12 @@
   <subscriber
       for="Products.Poi.content.issue.IIssue
            zope.lifecycleevent.IObjectAddedEvent"
+        handler=".events.assign_id"
+        />
+
+  <subscriber
+      for="Products.Poi.content.issue.IIssue
+           zope.lifecycleevent.IObjectAddedEvent"
         handler=".events.post_issue"
         />
 

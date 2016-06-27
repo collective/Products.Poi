@@ -3,6 +3,7 @@ import logging
 from Products.CMFCore.utils import getToolByName
 from collective.watcherlist.interfaces import IWatcherList
 from collective.watcherlist.utils import get_member_email
+from plone import api
 
 from Products.Poi.interfaces import IIssue
 
@@ -81,6 +82,17 @@ def merge_response_changes_to_issue(issue):
     add_assignee_to_issue_watchers(issue, event=None)
     issue.reindexObject(idxs=['SearchableText'])
     issue.notifyModified()
+
+
+def assign_id(new_issue, event):
+    """Auto-increment ID numbers"""
+    issue_id = 1
+    issues = api.content.find(object_provides=IIssue)
+    existing_ids = [int(issue.id) for issue in issues if issue.id.isdigit()]
+    if len(existing_ids):
+        issue_id = max(existing_ids) + 1
+    issue_id = str(issue_id)
+    api.content.rename(obj=new_issue, new_id=issue_id)
 
 
 def post_issue(object, event):
