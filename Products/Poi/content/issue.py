@@ -11,6 +11,7 @@ from plone.z3cform.textlines import TextLinesFieldWidget
 
 from Acquisition import aq_chain
 from Products.Poi import PoiMessageFactory as _
+from .tracker import default_severity
 from .tracker import ITracker
 from .tracker import possibleAreas
 from .tracker import possibleIssueTypes
@@ -64,6 +65,7 @@ class IIssue(model.Schema):
     severity = schema.Choice(
         title=_(u'Severity'),
         description=_(u"Select the severity of this issue."),
+        defaultFactory=default_severity,
         source=possibleSeverities
     )
 

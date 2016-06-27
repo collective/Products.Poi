@@ -28,6 +28,8 @@ from zope.interface import implementer
 from zope import schema
 from zope.interface import Interface
 from zope.interface import directlyProvides
+from zope.interface import provider
+from zope.schema.interfaces import IContextAwareDefaultFactory
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary
 
@@ -74,6 +76,17 @@ def possibleIssueTypes(context):
         tracker = context.getTracker()
     terms = [(tt.get('title'), tt.get('short_name')) for tt in tracker.available_issue_types]
     return SimpleVocabulary.fromItems(terms)
+
+
+@provider(IContextAwareDefaultFactory)
+def default_severity(context):
+    """
+    Get the default severity.
+    """
+    if hasattr(context, 'default_severity'):
+        tracker = context
+        return tracker.default_severity
+    return DEFAULT_SEVERITIES[0]
 
 
 def possibleSeverities(context):
