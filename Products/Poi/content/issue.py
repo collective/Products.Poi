@@ -124,7 +124,7 @@ class Issue(Container):
             if ITracker.providedBy(parent):
                 return parent
         raise Exception(
-            "Could not find PoiTracker in acquisition chain of %r" %
+            "Could not find Tracker in acquisition chain of %r" %
             self)
 
     def getContactEmail(self):
