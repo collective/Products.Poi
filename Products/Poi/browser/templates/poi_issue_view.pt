@@ -184,15 +184,9 @@
     </dl>
 
     <div class="formControls">
-      <form action="edit"
-            class="editIssue"
-            tal:condition="python: user.has_permission('Modify portal content', here)">
-        <input class="context"
-               type="submit"
-               i18n:attributes="value"
-               value="Edit issue"
-               />
-      </form>
+      <a href="${context/absolute_url}/edit"
+            class="context"
+            tal:condition="python: user.has_permission('Modify portal content', here)">Edit issue</a>
     </div>
 
     <div class="visualClear"><!----></div>
