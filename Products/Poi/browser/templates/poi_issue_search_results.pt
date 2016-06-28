@@ -43,50 +43,51 @@
       </tr>
     </thead>
        <tbody>
-           <tal:issues repeat="item issues">
-               <tr>
+           <tal:issues repeat="raw_item issues">
+               <tr tal:define="item python:raw_item.getObject()">
                    <td tal:content="item/getId">
                    </td>
                    <td>
-                       <a tal:attributes="href  item/getURL;
+                       <a tal:attributes="href  raw_item/getURL;
                                           title item/Description;"
                           tal:content="item/Title" />
                    </td>
                    <td tal:condition="here/isUsingReleases"
-                       tal:define="release item/getTargetRelease">
+                       tal:define="release item/target_release"
+                    >
                        <a tal:define="releases here/getReleasesVocab"
                           tal:attributes="href string:${issueQueryString}&amp;targetRelease=${release};"
-                          tal:content="python:releases.getValue(release)" />
-                       <div tal:condition="python:item.getTargetRelease == '(UNASSIGNED)'"
+                          tal:content="python:release if release else ''" />
+                       <div tal:condition="python:item.target_release == '(UNASSIGNED)'"
 		                    style="text-align:center">&#8212;</div>
                    </td>
-                   <td><a tal:content="python:here.getWrappedField('availableAreas').lookup(here, item.getArea, 'title')"
-                          tal:attributes="href string:${issueQueryString}&amp;area=${item/getArea};"
-                          tal:on-error="item/getArea"/>
+                   <td><a tal:content="python:item.area"
+                          tal:attributes="href string:${issueQueryString}&amp;area=${item/area};"
+                          tal:on-error="item/area"/>
                    </td>
 
-                   <td><a tal:content="python:here.getWrappedField('availableIssueTypes').lookup(here, item.getIssueType, 'title')"
-                          tal:attributes="href string:${issueQueryString}&amp;issueType=${item/getIssueType};"
-                          tal:on-error="item/getIssueType" />
+                   <td><a tal:content="python:item.issue_type"
+                          tal:attributes="href string:${issueQueryString}&amp;issueType=${item/issue_type};"
+                          tal:on-error="item/issue_type" />
                    </td>
 		           <td>
-			         <a tal:condition="item/getSeverity"
-			            tal:content="item/getSeverity"
-			            tal:attributes="href string:${issueQueryString}&amp;severity=${item/getSeverity};" />
+			         <a tal:condition="item/severity"
+			            tal:content="item/severity"
+			            tal:attributes="href string:${issueQueryString}&amp;severity=${item/severity};" />
 			       </td>
                    <td>
-                      <a tal:condition="python:item.getResponsibleManager != '(UNASSIGNED)'"
-                         tal:define="manager python:pas_member.info(item.getResponsibleManager)"
-                         tal:attributes="href string:${issueQueryString}&amp;responsible=${item/getResponsibleManager};"
+                      <a tal:condition="python:item.assignee != '(UNASSIGNED)'"
+                         tal:define="manager python:pas_member.info(item.assignee)"
+                         tal:attributes="href string:${issueQueryString}&amp;responsible=${item/assignee};"
                          tal:content="manager/name_or_id" />
-                       <div tal:condition="python:item.getResponsibleManager == '(UNASSIGNED)'"
+                       <div tal:condition="python:item.assignee == '(UNASSIGNED)'"
                             style="text-align:center">&#8212;</div>
                    </td>
-                   <td tal:content="python:', '.join(item.Subject)" />
-                   <td>
-                       <a tal:content="python:states.getValue(item.review_state)"
-                          tal:attributes="href string:${here/absolute_url}/poi_issue_search?state=${item/review_state};
-                                          class string:issue-${item/review_state}"
+                   <td tal:content="python:', '.join(item.subject) if item.subject else ''" />
+                   <td tal:define="review_state python:item.getReviewState()">
+                       <a tal:content="python:review_state['title']"
+                          tal:attributes="href string:${here/absolute_url}/poi_issue_search?state=${review_state/state};
+                                          class string:issue-${review_state/state}"
                           i18n:translate="" i18n:domain="plone" />
                    </td>
                </tr>

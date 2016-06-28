@@ -139,6 +139,16 @@ class Issue(Container):
                 watchers.append(watcher)
         return watchers
 
+    def getReviewState(self):
+        """get the current workflow state of the issue"""
+        wftool = api.portal.get_tool('portal_workflow')
+        state = wftool.getInfoFor(self, 'review_state')
+        title = wftool.getTitleForStateOnType(state, self.portal_type)
+        return {
+            'state': state,
+            'title': title,
+        }
+
     def isValid(self):
 
         """Check if the response is valid.
