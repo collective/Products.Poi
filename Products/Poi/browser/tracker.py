@@ -40,14 +40,14 @@ class IssueFolderView(BrowserView):
             criteria = dict(criteria)
 
         allowedCriteria = {
-            'release': 'getRelease',
-            'area': 'getArea',
-            'issueType': 'getIssueType',
-            'severity': 'getSeverity',
-            'targetRelease': 'getTargetRelease',
+            'release': 'release',
+            'area': 'area',
+            'issueType': 'issue_type',
+            'severity': 'severity',
+            'targetRelease': 'target_release',
             'state': 'review_state',
-            'tags': 'Subject',
-            'responsible': 'getResponsibleManager',
+            'tags': 'subject',
+            'responsible': 'assignee',
             'creator': 'Creator',
             'text': 'SearchableText',
             'id': 'getId',
@@ -73,8 +73,8 @@ class IssueFolderView(BrowserView):
         # poi_issue_search_form, instead of say from a test, its type
         # is not 'dict', but 'instance', even though it looks like a
         # dict.  See http://plone.org/products/poi/issues/137
-        if 'Subject' in query:
-            subject = query['Subject']
+        if 'subject' in query:
+            subject = query['subject']
             # We cannot use "subject.has_key('operator')" or
             # "'operator' in subject'" because of the strange
             # instance.
