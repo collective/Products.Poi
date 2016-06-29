@@ -9,8 +9,8 @@ def add_catalog_indexes(site, logger):
     """
     catalog = getToolByName(site, 'portal_catalog')
     indexes = catalog.indexes()
-    wanted = ("getRelease", "getArea", "getIssueType", "getSeverity",
-              "getTargetRelease", "getResponsibleManager")
+    wanted = ("release", "area", "issue_type", "severity",
+              "target_release", "assignee")
 
     missing = [w for w in wanted if w not in indexes]
     if missing:

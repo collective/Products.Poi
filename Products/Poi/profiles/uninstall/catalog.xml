@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <object name="portal_catalog" meta_type="Plone Catalog Tool">
-  <column value="getRelease" remove="True" />
-  <column value="getArea" remove="True" />
-  <column value="getIssueType" remove="True" />
-  <column value="getSeverity" remove="True" />
-  <column value="getTargetRelease" remove="True" />
-  <column value="getResponsibleManager" remove="True" />
-  <index name="getRelease" remove="True" />
-  <index name="getArea" remove="True" />
-  <index name="getIssueType" remove="True" />
-  <index name="getSeverity" remove="True" />
-  <index name="getTargetRelease" remove="True" />
-  <index name="getResponsibleManager" remove="True" />
+  <column value="release" remove="True" />
+  <column value="area" remove="True" />
+  <column value="issue_type" remove="True" />
+  <column value="severity" remove="True" />
+  <column value="target_release" remove="True" />
+  <column value="assignee" remove="True" />
+  <index name="release" remove="True" />
+  <index name="area" remove="True" />
+  <index name="issue_type" remove="True" />
+  <index name="severity" remove="True" />
+  <index name="target_release" remove="True" />
+  <index name="assignee" remove="True" />
 </object>
