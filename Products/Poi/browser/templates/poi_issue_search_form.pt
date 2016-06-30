@@ -213,7 +213,7 @@
 
           </div>
 
-         --!>
+         -->
           <!--
           <div class="field">
 
@@ -237,7 +237,7 @@
 
           </div>
 
-          --!>
+          -->
           <div class="field">
 
             <label for="tags" i18n:translate="poi_search_label_tags">Tags</label>
