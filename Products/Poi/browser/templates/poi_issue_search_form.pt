@@ -95,8 +95,8 @@
                       value="(UNASSIGNED)">(Not assigned)</option>
               <option tal:repeat="item releases"
                       tal:attributes="value item;
-                                      selected python:item in request.get('release', []) and 'selected' or None"
-                      tal:content="python:releases.getValue(item)" />
+                                      selected python:item.value in request.get('release', []) and 'selected' or None"
+                      tal:content="item/value" />
             </select>
 
           </div>
@@ -118,8 +118,8 @@
                       value="(UNASSIGNED)">(Not assigned)</option>
               <option tal:repeat="item releases"
                       tal:attributes="value item;
-                                      selected python:item in request.get('targetRelease', []) and 'selected' or None"
-                      tal:content="python:releases.getValue(item)" />
+                                      selected python:item.value in request.get('targetRelease', []) and 'selected' or None"
+                      tal:content="item/value" />
             </select>
 
           </div>
