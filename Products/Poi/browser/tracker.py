@@ -90,7 +90,7 @@ class IssueFolderView(BrowserView):
                 try:
                     subject['query']
                 except KeyError:
-                    del query['Subject']
+                    del query['subject']
 
         query['sort_on'] = criteria.get('sort_on', 'created')
         query['sort_order'] = criteria.get('sort_order', 'reverse')
