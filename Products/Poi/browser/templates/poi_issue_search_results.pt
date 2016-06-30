@@ -21,6 +21,7 @@
    <table class="listing issue-search-results"
        tal:define="states context/getIssueWorkflowStates;
                   activeStates issuefolder/getActiveStates;
+                  addTokenToUrl python:context.addTokenToUrl;
                   trackerUrl context/absolute_url;
                   issueQueryString python:'%s/poi_issue_search?state=%s' %
                     (trackerUrl, '&amp;state='.join(activeStates),);
@@ -56,29 +57,29 @@
                        tal:define="release item/target_release"
                     >
                        <a tal:define="releases here/getReleasesVocab"
-                          tal:attributes="href string:${issueQueryString}&amp;targetRelease=${release};"
+                          tal:attributes="href python:addTokenToUrl('%s&amp;targetRelease=%s' % (issueQueryString, release))"
                           tal:content="python:release if release else ''" />
                        <div tal:condition="python:item.target_release == '(UNASSIGNED)'"
 		                    style="text-align:center">&#8212;</div>
                    </td>
                    <td><a tal:content="python:item.area"
-                          tal:attributes="href string:${issueQueryString}&amp;area=${item/area};"
+                          tal:attributes="href python:addTokenToUrl('%s&amp;area=%s' % (issueQueryString, item.area))"
                           tal:on-error="item/area"/>
                    </td>
 
                    <td><a tal:content="python:item.issue_type"
-                          tal:attributes="href string:${issueQueryString}&amp;issueType=${item/issue_type};"
+                          tal:attributes="href python:addTokenToUrl('%s&amp;issueType=%s' % (issueQueryString, item.issue_type))"
                           tal:on-error="item/issue_type" />
                    </td>
 		           <td>
 			         <a tal:condition="item/severity"
 			            tal:content="item/severity"
-			            tal:attributes="href string:${issueQueryString}&amp;severity=${item/severity};" />
+			            tal:attributes="href python:addTokenToUrl('%s&amp;severity=%s' % (issueQueryString, item.severity))" />
 			       </td>
                    <td>
                       <a tal:condition="python:item.assignee != '(UNASSIGNED)'"
                          tal:define="manager python:pas_member.info(item.assignee)"
-                         tal:attributes="href string:${issueQueryString}&amp;responsible=${item/assignee};"
+                         tal:attributes="href python:addTokenToUrl('%s&amp;responsible=%s' % (issueQueryString, item.assignee))"
                          tal:content="manager/name_or_id" />
                        <div tal:condition="python:item.assignee == '(UNASSIGNED)'"
                             style="text-align:center">&#8212;</div>
@@ -86,7 +87,7 @@
                    <td tal:content="python:', '.join(item.subject) if item.subject else ''" />
                    <td tal:define="review_state python:item.getReviewState()">
                        <a tal:content="python:review_state['title']"
-                          tal:attributes="href string:${here/absolute_url}/poi_issue_search?state=${review_state/state};
+                          tal:attributes="href python:addTokenToUrl('%s/poi_issue_search?state=%s' % (trackerUrl, review_state['state']));
                                           class string:issue-${review_state/state}"
                           i18n:translate="" i18n:domain="plone" />
                    </td>

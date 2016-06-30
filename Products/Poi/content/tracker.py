@@ -41,6 +41,7 @@ from plone.app.textfield import RichText
 from plone.autoform.directives import widget
 from plone.autoform.directives import write_permission
 from plone.dexterity.content import Container
+from plone.protect.utils import addTokenToUrl
 from plone.supermodel import model
 from plone.z3cform.textlines import TextLinesFieldWidget
 from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
@@ -373,3 +374,6 @@ class Tracker(Container):
         """
         items = possibleTargetReleases(self)
         return SimpleVocabulary(items)
+
+    def addTokenToUrl(self, original_url):
+        return addTokenToUrl(original_url)

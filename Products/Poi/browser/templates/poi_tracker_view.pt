@@ -14,6 +14,7 @@
       tal:define="member context/@@plone_portal_state/member;
                   isAnon context/@@plone_portal_state/anonymous;
                   trackerUrl here/absolute_url;
+                  addTokenToUrl python:here.addTokenToUrl;
                   is_editable context/@@plone_context_state/is_editable;
                   portal context/@@plone_portal_state/portal;
                   wtool context/portal_workflow;
@@ -158,7 +159,7 @@
                           areaTitle       area/title;
                           areaDescription area/description;
                           issues          python:issuefolder.getFilteredIssues(area=areaId, state=openStates)">
-            <a tal:attributes="href string:${issueQueryString}&amp;area=${areaId};
+            <a tal:attributes="href python:addTokenToUrl('%s&amp;area=%s' % (issueQueryString, areaId));
                                title areaDescription"
                tal:content="areaTitle" /> (<span tal:replace="python:len(issues)" />)
           </li>
@@ -172,7 +173,7 @@
       <ul tal:define="releases context/available_releases;">
         <tal:releases repeat="release releases">
           <li tal:define="issues python:issuefolder.getFilteredIssues(targetRelease=release, state=openStates)">
-            <a tal:attributes="href string:${issueQueryString}&amp;targetRelease=${release}"
+            <a tal:attributes="href python:addTokenToUrl('%s&amp;targetRelease=%s' % (issueQueryString, release))"
                tal:content="release" /> (<span tal:replace="python:len(issues)" />)
           </li>
         </tal:releases>
@@ -185,7 +186,7 @@
           <ul>
              <li tal:define="issues python:issuefolder.getFilteredIssues(state=openStates)">
                  <a class="issue-unconfirmed"
-                    tal:attributes="href string:${issueQueryString}"
+                    tal:attributes="href python:addTokenToUrl(issueQueryString)"
                     i18n:translate="poi_all_pending_issues">All pending issues</a> (<span tal:replace="python:len(issues)" />)
              </li>
               <tal:releases repeat="state issueStates">
@@ -193,7 +194,7 @@
                       <li tal:define="issues python:issuefolder.getFilteredIssues(state=state); 
                                       state_id python:state[0];
                                       state_text python:state[1]">
-                        <a tal:attributes="href string:${here/absolute_url}/poi_issue_search?state=${state_id};
+                        <a tal:attributes="href python:addTokenToUrl('%s/poi_issue_search?state=%s' % (trackerUrl, state_id));
                                            class string:issue-${state_id}"
                            i18n:translate=""
                            i18n:domain="plone"
