@@ -44,6 +44,7 @@ setup(name='Products.Poi',
           'collective.watcherlist>=0.2',
           'collective.z3cform.datagridfield>=1.1',
           'plone.app.registry>=1.3.6',
+          'plone.app.referenceablebehavior',
       ],
       extras_require={
           'test': [

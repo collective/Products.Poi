@@ -3,5 +3,6 @@
   <version>2007</version>
   <dependencies>
     <dependency>profile-collective.z3cform.datagridfield:default</dependency>
+    <dependency>profile-plone.app.referenceablebehavior:default</dependency>
   </dependencies>
 </metadata>
