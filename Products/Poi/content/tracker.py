@@ -63,7 +63,10 @@ def possibleAreas(context):
         tracker = context
     else:
         tracker = context.getTracker()
-    terms = [(tt.get('title'), tt.get('short_name')) for tt in tracker.available_areas]
+    terms = [
+        (tt.get('title'), tt.get('short_name'))
+        for tt in tracker.available_areas
+    ]
     return SimpleVocabulary.fromItems(terms)
 
 
@@ -75,7 +78,10 @@ def possibleIssueTypes(context):
         tracker = context
     else:
         tracker = context.getTracker()
-    terms = [(tt.get('title'), tt.get('short_name')) for tt in tracker.available_issue_types]
+    terms = [
+        (tt.get('title'), tt.get('short_name'))
+        for tt in tracker.available_issue_types
+    ]
     return SimpleVocabulary.fromItems(terms)
 
 

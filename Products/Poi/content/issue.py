@@ -28,8 +28,8 @@ class IIssue(model.Schema):
     title = schema.TextLine(
         title=(u'Title'),
         description=_(u"Enter a short, descriptive title for the issue. "
-                     u"A good title will make it easier for project "
-                     u"managers to identify and respond to the issue.")
+                      u"A good title will make it easier for project "
+                      u"managers to identify and respond to the issue.")
     )
 
     release = schema.TextLine(
