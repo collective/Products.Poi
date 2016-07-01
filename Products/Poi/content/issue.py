@@ -6,6 +6,7 @@ from plone import api
 from plone.app.textfield import RichText
 from plone.autoform.directives import widget
 from plone.dexterity.content import Container
+from plone.schema import email
 from plone.supermodel import model
 from plone.z3cform.textlines import TextLinesFieldWidget
 
@@ -81,6 +82,15 @@ class IIssue(model.Schema):
         description=_(u"Select which person, if any, is assigned to"
                       u"this issue."),
         source=possibleAssignees
+    )
+
+    contact_email = email.Email(
+        title=_(u'Contact Email'),
+        description=_(u"Please provide an email address where you can be "
+                      u"contacted for further information or when a "
+                      u"resolution is available. Note that your email "
+                      u"address will not be displayed to others."),
+        required=False,
     )
 
     widget(watchers=TextLinesFieldWidget)
