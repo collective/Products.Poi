@@ -61,8 +61,10 @@ def possibleAreas(context):
     """
     if ITracker.providedBy(context):
         tracker = context
-    else:
+    elif hasattr(context, 'getTracker'):
         tracker = context.getTracker()
+    else:
+        return SimpleVocabulary.fromValues([])
     terms = [
         (tt.get('title'), tt.get('short_name'))
         for tt in tracker.available_areas
@@ -76,8 +78,10 @@ def possibleIssueTypes(context):
     """
     if ITracker.providedBy(context):
         tracker = context
-    else:
+    elif hasattr(context, 'getTracker'):
         tracker = context.getTracker()
+    else:
+        return SimpleVocabulary.fromValues([])
     terms = [
         (tt.get('title'), tt.get('short_name'))
         for tt in tracker.available_issue_types
@@ -112,8 +116,10 @@ def possibleTargetReleases(context):
     """
     if ITracker.providedBy(context):
         tracker = context
-    else:
+    elif hasattr(context, 'getTracker'):
         tracker = context.getTracker()
+    else:
+        return SimpleVocabulary.fromValues([])
     if tracker.available_releases:
         return SimpleVocabulary.fromValues(tracker.available_releases)
     return SimpleVocabulary([])
@@ -125,8 +131,10 @@ def possibleAssignees(context):
     """
     if ITracker.providedBy(context):
         tracker = context
-    else:
+    elif hasattr(context, 'getTracker'):
         tracker = context.getTracker()
+    else:
+        return SimpleVocabulary.fromValues([])
     return SimpleVocabulary.fromValues(tracker.assignees)
 
 directlyProvides(possibleAreas, IContextSourceBinder)
