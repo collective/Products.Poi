@@ -103,7 +103,7 @@
 
           <metal:additional-slot define-slot="additional-header-actions">
             <td>
-              <form action="@@toggle_watching"
+              <form action="${context/absolute_url}/@@toggle_watching"
                     id="poi-watch-tracker-form"
                     tal:condition="python:not isAnon">
                 <div class="formControls"
