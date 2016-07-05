@@ -7,6 +7,7 @@ from plone.app.textfield import RichText
 from plone.autoform.directives import widget
 from plone.dexterity.content import Container
 from plone.schema import email
+from plone.namedfile.field import NamedBlobFile
 from plone.supermodel import model
 from plone.z3cform.textlines import TextLinesFieldWidget
 
@@ -49,6 +50,12 @@ class IIssue(model.Schema):
         description=_(u"If applicable, please provide the steps to "
                       u"reproduce the error or identify the issue, one per "
                       u"line.")
+    )
+
+    attachment = NamedBlobFile(
+        title=_(u'Attachment'),
+        description=_(u"You may optionally upload a file attachment. Please "
+                      u"do not upload unnecessarily large files.")
     )
 
     area = schema.Choice(
