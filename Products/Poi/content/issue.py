@@ -130,7 +130,13 @@ class Issue(Container):
         that is being created is not the tracker, but a temporary
         folder.
         """
-        for parent in aq_chain(self):
+        chain = aq_chain(self)
+        if len(chain) == 1:
+            # unwrapped object - hope that there's only one tracker in the site
+            trackers = api.content.find(portal_type='Tracker')
+            if len(trackers) == 1:
+                return trackers[0].getObject()
+        for parent in chain:
             if ITracker.providedBy(parent):
                 return parent
         raise Exception(
