@@ -104,10 +104,13 @@ def possibleSeverities(context):
     """
     Get the available severities as a Vocabulary.
     """
-    if hasattr(context, 'getTracker'):
+    if ITracker.providedBy(context):
+        tracker = context
+    elif hasattr(context, 'getTracker'):
         tracker = context.getTracker()
-        return SimpleVocabulary.fromValues(tracker.available_severities)
-    return SimpleVocabulary.fromValues(DEFAULT_SEVERITIES)
+    else:
+        return SimpleVocabulary.fromValues(DEFAULT_SEVERITIES)
+    return SimpleVocabulary.fromValues(tracker.available_severities)
 
 
 def possibleTargetReleases(context):
