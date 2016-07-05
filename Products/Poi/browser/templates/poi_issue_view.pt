@@ -183,6 +183,12 @@
       <dd tal:content="structure steps" />
     </dl>
 
+    <dl class="attachment" tal:define="file_attachment context/attachment" tal:condition="file_attachment">
+      <dt i18n:translate="poi_label_attachment">Attachment:</dt>
+      <dd><a tal:attributes="href string:${context/absolute_url}/@@download/attachment"
+             tal:content="file_attachment/filename" /></dd>
+    </dl>
+
     <div class="formControls">
       <a href="${context/absolute_url}/edit"
             class="context"
