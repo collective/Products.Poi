@@ -102,6 +102,8 @@
             <td>
               <form action="${context/absolute_url}/@@toggle_watching"
                     id="poi-watch-tracker-form"
+                    tal:define="type context/portal_type;
+                                type_text python:type == 'Issue' and 'issue' or 'tracker'"
                     tal:condition="python:not isAnon">
                 <div class="formControls"
                      tal:define="is_watching context/@@toggle_watching/is_watching;">
@@ -109,13 +111,13 @@
                          class="standalone"
                          type="submit"
                          i18n:attributes="value"
-                         value="Stop watching this tracker"
+                         tal:attributes="value string:Stop watching this ${type_text}"
                          />
                   <input tal:condition="not:is_watching"
                          class="context"
                          type="submit"
                          i18n:attributes="value"
-                         value="Watch this tracker"
+                         tal:attributes="value string:Watch this ${type_text}"
                          />
                 </div>
               </form>
