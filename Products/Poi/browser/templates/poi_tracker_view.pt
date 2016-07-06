@@ -76,13 +76,10 @@
             </form>
           </td>
           <td>
-            <form action="showLogs" id="poi-show-log-form">
-              <div class="formControls">
-                <input name="gotoLog" type="searchButton" class="standalone"
-                       value="View Issue Logs"
-                       tal:attributes="href logUrl"></input>
-              </div>
-            </form>
+            <div class="formControls">
+              <a href="#" class="standalone" id="poi-show-log-form"
+                 tal:attributes="href string:${trackerUrl}/log">View Issue Logs</a>
+            </div>
           </td>
           <td>
             <form

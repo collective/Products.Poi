@@ -38,7 +38,7 @@
                i18n:name="name" />:
           </dt>
           <dd>
-            <p tal:content="structure entry/text" />
+            <p tal:content="structure entry/text/output" />
 
             <p class="discreet">
 
