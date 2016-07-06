@@ -196,6 +196,10 @@
     </div>
 
     <div class="visualClear"><!----></div>
+    
+    <div tal:replace="structure provider:poi.response.add" />
+    
+    <div class="visualClear"><!----></div>
 
   </metal:content-core>
 </metal:content-core>

@@ -28,6 +28,8 @@ from Products.Poi.adapters import IResponseContainer
 from Products.Poi.adapters import Response
 from Products.Poi.browser.interfaces import IResponseAdder
 from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
+from Products.Poi.content.tracker import possibleSeverities
+from Products.Poi.content.tracker import possibleTargetReleases
 
 logger = logging.getLogger('Poi')
 
@@ -91,7 +93,7 @@ class Base(BrowserView):
         context = aq_inner(self.context)
         trans = context.portal_transforms
         items = []
-        linkDetection = context.linkDetection
+        #linkDetection = context.linkDetection
         for id, response in enumerate(self.folder):
             if response is None:
                 # Has been removed.
@@ -115,7 +117,7 @@ class Base(BrowserView):
                         html = html.getData()
                 if rendering_success:
                     # Detect links like #1 and r1234
-                    html = linkDetection(html)
+                    # html = linkDetection(html)
                     response.rendered_text = html
 
             html = response.rendered_text or u''
@@ -226,12 +228,12 @@ class Base(BrowserView):
     @property
     def severity(self):
         context = aq_inner(self.context)
-        return context.getSeverity()
+        return context.severity
 
     @property
     def targetRelease(self):
         context = aq_inner(self.context)
-        return context.getTargetRelease()
+        return context.target_release
 
     @property
     def responsibleManager(self):
@@ -284,7 +286,7 @@ class Base(BrowserView):
         if not self.memship.checkPermission(
                 permissions.ModifyIssueSeverity, context):
             return []
-        return context.getAvailableSeverities()
+        return possibleSeverities(self)
 
     @property
     def releases_for_display(self):
@@ -294,8 +296,12 @@ class Base(BrowserView):
         PloneSoftwareCenter.
         """
         vocab = self.available_releases
-        current = self.targetRelease
-        return voc2dict(vocab, current)
+        options = []
+        for value in vocab:
+            checked = (value == self.targetRelease) and "checked" or ""
+            options.append(dict(value=value, label=value,
+                                checked=checked))
+        return options
 
     @property
     @memoize
@@ -310,7 +316,7 @@ class Base(BrowserView):
         if not self.memship.checkPermission(
                 permissions.ModifyIssueTargetRelease, context):
             return DisplayList()
-        return context.getReleasesVocab()
+        return possibleTargetReleases(self)
 
     @property
     def show_target_releases(self):
