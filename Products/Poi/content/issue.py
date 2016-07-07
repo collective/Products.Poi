@@ -21,8 +21,6 @@ from .tracker import possibleSeverities
 from .tracker import possibleTargetReleases
 from .tracker import possibleAssignees
 
-from Products.Poi.utils import isEmail
-
 
 class IIssue(model.Schema):
     """Marker interface for Poi issue"""
@@ -153,17 +151,6 @@ class Issue(Container):
 
     def getContactEmail(self):
         return api.user.get(self.Creator()).getProperty('email')
-
-    def getWatchers(self):
-        watchers = []
-        if self.watchers:
-            for watcher in self.watchers:
-                if not watcher:
-                    continue
-                if not isEmail(watcher):
-                    watcher = api.user.get(watcher).getProperty('email')
-                watchers.append(watcher)
-        return watchers
 
     def getReviewState(self):
         """get the current workflow state of the issue"""

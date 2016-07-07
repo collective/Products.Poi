@@ -26,7 +26,7 @@ def add_contact_to_issue_watchers(object, event=None):
         portal_membership = getToolByName(object, 'portal_membership')
         member = portal_membership.getAuthenticatedMember()
         value = member.getId()
-    watchers = list(object.getWatchers())
+    watchers = object.watchers
     if value in watchers:
         return
     logger.info('Adding contact %s to watchers of issue %r.', value, object)
@@ -60,7 +60,7 @@ def add_assignee_to_issue_watchers(object, event=None):
     if not assignee or assignee == '(UNASSIGNED)':
         return
     assignee_email = object.getContactEmail()
-    watchers = list(object.getWatchers())
+    watchers = object.watchers
     if assignee_email in watchers:
         return
     logger.info('Adding assignee %s to watchers of issue %r.', assignee, object)
