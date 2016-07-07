@@ -157,6 +157,8 @@ class Issue(Container):
         watchers = []
         if self.watchers:
             for watcher in self.watchers:
+                if not watcher:
+                    continue
                 if not isEmail(watcher):
                     watcher = api.user.get(watcher).getProperty('email')
                 watchers.append(watcher)
