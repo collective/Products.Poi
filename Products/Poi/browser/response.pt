@@ -243,18 +243,19 @@
 
         <tal:options
             repeat="option view/releases_for_display">
-          <input class="noborder" name="targetRelease"
-                 value="" id="" type="radio"
-                 tal:attributes="value option/value;
-                                 id option/value;
-                                 checked option/checked;" />
+          <tal:def define="term python:option['value']">
+              <input class="noborder" name="targetRelease"
+                     value="" id="" type="radio"
+                     tal:attributes="value python:term.token;
+                                     id python:term.token;
+                                     checked python:option['checked'];" />
 
-          <label
-              i18n:translate=""
-              tal:attributes="for option/value"
-              tal:content="option/label" />
+              <label
+                  tal:attributes="for python:term.token"
+                  tal:content="python:term.token" />
 
-          <br />
+              <br />
+          </tal:def>
         </tal:options>
       </div>
 

@@ -271,7 +271,7 @@ class Base(BrowserView):
         vocab = self.available_severities
         options = []
         for value in vocab:
-            checked = (value == self.severity) and "checked" or ""
+            checked = (value.token == self.severity) and "checked" or ""
             options.append(dict(value=value, label=value,
                                 checked=checked))
         return options
@@ -291,14 +291,11 @@ class Base(BrowserView):
     @property
     def releases_for_display(self):
         """Get the releases from the project.
-
-        Usually nothing, unless you use Poi in combination with
-        PloneSoftwareCenter.
         """
         vocab = self.available_releases
         options = []
         for value in vocab:
-            checked = (value == self.targetRelease) and "checked" or ""
+            checked = (value.token == self.targetRelease) and "checked" or ""
             options.append(dict(value=value, label=value,
                                 checked=checked))
         return options
@@ -307,16 +304,13 @@ class Base(BrowserView):
     @memoize
     def available_releases(self):
         """Get the releases from the project.
-
-        Usually nothing, unless you use Poi in combination with
-        PloneSoftwareCenter.
         """
         # get vocab from issue
         context = aq_inner(self.context)
         if not self.memship.checkPermission(
                 permissions.ModifyIssueTargetRelease, context):
             return DisplayList()
-        return possibleTargetReleases(self)
+        return possibleTargetReleases(context)
 
     @property
     def show_target_releases(self):
