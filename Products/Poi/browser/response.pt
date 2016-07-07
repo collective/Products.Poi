@@ -102,7 +102,8 @@
     <h3 i18n:translate="title_add_response">Add response</h3>
 
     <form method="post" action="@@create_response"
-          enctype="multipart/form-data">
+          enctype="multipart/form-data"
+          tal:attributes="action string:${context/absolute_url}/@@create_response">
 
       <div class="field">
         <label for="response"

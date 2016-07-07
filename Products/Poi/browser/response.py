@@ -412,31 +412,20 @@ class Create(Base):
             ('severity', _(u'Severity'), 'available_severities'),
             ('responsibleManager', _(u'Responsible manager'),
              'available_managers'),
+            ('targetRelease', _(u'Target release'), 'available_releases'),
         ]
-        # Changes that need to be applied to the issue (apart from
-        # workflow changes that need to be handled separately).
-        changes = {}
         for option, title, vocab in options:
             new = form.get(option, u'')
             if new and new in self.__getattribute__(vocab):
                 current = self.__getattribute__(option)
-                if current != new:
-                    changes[option] = new
-                    new_response.add_change(option, title,
-                                            current, new)
-                    issue_has_changed = True
-
-        new = form.get('targetRelease', u'')
-        if new and new in self.available_releases:
-            current = self.targetRelease
-            if current != new:
-                # from value (uid) to key (id)
-                new_label = self.available_releases.getValue(new)
-                current_label = self.available_releases.getValue(current)
-                changes['targetRelease'] = new
-                new_response.add_change('targetRelease', _(u'Target release'),
-                                        current_label, new_label)
+                if current == new:
+                    continue
+                new_response.add_change(option, title, current, new)
                 issue_has_changed = True
+                if option == 'severity':
+                    context.severity = new
+                elif option == 'targetRelease':
+                    context.target_release = new
 
         attachment = form.get('attachment')
         if attachment:
@@ -451,8 +440,6 @@ class Create(Base):
             msg = translate(msg, 'Poi', context=self.request)
             status.addStatusMessage(msg, type='error')
         else:
-            # Apply changes to issue
-            context.update(**changes)
             # Add response
             self.folder.add(new_response)
         self.request.response.redirect(context.absolute_url())
