@@ -54,6 +54,7 @@ class IIssue(model.Schema):
 
     attachment = NamedBlobFile(
         title=_(u'Attachment'),
+        required=False,
         description=_(u"You may optionally upload a file attachment. Please "
                       u"do not upload unnecessarily large files.")
     )
