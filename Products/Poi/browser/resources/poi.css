@@ -16,3 +16,28 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-tracker:after {
 body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
     content: '\e80e';
 }
+
+.response-clarification {
+    clear: both;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 1em;
+}
+.response-actions {
+    float: right;
+    width: 150px;
+}
+.response-actions form {
+    display: inline-block;
+}
+.response-info {
+    font-size: 90%;
+}
+.metadataChanges {
+    color: #999999;
+    margin-bottom: 0.5em;
+}
+.issue-attachment {
+    font-size: 90%;
+    margin-top: 0.5em;
+}

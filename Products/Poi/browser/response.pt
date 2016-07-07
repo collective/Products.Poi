@@ -14,7 +14,7 @@
       <div class="response-actions"
            tal:condition="view/can_edit_response|view/can_delete_response">
         <form method="post"
-              tal:attributes="action string:@@poi_response_edit"
+              tal:attributes="action string:${context/absolute_url}/@@poi_response_edit"
               tal:condition="view/can_edit_response">
           <input type="hidden" name="response_id" tal:attributes="value id" />
           <input class="standalone"
@@ -24,7 +24,7 @@
                  />
         </form>
         <form method="post"
-              tal:attributes="action string:@@poi_response_delete"
+              tal:attributes="action string:${context/absolute_url}/@@poi_response_delete"
               tal:condition="view/can_delete_response">
           <input type="hidden" name="response_id" tal:attributes="value id" />
           <input class="destructive"
@@ -44,24 +44,27 @@
         <span i18n:translate="poi_added_on">on</span>
         <span class="contact-user"
               tal:content="python:here.toLocalizedTime(response.date, long_format=True)" />
-        <div tal:repeat="delta response/changes">
-          <span i18n:translate="" tal:content="string:${delta/name}" />:
-          <span class="issueChange"
-                i18n:translate=""
-                i18n:domain="plone"
-                tal:content="delta/before" />
-          &#8594;
-          <span class="issueChange"
-                i18n:translate=""
-                i18n:domain="plone"
-                tal:content="delta/after" />
+        <div class="metadataChanges">
+            <tal:rep repeat="delta response/changes">
+              <span i18n:translate="" tal:content="string:${delta/name}" />:
+              <span class="issueChange"
+                    i18n:translate=""
+                    i18n:domain="plone"
+                    tal:content="delta/before" />
+              &#8594;
+              <span class="issueChange"
+                    i18n:translate=""
+                    i18n:domain="plone"
+                    tal:content="delta/after" />
+              <br tal:condition="not:repeat/delta/end" />
+            </tal:rep>
         </div>
 
       </div>
       <span tal:replace="structure html" />
 
       <div class="issue-attachment" tal:condition="attachment">
-        <div class="issue-attachment-label" i18n:translate="poi_label_attachment">Attached:</div>
+        <span class="issue-attachment-label" i18n:translate="poi_label_attachment">Attached:</span>
         <img tal:attributes="src attachment/icon" />
         <a tal:attributes="href attachment/url"
            tal:content="attachment/filename" />
