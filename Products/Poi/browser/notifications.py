@@ -95,7 +95,7 @@ class NewIssueMail(BasePoiMail):
         if issueCreatorInfo:
             issueAuthor = issueCreatorInfo['fullname'] or issueCreator
 
-        issueText = context.getDetails(mimetype="text/x-web-intelligent")
+        issueText = context.details.output
         paras = issueText.splitlines()
         issueDetails = '\n\n'.join([wrapper.fill(p) for p in paras])
         tracker = context.getTracker()
@@ -116,7 +116,7 @@ class NewIssueMail(BasePoiMail):
             'poi_email_new_issue_subject_template',
             u"[${tracker_title}] #${issue_id} - New issue: ${issue_title}",
             mapping=dict(
-                tracker_title=su(tracker.getExternalTitle()),
+                tracker_title=su(tracker.Title()),
                 issue_id=su(context.getId()),
                 issue_title=su(context.Title())))
         # Make the subject unicode and translate it too.
@@ -199,7 +199,7 @@ class NewResponseMail(BasePoiMail):
             'poi_email_new_response_subject_template',
             u"[${tracker_title}] #${issue_id} - Re: ${issue_title}",
             mapping=dict(
-                tracker_title=su(tracker.getExternalTitle()),
+                tracker_title=su(tracker.Title()),
                 issue_id=su(context.getId()),
                 issue_title=su(context.Title())))
         # Ensure that the subject is unicode and translate it too.
@@ -241,7 +241,7 @@ class ResolvedIssueMail(BasePoiMail):
             'poi_email_issue_resolved_subject_template',
             u"[${tracker_title}] Resolved #${issue_id} - ${issue_title}",
             mapping=dict(
-                tracker_title=su(tracker.getExternalTitle()),
+                tracker_title=su(tracker.Title()),
                 issue_id=su(context.getId()),
                 issue_title=su(context.Title())))
         # Make the subject unicode and translate it too.
