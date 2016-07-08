@@ -4,6 +4,7 @@ from zope import schema
 
 from plone import api
 from plone.app.textfield import RichText
+from plone.app.z3cform.widget import AjaxSelectFieldWidget
 from plone.autoform.directives import widget
 from plone.dexterity.content import Container
 from plone.namedfile.field import NamedBlobFile
@@ -32,10 +33,11 @@ class IIssue(model.Schema):
                       u"managers to identify and respond to the issue.")
     )
 
-    release = schema.TextLine(
+    release = schema.Choice(
         title=_(u'Release'),
         description=_(u"Select the version the issue was found in."),
         required=False,
+        source=possibleTargetReleases
     )
 
     details = RichText(
@@ -113,8 +115,10 @@ class IIssue(model.Schema):
         missing_value=[],
     )
 
-    widget(subject=TextLinesFieldWidget)
-    subject = schema.List(
+    widget('subject',
+           AjaxSelectFieldWidget,
+           vocabulary='plone.app.vocabularies.Keywords')
+    subject = schema.Tuple(
         title=_(u'Subject'),
         description=_(u"Tags can be used to add arbitrary categorisation to "
                       u"issues. The list below shows existing tags which "
