@@ -2,6 +2,7 @@ import reStructuredText as rst
 import textwrap
 
 from Acquisition import aq_inner, aq_parent
+from plone.app.textfield.interfaces import ITransformer
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ZODB.POSException import ConflictError
@@ -97,13 +98,18 @@ class NewIssueMail(BasePoiMail):
 
         issueText = context.details.output
         paras = issueText.splitlines()
-        issueDetails = '\n\n'.join([wrapper.fill(p) for p in paras])
+        issueDetails = '\n'.join([wrapper.fill(p) for p in paras])
+        transformer = ITransformer(context)
+        issuePlainText = transformer(context.details, 'text/plain')
+        paras = issuePlainText.splitlines()
+        issuePlainDetails = '\n'.join([wrapper.fill(p) for p in paras])
         tracker = context.getTracker()
         mapping = dict(
             issue_title=su(context.title_or_id()),
             tracker_title=su(tracker.title_or_id()),
             issue_author=su(issueAuthor),
             issue_details=su(issueDetails),
+            issue_plain_details=su(issuePlainDetails),
             issue_url=su(context.absolute_url()),
             from_name=su(fromName))
         return mapping
