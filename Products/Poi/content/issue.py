@@ -110,6 +110,7 @@ class IIssue(model.Schema):
                       u"watchers."),
         value_type=schema.TextLine(),
         required=False,
+        missing_value=[],
     )
 
     widget(subject=TextLinesFieldWidget)
@@ -120,6 +121,7 @@ class IIssue(model.Schema):
                       u"you can select, or you can add new ones."),
         value_type=schema.TextLine(),
         required=False,
+        missing_value=[],
     )
 
 
