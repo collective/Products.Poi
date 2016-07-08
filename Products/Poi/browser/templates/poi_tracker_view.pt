@@ -76,13 +76,10 @@
             </form>
           </td>
           <td>
-            <form action="showLogs" id="poi-show-log-form">
-              <div class="formControls">
-                <input name="gotoLog" type="searchButton" class="standalone"
-                       value="View Issue Logs"
-                       tal:attributes="href logUrl"></input>
-              </div>
-            </form>
+            <div class="formControls">
+              <a href="#" class="standalone" id="poi-show-log-form"
+                 tal:attributes="href string:${trackerUrl}/log">View Issue Logs</a>
+            </div>
           </td>
           <td>
             <form
@@ -103,8 +100,10 @@
 
           <metal:additional-slot define-slot="additional-header-actions">
             <td>
-              <form action="@@toggle_watching"
+              <form action="${context/absolute_url}/@@toggle_watching"
                     id="poi-watch-tracker-form"
+                    tal:define="type context/portal_type;
+                                type_text python:type == 'Issue' and 'issue' or 'tracker'"
                     tal:condition="python:not isAnon">
                 <div class="formControls"
                      tal:define="is_watching context/@@toggle_watching/is_watching;">
@@ -112,13 +111,13 @@
                          class="standalone"
                          type="submit"
                          i18n:attributes="value"
-                         value="Stop watching this tracker"
+                         tal:attributes="value string:Stop watching this ${type_text}"
                          />
                   <input tal:condition="not:is_watching"
                          class="context"
                          type="submit"
                          i18n:attributes="value"
-                         value="Watch this tracker"
+                         tal:attributes="value string:Watch this ${type_text}"
                          />
                 </div>
               </form>

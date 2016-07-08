@@ -13,12 +13,12 @@ and awaits confirmation.
 <tal:block i18n:translate="">Issue Information</tal:block>
 
 <tal:block i18n:translate="">Issue:</tal:block>
-  <tal:title content="options/issue_title" />
-  (<tal:link tal:content="options/issue_url" />)
+    <tal:title content="options/issue_title" />
+    (<tal:link tal:content="options/issue_url" />)
 
 <tal:block i18n:translate="">Issue Details:</tal:block>
 
-<tal:details tal:content="structure options/issue_details" />
+<tal:details tal:content="structure options/issue_plain_details" />
 
 <tal:block i18n:translate="">This is an automated email, please do not reply.</tal:block>
 

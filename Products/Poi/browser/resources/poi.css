@@ -1,235 +1,43 @@
 /*
-** Poi style sheet for CSS2-capable browsers.
-**
-** Copyright Martin Aspeli - optilude@gmx.net
-**
-** Feel free to use whole or parts of this for your own designs, but give credit
-** where credit is due.
-**
+** Poi style sheet
 */
 
-/* Tracker front page */
+/* Plone */
 
-.issue-quick-search-box {
-    width: 30%;
-    float: left;
-    padding: 0 1em 1em 0;
+body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-tracker:before {
+    content: '\e801';
 }
-
-#issue-quicksearch-box {
-    display: block;
-    float: right;
+body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-issue:before {
+    content: '\e80e';
 }
-
-#issue-search-link {
-    display: block;
-    background: #ffffff url(search_icon.png) 2px 1px no-repeat;
-    padding: 1px 1px 1px 18px;
+body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-tracker:after {
+    content: '\e801';
 }
-
-.login-suggestion {
-    font-weight: bold;
-    margin-top: 0.5em;
+body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
+    content: '\e80e';
 }
-
-#poi-watch-tracker-form {
-    display: inline;
-}
-
-/* Search table */
-
-.issue-search-results {
-    width: 100%;
-}
-
-.issue-search-rss {
-    float: right;
-    position: relative;
-    top: 5px;
-}
-
-#poi_advanced_search {
-    background: White url(search_icon.png) no-repeat scroll 2px 1px;
-}
-
-/* Issue display */
-
-.return-to-search {
-    background: transparent url(arrowUp.png) 4px 5px no-repeat;
-    padding: 1px 0px 5px 16px;
-    font-size: 90%;
-    text-decoration: none;
-}
-
-.issue-details {
-    font-family: Monaco, "Courier New", Courier, monospace;
-    font-size: 100%;
-    color: #4D4D4D;
-    padding: 0 0.1em;;
-}
-
-.modification-info {
-    margin: 0 0 0.5em 0;
-    color: #777;
-    font-weight: 300;
-    font-size: 90%;
-
-}
-
-.issue-info-box {
-    float: right;
-}
-.issue-info-box th {
-    text-align: right;
-}
-.issue-info-box td {
-    text-align: left;
-}
-/* Make sure the issue-info-box does not inherit a 100% width, as is the
-   case on plone.org at the moment (6 September 2011), which is far too
-   wide for this little box.  See http://plone.org/products/poi/issues/249 */
-#content table.issue-info-box {
-    width: 35%;
-}
-
-.unassigned-field {
-    text-align: left;
-}
-
-.steps-to-reproduce dd {
-    font-family: Monaco, "Courier New", Courier, monospace;
-    font-size: 100%;
-    color: #4D4D4D;
-    padding: 0 0.1em;;
-    margin: 0.5em 0 0 1em;
-}
-
-.steps-to-reproduce ol {
-    margin: 0.5em 0 1em 3em;
-    line-height: 1em;
-}
-
-.steps-to-reproduce li {
-    margin: 0;
-    line-height: 1em;
-}
-
-
-.issue-attachment-label {
-    margin-bottom: 0.5em;
-}
-
-.issue-tags {
-    margin: 0 0 0.5em 0;
-}
-
-.issue-tags-label {
-    font-weight: bold;
-}
-
-ul.issue-tags-tags {
-    display: inline;
-    margin-left: 0;
-}
-
-ul.issue-tags-tags li {
-    display: inline;
-}
-
-ul.issue-tags-tags a {
-
-}
-
-#poi-watch-issue-form {
-    display: inline;
-}
-
-.issue-info-box .unassigned {
-    text-align: center;
-}
-
-.formControls .editIssue {
-    display: inline;
-}
-
-/* Different response types */
 
 .response-clarification {
-    margin: 1em 0;
-    padding: 0.5em;
-    border: 1px solid #777;
     clear: both;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 1em;
 }
-
-.response-reply {
-    margin: 1em 0;
-    padding: 0.5em;
-    border: 1px solid #9C6E3D;
-    clear: both;
+.response-actions {
+    float: right;
+    width: 150px;
 }
-
-.response-additional {
-    margin: 1em 0;
-    padding: 0.5em;
-    border: 1px solid #74ae0b;
-    clear: both;
+.response-actions form {
+    display: inline-block;
 }
-
-/* Response details */
-
 .response-info {
-    color: #777;
-    font-weight: 300;
     font-size: 90%;
-    font-weight: normal;
+}
+.metadataChanges {
+    color: #999999;
     margin-bottom: 0.5em;
 }
-
-.issueChange {
-    text-transform: lowercase;
-}
-
-#poi-fieldname-attachment .responseAttachment {
-    padding-top: 1em;
-}
-#poi-fieldname-attachment .responseAttachment div {
-    padding-left: 1.5em;
-    padding-top: 0.5em;
-}
-
-/* Response actions box */
-.response-actions {
-  float: right;
-  clear: right;
-}
-
-.response-actions form {
-    display: inline;
-}
-
-/* Issue states */
-
-.issue-unconfirmed {
-    color: purple;
-}
-
-.issue-open {
-    color: red;
-}
-
-.issue-in-progress {
-    color: #9C6E3D;
-}
-
-.issue-postponed .issue-rejected {
-    color: #777;
-    font-weight: 300;
-}
-
-.issue-resolved {
-    color: black;
-}
-
-.issue-closed {
-    color: #007BB3;
+.issue-attachment {
+    font-size: 90%;
+    margin-top: 0.5em;
 }

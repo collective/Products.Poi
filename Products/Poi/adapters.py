@@ -42,7 +42,7 @@ class TrackerWatcherList(WatcherList):
 
     def __get_extra_addresses(self):
         # Return a tuple, not a string!
-        return (self.context.getMailingList(), )
+        return (self.context.mailing_list, )
 
     def __set_extra_addresses(self, v):
         if not isinstance(v, basestring):

@@ -14,7 +14,7 @@
       <div class="response-actions"
            tal:condition="view/can_edit_response|view/can_delete_response">
         <form method="post"
-              tal:attributes="action string:@@poi_response_edit"
+              tal:attributes="action string:${context/absolute_url}/@@poi_response_edit"
               tal:condition="view/can_edit_response">
           <input type="hidden" name="response_id" tal:attributes="value id" />
           <input class="standalone"
@@ -24,7 +24,7 @@
                  />
         </form>
         <form method="post"
-              tal:attributes="action string:@@poi_response_delete"
+              tal:attributes="action string:${context/absolute_url}/@@poi_response_delete"
               tal:condition="view/can_delete_response">
           <input type="hidden" name="response_id" tal:attributes="value id" />
           <input class="destructive"
@@ -44,24 +44,27 @@
         <span i18n:translate="poi_added_on">on</span>
         <span class="contact-user"
               tal:content="python:here.toLocalizedTime(response.date, long_format=True)" />
-        <div tal:repeat="delta response/changes">
-          <span i18n:translate="" tal:content="string:${delta/name}" />:
-          <span class="issueChange"
-                i18n:translate=""
-                i18n:domain="plone"
-                tal:content="delta/before" />
-          &#8594;
-          <span class="issueChange"
-                i18n:translate=""
-                i18n:domain="plone"
-                tal:content="delta/after" />
+        <div class="metadataChanges">
+            <tal:rep repeat="delta response/changes">
+              <span i18n:translate="" tal:content="string:${delta/name}" />:
+              <span class="issueChange"
+                    i18n:translate=""
+                    i18n:domain="plone"
+                    tal:content="delta/before" />
+              &#8594;
+              <span class="issueChange"
+                    i18n:translate=""
+                    i18n:domain="plone"
+                    tal:content="delta/after" />
+              <br tal:condition="not:repeat/delta/end" />
+            </tal:rep>
         </div>
 
       </div>
       <span tal:replace="structure html" />
 
       <div class="issue-attachment" tal:condition="attachment">
-        <div class="issue-attachment-label" i18n:translate="poi_label_attachment">Attached:</div>
+        <span class="issue-attachment-label" i18n:translate="poi_label_attachment">Attached:</span>
         <img tal:attributes="src attachment/icon" />
         <a tal:attributes="href attachment/url"
            tal:content="attachment/filename" />
@@ -102,7 +105,8 @@
     <h3 i18n:translate="title_add_response">Add response</h3>
 
     <form method="post" action="@@create_response"
-          enctype="multipart/form-data">
+          enctype="multipart/form-data"
+          tal:attributes="action string:${context/absolute_url}/@@create_response">
 
       <div class="field">
         <label for="response"
@@ -200,7 +204,7 @@
 
 
       <div class="field"
-           tal:condition="view/severities_for_display">
+           tal:condition="python:view.severities_for_display">
         <label for="severity"
                i18n:translate="Poi_label_newSeverity">
           Change issue severity
@@ -213,17 +217,19 @@
 
         <tal:options
             repeat="option view/severities_for_display">
-          <input class="noborder" name="severity"
-                 value="" id="" type="radio"
-                 tal:attributes="value option/value;
-                                 id option/value;
-                                 checked option/checked;" />
+          <tal:def define="term python:option['value']">
+              <input class="noborder" name="severity"
+                     value="" id="" type="radio"
+                     tal:attributes="value python:term.token;
+                                     id python:term.token;
+                                     checked option/checked;" />
 
-          <label
-              tal:attributes="for option/value"
-              tal:content="option/label" />
+              <label
+                  tal:attributes="for python:term.token"
+                  tal:content="python:term.token" />
 
-          <br />
+              <br />
+          </tal:def>
         </tal:options>
       </div>
 
@@ -241,22 +247,23 @@
 
         <tal:options
             repeat="option view/releases_for_display">
-          <input class="noborder" name="targetRelease"
-                 value="" id="" type="radio"
-                 tal:attributes="value option/value;
-                                 id option/value;
-                                 checked option/checked;" />
+          <tal:def define="term python:option['value']">
+              <input class="noborder" name="targetRelease"
+                     value="" id="" type="radio"
+                     tal:attributes="value python:term.token;
+                                     id python:term.token;
+                                     checked python:option['checked'];" />
 
-          <label
-              i18n:translate=""
-              tal:attributes="for option/value"
-              tal:content="option/label" />
+              <label
+                  tal:attributes="for python:term.token"
+                  tal:content="python:term.token" />
 
-          <br />
+              <br />
+          </tal:def>
         </tal:options>
       </div>
 
-      <div class="field"
+      <!-- <div class="field"
            tal:condition="view/managers_for_display">
         <label for="responsibleManager"
                i18n:translate="Poi_label_newResponsibleManager">
@@ -283,7 +290,7 @@
 
           <br />
         </tal:options>
-      </div>
+      </div> -->
 
       <div class="formControls">
         <input class="standalone" value="Submit" type="submit"

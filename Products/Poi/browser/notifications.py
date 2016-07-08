@@ -2,6 +2,7 @@ import reStructuredText as rst
 import textwrap
 
 from Acquisition import aq_inner, aq_parent
+from plone.app.textfield.interfaces import ITransformer
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ZODB.POSException import ConflictError
@@ -95,15 +96,20 @@ class NewIssueMail(BasePoiMail):
         if issueCreatorInfo:
             issueAuthor = issueCreatorInfo['fullname'] or issueCreator
 
-        issueText = context.getDetails(mimetype="text/x-web-intelligent")
+        issueText = context.details.output
         paras = issueText.splitlines()
-        issueDetails = '\n\n'.join([wrapper.fill(p) for p in paras])
+        issueDetails = '\n'.join([wrapper.fill(p) for p in paras])
+        transformer = ITransformer(context)
+        issuePlainText = transformer(context.details, 'text/plain')
+        paras = issuePlainText.splitlines()
+        issuePlainDetails = '\n'.join([wrapper.fill(p) for p in paras])
         tracker = context.getTracker()
         mapping = dict(
             issue_title=su(context.title_or_id()),
             tracker_title=su(tracker.title_or_id()),
             issue_author=su(issueAuthor),
             issue_details=su(issueDetails),
+            issue_plain_details=su(issuePlainDetails),
             issue_url=su(context.absolute_url()),
             from_name=su(fromName))
         return mapping
@@ -116,7 +122,7 @@ class NewIssueMail(BasePoiMail):
             'poi_email_new_issue_subject_template',
             u"[${tracker_title}] #${issue_id} - New issue: ${issue_title}",
             mapping=dict(
-                tracker_title=su(tracker.getExternalTitle()),
+                tracker_title=su(tracker.Title()),
                 issue_id=su(context.getId()),
                 issue_title=su(context.Title())))
         # Make the subject unicode and translate it too.
@@ -199,7 +205,7 @@ class NewResponseMail(BasePoiMail):
             'poi_email_new_response_subject_template',
             u"[${tracker_title}] #${issue_id} - Re: ${issue_title}",
             mapping=dict(
-                tracker_title=su(tracker.getExternalTitle()),
+                tracker_title=su(tracker.Title()),
                 issue_id=su(context.getId()),
                 issue_title=su(context.Title())))
         # Ensure that the subject is unicode and translate it too.
@@ -241,7 +247,7 @@ class ResolvedIssueMail(BasePoiMail):
             'poi_email_issue_resolved_subject_template',
             u"[${tracker_title}] Resolved #${issue_id} - ${issue_title}",
             mapping=dict(
-                tracker_title=su(tracker.getExternalTitle()),
+                tracker_title=su(tracker.Title()),
                 issue_id=su(context.getId()),
                 issue_title=su(context.Title())))
         # Make the subject unicode and translate it too.
