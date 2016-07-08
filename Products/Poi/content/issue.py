@@ -54,7 +54,8 @@ class IIssue(model.Schema):
         title=_(u'Attachment'),
         required=False,
         description=_(u"You may optionally upload a file attachment. Please "
-                      u"do not upload unnecessarily large files.")
+                      u"do not upload unnecessarily large files."),
+        required=False,
     )
 
     area = schema.Choice(
