@@ -38,6 +38,7 @@ from Products.Poi import permissions
 from plone import api
 from Products.Poi.utils import isEmail
 from plone.app.textfield import RichText
+from plone.app.z3cform.widget import AjaxSelectFieldWidget
 from plone.autoform.directives import widget
 from plone.autoform.directives import write_permission
 from plone.dexterity.content import Container
@@ -274,11 +275,15 @@ class ITracker(model.Schema):
         required=False,
     )
 
-    widget(assignees=TextLinesFieldWidget)
+    widget(
+        'assignees',
+        AjaxSelectFieldWidget,
+        vocabulary='plone.app.vocabularies.Users'
+    )
     assignees = schema.List(
         title=_(u'Poi_label_assignees', default=u'Assignees'),
-        description=_(u'A list of users, one per line, that '
-                      u'issues can be assigned to'),
+        description=_(u'A list of users that '
+                      u'can be assigned issues.'),
         value_type=schema.TextLine(),
     )
 
