@@ -6,7 +6,9 @@
 The issue <tal:title i18n:name="issue_title" tal:content="options/issue_title" /> in the <tal:title
 i18n:name="tracker_title" tal:content="options/tracker_title" />
 tracker has been marked as resolved by <tal:author i18n:name="response_author"
-tal:content="options/response_author" />
+tal:content="options/response_author" />.</tal:block>
+
+<tal:block i18n:translate="">
 Please visit the issue and either confirm that it has been
 satisfactorily resolved or re-open it.
 </tal:block>

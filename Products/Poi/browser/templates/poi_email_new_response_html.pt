@@ -32,7 +32,7 @@
         <dd>
           <p>
             <tal:title content="options/issue_title" />
-            (<a tal:attributes="href options/issue_url" tal:content="options/issue_url" />)
+            <br />(<a tal:attributes="href options/issue_url" tal:content="options/issue_url" />)
           </p>
           <ul tal:condition="python:options.get('changes') or options.get('attachment_id')">
             <li tal:repeat="change options/changes">

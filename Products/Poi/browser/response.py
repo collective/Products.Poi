@@ -28,6 +28,8 @@ from Products.Poi.adapters import IResponseContainer
 from Products.Poi.adapters import Response
 from Products.Poi.browser.interfaces import IResponseAdder
 from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
+from Products.Poi.content.tracker import possibleSeverities
+from Products.Poi.content.tracker import possibleTargetReleases
 
 logger = logging.getLogger('Poi')
 
@@ -91,7 +93,7 @@ class Base(BrowserView):
         context = aq_inner(self.context)
         trans = context.portal_transforms
         items = []
-        linkDetection = context.linkDetection
+        #linkDetection = context.linkDetection
         for id, response in enumerate(self.folder):
             if response is None:
                 # Has been removed.
@@ -115,7 +117,7 @@ class Base(BrowserView):
                         html = html.getData()
                 if rendering_success:
                     # Detect links like #1 and r1234
-                    html = linkDetection(html)
+                    # html = linkDetection(html)
                     response.rendered_text = html
 
             html = response.rendered_text or u''
@@ -226,12 +228,12 @@ class Base(BrowserView):
     @property
     def severity(self):
         context = aq_inner(self.context)
-        return context.getSeverity()
+        return context.severity
 
     @property
     def targetRelease(self):
         context = aq_inner(self.context)
-        return context.getTargetRelease()
+        return context.target_release
 
     @property
     def responsibleManager(self):
@@ -269,7 +271,7 @@ class Base(BrowserView):
         vocab = self.available_severities
         options = []
         for value in vocab:
-            checked = (value == self.severity) and "checked" or ""
+            checked = (value.token == self.severity) and "checked" or ""
             options.append(dict(value=value, label=value,
                                 checked=checked))
         return options
@@ -284,33 +286,31 @@ class Base(BrowserView):
         if not self.memship.checkPermission(
                 permissions.ModifyIssueSeverity, context):
             return []
-        return context.getAvailableSeverities()
+        return possibleSeverities(self)
 
     @property
     def releases_for_display(self):
         """Get the releases from the project.
-
-        Usually nothing, unless you use Poi in combination with
-        PloneSoftwareCenter.
         """
         vocab = self.available_releases
-        current = self.targetRelease
-        return voc2dict(vocab, current)
+        options = []
+        for value in vocab:
+            checked = (value.token == self.targetRelease) and "checked" or ""
+            options.append(dict(value=value, label=value,
+                                checked=checked))
+        return options
 
     @property
     @memoize
     def available_releases(self):
         """Get the releases from the project.
-
-        Usually nothing, unless you use Poi in combination with
-        PloneSoftwareCenter.
         """
         # get vocab from issue
         context = aq_inner(self.context)
         if not self.memship.checkPermission(
                 permissions.ModifyIssueTargetRelease, context):
             return DisplayList()
-        return context.getReleasesVocab()
+        return possibleTargetReleases(context)
 
     @property
     def show_target_releases(self):
@@ -412,31 +412,20 @@ class Create(Base):
             ('severity', _(u'Severity'), 'available_severities'),
             ('responsibleManager', _(u'Responsible manager'),
              'available_managers'),
+            ('targetRelease', _(u'Target release'), 'available_releases'),
         ]
-        # Changes that need to be applied to the issue (apart from
-        # workflow changes that need to be handled separately).
-        changes = {}
         for option, title, vocab in options:
             new = form.get(option, u'')
             if new and new in self.__getattribute__(vocab):
                 current = self.__getattribute__(option)
-                if current != new:
-                    changes[option] = new
-                    new_response.add_change(option, title,
-                                            current, new)
-                    issue_has_changed = True
-
-        new = form.get('targetRelease', u'')
-        if new and new in self.available_releases:
-            current = self.targetRelease
-            if current != new:
-                # from value (uid) to key (id)
-                new_label = self.available_releases.getValue(new)
-                current_label = self.available_releases.getValue(current)
-                changes['targetRelease'] = new
-                new_response.add_change('targetRelease', _(u'Target release'),
-                                        current_label, new_label)
+                if current == new:
+                    continue
+                new_response.add_change(option, title, current, new)
                 issue_has_changed = True
+                if option == 'severity':
+                    context.severity = new
+                elif option == 'targetRelease':
+                    context.target_release = new
 
         attachment = form.get('attachment')
         if attachment:
@@ -451,8 +440,6 @@ class Create(Base):
             msg = translate(msg, 'Poi', context=self.request)
             status.addStatusMessage(msg, type='error')
         else:
-            # Apply changes to issue
-            context.update(**changes)
             # Add response
             self.folder.add(new_response)
         self.request.response.redirect(context.absolute_url())

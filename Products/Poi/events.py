@@ -11,22 +11,12 @@ logger = logging.getLogger('Poi')
 
 
 def add_contact_to_issue_watchers(object, event=None):
-    """Add the contactEmail of the issue to the watchers.
-
-    Try to add the userid instead of the email.
+    """Add the contact of the issue to the watchers.
 
     Called when an issue has been initialized or edited.
     """
-    value = object.getContactEmail()
-    if not value:
-        return
-    member_email = get_member_email()
-    if member_email == value:
-        # We can add the userid instead of the email.
-        portal_membership = getToolByName(object, 'portal_membership')
-        member = portal_membership.getAuthenticatedMember()
-        value = member.getId()
-    watchers = list(object.getWatchers())
+    value = unicode(object.Creator())
+    watchers = object.watchers
     if value in watchers:
         return
     logger.info('Adding contact %s to watchers of issue %r.', value, object)
@@ -59,9 +49,8 @@ def add_assignee_to_issue_watchers(object, event=None):
     assignee = object.assignee
     if not assignee or assignee == '(UNASSIGNED)':
         return
-    assignee_email = object.getContactEmail()
-    watchers = list(object.getWatchers())
-    if assignee_email in watchers:
+    watchers = object.watchers
+    if assignee in watchers:
         return
     logger.info('Adding assignee %s to watchers of issue %r.', assignee, object)
     watchers.append(assignee)

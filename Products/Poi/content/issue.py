@@ -4,8 +4,10 @@ from zope import schema
 
 from plone import api
 from plone.app.textfield import RichText
+from plone.app.z3cform.widget import AjaxSelectFieldWidget
 from plone.autoform.directives import widget
 from plone.dexterity.content import Container
+from plone.namedfile.field import NamedBlobFile
 from plone.schema import email
 from plone.namedfile.field import NamedBlobFile
 from plone.supermodel import model
@@ -21,8 +23,6 @@ from .tracker import possibleSeverities
 from .tracker import possibleTargetReleases
 from .tracker import possibleAssignees
 
-from Products.Poi.utils import isEmail
-
 
 class IIssue(model.Schema):
     """Marker interface for Poi issue"""
@@ -34,10 +34,11 @@ class IIssue(model.Schema):
                       u"managers to identify and respond to the issue.")
     )
 
-    release = schema.TextLine(
+    release = schema.Choice(
         title=_(u'Release'),
         description=_(u"Select the version the issue was found in."),
         required=False,
+        source=possibleTargetReleases
     )
 
     details = RichText(
@@ -54,6 +55,7 @@ class IIssue(model.Schema):
 
     attachment = NamedBlobFile(
         title=_(u'Attachment'),
+        required=False,
         description=_(u"You may optionally upload a file attachment. Please "
                       u"do not upload unnecessarily large files.")
     )
@@ -111,16 +113,20 @@ class IIssue(model.Schema):
                       u"watchers."),
         value_type=schema.TextLine(),
         required=False,
+        missing_value=[],
     )
 
-    widget(subject=TextLinesFieldWidget)
-    subject = schema.List(
+    widget('subject',
+           AjaxSelectFieldWidget,
+           vocabulary='plone.app.vocabularies.Keywords')
+    subject = schema.Tuple(
         title=_(u'Subject'),
         description=_(u"Tags can be used to add arbitrary categorisation to "
                       u"issues. The list below shows existing tags which "
                       u"you can select, or you can add new ones."),
         value_type=schema.TextLine(),
         required=False,
+        missing_value=[],
     )
 
 
@@ -152,15 +158,6 @@ class Issue(Container):
 
     def getContactEmail(self):
         return api.user.get(self.Creator()).getProperty('email')
-
-    def getWatchers(self):
-        watchers = []
-        if self.watchers:
-            for watcher in self.watchers:
-                if not isEmail(watcher):
-                    watcher = api.user.get(watcher).getProperty('email')
-                watchers.append(watcher)
-        return watchers
 
     def getReviewState(self):
         """get the current workflow state of the issue"""
