@@ -62,12 +62,12 @@
                        <div tal:condition="python:item.target_release == '(UNASSIGNED)'"
 		                    style="text-align:center">&#8212;</div>
                    </td>
-                   <td><a tal:content="python:item.area"
+                   <td><a tal:content="item/display_area"
                           tal:attributes="href python:addTokenToUrl('%s&amp;area=%s' % (issueQueryString, item.area))"
                           tal:on-error="item/area"/>
                    </td>
 
-                   <td><a tal:content="python:item.issue_type"
+                   <td><a tal:content="item/display_issue_type"
                           tal:attributes="href python:addTokenToUrl('%s&amp;issueType=%s' % (issueQueryString, item.issue_type))"
                           tal:on-error="item/issue_type" />
                    </td>

@@ -76,7 +76,7 @@
       <tr>
         <th i18n:translate="poi_label_area">Area</th>
         <td>
-            <a tal:define="issueArea context/area"
+            <a tal:define="issueArea context/display_area"
              tal:content="issueArea"
              tal:attributes="href string:${issueQueryString}&area=${issueArea}"
               />
@@ -85,7 +85,7 @@
       <tr>
         <th i18n:translate="poi_label_type">Issue type</th>
         <td>
-            <a tal:define="issueType context/issue_type"
+            <a tal:define="issueType context/display_issue_type"
              tal:content="issueType"
              tal:attributes="href string:${issueQueryString}&issueType=${issueType}"
               />
