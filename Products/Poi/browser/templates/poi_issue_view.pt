@@ -167,12 +167,14 @@
                type="submit"
                i18n:attributes="value"
                value="Stop watching this issue"
+               label="Stop watching this issue"
                />
         <input tal:condition="not:here/isWatching"
                class="context"
                type="submit"
                i18n:attributes="value"
                value="Watch this issue"
+               label="Watch this issue"
                />
       </div>
     </form>
