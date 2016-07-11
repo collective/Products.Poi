@@ -68,10 +68,10 @@ def possibleAreas(context):
     else:
         return SimpleVocabulary.fromValues([])
     terms = [
-        (tt.get('title'), tt.get('short_name'))
+        SimpleTerm(value=tt.get('short_name'), title=tt.get('title'))
         for tt in tracker.available_areas
     ]
-    return SimpleVocabulary.fromItems(terms)
+    return SimpleVocabulary(terms)
 
 
 def possibleIssueTypes(context):
@@ -85,10 +85,10 @@ def possibleIssueTypes(context):
     else:
         return SimpleVocabulary.fromValues([])
     terms = [
-        (tt.get('title'), tt.get('short_name'))
+        SimpleTerm(value=tt.get('short_name'), title=tt.get('title'))
         for tt in tracker.available_issue_types
     ]
-    return SimpleVocabulary.fromItems(terms)
+    return SimpleVocabulary(terms)
 
 
 @provider(IContextAwareDefaultFactory)
