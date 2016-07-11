@@ -263,21 +263,21 @@
         </tal:options>
       </div>
 
-      <!-- <div class="field"
-           tal:condition="view/managers_for_display">
-        <label for="responsibleManager"
+      <div class="field"
+           tal:condition="view/assignees_for_display">
+        <label for="assignee"
                i18n:translate="Poi_label_newResponsibleManager">
-          Change responsible manager
+          Change assignee
         </label>
 
         <div class="formHelp" id="manager_help"
              i18n:translate="Poi_help_newResponsibleManager">
-          Select the responsible manager for this issue
+          Select the assignee for this issue
         </div>
 
         <tal:options
-            repeat="option view/managers_for_display">
-          <input class="noborder" name="responsibleManager"
+            repeat="option view/assignees_for_display">
+          <input class="noborder" name="current_assignee"
                  value="" id="" type="radio"
                  tal:attributes="value option/value;
                                  id option/value;
@@ -290,7 +290,7 @@
 
           <br />
         </tal:options>
-      </div> -->
+      </div>
 
       <div class="formControls">
         <input class="standalone" value="Submit" type="submit"

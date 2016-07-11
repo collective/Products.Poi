@@ -28,6 +28,7 @@ from Products.Poi.adapters import IResponseContainer
 from Products.Poi.adapters import Response
 from Products.Poi.browser.interfaces import IResponseAdder
 from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
+from Products.Poi.content.tracker import possibleAssignees
 from Products.Poi.content.tracker import possibleSeverities
 from Products.Poi.content.tracker import possibleTargetReleases
 
@@ -69,9 +70,9 @@ def voc2dict(vocab, current=None):
 
     """
     options = []
-    for value, label in vocab.items():
+    for value, label in [(t.value, t.title) for t in vocab]:
         checked = (value == current) and "checked" or ""
-        options.append(dict(value=value, label=label,
+        options.append(dict(value=value, label=label or value,
                             checked=checked))
     return options
 
@@ -236,9 +237,9 @@ class Base(BrowserView):
         return context.target_release
 
     @property
-    def responsibleManager(self):
+    def current_assignee(self):
         context = aq_inner(self.context)
-        return context.getResponsibleManager()
+        return context.assignee
 
     @property
     @memoize
@@ -322,23 +323,23 @@ class Base(BrowserView):
         return len(self.available_releases) > 1
 
     @property
-    def managers_for_display(self):
-        """Get the tracker managers.
+    def assignees_for_display(self):
+        """Get the tracker assignees as a dictionary.
         """
-        vocab = self.available_managers
-        return voc2dict(vocab, self.responsibleManager)
+        vocab = self.available_assignees
+        return voc2dict(vocab, self.current_assignee)
 
     @property
     @memoize
-    def available_managers(self):
-        """Get the tracker managers.
+    def available_assignees(self):
+        """Get the tracker assignees.
         """
         # get vocab from issue
         context = aq_inner(self.context)
         if not self.memship.checkPermission(
                 permissions.ModifyIssueAssignment, context):
             return DisplayList()
-        return context.getManagersVocab()
+        return possibleAssignees(context)
 
     @property
     @memoize
@@ -378,7 +379,7 @@ class Create(Base):
         if responseCreator == issue.Creator():
             return 'clarification'
 
-        if responseCreator in self.available_managers:
+        if responseCreator in self.available_assignees:
             return 'reply'
 
         # default:
@@ -410,8 +411,8 @@ class Create(Base):
 
         options = [
             ('severity', _(u'Severity'), 'available_severities'),
-            ('responsibleManager', _(u'Responsible manager'),
-             'available_managers'),
+            ('current_assignee', _(u'Assignee'),
+             'available_assignees'),
             ('targetRelease', _(u'Target release'), 'available_releases'),
         ]
         for option, title, vocab in options:
@@ -426,6 +427,8 @@ class Create(Base):
                     context.severity = new
                 elif option == 'targetRelease':
                     context.target_release = new
+                elif option == 'current_assignee':
+                    context.assignee = new
 
         attachment = form.get('attachment')
         if attachment:
