@@ -31,6 +31,7 @@ from zope.interface import directlyProvides
 from zope.interface import provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
 from zope.schema.interfaces import IContextSourceBinder
+from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
 
 from Products.Poi import PoiMessageFactory as _
@@ -67,10 +68,10 @@ def possibleAreas(context):
     else:
         return SimpleVocabulary.fromValues([])
     terms = [
-        (tt.get('title'), tt.get('short_name'))
+        SimpleTerm(value=tt.get('short_name'), title=tt.get('title'))
         for tt in tracker.available_areas
     ]
-    return SimpleVocabulary.fromItems(terms)
+    return SimpleVocabulary(terms)
 
 
 def possibleIssueTypes(context):
@@ -84,10 +85,10 @@ def possibleIssueTypes(context):
     else:
         return SimpleVocabulary.fromValues([])
     terms = [
-        (tt.get('title'), tt.get('short_name'))
+        SimpleTerm(value=tt.get('short_name'), title=tt.get('title'))
         for tt in tracker.available_issue_types
     ]
-    return SimpleVocabulary.fromItems(terms)
+    return SimpleVocabulary(terms)
 
 
 @provider(IContextAwareDefaultFactory)
@@ -139,7 +140,16 @@ def possibleAssignees(context):
         tracker = context.getTracker()
     else:
         return SimpleVocabulary.fromValues([])
-    return SimpleVocabulary.fromValues(tracker.assignees)
+    assignees = []
+    for pa in tracker.assignees:
+        user = api.user.get(pa)
+        if user:
+            fullname = user.getProperty('fullname')
+        else:
+            fullname = pa
+        term = SimpleTerm(value=pa, title=fullname)
+        assignees.append(term)
+    return SimpleVocabulary(assignees)
 
 directlyProvides(possibleAreas, IContextSourceBinder)
 directlyProvides(possibleIssueTypes, IContextSourceBinder)

@@ -169,6 +169,16 @@ class Issue(Container):
             'title': title,
         }
 
+    def display_area(self):
+        tracker = self.getTracker()
+        areas = possibleAreas(tracker)
+        return areas.by_value[self.area].title
+
+    def display_issue_type(self):
+        tracker = self.getTracker()
+        issue_types = possibleIssueTypes(tracker)
+        return issue_types.by_value[self.issue_type].title
+
     def isValid(self):
 
         """Check if the response is valid.

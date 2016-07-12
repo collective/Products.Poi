@@ -18,7 +18,7 @@
     <div id="content-core">
       <dl tal:define="entries view/getLogEntries">
         <tal:entries repeat="entry entries">
-          <dt tal:condition="python: entry['type'] == 'PoiIssue'"
+          <dt tal:condition="python: entry['type'] == 'Issue'"
               i18n:translate="poi_new_issue_added">
             New issue
             <a tal:attributes="href entry/url"
@@ -38,7 +38,7 @@
                i18n:name="name" />:
           </dt>
           <dd>
-            <p tal:content="structure entry/text/output" />
+            <p tal:content="structure entry/text" />
 
             <p class="discreet">
 
