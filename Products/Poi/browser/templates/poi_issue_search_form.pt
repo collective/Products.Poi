@@ -268,6 +268,13 @@
                    i18n:translate="poi_match_all_tags">Match all tags</label>
           </div>
 
+          <div>
+            <input type="checkbox" name="display_related"
+                   id="display_related" />
+            <label for="display_related"
+                   i18n:translate="poi_display_related">Include Related Issues</label>
+          </div>
+
           <div class="formControls">
             <input class="context searchButton"
                    type="submit"

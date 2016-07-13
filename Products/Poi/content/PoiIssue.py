@@ -53,6 +53,8 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 from Products.CMFPlone.utils import getSiteEncoding
 from Products.CMFPlone.utils import safe_unicode
+from Products.OrderableReferenceField import OrderableReferenceField
+from Products.PopupCalendarWidget.PopupCalendarWidget import PopupCalendarWidget
 from collective.watcherlist.utils import get_member_email
 from plone.memoize import instance
 from zope.interface import implements
@@ -67,6 +69,7 @@ from Products.Poi.config import ISSUE_MIME_TYPES
 from Products.Poi.config import PROJECTNAME
 from Products.Poi.interfaces import IIssue
 from Products.Poi.interfaces import ITracker
+from Products.Poi.widgets import IssueReferenceWidget
 
 wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 logger = logging.getLogger('Poi')
@@ -301,6 +304,14 @@ schema = Schema((
         write_permission=permissions.ModifyIssueTags,
         accessor="Subject"
     ),
+
+    OrderableReferenceField('relatedIssue',
+        multiValued=1,
+        relationship='related_issue',
+        allowed_types=('PoiIssue'),
+        widget=IssueReferenceWidget(
+            label=('Related issue(s)'),
+            description='Link related issues')),
 
 ))
 

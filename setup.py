@@ -45,6 +45,7 @@ setup(name='Products.Poi',
           'collective.z3cform.datagridfield>=1.1',
           'plone.app.registry>=1.3.6',
           'plone.app.referenceablebehavior',
+          'Products.OrderableReferenceField',
       ],
       extras_require={
           'test': [
