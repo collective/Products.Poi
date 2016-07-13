@@ -70,6 +70,7 @@ def possibleAreas(context):
     terms = [
         SimpleTerm(value=tt.get('short_name'), title=tt.get('title'))
         for tt in tracker.available_areas
+        if tt.get('short_name') is not None
     ]
     return SimpleVocabulary(terms)
 
@@ -87,6 +88,7 @@ def possibleIssueTypes(context):
     terms = [
         SimpleTerm(value=tt.get('short_name'), title=tt.get('title'))
         for tt in tracker.available_issue_types
+        if tt.get('short_name') is not None
     ]
     return SimpleVocabulary(terms)
 
