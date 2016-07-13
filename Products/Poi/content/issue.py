@@ -113,7 +113,6 @@ class IIssue(model.Schema):
                       u"watchers."),
         value_type=schema.TextLine(),
         required=False,
-        missing_value=[],
     )
 
     widget('subject',

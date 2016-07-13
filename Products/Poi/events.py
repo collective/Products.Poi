@@ -16,7 +16,7 @@ def add_contact_to_issue_watchers(object, event=None):
     Called when an issue has been initialized or edited.
     """
     value = unicode(object.Creator())
-    watchers = object.watchers
+    watchers = object.watchers or []
     if value in watchers:
         return
     logger.info('Adding contact %s to watchers of issue %r.', value, object)
@@ -49,7 +49,7 @@ def add_assignee_to_issue_watchers(object, event=None):
     assignee = object.assignee
     if not assignee or assignee == '(UNASSIGNED)':
         return
-    watchers = object.watchers
+    watchers = object.watchers or []
     if assignee in watchers:
         return
     logger.info('Adding assignee %s to watchers of issue %r.', assignee, object)
