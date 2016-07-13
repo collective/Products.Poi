@@ -10,6 +10,7 @@ from Products.CMFPlone import PloneMessageFactory as PMF
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
+from plone import api
 from plone.memoize.view import memoize
 from zope.cachedescriptors.property import Lazy
 from zope.i18n import translate
@@ -27,7 +28,6 @@ from Products.Poi import permissions
 from Products.Poi.adapters import IResponseContainer
 from Products.Poi.adapters import Response
 from Products.Poi.browser.interfaces import IResponseAdder
-from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
 from Products.Poi.content.tracker import possibleAssignees
 from Products.Poi.content.tracker import possibleSeverities
 from Products.Poi.content.tracker import possibleTargetReleases
@@ -87,7 +87,7 @@ class Base(BrowserView):
         self.context = context
         self.request = request
         self.folder = IResponseContainer(context)
-        self.mimetype = DEFAULT_ISSUE_MIME_TYPE
+        self.mimetype = api.portal.get_registry_record('poi.default_issue_mime_type')
         self.use_wysiwyg = (self.mimetype == 'text/html')
 
     def responses(self):

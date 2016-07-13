@@ -53,7 +53,8 @@
                   define="inputname string:response;
                           inputvalue view/response/text;
                           member python:context.portal_membership.getAuthenticatedMember();
-                          editor python:member.getProperty('wysiwyg_editor', 'plone_wysiwyg').lower();
+                          editor python:member.getProperty('wysiwyg_editor');
+                          editor python: editor == '' and context.portal_registry['plone.default_editor'] or editor;
                           portal_url context/portal_url;
                           portal context/portal_url/getPortalObject;
                           here_url context/portal_url;

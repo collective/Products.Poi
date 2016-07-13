@@ -9,6 +9,7 @@ from plone.autoform.directives import widget
 from plone.dexterity.content import Container
 from plone.namedfile.field import NamedBlobFile
 from plone.schema import email
+from plone.namedfile.field import NamedBlobFile
 from plone.supermodel import model
 from plone.z3cform.textlines import TextLinesFieldWidget
 

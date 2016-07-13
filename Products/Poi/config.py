@@ -14,10 +14,6 @@ product_globals = globals()
 DESCRIPTION_LENGTH = 200
 PSC_TRACKER_ID = 'issues'
 
-# Add text/html to the list of mimetypes to allow HTML/kupu
-# issue/response text.
-ISSUE_MIME_TYPES = ('text/x-web-intelligent', 'text/plain')
-DEFAULT_ISSUE_MIME_TYPE = 'text/x-web-intelligent'
 # Patterns used for recognizing links to issues and revisions:
 ISSUE_RECOGNITION_PATTERNS = \
     [r'\B#[1-9][0-9]*\b', r'\bissue:[1-9][0-9]*\b',
