@@ -96,7 +96,7 @@
      
   <!-- related issues -->
   
-  <!-- was refbrowserhelper -->
+  <!--
   <browser:page
       name="issuerefhelper"
       permission="zope2.Public"
@@ -105,7 +105,6 @@
       class=".related.ReferenceBrowserHelperView"
       />
  
-  <!-- was refbrowser_popup -->
   <browser:page
       name="issueref_popup"
       permission="zope2.Public"
@@ -113,7 +112,6 @@
       class=".related.ReferenceBrowserPopup"
       />
 
-  <!-- was refbrowser_querycatalog -->
   <browser:page
       name="issueref_querycatalog"
       permission="zope2.Public"
@@ -121,13 +119,13 @@
       class=".related.QueryCatalogView"
       />
 
-  <!-- was popup -->
   <zope:adapter
       for="Products.Five.BrowserView"
       factory=".related.default_popup_template"
       name="issuepopup"
       provides="zope.formlib.namedtemplate.INamedTemplate"
       />
+  -->
 
   <browser:page
      name="poi-issue-search-rss.xml"

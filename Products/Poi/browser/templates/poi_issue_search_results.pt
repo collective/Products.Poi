@@ -88,7 +88,8 @@
                             style="text-align:center">&#8212;</div>
                    </td>
                    <td tal:content="python:', '.join(item.subject) if item.subject else ''" />
-                   <td tal:define="obj item/getObject"
+                   <td tal:define="obj python:item.getObject()"
+                       tal:on-error="nothing"
                        tal:condition="display_related">
                        <tal:related repeat="relate obj/getRelatedIssue">
                            <a tal:content="string:#${relate/id}"
