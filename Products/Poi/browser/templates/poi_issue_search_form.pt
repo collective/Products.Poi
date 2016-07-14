@@ -112,12 +112,12 @@
             <select id="targetRelease"
                     size="5"
                     multiple="multiple"
-                    name="targetRelease:list"
+                    name="targetRelease"
                     tal:define="releases here/getReleasesVocab">
               <option i18n:translate="not_assigned"
                       value="(UNASSIGNED)">(Not assigned)</option>
               <option tal:repeat="item releases"
-                      tal:attributes="value item;
+                      tal:attributes="value item/value;
                                       selected python:item.value in request.get('targetRelease', []) and 'selected' or None"
                       tal:content="item/value" />
             </select>
