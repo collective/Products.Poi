@@ -88,9 +88,10 @@ class IIssue(model.Schema):
 
     assignee = schema.Choice(
         title=_(u'Assignee'),
-        description=_(u"Select which person, if any, is assigned to"
+        description=_(u"Select which person, if any, is assigned to "
                       u"this issue."),
-        source=possibleAssignees
+        source=possibleAssignees,
+        required=False,
     )
 
     contact_email = email.Email(
