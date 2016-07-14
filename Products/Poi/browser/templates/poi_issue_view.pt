@@ -113,7 +113,12 @@
       <tr>
         <th i18n:translate="poi_label_responsible">Responsible</th>
         <td tal:define="issueAssignee context/assignee">
-           <a tal:condition="python:issueAssignee != '(UNASSIGNED)'" tal:content="issueAssignee" />
+           <a tal:condition="python:issueAssignee != '(UNASSIGNED)'"
+              tal:define="manager python:pas_member.info(issueAssignee)"
+              tal:attributes="href string:${issueQueryString}&amp;responsible=${issueAssignee};"
+              tal:content="manager/name_or_id" />
+            <div class="unassigned" tal:condition="python:issueAssignee == '(UNASSIGNED)'"
+                 >&#8212;</div>
         </td>
       </tr>
       <tr tal:condition="here/isUsingReleases">
