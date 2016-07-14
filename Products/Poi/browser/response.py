@@ -16,12 +16,6 @@ from zope.cachedescriptors.property import Lazy
 from zope.i18n import translate
 from zope.interface import implements
 from zope.lifecycleevent import modified
-try:
-    from plone.i18n.normalizer.interfaces import \
-        IUserPreferredFileNameNormalizer
-    FILE_NORMALIZER = True
-except ImportError:
-    FILE_NORMALIZER = False
 
 from Products.Poi import PoiMessageFactory as _
 from Products.Poi import permissions
@@ -579,11 +573,6 @@ class Download(Base):
         # Code mostly taken from Archetypes/Field.py:FileField.download
         filename = getattr(file, 'filename', file.getId())
         if filename is not None:
-            if FILE_NORMALIZER:
-                filename = IUserPreferredFileNameNormalizer(request).normalize(
-                    safe_unicode(filename, context.getCharset()))
-            else:
-                filename = safe_unicode(filename, context.getCharset())
             header_value = contentDispositionHeader(
                 disposition='attachment',
                 filename=filename)
