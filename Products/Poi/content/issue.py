@@ -135,26 +135,11 @@ class Issue(Container):
     """
     An issue in the Poi Tracker
     """
+    _tracker_uid = ''
 
     def getTracker(self):
-        """Return the tracker.
-
-        This gets around the problem that the aq_parent of an issue
-        that is being created is not the tracker, but a temporary
-        folder.
-        """
-        chain = aq_chain(self)
-        if len(chain) == 1:
-            # unwrapped object - hope that there's only one tracker in the site
-            trackers = api.content.find(portal_type='Tracker')
-            if len(trackers) == 1:
-                return trackers[0].getObject()
-        for parent in chain:
-            if ITracker.providedBy(parent):
-                return parent
-        raise Exception(
-            "Could not find Tracker in acquisition chain of %r" %
-            self)
+        """Return the tracker."""
+        return api.content.get(UID=self._tracker_uid)
 
     def getContactEmail(self):
         return api.user.get(self.Creator()).getProperty('email')

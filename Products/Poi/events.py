@@ -73,6 +73,11 @@ def merge_response_changes_to_issue(issue):
     issue.notifyModified()
 
 
+def remember_tracker(new_issue, event):
+    """make a note of the tracker's UID"""
+    new_issue._tracker_uid = event.newParent.UID()
+
+
 def assign_id(new_issue, event):
     """Auto-increment ID numbers"""
     issue_id = 1

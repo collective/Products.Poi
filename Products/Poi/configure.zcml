@@ -30,6 +30,12 @@
 
   <subscriber
       for="Products.Poi.content.issue.IIssue
+           OFS.interfaces.IObjectWillBeAddedEvent"
+        handler=".events.remember_tracker"
+        />
+
+  <subscriber
+      for="Products.Poi.content.issue.IIssue
            zope.lifecycleevent.IObjectAddedEvent"
         handler=".events.assign_id"
         />
