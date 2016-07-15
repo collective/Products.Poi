@@ -109,7 +109,7 @@ class IssueFolderView(BrowserView):
         If manager is True, add unconfirmed to the states.
         """
         if not memberId:
-            memberId = api.user.get_current()
+            memberId = api.user.get_current().id
 
         if manager:
             if 'unconfirmed' not in openStates:
@@ -134,14 +134,14 @@ class IssueFolderView(BrowserView):
         by the given user.
         """
         if not memberId:
-            memberId = api.user.get_current()
+            memberId = api.user.get_current().id
 
         issues = []
 
         for i in self.getFilteredIssues(state=openStates):
             assignee = i.assignee
             creator = i.Creator
-            if creator != memberId and assignee == '(UNASSIGNED)':
+            if creator != memberId and not assignee:
                 issues.append(i)
 
         return issues

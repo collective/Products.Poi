@@ -258,7 +258,7 @@
            tal:define="issues python:issuefolder.getMyIssues(manager=False)"
            tal:condition="nocall:issues">
 
-        <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
+        <metal:table use-macro="context/poi_issue_search_results/macros/issue_search_results">
 
           <metal:intro fill-slot="intro-text">
             <h2 i18n:translate="poi_heading_my_issues">My issues</h2>
