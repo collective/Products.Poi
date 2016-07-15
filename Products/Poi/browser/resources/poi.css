@@ -41,3 +41,17 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
     font-size: 90%;
     margin-top: 0.5em;
 }
+
+.issue-search-rss {
+    float: right;
+    padding: 3px 5px;
+    background-color: #5284ef;
+    font-size: 8px;
+    border-radius: 3px;
+    margin-top: 7px;
+}
+.issue-search-rss a,
+#content-core .issue-search-rss a {
+    border: none;
+    color: #ffffff;
+}
