@@ -59,6 +59,8 @@ class IssueFolderView(BrowserView):
 
         for k, v in allowedCriteria.items():
             if criteria.get(k):
+                if criteria[k] == '(UNASSIGNED)':
+                    continue
                 query[v] = criteria[k]
             elif criteria.get(v):
                 query[v] = criteria[v]
