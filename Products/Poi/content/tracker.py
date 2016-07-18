@@ -374,6 +374,13 @@ class Tracker(Container):
     A Poi Tracker
     """
 
+    def getIssues(self):
+        """get issues belonging to this tracker"""
+        return api.content.find(
+            portal_type='Issue',
+            context=self,
+        )
+
     def getTagsInUse(self):
         """Get a list of the issue tags in use in this tracker."""
         issues = api.content.find(portal_type='PoiIssue',
