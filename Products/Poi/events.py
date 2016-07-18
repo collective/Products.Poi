@@ -81,7 +81,8 @@ def remember_tracker(new_issue, event):
 def assign_id(new_issue, event):
     """Auto-increment ID numbers"""
     issue_id = 1
-    issues = api.content.find(object_provides=IIssue)
+    tracker = api.content.get(UID=new_issue._tracker_uid)
+    issues = api.content.find(context=tracker, object_provides=IIssue)
     existing_ids = [int(issue.id) for issue in issues if issue.id.isdigit()]
     if len(existing_ids):
         issue_id = max(existing_ids) + 1
