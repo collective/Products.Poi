@@ -166,6 +166,27 @@
 
           </div>
 
+          <div class="field">
+
+            <label for="severity" i18n:translate="poi_search_label_severity">Severity</label>
+
+            <div class="formHelp" i18n:translate="poi_search_help_severity">
+              Select the severities you wish to search for.
+            </div>
+
+            <select id="severity"
+                    size="5"
+                    multiple="multiple"
+                    name="severity:list"
+                    tal:define="severities python:context.available_severities">
+              <option tal:repeat="item severities"
+                      tal:attributes="value item;
+                                      selected python:item in request.get('severity', []) and 'selected' or None"
+                      tal:content="item" />
+            </select>
+
+          </div>
+
           <!--
           <div class="field">
 
