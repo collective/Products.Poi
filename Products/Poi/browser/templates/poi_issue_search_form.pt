@@ -209,6 +209,27 @@
             </select>
 
           </div>
+
+          <div class="field">
+
+            <label for="assignee" i18n:translate="poi_search_label_assignee">Assignee</label>
+
+            <div class="formHelp" i18n:translate="poi_search_help_assignee">
+              Select the assignee you wish to search for.
+            </div>
+
+            <select id="assignee"
+                    size="5"
+                    multiple="multiple"
+                    name="assignee:list"
+                    tal:define="assignees python:context.assignees">
+              <option tal:repeat="item assignees"
+                      tal:attributes="value item;
+                                      selected python:item in request.get('assignee', []) and 'selected' or None"
+                      tal:content="item" />
+            </select>
+
+          </div>
           <!--
           <div class="field">
 
