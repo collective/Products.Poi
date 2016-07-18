@@ -96,6 +96,9 @@ class IssueFolderView(BrowserView):
         query['sort_order'] = criteria.get('sort_order', 'reverse')
         if criteria.get('sort_limit'):
             query['sort_limit'] = criteria.get('sort_limit')
+        # allow substring searches
+        if 'SearchableText' in query:
+            query['SearchableText'] = '*{}*'.format(query['SearchableText'])
 
         return query
 
