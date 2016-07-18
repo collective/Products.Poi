@@ -145,6 +145,27 @@
 
           </div>
 
+          <div class="field">
+
+            <label for="type" i18n:translate="poi_search_label_type">Issue Type</label>
+
+            <div class="formHelp" i18n:translate="poi_search_help_type">
+              Select the types you wish to search for.
+            </div>
+
+            <select id="type"
+                    size="5"
+                    multiple="multiple"
+                    name="issueType:list"
+                    tal:define="types python:context.available_issue_types">
+              <option tal:repeat="item types"
+                      tal:attributes="value item/short_name;
+                                      selected python:item.get('short_name') in request.get('type', []) and 'selected' or None"
+                      tal:content="item/title" />
+            </select>
+
+          </div>
+
           <!--
           <div class="field">
 
