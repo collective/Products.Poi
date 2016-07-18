@@ -187,6 +187,28 @@
 
           </div>
 
+          <div class="field">
+
+            <label for="state" i18n:translate="poi_search_label_state">State</label>
+
+            <div class="formHelp" i18n:translate="poi_search_help_state">
+              Select the states you wish to search for.
+            </div>
+
+            <select id="state"
+                    size="5"
+                    multiple="multiple"
+                    name="state:list"
+                    tal:define="states context/getIssueWorkflowStates">
+              <option tal:repeat="item states"
+                      tal:attributes="value python:item[0];
+                                      selected python:item[0] in request.get('state', []) and 'selected' or None"
+                      i18n:translate=""
+                      i18n:domain="plone"
+                      tal:content="python:item[1]" />
+            </select>
+
+          </div>
           <!--
           <div class="field">
 
