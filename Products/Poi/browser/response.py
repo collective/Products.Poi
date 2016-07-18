@@ -13,6 +13,7 @@ from Products.statusmessages.interfaces import IStatusMessage
 from plone import api
 from plone.memoize.view import memoize
 from zope.cachedescriptors.property import Lazy
+from zope.component import getMultiAdapter
 from zope.i18n import translate
 from zope.interface import implements
 from zope.lifecycleevent import modified
@@ -88,7 +89,6 @@ class Base(BrowserView):
         context = aq_inner(self.context)
         trans = context.portal_transforms
         items = []
-        #linkDetection = context.linkDetection
         for id, response in enumerate(self.folder):
             if response is None:
                 # Has been removed.
@@ -382,6 +382,11 @@ class Create(Base):
     def __call__(self):
         form = self.request.form
         context = aq_inner(self.context)
+        request = context.REQUEST
+        authenticator = getMultiAdapter((context, request),
+                                        name=u"authenticator")
+        if not authenticator.verify():
+            raise Unauthorized
         if not self.memship.checkPermission('Poi: Add Response', context):
             raise Unauthorized
 
@@ -439,7 +444,9 @@ class Create(Base):
         else:
             # Add response
             self.folder.add(new_response)
-        self.request.response.redirect(context.absolute_url())
+        redirect_url = "{0}?_authenticator={1}".format(context.absolute_url(),
+                                                       authenticator.token())
+        self.request.response.redirect(redirect_url)
 
 
 class Edit(Base):
@@ -470,6 +477,8 @@ class Save(Base):
         form = self.request.form
         context = aq_inner(self.context)
         status = IStatusMessage(self.request)
+        authenticator = getMultiAdapter((context, context.REQUEST),
+                                        name=u"authenticator")
         if not self.can_edit_response:
             msg = _(u"You are not allowed to edit responses.")
             msg = translate(msg, 'Poi', context=self.request)
@@ -503,7 +512,9 @@ class Save(Base):
                 # the issue has changed, with the response in the
                 # event descriptions.
                 modified(response, context)
-        self.request.response.redirect(context.absolute_url())
+        redirect_url = "{0}?_authenticator={1}".format(context.absolute_url(),
+                                                       authenticator.token())
+        self.request.response.redirect(redirect_url)
 
 
 class Delete(Base):
