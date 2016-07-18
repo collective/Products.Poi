@@ -383,11 +383,10 @@ class Tracker(Container):
 
     def getTagsInUse(self):
         """Get a list of the issue tags in use in this tracker."""
-        issues = api.content.find(portal_type='PoiIssue',
-                                  path='/'.join(self.getPhysicalPath()))
+        issues = self.getIssues()
         tags = {}
         for i in issues:
-            for s in i.Subject:
+            for s in i.subject:
                 tags[s] = 1
         keys = tags.keys()
         keys.sort(lambda x, y: cmp(x.lower(), y.lower()))
