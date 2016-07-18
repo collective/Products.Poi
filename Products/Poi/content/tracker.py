@@ -371,7 +371,7 @@ class ITracker(model.Schema):
 @implementer(ITracker)
 class Tracker(Container):
     """
-    An issue in the Poi Tracker
+    A Poi Tracker
     """
 
     def getTagsInUse(self):
