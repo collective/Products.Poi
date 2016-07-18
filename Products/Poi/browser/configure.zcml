@@ -93,39 +93,6 @@
      permission="zope2.View"
      class=".response.Download"
      />
-     
-  <!-- related issues -->
-  
-  <!--
-  <browser:page
-      name="issuerefhelper"
-      permission="zope2.Public"
-      for="Products.Poi.interfaces.IIssue"
-      allowed_interface="archetypes.referencebrowserwidget.interfaces.IReferenceBrowserHelperView"
-      class=".related.ReferenceBrowserHelperView"
-      />
- 
-  <browser:page
-      name="issueref_popup"
-      permission="zope2.Public"
-      for="*"
-      class=".related.ReferenceBrowserPopup"
-      />
-
-  <browser:page
-      name="issueref_querycatalog"
-      permission="zope2.Public"
-      for="*"
-      class=".related.QueryCatalogView"
-      />
-
-  <zope:adapter
-      for="Products.Five.BrowserView"
-      factory=".related.default_popup_template"
-      name="issuepopup"
-      provides="zope.formlib.namedtemplate.INamedTemplate"
-      />
-  -->
 
   <browser:page
      name="poi-issue-search-rss.xml"
