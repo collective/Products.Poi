@@ -289,14 +289,15 @@ class ITracker(model.Schema):
 
     widget(
         'assignees',
-        AjaxSelectFieldWidget,
-        vocabulary='plone.app.vocabularies.Users'
+        AjaxSelectFieldWidget
     )
     assignees = schema.List(
         title=_(u'Poi_label_assignees', default=u'Assignees'),
         description=_(u'A list of users that '
                       u'can be assigned issues.'),
-        value_type=schema.TextLine(),
+        value_type=schema.Choice(
+            source='plone.app.vocabularies.Users'
+            ),
     )
 
     write_permission(watchers=permissions.ModifyIssueWatchers)
