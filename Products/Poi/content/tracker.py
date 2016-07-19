@@ -415,5 +415,9 @@ class Tracker(Container):
         items = possibleTargetReleases(self)
         return SimpleVocabulary(items)
 
+    def getAssigneesVocab(self):
+        items = possibleAssignees(self)
+        return SimpleVocabulary(items)
+
     def addTokenToUrl(self, original_url):
         return addTokenToUrl(original_url)

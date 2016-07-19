@@ -222,11 +222,11 @@
                     size="5"
                     multiple="multiple"
                     name="assignee:list"
-                    tal:define="assignees python:context.assignees">
+                    tal:define="assignees python:context.getAssigneesVocab">
               <option tal:repeat="item assignees"
-                      tal:attributes="value item;
-                                      selected python:item in request.get('assignee', []) and 'selected' or None"
-                      tal:content="item" />
+                      tal:attributes="value item/value;
+                                      selected python:item.value in request.get('assignee', []) and 'selected' or None"
+                      tal:content="item/title" />
             </select>
 
           </div>
