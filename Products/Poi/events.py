@@ -7,6 +7,13 @@ from plone import api
 
 from Products.Poi.interfaces import IIssue
 
+from Acquisition import aq_inner
+from zope.component import getUtility
+from zope.intid.interfaces import IIntIds
+from zope.security import checkPermission
+from zc.relation.interfaces import ICatalog
+from z3c.relationfield import RelationValue
+
 logger = logging.getLogger('Poi')
 
 
@@ -163,25 +170,44 @@ def update_references(object, event=None):
        Then check the getBRefs to remove references that have been removed
        Sort the issues in descending id order
     """
-    relatedIssues = sorted(object.getRelatedIssue(),
-                           key=lambda issue: int(issue.id),
-                           reverse=True)
-    object.setRelatedIssue(relatedIssues)
-    for issue in relatedIssues:
-        others_related = issue.getRelatedIssue()
-        if object in others_related:
-            continue
-        others_related.append(object)
-        issue.setRelatedIssue(sorted(others_related,
-                              key=lambda issue: int(issue.id),
-                              reverse=True))
+    catalog = getUtility(ICatalog)
+    intids = getUtility(IIntIds)
+    objintid = intids.getId(aq_inner(object))
 
-    issuesRelated = object.getBRefs('related_issue')
+    # sort the relationvalues on this object by id
+    relatedIssues = sorted(object.related_issue,
+                           key=lambda issue: int(issue.to_object.id),
+                           reverse=True)
+    object.related_issue = relatedIssues
+
+    # add this issue to its related issues where needed
+    for issue in relatedIssues:
+        others_related = issue.to_object.related_issue
+        for other in others_related:
+            if objintid == other.to_id:
+                break
+        else:
+            rv = RelationValue(objintid)
+            others_related.append(rv)
+            issue.to_object.related_issue = sorted(
+                others_related,
+                key=lambda issue: int(issue.to_id),
+                reverse=True)
+
+    # find other issues related to this one
+    issuesRelated = []
+    for rel in catalog.findRelations(
+        dict(to_id=objintid,
+             from_attribute='related_issue')):
+        issuesRelated.append(RelationValue(rel.from_id))
+
+    # remove relations from those issues to this one if neeeded 
     for issue in issuesRelated:
-        if issue in object.getRelatedIssue():
+        if issue.to_id in [r.to_id for r in object.related_issue]:
             continue
-        others_related = issue.getRelatedIssue()
-        if object not in others_related:
+        issue_object = intids.queryObject(issue.to_id)
+        others_related = issue_object.related_issue
+        if objintid not in [r.to_id for r in others_related]:
             continue
-        others_related.remove(object)
-        issue.setRelatedIssue(others_related)
+        others_related = [x for x in others_related if x.to_id != objintid]
+        issue_object.related_issue = others_related

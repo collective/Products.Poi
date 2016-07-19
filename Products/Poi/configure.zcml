@@ -54,13 +54,13 @@
 
   <subscriber
       for="Products.Poi.interfaces.IIssue
-           Products.Archetypes.interfaces.IObjectInitializedEvent"
+           zope.lifecycleevent.interfaces.IObjectAddedEvent"
         handler=".events.update_references"
         />
         
   <subscriber
       for="Products.Poi.interfaces.IIssue
-           Products.Archetypes.interfaces.IObjectEditedEvent"
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
         handler=".events.update_references"
         />
 

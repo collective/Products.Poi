@@ -204,21 +204,20 @@
 
     <div class="visualClear"><!----></div>
     
-    <!-- 
     <div id="related-issues"
-         tal:define="related python:here.getRelatedIssue()"
+         tal:define="related context/related_issue"
          tal:condition="related">
-        <h3>Current Issue(s):</h3>
+        <h3>Related Issue(s):</h3>
         <ul>
             <li tal:repeat="relate related">
-                <a href="" tal:attributes="href relate/absolute_url">
-                    #<span tal:replace="relate/id">123</span> &emdash;
-                    <span tal:replace="relate/Title">Issue Title</span>
+                <a href="" tal:define="relobj python: relate.to_object"
+                           tal:attributes="href relobj/absolute_url">
+                    #<span tal:replace="relobj/id">123</span> –
+                    <span tal:replace="relobj/Title">Issue Title</span>
                 </a>
             </li>
         </ul>
     </div>
-    -->
 
     <div tal:replace="structure provider:poi.response.add" />
     
