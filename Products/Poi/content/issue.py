@@ -4,24 +4,19 @@ from zope import schema
 
 from plone import api
 from plone.app.textfield import RichText
-from plone.app.layout.navigation.root import getNavigationRootObject
 from plone.app.vocabularies.catalog import CatalogSource
 from plone.app.z3cform.widget import AjaxSelectFieldWidget
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
 from plone.autoform.directives import widget
 from plone.dexterity.content import Container
-from plone.formwidget.contenttree import UUIDSourceBinder
 from plone.namedfile.field import NamedBlobFile
 from plone.schema import email
 from plone.supermodel import model
 from plone.z3cform.textlines import TextLinesFieldWidget
 from z3c.relationfield import RelationList, RelationChoice
-from zope.site.hooks import getSite
 
-from Acquisition import aq_chain
 from Products.Poi import PoiMessageFactory as _
 from .tracker import default_severity
-from .tracker import ITracker
 from .tracker import possibleAreas
 from .tracker import possibleIssueTypes
 from .tracker import possibleSeverities
@@ -151,7 +146,6 @@ class IIssue(model.Schema):
         ),
         required=False
     )
-
 
 
 @implementer(IIssue)
