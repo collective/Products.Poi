@@ -133,7 +133,10 @@ class IIssue(model.Schema):
 
     widget('subject',
            AjaxSelectFieldWidget,
-           vocabulary='plone.app.vocabularies.Keywords')
+           vocabulary='plone.app.vocabularies.Keywords',
+           pattern_options={
+              'allowNewItems': 'true'
+           })
     subject = schema.Tuple(
         title=_(u'Poi_label_issue_subject', default=u'Subject'),
         description=_(u'Poi_help_issue_subject',
