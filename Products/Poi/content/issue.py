@@ -115,7 +115,9 @@ class IIssue(model.Schema):
         required=False,
     )
 
-    widget(watchers=TextLinesFieldWidget)
+    widget('watchers',
+           AjaxSelectFieldWidget,
+           vocabulary='plone.app.vocabularies.Users')
     watchers = schema.List(
         title=_(u'Poi_label_issue_watchers', default=u'Watchers'),
         description=_(u'Poi_help_issue_watchers',
@@ -131,7 +133,10 @@ class IIssue(model.Schema):
 
     widget('subject',
            AjaxSelectFieldWidget,
-           vocabulary='plone.app.vocabularies.Keywords')
+           vocabulary='plone.app.vocabularies.Keywords',
+           pattern_options={
+              'allowNewItems': 'true'
+           })
     subject = schema.Tuple(
         title=_(u'Poi_label_issue_subject', default=u'Subject'),
         description=_(u'Poi_help_issue_subject',
