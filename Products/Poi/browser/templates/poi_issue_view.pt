@@ -196,6 +196,21 @@
              tal:content="file_attachment/filename" /></dd>
     </dl>
 
+    <dl class="related-issues" tal:define="related context/related_issue" tal:condition="related">
+        <dt i18n:translate="poi_label_related">Related issue(s):</dt>
+        <dd>
+          <ul>
+              <li tal:repeat="relate related">
+                  <a href="" tal:define="relobj python: relate.to_object"
+                             tal:attributes="href relobj/absolute_url">
+                      #<span tal:replace="relobj/id">123</span> –
+                      <span tal:replace="relobj/Title">Issue Title</span>
+                  </a>
+              </li>
+          </ul>
+        </dd>
+    </dl>
+
     <div class="formControls">
       <a href="${context/absolute_url}/edit"
             class="context"
@@ -204,21 +219,6 @@
 
     <div class="visualClear"><!----></div>
     
-    <div id="related-issues"
-         tal:define="related context/related_issue"
-         tal:condition="related">
-        <h3>Related Issue(s):</h3>
-        <ul>
-            <li tal:repeat="relate related">
-                <a href="" tal:define="relobj python: relate.to_object"
-                           tal:attributes="href relobj/absolute_url">
-                    #<span tal:replace="relobj/id">123</span> –
-                    <span tal:replace="relobj/Title">Issue Title</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-
     <div tal:replace="structure provider:poi.response.add" />
     
     <div class="visualClear"><!----></div>
