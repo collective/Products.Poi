@@ -16,7 +16,7 @@
   <!-- Uninstall profile for items the the QI uninstall misses. -->
   <gs:registerProfile
       name="uninstall"
-      title="Poi"
+      title="Poi Uninstall"
       directory="profiles/uninstall"
       description="Partial uninstall profile for Poi, in addition to the QI one."
       provides="Products.GenericSetup.interfaces.EXTENSION"
