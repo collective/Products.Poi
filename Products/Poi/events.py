@@ -1,6 +1,5 @@
 import logging
 
-from Products.CMFCore.utils import getToolByName
 from collective.watcherlist.interfaces import IWatcherList
 from collective.watcherlist.utils import get_member_email
 from plone import api
@@ -86,7 +85,11 @@ def remember_tracker(new_issue, event):
 
 
 def assign_id(new_issue, event):
-    """Auto-increment ID numbers"""
+    """Auto-increment ID numbers when they are created.
+       Don't run on copied issues
+    """
+    if new_issue.id.find('copy') >= 0:
+        return
     issue_id = 1
     tracker = api.content.get(UID=new_issue._tracker_uid)
     issues = api.content.find(context=tracker, object_provides=IIssue)
@@ -109,12 +112,12 @@ def post_issue(object, event):
     And send the initial email.
 
     """
-    portal_membership = getToolByName(object, 'portal_membership')
+    portal_membership = api.portal.get_tool('portal_membership')
     if portal_membership.isAnonymousUser():
         object.setCreators(('(anonymous)',))
     add_contact_to_issue_watchers(object, event)
     add_assignee_to_issue_watchers(object, event)
-    portal_workflow = getToolByName(object, 'portal_workflow')
+    portal_workflow = api.portal.get_tool('portal_workflow')
     portal_workflow.doActionFor(object, 'post')
 
 
