@@ -46,7 +46,7 @@ class IssueFolderView(BrowserView):
             'severity': 'severity',
             'targetRelease': 'target_release',
             'state': 'review_state',
-            'tags': 'subject',
+            'tags': 'Subject',
             'responsible': 'assignee',
             'creator': 'Creator',
             'text': 'SearchableText',
