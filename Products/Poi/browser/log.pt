@@ -16,8 +16,11 @@
     </p>
 
     <div id="content-core">
-      <dl tal:define="entries view/getLogEntries">
-        <tal:entries repeat="entry entries">
+      <dl tal:define="entries view/getLogEntries;
+                      Batch   python:modules['Products.CMFPlone'].Batch;
+                      b_size  python:10;b_start python:0;b_start request/b_start | b_start;
+                      batch   python:Batch(entries, b_size, int(b_start), orphan=1)">
+        <tal:entries repeat="entry batch">
           <dt tal:condition="python: entry['type'] == 'Issue'"
               i18n:translate="poi_new_issue_added">
             New issue
@@ -80,6 +83,7 @@
             </p>
           </dd>
         </tal:entries>
+        <div metal:use-macro="here/batch_macros/macros/navigation" />
       </dl>
     </div>
   </metal:body>
