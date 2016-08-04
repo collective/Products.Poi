@@ -394,7 +394,7 @@ msgstr "邮件列表"
 # ./content/PoiTracker.py
 #. Default: "Tracker assignees"
 #: ./content/tracker.py:147
-msgid "msgid "Poi_label_assignees""
+msgid "msgid \"Poi_label_assignees\""
 msgstr "跟踪器管理人员"
 
 # ./content/PoiResponse.py

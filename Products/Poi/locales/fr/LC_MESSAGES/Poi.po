@@ -389,7 +389,7 @@ msgstr "Liste de diffusion"
 # ./content/PoiTracker.py
 #. Default: "Tracker assignees"
 #: ./content/tracker.py:147
-msgid "msgid "Poi_label_assignees""
+msgid "msgid \"Poi_label_assignees\""
 msgstr "Responsables du gestionnaire de tickets"
 
 # ./content/PoiResponse.py

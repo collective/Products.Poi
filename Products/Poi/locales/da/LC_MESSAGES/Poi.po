@@ -394,7 +394,7 @@ msgstr "Postliste"
 # ./content/PoiTracker.py
 #. Default: "Tracker assignees"
 #: ./content/tracker.py:147
-msgid "msgid "Poi_label_assignees""
+msgid "msgid \"Poi_label_assignees\""
 msgstr "Tracker-administratorer"
 
 # ./content/PoiResponse.py
