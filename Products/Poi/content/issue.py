@@ -202,6 +202,14 @@ class Issue(Container):
         issue_types = possibleIssueTypes(tracker)
         return issue_types.by_value[self.issue_type].title
 
+    def isWatching(self):
+        """
+        Determine if the current user is watching this issue or not.
+        """
+        portal_membership = api.portal.get_tool('portal_membership')
+        member = portal_membership.getAuthenticatedMember()
+        return member.getId() in self.watchers
+
     def isValid(self):
 
         """Check if the response is valid.
