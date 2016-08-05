@@ -385,7 +385,7 @@ msgstr "Lista mailingowa"
 # ./content/PoiTracker.py
 #. Default: "Tracker assignees"
 #: ./content/tracker.py:147
-msgid "msgid "Poi_label_assignees""
+msgid "msgid \"Poi_label_assignees\""
 msgstr "Osoby odpowiedzialne"
 
 #. Default: "Change responsible manager"

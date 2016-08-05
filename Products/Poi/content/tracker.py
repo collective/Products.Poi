@@ -389,7 +389,7 @@ class Tracker(Container):
         issues = self.getIssues()
         tags = {}
         for i in issues:
-            for s in i.subject:
+            for s in i.Subject:
                 tags[s] = 1
         keys = tags.keys()
         keys.sort(lambda x, y: cmp(x.lower(), y.lower()))
