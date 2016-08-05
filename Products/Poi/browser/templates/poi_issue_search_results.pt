@@ -76,11 +76,11 @@
 			            tal:attributes="href python:addTokenToUrl('%s&amp;severity=%s' % (issueQueryString, item.severity))" />
 			       </td>
                    <td>
-                      <a tal:condition="python:item.assignee != '(UNASSIGNED)'"
+                      <a tal:condition="item/assignee"
                          tal:define="manager python:pas_member.info(item.assignee)"
                          tal:attributes="href python:addTokenToUrl('%s&amp;responsible=%s' % (issueQueryString, item.assignee))"
                          tal:content="manager/name_or_id" />
-                       <div tal:condition="python:item.assignee == '(UNASSIGNED)'"
+                       <div tal:condition="not: item/assignee"
                             style="text-align:center">&#8212;</div>
                    </td>
                    <td tal:content="python:', '.join(item.subject) if item.subject else ''" />
