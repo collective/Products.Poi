@@ -55,7 +55,8 @@ class IIssue(model.Schema):
         description=_(u'Poi_help_issue_steps',
                       default=u"If applicable, please provide the steps to "
                       u"reproduce the error or identify the issue, one per "
-                      u"line.")
+                      u"line."),
+        required=False,
     )
 
     attachment = NamedBlobFile(
