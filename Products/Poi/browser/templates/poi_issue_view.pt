@@ -185,9 +185,9 @@
     </form>
     <div class="issue-details" tal:content="structure context/details/output" />
 
-    <dl class="steps-to-reproduce" tal:define="steps context/steps/output" tal:condition="nocall:steps">
+    <dl class="steps-to-reproduce" tal:condition="nocall:context/steps">
       <dt i18n:translate="poi_label_steps">Steps to reproduce:</dt>
-      <dd tal:content="structure steps" />
+      <dd tal:content="structure context/steps/output" />
     </dl>
 
     <dl class="attachment" tal:define="file_attachment context/attachment" tal:condition="file_attachment">
