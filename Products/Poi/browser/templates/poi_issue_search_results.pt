@@ -84,14 +84,15 @@
                             style="text-align:center">&#8212;</div>
                    </td>
                    <td tal:content="python:', '.join(item.subject) if item.subject else ''" />
-                   <td tal:define="obj python:item.getObject()"
-                       tal:on-error="nothing"
-                       tal:condition="display_related">
-                       <tal:related repeat="relate obj/getRelatedIssue">
-                           <a tal:content="string:#${relate/id}"
-                              tal:attributes="href relate/absolute_url;
-                                              title relate/Title" />
-                       </tal:related>
+                   <td tal:condition="display_related">
+                       <tal:def define="obj python:item.getObject()"
+                                on-error="nothing">
+                           <tal:related repeat="relate obj/getRelatedIssue">
+                               <a tal:content="string:#${relate/id}"
+                                  tal:attributes="href relate/absolute_url;
+                                                  title relate/Title" />
+                           </tal:related>
+                       </tal:def>
                    </td>
                    <td tal:define="review_state python:item.getReviewState()">
                        <a tal:content="python:review_state['title']"
