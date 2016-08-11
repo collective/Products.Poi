@@ -1,6 +1,0 @@
-<html xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:metal="http://xml.zope.org/namespaces/metal">
-<tal:block metal:define-macro="topslot">
-   <tal:block define="dummy python:request.set('disable_border', 1)"/>
-</tal:block>
-</html>

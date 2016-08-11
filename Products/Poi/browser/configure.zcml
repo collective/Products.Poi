@@ -151,10 +151,10 @@
      />
 
   <browser:page
-     name="poiissue_edit"
-     for="*"
-     permission="zope2.View"
-     template="templates/poiissue_edit.pt"
+     name="edit"
+     for="Products.Poi.interfaces.IIssue"
+     permission="cmf.ModifyPortalContent"
+     class=".issue.IssueEdit"
      />
      
 </configure>
