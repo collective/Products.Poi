@@ -35,13 +35,12 @@ from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
 
 from Products.Poi import PoiMessageFactory as _
-from Products.Poi import permissions
 from plone import api
 from Products.Poi.utils import isEmail
 from plone.app.textfield import RichText
 from plone.app.z3cform.widget import AjaxSelectFieldWidget
 from plone.autoform.directives import widget
-from plone.autoform.directives import write_permission
+from plone.autoform.directives import write_permission, read_permission
 from plone.dexterity.content import Container
 from plone.protect.utils import addTokenToUrl
 from plone.supermodel import model
@@ -300,7 +299,8 @@ class ITracker(model.Schema):
             ),
     )
 
-    write_permission(watchers=permissions.ModifyIssueWatchers)
+    read_permission(watchers='Poi.ModifyIssueWatchers')
+    write_permission(watchers='Poi.ModifyIssueWatchers')
     widget('watchers',
            AjaxSelectFieldWidget,
            vocabulary='plone.app.vocabularies.Users')
