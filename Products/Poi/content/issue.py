@@ -7,6 +7,7 @@ from plone.app.textfield import RichText
 from plone.app.vocabularies.catalog import CatalogSource
 from plone.app.z3cform.widget import AjaxSelectFieldWidget
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
+from plone.autoform.directives import write_permission, read_permission
 from plone.autoform.directives import widget
 from plone.dexterity.content import Container
 from plone.namedfile.field import NamedBlobFile
@@ -59,6 +60,8 @@ class IIssue(model.Schema):
         required=False,
     )
 
+    read_permission(attachment='Poi.UploadAttachment')
+    write_permission(attachment='Poi.UploadAttachment')
     attachment = NamedBlobFile(
         title=_(u'Poi_label_issue_attachment', default=u'Attachment'),
         required=False,
@@ -81,6 +84,8 @@ class IIssue(model.Schema):
         source=possibleIssueTypes
     )
 
+    read_permission(severity='Poi.ModifyIssueSeverity')
+    write_permission(severity='Poi.ModifyIssueSeverity')
     severity = schema.Choice(
         title=_(u'Poi_label_issue_severity', default=u'Severity'),
         description=_(u'Poi_help_issue_severity',
@@ -89,6 +94,8 @@ class IIssue(model.Schema):
         source=possibleSeverities
     )
 
+    read_permission(target_release='Poi.ModifyIssueTargetRelease')
+    write_permission(target_release='Poi.ModifyIssueTargetRelease')
     target_release = schema.Choice(
         title=_(u'Poi_label_issue_target_release', default=u'Target Release'),
         description=_(u'Poi_help_issue_target_release',
@@ -97,6 +104,8 @@ class IIssue(model.Schema):
         required=False,
     )
 
+    read_permission(assignee='Poi.ModifyIssueAssignment')
+    write_permission(assignee='Poi.ModifyIssueAssignment')
     assignee = schema.Choice(
         title=_(u'Poi_label_issue_assignee', default=u'Assignee'),
         description=_(u'Poi_help_issue_assignee',
@@ -116,6 +125,8 @@ class IIssue(model.Schema):
         required=False,
     )
 
+    read_permission(watchers='Poi.ModifyIssueWatchers')
+    write_permission(watchers='Poi.ModifyIssueWatchers')
     widget('watchers',
            AjaxSelectFieldWidget,
            vocabulary='plone.app.vocabularies.Users')
@@ -132,6 +143,8 @@ class IIssue(model.Schema):
         required=False,
     )
 
+    write_permission(subject='Poi.ModifyIssueTags')
+    read_permission(subject='Poi.ModifyIssueTags')
     widget('subject',
            AjaxSelectFieldWidget,
            vocabulary='plone.app.vocabularies.Keywords',
