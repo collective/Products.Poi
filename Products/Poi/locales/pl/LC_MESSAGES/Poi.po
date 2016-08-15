@@ -91,6 +91,10 @@ msgstr "Nie zaznaczyłeś odpowiedzi."
 msgid "No response text added and no issue changes made."
 msgstr "Nie dodano tekstu ani zgłoszenie nie zostało zmienione."
 
+#: skins/Poi/poi_tracker_view.pt:80
+msgid "view_issue_logs"
+msgstr ""
+
 #: ./skins/Poi/poi_tracker_view.pt:129
 msgid "Note"
 msgstr ""

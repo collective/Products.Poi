@@ -92,6 +92,10 @@ msgstr "Es wurde keine Antwort ausgewählt."
 msgid "No response text added and no issue changes made."
 msgstr "Es wurde kein Antwort-Text hinzugefügt und keine "
 
+#: skins/Poi/poi_tracker_view.pt:80
+msgid "view_issue_logs"
+msgstr ""
+
 #: ./skins/Poi/poi_tracker_view.pt:129
 msgid "Note"
 msgstr "Notiz"

@@ -78,6 +78,7 @@
           <td>
             <div class="formControls">
               <a href="#" class="standalone" id="poi-show-log-form"
+                 i18n:translate="view_issue_logs"
                  tal:attributes="href string:${trackerUrl}/log">View Issue Logs</a>
             </div>
           </td>

@@ -92,6 +92,10 @@ msgstr "Nebyla vybrána žádná reakce."
 msgid "No response text added and no issue changes made."
 msgstr "Nebyl zadán žádný text reakce ani provedeny změny úlohy."
 
+#: skins/Poi/poi_tracker_view.pt:80
+msgid "view_issue_logs"
+msgstr ""
+
 #: ./skins/Poi/poi_tracker_view.pt:129
 msgid "Note"
 msgstr ""
