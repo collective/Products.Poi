@@ -111,7 +111,7 @@
         <td tal:content="python:here.toLocalizedTime(here.created())" />
       </tr>
       <tr>
-        <th i18n:translate="poi_label_responsible">Responsible</th>
+        <th i18n:translate="poi_label_assignee">Assignee</th>
         <td tal:define="issueAssignee context/assignee">
            <a tal:condition="issueAssignee"
               tal:define="manager python:pas_member.info(issueAssignee)"

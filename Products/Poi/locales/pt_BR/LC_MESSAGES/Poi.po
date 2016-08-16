@@ -401,9 +401,9 @@ msgstr "Versão"
 msgid "Poi_label_response"
 msgstr "Resposta"
 
-#. Default: "Responsible"
-#: ./content/PoiIssue.py:236
-msgid "Poi_label_responsibleManager"
+#. Default: "Assignee"
+#: ./browser/templates/poi_issue_view.pt:114
+msgid "poi_label_assignee"
 msgstr "Responsável"
 
 #. Default: "Send notification emails"

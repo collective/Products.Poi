@@ -862,8 +862,8 @@ msgstr "Área"
 msgid "poi_label_attachment"
 msgstr "Adjunto:"
 
-#. Default: "Responsible"
-#: ./skins/Poi/poi_issue_view.pt:114
+#. Default: "Assignee"
+#: ./browser/templates/poi_issue_view.pt:114
 msgid "poi_label_assignee"
 msgstr "Responsable"
 

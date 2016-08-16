@@ -784,7 +784,7 @@ msgid "poi_label_attachment"
 msgstr ""
 
 #. Default: "Assignee"
-#: ./skins/Poi/poi_issue_view.pt:114
+#: ./browser/templates/poi_issue_view.pt:114
 msgid "poi_label_assignee"
 msgstr ""
 

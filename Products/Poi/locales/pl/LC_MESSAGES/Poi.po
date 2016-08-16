@@ -845,9 +845,9 @@ msgstr "Obszar"
 msgid "poi_label_attachment"
 msgstr "Załącznik"
 
-#. Default: "Responsible"
-#: ./skins/Poi/poi_issue_view.pt:120
-msgid "poi_label_responsible"
+#. Default: "Assignee"
+#: ./browser/templates/poi_issue_view.pt:114
+msgid "poi_label_assignee"
 msgstr "Osoba odpowiedzialna"
 
 #. Default: "Severity"
