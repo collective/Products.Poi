@@ -177,6 +177,8 @@ def update_references(object, event=None):
     intids = getUtility(IIntIds)
     objintid = intids.getId(aq_inner(object))
 
+    if object.related_issue is None:
+        return
     # sort the relationvalues on this object by id
     relatedIssues = sorted(object.related_issue,
                            key=lambda issue: int(issue.to_object.id),
