@@ -930,7 +930,6 @@ msgstr ""
 
 #. Default: "Return to search"
 #: ./skins/Poi/poi_issue_search.pt:41
-#, fuzzy
 msgid "poi_return_to_search"
 msgstr "Volver a la búsqueda"
 

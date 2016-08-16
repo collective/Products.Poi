@@ -882,7 +882,6 @@ msgstr "${author} adicionou uma nova resposta em ${name}"
 
 #. Default: "Return to search"
 #: ./skins/Poi/poi_issue_search.pt:41
-#, fuzzy
 msgid "poi_return_to_search"
 msgstr "Retorne aos resultados de busca"
 
