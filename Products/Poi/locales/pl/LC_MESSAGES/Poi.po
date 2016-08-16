@@ -806,7 +806,6 @@ msgstr "Poniższe zgłoszenia są stworzone przez Ciebie."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
 #: ./skins/Poi/poi_tracker_view.pt:142
-#, fuzzy
 msgid "poi_help_open_issues"
 msgstr "Użyj poniższych linków, aby zobaczyć zgłoszenia z poszczególnych grup. Zaawansowane wyszukiwanie pozwala na znalezienie zgłoszeń spełniających więcej niż jedno kryterium."
 

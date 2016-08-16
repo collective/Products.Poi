@@ -822,7 +822,6 @@ msgstr "De følgende åpne emner ble enten sent av deg."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
 #: ./skins/Poi/poi_tracker_view.pt:142
-#, fuzzy
 msgid "poi_help_open_issues"
 msgstr "Klikk et område eller emne-tilstand for å se alle åpne emner i den kategorien. For mere avanserte søkevalg, klikk  \"Søk etter emner\"."
 

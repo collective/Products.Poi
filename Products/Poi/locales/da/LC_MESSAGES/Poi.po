@@ -817,7 +817,6 @@ msgstr "Følgende åbne sager er oprettet af dig."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
 #: ./skins/Poi/poi_tracker_view.pt:142
-#, fuzzy
 msgid "poi_help_open_issues"
 msgstr "Klik på område, udgivelse eller tilstand for at se alle åbne sager i den enkelte kategori. For mere avancerede søgefunktioner, klik på \"Avanceret søgning\"."
 
