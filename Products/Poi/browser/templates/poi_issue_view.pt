@@ -214,6 +214,7 @@
     <div class="formControls">
       <a href="${context/absolute_url}/edit"
             class="context"
+            i18n:translate=""
             tal:condition="python: user.has_permission('Modify portal content', here)">Edit issue</a>
     </div>
 
