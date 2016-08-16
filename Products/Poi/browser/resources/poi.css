@@ -55,3 +55,6 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
     border: none;
     color: #ffffff;
 }
+.icon-maildefaults::before {
+     content: "\e837";
+}
