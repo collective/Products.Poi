@@ -325,6 +325,11 @@ msgstr "Domaines"
 msgid "Poi_label_availableIssueTypes"
 msgstr "Types de ticket"
 
+#. Default: "Issue types"
+#: ./browser/templates/poi_issue_search_form.pt:150
+msgid "poi_search_label_type"
+msgstr "Types de ticket"
+
 # ./content/PoiTracker.py
 #. Default: "Available releases"
 #: ./content/PoiTracker.py:182
@@ -907,6 +912,11 @@ msgstr "Termes de la recherche"
 msgid "poi_match_all_tags"
 msgstr "Faire correspondre toutes les étiquettes"
 
+#. Default: "Include Related Issues"
+#: ./skins/Poi/poi_issue_search_form.pt:267
+msgid "poi_display_related"
+msgstr ""
+
 #. Default: "New issue ${name} added by ${author}"
 #: ./browser/log.pt:36
 msgid "poi_new_issue_added"
@@ -958,9 +968,9 @@ msgstr "Sélectionnez les types de ticket que vous souhaitez rechercher."
 msgid "poi_search_help_release"
 msgstr "Sélectionnez les distributions que vous souhaitez rechercher."
 
-#. Default: "Select the responsible managers you wish to search for."
+#. Default: "Select the assignee you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:221
-msgid "poi_search_help_responsible"
+msgid "poi_search_help_assignee"
 msgstr "Sélectionnez les responsables que vous souhaitez rechercher."
 
 #. Default: "Select the severities you wish to search for."
@@ -1013,9 +1023,9 @@ msgstr "Type de ticket"
 msgid "poi_search_label_release"
 msgstr "Distribution"
 
-#. Default: "Responsible tracker managers"
-#: ./skins/Poi/poi_issue_search_form.pt:219
-msgid "poi_search_label_responsible"
+#. Default: "Assignee"
+#: ./skins/Poi/poi_issue_search_form.pt:215
+msgid "poi_search_label_assignee"
 msgstr "Administrateurs du gestionnaire de tickets"
 
 #. Default: "Severity"

@@ -321,6 +321,11 @@ msgstr "Oblasti"
 msgid "Poi_label_availableIssueTypes"
 msgstr "Typy úloh"
 
+#. Default: "Issue types"
+#: ./browser/templates/poi_issue_search_form.pt:150
+msgid "poi_search_label_type"
+msgstr "Typy úloh"
+
 # ./content/PoiTracker.py
 #. Default: "Available releases"
 #: ./content/PoiTracker.py:182
@@ -844,8 +849,8 @@ msgid "poi_label_attachment"
 msgstr "Přiloženo:"
 
 #. Default: "Responsible"
-#: ./skins/Poi/poi_issue_view.pt:120
-msgid "poi_label_responsible"
+#: ./skins/Poi/poi_issue_view.pt:114
+msgid "poi_label_assignee"
 msgstr "Odpovědný"
 
 #. Default: "Severity"
@@ -903,6 +908,11 @@ msgstr "Podmínky Vyhledávání"
 msgid "poi_match_all_tags"
 msgstr "Odpovídá všem značkám"
 
+#. Default: "Include Related Issues"
+#: ./skins/Poi/poi_issue_search_form.pt:267
+msgid "poi_display_related"
+msgstr ""
+
 #. Default: "New issue ${name} added by ${author}"
 #: ./browser/log.pt:36
 msgid "poi_new_issue_added"
@@ -954,9 +964,9 @@ msgstr "Vyberte jaké typy úloh si přejete hledat."
 msgid "poi_search_help_release"
 msgstr "Vyberte verzi, podle které chcete vyhledat nahlášené chyby."
 
-#. Default: "Select the responsible managers you wish to search for."
+#. Default: "Select the assignee you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:221
-msgid "poi_search_help_responsible"
+msgid "poi_search_help_assignee"
 msgstr "Vyberte odpovědné správce jejichž úlohy si přejete hledat."
 
 #. Default: "Select the severities you wish to search for."
@@ -1009,9 +1019,9 @@ msgstr "Typ úlohy"
 msgid "poi_search_label_release"
 msgstr "Verze"
 
-#. Default: "Responsible tracker managers"
-#: ./skins/Poi/poi_issue_search_form.pt:219
-msgid "poi_search_label_responsible"
+#. Default: "Assignee"
+#: ./skins/Poi/poi_issue_search_form.pt:215
+msgid "poi_search_label_assignee"
 msgstr "Odpovědní správci manažeru úloh"
 
 #. Default: "Severity"

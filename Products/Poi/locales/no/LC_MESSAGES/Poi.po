@@ -329,6 +329,11 @@ msgstr "Områder"
 msgid "Poi_label_availableIssueTypes"
 msgstr "Enmetype"
 
+#. Default: "Issue types"
+#: ./browser/templates/poi_issue_search_form.pt:150
+msgid "poi_search_label_type"
+msgstr "Enmetype"
+
 # ./content/PoiTracker.py
 #. Default: "Available releases"
 #: ./content/PoiTracker.py:182
@@ -918,6 +923,11 @@ msgstr "Søkevalg"
 msgid "poi_match_all_tags"
 msgstr ""
 
+#. Default: "Include Related Issues"
+#: ./skins/Poi/poi_issue_search_form.pt:267
+msgid "poi_display_related"
+msgstr ""
+
 #. Default: "New issue ${name} added by ${author}"
 #: ./browser/log.pt:36
 msgid "poi_new_issue_added"
@@ -970,9 +980,9 @@ msgstr "Velg emne-typene du vil søke etter."
 msgid "poi_search_help_release"
 msgstr "Select the releases you wish to search for."
 
-#. Default: "Select the responsible managers you wish to search for."
+#. Default: "Select the assignee you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:221
-msgid "poi_search_help_responsible"
+msgid "poi_search_help_assignee"
 msgstr "Velg de ansvarlige managerene du vil søke etter."
 
 #. Default: "Select the severities you wish to search for."
@@ -1026,9 +1036,9 @@ msgstr "Emne-type"
 msgid "poi_search_label_release"
 msgstr "Versjoon"
 
-#. Default: "Responsible tracker managers"
-#: ./skins/Poi/poi_issue_search_form.pt:219
-msgid "poi_search_label_responsible"
+#. Default: "Assignee"
+#: ./skins/Poi/poi_issue_search_form.pt:215
+msgid "poi_search_label_assignee"
 msgstr "Ansvarlige managere"
 
 #. Default: "Severity"

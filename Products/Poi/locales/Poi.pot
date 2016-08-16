@@ -280,6 +280,11 @@ msgstr ""
 msgid "Poi_label_availableIssueTypes"
 msgstr ""
 
+#. Default: "Issue types"
+#: ./browser/templates/poi_issue_search_form.pt:150
+msgid "poi_search_label_type"
+msgstr ""
+
 #. Default: "Available releases"
 #: ./content/PoiTracker.py:182
 msgid "Poi_label_availableReleases"
@@ -778,9 +783,9 @@ msgstr ""
 msgid "poi_label_attachment"
 msgstr ""
 
-#. Default: "Responsible"
-#: ./skins/Poi/poi_issue_view.pt:120
-msgid "poi_label_responsible"
+#. Default: "Assignee"
+#: ./skins/Poi/poi_issue_view.pt:114
+msgid "poi_label_assignee"
 msgstr ""
 
 #. Default: "Severity"
@@ -836,6 +841,11 @@ msgstr ""
 #. Default: "Match all tags"
 #: ./skins/Poi/poi_issue_search_form.pt:265
 msgid "poi_match_all_tags"
+msgstr ""
+
+#. Default: "Include Related Issues"
+#: ./skins/Poi/poi_issue_search_form.pt:267
+msgid "poi_display_related"
 msgstr ""
 
 #. Default: "New issue ${name} added by ${author}"
@@ -944,9 +954,9 @@ msgstr ""
 msgid "poi_search_label_release"
 msgstr ""
 
-#. Default: "Responsible tracker managers"
-#: ./skins/Poi/poi_issue_search_form.pt:219
-msgid "poi_search_label_responsible"
+#. Default: "Assignee"
+#: ./skins/Poi/poi_issue_search_form.pt:215
+msgid "poi_search_label_assignee"
 msgstr ""
 
 #. Default: "Severity"

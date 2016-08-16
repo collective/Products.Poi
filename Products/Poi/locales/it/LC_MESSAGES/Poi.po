@@ -341,6 +341,11 @@ msgstr "Aree"
 msgid "Poi_label_availableIssueTypes"
 msgstr "Tipi di richiesta"
 
+#. Default: "Issue types"
+#: ./browser/templates/poi_issue_search_form.pt:150
+msgid "poi_search_label_type"
+msgstr "Tipi di richiesta"
+
 # ./content/PoiTracker.py
 #. Default: "Available releases"
 #: ./content/PoiTracker.py:182
@@ -925,6 +930,11 @@ msgstr "Termini di ricerca"
 msgid "poi_match_all_tags"
 msgstr "Tutti i tag"
 
+#. Default: "Include Related Issues"
+#: ./skins/Poi/poi_issue_search_form.pt:267
+msgid "poi_display_related"
+msgstr ""
+
 #. Default: "New issue ${name} added by ${author}"
 #: ./browser/log.pt:36
 msgid "poi_new_issue_added"
@@ -976,9 +986,9 @@ msgstr "Seleziona i tipi di richiesta che desideri cercare"
 msgid "poi_search_help_release"
 msgstr "Seleziona i rilasci nei quali la segnalazione cercata si applica."
 
-#. Default: "Select the responsible managers you wish to search for."
+#. Default: "Select the assignee you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:221
-msgid "poi_search_help_responsible"
+msgid "poi_search_help_assignee"
 msgstr "Seleziona i managers responsabili che desideri cercare."
 
 #. Default: "Select the severities you wish to search for."
@@ -1031,9 +1041,9 @@ msgstr "Tipo di richiesta"
 msgid "poi_search_label_release"
 msgstr "Rilascio"
 
-#. Default: "Responsible tracker managers"
-#: ./skins/Poi/poi_issue_search_form.pt:219
-msgid "poi_search_label_responsible"
+#. Default: "Assignee"
+#: ./skins/Poi/poi_issue_search_form.pt:215
+msgid "poi_search_label_assignee"
 msgstr "Managers responsabili del gestore attività"
 
 #. Default: "Severity"

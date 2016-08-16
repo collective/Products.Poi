@@ -321,6 +321,11 @@ msgstr "Dostępne obszary"
 msgid "Poi_label_availableIssueTypes"
 msgstr "Dostępne typy zgłoszeń"
 
+#. Default: "Issue types"
+#: ./browser/templates/poi_issue_search_form.pt:150
+msgid "poi_search_label_type"
+msgstr "Dostępne typy zgłoszeń"
+
 # ./content/PoiTracker.py
 #. Default: "Available releases"
 #: ./content/PoiTracker.py:182
@@ -900,6 +905,11 @@ msgstr "Kryteria wyszukiwania"
 msgid "poi_match_all_tags"
 msgstr "Dopasuj wszystkie kategorie"
 
+#. Default: "Include Related Issues"
+#: ./skins/Poi/poi_issue_search_form.pt:267
+msgid "poi_display_related"
+msgstr ""
+
 #. Default: "New issue ${name} added by ${author}"
 #: ./browser/log.pt:36
 msgid "poi_new_issue_added"
@@ -951,9 +961,9 @@ msgstr "Wybierz typy zgłoszeń po których chcesz szukać."
 msgid "poi_search_help_release"
 msgstr "Wybierz wersję po których chcesz szukać."
 
-#. Default: "Select the responsible managers you wish to search for."
+#. Default: "Select the assignee you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:221
-msgid "poi_search_help_responsible"
+msgid "poi_search_help_assignee"
 msgstr "Wybierz osoby odpowiedzialne po których chcesz szukać."
 
 #. Default: "Select the severities you wish to search for."
@@ -1006,9 +1016,9 @@ msgstr "Typ zgłoszenia"
 msgid "poi_search_label_release"
 msgstr "Wersja"
 
-#. Default: "Responsible tracker managers"
-#: ./skins/Poi/poi_issue_search_form.pt:219
-msgid "poi_search_label_responsible"
+#. Default: "Assignee"
+#: ./skins/Poi/poi_issue_search_form.pt:215
+msgid "poi_search_label_assignee"
 msgstr "Osoba odpowiedzialna"
 
 #. Default: "Severity"

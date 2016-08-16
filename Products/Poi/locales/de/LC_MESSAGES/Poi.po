@@ -320,6 +320,11 @@ msgstr "Bereiche"
 msgid "Poi_label_availableIssueTypes"
 msgstr "Arten der Problemstellung"
 
+#. Default: "Issue types"
+#: ./browser/templates/poi_issue_search_form.pt:150
+msgid "poi_search_label_type"
+msgstr "Arten der Problemstellung"
+
 # ./content/PoiTracker.py
 #. Default: "Available releases"
 #: ./content/PoiTracker.py:182
@@ -902,6 +907,11 @@ msgstr "Such-Begriffe"
 msgid "poi_match_all_tags"
 msgstr "Alle Stichworte einbeziehen"
 
+#. Default: "Include Related Issues"
+#: ./skins/Poi/poi_issue_search_form.pt:267
+msgid "poi_display_related"
+msgstr ""
+
 #. Default: "New issue ${name} added by ${author}"
 #: ./browser/log.pt:36
 msgid "poi_new_issue_added"
@@ -953,9 +963,9 @@ msgstr "Wählen sie die Arten der Problemstellung, nach denen Sie suchen möchte
 msgid "poi_search_help_release"
 msgstr "Wählen Sie die Ausgabe/ Versionen, nach denen Sie suchen möchten."
 
-#. Default: "Select the responsible managers you wish to search for."
+#. Default: "Select the assignee you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:221
-msgid "poi_search_help_responsible"
+msgid "poi_search_help_assigness"
 msgstr "Wählen Sie die verantwortlichen Verwalter, nach denen Sie suchen möchten."
 
 #. Default: "Select the severities you wish to search for."
@@ -1008,9 +1018,9 @@ msgstr "Art der Problemstellung"
 msgid "poi_search_label_release"
 msgstr "Ausgabe/ Version"
 
-#. Default: "Responsible tracker managers"
-#: ./skins/Poi/poi_issue_search_form.pt:219
-msgid "poi_search_label_responsible"
+#. Default: "Assignee"
+#: ./skins/Poi/poi_issue_search_form.pt:215
+msgid "poi_search_label_assignee"
 msgstr "Verantwortliche Tracker Manager"
 
 #. Default: "Severity"

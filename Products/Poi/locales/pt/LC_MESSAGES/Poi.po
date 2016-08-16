@@ -304,6 +304,11 @@ msgstr "Áreas"
 msgid "Poi_label_availableIssueTypes"
 msgstr "Tipos de ocorrência"
 
+#. Default: "Issue types"
+#: ./browser/templates/poi_issue_search_form.pt:150
+msgid "poi_search_label_type"
+msgstr "Tipos de ocorrência"
+
 #. Default: "Available releases"
 #: ./content/PoiTracker.py:182
 msgid "Poi_label_availableReleases"
@@ -869,6 +874,11 @@ msgstr "Critérios de pesquisa"
 msgid "poi_match_all_tags"
 msgstr "Combinar os vários critérios de pesquisa"
 
+#. Default: "Include Related Issues"
+#: ./skins/Poi/poi_issue_search_form.pt:267
+msgid "poi_display_related"
+msgstr ""
+
 #. Default: "New issue ${name} added by ${author}"
 #: ./browser/log.pt:36
 msgid "poi_new_issue_added"
@@ -920,9 +930,9 @@ msgstr "Seleccione os tipos de ocorrência que deseja pesquisar."
 msgid "poi_search_help_release"
 msgstr "Seleccione as versões nas quais aparecem os erros que deseja pesquisar."
 
-#. Default: "Select the responsible managers you wish to search for."
+#. Default: "Select the assignee you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:221
-msgid "poi_search_help_responsible"
+msgid "poi_search_help_assignee"
 msgstr "Seleccione os responsáveis que deseja pesquisar."
 
 #. Default: "Select the severities you wish to search for."
@@ -975,9 +985,9 @@ msgstr "Tipo de ocorrência"
 msgid "poi_search_label_release"
 msgstr "Versão"
 
-#. Default: "Responsible tracker managers"
-#: ./skins/Poi/poi_issue_search_form.pt:219
-msgid "poi_search_label_responsible"
+#. Default: "Assignee"
+#: ./skins/Poi/poi_issue_search_form.pt:215
+msgid "poi_search_label_assignee"
 msgstr "Administradores responsáveis"
 
 #. Default: "Severity"

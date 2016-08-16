@@ -329,6 +329,11 @@ msgstr "領域"
 msgid "Poi_label_availableIssueTypes"
 msgstr "課題の種別"
 
+#. Default: "Issue types"
+#: ./browser/templates/poi_issue_search_form.pt:150
+msgid "poi_search_label_type"
+msgstr "課題の種別"
+
 # ./content/PoiTracker.py
 #. Default: "Available releases"
 #: ./content/PoiTracker.py:182
@@ -918,6 +923,11 @@ msgstr "検索単語"
 msgid "poi_match_all_tags"
 msgstr ""
 
+#. Default: "Include Related Issues"
+#: ./skins/Poi/poi_issue_search_form.pt:267
+msgid "poi_display_related"
+msgstr ""
+
 #. Default: "New issue ${name} added by ${author}"
 #: ./browser/log.pt:36
 msgid "poi_new_issue_added"
@@ -970,9 +980,9 @@ msgstr "検索対象とする課題の種類を選択して下さい。"
 msgid "poi_search_help_release"
 msgstr "検索対象とするリリースを選択して下さい。"
 
-#. Default: "Select the responsible managers you wish to search for."
+#. Default: "Select the assignee you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:221
-msgid "poi_search_help_responsible"
+msgid "poi_search_help_assignee"
 msgstr "検索対象とする対応責任者を選択して下さい。"
 
 #. Default: "Select the severities you wish to search for."
@@ -1026,9 +1036,9 @@ msgstr "課題の種類"
 msgid "poi_search_label_release"
 msgstr "リリース"
 
-#. Default: "Responsible tracker managers"
-#: ./skins/Poi/poi_issue_search_form.pt:219
-msgid "poi_search_label_responsible"
+#. Default: "Assignee"
+#: ./skins/Poi/poi_issue_search_form.pt:215
+msgid "poi_search_label_assignee"
 msgstr "トラッカー管理者の責任者"
 
 #. Default: "Severity"

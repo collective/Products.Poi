@@ -147,9 +147,9 @@
 
           <div class="field">
 
-            <label for="type" i18n:translate="poi_search_label_type">Issue Type</label>
+            <label for="type" i18n:translate="poi_search_label_type">Issue Types</label>
 
-            <div class="formHelp" i18n:translate="poi_search_help_type">
+            <div class="formHelp" i18n:translate="poi_search_help_issue_type">
               Select the types you wish to search for.
             </div>
 
