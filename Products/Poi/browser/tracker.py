@@ -75,8 +75,8 @@ class IssueFolderView(BrowserView):
         # poi_issue_search_form, instead of say from a test, its type
         # is not 'dict', but 'instance', even though it looks like a
         # dict.  See http://plone.org/products/poi/issues/137
-        if 'subject' in query:
-            subject = query['subject']
+        if 'Subject' in query:
+            subject = query['Subject']
             # We cannot use "subject.has_key('operator')" or
             # "'operator' in subject'" because of the strange
             # instance.
@@ -92,7 +92,7 @@ class IssueFolderView(BrowserView):
                 try:
                     subject['query']
                 except KeyError:
-                    del query['subject']
+                    del query['Subject']
 
         query['sort_on'] = criteria.get('sort_on', 'created')
         query['sort_order'] = criteria.get('sort_order', 'reverse')
