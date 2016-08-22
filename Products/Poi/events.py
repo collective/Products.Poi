@@ -1,7 +1,6 @@
 import logging
 
 from collective.watcherlist.interfaces import IWatcherList
-from collective.watcherlist.utils import get_member_email
 from plone import api
 
 from Products.Poi.interfaces import IIssue
@@ -10,7 +9,6 @@ from Products.Poi.content.issue import next_issue_id
 from Acquisition import aq_inner
 from zope.component import getUtility
 from zope.intid.interfaces import IIntIds
-from zope.security import checkPermission
 from zc.relation.interfaces import ICatalog
 from z3c.relationfield import RelationValue
 
@@ -203,7 +201,7 @@ def update_references(object, event=None):
              from_attribute='related_issue')):
         issuesRelated.append(RelationValue(rel.from_id))
 
-    # remove relations from those issues to this one if neeeded 
+    # remove relations from those issues to this one if neeeded
     for issue in issuesRelated:
         if issue.to_id in [r.to_id for r in object.related_issue]:
             continue
