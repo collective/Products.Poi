@@ -5,6 +5,7 @@ from collective.watcherlist.utils import get_member_email
 from plone import api
 
 from Products.Poi.interfaces import IIssue
+from Products.Poi.content.issue import next_issue_id
 
 from Acquisition import aq_inner
 from zope.component import getUtility
@@ -88,15 +89,11 @@ def assign_id(new_issue, event):
     """Auto-increment ID numbers when they are created.
        Don't run on copied issues
     """
-    if new_issue.id.find('copy') >= 0:
+    if new_issue.id.find('copy') >= 0 or new_issue.id.isdigit():
+        # don't rename copied issues or those that already have a numeric ID
         return
-    issue_id = 1
     tracker = api.content.get(UID=new_issue._tracker_uid)
-    issues = api.content.find(context=tracker, object_provides=IIssue)
-    existing_ids = [int(issue.id) for issue in issues if issue.id.isdigit()]
-    if len(existing_ids):
-        issue_id = max(existing_ids) + 1
-    issue_id = str(issue_id)
+    issue_id = next_issue_id(tracker)
     api.content.rename(obj=new_issue, new_id=issue_id)
 
 

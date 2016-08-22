@@ -235,3 +235,15 @@ class Issue(Container):
             return False
         else:
             return True
+
+
+# this is implemented here to reduce the chance of a circular
+# import with IIssue
+def next_issue_id(tracker):
+    """find the next available issue ID (integer) for a Poi tracker"""
+    issue_id = 1
+    issues = api.content.find(context=tracker, object_provides=IIssue)
+    existing_ids = [int(issue.id) for issue in issues if issue.id.isdigit()]
+    if len(existing_ids):
+        issue_id = max(existing_ids) + 1
+    return str(issue_id)
