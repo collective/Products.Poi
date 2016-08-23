@@ -53,6 +53,7 @@ Now we create an issue::
     >>> browser.getControl(name='form.widgets.steps').value = 'Click something'
     >>> browser.getControl(name='form.widgets.area:list').value = ('ui',)
     >>> browser.getControl(name='form.widgets.issue_type:list').value = ('bug',)
+    >>> browser.getControl(name='form.widgets.assignee:list').value = (u'test_user_1_',)
     >>> browser.getControl(name='form.widgets.watchers').value = u'maurits@vanrees.org'
     >>> try:
     ...     button = browser.getControl(name='form.buttons.save')
@@ -114,7 +115,8 @@ We check the values of this response::
     DateTime(...)
     >>> response.type
     'clarification'
-    >>> from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
+    >>> from plone import api
+    >>> DEFAULT_ISSUE_MIME_TYPE = api.portal.get_registry_record('poi.default_issue_mime_type')
     >>> response.mimetype == DEFAULT_ISSUE_MIME_TYPE
     True
 
@@ -186,8 +188,8 @@ We change the text and save it::
     True
     >>> 'Certainly fixed in r100.' in browser.contents
     True
-    >>> browser.url
-    'http://nohost/plone/issues/1'
+    >>> browser.url.startswith('http://nohost/plone/issues/1')
+    True
 
 Now we delete the response::
 
