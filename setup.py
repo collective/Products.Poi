@@ -40,11 +40,9 @@ setup(name='Products.Poi',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'Products.CMFPlone>=4.3',
+          'Products.CMFPlone>=5.0.5',
           'collective.watcherlist>=2.0',
-          'collective.z3cform.datagridfield>=1.1',
-          'plone.app.registry>=1.3.6',
-          'plone.app.referenceablebehavior',
+          'collective.z3cform.datagridfield',
           'Products.OrderableReferenceField',
       ],
       extras_require={
