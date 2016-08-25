@@ -60,16 +60,6 @@ class IIssue(model.Schema):
         required=False,
     )
 
-    read_permission(attachment='Poi.UploadAttachment')
-    write_permission(attachment='Poi.UploadAttachment')
-    attachment = NamedBlobFile(
-        title=_(u'Poi_label_issue_attachment', default=u'Attachment'),
-        required=False,
-        description=_(u'Poi_help_issue_attachment',
-                      default=u"You may optionally upload a file attachment. Please "
-                      u"do not upload unnecessarily large files.")
-    )
-
     area = schema.Choice(
         title=_(u'Poi_label_issue_area', default=u'Area'),
         description=_(u'Poi_help_issue_area',

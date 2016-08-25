@@ -190,12 +190,6 @@
       <dd tal:content="structure context/steps/output" />
     </dl>
 
-    <dl class="attachment" tal:define="file_attachment context/attachment" tal:condition="file_attachment">
-      <dt i18n:translate="poi_label_attachment">Attachment:</dt>
-      <dd><a tal:attributes="href string:${context/absolute_url}/@@download/attachment"
-             tal:content="file_attachment/filename" /></dd>
-    </dl>
-
     <dl class="related-issues" tal:define="related context/related_issue" tal:condition="related">
         <dt i18n:translate="poi_label_related">Related issue(s):</dt>
         <dd>
