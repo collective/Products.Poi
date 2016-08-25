@@ -1,0 +1,20 @@
+<div class="issue-uploads" id="formfield-form-widgets-attachments"
+    tal:define="items context/getFolderContents">
+    <label for="fakeUploadFile" class="horizontal">Attachments</label>
+    <ol tal:condition="items">
+        <tal:repeat repeat="item items">
+            <li><a href="" tal:attributes="href string:${item/id}/delete_confirmation"
+                   class="issue-upload-delete"
+                   title="Delete">
+                <i class="glyphicon glyphicon-remove-sign"></i></a>
+                <a href="" tal:attributes="href string:${item/id}/view" tal:content="item/Title" />
+            </li>
+        </tal:repeat>
+    </ol>
+    <tal:cond condition="python: user.has_permission('Poi.UploadAttachment', here)">
+        <p class="formHelp" i18n:translate="Poi_help_issue_attachment">You may optionally upload file attachments. Please do not upload unnecessarily large files.</p>
+        <div class="pat-upload"
+             data-pat-upload='{"url":"fileUpload",
+                               "showTitle": false}'/>
+    </tal:cond>
+</div>

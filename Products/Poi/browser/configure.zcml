@@ -156,5 +156,12 @@
      permission="cmf.ModifyPortalContent"
      class=".issue.IssueEdit"
      />
-     
+
+  <browser:page
+     name="poi_issue_uploads"
+     for="Products.Poi.interfaces.IIssue"
+     permission="zope2.View"
+     template="issue_uploads.pt"
+     />
+
 </configure>

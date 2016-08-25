@@ -58,3 +58,14 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
 .icon-maildefaults::before {
      content: "\e837";
 }
+
+#content-core .issue-upload-delete {
+    color: #d9534f;
+    opacity: .65;
+    border: none;
+    cursor: pointer;
+}
+#content-core .issue-upload-delete:hover {
+    color: #d9534f;
+    opacity: 1;
+}

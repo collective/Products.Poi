@@ -190,6 +190,17 @@
       <dd tal:content="structure context/steps/output" />
     </dl>
 
+    <dl class="uploads" tal:define="items context/getFolderContents" tal:condition="items">
+        <dt i18n:translate="poi_label_attachments">Attachments:</dt>
+        <dd>
+          <ol>
+              <li tal:repeat="item items">
+                  <a href="" tal:attributes="href string:${context/id}/${item/id}/view" tal:content="item/Title" />
+              </li>
+          </ol>
+        </dd>
+    </dl>
+
     <dl class="related-issues" tal:define="related context/related_issue" tal:condition="related">
         <dt i18n:translate="poi_label_related">Related issue(s):</dt>
         <dd>
@@ -210,6 +221,10 @@
             class="context"
             i18n:translate=""
             tal:condition="python: user.has_permission('Modify portal content', here)">Edit issue</a>
+      <a href="${context/absolute_url}/folder_contents"
+            class="context"
+            i18n:translate=""
+            tal:condition="python: user.has_permission('Poi.UploadAttachment', here)">Manage attachments</a>
     </div>
 
     <div class="visualClear"><!----></div>
