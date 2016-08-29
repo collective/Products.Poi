@@ -83,6 +83,13 @@ def remember_tracker(new_issue, event):
     new_issue._tracker_uid = event.newParent.UID()
 
 
+def fix_copy_move_id(new_issue, event):
+    """Fix the id of an issue when it is being copied or moved"""
+    tracker = api.content.get(UID=new_issue._tracker_uid)
+    issue_id = next_issue_id(tracker)
+    api.content.rename(obj=new_issue, new_id=issue_id)
+
+
 def assign_id(new_issue, event):
     """Auto-increment ID numbers when they are created.
        Don't run on copied issues

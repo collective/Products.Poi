@@ -42,6 +42,12 @@
 
   <subscriber
       for="Products.Poi.content.issue.IIssue
+           OFS.interfaces.IObjectClonedEvent"
+        handler=".events.fix_copy_move_id"
+        />
+
+  <subscriber
+      for="Products.Poi.content.issue.IIssue
            zope.lifecycleevent.IObjectAddedEvent"
         handler=".events.post_issue"
         />
