@@ -41,6 +41,7 @@ setup(name='Products.Poi',
       install_requires=[
           'setuptools',
           'Products.CMFPlone>=5.0.5',
+          'collective.dexteritytextindexer',
           'collective.watcherlist>=2.0',
           'collective.z3cform.datagridfield',
           'Products.OrderableReferenceField',

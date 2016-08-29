@@ -2,6 +2,7 @@
 from zope.interface import implementer
 from zope import schema
 
+from collective import dexteritytextindexer
 from plone import api
 from plone.app.textfield import RichText
 from plone.app.vocabularies.catalog import CatalogSource
@@ -28,6 +29,7 @@ from .tracker import possibleAssignees
 class IIssue(model.Schema):
     """Marker interface for Poi issue"""
 
+    dexteritytextindexer.searchable('title')
     title = schema.TextLine(
         title=_(u'Poi_label_issue_title', default=u"Title"),
         description=_(u'Poi_help_issue_title',
@@ -45,12 +47,14 @@ class IIssue(model.Schema):
         source=possibleTargetReleases
     )
 
+    dexteritytextindexer.searchable('details')
     details = RichText(
         title=_(u'Poi_label_issue_details', default=u'Details'),
         description=_(u'Poi_help_issue_details',
                       default=u"Please provide further details")
     )
 
+    dexteritytextindexer.searchable('steps')
     steps = RichText(
         title=_(u'Poi_label_issue_steps', default=u'Steps To Reproduce'),
         description=_(u'Poi_help_issue_steps',
