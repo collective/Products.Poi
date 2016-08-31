@@ -3,12 +3,21 @@ import logging
 from collective.watcherlist.interfaces import IWatcherList
 from plone import api
 
+from Products.Archetypes.atapi import DisplayList
+from Products.CMFCore.utils import getToolByName
+
+from Products.Poi import permissions
+from Products.Poi.adapters import IResponseContainer
+from Products.Poi.adapters import Response
 from Products.Poi.interfaces import IIssue
 from Products.Poi.content.issue import next_issue_id
+from Products.Poi.content.tracker import possibleAssignees
 
 from Acquisition import aq_inner
 from zope.component import getUtility
 from zope.intid.interfaces import IIntIds
+from zope.lifecycleevent import ObjectAddedEvent,\
+    ObjectModifiedEvent, ObjectRemovedEvent
 from zc.relation.interfaces import ICatalog
 from z3c.relationfield import RelationValue
 
@@ -218,3 +227,64 @@ def update_references(object, event=None):
             continue
         others_related = [x for x in others_related if x.to_id != objintid]
         issue_object.related_issue = others_related
+
+
+def available_assignees(issue):
+    """Get the tracker assignees.
+    """
+    # get vocab from issue
+    tracker = issue.aq_parent
+    memship = getToolByName(tracker, 'portal_membership')
+
+    if not memship.checkPermission(
+            permissions.ModifyIssueAssignment, tracker):
+        return DisplayList()
+    return possibleAssignees(tracker)
+
+
+def determine_response_type(response, issue):
+    """Return a string indicating the type of response this is.
+    """
+    responseCreator = response.creator
+    if responseCreator == '(anonymous)':
+        return 'additional'
+
+    if responseCreator == issue.Creator():
+        return 'clarification'
+
+    if responseCreator in available_assignees(issue):
+        return 'reply'
+
+    # default:
+    return 'additional'
+
+
+def add_response_for_files(object, event):
+    """If a file/image is added or deleted, add a response."""
+    #import pdb; pdb.set_trace()
+
+    if isinstance(event, ObjectAddedEvent):
+        if event.newParent.portal_type == "Issue":
+            issue = event.newParent
+            new_response = Response("Attachment added: " + object.title)
+        else:
+            return
+    elif isinstance(event, ObjectModifiedEvent):
+        if object.aq_parent.portal_type == "Issue":
+            issue = object.aq_parent
+            new_response = Response("Attachment modified: " + object.title)
+        else:
+            return
+    elif isinstance(event, ObjectRemovedEvent):
+        if event.oldParent.portal_type == "Issue":
+            issue = event.oldParent
+            new_response = Response("Attachment deleted: " + object.title)
+        else:
+            return
+
+    if new_response:
+        new_response.mimetype =\
+            api.portal.get_registry_record('poi.default_issue_mime_type')
+        new_response.type = determine_response_type(new_response, issue)
+        folder = IResponseContainer(issue)
+        folder.add(new_response)

@@ -70,6 +70,42 @@
         handler=".events.update_references"
         />
 
+  <subscriber
+        for="plone.app.contenttypes.interfaces.IFile
+           zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".events.add_response_for_files"
+        />
+
+  <subscriber
+        for="plone.app.contenttypes.interfaces.IImage
+           zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".events.add_response_for_files"
+        />
+
+  <subscriber
+        for="plone.app.contenttypes.interfaces.IFile
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+        handler=".events.add_response_for_files"
+        />
+
+  <subscriber
+        for="plone.app.contenttypes.interfaces.IImage
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+        handler=".events.add_response_for_files"
+        />
+
+  <subscriber
+        for="plone.app.contenttypes.interfaces.IFile
+           zope.lifecycleevent.interfaces.IObjectRemovedEvent"
+        handler=".events.add_response_for_files"
+        />
+
+  <subscriber
+        for="plone.app.contenttypes.interfaces.IImage
+           zope.lifecycleevent.interfaces.IObjectRemovedEvent"
+        handler=".events.add_response_for_files"
+        />
+
   <adapter
       provides=".adapters.IResponseContainer"
       factory=".adapters.ResponseContainer"
