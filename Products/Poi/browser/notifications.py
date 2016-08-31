@@ -23,7 +23,7 @@ class BasePoiMail(BaseMail):
 
     index = ViewPageTemplateFile('templates/poi_mail.pt')
     plain_index = ''
-    css_file_name = 'poi-email.css'
+    css_file_name = '++resource++poi/poi-email.css'
 
     def plain2rst(self):
         """Try to interpret the plain text as reStructuredText.
@@ -52,9 +52,9 @@ class BasePoiMail(BaseMail):
         if not portal:
             return u''
         try:
-            # Render the css, in a way that seems to work for both
-            # dtml and plain css files.
-            css = '%s' % portal.restrictedTraverse(self.css_file_name)
+            # read in the contents of the CSS file
+            css_resource = portal.restrictedTraverse(self.css_file_name)
+            css = open(css_resource.context.path).read()
         except (ConflictError, KeyboardInterrupt):
             raise
         except:
