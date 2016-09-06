@@ -52,6 +52,13 @@
 
     <table class="vertical listing issue-info-box"
            tal:define="releases here/getReleasesVocab">
+      <tr tal:condition="context/contact_email">
+        <th i18n:translate="poi_label_issue_contact_email">Contact Email</th>
+        <td><a tal:content="context/contact_email"
+               tal:attributes="href string:mailto:${context/contact_email};"
+             ></a>
+        </td>
+      </tr>
       <tr tal:define="state python:wftool.getInfoFor(here, 'review_state');
                       state_title python:wftool.getTitleForStateOnType(state, here.getPortalTypeName());">
         <th i18n:translate="poi_label_state">State</th>
