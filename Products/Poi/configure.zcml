@@ -130,6 +130,18 @@
         handler=".events.add_response_for_files"
         />
 
+  <subscriber
+      for="Products.Poi.content.tracker.ITracker
+           zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".events.update_tracker_watchers"
+        />
+
+  <subscriber
+      for="Products.Poi.content.tracker.ITracker
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+        handler=".events.update_tracker_watchers"
+        />
+
   <adapter
       provides=".adapters.IResponseContainer"
       factory=".adapters.ResponseContainer"
