@@ -29,6 +29,8 @@ def add_contact_to_issue_watchers(object, event=None):
 
     Called when an issue has been initialized or edited.
     """
+    if not object.contact_email:
+        return
     value = unicode(object.contact_email)
     watchers = object.watchers or []
     if value in watchers:
