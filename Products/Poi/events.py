@@ -261,8 +261,6 @@ def determine_response_type(response, issue):
 
 def add_response_for_files(object, event):
     """If a file/image is added or deleted, add a response."""
-    #import pdb; pdb.set_trace()
-
     if isinstance(event, ObjectAddedEvent):
         if event.newParent.portal_type == "Issue":
             issue = event.newParent
