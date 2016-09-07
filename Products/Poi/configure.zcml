@@ -71,6 +71,30 @@
         />
 
   <subscriber
+      for="Products.Poi.interfaces.IIssue
+           zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".events.add_contact_to_issue_watchers"
+        />
+
+  <subscriber
+      for="Products.Poi.interfaces.IIssue
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+        handler=".events.add_contact_to_issue_watchers"
+        />
+
+  <subscriber
+      for="Products.Poi.interfaces.IIssue
+           zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".events.add_assignee_to_issue_watchers"
+        />
+
+  <subscriber
+      for="Products.Poi.interfaces.IIssue
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+        handler=".events.add_assignee_to_issue_watchers"
+        />
+
+  <subscriber
         for="plone.app.contenttypes.interfaces.IFile
            zope.lifecycleevent.interfaces.IObjectAddedEvent"
         handler=".events.add_response_for_files"

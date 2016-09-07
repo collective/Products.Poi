@@ -126,8 +126,6 @@ def post_issue(object, event):
     portal_membership = api.portal.get_tool('portal_membership')
     if portal_membership.isAnonymousUser():
         object.setCreators(('(anonymous)',))
-    add_contact_to_issue_watchers(object, event)
-    add_assignee_to_issue_watchers(object, event)
     portal_workflow = api.portal.get_tool('portal_workflow')
     portal_workflow.doActionFor(object, 'post')
 
