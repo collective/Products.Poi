@@ -7,11 +7,11 @@ from Products.Archetypes.atapi import DisplayList
 from Products.Archetypes.utils import contentDispositionHeader
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as PMF
-from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from plone import api
 from plone.memoize.view import memoize
+from plone.protect.interfaces import IDisableCSRFProtection
 from zope.cachedescriptors.property import Lazy
 from zope.component import getMultiAdapter
 from zope.i18n import translate
@@ -385,7 +385,9 @@ class Create(Base):
         request = context.REQUEST
         authenticator = getMultiAdapter((context, request),
                                         name=u"authenticator")
-        if not authenticator.verify():
+        # CSRF should be disabled during tests
+        if (not IDisableCSRFProtection.providedBy(request) and
+           not authenticator.verify()):
             raise Unauthorized
         if not self.memship.checkPermission('Poi: Add Response', context):
             raise Unauthorized
