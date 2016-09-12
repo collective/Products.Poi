@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from zope.interface import alsoProvides
 from zope.interface import implementer
 from zope import schema
 
@@ -10,11 +11,10 @@ from plone.app.z3cform.widget import AjaxSelectFieldWidget
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
 from plone.autoform.directives import write_permission, read_permission
 from plone.autoform.directives import widget
+from plone.autoform.interfaces import IFormFieldProvider
 from plone.dexterity.content import Container
-from plone.namedfile.field import NamedBlobFile
 from plone.schema import email
 from plone.supermodel import model
-from plone.z3cform.textlines import TextLinesFieldWidget
 from z3c.relationfield import RelationList, RelationChoice
 
 from Products.Poi import PoiMessageFactory as _
@@ -174,6 +174,9 @@ class IIssue(model.Schema):
         ),
         required=False
     )
+
+
+alsoProvides(IIssue, IFormFieldProvider)
 
 
 @implementer(IIssue)
