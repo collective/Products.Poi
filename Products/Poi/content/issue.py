@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from zope.interface import alsoProvides
 from zope.interface import implementer
+from zope.interface import provider
 from zope import schema
 
 from collective import dexteritytextindexer
@@ -11,9 +11,9 @@ from plone.app.z3cform.widget import AjaxSelectFieldWidget
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
 from plone.autoform.directives import write_permission, read_permission
 from plone.autoform.directives import widget
-from plone.autoform.interfaces import IFormFieldProvider
 from plone.dexterity.content import Container
 from plone.schema import email
+
 from plone.supermodel import model
 from z3c.relationfield import RelationList, RelationChoice
 
@@ -24,6 +24,17 @@ from .tracker import possibleIssueTypes
 from .tracker import possibleSeverities
 from .tracker import possibleTargetReleases
 from .tracker import possibleAssignees
+
+
+@provider(schema.interfaces.IContextSourceBinder)
+def tracker_issues(context):
+    """ vocabulary source for issues just inside this tracker
+    """
+    current_tracker = context.getTracker()
+    path = '/'.join(current_tracker.getPhysicalPath())
+    query = {'path': {'query': path},
+             'portal_type': ('Issue',)}
+    return CatalogSource(**query)
 
 
 class IIssue(model.Schema):
@@ -93,7 +104,8 @@ class IIssue(model.Schema):
     target_release = schema.Choice(
         title=_(u'Poi_label_issue_target_release', default=u'Target Release'),
         description=_(u'Poi_help_issue_target_release',
-                      default=u"Release this issue is targetted to be fixed in"),
+                      default=u"Release this issue is targetted to be fixed "
+                              u"in"),
         source=possibleTargetReleases,
         required=False,
     )
@@ -112,8 +124,8 @@ class IIssue(model.Schema):
     contact_email = email.Email(
         title=_(u'Poi_label_issue_contact_email', default=u'Contact Email'),
         description=_(u'Poi_help_issue_contact_email',
-                      default=u"Please provide an email address where you can be "
-                      u"contacted for further information or when a "
+                      default=u"Please provide an email address where you can "
+                      u"be contacted for further information or when a "
                       u"resolution is available. Note that your email "
                       u"address will not be displayed to others."),
         required=False,
@@ -127,8 +139,8 @@ class IIssue(model.Schema):
     watchers = schema.List(
         title=_(u'Poi_label_issue_watchers', default=u'Watchers'),
         description=_(u'Poi_help_issue_watchers',
-                      default=u"Enter the user ids of members who are watching "
-                      u"this issue, one per line. E-mail addresses are "
+                      default=u"Enter the user ids of members who are watching"
+                      u" this issue, one per line. E-mail addresses are "
                       u"allowed too. These persons will "
                       u"receive an email when a response is added to the "
                       u"issue. Members can also add themselves as "
@@ -143,14 +155,15 @@ class IIssue(model.Schema):
            AjaxSelectFieldWidget,
            vocabulary='plone.app.vocabularies.Keywords',
            pattern_options={
-              'allowNewItems': 'true'
+               'allowNewItems': 'true'
            })
     subject = schema.Tuple(
         title=_(u'Poi_label_issue_subject', default=u'Subject'),
         description=_(u'Poi_help_issue_subject',
-                      default=u"Tags can be used to add arbitrary categorisation to "
-                      u"issues. The list below shows existing tags which "
-                      u"you can select, or you can add new ones."),
+                      default=u"Tags can be used to add arbitrary "
+                      u"categorisation to issues. The list below shows "
+                      u"existing tags which you can select, or you can add "
+                      u"new ones."),
         value_type=schema.TextLine(),
         required=False,
         missing_value=[],
@@ -159,24 +172,26 @@ class IIssue(model.Schema):
     widget('related_issue',
            RelatedItemsFieldWidget,
            pattern_options={
-               'basePath': '.',
-               'selectableTypes': ['Issue'],
-               'folderTypes': ['Folder']
-           })
+               'resultTemplate': '' +
+                                 '<div class="   pattern-relateditems-result  <% if (selected) { %>pattern-relateditems-active<% } %>">' +
+                                 '  <a href="#" class=" pattern-relateditems-result-select <% if (selectable) { %>selectable<% } %>">' +
+                                 '    <% if (typeof getIcon !== "undefined" && getIcon) { %><img src="<%- getURL %>/@@images/image/icon "> <% } %>' +
+                                 '    <span class="pattern-relateditems-result-title  <% if (typeof review_state !== "undefined") { %> state-<%- review_state %> <% } %>  " /span>' +
+                                 '    <span class="pattern-relateditems contenttype-<%- portal_type.toLowerCase() %>"><%- Title %></span>' +
+                                 '    <span class="pattern-relateditems-result-path"><%- path %></span>' +
+                                 '  </a>' +
+                                 ' </span>' +
+                                 '</div>'})
     related_issue = RelationList(
         title=_(u'Poi_label_issue_related', default=u'Related Issue(s)'),
         description=_(u'Poi_help_issue_related',
                       default=u'Link related issues.'),
         value_type=RelationChoice(
             title=u"Related",
-            source=CatalogSource(portal_type=('Issue',),
-                                 path='/')
+            source=tracker_issues,
         ),
         required=False
     )
-
-
-alsoProvides(IIssue, IFormFieldProvider)
 
 
 @implementer(IIssue)
