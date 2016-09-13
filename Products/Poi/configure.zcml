@@ -142,6 +142,8 @@
         handler=".events.update_tracker_watchers"
         />
 
+  <adapter factory=".adapters.rvUUID"/>
+
   <adapter
       provides=".adapters.IResponseContainer"
       factory=".adapters.ResponseContainer"

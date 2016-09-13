@@ -63,4 +63,9 @@
     title="Poi: Upload attachment"
     />
 
+  <permission
+    id="Poi.ModifyRelatedIssues"
+    title="Poi: Modify related issues"
+    />
+
 </configure>

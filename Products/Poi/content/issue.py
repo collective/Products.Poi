@@ -173,6 +173,8 @@ class IIssue(model.Schema):
         missing_value=[],
     )
 
+    read_permission(related_issue='Poi.ModifyRelatedIssues')
+    write_permission(related_issue='Poi.ModifyRelatedIssues')
     widget('related_issue',
            RelatedItemsFieldWidget,
            pattern_options={
