@@ -12,7 +12,7 @@ So some tests are in order.  First we make a response::
     >>> from Products.Poi.adapters import Response
     >>> res = Response(u"I cannot reproduce this error.")
     >>> res.creator
-    '(anonymous)'
+    'test_user_1_'
     >>> res.date
     DateTime('...')
     >>> res.changes
@@ -45,7 +45,7 @@ blown Issue) and turn it into a response container::
 
     >>> from Products.Poi.adapters import ResponseContainer
     >>> from zope.interface import implements
-    >>> from Products.Poi.interfaces import IIssue
+    >>> from Products.Poi.content.issue import IIssue
     >>> class MockIssue(object):
     ...     implements(IIssue, IAttributeAnnotatable)
     >>> issue = MockIssue()
@@ -117,14 +117,11 @@ a bit of zcml::
 We get some very basic Plone functionality going here.  At least we
 need some tools and set a Creator for this tracker::
 
-    >>> from Products.CMFPlone.WorkflowTool import WorkflowTool
-    >>> from Products.CMFPlone.URLTool import URLTool
-    >>> from Products.CMFDefault.MembershipTool import MembershipTool
-    >>> from Products.CMFPlone.CatalogTool import CatalogTool
+    >>> from plone import api
     >>> from Products.PluggableAuthService.PluggableAuthService import addPluggableAuthService
-    >>> tracker.portal_workflow = WorkflowTool()
-    >>> tracker.portal_url = URLTool()
-    >>> tracker.portal_membership = MembershipTool()
+    >>> tracker.portal_workflow = api.portal.get_tool(name='portal_workflow')
+    >>> tracker.portal_url = api.portal.get_tool(name='portal_url')
+    >>> tracker.portal_membership = api.portal.get_tool(name='portal_membership')
     >>> addPluggableAuthService(tracker.portal_membership)
     >>> class MockTransformData(object):
     ...     def __init__(self, text):
@@ -135,7 +132,7 @@ need some tools and set a Creator for this tracker::
     ...     def convertTo(self, target, text, mimetype=''):
     ...         return MockTransformData(text)
     >>> tracker.portal_transforms = MockTransforms()
-    >>> tracker.portal_catalog = CatalogTool()
+    >>> tracker.portal_catalog = api.portal.get_tool(name='portal_catalog')
     >>> tracker.linkDetection = lambda x: x
     >>> tracker.Schema()['creators'].set(tracker, "manager")
     >>> tracker.getManagers()
@@ -193,7 +190,7 @@ We fire up a browser (view) and do some basic checking::
     []
     >>> view.available_releases
     <DisplayList [] at ...>
-    >>> view.available_managers
+    >>> view.available_assignees
     <DisplayList [] at ...>
     >>> bool(view.upload_allowed)
     False
@@ -212,7 +209,7 @@ available options for us now::
     ['']
     >>> view.available_releases
     <DisplayList [('(UNASSIGNED)', u'not_assigned')] at ...>
-    >>> view.available_managers
+    >>> view.available_assignees
     <DisplayList [('(UNASSIGNED)', u'not_assigned'), ('manager', 'manager')] at ...>
     >>> view.upload_allowed
     True
@@ -223,7 +220,7 @@ The view has some methods especially for displaying::
     True
     >>> view.releases_for_display == [{'checked': 'checked', 'value': '(UNASSIGNED)', 'label': u'not_assigned'}]
     True
-    >>> view.managers_for_display == [{'checked': 'checked', 'value': '(UNASSIGNED)', 'label': u'not_assigned'}, {'checked': '', 'value': 'manager', 'label': 'manager'}]
+    >>> view.assignees_for_display == [{'checked': 'checked', 'value': '(UNASSIGNED)', 'label': u'not_assigned'}, {'checked': '', 'value': 'manager', 'label': 'manager'}]
     True
 
 And of course the responses are visible.  Well, no response has been
@@ -257,7 +254,7 @@ issue changes.  So we create a slightly more interesting response::
     >>> res.date
     DateTime('...')
     >>> form = dict(response="We are no longer the Knights who say Ni.",
-    ...             severity=u'Critical', responsibleManager='manager')
+    ...             severity=u'Critical', assignee='manager')
     >>> Create(issue, TestRequest(form=form))()
     >>> len(view.responses())
     2

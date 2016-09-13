@@ -9,7 +9,7 @@ class TestResponse(ptc.PoiTestCase):
         self.addMember('member1', 'Member One', 'member1@example.com',
                        ['Member'], '2005-01-01')
         self.tracker = self.createTracker(self.folder, 'issue-tracker',
-                                          managers=('member1', ))
+                                          assignees=('member1', ))
         self.issue = self.createIssue(self.tracker, 'an-issue')
         self.response = self.createResponse(self.issue, 'a-response')
         self.workflow = self.portal.portal_workflow
@@ -44,7 +44,7 @@ class TestKnownIssues(ptc.PoiTestCase):
         self.addMember('member1', 'Member One', 'member1@example.com',
                        ['Member'], '2005-01-01')
         self.tracker = self.createTracker(self.folder, 'issue-tracker',
-                                          managers=('member1', ))
+                                          assignees=('member1', ))
         self.issue = self.createIssue(self.tracker, 'an-issue')
         self.response = self.createResponse(self.issue, 'a-response')
         self.catalog = self.portal.portal_catalog
