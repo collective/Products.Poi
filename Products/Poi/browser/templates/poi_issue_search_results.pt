@@ -4,11 +4,13 @@
              xmlns:i18n="http://xml.zope.org/namespaces/i18n"
              i18n:domain="Poi">
 
-  <metal:block define-slot="rss-button">
-    <div tal:condition="rssQueryString | nothing" class="issue-search-rss">
-      <a href="" tal:attributes="href string:${here/absolute_url}/poi-issue-search-rss.xml?${rssQueryString}">
-        RSS
-      </a>
+  <metal:block define-slot="rss-button" tal:condition="rssQueryString | nothing">
+      <a class="standalone" id="export-btn"
+          tal:attributes="href string:${here/absolute_url}/@@poi-issue-export?${rssQueryString}">Export CSV</a>
+      <div class="issue-search-rss">
+        <a href="" tal:attributes="href string:${here/absolute_url}/poi-issue-search-rss.xml?${rssQueryString}">
+          RSS
+        </a>
     </div>
   </metal:block>
 

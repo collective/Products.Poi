@@ -164,4 +164,12 @@
      template="issue_uploads.pt"
      />
 
+  <!-- CSV Export -->
+  <browser:page
+     name="poi-issue-export"
+     for="Products.Poi.interfaces.ITracker"
+     permission="zope2.View"
+     class=".exporter.CSVExport"
+     />
+
 </configure>

@@ -68,4 +68,10 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
 #content-core .issue-upload-delete:hover {
     color: #d9534f;
     opacity: 1;
+}}
+
+#export-btn {
+    float: right;
+    margin-left: 10px;
 }
+
