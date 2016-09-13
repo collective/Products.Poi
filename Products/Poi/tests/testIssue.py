@@ -58,9 +58,14 @@ class TestIssue(ptc.PoiTestCase):
         self.failUnless('2' in self.tracker.objectIds())
 
     def testSearchableText(self):
-        self.failIf('Response-text' in self.issue.SearchableText())
+        catalog = self.portal.portal_catalog
+        matches = catalog(SearchableText='Response-text')
+        self.failIf(len(matches) >= 1 and matches[0].getObject() == self.issue)
         self.createResponse(self.issue, text='Response-text')
-        self.failUnless('Response-text' in self.issue.SearchableText())
+        matches = catalog(SearchableText='Response-text')
+        self.failUnless(
+            len(matches) >= 1 and matches[0].getObject() == self.issue
+        )
 
     def testIsWatching(self):
         self.issue.watchers = []
