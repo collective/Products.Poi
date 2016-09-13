@@ -68,10 +68,82 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
 #content-core .issue-upload-delete:hover {
     color: #d9534f;
     opacity: 1;
-}}
+}
 
 #export-btn {
     float: right;
     margin-left: 10px;
 }
 
+.template-poi_issue_search .issue-search-results th {
+    position: relative;
+}
+
+#content-core .issue-search-results th a,
+.template-poi_issue_search .issue-search-results th a {
+    color: #4d4d4d;
+    text-decoration: none;
+    border-bottom: none;
+    display: block;
+}
+
+.template-poi_issue_search .issue-search-results th a:hover {
+    color: #007bb1;
+}
+
+.template-poi_issue_search .issue-search-results th a:hover:after {
+    content: "▴";
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    opacity: 0.5;
+}
+
+.template-poi_issue_search .sorton-id #id a:after,
+.template-poi_issue_search .sorton-sortable_title #sortable_title a:after,
+.template-poi_issue_search .sorton-target_release #target_release a:after,
+.template-poi_issue_search .sorton-area #area a:after,
+.template-poi_issue_search .sorton-issue_type #issue_type a:after,
+.template-poi_issue_search .sorton-severity #severity a:after,
+.template-poi_issue_search .sorton-assignee #assignee a:after,
+.template-poi_issue_search .sorton-subject_tags #subject_tags a:after,
+.template-poi_issue_search .sorton-review_state #review_state a:after,
+.template-poi_issue_search .sorton-id.sortorder-reverse #id a:hover:after,
+.template-poi_issue_search .sorton-sortable_title.sortorder-reverse #sortable_title a:hover:after,
+.template-poi_issue_search .sorton-target_release.sortorder-reverse #target_release a:hover:after,
+.template-poi_issue_search .sorton-area.sortorder-reverse #area a:hover:after,
+.template-poi_issue_search .sorton-issue_type.sortorder-reverse #issue_type a:hover:after,
+.template-poi_issue_search .sorton-severity.sortorder-reverse #severity a:hover:after,
+.template-poi_issue_search .sorton-assignee.sortorder-reverse #assignee a:hover:after,
+.template-poi_issue_search .sorton-subject_tags.sortorder-reverse #subject_tags a:hover:after,
+.template-poi_issue_search .sorton-review_state.sortorder-reverse #review_state a:hover:after {
+    content: "▴";
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    transform: rotate(0deg);
+}
+
+.template-poi_issue_search .sorton-id.sortorder-reverse #id a:after,
+.template-poi_issue_search .sorton-sortable_title.sortorder-reverse #sortable_title a:after,
+.template-poi_issue_search .sorton-target_release.sortorder-reverse #target_release a:after,
+.template-poi_issue_search .sorton-area.sortorder-reverse #area a:after,
+.template-poi_issue_search .sorton-issue_type.sortorder-reverse #issue_type a:after,
+.template-poi_issue_search .sorton-severity.sortorder-reverse #severity a:after,
+.template-poi_issue_search .sorton-assignee.sortorder-reverse #assignee a:after,
+.template-poi_issue_search .sorton-subject_tags.sortorder-reverse #subject_tags a:after,
+.template-poi_issue_search .sorton-review_state.sortorder-reverse #review_state a:after,
+.template-poi_issue_search .sorton-id #id a:hover:after,
+.template-poi_issue_search .sorton-sortable_title #sortable_title a:hover:after,
+.template-poi_issue_search .sorton-target_release #target_release a:hover:after,
+.template-poi_issue_search .sorton-area #area a:hover:after,
+.template-poi_issue_search .sorton-issue_type #issue_type a:hover:after,
+.template-poi_issue_search .sorton-severity #severity a:hover:after,
+.template-poi_issue_search .sorton-assignee #assignee a:hover:after,
+.template-poi_issue_search .sorton-subject_tags #subject_tags a:hover:after,
+.template-poi_issue_search .sorton-review_state #review_state a:hover:after {
+    transform: rotate(180deg);
+    top: 9px;
+}

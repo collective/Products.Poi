@@ -1,4 +1,5 @@
 from Acquisition import aq_inner
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from Products.PythonScripts.standard import url_quote
 from ZTUtils import make_query
@@ -20,6 +21,52 @@ class IssueFolderView(BrowserView):
         """
         query = self.buildIssueSearchQuery(criteria, **kwargs)
         return api.content.find(**query)
+
+    def getSortedFilteredIssues(self, criteria=None, **kwargs):
+        """Get the contained issues in the given criteria with a custom sort.
+        """
+
+        if criteria:
+            newresults = []
+            sort_order = criteria.get('sort_order') == 'reverse'
+
+            # if sorting by assignee, use the human-friendly name
+            if criteria.get('sort_on') == 'assignee':
+                results = self.getFilteredIssues(criteria, **kwargs)
+                context = aq_inner(self.context)
+                membership = getToolByName(context, 'portal_membership')
+                for i in results:
+                    member_info = membership.getMemberInfo(i.assignee)
+                    if member_info:
+                        fullname = member_info.get('fullname', '')
+                    else:
+                        fullname = i.assignee
+                    newresults.append((i, fullname))
+
+                results = [dict(brain=r[0],
+                                slug=r[1]) for r in
+                           sorted((i for i in newresults),
+                                  key=lambda x: x[1], reverse=sort_order)]
+            # if sorting by Subject/tags, do it as a string
+            elif criteria.get('sort_on') == 'subject_tags':
+                criteria.set('sort_on', 'id')
+                results = self.getFilteredIssues(criteria, **kwargs)
+                for i in results:
+                    sorted_tags = sorted((y for y in i.Subject),
+                                         key=lambda x: x)
+                    string_tags = ", ".join(sorted_tags)
+                    newresults.append((i, string_tags))
+
+                results = [dict(brain=r[0],
+                                slug=r[1]) for r in
+                           sorted((i for i in newresults),
+                                  key=lambda x: x[1], reverse=sort_order)]
+            else:
+                results = self.getFilteredIssues(criteria, **kwargs)
+        else:
+            results = self.getFilteredIssues(criteria, **kwargs)
+
+        return results
 
     def getIssueSearchQueryString(self, criteria=None, **kwargs):
         """Return a query string for an issue query.

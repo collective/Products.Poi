@@ -16,7 +16,7 @@
      tal:define="issuefolder context/@@issuefolder;
                  trackerUrl here/absolute_url;
                  rssQueryString python:issuefolder.getIssueSearchQueryString(request);
-                 results   python:issuefolder.getFilteredIssues(request);
+                 results   python:issuefolder.getSortedFilteredIssues(request);
                  Batch    python:modules['Products.CMFPlone'].Batch;
                  DateTime python:modules['DateTime'].DateTime;
                  b_size   python:30;b_start python:0;b_start request/b_start | b_start;">
@@ -25,33 +25,35 @@
                           issues batch">
 
     <metal:header use-macro="here/poi_tracker_view/macros/trackerheader"></metal:header>
-    <metal:results use-macro="here/poi_issue_search_results/macros/issue_search_results">
+    <tal:def define="sort_enabled python:True">
+      <metal:results use-macro="here/poi_issue_search_results/macros/issue_search_results">
 
-      <metal:intro fill-slot="intro-text">
+        <metal:intro fill-slot="intro-text">
 
-        <h1 class="documentFirstHeading" i18n:translate="poi_heading_search_results">Issue search results</h1>
+          <h1 class="documentFirstHeading" i18n:translate="poi_heading_search_results">Issue search results</h1>
 
-        <a href=""
-           class="link-parent visualNoPrint"
-           tal:attributes="href string:${here/absolute_url}/poi_issue_search_form">
-          <span i18n:translate="poi_return_to_search">Return to search</span>
-        </a>
+          <a href=""
+             class="link-parent visualNoPrint"
+             tal:attributes="href string:${here/absolute_url}/poi_issue_search_form">
+            <span i18n:translate="poi_return_to_search">Return to search</span>
+          </a>
 
-        <div tal:condition="not:nocall:results">
-          <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
-        </div>
+          <div tal:condition="not:nocall:results">
+            <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
+          </div>
 
-        <strong tal:condition="nocall:results">
-          <span i18n:translate="batch_x_items_matching_your_criteria"><span i18n:name="number" tal:content="python:len(issues)">234</span> items matching your criteria.</span>
-        </strong>
+          <strong tal:condition="nocall:results">
+            <span i18n:translate="batch_x_items_matching_your_criteria"><span i18n:name="number" tal:content="python:len(issues)">234</span> items matching your criteria.</span>
+          </strong>
 
-      </metal:intro>
+        </metal:intro>
 
 
-      <metal:footer fill-slot="footer">
-        <metal:nav use-macro="here/batch_macros/macros/navigation" />
-      </metal:footer>
-    </metal:results>
+        <metal:footer fill-slot="footer">
+          <metal:nav use-macro="here/batch_macros/macros/navigation" />
+        </metal:footer>
+      </metal:results>
+    </tal:def>
   </metal:main>
 </metal:main>
 </body>
