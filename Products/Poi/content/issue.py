@@ -18,6 +18,7 @@ from plone.supermodel import model
 from z3c.relationfield import RelationList, RelationChoice
 
 from Products.Poi import PoiMessageFactory as _
+from .tracker import ITracker
 from .tracker import default_severity
 from .tracker import possibleAreas
 from .tracker import possibleIssueTypes
@@ -30,7 +31,10 @@ from .tracker import possibleAssignees
 def tracker_issues(context):
     """ vocabulary source for issues just inside this tracker
     """
-    current_tracker = context.getTracker()
+    if ITracker.providedBy(context):
+        current_tracker = context
+    else:
+        current_tracker = context.getTracker()
     path = '/'.join(current_tracker.getPhysicalPath())
     query = {'path': {'query': path},
              'portal_type': ('Issue',)}
