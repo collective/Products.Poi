@@ -15,6 +15,10 @@ class ResponseIndexer(object):
 
     def __call__(self):
         issue = self.context
+        terms = []
         container = IResponseContainer(issue)
-        terms = [response.text for response in container]
+        for response in container:
+            if response is None:
+                continue
+            terms.append(response.text)
         return ' '.join(terms)
