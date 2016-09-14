@@ -12,7 +12,7 @@ class TestFeeds(ptc.PoiTestCase):
         self.workflow = self.portal.portal_workflow
         self.membership = self.portal.portal_membership
         self.addMember(u'member1', u'Member One', u'member1@example.com',
-                       ['Member'], '2005-01-01')
+                       ['Technician'], '2005-01-01')
         self.addMember(u'member2', u'Member Two', u'member2@example.com',
                        ['Member'], '2005-01-01')
         self.addMember(u'member3', u'Member Three', u'member3@example.com',
@@ -22,7 +22,7 @@ class TestFeeds(ptc.PoiTestCase):
             assignees=(u'member1', u'member2', default_user))
         self.issues = []
 
-    def addIssue(self, title, responsible='--NOVALUE--',
+    def addIssue(self, title, responsible=None,
                  transition='accept-unconfirmed'):
         issue = self.createIssue(self.tracker, title,
                                  assignee=responsible)
