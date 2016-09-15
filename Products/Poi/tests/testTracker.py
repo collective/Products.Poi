@@ -156,8 +156,9 @@ class TestEmailNotifications(ptc.PoiTestCase):
         # direct subscribers:
         self.failUnless('member2@example.com' in addresses)
         self.failUnless('member3@example.com' in addresses)
-        # A mail is sent immediately on creation of this issue.
-        self.assertEqual(len(self.portal.MailHost.messages), 5)
+        # A mail is sent immediately on creation of this issue
+        # to all addresses except submitter
+        self.assertEqual(len(self.portal.MailHost.messages), 4)
 
     def testGetTagsInUse(self):
         self.createIssue(self.tracker, tags=('A', 'B'), assignee=u'member2')

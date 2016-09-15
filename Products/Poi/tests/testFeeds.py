@@ -28,7 +28,6 @@ class TestFeeds(ptc.PoiTestCase):
                                  assignee=responsible)
         userId = self.membership.getAuthenticatedMember().getId()
         self.login(self.tracker.assignees[0])
-        # FIXME we're missing 'Poi: Modify issue state' permission? CSRF?
         self.workflow.doActionFor(issue, transition)
         self.login(userId)
         issue.reindexObject()
