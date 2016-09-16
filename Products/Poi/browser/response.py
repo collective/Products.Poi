@@ -45,25 +45,7 @@ def pretty_size(size):
 
 
 def voc2dict(vocab, current=None):
-    """Make a dictionary from a vocabulary.
-
-    >>> from Products.Archetypes.atapi import DisplayList
-    >>> vocab = DisplayList()
-    >>> vocab.add('a', "The letter A")
-    >>> voc2dict(vocab)
-    [{'checked': '', 'value': 'a', 'label': 'The letter A'}]
-    >>> vocab.add('b', "The letter B")
-    >>> voc2dict(vocab)
-    [{'checked': '', 'value': 'a', 'label': 'The letter A'},
-    {'checked': '', 'value': 'b', 'label': 'The letter B'}]
-    >>> voc2dict(vocab, current='c')
-    [{'checked': '', 'value': 'a', 'label': 'The letter A'},
-    {'checked': '', 'value': 'b', 'label': 'The letter B'}]
-    >>> voc2dict(vocab, current='b')
-    [{'checked': '', 'value': 'a', 'label': 'The letter A'},
-    {'checked': 'checked', 'value': 'b', 'label': 'The letter B'}]
-
-    """
+    """Make a dictionary from a vocabulary, identifying selected item"""
     options = []
     for value, label in [(t.value, t.title) for t in vocab]:
         checked = (value == current) and "checked" or ""

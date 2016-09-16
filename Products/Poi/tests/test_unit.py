@@ -11,8 +11,6 @@ OPTIONFLAGS = (doctest.ELLIPSIS |
 
 def test_suite():
     return unittest.TestSuite([
-        # doctest.DocTestSuite(module='Products.Poi.browser.response',
-        #                      optionflags=OPTIONFLAGS),
         # Suite('responses.txt',
         #                      package='Products.Poi.tests',
         #                      optionflags=OPTIONFLAGS,
