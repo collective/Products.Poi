@@ -1,3 +1,5 @@
+/* global tinymce, jQuery */
+
 (function($) { $(function() {
     // Set up overlays if Plone < 5
     try {
@@ -21,20 +23,35 @@
             });
         });
     }
-    
-    // require(['mockup-patterns-tinymce']);
-    require(['tinymce'], function(){
-        tinymce.init({
-          selector: '.pat-tinymce',
-          height: 500,
-          plugins: [
-            'advlist autolink lists link image charmap print preview anchor',
-            'searchreplace visualblocks code fullscreen',
-            'insertdatetime media table contextmenu paste code'
-          ],
-          toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
-        });
-    });
 
+    // require(['mockup-patterns-tinymce']);
+
+    // manually load tinymce is user is not authenticated...
+    if($('body.userrole-authenticated').size() === 0){
+      require(['tinymce'], function(){
+        $('.pat-textareamimetypeselector').each(function(){
+          // when using the textareamimetypeselector pattern, the textarea
+          // is the previous element
+          var $tinymce = $(this).prev();
+          // hide the textareamimetypeselector
+          $(this).hide();
+
+          // we need an id for the tinymce instance
+          var id = 1 + Math.floor(100000 * Math.random());
+          $tinymce.attr('id', id);
+
+          tinymce.init({
+            selector: "#" + id,
+            height: 500,
+            plugins: [
+              'advlist autolink lists link image charmap print preview anchor',
+              'searchreplace visualblocks code fullscreen',
+              'insertdatetime media table contextmenu paste code'
+            ],
+            toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
+          });
+        });
+      });
+    }
 
 }); })(jQuery);
