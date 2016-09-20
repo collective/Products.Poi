@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+from DateTime import DateTime
+from Products.Poi.adapters import Response
+from Products.Poi.adapters import ResponseContainer
 from Products.Poi.tests import ptc
 
 
@@ -13,6 +16,7 @@ class TestResponse(ptc.PoiTestCase):
         self.issue = self.createIssue(self.tracker, 'an-issue')
         self.response = self.createResponse(self.issue, 'a-response')
         self.workflow = self.portal.portal_workflow
+        self.rc = ResponseContainer(self.issue)
 
     def testAccentedCharacters(self):
         catalog = self.portal.portal_catalog
@@ -35,6 +39,59 @@ class TestResponse(ptc.PoiTestCase):
             portal_type='Issue',
             SearchableText="zee\xc3\xabn")) >= 1
         self.failUnless(found)
+
+    def testResponseContainer(self):
+        self.failUnless(isinstance(self.rc, ResponseContainer))
+
+    def testResponse(self):
+        self.failUnless(isinstance(self.response, Response))
+        self.failUnless(isinstance(self.response.date, DateTime))
+        self.assertEqual(self.response.creator, 'test_user_1_')
+        self.response.add_change(
+            "review_state",
+            "Transition",
+            "unconfirmed",
+            "confirmed",
+        )
+        self.assertEqual(
+            self.response.changes,
+            [{
+                'before': 'unconfirmed',
+                'after': 'confirmed',
+                'id': 'review_state',
+                'name': 'Transition',
+            }],
+        )
+
+    def testResponseAdded(self):
+        self.assertEqual(len(self.rc), 1)
+        self.failUnless(self.response in self.rc)
+
+    def testBadResponse(self):
+        # calls self.rc.add("Bogus response.")
+        self.assertRaises(
+            ValueError,
+            self.rc.add,
+            "Bogus response.",
+        )
+
+    def testRemoveResponses(self):
+        # add more responses
+        for i in range(2, 12):
+            self.rc.add(Response("Response %d." % i))
+        self.assertEqual(len(self.rc), 11)
+        # Responses can be deleted.
+        # They're not really removed, but emptied.
+        self.rc.delete(7)
+        self.assertEqual(len(self.rc), 11)
+        self.assertIs(self.rc[7], None)
+        # try removing something that doesn't exist
+        # calls self.rc.delete(20)
+        self.assertRaises(
+            IndexError,
+            self.rc.delete,
+            20
+        )
 
 
 class TestKnownIssues(ptc.PoiTestCase):
