@@ -26,6 +26,7 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
 .response-actions {
     float: right;
     width: 150px;
+    text-align: right;
 }
 .response-actions form {
     display: inline-block;

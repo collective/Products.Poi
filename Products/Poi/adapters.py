@@ -86,7 +86,7 @@ class IResponse(Interface):
     changes = Attribute("Changes made to the issue in this response.")
     creator = Attribute("Id of user making this change.")
     date = Attribute("Date (plus time) this response was made.")
-    type = Attribute("Type of response (additional/clarification/reply).")
+    type = Attribute("Type of response (additional/clarification/reply/file).")
     mimetype = Attribute("Mime type of the response.")
     attachment = Attribute("File attachment.")
 

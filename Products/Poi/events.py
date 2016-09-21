@@ -271,23 +271,6 @@ def available_assignees(issue):
     return possibleAssignees(tracker)
 
 
-def determine_response_type(response, issue):
-    """Return a string indicating the type of response this is.
-    """
-    responseCreator = response.creator
-    if responseCreator == '(anonymous)':
-        return 'additional'
-
-    if responseCreator == issue.Creator():
-        return 'clarification'
-
-    if responseCreator in available_assignees(issue):
-        return 'reply'
-
-    # default:
-    return 'additional'
-
-
 def add_response_for_files(object, event):
     """If a file/image is added or deleted, add a response."""
     if isinstance(event, ObjectAddedEvent):
@@ -312,6 +295,6 @@ def add_response_for_files(object, event):
     if new_response:
         new_response.mimetype =\
             api.portal.get_registry_record('poi.default_issue_mime_type')
-        new_response.type = determine_response_type(new_response, issue)
+        new_response.type = "file"
         folder = IResponseContainer(issue)
         folder.add(new_response)
