@@ -41,6 +41,13 @@ def tracker_issues(context):
     return CatalogSource(**query)
 
 
+@provider(schema.interfaces.IContextAwareDefaultFactory)
+def default_watchers(context):
+    creator = api.user.get_current()
+    username = unicode(creator.getUserName())
+    return [username]
+
+
 class IIssue(model.Schema):
     """Marker interface for Poi issue"""
 
@@ -151,6 +158,7 @@ class IIssue(model.Schema):
                       u"watchers."),
         value_type=schema.TextLine(),
         required=False,
+        defaultFactory=default_watchers,
     )
 
     write_permission(subject='Poi.ModifyIssueTags')

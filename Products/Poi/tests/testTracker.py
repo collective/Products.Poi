@@ -119,6 +119,14 @@ class TestEmailNotifications(ptc.PoiTestCase):
         self.assertEqual(len(addresses), 2)
         self.failUnless('member1@example.com' in addresses)
         self.failUnless('member2@example.com' in addresses)
+        # issue creator should be a watcher
+        issue = self.createIssue(
+            self.tracker, contactEmail='submitter@example.com',
+            watchers=None, assignee=u'member2')
+        addresses = IWatcherList(issue).addresses
+        self.failUnless('member1@example.com' in addresses)
+        self.failUnless('member2@example.com' in addresses)
+        self.failUnless('submitter@example.com' in addresses)
 
     def testGetAddressesOnNewIssueWithList(self):
         self.tracker.mailing_list = 'list@example.com'
