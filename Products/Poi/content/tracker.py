@@ -111,6 +111,8 @@ def possibleSeverities(context):
         tracker = context
     elif hasattr(context, 'getTracker'):
         tracker = context.getTracker()
+    elif hasattr(context, 'context'):
+        tracker = context.context.getTracker()
     else:
         return SimpleVocabulary.fromValues(DEFAULT_SEVERITIES)
     return SimpleVocabulary.fromValues(tracker.available_severities)
