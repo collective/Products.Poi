@@ -1,6 +1,20 @@
 import re
 
-from .config import ISSUE_LINK_TEMPLATE
+
+# Patterns used for recognizing links to issues and revisions:
+ISSUE_RECOGNITION_PATTERNS = (
+    r'\B#[1-9][0-9]*\b',
+    r'\bissue:[1-9][0-9]*\b',
+    r'\bticket:[1-9][0-9]*\b',
+    r'\bbug:[1-9][0-9]*\b',
+)
+REVISION_RECOGNITION_PATTERNS = (
+    r'\br[0-9]+\b',
+    r'\bchangeset:[0-9]+\b',
+    r'\B\[[0-9]+\]\B',
+)
+# Template to use when recognizing a link to another issue:
+ISSUE_LINK_TEMPLATE = '<a href="%(base_url)s/%(bug)s">%(linktext)s</a>'
 
 
 def getNumberFromString(linktext):
@@ -15,11 +29,11 @@ def getNumberFromString(linktext):
         return linktext[res.start(): res.end()]
 
 
-def linkBugs(text, ids, patterns, base_url='..'):
+def linkBugs(text, ids, base_url='..'):
     """
     Replace patterns with links to other issues in the same tracker.
     """
-    for raw in patterns:
+    for raw in ISSUE_RECOGNITION_PATTERNS:
         pos = 0
         pattern = re.compile(raw)
         while True:
@@ -44,7 +58,7 @@ def linkBugs(text, ids, patterns, base_url='..'):
     return text
 
 
-def linkSvn(text, svnUrl, patterns):
+def linkSvn(text, svnUrl):
     """
     Replace patterns with links to changesets in a repository.
     (What says it has to be svn?)
@@ -53,7 +67,7 @@ def linkSvn(text, svnUrl, patterns):
     if len(svnUrl) == 0:
         return text
 
-    for raw in patterns:
+    for raw in REVISION_RECOGNITION_PATTERNS:
         pos = 0
         pattern = re.compile(raw)
         while True:

@@ -13,12 +13,3 @@ product_globals = globals()
 
 DESCRIPTION_LENGTH = 200
 PSC_TRACKER_ID = 'issues'
-
-# Patterns used for recognizing links to issues and revisions:
-ISSUE_RECOGNITION_PATTERNS = \
-    [r'\B#[1-9][0-9]*\b', r'\bissue:[1-9][0-9]*\b',
-     r'\bticket:[1-9][0-9]*\b', r'\bbug:[1-9][0-9]*\b']
-REVISION_RECOGNITION_PATTERNS = \
-    [r'\br[0-9]+\b', r'\bchangeset:[0-9]+\b', r'\B\[[0-9]+\]\B']
-# Template to use when recognizing a link to another issue:
-ISSUE_LINK_TEMPLATE = '<a href="%(base_url)s/%(bug)s">%(linktext)s</a>'
