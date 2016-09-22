@@ -36,7 +36,7 @@ from zope.schema.vocabulary import SimpleVocabulary
 
 from Products.Poi import PoiMessageFactory as _
 from plone import api
-from Products.Poi.utils import isEmail
+from Products.Poi.utils import is_email
 from plone.app.textfield import RichText
 from plone.app.z3cform.widget import AjaxSelectFieldWidget
 from plone.autoform.directives import widget
@@ -355,7 +355,7 @@ class ITracker(model.Schema):
                 u"technician instead.")
         ),
         required=False,
-        constraint=isEmail,
+        constraint=is_email,
     )
 
     repo_url = schema.TextLine(

@@ -29,7 +29,7 @@ def getNumberFromString(linktext):
         return linktext[res.start(): res.end()]
 
 
-def linkBugs(text, ids, base_url='..'):
+def link_bugs(text, ids, base_url='..'):
     """
     Replace patterns with links to other issues in the same tracker.
     """
@@ -58,13 +58,12 @@ def linkBugs(text, ids, base_url='..'):
     return text
 
 
-def linkSvn(text, svnUrl):
+def link_repo(text, repo_url):
     """
     Replace patterns with links to changesets in a repository.
-    (What says it has to be svn?)
     """
 
-    if len(svnUrl) == 0:
+    if len(repo_url) == 0:
         return text
 
     for raw in REVISION_RECOGNITION_PATTERNS:
@@ -79,13 +78,17 @@ def linkSvn(text, svnUrl):
             rev = getNumberFromString(linktext)
 
             pos = res.start() + 1
-            link = '<a href="' + svnUrl % {'rev': rev} + '">' + linktext + \
+            link = '<a href="' + repo_url % {'rev': rev} + '">' + linktext + \
                 '</a>'
             text = text[0: pos - 1] + link + text[res.end():]
             pos += len(link)
 
     return text
 
-def isEmail(value):
-    expr = re.compile(r"^(\w&.%#$&'\*+-/=?^_`{}|~]+!)*[\w&.%#$&'\*+-/=?^_`{}|~]+@(([0-9a-z]([0-9a-z-]*[0-9a-z])?\.)+[a-z]{2,6}|([0-9]{1,3}\.){3}[0-9]{1,3})$", re.IGNORECASE)
+
+def is_email(value):
+    expr = re.compile(
+        r"^(\w&.%#$&'\*+-/=?^_`{}|~]+!)*[\w&.%#$&'\*+-/=?^_`{}|~]+@(([0-9a-z]([0-9a-z-]*[0-9a-z])?\.)+[a-z]{2,6}|([0-9]{1,3}\.){3}[0-9]{1,3})$",
+        re.IGNORECASE
+    )
     return bool(expr.match(value))
