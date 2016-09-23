@@ -37,6 +37,8 @@ from zope.schema.vocabulary import SimpleVocabulary
 from Products.Poi import PoiMessageFactory as _
 from plone import api
 from Products.Poi.utils import is_email
+from Products.Poi.utils import link_bugs
+from Products.Poi.utils import link_repo
 from plone.app.textfield import RichText
 from plone.app.z3cform.widget import AjaxSelectFieldWidget
 from plone.autoform.directives import widget
@@ -426,3 +428,11 @@ class Tracker(Container):
 
     def addTokenToUrl(self, original_url):
         return addTokenToUrl(original_url)
+
+    def linkDetection(self, text):
+        issues = self.getIssues()
+        ids = {issue.id for issue in issues}
+        text = link_bugs(text, ids, base_url=self.absolute_url())
+        if self.repo_url:
+            text = link_repo(text, self.repo_url)
+        return text
