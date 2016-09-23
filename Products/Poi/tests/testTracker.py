@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from Testing import ZopeTestCase
 from collective.watcherlist.interfaces import IWatcherList
+from plone.app.textfield.value import RichTextValue
 from zope.schema import getFields
 
 from Products.Poi.events import sendResponseNotificationMail
@@ -501,132 +502,146 @@ class TestTrackerSearch(ptc.PoiTestCase):
         self.assertEqual(issues, ['1'])
 
 
-# class TestLinkDetection(ptc.PoiTestCase):
-#     """Test link detection functionality"""
-#
-#     def afterSetUp(self):
-#         self.tracker = self.createTracker(self.folder, 'issue-tracker')
-#
-#     def testLinksInIssues(self):
-#         """These are more tests for issues really,
-#         but they also test the tracker indirectly.
-#         """
-#
-#         # Create an issue.
-#         self.createIssue(self.tracker)
-#
-#         # Link to that existing issue.
-#         issue = self.createIssue(self.tracker, details="#1")
-#         self.assertEqual(issue.getTaggedDetails(),
-#                          '<p><a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a></p>')
-#
-#         # Issue #3 does not exist.
-#         issue.update(details="#3")
-#         self.assertEqual(self.tracker['2'].getTaggedDetails(),
-#                          '<p>#3</p>')
-#
-#         # Link to an existing issue in the steps
-#         issue.update(steps="#1")
-#         self.assertEqual(self.tracker['2'].getTaggedSteps(),
-#                          '<p><a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a></p>')
-#
-#     def testLinksToIssues(self):
-#         tracker = self.tracker
-#
-#         # Text without anything special will simply be returned
-#         # unchanged:
-#         self.assertEqual(
-#             tracker.linkDetection("We are the knights who say 'Ni'!"),
-#             "We are the knights who say 'Ni'!")
-#
-#         # Unicode should not give problems:
-#         self.assertEqual(
-#             tracker.linkDetection(u'\xfanicode'),
-#             u'\xfanicode')
-#
-#         # We can ask this tracker to detect issues.  But it does
-#         # nothing with non existing issues:
-#         self.assertEqual(tracker.linkDetection("#1"), '#1')
-#
-#         # Now we add an issue.  The link detection code searches for
-#         # issues in the portal catalog.  So we add issues there:
-#         self.createIssue(self.tracker, title="1")
-#         self.createIssue(self.tracker, title="2")
-#
-#         # Now we should get html back when we ask for an issue number:
-#         self.assertEqual(
-#             tracker.linkDetection("#1"),
-#             '<a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a>')
-#         self.assertEqual(
-#             tracker.linkDetection("Links to #1 and #2."),
-#             'Links to <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a> and <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/2">#2</a>.')
-#
-#         # We are not fooled by a non existing issue:
-#         self.assertEqual(
-#             tracker.linkDetection("Issue #1 and non-issue #3."),
-#             'Issue <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a> and non-issue #3.')
-#
-#         # Issues that are added to a different tracker only show up
-#         # for that tracker:
-#         tracker2 = self.createTracker(self.folder, 'tracker2')
-#         self.assertEqual(
-#             tracker2.linkDetection("#1"),
-#             '#1')
-#         self.createIssue(tracker2, title="1")
-#         self.assertEqual(
-#             tracker2.linkDetection("#1"),
-#             '<a href="http://nohost/plone/Members/test_user_1_/tracker2/1">#1</a>')
-#
-#         # A combination of unicode and a link number should be possible::
-#         self.assertEqual(
-#             tracker.linkDetection(u'\xfanicode text with a link to #1'),
-#             u'\xfanicode text with a link to <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a>')
-#
-#     def testLinksToRevisions(self):
-#         tracker = self.tracker
-#
-#         # We can link to revisions or changesets.  By default nothing
-#         # happens:
-#
-#         self.assertEqual(tracker.linkDetection('r42'), 'r42')
-#
-#         # We need to specify in the tracker where those links should
-#         # point to.  We could point to something silly:
-#
-#         tracker.update(svnUrl="silly")
-#         self.assertEqual(
-#             tracker.linkDetection('r42'),
-#             '<a href="silly">r42</a>')
-#
-#         # This is not very useful, as this is not really a link
-#         # (unless this is a relative link to some content with the id
-#         # 'silly') and it does nothing with the revision number.  The
-#         # *real* idea here is to specify a string with "%(rev)s" in
-#         # it.  At that point the revision number will be filled in.
-#
-#         # You could point to revisions, for example the collective
-#         # Trac for Poi:
-#
-#         tracker.update(
-#             svnUrl="http://dev.plone.org/collective/browser/Poi?%(rev)s")
-#         self.assertEqual(
-#             tracker.linkDetection('r42'),
-#             '<a href="http://dev.plone.org/collective/browser/Poi?42">r42</a>')
-#
-#         # I myself like to point to the changesets:
-#
-#         tracker.update(
-#             svnUrl="http://dev.plone.org/changeset/%(rev)s/collective")
-#         self.assertEqual(
-#             tracker.linkDetection('r42'),
-#             '<a href="http://dev.plone.org/changeset/42/collective">r42</a>')
-#
-#         # Of course it is fine to combine issues and revisions:
-#         self.createIssue(tracker, title="1")
-#         self.assertEqual(
-#             tracker.linkDetection('Issue #1 is fixed in r42.'),
-#             'Issue <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a> is fixed in <'
-#             'a href="http://dev.plone.org/changeset/42/collective">r42</a>.')
+class TestLinkDetection(ptc.PoiTestCase):
+    """Test link detection functionality"""
+
+    def afterSetUp(self):
+        self.tracker = self.createTracker(self.folder, 'issue-tracker')
+
+    def testLinksInIssues(self):
+        """These are more tests for issues really,
+        but they also test the tracker indirectly.
+        """
+
+        # Create an issue.
+        self.createIssue(self.tracker)
+
+        # Link to that existing issue.
+        issue = self.createIssue(self.tracker, details="#1")
+        linked = self.tracker.linkDetection(issue.details.output)
+        self.assertEqual(
+            linked,
+            u'<p><a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a></p>'
+        )
+
+        # Issue #3 does not exist.
+        new_details = RichTextValue(
+            u'#3',
+            issue.details.mimeType,
+            issue.details.outputMimeType,
+        )
+        issue.details = new_details
+        linked = self.tracker.linkDetection(self.tracker['2'].details.output)
+        self.assertEqual(linked, u'<p>#3</p>')
+
+        # Link to an existing issue in the steps
+        new_steps = RichTextValue(
+            u'#1',
+            issue.steps.mimeType,
+            issue.steps.outputMimeType,
+        )
+        issue.steps = new_steps
+        linked = self.tracker.linkDetection(self.tracker['2'].steps.output)
+        self.assertEqual(
+            linked,
+            u'<p><a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a></p>'
+        )
+
+    def testLinksToIssues(self):
+        tracker = self.tracker
+
+        # Text without anything special will simply be returned
+        # unchanged:
+        self.assertEqual(
+            tracker.linkDetection("We are the knights who say 'Ni'!"),
+            "We are the knights who say 'Ni'!")
+
+        # Unicode should not give problems:
+        self.assertEqual(
+            tracker.linkDetection(u'\xfanicode'),
+            u'\xfanicode')
+
+        # We can ask this tracker to detect issues.  But it does
+        # nothing with non existing issues:
+        self.assertEqual(tracker.linkDetection("#1"), '#1')
+
+        # Now we add an issue.  The link detection code searches for
+        # issues in the portal catalog.  So we add issues there:
+        self.createIssue(self.tracker, title="1")
+        self.createIssue(self.tracker, title="2")
+
+        # Now we should get html back when we ask for an issue number:
+        self.assertEqual(
+            tracker.linkDetection("#1"),
+            '<a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a>')
+        self.assertEqual(
+            tracker.linkDetection("Links to #1 and #2."),
+            'Links to <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a> and <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/2">#2</a>.')
+
+        # We are not fooled by a non existing issue:
+        self.assertEqual(
+            tracker.linkDetection("Issue #1 and non-issue #3."),
+            'Issue <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a> and non-issue #3.')
+
+        # Issues that are added to a different tracker only show up
+        # for that tracker:
+        tracker2 = self.createTracker(self.folder, 'tracker2')
+        self.assertEqual(
+            tracker2.linkDetection("#1"),
+            '#1')
+        self.createIssue(tracker2, title="1")
+        self.assertEqual(
+            tracker2.linkDetection("#1"),
+            '<a href="http://nohost/plone/Members/test_user_1_/tracker2/1">#1</a>')
+
+        # A combination of unicode and a link number should be possible::
+        self.assertEqual(
+            tracker.linkDetection(u'\xfanicode text with a link to #1'),
+            u'\xfanicode text with a link to <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a>')
+
+    def testLinksToRevisions(self):
+        tracker = self.tracker
+
+        # We can link to revisions or changesets.  By default nothing
+        # happens:
+
+        self.assertEqual(tracker.linkDetection('r42'), 'r42')
+
+        # We need to specify in the tracker where those links should
+        # point to.  We could point to something silly:
+
+        tracker.repo_url = 'silly'
+        self.assertEqual(
+            tracker.linkDetection('r42'),
+            '<a href="silly">r42</a>')
+
+        # This is not very useful, as this is not really a link
+        # (unless this is a relative link to some content with the id
+        # 'silly') and it does nothing with the revision number.  The
+        # *real* idea here is to specify a string with "%(rev)s" in
+        # it.  At that point the revision number will be filled in.
+
+        # You could point to revisions, for example the collective
+        # Trac for Poi:
+
+        tracker.repo_url = "http://dev.plone.org/collective/browser/Poi?%(rev)s"
+        self.assertEqual(
+            tracker.linkDetection('r42'),
+            '<a href="http://dev.plone.org/collective/browser/Poi?42">r42</a>')
+
+        # I myself like to point to the changesets:
+
+        tracker.repo_url = "http://dev.plone.org/changeset/%(rev)s/collective"
+        self.assertEqual(
+            tracker.linkDetection('r42'),
+            '<a href="http://dev.plone.org/changeset/42/collective">r42</a>')
+
+        # Of course it is fine to combine issues and revisions:
+        self.createIssue(tracker, title="1")
+        self.assertEqual(
+            tracker.linkDetection('Issue #1 is fixed in r42.'),
+            'Issue <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a> is fixed in <'
+            'a href="http://dev.plone.org/changeset/42/collective">r42</a>.')
 
 
 def test_suite():
@@ -635,5 +650,5 @@ def test_suite():
     suite.addTest(makeSuite(TestTracker))
     suite.addTest(makeSuite(TestTrackerSearch))
     suite.addTest(makeSuite(TestEmailNotifications))
-    # suite.addTest(makeSuite(TestLinkDetection))
+    suite.addTest(makeSuite(TestLinkDetection))
     return suite
