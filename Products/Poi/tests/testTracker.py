@@ -7,6 +7,9 @@ from zope.schema import getFields
 from Products.Poi.events import sendResponseNotificationMail
 from Products.Poi.interfaces import ITracker
 from Products.Poi.tests import ptc
+from Products.Poi.utils import getNumberFromString
+from Products.Poi.utils import link_bugs
+from Products.Poi.utils import link_repo
 
 default_user = ZopeTestCase.user_name
 
@@ -642,6 +645,69 @@ class TestLinkDetection(ptc.PoiTestCase):
             tracker.linkDetection('Issue #1 is fixed in r42.'),
             'Issue <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a> is fixed in <'
             'a href="http://dev.plone.org/changeset/42/collective">r42</a>.')
+
+    def testGetNumberFromString(self):
+        self.assertEqual(getNumberFromString('#1'), '1')
+        self.assertEqual(getNumberFromString('r12'), '12')
+        self.assertEqual(getNumberFromString('rev42'), '42')
+        self.assertEqual(getNumberFromString('[42]'), '42')
+        self.assertEqual(getNumberFromString('ticket:399'), '399')
+        self.assertEqual(getNumberFromString('changeset:12345.'), '12345')
+        # check for problems
+        self.assertIs(getNumberFromString(''), None)
+        self.assertIs(getNumberFromString('foobar'), None)
+        self.assertEqual(getNumberFromString('2'), '2')
+        self.assertEqual(getNumberFromString(u'3'), u'3')
+        self.assertEqual(getNumberFromString('-7'), '7')
+        self.assertEqual(getNumberFromString('0') is None, True)
+        self.assertEqual(getNumberFromString('#007'), '7')
+        self.assertEqual(getNumberFromString('my.html#7'), '7')
+        # only the first number should be taken
+        self.assertEqual(getNumberFromString('its13past12'), '13')
+
+    def testLinkBugs(self):
+        ids = [str(i) for i in range(12)]
+        text = "issue:1 #2 r3 [4] ticket:5."
+        self.assertEqual(
+            link_bugs(text, ids),
+            '<a href="../1">issue:1</a> <a href="../2">#2</a> r3 '
+            '[4] <a href="../5">ticket:5</a>.'
+        )
+        # no know issues (text should not change)
+        self.assertEqual(link_bugs(text, []), text)
+        # with a base URL defined
+        self.assertEqual(
+            link_bugs("#1", ['1'], base_url='http://example.org/issues'),
+            '<a href="http://example.org/issues/1">#1</a>'
+        )
+
+    def testLinkRepo(self):
+        text = "r1 #22 changeset:333 [4444]"
+        repo_url = "someurl?rev=%(rev)s"
+        self.assertEqual(
+            link_repo(text, repo_url),
+            '<a href="someurl?rev=1">r1</a> #22 <a '
+            'href="someurl?rev=333">changeset:333</a> <a '
+            'href="someurl?rev=4444">[4444]</a>'
+        )
+        self.assertEqual(
+            link_repo(text, "here"),
+            '<a href="here">r1</a> #22 <a href="here">changeset:333</a> '
+            '<a href="here">[4444]</a>'
+        )
+        text = "r1 r2 norevisionr3 r4nope (r5) r6."
+        self.assertEqual(
+            link_repo(text, repo_url),
+            '<a href="someurl?rev=1">r1</a> <a href="someurl?rev=2">r2</a> '
+            'norevisionr3 r4nope (<a href="someurl?rev=5">r5</a>) <a '
+            'href="someurl?rev=6">r6</a>.'
+        )
+        text = "[1] link[2] [3]."
+        self.assertEqual(
+            link_repo(text, repo_url),
+            '<a href="someurl?rev=1">[1]</a> link[2] <a '
+            'href="someurl?rev=3">[3]</a>.'
+        )
 
 
 def test_suite():
