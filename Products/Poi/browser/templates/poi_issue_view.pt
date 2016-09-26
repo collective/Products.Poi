@@ -190,11 +190,11 @@
                />
       </div>
     </form>
-    <div class="issue-details" tal:content="structure context/details/output" />
+    <div class="issue-details" tal:content="structure context/linkedDetails" />
 
     <dl class="steps-to-reproduce" tal:condition="nocall:context/steps">
       <dt i18n:translate="poi_label_steps">Steps to reproduce:</dt>
-      <dd tal:content="structure context/steps/output" />
+      <dd tal:content="structure context/linkedSteps" />
     </dl>
 
     <dl class="uploads" tal:define="items context/getFolderContents" tal:condition="items">
