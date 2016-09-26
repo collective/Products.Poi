@@ -262,6 +262,13 @@ class Issue(Container):
         else:
             return True
 
+    def linkedDetails(self):
+        tracker = self.getTracker()
+        return tracker.linkDetection(self.details.output)
+
+    def linkedSteps(self):
+        tracker = self.getTracker()
+        return tracker.linkDetection(self.steps.output)
 
 # this is implemented here to reduce the chance of a circular
 # import with IIssue
