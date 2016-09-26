@@ -69,6 +69,7 @@ class Base(BrowserView):
 
     def responses(self):
         context = aq_inner(self.context)
+        tracker = context.getTracker()
         trans = context.portal_transforms
         items = []
         for id, response in enumerate(self.folder):
@@ -98,6 +99,7 @@ class Base(BrowserView):
                     response.rendered_text = html
 
             html = response.rendered_text or u''
+            html = tracker.linkDetection(html)
             info = dict(id=id,
                         response=response,
                         attachment=self.attachment_info(id),
