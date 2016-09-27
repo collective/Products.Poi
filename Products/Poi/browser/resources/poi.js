@@ -27,7 +27,7 @@
     // require(['mockup-patterns-tinymce']);
 
     // manually load tinymce is user is not authenticated...
-    if($('body.userrole-authenticated').size() === 0){
+    if($('body.userrole-anonymous.template-products-poi-content-issue-issue').length === 1){
       require(['tinymce'], function(){
         $('.pat-textareamimetypeselector').each(function(){
           // when using the textareamimetypeselector pattern, the textarea
