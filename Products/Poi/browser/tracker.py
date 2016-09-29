@@ -151,34 +151,48 @@ class IssueFolderView(BrowserView):
 
         return query
 
-    def getMyIssues(self, openStates=['open', 'in-progress'],
+    def getMyIssues(self, openStates=['unconfirmed', 'open', 'in-progress'],
                     memberId=None, manager=False):
         """Get a catalog query result set of my issues.
 
-        So: all issues assigned to or submitted by the current user,
+        So: all issues assigned to the current user,
         with review state in openStates.
-
-        If manager is True, add unconfirmed to the states.
         """
         if not memberId:
             memberId = api.user.get_current().id
 
-        if manager:
-            if 'unconfirmed' not in openStates:
-                openStates += ['unconfirmed']
+        issues = []
+
+        for i in self.getFilteredIssues(state=openStates):
+            assignee = i.assignee
+            if not assignee:
+                continue
+            if memberId in assignee or (manager and assignee == '(UNASSIGNED)'):
+                issues.append(i)
+
+        return issues
+
+    def getMySubmitted(self, openStates=['unconfirmed', 'open', 'in-progress'],
+                       memberId=None, manager=False):
+        """Get a catalog query result set of my issues.
+
+        So: all issues submitted by the current user,
+        with review state in openStates.
+        """
+        if not memberId:
+            memberId = api.user.get_current().id
 
         issues = []
 
         for i in self.getFilteredIssues(state=openStates):
             assignee = i.assignee
             creator = i.Creator
-            if memberId in (creator, assignee) or \
-                    (manager and assignee == '(UNASSIGNED)'):
+            if memberId in creator or (manager and assignee == '(UNASSIGNED)'):
                 issues.append(i)
 
         return issues
 
-    def getOrphanedIssues(self, openStates=['open', 'in-progress'],
+    def getOrphanedIssues(self, openStates=['unconfirmed', 'open', 'in-progress'],
                           memberId=None):
         """Get a catalog query result set of orphaned issues.
 
@@ -190,11 +204,13 @@ class IssueFolderView(BrowserView):
 
         issues = []
 
-        for i in self.getFilteredIssues(state=openStates):
-            assignee = i.assignee
-            creator = i.Creator
-            if creator != memberId and not assignee:
-                issues.append(i)
+        isManager = api.user.get_current().has_role('Manager')
+        isAssignee = memberId in self.aq_parent.assignees
+        if isManager or isAssignee:
+            for i in self.getFilteredIssues(state=openStates):
+                assignee = i.assignee
+                if not assignee:
+                    issues.append(i)
 
         return issues
 

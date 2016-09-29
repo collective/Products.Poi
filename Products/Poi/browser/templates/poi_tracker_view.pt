@@ -27,6 +27,7 @@
                   issueQueryString python:'%s/poi_issue_search?state=%s' %
                   (trackerUrl, '&amp;state='.join(activeStates),);
                   isManager isManager|python:member.has_role('Manager', context);
+                  isTrackerManager python:member.has_role('TrackerManager', context);
                   mq python:modules['ZTUtils'].make_query;">
 
     <metal:trackerheader define-macro="trackerheader"
@@ -221,35 +222,7 @@
     </div>
 
     <div style="clear:both"><!----></div>
-
-    <tal:manager condition="isManager">
-
-      <div id="unassigned-issues"
-           tal:define="issues python:issuefolder.getFilteredIssues(state='unconfirmed');
-                       rssQueryString python:issuefolder.getIssueSearchQueryString(state='unconfirmed')"
-           tal:condition="nocall:issues">
-
-        <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
-          <metal:intro fill-slot="intro-text">
-            <h2 i18n:translate="poi_heading_unconfirmed_issues">Unconfirmed issues</h2>
-            <p i18n:translate="poi_help_unconfirmed_issues">
-              The following issues have not yet been confirmed. Please
-              review them and take the appropriate action.
-            </p>
-          </metal:intro>
-
-          <metal:rss fill-slot="rss-button">
-            <div class="issue-search-rss">
-              <a href="" tal:attributes="href string:${here/absolute_url}/poi-issue-search-rss.xml?${rssQueryString}">
-                RSS
-              </a>
-            </div>
-          </metal:rss>
-        </metal:table>
-
-      </div>
-
-    </tal:manager>
+    
     <tal:loggedIn condition="not:isAnon">
       <div id="my-issues"
            tal:define="issues python:issuefolder.getMyIssues(manager=False)"
@@ -258,16 +231,45 @@
         <metal:table use-macro="context/poi_issue_search_results/macros/issue_search_results">
 
           <metal:intro fill-slot="intro-text">
-            <h2 i18n:translate="poi_heading_my_issues">My issues</h2>
+            <h2 i18n:translate="poi_heading_my_issues">Issues assigned to me</h2>
             <p tal:condition="isManager" i18n:translate="poi_help_my_issues_manager">
-              The following open issues were either submitted by you, or have been assigned to you.
+              The following open issues have been assigned to you.
               Note that the RSS feed for this list will include unconfirmed and orphaned issues as well,
               to make it possible to subscribe to a single feed with all the issues you may be interested
               in.
             </p>
 
             <p tal:condition="not:isManager" i18n:translate="poi_help_my_issues_not_manager">
-              The following open issues were submitted by you.
+              The following open issues are assigned you.
+            </p>
+          </metal:intro>
+          <metal:rss fill-slot="rss-button">
+            <div class="issue-search-rss">
+              <a href="" tal:attributes="href string:${here/absolute_url}/poi-my-issues-rss.xml?memberId=${member/getId}&amp;isManager:boolean=${isManager}">
+                RSS
+              </a>
+            </div>
+          </metal:rss>
+        </metal:table>
+      </div>
+      
+      <div id="my-submitted"
+           tal:define="issues python:issuefolder.getMySubmitted(manager=False)"
+           tal:condition="nocall:issues">
+
+        <metal:table use-macro="context/poi_issue_search_results/macros/issue_search_results">
+
+          <metal:intro fill-slot="intro-text">
+            <h2 i18n:translate="poi_heading_my_submitted_issues">My submitted issues</h2>
+            <p tal:condition="isManager" i18n:translate="poi_help_my_submitted_issues_manager">
+              The following open issues were either submitted by you.
+              Note that the RSS feed for this list will include unconfirmed and orphaned issues as well,
+              to make it possible to subscribe to a single feed with all the issues you may be interested
+              in.
+            </p>
+
+            <p tal:condition="not:isManager" i18n:translate="poi_help_my_submitted_issues_not_manager">
+              The following issues were submitted by you.
             </p>
           </metal:intro>
           <metal:rss fill-slot="rss-button">
@@ -280,7 +282,8 @@
         </metal:table>
       </div>
     </tal:loggedIn>
-    <tal:manager condition="isManager">
+    
+
       <div id="orphaned-issues"
            tal:define="issues issuefolder/getOrphanedIssues"
            tal:condition="nocall:issues">
@@ -290,7 +293,7 @@
           <metal:intro fill-slot="intro-text">
             <h2 i18n:translate="poi_heading_orphaned_issues">Orphaned issues</h2>
             <p i18n:translate="poi_help_orphaned_issues_">
-              The following open issues are not assigned to anyone.
+              The following issues are not assigned to anyone.
             </p>
           </metal:intro>
 
@@ -303,7 +306,7 @@
           </metal:rss>
         </metal:table>
       </div>
-    </tal:manager>
+
 
     <div class="poweredBy">
       <tal:powered i18n:translate="label_powered_by">
