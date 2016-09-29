@@ -2,6 +2,7 @@
 <dc-workflow workflow_id="poi_issue_workflow" title="Poi issue workflow" description="" state_variable="review_state" initial_state="new" manager_bypass="False">
  <permission>Delete objects</permission>
  <permission>Modify portal content</permission>
+ <permission>List folder contents</permission>
  <permission>Poi: Modify issue state</permission>
  <state state_id="closed" title="Tested and confirmed closed">
   <exit-transition transition_id="open-closed"/>
@@ -22,6 +23,10 @@
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>Site Administrator</permission-role>
+   <permission-role>Technician</permission-role>
+   <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="List folder contents" acquired="True">
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
@@ -48,6 +53,10 @@
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
+  <permission-map name="List folder contents" acquired="True">
+   <permission-role>Technician</permission-role>
+   <permission-role>TrackerManager</permission-role>
+  </permission-map>
  </state>
  <state state_id="new" title="Being created">
   <exit-transition transition_id="post"/>
@@ -69,6 +78,10 @@
    <permission-role>Anonymous</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Technician</permission-role>
+   <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="List folder contents" acquired="True">
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
@@ -97,6 +110,10 @@
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
+  <permission-map name="List folder contents" acquired="True">
+   <permission-role>Technician</permission-role>
+   <permission-role>TrackerManager</permission-role>
+  </permission-map>
  </state>
  <state state_id="postponed" title="Postponed">
   <exit-transition transition_id="re-start"/>
@@ -120,6 +137,10 @@
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
+  <permission-map name="List folder contents" acquired="True">
+   <permission-role>Technician</permission-role>
+   <permission-role>TrackerManager</permission-role>
+  </permission-map>
  </state>
  <state state_id="rejected" title="Rejected">
   <exit-transition transition_id="open-rejected"/>
@@ -139,6 +160,10 @@
   <permission-map name="Poi: Modify issue state" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Site Administrator</permission-role>
+   <permission-role>Technician</permission-role>
+   <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="List folder contents" acquired="True">
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
@@ -166,6 +191,10 @@
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
+  <permission-map name="List folder contents" acquired="True">
+   <permission-role>Technician</permission-role>
+   <permission-role>TrackerManager</permission-role>
+  </permission-map>
  </state>
  <state state_id="unconfirmed" title="Unconfirmed">
   <exit-transition transition_id="accept-unconfirmed"/>
@@ -188,6 +217,10 @@
   <permission-map name="Poi: Modify issue state" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Site Administrator</permission-role>
+   <permission-role>Technician</permission-role>
+   <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="List folder contents" acquired="True">
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>

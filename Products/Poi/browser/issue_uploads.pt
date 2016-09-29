@@ -11,7 +11,7 @@
             </li>
         </tal:repeat>
     </ol>
-    <tal:cond condition="python: user.has_permission('Poi.UploadAttachment', here)">
+    <tal:cond condition="python: user.has_permission('Poi: Upload attachment', here)">
         <p class="formHelp" i18n:translate="Poi_help_issue_attachment">You may optionally upload file attachments. Please do not upload unnecessarily large files.</p>
         <div class="pat-upload"
              data-pat-upload='{"url":"fileUpload",

@@ -211,7 +211,7 @@
       <a href="${context/absolute_url}/folder_contents"
             class="context"
             i18n:translate=""
-            tal:condition="python: user.has_permission('Poi.UploadAttachment', here)">Manage attachments</a>
+            tal:condition="python: user.has_permission('Poi: Upload attachment', here)">Manage attachments</a>
     </div>
 
     <div class="visualClear"><!----></div>
