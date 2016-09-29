@@ -101,6 +101,16 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
     opacity: 0.5;
 }
 
+.issue-quick-search-box {
+    float: left;
+    min-width: 250px;
+    padding-right: 20px;
+}
+.issue-quick-search-box ul {
+    padding-left: 0;
+    list-style-position: inside;
+}
+
 .template-poi_issue_search .sorton-id #id a:after,
 .template-poi_issue_search .sorton-sortable_title #sortable_title a:after,
 .template-poi_issue_search .sorton-target_release #target_release a:after,
