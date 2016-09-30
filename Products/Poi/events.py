@@ -270,19 +270,18 @@ def available_assignees(issue):
         return DisplayList()
     return possibleAssignees(tracker)
 
-
 def add_response_for_files(object, event):
     """If a file/image is added or deleted, add a response."""
     if isinstance(event, ObjectAddedEvent):
         if event.newParent.portal_type == "Issue":
             issue = event.newParent
-            new_response = Response("Attachment added: " + object.title)
+            new_response = Response("")
         else:
             return
     elif isinstance(event, ObjectModifiedEvent):
         if object.aq_parent.portal_type == "Issue":
             issue = object.aq_parent
-            new_response = Response("Attachment modified: " + object.title)
+            new_response = Response("")
         else:
             return
     elif isinstance(event, ObjectRemovedEvent):
@@ -293,6 +292,7 @@ def add_response_for_files(object, event):
             return
 
     if new_response:
+        new_response.attachment = object
         new_response.mimetype =\
             api.portal.get_registry_record('poi.default_issue_mime_type')
         new_response.type = "file"

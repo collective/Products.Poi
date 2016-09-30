@@ -2,7 +2,7 @@ import logging
 
 from AccessControl import Unauthorized
 from Acquisition import aq_inner
-from OFS.Image import File
+from mimetypes import guess_type
 from Products.Archetypes.atapi import DisplayList
 from Products.Archetypes.utils import contentDispositionHeader
 from Products.CMFCore.utils import getToolByName
@@ -122,16 +122,20 @@ class Base(BrowserView):
         context = aq_inner(self.context)
         response = self.folder[id]
         attachment = response.attachment
+
         if attachment is None:
+            return None
+        if 'Attachment deleted' in response.text:
             return None
 
         from zExceptions import NotFound
 
+        mtype = guess_type(attachment.id)
         icon = None
         mtr = getToolByName(context, 'mimetypes_registry', None)
         if mtr is None:
             icon = context.getIcon()
-        lookup = mtr.lookup(attachment.content_type)
+        lookup = mtr.lookup(mtype[0])
         if lookup:
             mti = lookup[0]
             try:
@@ -141,14 +145,17 @@ class Base(BrowserView):
                 pass
         if icon is None:
             icon = context.getIcon()
-        filename = getattr(attachment, 'filename', attachment.getId())
+        size = 0
+        if hasattr(attachment, 'image'):
+            size = attachment.image.size
+        elif hasattr(attachment, 'file'):
+            size = attachment.file.size
+
         info = dict(
             icon=self.portal_url + '/' + icon,
-            url=context.absolute_url() +
-            '/@@poi_response_attachment?response_id=' + str(id),
-            content_type=attachment.content_type,
-            size=pretty_size(attachment.size),
-            filename=filename,
+            content_type=mtype[0],
+            size=pretty_size(size),
+            filename=attachment.id,
         )
         return info
 
@@ -415,13 +422,6 @@ class Create(Base):
                 elif option == 'current_assignee':
                     context.assignee = new
 
-        attachment = form.get('attachment')
-        if attachment:
-            # File(id, title, file)
-            data = File(attachment.filename, attachment.filename, attachment)
-            new_response.attachment = data
-            issue_has_changed = True
-
         if len(response_text) == 0 and not issue_has_changed:
             status = IStatusMessage(self.request)
             msg = _(u"No response text added and no issue changes made.")
@@ -543,35 +543,3 @@ class Delete(Base):
                     msg = translate(msg, 'Poi', context=self.request)
                     status.addStatusMessage(msg, type='info')
         self.request.response.redirect(context.absolute_url())
-
-
-class Download(Base):
-    """Download the attachment of a response.
-    """
-
-    def __call__(self):
-        context = aq_inner(self.context)
-        request = self.request
-        response_id = self.validate_response_id()
-        file = None
-        if response_id != -1:
-            response = self.folder[response_id]
-            file = response.attachment
-            if file is None:
-                status = IStatusMessage(request)
-                msg = _(u"Response id ${response_id} has no attachment.",
-                        mapping=dict(response_id=response_id))
-                msg = translate(msg, 'Poi', context=context)
-                status.addStatusMessage(msg, type='error')
-        if file is None:
-            request.response.redirect(context.absolute_url())
-
-        # From now on file exists.
-        # Code mostly taken from Archetypes/Field.py:FileField.download
-        filename = getattr(file, 'filename', file.getId())
-        if filename is not None:
-            header_value = contentDispositionHeader(
-                disposition='attachment',
-                filename=filename)
-            request.response.setHeader("Content-disposition", header_value)
-        return file.index_html(request, request.response)

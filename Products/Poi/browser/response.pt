@@ -63,10 +63,12 @@
       </div>
       <span tal:replace="structure html" />
 
+      <p tal:content="attachment" />
+
       <div class="issue-attachment" tal:condition="attachment">
         <span class="issue-attachment-label" i18n:translate="poi_label_attachment">Attached:</span>
         <img tal:attributes="src attachment/icon" />
-        <a tal:attributes="href attachment/url"
+        <a tal:attributes="href string: ${context/absolute_url}/${attachment/filename}"
            tal:content="attachment/filename" />
         <span class="discreet">
           &#8212;
@@ -143,29 +145,6 @@
           <textarea
               tal:condition="not:view/use_wysiwyg"
               cols="40" rows="15" name="response" id="response"></textarea>
-
-        </div>
-
-      </div>
-
-      <div class="field" id="poi-fieldname-attachment"
-           tal:condition="view/upload_allowed">
-        <label for="attachment"
-               i18n:translate="Poi_label_attachment">Attachment</label>
-
-        <div class="formHelp" id="attachment_help"
-             i18n:translate="Poi_help_attachment">
-          You may optionally upload a file attachment. Please do not
-          upload unnecessarily large files.
-        </div>
-
-        <div class="responseAttachment">
-
-          <div>
-
-            <input size="30" name="attachment" id="attachment" type="file" />
-
-          </div>
 
         </div>
 

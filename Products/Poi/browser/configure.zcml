@@ -88,13 +88,6 @@
      />
 
   <browser:page
-     name="poi_response_attachment"
-     for="Products.Poi.interfaces.IIssue"
-     permission="zope2.View"
-     class=".response.Download"
-     />
-
-  <browser:page
      name="poi-issue-search-rss.xml"
      for="*"
      permission="zope2.View"
