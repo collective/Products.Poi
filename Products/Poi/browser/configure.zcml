@@ -102,6 +102,13 @@
      />
 
   <browser:page
+     name="poi-my-submitted-issues-rss.xml"
+     for="*"
+     permission="zope2.View"
+     template="templates/poi-my-submitted-issues-rss.xml.pt"
+     />
+
+  <browser:page
      name="poi-orphaned-issues-rss.xml"
      for="*"
      permission="zope2.View"

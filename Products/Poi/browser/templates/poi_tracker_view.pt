@@ -274,7 +274,7 @@
           </metal:intro>
           <metal:rss fill-slot="rss-button">
             <div class="issue-search-rss">
-              <a href="" tal:attributes="href string:${here/absolute_url}/poi-my-issues-rss.xml?memberId=${member/getId}&amp;isManager:boolean=${isManager}">
+              <a href="" tal:attributes="href string:${here/absolute_url}/poi-my-submitted-issues-rss.xml?memberId=${member/getId}&amp;isManager:boolean=${isManager}">
                 RSS
               </a>
             </div>
