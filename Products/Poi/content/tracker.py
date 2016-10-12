@@ -332,12 +332,11 @@ class ITracker(model.Schema):
         description=_(
             u'Poi_help_sendNotificationEmails',
             default=(
-                u"If selected, tracker managers will receive an email "
-                u"each time a new issue or response is posted, and "
-                u"issue submitters will receive an email when there "
-                u"is a new response and when an issue has been "
-                u"resolved, awaiting confirmation. Technicians will "
-                u"get an email when an issue is assigned to them.")
+                u"If selected, all tracker assignees above will "
+                u"receive an email for new issues and all issue "
+                u"responses. Issue watchers will recieve an email "
+                u"for all issue responses. Issue submitters will "
+                u"receive an email when the issue has been resolved.")
         ),
     )
 
@@ -351,10 +350,7 @@ class ITracker(model.Schema):
             default=(
                 u"If given, and if 'Send notification emails' is "
                 u"selected, an email will be sent to this address "
-                u"each time a new issue or response is posted. "
-                u"Managers will receive individual emails as well. "
-                u"If this is not wanted, you may want to make them "
-                u"technician instead.")
+                u"each time a new issue or response is posted.")
         ),
         required=False,
         constraint=is_email,
