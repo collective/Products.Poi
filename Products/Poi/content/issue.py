@@ -48,6 +48,13 @@ def default_watchers(context):
     return [username]
 
 
+def checkEmpty(value):
+    """ Field should be empty
+        or else we assume you are a bot
+    """
+    return True if value is False else False
+
+
 class IIssue(model.Schema):
     """Marker interface for Poi issue"""
 
@@ -205,6 +212,12 @@ class IIssue(model.Schema):
             source=tracker_issues,
         ),
         required=False
+    )
+    
+    empty = schema.Bool(
+        title=_(u'Poi_label_issue_empty', default=u'Leave this field empty'),
+        required=False,
+        constraint=checkEmpty
     )
 
 
