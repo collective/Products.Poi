@@ -279,4 +279,9 @@
       </div>
     </form>
   </tal:add>
+
+  <tal:add condition="python:user.has_permission('Poi: Upload attachment', here)">
+    <h3 i18n:translate="title_add_remove_attachments">Add/remove attachments</h3>
+    <metal:uploads use-macro="context/@@poi_issue_uploads/macros/issue-uploads" />
+  </tal:add>
 </div>

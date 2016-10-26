@@ -15,9 +15,9 @@
     }
 
     // Add file upload to Issue edit view
-    if ($('.template-edit.portaltype-issue')) {
+    if ($('.template-edit.portaltype-issue').length>0) {
         $.get( "@@poi_issue_uploads", function( data ) {
-            $('.template-edit.portaltype-issue').find('#formfield-form-widgets-steps').after(data);
+            $('.portaltype-issue').find('#formfield-form-widgets-steps').after(data);
             require(['pat-registry'], function (registry) {
                 registry.scan($('#formfield-form-widgets-attachments'));
             });
