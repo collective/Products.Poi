@@ -47,9 +47,10 @@
     // manually load tinymce is user is not authenticated...
     if($('body.userrole-anonymous.template-products-poi-content-issue-issue').length === 1){
         require(['tinymce'], function(){
-          displayEditor($("#formfield-form-widgets-details").find('textarea'));
-          displayEditor($("#formfield-form-widgets-steps").find('textarea'));
+          displayEditor($("#formfield-form-widgets-details textarea"));
+          displayEditor($("#formfield-form-widgets-steps textarea"));
         });
+        require(['mockup-patterns-relateditems']);
     }
 
 }); })(jQuery);

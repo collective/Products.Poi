@@ -24,6 +24,21 @@
     <value key="depends">plone</value>
 </records>
 
+<records prefix="plone.bundles/poi-resources"
+         interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+    <value key="enabled">True</value>
+    <value key="last_compilation">2016-07-05 00:00:00</value>
+    <value key="jscompilation">++plone++static/poi-resources-compiled.js</value>
+    <value key="csscompilation">++plone++static/poi-resources-compiled.css</value>
+    <value key="compile">True</value>
+</records>
+<record name="plone.bundles/poi-resources.resources"
+        interface="Products.CMFPlone.interfaces.resources.IBundleRegistry" field="resources">
+  <value>
+    <element>mockup-patterns-relateditems</element>
+  </value>
+</record>
+
 <record name="poi.default_issue_mime_type">
     <field type="plone.registry.field.Text">
       <title>Default Poi Issue Mime Type</title>
