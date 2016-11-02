@@ -14,15 +14,35 @@
         // do nothing, the 'pat-plone-modal' class will display the overlay
     }
 
-    // Add file upload to Issue edit view
+    // function to update attchments list
+    function updateAttachmentsList() {
+        if($('.template-poi_issue_view').length>0) {
+            var path = window.location + "/@@poi_issue_uploads";
+        } else {
+            var path = "@@poi_issue_uploads";
+        }
+        $.ajax({
+            url: path,
+            cache: false,
+            success: function(data) {
+                $('.issue-uploads ol').replaceWith($(data).find('ol')[0]);
+            }
+        });
+    }
+
+    // add file upload to Issue edit view and bind handler
     if ($('.template-edit.portaltype-issue').length>0) {
         $.get( "@@poi_issue_uploads", function( data ) {
             $('.portaltype-issue').find('#formfield-form-widgets-steps').after(data);
             require(['pat-registry'], function (registry) {
                 registry.scan($('#formfield-form-widgets-attachments'));
             });
+            $(".template-edit.portaltype-issue .pat-upload").on('uploadAllCompleted', updateAttachmentsList);
         });
     }
+
+    // update list after upload
+    $(".template-poi_issue_view .pat-upload").on('uploadAllCompleted', updateAttachmentsList);
 
     // manually load tinymce is user is not authenticated...
     if($('body.userrole-anonymous.template-products-poi-content-issue-issue').length === 1){
