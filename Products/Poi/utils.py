@@ -3,30 +3,18 @@ import re
 
 # Patterns used for recognizing links to issues and revisions:
 ISSUE_RECOGNITION_PATTERNS = (
-    r'\B#[1-9][0-9]*\b',
-    r'\bissue:[1-9][0-9]*\b',
-    r'\bticket:[1-9][0-9]*\b',
-    r'\bbug:[1-9][0-9]*\b',
+    r'\B#([1-9][0-9]*)\b',
+    r'\bissue:([1-9][0-9]*)\b',
+    r'\bticket:([1-9][0-9]*)\b',
+    r'\bbug:([1-9][0-9]*)\b',
 )
 REVISION_RECOGNITION_PATTERNS = (
-    r'\br[0-9]+\b',
-    r'\bchangeset:[0-9]+\b',
-    r'\B\[[0-9]+\]\B',
+    r'\br([0-9]+)\b',
+    r'\bchangeset:([0-9]+)\b',
+    r'\B\[([0-9]+)\]\B',
 )
 # Template to use when recognizing a link to another issue:
 ISSUE_LINK_TEMPLATE = '<a href="%(base_url)s/%(bug)s">%(linktext)s</a>'
-
-
-def getNumberFromString(linktext):
-    """
-    Extract the number from a string with a number in it.
-    From 'foo666bar' we get '666'.
-    (From 'foobar' we probably end up with problems.)
-    """
-    pattern = re.compile('[1-9][0-9]*')
-    res = pattern.search(linktext)
-    if res is not None:
-        return linktext[res.start(): res.end()]
 
 
 def link_bugs(text, ids, base_url='..'):
@@ -43,7 +31,7 @@ def link_bugs(text, ids, base_url='..'):
             pos = res.start()
 
             linktext = text[res.start(): res.end()]
-            bug = getNumberFromString(linktext)
+            bug = res.group(1)
 
             if bug is not None and bug in ids:
                 link = ISSUE_LINK_TEMPLATE % dict(
@@ -75,7 +63,7 @@ def link_repo(text, repo_url):
                 break
 
             linktext = text[res.start(): res.end()]
-            rev = getNumberFromString(linktext)
+            rev = res.group(1)
 
             pos = res.start() + 1
             link = '<a href="' + repo_url % {'rev': rev} + '">' + linktext + \

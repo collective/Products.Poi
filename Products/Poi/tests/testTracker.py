@@ -7,7 +7,6 @@ from zope.schema import getFields
 from Products.Poi.events import sendResponseNotificationMail
 from Products.Poi.interfaces import ITracker
 from Products.Poi.tests import ptc
-from Products.Poi.utils import getNumberFromString
 from Products.Poi.utils import link_bugs
 from Products.Poi.utils import link_repo
 
@@ -645,25 +644,6 @@ class TestLinkDetection(ptc.PoiTestCase):
             tracker.linkDetection('Issue #1 is fixed in r42.'),
             'Issue <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a> is fixed in <'
             'a href="http://dev.plone.org/changeset/42/collective">r42</a>.')
-
-    def testGetNumberFromString(self):
-        self.assertEqual(getNumberFromString('#1'), '1')
-        self.assertEqual(getNumberFromString('r12'), '12')
-        self.assertEqual(getNumberFromString('rev42'), '42')
-        self.assertEqual(getNumberFromString('[42]'), '42')
-        self.assertEqual(getNumberFromString('ticket:399'), '399')
-        self.assertEqual(getNumberFromString('changeset:12345.'), '12345')
-        # check for problems
-        self.assertIs(getNumberFromString(''), None)
-        self.assertIs(getNumberFromString('foobar'), None)
-        self.assertEqual(getNumberFromString('2'), '2')
-        self.assertEqual(getNumberFromString(u'3'), u'3')
-        self.assertEqual(getNumberFromString('-7'), '7')
-        self.assertEqual(getNumberFromString('0') is None, True)
-        self.assertEqual(getNumberFromString('#007'), '7')
-        self.assertEqual(getNumberFromString('my.html#7'), '7')
-        # only the first number should be taken
-        self.assertEqual(getNumberFromString('its13past12'), '13')
 
     def testLinkBugs(self):
         ids = [str(i) for i in range(12)]
