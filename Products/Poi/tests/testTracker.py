@@ -633,17 +633,25 @@ class TestLinkDetection(ptc.PoiTestCase):
 
         # I myself like to point to the changesets:
 
-        tracker.repo_url = "http://dev.plone.org/changeset/%(rev)s/collective"
+        tracker.repo_url = "https://github.com/collective/Products.Poi/commit/%(rev)s"
         self.assertEqual(
             tracker.linkDetection('r42'),
-            '<a href="http://dev.plone.org/changeset/42/collective">r42</a>')
+            '<a href="https://github.com/collective/Products.Poi/commit/42">r42</a>')
+
+        # test just a hex number 7 or more characters:
+        self.assertEqual(
+            tracker.linkDetection('55bfd6c'),
+            '<a href="https://github.com/collective/Products.Poi/commit/55bfd6c">55bfd6c</a>')
+
+        # test a hex number less than 7 characters
+        self.assertEqual(tracker.linkDetection('55bfd6'), '55bfd6')
 
         # Of course it is fine to combine issues and revisions:
         self.createIssue(tracker, title="1")
         self.assertEqual(
             tracker.linkDetection('Issue #1 is fixed in r42.'),
             'Issue <a href="http://nohost/plone/Members/test_user_1_/issue-tracker/1">#1</a> is fixed in <'
-            'a href="http://dev.plone.org/changeset/42/collective">r42</a>.')
+            'a href="https://github.com/collective/Products.Poi/commit/42">r42</a>.')
 
     def testLinkBugs(self):
         ids = [str(i) for i in range(12)]
