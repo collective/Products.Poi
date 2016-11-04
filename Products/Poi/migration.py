@@ -4,6 +4,7 @@ from ZODB.POSException import ConflictError
 from Products.CMFCore.utils import getToolByName
 from Products.CMFFormController.FormAction import FormActionKey
 from collective.watcherlist.interfaces import IWatcherList
+from plone import api
 from zope.annotation.interfaces import IAnnotations
 import transaction
 
@@ -236,3 +237,9 @@ def migrate_tracker_watchers(context):
 def recook_resources(context):
     context.portal_javascripts.cookResources()
     context.portal_css.cookResources()
+
+def clean_properties(context):
+    """Clean up any old-style properties
+    """
+    setuptool = api.portal.get_tool('portal_setup')
+    setuptool.runAllImportStepsFromProfile('profile-Products.Poi:migration2-3')

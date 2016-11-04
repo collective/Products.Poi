@@ -59,8 +59,5 @@
       <role name="Technician"/>
       <role name="TrackerManager" />
     </permission>
-    <permission name="Poi: Modify related issues" acquire="True">
-      <role name="Anonymous"/>
-    </permission>
   </permissions>
 </rolemap>

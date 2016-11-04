@@ -13,6 +13,14 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <gs:registerProfile
+      name="migration2-3"
+      title="Poi Migration to version 3.0"
+      directory="profiles/migration2-3"
+      description="Migration Steps"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
   <!-- Uninstall profile for items the the QI uninstall misses. -->
   <gs:registerProfile
       name="uninstall"
@@ -125,6 +133,14 @@
       source="2006"
       destination="2007"
       handler="Products.Poi.migration.recook_resources"
+      profile="Products.Poi:default" />
+
+  <gs:upgradeStep
+      title="Clean up old properties"
+      description=""
+      source="2007"
+      destination="3000"
+      handler="Products.Poi.migration.clean_properties"
       profile="Products.Poi:default" />
 
 
