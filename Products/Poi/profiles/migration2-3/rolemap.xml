@@ -53,6 +53,9 @@
       <role name="Technician"/>
       <role name="TrackerManager" />
     </permission>
+    <permission name="Poi: Modify related issues" acquire="True">
+      <role name="Anonymous"/>
+    </permission>
     <permission name="Poi: Upload attachment" acquire="True">
       <role name="Manager"/>
       <role name="Member" />
