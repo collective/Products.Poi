@@ -1,0 +1,2110 @@
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('components/bootstrap/fonts/glyphicons-halflings-regular.eot');
+  src: url('components/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('components/bootstrap/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('components/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), url('components/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('components/bootstrap/fonts/glyphicons-halflings-regular.svg') format('svg');
+}
+/* line 22, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* line 35, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-asterisk:before {
+  content: "\2a";
+}
+/* line 36, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-plus:before {
+  content: "\2b";
+}
+/* line 38, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-euro:before,
+.glyphicon-eur:before {
+  content: "\20ac";
+}
+/* line 39, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-minus:before {
+  content: "\2212";
+}
+/* line 40, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-cloud:before {
+  content: "\2601";
+}
+/* line 41, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-envelope:before {
+  content: "\2709";
+}
+/* line 42, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-pencil:before {
+  content: "\270f";
+}
+/* line 43, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-glass:before {
+  content: "\e001";
+}
+/* line 44, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-music:before {
+  content: "\e002";
+}
+/* line 45, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-search:before {
+  content: "\e003";
+}
+/* line 46, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-heart:before {
+  content: "\e005";
+}
+/* line 47, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-star:before {
+  content: "\e006";
+}
+/* line 48, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-star-empty:before {
+  content: "\e007";
+}
+/* line 49, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-user:before {
+  content: "\e008";
+}
+/* line 50, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-film:before {
+  content: "\e009";
+}
+/* line 51, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-th-large:before {
+  content: "\e010";
+}
+/* line 52, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-th:before {
+  content: "\e011";
+}
+/* line 53, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-th-list:before {
+  content: "\e012";
+}
+/* line 54, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-ok:before {
+  content: "\e013";
+}
+/* line 55, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-remove:before {
+  content: "\e014";
+}
+/* line 56, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-zoom-in:before {
+  content: "\e015";
+}
+/* line 57, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-zoom-out:before {
+  content: "\e016";
+}
+/* line 58, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-off:before {
+  content: "\e017";
+}
+/* line 59, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-signal:before {
+  content: "\e018";
+}
+/* line 60, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-cog:before {
+  content: "\e019";
+}
+/* line 61, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-trash:before {
+  content: "\e020";
+}
+/* line 62, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-home:before {
+  content: "\e021";
+}
+/* line 63, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-file:before {
+  content: "\e022";
+}
+/* line 64, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-time:before {
+  content: "\e023";
+}
+/* line 65, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-road:before {
+  content: "\e024";
+}
+/* line 66, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-download-alt:before {
+  content: "\e025";
+}
+/* line 67, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-download:before {
+  content: "\e026";
+}
+/* line 68, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-upload:before {
+  content: "\e027";
+}
+/* line 69, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-inbox:before {
+  content: "\e028";
+}
+/* line 70, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-play-circle:before {
+  content: "\e029";
+}
+/* line 71, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-repeat:before {
+  content: "\e030";
+}
+/* line 72, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-refresh:before {
+  content: "\e031";
+}
+/* line 73, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-list-alt:before {
+  content: "\e032";
+}
+/* line 74, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-lock:before {
+  content: "\e033";
+}
+/* line 75, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-flag:before {
+  content: "\e034";
+}
+/* line 76, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-headphones:before {
+  content: "\e035";
+}
+/* line 77, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-volume-off:before {
+  content: "\e036";
+}
+/* line 78, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-volume-down:before {
+  content: "\e037";
+}
+/* line 79, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-volume-up:before {
+  content: "\e038";
+}
+/* line 80, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-qrcode:before {
+  content: "\e039";
+}
+/* line 81, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-barcode:before {
+  content: "\e040";
+}
+/* line 82, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-tag:before {
+  content: "\e041";
+}
+/* line 83, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-tags:before {
+  content: "\e042";
+}
+/* line 84, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-book:before {
+  content: "\e043";
+}
+/* line 85, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-bookmark:before {
+  content: "\e044";
+}
+/* line 86, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-print:before {
+  content: "\e045";
+}
+/* line 87, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-camera:before {
+  content: "\e046";
+}
+/* line 88, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-font:before {
+  content: "\e047";
+}
+/* line 89, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-bold:before {
+  content: "\e048";
+}
+/* line 90, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-italic:before {
+  content: "\e049";
+}
+/* line 91, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-text-height:before {
+  content: "\e050";
+}
+/* line 92, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-text-width:before {
+  content: "\e051";
+}
+/* line 93, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-align-left:before {
+  content: "\e052";
+}
+/* line 94, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-align-center:before {
+  content: "\e053";
+}
+/* line 95, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-align-right:before {
+  content: "\e054";
+}
+/* line 96, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-align-justify:before {
+  content: "\e055";
+}
+/* line 97, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-list:before {
+  content: "\e056";
+}
+/* line 98, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-indent-left:before {
+  content: "\e057";
+}
+/* line 99, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-indent-right:before {
+  content: "\e058";
+}
+/* line 100, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-facetime-video:before {
+  content: "\e059";
+}
+/* line 101, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-picture:before {
+  content: "\e060";
+}
+/* line 102, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-map-marker:before {
+  content: "\e062";
+}
+/* line 103, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-adjust:before {
+  content: "\e063";
+}
+/* line 104, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-tint:before {
+  content: "\e064";
+}
+/* line 105, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-edit:before {
+  content: "\e065";
+}
+/* line 106, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-share:before {
+  content: "\e066";
+}
+/* line 107, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-check:before {
+  content: "\e067";
+}
+/* line 108, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-move:before {
+  content: "\e068";
+}
+/* line 109, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-step-backward:before {
+  content: "\e069";
+}
+/* line 110, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-fast-backward:before {
+  content: "\e070";
+}
+/* line 111, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-backward:before {
+  content: "\e071";
+}
+/* line 112, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-play:before {
+  content: "\e072";
+}
+/* line 113, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-pause:before {
+  content: "\e073";
+}
+/* line 114, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-stop:before {
+  content: "\e074";
+}
+/* line 115, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-forward:before {
+  content: "\e075";
+}
+/* line 116, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-fast-forward:before {
+  content: "\e076";
+}
+/* line 117, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-step-forward:before {
+  content: "\e077";
+}
+/* line 118, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-eject:before {
+  content: "\e078";
+}
+/* line 119, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-chevron-left:before {
+  content: "\e079";
+}
+/* line 120, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-chevron-right:before {
+  content: "\e080";
+}
+/* line 121, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-plus-sign:before {
+  content: "\e081";
+}
+/* line 122, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-minus-sign:before {
+  content: "\e082";
+}
+/* line 123, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-remove-sign:before {
+  content: "\e083";
+}
+/* line 124, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-ok-sign:before {
+  content: "\e084";
+}
+/* line 125, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-question-sign:before {
+  content: "\e085";
+}
+/* line 126, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-info-sign:before {
+  content: "\e086";
+}
+/* line 127, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-screenshot:before {
+  content: "\e087";
+}
+/* line 128, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-remove-circle:before {
+  content: "\e088";
+}
+/* line 129, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-ok-circle:before {
+  content: "\e089";
+}
+/* line 130, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-ban-circle:before {
+  content: "\e090";
+}
+/* line 131, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-arrow-left:before {
+  content: "\e091";
+}
+/* line 132, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-arrow-right:before {
+  content: "\e092";
+}
+/* line 133, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-arrow-up:before {
+  content: "\e093";
+}
+/* line 134, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-arrow-down:before {
+  content: "\e094";
+}
+/* line 135, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-share-alt:before {
+  content: "\e095";
+}
+/* line 136, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-resize-full:before {
+  content: "\e096";
+}
+/* line 137, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-resize-small:before {
+  content: "\e097";
+}
+/* line 138, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-exclamation-sign:before {
+  content: "\e101";
+}
+/* line 139, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-gift:before {
+  content: "\e102";
+}
+/* line 140, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-leaf:before {
+  content: "\e103";
+}
+/* line 141, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-fire:before {
+  content: "\e104";
+}
+/* line 142, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-eye-open:before {
+  content: "\e105";
+}
+/* line 143, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-eye-close:before {
+  content: "\e106";
+}
+/* line 144, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-warning-sign:before {
+  content: "\e107";
+}
+/* line 145, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-plane:before {
+  content: "\e108";
+}
+/* line 146, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-calendar:before {
+  content: "\e109";
+}
+/* line 147, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-random:before {
+  content: "\e110";
+}
+/* line 148, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-comment:before {
+  content: "\e111";
+}
+/* line 149, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-magnet:before {
+  content: "\e112";
+}
+/* line 150, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-chevron-up:before {
+  content: "\e113";
+}
+/* line 151, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-chevron-down:before {
+  content: "\e114";
+}
+/* line 152, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-retweet:before {
+  content: "\e115";
+}
+/* line 153, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-shopping-cart:before {
+  content: "\e116";
+}
+/* line 154, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-folder-close:before {
+  content: "\e117";
+}
+/* line 155, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-folder-open:before {
+  content: "\e118";
+}
+/* line 156, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-resize-vertical:before {
+  content: "\e119";
+}
+/* line 157, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-resize-horizontal:before {
+  content: "\e120";
+}
+/* line 158, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-hdd:before {
+  content: "\e121";
+}
+/* line 159, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-bullhorn:before {
+  content: "\e122";
+}
+/* line 160, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-bell:before {
+  content: "\e123";
+}
+/* line 161, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-certificate:before {
+  content: "\e124";
+}
+/* line 162, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-thumbs-up:before {
+  content: "\e125";
+}
+/* line 163, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-thumbs-down:before {
+  content: "\e126";
+}
+/* line 164, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-hand-right:before {
+  content: "\e127";
+}
+/* line 165, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-hand-left:before {
+  content: "\e128";
+}
+/* line 166, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-hand-up:before {
+  content: "\e129";
+}
+/* line 167, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-hand-down:before {
+  content: "\e130";
+}
+/* line 168, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-circle-arrow-right:before {
+  content: "\e131";
+}
+/* line 169, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-circle-arrow-left:before {
+  content: "\e132";
+}
+/* line 170, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-circle-arrow-up:before {
+  content: "\e133";
+}
+/* line 171, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-circle-arrow-down:before {
+  content: "\e134";
+}
+/* line 172, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-globe:before {
+  content: "\e135";
+}
+/* line 173, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-wrench:before {
+  content: "\e136";
+}
+/* line 174, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-tasks:before {
+  content: "\e137";
+}
+/* line 175, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-filter:before {
+  content: "\e138";
+}
+/* line 176, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-briefcase:before {
+  content: "\e139";
+}
+/* line 177, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-fullscreen:before {
+  content: "\e140";
+}
+/* line 178, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-dashboard:before {
+  content: "\e141";
+}
+/* line 179, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-paperclip:before {
+  content: "\e142";
+}
+/* line 180, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-heart-empty:before {
+  content: "\e143";
+}
+/* line 181, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-link:before {
+  content: "\e144";
+}
+/* line 182, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-phone:before {
+  content: "\e145";
+}
+/* line 183, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-pushpin:before {
+  content: "\e146";
+}
+/* line 184, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-usd:before {
+  content: "\e148";
+}
+/* line 185, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-gbp:before {
+  content: "\e149";
+}
+/* line 186, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-sort:before {
+  content: "\e150";
+}
+/* line 187, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-sort-by-alphabet:before {
+  content: "\e151";
+}
+/* line 188, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-sort-by-alphabet-alt:before {
+  content: "\e152";
+}
+/* line 189, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-sort-by-order:before {
+  content: "\e153";
+}
+/* line 190, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-sort-by-order-alt:before {
+  content: "\e154";
+}
+/* line 191, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-sort-by-attributes:before {
+  content: "\e155";
+}
+/* line 192, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-sort-by-attributes-alt:before {
+  content: "\e156";
+}
+/* line 193, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-unchecked:before {
+  content: "\e157";
+}
+/* line 194, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-expand:before {
+  content: "\e158";
+}
+/* line 195, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-collapse-down:before {
+  content: "\e159";
+}
+/* line 196, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-collapse-up:before {
+  content: "\e160";
+}
+/* line 197, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-log-in:before {
+  content: "\e161";
+}
+/* line 198, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-flash:before {
+  content: "\e162";
+}
+/* line 199, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-log-out:before {
+  content: "\e163";
+}
+/* line 200, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-new-window:before {
+  content: "\e164";
+}
+/* line 201, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-record:before {
+  content: "\e165";
+}
+/* line 202, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-save:before {
+  content: "\e166";
+}
+/* line 203, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-open:before {
+  content: "\e167";
+}
+/* line 204, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-saved:before {
+  content: "\e168";
+}
+/* line 205, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-import:before {
+  content: "\e169";
+}
+/* line 206, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-export:before {
+  content: "\e170";
+}
+/* line 207, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-send:before {
+  content: "\e171";
+}
+/* line 208, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-floppy-disk:before {
+  content: "\e172";
+}
+/* line 209, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-floppy-saved:before {
+  content: "\e173";
+}
+/* line 210, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-floppy-remove:before {
+  content: "\e174";
+}
+/* line 211, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-floppy-save:before {
+  content: "\e175";
+}
+/* line 212, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-floppy-open:before {
+  content: "\e176";
+}
+/* line 213, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-credit-card:before {
+  content: "\e177";
+}
+/* line 214, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-transfer:before {
+  content: "\e178";
+}
+/* line 215, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-cutlery:before {
+  content: "\e179";
+}
+/* line 216, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-header:before {
+  content: "\e180";
+}
+/* line 217, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-compressed:before {
+  content: "\e181";
+}
+/* line 218, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-earphone:before {
+  content: "\e182";
+}
+/* line 219, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-phone-alt:before {
+  content: "\e183";
+}
+/* line 220, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-tower:before {
+  content: "\e184";
+}
+/* line 221, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-stats:before {
+  content: "\e185";
+}
+/* line 222, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-sd-video:before {
+  content: "\e186";
+}
+/* line 223, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-hd-video:before {
+  content: "\e187";
+}
+/* line 224, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-subtitles:before {
+  content: "\e188";
+}
+/* line 225, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-sound-stereo:before {
+  content: "\e189";
+}
+/* line 226, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-sound-dolby:before {
+  content: "\e190";
+}
+/* line 227, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-sound-5-1:before {
+  content: "\e191";
+}
+/* line 228, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-sound-6-1:before {
+  content: "\e192";
+}
+/* line 229, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-sound-7-1:before {
+  content: "\e193";
+}
+/* line 230, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-copyright-mark:before {
+  content: "\e194";
+}
+/* line 231, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-registration-mark:before {
+  content: "\e195";
+}
+/* line 232, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-cloud-download:before {
+  content: "\e197";
+}
+/* line 233, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-cloud-upload:before {
+  content: "\e198";
+}
+/* line 234, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-tree-conifer:before {
+  content: "\e199";
+}
+/* line 235, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-tree-deciduous:before {
+  content: "\e200";
+}
+/* line 236, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-cd:before {
+  content: "\e201";
+}
+/* line 237, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-save-file:before {
+  content: "\e202";
+}
+/* line 238, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-open-file:before {
+  content: "\e203";
+}
+/* line 239, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-level-up:before {
+  content: "\e204";
+}
+/* line 240, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-copy:before {
+  content: "\e205";
+}
+/* line 241, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-paste:before {
+  content: "\e206";
+}
+/* line 250, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-alert:before {
+  content: "\e209";
+}
+/* line 251, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-equalizer:before {
+  content: "\e210";
+}
+/* line 252, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-king:before {
+  content: "\e211";
+}
+/* line 253, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-queen:before {
+  content: "\e212";
+}
+/* line 254, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-pawn:before {
+  content: "\e213";
+}
+/* line 255, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-bishop:before {
+  content: "\e214";
+}
+/* line 256, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-knight:before {
+  content: "\e215";
+}
+/* line 257, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-baby-formula:before {
+  content: "\e216";
+}
+/* line 258, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-tent:before {
+  content: "\26fa";
+}
+/* line 259, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-blackboard:before {
+  content: "\e218";
+}
+/* line 260, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-bed:before {
+  content: "\e219";
+}
+/* line 261, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-apple:before {
+  content: "\f8ff";
+}
+/* line 262, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-erase:before {
+  content: "\e221";
+}
+/* line 263, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-hourglass:before {
+  content: "\231b";
+}
+/* line 264, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-lamp:before {
+  content: "\e223";
+}
+/* line 265, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-duplicate:before {
+  content: "\e224";
+}
+/* line 266, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-piggy-bank:before {
+  content: "\e225";
+}
+/* line 267, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-scissors:before {
+  content: "\e226";
+}
+/* line 268, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-bitcoin:before {
+  content: "\e227";
+}
+/* line 269, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-btc:before {
+  content: "\e227";
+}
+/* line 270, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-xbt:before {
+  content: "\e227";
+}
+/* line 271, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-yen:before {
+  content: "\00a5";
+}
+/* line 272, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-jpy:before {
+  content: "\00a5";
+}
+/* line 273, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-ruble:before {
+  content: "\20bd";
+}
+/* line 274, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-rub:before {
+  content: "\20bd";
+}
+/* line 275, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-scale:before {
+  content: "\e230";
+}
+/* line 276, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-ice-lolly:before {
+  content: "\e231";
+}
+/* line 277, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-ice-lolly-tasted:before {
+  content: "\e232";
+}
+/* line 278, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-education:before {
+  content: "\e233";
+}
+/* line 279, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-option-horizontal:before {
+  content: "\e234";
+}
+/* line 280, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-option-vertical:before {
+  content: "\e235";
+}
+/* line 281, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-menu-hamburger:before {
+  content: "\e236";
+}
+/* line 282, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-modal-window:before {
+  content: "\e237";
+}
+/* line 283, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-oil:before {
+  content: "\e238";
+}
+/* line 284, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-grain:before {
+  content: "\e239";
+}
+/* line 285, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-sunglasses:before {
+  content: "\e240";
+}
+/* line 286, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-text-size:before {
+  content: "\e241";
+}
+/* line 287, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-text-color:before {
+  content: "\e242";
+}
+/* line 288, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-text-background:before {
+  content: "\e243";
+}
+/* line 289, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-object-align-top:before {
+  content: "\e244";
+}
+/* line 290, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-object-align-bottom:before {
+  content: "\e245";
+}
+/* line 291, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-object-align-horizontal:before {
+  content: "\e246";
+}
+/* line 292, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-object-align-left:before {
+  content: "\e247";
+}
+/* line 293, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-object-align-vertical:before {
+  content: "\e248";
+}
+/* line 294, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-object-align-right:before {
+  content: "\e249";
+}
+/* line 295, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-triangle-right:before {
+  content: "\e250";
+}
+/* line 296, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-triangle-left:before {
+  content: "\e251";
+}
+/* line 297, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-triangle-bottom:before {
+  content: "\e252";
+}
+/* line 298, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-triangle-top:before {
+  content: "\e253";
+}
+/* line 299, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-console:before {
+  content: "\e254";
+}
+/* line 300, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-superscript:before {
+  content: "\e255";
+}
+/* line 301, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-subscript:before {
+  content: "\e256";
+}
+/* line 302, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-menu-left:before {
+  content: "\e257";
+}
+/* line 303, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-menu-right:before {
+  content: "\e258";
+}
+/* line 304, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-menu-down:before {
+  content: "\e259";
+}
+/* line 305, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.glyphicon-menu-up:before {
+  content: "\e260";
+}
+/* specifying (less) here forces it to be included inline, processed as less and minified */
+/*
+Version: 3.5.1 Timestamp: Tue Jul 22 18:58:56 EDT 2014
+*/
+/* line 4, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container {
+  margin: 0;
+  position: relative;
+  display: inline-block;
+  /* inline-block for ie7 */
+  zoom: 1;
+  *display: inline;
+  vertical-align: middle;
+}
+/* line 14, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container,
+.select2-drop,
+.select2-search,
+.select2-search input {
+  /*
+    Force border-box so that % widths fit the parent
+    container without overlap because of margin/padding.
+    More Info : http://www.quirksmode.org/css/box.html
+  */
+  -webkit-box-sizing: border-box;
+  /* webkit */
+  -moz-box-sizing: border-box;
+  /* firefox */
+  box-sizing: border-box;
+  /* css3 */
+}
+/* line 28, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container .select2-choice {
+  display: block;
+  height: 26px;
+  padding: 0 0 0 8px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #aaa;
+  white-space: nowrap;
+  line-height: 26px;
+  color: #444;
+  text-decoration: none;
+  border-radius: 4px;
+  background-clip: padding-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #fff;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eeeeee), color-stop(0.5, #ffffff));
+  background-image: -webkit-linear-gradient(center bottom, #eeeeee 0%, #ffffff 50%);
+  background-image: -moz-linear-gradient(center bottom, #eeeeee 0%, #ffffff 50%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0);
+  background-image: linear-gradient(to top, #eeeeee 0%, #ffffff 50%);
+}
+/* line 59, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+html[dir="rtl"] .select2-container .select2-choice {
+  padding: 0 8px 0 0;
+}
+/* line 63, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container.select2-drop-above .select2-choice {
+  border-bottom-color: #aaa;
+  border-radius: 0 0 4px 4px;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eeeeee), color-stop(0.9, #ffffff));
+  background-image: -webkit-linear-gradient(center bottom, #eeeeee 0%, #ffffff 90%);
+  background-image: -moz-linear-gradient(center bottom, #eeeeee 0%, #ffffff 90%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0);
+  background-image: linear-gradient(to bottom, #eeeeee 0%, #ffffff 90%);
+}
+/* line 75, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container.select2-allowclear .select2-choice .select2-chosen {
+  margin-right: 42px;
+}
+/* line 79, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container .select2-choice > .select2-chosen {
+  margin-right: 26px;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  float: none;
+  width: auto;
+}
+/* line 91, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+html[dir="rtl"] .select2-container .select2-choice > .select2-chosen {
+  margin-left: 26px;
+  margin-right: 0;
+}
+/* line 96, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container .select2-choice abbr {
+  display: none;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  right: 24px;
+  top: 8px;
+  font-size: 1px;
+  text-decoration: none;
+  border: 0;
+  background: url('components/select2/select2.png') right top no-repeat;
+  cursor: pointer;
+  outline: 0;
+}
+/* line 113, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container.select2-allowclear .select2-choice abbr {
+  display: inline-block;
+}
+/* line 117, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container .select2-choice abbr:hover {
+  background-position: right -11px;
+  cursor: pointer;
+}
+/* line 122, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-drop-mask {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  min-height: 100%;
+  min-width: 100%;
+  height: auto;
+  width: auto;
+  opacity: 0;
+  z-index: 9998;
+  /* styles required for IE to work */
+  background-color: #fff;
+  filter: alpha(opacity=0);
+}
+/* line 140, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-drop {
+  width: 100%;
+  margin-top: -1px;
+  position: absolute;
+  z-index: 9999;
+  top: 100%;
+  background: #fff;
+  color: #000;
+  border: 1px solid #aaa;
+  border-top: 0;
+  border-radius: 0 0 4px 4px;
+  -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+}
+/* line 158, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-drop.select2-drop-above {
+  margin-top: 1px;
+  border-top: 1px solid #aaa;
+  border-bottom: 0;
+  border-radius: 4px 4px 0 0;
+  -webkit-box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15);
+}
+/* line 169, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-drop-active {
+  border: 1px solid #5897fb;
+  border-top: none;
+}
+/* line 174, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-drop.select2-drop-above.select2-drop-active {
+  border-top: 1px solid #5897fb;
+}
+/* line 178, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-drop-auto-width {
+  border-top: 1px solid #aaa;
+  width: auto;
+}
+/* line 183, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-drop-auto-width .select2-search {
+  padding-top: 4px;
+}
+/* line 187, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container .select2-choice .select2-arrow {
+  display: inline-block;
+  width: 18px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-left: 1px solid #aaa;
+  border-radius: 0 4px 4px 0;
+  background-clip: padding-box;
+  background: #ccc;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #cccccc), color-stop(0.6, #eeeeee));
+  background-image: -webkit-linear-gradient(center bottom, #cccccc 0%, #eeeeee 60%);
+  background-image: -moz-linear-gradient(center bottom, #cccccc 0%, #eeeeee 60%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#cccccc', GradientType=0);
+  background-image: linear-gradient(to top, #cccccc 0%, #eeeeee 60%);
+}
+/* line 208, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+html[dir="rtl"] .select2-container .select2-choice .select2-arrow {
+  left: 0;
+  right: auto;
+  border-left: none;
+  border-right: 1px solid #aaa;
+  border-radius: 4px 0 0 4px;
+}
+/* line 217, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container .select2-choice .select2-arrow b {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url('components/select2/select2.png') no-repeat 0 1px;
+}
+/* line 224, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+html[dir="rtl"] .select2-container .select2-choice .select2-arrow b {
+  background-position: 2px 1px;
+}
+/* line 228, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-search {
+  display: inline-block;
+  width: 100%;
+  min-height: 26px;
+  margin: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+  position: relative;
+  z-index: 10000;
+  white-space: nowrap;
+}
+/* line 242, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-search input {
+  width: 100%;
+  height: auto !important;
+  min-height: 26px;
+  padding: 4px 20px 4px 5px;
+  margin: 0;
+  outline: 0;
+  font-family: sans-serif;
+  font-size: 1em;
+  border: 1px solid #aaa;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: #ffffff url('components/select2/select2.png') no-repeat 100% -22px;
+  background: url('components/select2/select2.png') no-repeat 100% -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, #ffffff), color-stop(0.99, #eeeeee));
+  background: url('components/select2/select2.png') no-repeat 100% -22px, -webkit-linear-gradient(center bottom, #ffffff 85%, #eeeeee 99%);
+  background: url('components/select2/select2.png') no-repeat 100% -22px, -moz-linear-gradient(center bottom, #ffffff 85%, #eeeeee 99%);
+  background: url('components/select2/select2.png') no-repeat 100% -22px, linear-gradient(to bottom, #ffffff 85%, #eeeeee 99%) 0 0;
+}
+/* line 266, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+html[dir="rtl"] .select2-search input {
+  padding: 4px 5px 4px 20px;
+  background: #ffffff url('components/select2/select2.png') no-repeat -37px -22px;
+  background: url('components/select2/select2.png') no-repeat -37px -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, #ffffff), color-stop(0.99, #eeeeee));
+  background: url('components/select2/select2.png') no-repeat -37px -22px, -webkit-linear-gradient(center bottom, #ffffff 85%, #eeeeee 99%);
+  background: url('components/select2/select2.png') no-repeat -37px -22px, -moz-linear-gradient(center bottom, #ffffff 85%, #eeeeee 99%);
+  background: url('components/select2/select2.png') no-repeat -37px -22px, linear-gradient(to bottom, #ffffff 85%, #eeeeee 99%) 0 0;
+}
+/* line 276, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-drop.select2-drop-above .select2-search input {
+  margin-top: 4px;
+}
+/* line 280, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-search input.select2-active {
+  background: #ffffff url('components/select2/select2-spinner.gif') no-repeat 100%;
+  background: url('components/select2/select2-spinner.gif') no-repeat 100%, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, #ffffff), color-stop(0.99, #eeeeee));
+  background: url('components/select2/select2-spinner.gif') no-repeat 100%, -webkit-linear-gradient(center bottom, #ffffff 85%, #eeeeee 99%);
+  background: url('components/select2/select2-spinner.gif') no-repeat 100%, -moz-linear-gradient(center bottom, #ffffff 85%, #eeeeee 99%);
+  background: url('components/select2/select2-spinner.gif') no-repeat 100%, linear-gradient(to bottom, #ffffff 85%, #eeeeee 99%) 0 0;
+}
+/* line 288, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container-active .select2-choice,
+.select2-container-active .select2-choices {
+  border: 1px solid #5897fb;
+  outline: none;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+/* line 297, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-dropdown-open .select2-choice {
+  border-bottom-color: transparent;
+  -webkit-box-shadow: 0 1px 0 #fff inset;
+  box-shadow: 0 1px 0 #fff inset;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background-color: #eee;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(0.5, #eeeeee));
+  background-image: -webkit-linear-gradient(center bottom, #ffffff 0%, #eeeeee 50%);
+  background-image: -moz-linear-gradient(center bottom, #ffffff 0%, #eeeeee 50%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff', GradientType=0);
+  background-image: linear-gradient(to top, #ffffff 0%, #eeeeee 50%);
+}
+/* line 313, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-dropdown-open.select2-drop-above .select2-choice,
+.select2-dropdown-open.select2-drop-above .select2-choices {
+  border: 1px solid #5897fb;
+  border-top-color: transparent;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(0.5, #eeeeee));
+  background-image: -webkit-linear-gradient(center top, #ffffff 0%, #eeeeee 50%);
+  background-image: -moz-linear-gradient(center top, #ffffff 0%, #eeeeee 50%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff', GradientType=0);
+  background-image: linear-gradient(to bottom, #ffffff 0%, #eeeeee 50%);
+}
+/* line 325, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-dropdown-open .select2-choice .select2-arrow {
+  background: transparent;
+  border-left: none;
+  filter: none;
+}
+/* line 330, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+html[dir="rtl"] .select2-dropdown-open .select2-choice .select2-arrow {
+  border-right: none;
+}
+/* line 334, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-dropdown-open .select2-choice .select2-arrow b {
+  background-position: -18px 1px;
+}
+/* line 338, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+html[dir="rtl"] .select2-dropdown-open .select2-choice .select2-arrow b {
+  background-position: -16px 1px;
+}
+/* line 342, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+/* results */
+/* line 354, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results {
+  max-height: 200px;
+  padding: 0 0 0 4px;
+  margin: 4px 4px 4px 0;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/* line 364, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+html[dir="rtl"] .select2-results {
+  padding: 0 4px 0 0;
+  margin: 4px 0 4px 4px;
+}
+/* line 369, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results ul.select2-result-sub {
+  margin: 0;
+  padding-left: 0;
+}
+/* line 374, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results li {
+  list-style: none;
+  display: list-item;
+  background-image: none;
+}
+/* line 380, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results li.select2-result-with-children > .select2-result-label {
+  font-weight: bold;
+}
+/* line 384, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results .select2-result-label {
+  padding: 3px 7px 4px;
+  margin: 0;
+  cursor: pointer;
+  min-height: 1em;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* line 398, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results-dept-1 .select2-result-label {
+  padding-left: 20px;
+}
+/* line 399, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results-dept-2 .select2-result-label {
+  padding-left: 40px;
+}
+/* line 400, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results-dept-3 .select2-result-label {
+  padding-left: 60px;
+}
+/* line 401, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results-dept-4 .select2-result-label {
+  padding-left: 80px;
+}
+/* line 402, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results-dept-5 .select2-result-label {
+  padding-left: 100px;
+}
+/* line 403, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results-dept-6 .select2-result-label {
+  padding-left: 110px;
+}
+/* line 404, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results-dept-7 .select2-result-label {
+  padding-left: 120px;
+}
+/* line 406, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results .select2-highlighted {
+  background: #3875d7;
+  color: #fff;
+}
+/* line 411, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results li em {
+  background: #feffde;
+  font-style: normal;
+}
+/* line 416, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results .select2-highlighted em {
+  background: transparent;
+}
+/* line 420, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results .select2-highlighted ul {
+  background: #fff;
+  color: #000;
+}
+/* line 425, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results .select2-no-results,
+.select2-results .select2-searching,
+.select2-results .select2-ajax-error,
+.select2-results .select2-selection-limit {
+  background: #f4f4f4;
+  display: list-item;
+  padding-left: 5px;
+}
+/*
+disabled look for disabled choices in the results dropdown
+*/
+/* line 437, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results .select2-disabled.select2-highlighted {
+  color: #666;
+  background: #f4f4f4;
+  display: list-item;
+  cursor: default;
+}
+/* line 443, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results .select2-disabled {
+  background: #f4f4f4;
+  display: list-item;
+  cursor: default;
+}
+/* line 449, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results .select2-selected {
+  display: none;
+}
+/* line 453, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-more-results.select2-active {
+  background: #f4f4f4 url('components/select2/select2-spinner.gif') no-repeat 100%;
+}
+/* line 457, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-results .select2-ajax-error {
+  background: rgba(255, 50, 50, 0.2);
+}
+/* line 461, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-more-results {
+  background: #f4f4f4;
+  display: list-item;
+}
+/* disabled styles */
+/* line 468, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container.select2-container-disabled .select2-choice {
+  background-color: #f4f4f4;
+  background-image: none;
+  border: 1px solid #ddd;
+  cursor: default;
+}
+/* line 475, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container.select2-container-disabled .select2-choice .select2-arrow {
+  background-color: #f4f4f4;
+  background-image: none;
+  border-left: 0;
+}
+/* line 481, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container.select2-container-disabled .select2-choice abbr {
+  display: none;
+}
+/* multiselect */
+/* line 488, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container-multi .select2-choices {
+  height: auto !important;
+  height: 1%;
+  margin: 0;
+  padding: 0 5px 0 0;
+  position: relative;
+  border: 1px solid #aaa;
+  cursor: text;
+  overflow: hidden;
+  background-color: #fff;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(1%, #eeeeee), color-stop(15%, #ffffff));
+  background-image: -webkit-linear-gradient(top, #eeeeee 1%, #ffffff 15%);
+  background-image: -moz-linear-gradient(top, #eeeeee 1%, #ffffff 15%);
+  background-image: linear-gradient(to bottom, #eeeeee 1%, #ffffff 15%);
+}
+/* line 506, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+html[dir="rtl"] .select2-container-multi .select2-choices {
+  padding: 0 0 0 5px;
+}
+/* line 510, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-locked {
+  padding: 3px 5px 3px 5px !important;
+}
+/* line 514, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container-multi .select2-choices {
+  min-height: 26px;
+}
+/* line 518, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container-multi.select2-container-active .select2-choices {
+  border: 1px solid #5897fb;
+  outline: none;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+/* line 525, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container-multi .select2-choices li {
+  float: left;
+  list-style: none;
+}
+/* line 529, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+html[dir="rtl"] .select2-container-multi .select2-choices li {
+  float: right;
+}
+/* line 533, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container-multi .select2-choices .select2-search-field {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+/* line 539, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container-multi .select2-choices .select2-search-field input {
+  padding: 5px;
+  margin: 1px 0;
+  font-family: sans-serif;
+  font-size: 100%;
+  color: #666;
+  outline: 0;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: transparent !important;
+}
+/* line 553, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container-multi .select2-choices .select2-search-field input.select2-active {
+  background: #ffffff url('components/select2/select2-spinner.gif') no-repeat 100% !important;
+}
+/* line 557, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-default {
+  color: #999 !important;
+}
+/* line 561, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container-multi .select2-choices .select2-search-choice {
+  padding: 3px 5px 3px 18px;
+  margin: 3px 0 3px 5px;
+  position: relative;
+  line-height: 13px;
+  color: #333;
+  cursor: default;
+  border: 1px solid #aaaaaa;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 2px #ffffff inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 2px #ffffff inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+  background-clip: padding-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #e4e4e4;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#f4f4f4', GradientType=0);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eeeeee));
+  background-image: -webkit-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: -moz-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+  background-image: linear-gradient(to top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+}
+/* line 591, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+html[dir="rtl"] .select2-container-multi .select2-choices .select2-search-choice {
+  margin: 3px 5px 3px 0;
+  padding: 3px 18px 3px 5px;
+}
+/* line 596, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container-multi .select2-choices .select2-search-choice .select2-chosen {
+  cursor: default;
+}
+/* line 599, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container-multi .select2-choices .select2-search-choice-focus {
+  background: #d4d4d4;
+}
+/* line 603, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-search-choice-close {
+  display: block;
+  width: 12px;
+  height: 13px;
+  position: absolute;
+  right: 3px;
+  top: 4px;
+  font-size: 1px;
+  outline: none;
+  background: url('components/select2/select2.png') right top no-repeat;
+}
+/* line 615, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+html[dir="rtl"] .select2-search-choice-close {
+  right: auto;
+  left: 3px;
+}
+/* line 620, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container-multi .select2-search-choice-close {
+  left: 3px;
+}
+/* line 624, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
+  left: auto;
+  right: 2px;
+}
+/* line 629, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container-multi .select2-choices .select2-search-choice .select2-search-choice-close:hover {
+  background-position: right -11px;
+}
+/* line 632, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container-multi .select2-choices .select2-search-choice-focus .select2-search-choice-close {
+  background-position: right -11px;
+}
+/* disabled styles */
+/* line 637, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container-multi.select2-container-disabled .select2-choices {
+  background-color: #f4f4f4;
+  background-image: none;
+  border: 1px solid #ddd;
+  cursor: default;
+}
+/* line 644, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container-multi.select2-container-disabled .select2-choices .select2-search-choice {
+  padding: 3px 5px 3px 5px;
+  border: 1px solid #ddd;
+  background-image: none;
+  background-color: #f4f4f4;
+}
+/* line 651, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-container-multi.select2-container-disabled .select2-choices .select2-search-choice .select2-search-choice-close {
+  display: none;
+  background: none;
+}
+/* end multiselect */
+/* line 657, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-result-selectable .select2-match,
+.select2-result-unselectable .select2-match {
+  text-decoration: underline;
+}
+/* line 662, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-offscreen,
+.select2-offscreen:focus {
+  clip: rect(0 0 0 0) !important;
+  width: 1px !important;
+  height: 1px !important;
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  outline: 0 !important;
+  left: 0px !important;
+  top: 0px !important;
+}
+/* line 676, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-display-none {
+  display: none;
+}
+/* line 680, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+.select2-measure-scrollbar {
+  position: absolute;
+  top: -10000px;
+  left: -10000px;
+  width: 100px;
+  height: 100px;
+  overflow: scroll;
+}
+/* Retina-ize icons */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 2dppx) {
+  /* line 692, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+  .select2-search input,
+  .select2-search-choice-close,
+  .select2-container .select2-choice abbr,
+  .select2-container .select2-choice .select2-arrow b {
+    background-image: url('components/select2/select2x2.png') !important;
+    background-repeat: no-repeat !important;
+    background-size: 60px 40px !important;
+  }
+  /* line 701, http://localhost:51000/test2/++plone++static/components//select2/select2.css */
+  .select2-search input {
+    background-position: 100% -21px !important;
+  }
+}
+/* line 4, http://localhost:51000/test2/++resource++mockup//select2/pattern.select2.less */
+.select2-container {
+  margin-bottom: 1em;
+}
+/* line 7, http://localhost:51000/test2/++resource++mockup//select2/pattern.select2.less */
+.select2-container-multi .select2-choices .select2-choice-dragging {
+  border-color: #FF0000;
+}
+/* line 10, http://localhost:51000/test2/++resource++mockup//select2/pattern.select2.less */
+.select2-container-multi.select2-orderable .select2-search-choice span,
+.select2-container-multi.select2-orderable .select2-search-choice {
+  cursor: move;
+}
+/* line 15, http://localhost:51000/test2/++resource++mockup//select2/pattern.select2.less */
+.pat-select2 {
+  min-width: 50%;
+}
+/* line 19, http://localhost:51000/test2/++resource++mockup//select2/pattern.select2.less */
+.select2-container-multi .select2-choices .select2-search-field input {
+  padding-bottom: 1px;
+  padding-left: 8px;
+  padding-right: 1px;
+  padding-top: 2px;
+  height: inherit;
+}
+/* (inline) forces includes this file without processing it.
+ * Necessary because of the IE hack in there, which causes ParseError. */
+ul.jqtree-tree {
+    margin-left: 0;
+}
+
+ul.jqtree-tree,
+ul.jqtree-tree ul.jqtree_common {
+    list-style: none outside;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+ul.jqtree-tree ul.jqtree_common {
+    display: block;
+    margin-left: 12px;
+    margin-right: 0;
+}
+ul.jqtree-tree li.jqtree-closed > ul.jqtree_common {
+    display: none;
+}
+
+ul.jqtree-tree li.jqtree_common {
+    clear: both;
+    list-style-type: none;
+}
+ul.jqtree-tree .jqtree-toggler {
+    border-bottom: none;
+    color: #333;
+    text-decoration: none;
+    margin-right: 0.5em;
+}
+
+ul.jqtree-tree .jqtree-toggler:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+ul.jqtree-tree .jqtree-element {
+    cursor: pointer;
+}
+
+.jqtree-tree .jqtree-title {
+    color: #1C4257;
+    vertical-align: middle;
+    margin-left: 1.5em;
+}
+
+.jqtree-tree .jqtree-title.jqtree-title-folder {
+    margin-left: 0;
+}
+
+ul.jqtree-tree li.jqtree-folder {
+    margin-bottom: 4px;
+}
+
+ul.jqtree-tree li.jqtree-folder.jqtree-closed {
+    margin-bottom: 1px;
+}
+
+ul.jqtree-tree .jqtree-toggler.jqtree-closed {
+    background-position: 0 0;
+}
+
+span.jqtree-dragging {
+    color: #fff;
+    background: #000;
+    opacity: 0.6;
+    cursor: pointer;
+    padding: 2px 8px;
+}
+
+ul.jqtree-tree li.jqtree-ghost {
+    position: relative;
+    z-index: 10;
+    margin-right: 10px;
+}
+
+ul.jqtree-tree li.jqtree-ghost span {
+    display: block;
+}
+
+ul.jqtree-tree li.jqtree-ghost span.jqtree-circle {
+    border: solid 2px #0000ff;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    height: 8px;
+    width: 8px;
+    position: absolute;
+    top: -4px;
+    left: -6px;
+}
+
+/* IE 6, 7, 8 */
+@media \0screen\,screen\9  {
+    ul.jqtree-tree li.jqtree-ghost span.jqtree-circle {
+        background: url(jqtree-circle.png) no-repeat;
+        border: 0 none;
+    }
+}
+
+ul.jqtree-tree li.jqtree-ghost span.jqtree-line {
+    background-color: #0000ff;
+    height: 2px;
+    padding: 0;
+    position: absolute;
+    top: -1px;
+    left: 2px;
+    width: 100%;
+}
+
+ul.jqtree-tree li.jqtree-ghost.jqtree-inside {
+    margin-left: 48px;
+}
+
+ul.jqtree-tree span.jqtree-border {
+    position: absolute;
+    display: block;
+    left: -2px;
+    top: 0;
+    border: solid 2px #0000ff;
+    border-radius: 6px;
+    margin: 0;
+    box-sizing: content-box;
+}
+
+ul.jqtree-tree .jqtree-element {
+    position: relative;
+}
+
+ul.jqtree-tree li.jqtree-selected > .jqtree-element,
+ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
+    background-color: #97BDD6;
+    background: -webkit-gradient(linear, left top, left bottom, from(#BEE0F5), to(#89AFCA));
+    background: -moz-linear-gradient(top, #BEE0F5, #89AFCA);
+    background: -ms-linear-gradient(top, #BEE0F5, #89AFCA);
+    background: -o-linear-gradient(top, #BEE0F5, #89AFCA);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+ul.jqtree-tree .jqtree-moving > .jqtree-element .jqtree-title {
+    outline: dashed 1px #0000ff;
+}
+
+/* line 5, http://localhost:51000/test2/++resource++mockup//tree/pattern.tree.less */
+.autotabs ul li.jqtree_common {
+  display: block;
+}
+/* line 9, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-dropdown {
+  z-index: 10002;
+}
+/* line 13, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-dropdown .select2-results .select2-highlighted {
+  color: #000;
+  background: #d8d8d8;
+}
+/* line 17, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-dropdown .select2-results .select2-selected {
+  display: list-item;
+}
+/* line 26, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-active {
+  padding: 5px;
+  background-color: #DDD;
+}
+/* line 31, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-container {
+  display: inline-block;
+  position: relative;
+}
+/* line 35, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-path {
+  display: block;
+  line-height: 20px;
+  background-color: #f1f1f1;
+  font-size: 12px;
+  border: 1px solid #aaa;
+  border-bottom-style: none;
+  z-index: 4;
+  position: relative;
+  padding: 0 6px;
+  color: #333;
+}
+/* line 47, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-path a {
+  padding: 0 6px;
+}
+/* line 51, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-path em {
+  color: #666;
+}
+/* line 56, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-buttons {
+  position: absolute;
+  display: inline-block;
+  text-align: right;
+  font-size: 18px;
+  right: 0;
+  top: 50%;
+  margin-top: -16px;
+}
+/* line 64, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-buttons a {
+  display: block;
+  height: 36px;
+  line-height: 36px;
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* line 120, http://localhost:51000/test2/++plone++static/components//bootstrap/less/glyphicons.less */
+.pattern-relateditems-buttons a:before {
+  content: "\e080";
+}
+/* line 73, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-result {
+  padding-right: 30px;
+  position: relative;
+}
+/* line 78, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-result a:hover {
+  text-decoration: none;
+}
+/* line 83, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-result .pattern-relateditems-result-select {
+  display: block;
+  line-height: 15px;
+  padding-top: 5px;
+}
+/* line 89, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-result .pattern-relateditems-result-path {
+  display: block;
+  color: #444;
+  font-size: 11px;
+}
+/* line 97, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-item .pattern-relateditems-item-path {
+  font-size: 11px;
+  color: #444;
+  display: block;
+}
+/* tree parts */
+/* line 106, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-tree .tree-container {
+  box-shadow: 0px 0px 8px 0px #DDD;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  padding: 0px;
+  left: -1px;
+  top: -11px;
+  border: 1px solid #5897fb;
+  display: none;
+  z-index: 10000;
+  min-width: 350px;
+  margin-top: 10px;
+}
+/* line 120, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-tree .tree-container .pat-tree {
+  max-height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-top: 1px solid #DDD;
+  border-bottom: 1px solid #DDD;
+  padding: 2px 0;
+}
+/* line 129, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-tree .tree-container .select-folder-label {
+  font-weight: bold;
+}
+/* line 133, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-tree .tree-container .tree-node-empty {
+  font-size: 75%;
+}
+/* line 137, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-tree .tree-container .title-container {
+  background-color: #f1f1f1;
+}
+/* line 141, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-tree .tree-container .jqtree-tree {
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(1%, #eeeeee), color-stop(5%, #ffffff));
+  background-image: -webkit-linear-gradient(top, #eeeeee 1%, #ffffff 5%);
+  background-image: -moz-linear-gradient(top, #eeeeee 1%, #ffffff 5%);
+  background-image: linear-gradient(to bottom, #eeeeee 1%, #ffffff 5%);
+}
+/* line 147, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-tree .tree-container .jqtree-tree .pattern-relateditems-buttons {
+  margin-top: -22px;
+  top: inherit;
+}
+/* line 151, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-tree .tree-container .jqtree-tree .jqtree_common {
+  padding-left: 2px;
+}
+/* line 156, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-tree .tree-container .jqtree-tree .jqtree_common.jqtree-selected .jqtree_common.jqtree-element {
+  background: #f1f1f1;
+  text-shadow: none;
+}
+/* line 162, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-tree .tree-container .jqtree-tree .jqtree-toggler {
+  top: 20%;
+}
+/* line 167, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-tree .tree-container .jqtree-tree li.jqtree_common .jqtree-element {
+  padding: 0;
+}
+/* line 171, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-tree .tree-container .jqtree-tree li.jqtree_common .jqtree_common.jqtree-element:hover {
+  background: #f1f1f1;
+}
+/* line 175, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-tree .tree-container .jqtree-tree li.jqtree_common.jqtree-folder {
+  margin-left: 18px;
+}
+/* line 178, http://localhost:51000/test2/++resource++mockup/relateditems/pattern.relateditems.less */
+.pattern-relateditems-tree .tree-container .jqtree-tree li.jqtree_common.jqtree-folder ul.jqtree_common {
+  margin-left: 0;
+  padding-left: 0;
+}
+
