@@ -1,0 +1,2 @@
+graft Products
+global-exclude *.pyc
