@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.2.9 (unreleased)
+2.2.9 (2016-12-09)
 ------------------
 
 - Only do link detection in plain or intelligent text fields.  If a
