@@ -74,6 +74,11 @@ from Products.Poi.interfaces import ITracker
 from Products.Poi import PoiMessageFactory as _
 from plone.memoize import instance
 
+PLAIN_MIMETYPES = (
+    'text/x-web-intelligent',
+    'text/plain',
+)
+
 schema = Schema((
 
     StringField(
@@ -663,19 +668,23 @@ ${issue_details}
     def setSteps(self, *args, **kwargs):
         self.getField('steps').set(self, *args, **kwargs)
 
-    @instance.memoize
-    def getTaggedDetails(self, **kwargs):
+    def _link_detect_text(self, fieldname, **kwargs):
         # perform link detection
-        text = self.getField('details').get(self, **kwargs)
+        field = self.getField(fieldname)
+        text = field.get(self, **kwargs)
+        if field.getContentType(self) not in PLAIN_MIMETYPES:
+            # Don't touch text/html or similar.
+            return text
         tracker = self.getTracker()
         return tracker.linkDetection(text)
 
     @instance.memoize
+    def getTaggedDetails(self, **kwargs):
+        return self._link_detect_text('details', **kwargs)
+
+    @instance.memoize
     def getTaggedSteps(self, **kwargs):
-        # perform link detection
-        text = self.getField('steps').get(self, **kwargs)
-        tracker = self.getTracker()
-        return tracker.linkDetection(text)
+        return self._link_detect_text('steps', **kwargs)
 
     def getTracker(self):
         """Return the tracker.
