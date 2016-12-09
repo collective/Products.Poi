@@ -5,7 +5,10 @@ Changelog for Poi
 2.2.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Only do link detection in plain or intelligent text fields.  If a
+  field has html and contains an html space ``&#160`` and you have an
+  issue 160, it will start looking very ugly.  Note that by default
+  html is not allowed.  [maurits]
 
 
 2.2.8 (2015-08-31)
