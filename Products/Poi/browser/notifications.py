@@ -1,7 +1,7 @@
 import reStructuredText as rst
 import textwrap
 
-from Acquisition import aq_inner, aq_parent
+from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ZODB.POSException import ConflictError
@@ -14,6 +14,8 @@ from zope.i18n import translate
 
 from Products.Poi import PoiMessageFactory as _
 from Products.Poi.adapters import IResponseContainer
+from Products.Poi.interfaces import IIssue
+from Products.Poi.interfaces import ITracker
 
 wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 
@@ -61,8 +63,39 @@ class BasePoiMail(BaseMail):
         return css
 
     def options(self):
-        # Options to pass to the templates.
-        return {}
+        # Options to pass to the templates.  We used to return an empty
+        # dictionary by default, but we might as well return something useful
+        # for most cases.
+        context = aq_inner(self.context)
+        portal = getSite()
+        fromName = portal.getProperty('email_from_name', '')
+        portal_membership = getToolByName(portal, 'portal_membership')
+        member = portal_membership.getAuthenticatedMember()
+        memberInfo = portal_membership.getMemberInfo(member.getUserName())
+        stateChanger = member.getUserName()
+        if memberInfo:
+            stateChanger = memberInfo['fullname'] or stateChanger
+        # We expect to be called with an issue as context, but perhaps there
+        # are other use cases, like a tracker or a brain or a response.
+        # Get hold of the tracker if we can.
+        if IIssue.providedBy(context):
+            tracker = context.getTracker()
+        elif ITracker.providedBy(context):
+            tracker = context
+        else:
+            # This would be strange.
+            tracker = None
+        if tracker is None:
+            tracker_title = ''
+        else:
+            tracker_title = tracker.title_or_id()
+        mapping = dict(
+            issue_title=su(context.title_or_id()),
+            tracker_title=su(tracker_title),
+            response_author=su(stateChanger),
+            issue_url=su(context.absolute_url()),
+            from_name=su(fromName))
+        return mapping
 
     @property
     def plain(self):
@@ -85,9 +118,9 @@ class NewIssueMail(BasePoiMail):
         'templates/poi_email_new_issue_plain.pt')
 
     def options(self):
+        mapping = super(NewIssueMail, self).options()
         context = aq_inner(self.context)
         portal = getSite()
-        fromName = portal.getProperty('email_from_name', '')
         portal_membership = getToolByName(portal, 'portal_membership')
         issueCreator = context.Creator()
         issueCreatorInfo = portal_membership.getMemberInfo(issueCreator)
@@ -98,14 +131,8 @@ class NewIssueMail(BasePoiMail):
         issueText = context.getDetails(mimetype="text/x-web-intelligent")
         paras = issueText.splitlines()
         issueDetails = '\n\n'.join([wrapper.fill(p) for p in paras])
-        tracker = context.getTracker()
-        mapping = dict(
-            issue_title=su(context.title_or_id()),
-            tracker_title=su(tracker.title_or_id()),
-            issue_author=su(issueAuthor),
-            issue_details=su(issueDetails),
-            issue_url=su(context.absolute_url()),
-            from_name=su(fromName))
+        mapping['issue_author'] = su(issueAuthor)
+        mapping['issue_details'] = su(issueDetails)
         return mapping
 
     @property
@@ -137,24 +164,10 @@ class NewResponseMail(BasePoiMail):
         self.response_id = int(self.request.get('response_id', -1))
 
     def options(self):
+        mapping = super(NewResponseMail, self).options()
         context = aq_inner(self.context)
         folder = IResponseContainer(context)
         response = folder[self.response_id]
-        tracker = aq_parent(context)
-
-        portal_url = getToolByName(context, 'portal_url')
-        portal = portal_url.getPortalObject()
-        portal_membership = getToolByName(portal, 'portal_membership')
-        fromName = su(portal.getProperty('email_from_name', ''))
-
-        creator = response.creator
-        creatorInfo = portal_membership.getMemberInfo(creator)
-        if creatorInfo and creatorInfo['fullname']:
-            responseAuthor = creatorInfo['fullname']
-        else:
-            responseAuthor = creator
-        responseAuthor = su(responseAuthor)
-
         responseText = su(response.text)
         paras = responseText.splitlines()
 
@@ -180,15 +193,9 @@ class NewResponseMail(BasePoiMail):
         else:
             attachment_id = u''
 
-        mapping = dict(
-            issue_title=su(context.title_or_id()),
-            tracker_title=su(tracker.title_or_id()),
-            response_author=responseAuthor,
-            response_details=responseDetails,
-            issue_url=su(context.absolute_url()),
-            changes=changes,
-            from_name=fromName,
-            attachment_id=attachment_id)
+        mapping['response_details'] = responseDetails
+        mapping['changes'] = changes
+        mapping['attachment_id'] = attachment_id
         return mapping
 
     @property
@@ -213,25 +220,6 @@ class ResolvedIssueMail(BasePoiMail):
     index = ViewPageTemplateFile('templates/poi_email_resolved_issue_html.pt')
     plain_index = ViewPageTemplateFile(
         'templates/poi_email_resolved_issue_plain.pt')
-
-    def options(self):
-        context = aq_inner(self.context)
-        portal = getSite()
-        fromName = portal.getProperty('email_from_name', '')
-        portal_membership = getToolByName(portal, 'portal_membership')
-        member = portal_membership.getAuthenticatedMember()
-        memberInfo = portal_membership.getMemberInfo(member.getUserName())
-        stateChanger = member.getUserName()
-        if memberInfo:
-            stateChanger = memberInfo['fullname'] or stateChanger
-        tracker = context.getTracker()
-        mapping = dict(
-            issue_title=su(context.title_or_id()),
-            tracker_title=su(tracker.title_or_id()),
-            response_author=su(stateChanger),
-            issue_url=su(context.absolute_url()),
-            from_name=su(fromName))
-        return mapping
 
     @property
     def subject(self):

@@ -5,6 +5,9 @@ Changelog for Poi
 2.2.10 (unreleased)
 -------------------
 
+- Added basic options to ``BasePoiMail``.  This avoids doing the same
+  calculations on various sub classes.  [maurits]
+
 - Load ``rss.png`` instead of ``rss.gif``.  [maurits]
 
 - Fixed ``poi.js`` javascript for newer jQuery versions.  1.9 would
