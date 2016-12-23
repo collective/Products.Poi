@@ -5,7 +5,11 @@ Changelog for Poi
 2.2.10 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fixed ``poi.js`` javascript for newer jQuery versions.  1.9 would
+  fall over an undefined ``jQuery.browser``.  1.7 would fall over an
+  unrecognized expression, needing extra quotes.  Still works on 1.4.
+  Fixes `issue 30 <https://github.com/collective/Products.Poi/issues/30>`_.
+  [maurits]
 
 
 2.2.9 (2016-12-09)
