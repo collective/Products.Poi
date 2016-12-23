@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.2.10 (unreleased)
+2.2.10 (2016-12-23)
 -------------------
 
 - Added basic options to ``BasePoiMail``.  This avoids doing the same
