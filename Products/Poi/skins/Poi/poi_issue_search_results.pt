@@ -8,8 +8,8 @@
     <div tal:condition="rssQueryString | nothing" class="issue-search-rss">
       <a href="" tal:attributes="href string:${here/absolute_url}/poi-issue-search-rss.xml?${rssQueryString}">
         <img i18n:attributes="title title_rss_feed; alt label_rss_feed;"
-             tal:attributes="src string:$portal_url/rss.gif"
-             src="rss.gif"
+             tal:attributes="src string:$portal_url/rss.png"
+             src="rss.png"
              alt="RSS Feed"
              title="RSS feed of these search results" />
       </a>

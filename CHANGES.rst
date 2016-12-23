@@ -5,6 +5,8 @@ Changelog for Poi
 2.2.10 (unreleased)
 -------------------
 
+- Load ``rss.png`` instead of ``rss.gif``.  [maurits]
+
 - Fixed ``poi.js`` javascript for newer jQuery versions.  1.9 would
   fall over an undefined ``jQuery.browser``.  1.7 would fall over an
   unrecognized expression, needing extra quotes.  Still works on 1.4.

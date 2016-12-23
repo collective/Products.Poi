@@ -234,8 +234,8 @@
             <div class="issue-search-rss">
               <a href="" tal:attributes="href string:${here/absolute_url}/poi-issue-search-rss.xml?${rssQueryString}">
                 <img i18n:attributes="title title_rss_feed_unconfirmed; alt label_rss_feed;"
-                     tal:attributes="src string:$portal_url/rss.gif"
-                     src="rss.gif"
+                     tal:attributes="src string:$portal_url/rss.png"
+                     src="rss.png"
                      alt="RSS Feed"
                      title="RSS feed of unconfirmed issues" />
               </a>
@@ -270,8 +270,8 @@
             <div class="issue-search-rss">
               <a href="" tal:attributes="href string:${here/absolute_url}/poi-my-issues-rss.xml?memberId=${member/getId}&amp;isManager:boolean=${isManager}">
                 <img i18n:attributes="title title_rss_feed_my_issues; alt label_rss_feed;"
-                     tal:attributes="src string:$portal_url/rss.gif"
-                     src="rss.gif"
+                     tal:attributes="src string:$portal_url/rss.png"
+                     src="rss.png"
                      alt="RSS Feed"
                      title="RSS feed of my issues" />
               </a>
@@ -298,8 +298,8 @@
             <div class="issue-search-rss">
               <a href="" tal:attributes="href string:${here/absolute_url}/poi-orphaned-issues-rss.xml?memberId=${member/getId}">
                 <img i18n:attributes="title title_rss_feed_orphaned; alt label_rss_feed;"
-                     tal:attributes="src string:$portal_url/rss.gif"
-                     src="rss.gif"
+                     tal:attributes="src string:$portal_url/rss.png"
+                     src="rss.png"
                      alt="RSS Feed"
                      title="RSS feed of orphaned issues" />
               </a>
