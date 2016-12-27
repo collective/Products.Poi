@@ -194,7 +194,7 @@
       <dd tal:content="structure steps" />
     </dl>
 
-    <div class="issue-attachment" tal:condition="python:here.getAttachment().get_size() &gt; 0">
+    <div class="issue-attachment" tal:condition="python:context.getAttachment()">
       <div class="issue-attachment-label" i18n:translate="poi_label_attachment">Attached:</div>
       <metal:attachment use-macro="python:here.widget('attachment')"/>
     </div>

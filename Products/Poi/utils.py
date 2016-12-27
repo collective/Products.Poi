@@ -1,6 +1,15 @@
+from Products.CMFPlone.utils import safe_unicode
+from Products.Poi.config import ISSUE_LINK_TEMPLATE
+
 import re
 
-from .config import ISSUE_LINK_TEMPLATE
+
+try:
+    from plone.i18n.normalizer.interfaces import \
+        IUserPreferredFileNameNormalizer
+    FILE_NORMALIZER = True
+except ImportError:
+    FILE_NORMALIZER = False
 
 
 def getNumberFromString(linktext):
@@ -71,3 +80,16 @@ def linkSvn(text, svnUrl, patterns):
             pos += len(link)
 
     return text
+
+
+def normalize_filename(filename, request):
+    if FILE_NORMALIZER:
+        # Get something the user can recognise.
+        filename = IUserPreferredFileNameNormalizer(request).normalize(
+            filename)
+    filename = safe_unicode(filename)
+    # Also, get something that does not raise a ConstraintNotSatisfiedError
+    # when migrating to blob attachments.  Found in live data: a filename that
+    # includes a newline...
+    filename = filename.replace('\n', ' ').replace('\r', ' ')
+    return filename

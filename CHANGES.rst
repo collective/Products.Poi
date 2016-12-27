@@ -2,10 +2,13 @@ Changelog for Poi
 =================
 
 
-2.2.11 (unreleased)
--------------------
+2.3 (unreleased)
+----------------
 
-- Nothing changed yet.
+- Use blob file for attachments in issues and responses.  This comes
+  with an upgrade step to migrate them.
+  Fixes `issue #32 <https://github.com/collective/Products.Poi/issues/32>`_.
+  [maurits]
 
 
 2.2.10 (2016-12-23)
