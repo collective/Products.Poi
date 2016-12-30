@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.3 (unreleased)
+2.3 (2016-12-30)
 ----------------
 
 - Avoid security warning on startup.  You get a warning about our
