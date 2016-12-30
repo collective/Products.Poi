@@ -2,9 +2,9 @@ import logging
 
 from AccessControl import Unauthorized
 from Acquisition import aq_inner
-from OFS.Image import File
+from plone.namedfile import NamedBlobFile
+from plone.namedfile.browser import Download as BlobDownload
 from Products.Archetypes.atapi import DisplayList
-from Products.Archetypes.utils import contentDispositionHeader
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as PMF
 from Products.CMFPlone.utils import safe_unicode
@@ -15,12 +15,6 @@ from zope.cachedescriptors.property import Lazy
 from zope.i18n import translate
 from zope.interface import implements
 from zope.lifecycleevent import modified
-try:
-    from plone.i18n.normalizer.interfaces import \
-        IUserPreferredFileNameNormalizer
-    FILE_NORMALIZER = True
-except ImportError:
-    FILE_NORMALIZER = False
 
 from Products.Poi import PoiMessageFactory as _
 from Products.Poi import permissions
@@ -28,6 +22,8 @@ from Products.Poi.adapters import IResponseContainer
 from Products.Poi.adapters import Response
 from Products.Poi.browser.interfaces import IResponseAdder
 from Products.Poi.config import DEFAULT_ISSUE_MIME_TYPE
+from Products.Poi.utils import normalize_filename
+
 
 logger = logging.getLogger('Poi')
 
@@ -150,7 +146,12 @@ class Base(BrowserView):
         mtr = getToolByName(context, 'mimetypes_registry', None)
         if mtr is None:
             icon = context.getIcon()
-        lookup = mtr.lookup(attachment.content_type)
+        content_type = getattr(
+            attachment, 'contentType', 'application/octet-stream')
+        size = getattr(attachment, 'get_size', 0)
+        if callable(size):
+            size = size()
+        lookup = mtr.lookup(content_type)
         if lookup:
             mti = lookup[0]
             try:
@@ -160,13 +161,13 @@ class Base(BrowserView):
                 pass
         if icon is None:
             icon = context.getIcon()
-        filename = getattr(attachment, 'filename', attachment.getId())
+        filename = getattr(attachment, 'filename', '')
         info = dict(
             icon=self.portal_url + '/' + icon,
             url=context.absolute_url() +
             '/@@poi_response_attachment?response_id=' + str(id),
-            content_type=attachment.content_type,
-            size=pretty_size(attachment.size),
+            content_type=content_type,
+            size=pretty_size(size),
             filename=filename,
         )
         return info
@@ -441,7 +442,9 @@ class Create(Base):
         attachment = form.get('attachment')
         if attachment:
             # File(id, title, file)
-            data = File(attachment.filename, attachment.filename, attachment)
+            # data = File(attachment.filename, attachment.filename, attachment)
+            data = NamedBlobFile(
+                attachment, filename=safe_unicode(attachment.filename))
             new_response.attachment = data
             issue_has_changed = True
 
@@ -564,7 +567,7 @@ class Delete(Base):
         self.request.response.redirect(context.absolute_url())
 
 
-class Download(Base):
+class Download(Base, BlobDownload):
     """Download the attachment of a response.
     """
 
@@ -585,17 +588,15 @@ class Download(Base):
         if file is None:
             request.response.redirect(context.absolute_url())
 
-        # From now on file exists.
-        # Code mostly taken from Archetypes/Field.py:FileField.download
-        filename = getattr(file, 'filename', file.getId())
+        # From now on we know that an attachment exists.
+        # Set attributes on self, so BlobDownload can do its work.
+        self.fieldname = 'attachment'
+        self.file = file
+        filename = getattr(file, 'filename', self.fieldname)
         if filename is not None:
-            if FILE_NORMALIZER:
-                filename = IUserPreferredFileNameNormalizer(request).normalize(
-                    safe_unicode(filename, context.getCharset()))
-            else:
-                filename = safe_unicode(filename, context.getCharset())
-            header_value = contentDispositionHeader(
-                disposition='attachment',
-                filename=filename)
-            request.response.setHeader("Content-disposition", header_value)
-        return file.index_html(request, request.response)
+            filename = normalize_filename(filename, request)
+        self.filename = filename
+        return BlobDownload.__call__(self)
+
+    def _getFile(self):
+        return self.file

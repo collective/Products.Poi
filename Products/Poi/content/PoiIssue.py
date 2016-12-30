@@ -54,6 +54,7 @@ from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 from Products.CMFPlone.utils import getSiteEncoding
 from Products.CMFPlone.utils import safe_unicode
 from collective.watcherlist.utils import get_member_email
+from plone.app.blob.field import BlobField
 from plone.memoize import instance
 from zope.interface import implements
 import transaction
@@ -158,7 +159,7 @@ schema = Schema((
         searchable=True
     ),
 
-    FileField(
+    BlobField(
         name='attachment',
         widget=FileWidget(
             label=_(u'Poi_label_attachment',

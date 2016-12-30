@@ -1,20 +1,23 @@
-import logging
-
 from AccessControl import getSecurityManager
-from DateTime import DateTime
 from collective.watcherlist.watchers import WatcherList
+from DateTime import DateTime
 from persistent import Persistent
 from persistent.list import PersistentList
+from plone.namedfile.interfaces import NotStorable
+from plone.namedfile.storages import MAXCHUNKSIZE
+from Products.Poi.interfaces import IIssue
 from zope.annotation.interfaces import IAnnotations
-from zope.lifecycleevent import ObjectAddedEvent
-from zope.lifecycleevent import ObjectRemovedEvent
 from zope.component import adapts
 from zope.event import notify
 from zope.interface import Attribute
-from zope.interface import Interface
 from zope.interface import implements
+from zope.interface import Interface
+from zope.lifecycleevent import ObjectAddedEvent
+from zope.lifecycleevent import ObjectRemovedEvent
+from ZPublisher.HTTPRequest import FileUpload
 
-from Products.Poi.interfaces import IIssue
+import logging
+
 
 logger = logging.getLogger('Products.Poi.adapters')
 
@@ -201,3 +204,23 @@ class EmptyExporter(object):
 
     def export(self, export_context, subdir, root=False):
         return
+
+
+class FileUploadStorable(object):
+    # Adapted from plone.namedfile.storages.FileUploadStorable.  That one only
+    # handles data from zope.publisher.browser.FileUpload.  Poi uses a hand
+    # crafted, non-z3c form, so we just get an old-style FileUpload, which
+    # means we need our own storage adapter.
+
+    def store(self, data, blob):
+        if not isinstance(data, FileUpload):
+            raise NotStorable('Could not store data (not of "FileUpload").')
+
+        data.seek(0)
+
+        fp = blob.open('w')
+        block = data.read(MAXCHUNKSIZE)
+        while block:
+            fp.write(block)
+            block = data.read(MAXCHUNKSIZE)
+        fp.close()

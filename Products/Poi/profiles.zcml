@@ -127,5 +127,16 @@
       handler="Products.Poi.migration.recook_resources"
       profile="Products.Poi:default" />
 
+  <gs:upgradeSteps
+      source="2007"
+      destination="2008"
+      profile="Products.Poi:default">
+    <gs:upgradeStep
+        title="Migrate attachments of issues to blob storage"
+        handler="Products.Poi.migration.migrate_issue_attachments_to_blobstorage" />
+    <gs:upgradeStep
+        title="Migrate attachments of responses to blob storage"
+        handler="Products.Poi.migration.migrate_response_attachments_to_blobstorage" />
+  </gs:upgradeSteps>
 
 </configure>

@@ -11,7 +11,7 @@ historyfile.close()
 long_description = readme + "\n\n" + history
 
 setup(name='Products.Poi',
-      version='2.2.11.dev0',
+      version='2.3.dev0',
       description="Poi: A friendly issue tracker",
       long_description=long_description,
       # Get more strings from
@@ -43,6 +43,8 @@ setup(name='Products.Poi',
           'Products.AddRemoveWidget>=1.4.2',
           'Products.DataGridField>=1.9.2',
           'collective.watcherlist>=0.2',
+          'plone.app.blob',
+          'plone.namedfile',
       ],
       extras_require={
           'test': [

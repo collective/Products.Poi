@@ -84,6 +84,12 @@
       for="Products.Poi.interfaces.IIssue"
       />
 
+  <utility
+      name="ZPublisher.HTTPRequest.FileUpload"
+      provides="plone.namedfile.interfaces.IStorage"
+      factory=".adapters.FileUploadStorable"
+      />
+
   <!-- Avoid deprecation warnings for manage_afterAdd and friends. -->
   <five:deprecatedManageAddDelete
       class=".content.PoiTracker.PoiTracker" />

@@ -1,13 +1,18 @@
-import logging
-
-from ZODB.POSException import ConflictError
+from collective.watcherlist.interfaces import IWatcherList
+from plone.namedfile import NamedBlobFile
 from Products.CMFCore.utils import getToolByName
 from Products.CMFFormController.FormAction import FormActionKey
-from collective.watcherlist.interfaces import IWatcherList
+from Products.CMFPlone.utils import base_hasattr
+from Products.CMFPlone.utils import safe_unicode
+from Products.Poi.adapters import IResponseContainer
+from Products.Poi.utils import normalize_filename
+from ZODB.POSException import ConflictError
 from zope.annotation.interfaces import IAnnotations
+from zope.schema._bootstrapinterfaces import ConstraintNotSatisfied
+
+import logging
 import transaction
 
-from Products.Poi.adapters import IResponseContainer
 
 logger = logging.getLogger("Poi")
 PROFILE_ID = 'profile-Products.Poi:default'
@@ -236,3 +241,69 @@ def migrate_tracker_watchers(context):
 def recook_resources(context):
     context.portal_javascripts.cookResources()
     context.portal_css.cookResources()
+
+
+def migrate_response_attachments_to_blobstorage(context):
+    logger.info('Migrating response attachments to blob storage.')
+    catalog = getToolByName(context, 'portal_catalog')
+    already_migrated = 0
+    migrated = 0
+    for brain in catalog.unrestrictedSearchResults(portal_type='PoiIssue'):
+        path = brain.getPath()
+        try:
+            issue = brain.getObject()
+        except (AttributeError, ValueError, TypeError):
+            logger.warn('Error getting object from catalog for path %s', path)
+            continue
+        folder = IResponseContainer(issue)
+        for id, response in enumerate(folder):
+            if response is None:
+                # Has been removed.
+                continue
+            attachment = response.attachment
+            if attachment is None:
+                continue
+            if isinstance(attachment, NamedBlobFile):
+                # Already migrated
+                logger.debug('Response %d already migrated, at %s.', id, path)
+                already_migrated += 1
+                continue
+            content_type = getattr(attachment, 'content_type', '')
+            filename = getattr(attachment, 'filename', '')
+            if not filename and hasattr(attachment, 'getId'):
+                filename = attachment.getId()
+            data = attachment.data
+            # Data can be 'nested' in OFS.Image.Pdata.
+            if base_hasattr(data, 'data'):
+                data = data.data
+            filename = safe_unicode(filename)
+            try:
+                blob = NamedBlobFile(
+                    data, contentType=content_type, filename=filename)
+            except ConstraintNotSatisfied:
+                # Found in live data: a filename that includes a newline...
+                logger.info('Trying to normalize filename %s', filename)
+                filename = normalize_filename(filename, context.REQUEST)
+                logger.info('Normalize to %s', filename)
+                blob = NamedBlobFile(
+                    data, contentType=content_type, filename=filename)
+            response.attachment = blob
+            logger.debug('Response %d migrated, at %s.', id, path)
+            migrated += 1
+
+    logger.info('Migrated %d response attachments to blobs. '
+                '%d already migrated.', migrated, already_migrated)
+
+
+def migrate_issue_attachments_to_blobstorage(context):
+    from plone.app.blob.migrations import migrate
+    logger.info('Migrating to blob attachments for issues. '
+                'This can take a long time...')
+    # Technically, the plone.app.blob migration says it is only for non blob
+    # fields that are still in the schema but are overridden using
+    # archetypes.schemaextender with a blob field with the same name.  But it
+    # seems to go fine for Issues where we have simply changed the schema
+    # directly.  The getters of a BlobFileField and normal FileField don't
+    # differ that much.
+    migrate(context, 'PoiIssue')
+    logger.info("Done migrating to blob attachment for issues.")

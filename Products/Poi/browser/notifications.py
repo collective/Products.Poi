@@ -189,7 +189,7 @@ class NewResponseMail(BasePoiMail):
             name = translate(name, 'Poi', context=self.request)
             changes.append(dict(name=name, before=before, after=after))
         if response.attachment:
-            attachment_id = response.attachment.getId()
+            attachment_id = getattr(response.attachment, 'filename', u'')
         else:
             attachment_id = u''
 
