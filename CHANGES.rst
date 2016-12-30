@@ -5,6 +5,13 @@ Changelog for Poi
 2.3 (unreleased)
 ----------------
 
+- Avoid security warning on startup.  You get a warning about our
+  IResponseAdder viewlet manager, which apparently has a security
+  declaration for nonexistent method '__getitem__'.  So we add that
+  method and let it return an IndexError, because this is a
+  ``zope.contentprovider`` which is not meant to iterate over
+  viewlets.  [maurits]
+
 - Use blob file for attachments in issues and responses.  This comes
   with an upgrade step to migrate them.
   Fixes `issue #32 <https://github.com/collective/Products.Poi/issues/32>`_.

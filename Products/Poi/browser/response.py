@@ -358,6 +358,15 @@ class AddForm(Base):
         super(AddForm, self).__init__(context, request)
         self.__parent__ = view
 
+    def __getitem__(self, name):
+        # If we do not add this method, you keep getting a warning at Zope
+        # startup: Init Class Products.Five.viewlet.manager.<ViewletManager
+        # providing IResponseAdder> has a security declaration for nonexistent
+        # method '__getitem__'.
+        raise IndexError(
+            'This is not meant to be used as viewlet manager. '
+            'It is just a contentprovider.')
+
     def update(self):
         pass
 
