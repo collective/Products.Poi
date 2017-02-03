@@ -120,6 +120,7 @@ Once an Issue is created:
 - When adding a response as a tracker manager, you can change the state, importance or assignment of an issue.
 
 Issues have the following workflow:
+
 .. image:: http://www.sixfeetup.com/logos/issue-workflow.png
    :height: 756
    :width: 553
@@ -151,7 +152,7 @@ If email notification is enabled in the Tracker setup, the following conditions 
 +--------------------------+-------------+----------------+----------------+
 
 
-* except responses they post 
+`*` except responses they post 
 
 
 Roles and Permissions
