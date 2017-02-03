@@ -9,7 +9,7 @@ Poi: A friendly issue tracker
  
 Poi is an issue tracker product for Plone. It has a goal to be 
 simple and attractive whilst providing the most commonly needed issue
-tracking functionality. Poi 3.0 uses Dexterity and is for Plone 5.
+tracking functionality. Poi 3.0 uses Dexterity and is for Plone 5 only.
 
 Feedback is very welcome. 
 
@@ -22,8 +22,7 @@ Installation and dependencies
 -----------------------------
 
 Best is to use zc.buildout.  Just add Products.Poi to your eggs, rerun
-buildout and you are done.  Optionally add
-Products.PloneSoftwareCenter.
+buildout and you are done.  
 
 Poi 3.0+ requires:
 
@@ -37,49 +36,165 @@ Upgrading
 Re-install Poi from the Add/Remove Products control panel.  Some
 upgrade steps will be executed; these can also be found in the ZMI, in
 portal_setup, on the Upgrade tab, in case you need to run them again.
-Backup your Data.fs first before upgrading!
+Backup your Data.fs first before upgrading! Also note that there is not
+currently a migration to Poi 3.0 from older versions. This will be
+included in Poi 3.1.
 
 
 Usage
------
+=====
 
-Add a Tracker, and use the "state" menu to open it for submissions. 
+Poi is a folderish object type. Many Poi Trackers can exist within the
+same Plone instance.
+
+Prior to adding a new Tracker, ensure that some Assignees (users) are
+created in the system.
+
+
+Tracker Usage
+-------------
+
+Add a new Tracker, and customize the following to suit your
+organization's needs:
+
+- Areas - top level categories for the Tracker (e.g., UI)
+- Issue Types -- ticket types in the system (e.g., Bug)
+- Severities - levels of severity for the Issues (e.g., Low)
+- Available Releases -- used for assigning version values (e.g. v1.0)
+- Assignees -- list of users to whom Issues can be assigned
+- Watchers -- list of users who should be notified when Issues or comments are added
+- Mailing List -- single email address, similar to Watchers
+- Repository URL -- git/subversion repository used by your organization 
+
+Note that if you are not tracking software releases, you can leave the list
+of "releases" empty, and organization by release will be turned off. The
+fields for areas and issue types come pre-configured with simple values that
+presume you are tracking software bugs. You can modify these to suit your needs.
+
+If a repository URL is provided, revision numbers will automatically be
+hyperlinked when included in Issue descriptions and comments.
+
+After creating the Tracker, use the "state" menu to open it for submissions.
 Available workflow states are:
 
- * `Open`: Anonymous users can view and submit issues
- * `Restricted`: Anonymous users can view, but only members can submit
- * `Protected`: Only members can view and submit
- * `Closed`: Tracker is closed to submissions
- 
-The tracker front pages allows you to browse for issues by release,
-state or area, as well as search for issues. Note that if you are not
-tracking software releases, you can leave the list of "releases"
-empty, and organization by release will be turned off. The fields for
-areas and issue types come pre-configured with simple values that
-presume you are tracking software bugs.  You can change these to
-whatever you want.
+- Open: Anonymous users can view and submit issues
+- Restricted: Anonymous users can view, but only members can submit
+- Protected: Only members can view and submit
+- Closed: Tracker is closed to submissions 
 
-Once you have set up the tracker, add Issues inside, and Responses
-inside Issues. Anyone can add responses to issues with the default
-workflow. Responses from tracker managers (as configured on the root
-tracker object) and the original submitter are color coded to make
-them easier to pick out. When adding a response as a tracker manager,
-you can change the state, importance or assignment of an issue.
+The Tracker front page includes:
 
-If email notification is enabled in the root tracker object, managers
-will get an email when there are new issues and responses, optionally
-via a mailing list. Issue submitters will also get emails upon issue
-responses. Additionally, when an issue is marked as "resolved" by a
-tracker manager, the submitter will receive an email asking him or her
-to mark the issue as confirmed closed.
+- Issue search (as well as link to Advanced Search)
+- Issue Logs link (view all Tracker activity)
+- Watch This Tracker / Stop Watching This Tracker button to enable/disable notifications
+- Browse Issues by release, state, area or tag
+- "My Submitted Issues" listing
+- "Orphaned Issues" listing (unassigned Issues)
+- "Issues Assigned to Me" 
 
-For a look at how the various workflow states of an issue are
-connected, take a look at the attachment added by `bethor` to this
-issue: http://old.plone.org/products/poi/issues/179
+
+Issue Usage
+-----------
+
+Once you have set up the Tracker, Issues (tickets) can be created within the
+Tracker. Who can create them depends on the Tracker's state (see list above).
+Issues contain:
+
+- Title
+- Release (version Issue was found in)
+- Details (description)
+- Steps to Reproduce
+- Related Issues (select from existing Issues within the Tracker)
+- Area, Type and Severity
+- Target Release (for fix)
+- Contact Email
+- Requested By Date
+- Ticket Owner (Assignee)
+- Watchers
+- Subjects (Tags) 
+
+Once an Issue is created:
+
+- Attachments can be added to the Issue
+- Responses can be added
+- When adding a response as a tracker manager, you can change the state, importance or assignment of an issue.
+
+Issues have the following workflow:
+.. image:: http://www.sixfeetup.com/logos/issue-workflow.png
+   :height: 756
+   :width: 553
+   :alt: Issue Workflow
+   :align: left
+
+
+Email Notification
+------------------
+
+If email notification is enabled in the Tracker setup, the following conditions will exist.
+
+- If a mailing list was provided in the Tracker setup, members of the list will also be notified.
+- All listed Tracker Assignees automatically become Tracker Watchers when the tracker is created.
+- A Ticket Owner (assignee assigned to an issue) automatically becomes an Issue Watcher for that issue. 
+
++--------------------------+-------------+----------------+----------------+
+| User                     | New Issue   | Issue Response | Issue Resolved |
++==========================+=============+================+================+
+| **Tracker Watcher**      | X           | X              | X              |
++--------------------------+-------------+----------------+----------------+
+| **Tracker Mailing List** | X           | X              | X              |
++--------------------------+-------------+----------------+----------------+
+| **Issue Watcher**        |             | X*             | X              |
++--------------------------+-------------+----------------+----------------+
+| **Issue Submitter**      |             |                | X              |
++--------------------------+-------------+----------------+----------------+
+| **Member**               |             |                | X              |
++--------------------------+-------------+----------------+----------------+
+
+
+* except responses they post 
+
+
+Roles and Permissions
+---------------------
+
+Poi adds 3 Roles to the defaults in Plone. Roles honor inheritance.
+Note that some of these permissions will change based on the
+state of the tracker.
+
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+|                             | Anonymous   | Member         | Manager        | TrackerManager | Technician |
++=============================+=============+================+================+================+============+
+| Add Tracker                 |             |                | X              |                |            |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Manage Tracker              |             |                | X              | X              |            |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Add Issue                   |  X          | X              | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Add Response                |  X          | X              | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Edit Response               |             |                | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Upload Attachment           |             | X              | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Modify Issue Severity       |             |                | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Modify Issue Assignment     |             |                | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Modify Issue State          |             |                | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Modify Issue Tags           |             |                | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Modify Issue Watchers       |             |                | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Modify Issue Target Release |             |                | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Modify Related Issues       |  X          | X              | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+
 
 
 Credits
--------
+=======
 
 If you have contributed to Poi in some fashion, be sure to add
 yourself in the hall of fame here!
