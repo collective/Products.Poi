@@ -1,0 +1,266 @@
+# -*- coding: utf-8 -*-
+from zope.interface import implementer
+from zope.interface import provider
+from zope import schema
+
+from plone import api
+from plone.app.textfield import RichText
+from plone.app.vocabularies.catalog import CatalogSource
+from plone.autoform.directives import write_permission, read_permission
+from plone.dexterity.content import Container
+from plone.schema import email
+
+from plone.supermodel import model
+from z3c.relationfield import RelationList, RelationChoice
+
+from Products.Poi import PoiMessageFactory as _
+from .tracker import ITracker
+from .tracker import default_severity
+from .tracker import possibleAreas
+from .tracker import possibleIssueTypes
+from .tracker import possibleSeverities
+from .tracker import possibleTargetReleases
+from .tracker import possibleAssignees
+
+
+@provider(schema.interfaces.IContextSourceBinder)
+def tracker_issues(context):
+    """ vocabulary source for issues just inside this tracker
+    """
+    if ITracker.providedBy(context):
+        current_tracker = context
+    else:
+        current_tracker = context.getTracker()
+    path = '/'.join(current_tracker.getPhysicalPath())
+    query = {'path': {'query': path},
+             'portal_type': ('Issue',)}
+    return CatalogSource(**query)
+
+
+@provider(schema.interfaces.IContextAwareDefaultFactory)
+def default_watchers(context):
+    creator = api.user.get_current()
+    username = unicode(creator.getUserName())
+    return [username]
+
+
+def checkEmpty(value):
+    """ Field should be empty
+        or else we assume you are a bot
+    """
+    return True if value is False else False
+
+
+class IIssue(model.Schema):
+    """Marker interface for Poi issue"""
+
+    title = schema.TextLine(
+        title=_(u'Poi_label_issue_title', default=u"Title"),
+        description=_(u'Poi_help_issue_title',
+                      default=u"Enter a short, descriptive title for "
+                      u"the issue. A good title will make it easier "
+                      u"for project managers to identify and respond "
+                      u"to the issue.")
+    )
+
+    release = schema.Choice(
+        title=_(u'Poi_label_issue_release', default=u'Release'),
+        description=_(u'Poi_help_issue_release',
+                      default=u"Select the version the issue was found in."),
+        required=False,
+        source=possibleTargetReleases
+    )
+
+    details = RichText(
+        title=_(u'Poi_label_issue_details', default=u'Details'),
+        description=_(u'Poi_help_issue_details',
+                      default=u"Please provide further details")
+    )
+
+    steps = RichText(
+        title=_(u'Poi_label_issue_steps', default=u'Steps To Reproduce'),
+        description=_(u'Poi_help_issue_steps',
+                      default=u"If applicable, please provide the steps to "
+                      u"reproduce the error or identify the issue, one per "
+                      u"line."),
+        required=False,
+    )
+
+    area = schema.Choice(
+        title=_(u'Poi_label_issue_area', default=u'Area'),
+        description=_(u'Poi_help_issue_area',
+                      default=u"Select the area this issue is relevant to."),
+        source=possibleAreas
+    )
+
+    issue_type = schema.Choice(
+        title=_(u'Poi_label_issue_type', default=u'Issue Type'),
+        description=_(u'Poi_help_issue_type',
+                      default=u"Select the type of issue."),
+        source=possibleIssueTypes
+    )
+
+    read_permission(severity='Poi.ModifyIssueSeverity')
+    write_permission(severity='Poi.ModifyIssueSeverity')
+    severity = schema.Choice(
+        title=_(u'Poi_label_issue_severity', default=u'Severity'),
+        description=_(u'Poi_help_issue_severity',
+                      default=u"Select the severity of this issue."),
+        defaultFactory=default_severity,
+        source=possibleSeverities
+    )
+
+    read_permission(target_release='Poi.ModifyIssueTargetRelease')
+    write_permission(target_release='Poi.ModifyIssueTargetRelease')
+    target_release = schema.Choice(
+        title=_(u'Poi_label_issue_target_release', default=u'Target Release'),
+        description=_(u'Poi_help_issue_target_release',
+                      default=u"Release this issue is targetted to be fixed "
+                              u"in"),
+        source=possibleTargetReleases,
+        required=False,
+    )
+
+    read_permission(assignee='Poi.ModifyIssueAssignment')
+    write_permission(assignee='Poi.ModifyIssueAssignment')
+    assignee = schema.Choice(
+        title=_(u'Poi_label_issue_assignee', default=u'Assignee'),
+        description=_(u'Poi_help_issue_assignee',
+                      default=u"Select which person, if any, is assigned to "
+                      u"this issue."),
+        source=possibleAssignees,
+        required=False,
+    )
+
+    contact_email = email.Email(
+        title=_(u'Poi_label_issue_contact_email', default=u'Contact Email'),
+        description=_(u'Poi_help_issue_contact_email',
+                      default=u"Please provide an email address where you can "
+                      u"be contacted for further information or when a "
+                      u"resolution is available. Note that your email "
+                      u"address will not be displayed to others."),
+        required=False,
+    )
+
+    read_permission(watchers='Poi.ModifyIssueWatchers')
+    write_permission(watchers='Poi.ModifyIssueWatchers')
+    watchers = schema.List(
+        title=_(u'Poi_label_issue_watchers', default=u'Watchers'),
+        description=_(u'Poi_help_issue_watchers',
+                      default=u"Enter the user ids of members who are watching"
+                      u" this issue, one per line. E-mail addresses are "
+                      u"allowed too. These persons will "
+                      u"receive an email when a response is added to the "
+                      u"issue. Members can also add themselves as "
+                      u"watchers."),
+        value_type=schema.TextLine(),
+        required=False,
+        defaultFactory=default_watchers,
+    )
+
+    write_permission(subject='Poi.ModifyIssueTags')
+    read_permission(subject='Poi.ModifyIssueTags')
+    subject = schema.Tuple(
+        title=_(u'Poi_label_issue_subject', default=u'Subject'),
+        description=_(u'Poi_help_issue_subject',
+                      default=u"Tags can be used to add arbitrary "
+                      u"categorisation to issues. The list below shows "
+                      u"existing tags which you can select, or you can add "
+                      u"new ones."),
+        value_type=schema.TextLine(),
+        required=False,
+        missing_value=[],
+    )
+
+    read_permission(related_issue='Poi.ModifyRelatedIssues')
+    write_permission(related_issue='Poi.ModifyRelatedIssues')
+    related_issue = RelationList(
+        title=_(u'Poi_label_issue_related', default=u'Related Issue(s)'),
+        description=_(u'Poi_help_issue_related',
+                      default=u'Link related issues.'),
+        value_type=RelationChoice(
+            title=u"Related",
+            source=tracker_issues,
+        ),
+        required=False
+    )
+    
+    empty = schema.Bool(
+        title=_(u'Poi_label_issue_empty', default=u'Leave this field empty'),
+        required=False,
+        constraint=checkEmpty
+    )
+
+
+@implementer(IIssue)
+class Issue(Container):
+    """
+    An issue in the Poi Tracker
+    """
+    _tracker_uid = ''
+
+    def getTracker(self):
+        """Return the tracker."""
+        return api.content.get(UID=self._tracker_uid)
+
+    def getContactEmail(self):
+        return api.user.get(self.Creator()).getProperty('email')
+
+    def getReviewState(self):
+        """get the current workflow state of the issue"""
+        wftool = api.portal.get_tool('portal_workflow')
+        state = wftool.getInfoFor(self, 'review_state')
+        title = wftool.getTitleForStateOnType(state, self.portal_type)
+        return {
+            'state': state,
+            'title': title,
+        }
+
+    def display_area(self):
+        tracker = self.getTracker()
+        areas = possibleAreas(tracker)
+        return areas.by_value[self.area].title
+
+    def display_issue_type(self):
+        tracker = self.getTracker()
+        issue_types = possibleIssueTypes(tracker)
+        return issue_types.by_value[self.issue_type].title
+
+    def isWatching(self):
+        """
+        Determine if the current user is watching this issue or not.
+        """
+        portal_membership = api.portal.get_tool('portal_membership')
+        member = portal_membership.getAuthenticatedMember()
+        return member.getId() in self.watchers
+
+    def isValid(self):
+
+        """Check if the response is valid.
+
+        Meaning: a response has been filled in.
+        """
+        errors = schema.getValidationErrors(IIssue, self)
+        if errors:
+            return False
+        else:
+            return True
+
+    def linkedDetails(self):
+        tracker = self.getTracker()
+        return tracker.linkDetection(self.details.output)
+
+    def linkedSteps(self):
+        tracker = self.getTracker()
+        return tracker.linkDetection(self.steps.output)
+
+# this is implemented here to reduce the chance of a circular
+# import with IIssue
+def next_issue_id(tracker):
+    """find the next available issue ID (integer) for a Poi tracker"""
+    issue_id = 1
+    issues = api.content.find(context=tracker, object_provides=IIssue)
+    existing_ids = [int(issue.id) for issue in issues if issue.id.isdigit()]
+    if len(existing_ids):
+        issue_id = max(existing_ids) + 1
+    return str(issue_id)

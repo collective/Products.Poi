@@ -45,6 +45,11 @@ setup(name='Products.Poi',
           'collective.watcherlist>=0.2',
           'plone.app.blob',
           'plone.namedfile',
+          'plone.app.contenttypes>=1.1b6',
+          'plone.app.widgets>=1.8.0',
+          'plone4.csrffixes',
+          'collective.z3cform.datagridfield',
+          'plone.schema',
       ],
       extras_require={
           'test': [

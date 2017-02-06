@@ -93,3 +93,11 @@ def normalize_filename(filename, request):
     # includes a newline...
     filename = filename.replace('\n', ' ').replace('\r', ' ')
     return filename
+
+
+def is_email(value):
+    expr = re.compile(
+        r"^(\w&.%#$&'\*+-/=?^_`{}|~]+!)*[\w&.%#$&'\*+-/=?^_`{}|~]+@(([0-9a-z]([0-9a-z-]*[0-9a-z])?\.)+[a-z]{2,6}|([0-9]{1,3}\.){3}[0-9]{1,3})$",
+        re.IGNORECASE
+    )
+    return bool(expr.match(value))

@@ -6,4 +6,6 @@
     meta_type="Factory-based Type Information with dynamic views"/>
   <object name="PoiTracker"
     meta_type="Factory-based Type Information with dynamic views"/>
+  <object name="Tracker" meta_type="Dexterity FTI" />
+  <object name="Issue" meta_type="Dexterity FTI" />
 </object>
