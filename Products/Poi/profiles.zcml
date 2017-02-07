@@ -138,5 +138,13 @@
         title="Migrate attachments of responses to blob storage"
         handler="Products.Poi.migration.migrate_response_attachments_to_blobstorage" />
   </gs:upgradeSteps>
+  
+  <gs:upgradeStep
+      title="Dexterity Migration"
+      description="Migrate Tracker and Issues to Dexterity"
+      source="2008"
+      destination="2009"
+      handler="Products.Poi.migration.dexterity_migration"
+      profile="Products.Poi:default" />
 
 </configure>

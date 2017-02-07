@@ -50,6 +50,7 @@ setup(name='Products.Poi',
           'plone4.csrffixes',
           'collective.z3cform.datagridfield',
           'plone.schema',
+          'plone.api',
       ],
       extras_require={
           'test': [

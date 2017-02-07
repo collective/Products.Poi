@@ -494,12 +494,14 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         """
         Get the available areas as a DispayList.
         """
-        tracker = self.getTracker()
-        tags = tracker.getTagsInUse()
-        vocab = DisplayList()
-        for t in tags:
-            vocab.add(t, t)
-        return vocab
+        # this may not be needed for migration, and caused errors
+        # tracker = self.getTracker()
+        # tags = tracker.getTagsInUse()
+        # vocab = DisplayList()
+        # for t in tags:
+        #     vocab.add(t, t)
+        # return vocab
+        return DisplayList()
 
     security.declareProtected(permissions.View, 'getReleasesVocab')
 
@@ -584,9 +586,10 @@ class PoiIssue(BaseFolder, BrowserDefaultMixin):
         for parent in aq_chain(self):
             if ITracker.providedBy(parent):
                 return parent
-        raise Exception(
-            "Could not find PoiTracker in acquisition chain of %r" %
-            self)
+        # do not raise exception for the migration
+        # raise Exception(
+        #     "Could not find PoiTracker in acquisition chain of %r" %
+        #     self)
 
 
 registerType(PoiIssue, PROJECTNAME)

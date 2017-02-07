@@ -1,4 +1,6 @@
 from collective.watcherlist.interfaces import IWatcherList
+from plone import api
+from plone.app.contenttypes.migration.migration import migrateCustomAT
 from plone.namedfile import NamedBlobFile
 from Products.CMFCore.utils import getToolByName
 from Products.CMFFormController.FormAction import FormActionKey
@@ -307,3 +309,74 @@ def migrate_issue_attachments_to_blobstorage(context):
     # differ that much.
     migrate(context, 'PoiIssue')
     logger.info("Done migrating to blob attachment for issues.")
+
+
+def datagrid_field_migrator(src_obj, dst_obj, src_fieldname, dst_fieldname):
+    """Change the dict key 'id' to 'short_name'
+    """
+    field = src_obj.getField(src_fieldname)
+    at_value = field.get(src_obj)
+    for val in at_value:
+        val['short_name'] = val['id']
+        del val['id']
+    setattr(dst_obj, dst_fieldname, at_value)
+
+
+def merge_managers(src_obj, dst_obj, src_fieldname, dst_fieldname):
+    """Combine managers and technicians into a single field
+    """
+    technicians = src_obj.getField(src_fieldname).get(src_obj)
+    managers = src_obj.getField('managers').get(src_obj)
+    dx_value = tuple(set(technicians + managers))
+    setattr(dst_obj, dst_fieldname, dx_value)
+
+
+def dexterity_migration(context):
+    fields_mapping = (
+        {'AT_field_name': 'title',
+         'DX_field_name': 'title',
+         },
+        {'AT_field_name': 'description',
+         'DX_field_name': 'description',
+         },
+        {'AT_field_name': 'helpText',
+         'DX_field_name': 'help_text',
+         },
+        {'AT_field_name': 'availableAreas',
+         'DX_field_name': 'available_areas',
+         'field_migrator': datagrid_field_migrator
+         },
+        {'AT_field_name': 'availableIssueTypes',
+         'DX_field_name': 'available_issue_types',
+         'field_migrator': datagrid_field_migrator
+         },
+        {'AT_field_name': 'availableSeverities',
+         'DX_field_name': 'available_severities',
+         },
+        {'AT_field_name': 'defaultSeverity',
+         'DX_field_name': 'default_severity',
+         },
+        {'AT_field_name': 'availableReleases',
+         'DX_field_name': 'available_releases',
+         },
+        {'AT_field_name': 'technicians',
+         'DX_field_name': 'assignees',
+         'field_migrator': merge_managers
+         },
+        {'AT_field_name': 'watchers',
+         'DX_field_name': 'watchers',
+         },
+        {'AT_field_name': 'sendNotificationEmails',
+         'DX_field_name': 'notification_emails',
+         },
+        {'AT_field_name': 'mailingList',
+         'DX_field_name': 'mailing_list',
+         },
+        {'AT_field_name': 'svnUrl',
+         'DX_field_name': 'repo_url',
+         },
+    )
+    migrateCustomAT(
+        fields_mapping,
+        src_type='PoiTracker',
+        dst_type='Tracker')
