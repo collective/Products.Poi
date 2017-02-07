@@ -332,6 +332,10 @@ def merge_managers(src_obj, dst_obj, src_fieldname, dst_fieldname):
 
 
 def dexterity_migration(context):
+    # first run default profile to make sure DX types are available
+    portal_setup = api.portal.get_tool('portal_setup')
+    portal_setup.runAllImportStepsFromProfile("profile-Products.Poi:default")
+
     fields_mapping = (
         {'AT_field_name': 'title',
          'DX_field_name': 'title',
