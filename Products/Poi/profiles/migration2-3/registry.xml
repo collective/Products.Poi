@@ -1,6 +1,6 @@
 <registry>
 <record name="plone.parent_types_not_to_query" interface="Products.CMFPlone.interfaces.controlpanel.INavigationSchema"
-        field="plone.parent_types_not_to_query">
+        field="parent_types_not_to_query">
   <value purge="False">
       <element>Tracker</element>
       <element>Issue</element>
@@ -8,7 +8,7 @@
 </record>
 
 <record name="plone.displayed_types" interface="Products.CMFPlone.interfaces.controlpanel.INavigationSchema"
-        field="plone.displayed_types">
+        field="displayed_types">
   <value purge="False">
     <element>Tracker</element>
   </value>
