@@ -140,7 +140,10 @@
 	   </dd>
     </dl>
 
-    <div tal:content="structure context/help_text/output"/>
+    <tal:text condition="context/help_text"
+              on-error="structure context/help_text">
+        <div tal:content="structure context/help_text/output" />
+    </tal:text>
 
     <h2 i18n:translate="poi_heading_open_issues">Open issues</h2>
 
