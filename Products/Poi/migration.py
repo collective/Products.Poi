@@ -336,6 +336,7 @@ def dexterity_migration(context):
     portal_setup = api.portal.get_tool('portal_setup')
     portal_setup.runAllImportStepsFromProfile("profile-Products.Poi:default")
 
+    # Tracker
     fields_mapping = (
         {'AT_field_name': 'title',
          'DX_field_name': 'title',
@@ -384,3 +385,51 @@ def dexterity_migration(context):
         fields_mapping,
         src_type='PoiTracker',
         dst_type='Tracker')
+
+    # Issue
+    fields_mapping = (
+        {'AT_field_name': 'title',
+         'DX_field_name': 'title',
+         },
+        {'AT_field_name': 'release',
+         'DX_field_name': 'release',
+         },
+        {'AT_field_name': 'details',
+         'DX_field_name': 'details',
+         },
+        {'AT_field_name': 'steps',
+         'DX_field_name': 'steps',
+         },
+        {'AT_field_name': 'attachment',
+         'DX_field_name': 'attachment',
+         'DX_field_type': 'NamedBlobFile',
+         },
+        {'AT_field_name': 'area',
+         'DX_field_name': 'area',
+         },
+        {'AT_field_name': 'issueType',
+         'DX_field_name': 'issue_type',
+         },
+        {'AT_field_name': 'severity',
+         'DX_field_name': 'severity',
+         },
+        {'AT_field_name': 'targetRelease',
+         'DX_field_name': 'target_release',
+         },
+        {'AT_field_name': 'responsibleManager',
+         'DX_field_name': 'assignee',
+         },
+        {'AT_field_name': 'contactEmail',
+         'DX_field_name': 'contact_email',
+         },
+        {'AT_field_name': 'watchers',
+         'DX_field_name': 'watchers',
+         },
+        {'AT_field_name': 'subject',
+         'DX_field_name': 'subject',
+         },
+    )
+    migrateCustomAT(
+        fields_mapping,
+        src_type='PoiIssue',
+        dst_type='Issue')
