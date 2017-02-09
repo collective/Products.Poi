@@ -12,5 +12,11 @@
   <type type_id="PoiTracker">
    <bound-workflow workflow_id="poi_tracker_workflow"/>
   </type>
+   <type type_id="Issue">
+    <bound-workflow workflow_id="poi_issue_workflow"/>
+   </type>
+   <type type_id="Tracker">
+    <bound-workflow workflow_id="poi_tracker_workflow"/>
+   </type>
  </bindings>
 </object>
