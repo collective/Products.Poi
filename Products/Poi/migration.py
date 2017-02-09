@@ -327,7 +327,7 @@ def merge_managers(src_obj, dst_obj, src_fieldname, dst_fieldname):
     """
     technicians = src_obj.getField(src_fieldname).get(src_obj)
     managers = src_obj.getField('managers').get(src_obj)
-    dx_value = tuple(set(technicians + managers))
+    dx_value = list(set(technicians + managers))
     setattr(dst_obj, dst_fieldname, dx_value)
 
 
