@@ -331,6 +331,14 @@ def merge_managers(src_obj, dst_obj, src_fieldname, dst_fieldname):
     setattr(dst_obj, dst_fieldname, dx_value)
 
 
+def return_blank(src_obj, dst_obj, src_fieldname, dst_fieldname):
+    """If field is set to '(UNASSIGNED)', make it blank
+    """
+    field = src_obj.getField(src_fieldname).get(src_obj)
+    if field == '(UNASSIGNED)':
+        setattr(dst_obj, dst_fieldname, '')
+
+
 def dexterity_migration(context):
     # first run default profile to make sure DX types are available
     portal_setup = api.portal.get_tool('portal_setup')
@@ -393,6 +401,7 @@ def dexterity_migration(context):
          },
         {'AT_field_name': 'release',
          'DX_field_name': 'release',
+         'field_migrator': return_blank
          },
         {'AT_field_name': 'details',
          'DX_field_name': 'details',
@@ -415,9 +424,11 @@ def dexterity_migration(context):
          },
         {'AT_field_name': 'targetRelease',
          'DX_field_name': 'target_release',
+         'field_migrator': return_blank
          },
         {'AT_field_name': 'responsibleManager',
          'DX_field_name': 'assignee',
+         'field_migrator': return_blank
          },
         {'AT_field_name': 'contactEmail',
          'DX_field_name': 'contact_email',
