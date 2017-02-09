@@ -277,7 +277,10 @@ class Issue(Container):
 
     def linkedDetails(self):
         tracker = self.getTracker()
-        return tracker.linkDetection(self.details.output)
+        try:
+            return tracker.linkDetection(self.details.output)
+        except AttributeError:
+            return tracker.linkDetection(self.details)
 
     def linkedSteps(self):
         tracker = self.getTracker()
