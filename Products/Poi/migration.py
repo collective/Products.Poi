@@ -340,6 +340,20 @@ def return_blank(src_obj, dst_obj, src_fieldname, dst_fieldname):
         setattr(dst_obj, dst_fieldname, '')
 
 
+def move_attachments(src_obj, dst_obj, src_fieldname, dst_fieldname):
+    """Take attachments from the field, add as an item
+       inside the issue
+    """
+    field = src_obj.getField(src_fieldname).get(src_obj)
+    if field.data:
+        api.content.create(
+            container=dst_obj,
+            type='File',
+            file=field.data,
+            title="Attachment"
+        )
+
+
 def dexterity_migration(context):
     # first run default profile to make sure DX types are available
     portal_setup = api.portal.get_tool('portal_setup')
@@ -412,7 +426,7 @@ def dexterity_migration(context):
          },
         {'AT_field_name': 'attachment',
          'DX_field_name': 'attachment',
-         'DX_field_type': 'NamedBlobFile',
+         'field_migrator': move_attachments
          },
         {'AT_field_name': 'area',
          'DX_field_name': 'area',
