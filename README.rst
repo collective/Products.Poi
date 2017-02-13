@@ -30,6 +30,38 @@ Poi 3.0+ requires:
   - collective.watcherlist
 
 
+What version of Poi to use?
+---------------------------
+
+* Poi 2.0 - 2.4 is for Plone 4
+* Poi 2.5 is a migration step from Poi 2.x to Poi 3.x
+* Poi 3.0+ only works on Plone 5
+
+
+Upgrading
+---------
+
+Version 2.5.x of Poi is only for migrating to Dexterity in preparation of
+moving to Plone 5. It requires plone.app.contenttypes*, but don't activate
+the add-on unless you plan on migrating all your default Archetypes
+to Dexterity.
+
+`*` Requires plone.app.contenttypes after 1.1.1, if released. If a new
+version in the 1.1.x series is not available, you can use 1.1.1.1
+from http://dist.sixfeetup.com/public, or checkout the 1.1.x branch
+from GitHub https://github.com/plone/plone.app.contenttypes/tree/1.1.x
+
+Upgrade steps:
+
+* Do the migration in Plone 4
+* Upgrade to Plone 5
+* Upgrade to Poi 3.0
+
+Re-install Poi from the Add/Remove Products control panel.  Some
+upgrade steps will be executed; these can also be found in the ZMI, in
+portal_setup, on the Upgrade tab, in case you need to run them again.
+Backup your Data.fs first before upgrading!
+
 Upgrading
 ---------
 
