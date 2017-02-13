@@ -346,11 +346,15 @@ def move_attachments(src_obj, dst_obj, src_fieldname, dst_fieldname):
     """
     field = src_obj.getField(src_fieldname).get(src_obj)
     if field.data:
+        if field.filename:
+            fname = field.filename
+        else:
+            fname = "Attachment"
         api.content.create(
             container=dst_obj,
             type='File',
             file=field.data,
-            title="Attachment"
+            title=fname
         )
     atresponses = IResponseContainer(src_obj, None)
     dxissue = ResponseContainer(dst_obj)
