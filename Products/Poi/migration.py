@@ -7,7 +7,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFFormController.FormAction import FormActionKey
 from Products.CMFPlone.utils import base_hasattr
 from Products.CMFPlone.utils import safe_unicode
-from Products.Poi.adapters import IResponseContainer
+from Products.Poi.adapters import IResponseContainer, ResponseContainer
 from Products.Poi.utils import normalize_filename
 from ZODB.POSException import ConflictError
 from zope.annotation.interfaces import IAnnotations
@@ -341,7 +341,7 @@ def return_blank(src_obj, dst_obj, src_fieldname, dst_fieldname):
 
 
 def move_attachments(src_obj, dst_obj, src_fieldname, dst_fieldname):
-    """Take attachments from the field, add as an item
+    """Take attachments and responses from the field, add as items
        inside the issue
     """
     field = src_obj.getField(src_fieldname).get(src_obj)
@@ -352,6 +352,11 @@ def move_attachments(src_obj, dst_obj, src_fieldname, dst_fieldname):
             file=field.data,
             title="Attachment"
         )
+    atresponses = IResponseContainer(src_obj, None)
+    dxissue = ResponseContainer(dst_obj)
+    for response in atresponses:
+        if response:
+            dxissue.add(response)
 
 
 def dexterity_migration(context):
