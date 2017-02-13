@@ -464,10 +464,3 @@ def dexterity_migration(context):
         fields_mapping,
         src_type='PoiIssue',
         dst_type='Issue')
-
-    # set _tracker_uid on Issues
-    issues = api.content.find(portal_type="Issue")
-    for issue in issues:
-        obj = issue.getObject()
-        obj._tracker_uid = obj.aq_parent.UID()
-        transaction.commit()
