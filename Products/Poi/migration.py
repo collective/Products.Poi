@@ -238,8 +238,19 @@ def recook_resources(context):
     context.portal_javascripts.cookResources()
     context.portal_css.cookResources()
 
+
 def clean_properties(context):
     """Clean up any old-style properties
+       set _tracker_uid on Issues
     """
     setuptool = api.portal.get_tool('portal_setup')
     setuptool.runAllImportStepsFromProfile('profile-Products.Poi:migration2-3')
+
+    # set _tracker_uid on Issues
+    from Products.Poi.interfaces import ITracker
+    issues = api.content.find(portal_type="Issue")
+    for issue in issues:
+        obj = issue.getObject()
+        if ITracker.providedBy(obj.aq_parent):
+            obj._tracker_uid = obj.aq_parent.UID()
+            transaction.commit()
