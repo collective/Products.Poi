@@ -332,6 +332,13 @@ def merge_managers(src_obj, dst_obj, src_fieldname, dst_fieldname):
     setattr(dst_obj, dst_fieldname, dx_value)
 
 
+def return_list(src_obj, dst_obj, src_fieldname, dst_fieldname):
+    """Returns value as a list
+    """
+    field = src_obj.getField(src_fieldname).get(src_obj)
+    setattr(dst_obj, dst_fieldname, [x for x in field])
+
+
 def return_blank(src_obj, dst_obj, src_fieldname, dst_fieldname):
     """If field is set to '(UNASSIGNED)', make it blank
     """
@@ -402,6 +409,7 @@ def dexterity_migration(context):
          },
         {'AT_field_name': 'watchers',
          'DX_field_name': 'watchers',
+         'field_migrator': return_list
          },
         {'AT_field_name': 'sendNotificationEmails',
          'DX_field_name': 'notification_emails',
