@@ -353,8 +353,10 @@ def move_attachments(src_obj, dst_obj, src_fieldname, dst_fieldname):
     """
     field = src_obj.getField(src_fieldname).get(src_obj)
     if field.data:
-        if field.filename:
+        if hasattr(field, 'filename'):
             fname = field.filename
+        elif hasattr(field, 'title'):
+            fname = field.title
         else:
             fname = "Attachment"
         api.content.create(
@@ -363,11 +365,26 @@ def move_attachments(src_obj, dst_obj, src_fieldname, dst_fieldname):
             file=field.data,
             title=fname
         )
+        transaction.commit()
     atresponses = IResponseContainer(src_obj, None)
     dxissue = ResponseContainer(dst_obj)
     for response in atresponses:
-        if response:
-            dxissue.add(response)
+        if not response:
+            continue
+        atch = response.attachment
+        if atch:
+            if atch.title:
+                fname = atch.title
+            else:
+                fname = "Attachment"
+            api.content.create(
+                container=dst_obj,
+                type='File',
+                file=atch.data,
+                title=fname
+            )
+            transaction.commit()
+        dxissue.add(response)
 
 
 def dexterity_migration(context):
