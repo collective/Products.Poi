@@ -130,19 +130,24 @@ class Base(BrowserView):
 
         from zExceptions import NotFound
 
-        mtype = guess_type(attachment.id)
+        try:
+            attachid = attachment.id()
+        except TypeError:
+            attachid = attachment.id  # swap and try this one first
+        mtype = guess_type(attachid)
         icon = None
         mtr = getToolByName(context, 'mimetypes_registry', None)
         if mtr is None:
             icon = context.getIcon()
-        lookup = mtr.lookup(mtype[0])
-        if lookup:
-            mti = lookup[0]
-            try:
-                context.restrictedTraverse(mti.icon_path)
-                icon = mti.icon_path
-            except (NotFound, KeyError, AttributeError):
-                pass
+        if mtype[0]:
+            lookup = mtr.lookup(mtype[0])
+            if lookup:
+                mti = lookup[0]
+                try:
+                    context.restrictedTraverse(mti.icon_path)
+                    icon = mti.icon_path
+                except (NotFound, KeyError, AttributeError):
+                    pass
         if icon is None:
             icon = context.getIcon()
         size = 0
@@ -150,12 +155,15 @@ class Base(BrowserView):
             size = attachment.image.size
         elif hasattr(attachment, 'file'):
             size = attachment.file.size
+        if not size:
+            file_size = getattr(attachment, 'get_size', 0)
+            size = file_size()
 
         info = dict(
             icon=self.portal_url + '/' + icon,
             content_type=mtype[0],
             size=pretty_size(size),
-            filename=attachment.id,
+            filename=attachid,
         )
         return info
 

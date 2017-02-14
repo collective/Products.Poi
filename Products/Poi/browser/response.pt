@@ -63,8 +63,6 @@
       </div>
       <span tal:replace="structure html" />
 
-      <p tal:content="attachment" />
-
       <div class="issue-attachment" tal:condition="attachment">
         <span class="issue-attachment-label" i18n:translate="poi_label_attachment">Attached:</span>
         <img tal:attributes="src attachment/icon" />
