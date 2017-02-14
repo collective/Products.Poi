@@ -135,13 +135,17 @@
       handler="Products.Poi.migration.recook_resources"
       profile="Products.Poi:default" />
 
-  <gs:upgradeStep
-      title="Clean up old properties"
-      description=""
+  <gs:upgradeSteps
       source="2999"
       destination="3000"
-      handler="Products.Poi.migration.clean_properties"
-      profile="Products.Poi:default" />
+      profile="Products.Poi:default">
+    <gs:upgradeStep
+        title="Clean up old properties"
+        handler="Products.Poi.migration.clean_properties" />
+    <gs:upgradeStep
+        title="Set _tracker_uid property"
+        handler="Products.Poi.migration.set_tracker_uid" />
+  </gs:upgradeSteps>
 
 
 </configure>

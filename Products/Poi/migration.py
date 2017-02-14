@@ -3,6 +3,7 @@ import logging
 from ZODB.POSException import ConflictError
 from Products.CMFCore.utils import getToolByName
 from Products.CMFFormController.FormAction import FormActionKey
+from Products.Poi.interfaces import ITracker
 from collective.watcherlist.interfaces import IWatcherList
 from plone import api
 from zope.annotation.interfaces import IAnnotations
@@ -241,13 +242,15 @@ def recook_resources(context):
 
 def clean_properties(context):
     """Clean up any old-style properties
-       set _tracker_uid on Issues
     """
     setuptool = api.portal.get_tool('portal_setup')
     setuptool.runAllImportStepsFromProfile('profile-Products.Poi:migration2-3')
 
-    # set _tracker_uid on Issues
-    from Products.Poi.interfaces import ITracker
+
+def set_tracker_uid(context):
+    """set _tracker_uid on Issues
+    """
+
     issues = api.content.find(portal_type="Issue")
     for issue in issues:
         obj = issue.getObject()
