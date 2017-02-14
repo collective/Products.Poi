@@ -11,8 +11,6 @@ ACTIVE_STATES = ['open', 'in-progress', 'unconfirmed']
 
 class IssueFolderView(BrowserView):
 
-    issue_portal_type = 'Issue'
-
     def getActiveStates(self):
         return ACTIVE_STATES
 
@@ -102,7 +100,7 @@ class IssueFolderView(BrowserView):
 
         query = {}
         query['context'] = context
-        query['portal_type'] = [self.issue_portal_type]
+        query['portal_type'] = [i.id for i in context.allowedContentTypes()]
 
         for k, v in allowedCriteria.items():
             if criteria.get(k):

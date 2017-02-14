@@ -63,7 +63,12 @@
             <form action="createObject"
                   id="poi-submit-new-issue-form"
                   tal:condition="python: user.has_permission('Poi: Add Issue', here)"
-                  tal:attributes="action string:${trackerUrl}/++add++Issue">
+                  tal:define="portal_type context/portal_type;
+                              iinfo context/@@plone_interface_info;
+                              tracker python: iinfo.provides('Products.Poi.content.issue.IIssue') and context.getTracker() or False;
+                              allowed_types python: tracker and tracker.allowedContentTypes() or context.allowedContentTypes();
+                              is_multiple python: len(allowed_types) > 1;"
+                  tal:attributes="action python: is_multiple and trackerUrl+'/folder_factories' or trackerUrl+'/++add++'+allowed_types[0].id">
               <input type="hidden"
                      value="Issue"
                      />

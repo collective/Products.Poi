@@ -22,6 +22,7 @@
   <property name="behaviors">
     <element value="plone.app.content.interfaces.INameFromTitle" />
     <element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />
+    <element value="Products.CMFPlone.interfaces.constrains.ISelectableConstrainTypes"/>
    </property>
 
   <!-- View information -->
