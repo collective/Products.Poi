@@ -377,12 +377,13 @@ def move_attachments(src_obj, dst_obj, src_fieldname, dst_fieldname):
                 fname = atch.title
             else:
                 fname = "Attachment"
-            api.content.create(
+            new_atch = api.content.create(
                 container=dst_obj,
                 type='File',
                 file=atch.data,
                 title=fname
             )
+            atch.id = new_atch.id
             transaction.commit()
         dxissue.add(response)
 
