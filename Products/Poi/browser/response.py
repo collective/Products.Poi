@@ -129,11 +129,7 @@ class Base(BrowserView):
             return None
 
         from zExceptions import NotFound
-
-        try:
-            attachid = attachment.id()
-        except TypeError:
-            attachid = attachment.id  # swap and try this one first
+        attachid = attachment.id
         mtype = guess_type(attachid)
         icon = None
         mtr = getToolByName(context, 'mimetypes_registry', None)
