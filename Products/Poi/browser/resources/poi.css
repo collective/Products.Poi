@@ -17,6 +17,11 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
     content: '\e80e';
 }
 
+#issue-quicksearch-box input[type="text"] {
+    display: inline;
+    width: auto;
+}
+
 .response-clarification,
 .response-file {
     clear: both;

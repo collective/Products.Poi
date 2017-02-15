@@ -30,6 +30,12 @@
                   isTrackerManager python:member.has_role('TrackerManager', context);
                   mq python:modules['ZTUtils'].make_query;">
 
+    <tal:text condition="context/help_text"
+            on-error="structure context/help_text">
+      <div class="tracker-help"
+           tal:content="structure context/help_text/output" />
+    </tal:text>
+    
     <metal:trackerheader define-macro="trackerheader"
       tal:define="member context/@@plone_portal_state/member;
                   isManager isManager|python:member.has_role('Manager', context);
@@ -38,28 +44,14 @@
                   trackerUrl trackerUrl|here/absolute_url;
                   logUrl string:$trackerUrl/log">
 
-      <div id="issue-quicksearch-box">
-         <form action="" tal:attributes="action string:${trackerUrl}/@@poi_issue_quicksearch">
-            <input type="text" name="searchText" size="15"
-                   tal:attributes="value request/SearchableText|nothing" />
-            <input class="searchButton" type="submit" value="Search" i18n:attributes="value"/>
-         </form>
-         <a id="issue-search-link"
-            tal:attributes="href string:${trackerUrl}/poi_issue_search_form?${request/QUERY_STRING}"
-            i18n:translate="poi_issue_search">Advanced issue search</a>
-
-      </div>
-
     <div class="formControls">
       <div class="login-suggestion" tal:condition="isAnon">
         <tal:block i18n:translate="login_suggestion">
           If you can, please log in before submitting your issue.
         </tal:block>
-
       </div>
-      <table>
-        <tr>
-          <td>
+      
+          <div class="col-xs-6 col-sm-3">
             <form action="createObject"
                   id="poi-submit-new-issue-form"
                   tal:condition="python: user.has_permission('Poi: Add Issue', here)"
@@ -72,28 +64,24 @@
               <input type="hidden"
                      value="Issue"
                      />
-              <div class="formControls">
-                <input class="context"
-                       type="submit"
-                       i18n:attributes="value"
-                       value="Submit new issue"
-                       />
-              </div>
+              <input class="context"
+                     type="submit"
+                     i18n:attributes="value"
+                     value="Submit new issue"
+                     />
             </form>
-          </td>
-          <td>
-            <div class="formControls">
+          </div>
+          <div class="col-xs-6 col-sm-3">
               <a href="#" class="standalone" id="poi-show-log-form"
                  i18n:translate="view_issue_logs"
                  tal:attributes="href string:${trackerUrl}/log">View Issue Logs</a>
-            </div>
-          </td>
-          <td>
+          </div>
+          
+          <div class="col-xs-6 col-sm-3"
+               tal:condition="isAnon">
             <form
                 id="poi-login-form"
-                tal:condition="isAnon"
                 tal:attributes="action string:${portal_url}/login_form?came_from=${here/absolute_url}">
-              <div class="formControls">
                   <a class="context pat-plone-modal" id="poi-login-form" href="#"
                      data-pat-plone-modal='{"prependContent": ".portalMessage", "title": "Log in", "width": "26em"}'
                      tal:attributes="href string:${portal_url}/login"
@@ -101,19 +89,17 @@
                      i18n:attributes="value label_log_in;">
                      Log In
                   </a>
-              </div>
             </form>
-          </td>
+          </div>
 
           <metal:additional-slot define-slot="additional-header-actions">
-            <td>
+            <div class="col-xs-6 col-sm-3"
+                 tal:condition="python:not isAnon">
               <form action="${context/absolute_url}/@@toggle_watching"
                     id="poi-watch-tracker-form"
                     tal:define="type context/portal_type;
-                                type_text python:type == 'Issue' and 'issue' or 'tracker'"
-                    tal:condition="python:not isAnon">
-                <div class="formControls"
-                     tal:define="is_watching context/@@toggle_watching/is_watching;">
+                                type_text python:type == 'Issue' and 'issue' or 'tracker'">
+                <div tal:define="is_watching context/@@toggle_watching/is_watching;">
                   <input tal:condition="is_watching"
                          class="standalone"
                          type="submit"
@@ -128,10 +114,23 @@
                          />
                 </div>
               </form>
-            </td>
+            </div>
           </metal:additional-slot>
-        </tr>
-      </table>
+          
+          <div class="col-xs-6 col-sm-3">
+              <div id="issue-quicksearch-box">
+                 <form action="" tal:attributes="action string:${trackerUrl}/@@poi_issue_quicksearch">
+                    <input type="text" name="searchText" size="15"
+                           tal:attributes="value request/SearchableText|nothing" />
+                    <input class="searchButton" type="submit" value="Search" i18n:attributes="value"/>
+                 </form>
+                 <a id="issue-search-link"
+                    tal:attributes="href string:${trackerUrl}/poi_issue_search_form?${request/QUERY_STRING}"
+                    i18n:translate="poi_issue_search">Advanced issue search</a>
+
+              </div>
+          </div>
+          
     </div>
 
     </metal:trackerheader>
@@ -144,11 +143,6 @@
           submissions using the 'state' drop down in the green bar above.
 	   </dd>
     </dl>
-
-    <tal:text condition="context/help_text"
-              on-error="structure context/help_text">
-        <div tal:content="structure context/help_text/output" />
-    </tal:text>
 
     <h2 i18n:translate="poi_heading_open_issues">Open issues</h2>
 
@@ -219,14 +213,15 @@
     <div id="open-issues-by-tag" class="issue-quick-search-box"
          tal:define="tags context/getTagsInUse"
          tal:condition="python:isManager and len(tags) > 0">
-      <h3 i18n:translate="poi_heading_by_tag">By tag</h3>
-      <div>
-        <span tal:repeat="tag tags">
-          <a tal:attributes="href string:${issueQueryString}&amp;tags=${tag}"
-             tal:content="tag" />
-          <span tal:condition="not:repeat/tag/end"> ~ </span>
-        </span>
-      </div>
+      <h3 i18n:translate="poi_heading_by_tag">By top tags</h3>
+      <ul>
+        <li tal:repeat="tag tags">
+          <a tal:define="tagtext python:tag[0]"
+              tal:attributes="href string:${trackerUrl}/poi_issue_search?&amp;tags=${tagtext}"
+             tal:content="tagtext" />
+          (<span tal:replace="python:tag[1]"/>)
+        </li>
+      </ul>
     </div>
 
     <div style="clear:both"><!----></div>

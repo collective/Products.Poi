@@ -34,6 +34,7 @@ from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
 
+from collections import Counter
 from Products.Poi import PoiMessageFactory as _
 from plone import api
 from Products.Poi.utils import is_email
@@ -387,14 +388,10 @@ class Tracker(Container):
 
     def getTagsInUse(self):
         """Get a list of the issue tags in use in this tracker."""
-        issues = self.getIssues()
-        tags = {}
-        for i in issues:
-            for s in i.Subject:
-                tags[s] = 1
-        keys = tags.keys()
-        keys.sort(lambda x, y: cmp(x.lower(), y.lower()))
-        return keys
+        tags = Counter()
+        for i in self.getIssues():
+            tags += Counter(i.Subject)
+        return tags.most_common(10)
 
     def getIssueWorkflowStates(self):
         """Get a DisplayList of the workflow states available on issues."""
