@@ -737,7 +737,7 @@ msgstr ""
 msgid "poi_help_log"
 msgstr ""
 
-#. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
+#. Default: "The following open issues were submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
 #: ./skins/Poi/poi_tracker_view.pt:258
 msgid "poi_help_my_issues_manager"
 msgstr ""
