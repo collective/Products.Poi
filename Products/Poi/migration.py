@@ -485,6 +485,7 @@ def dexterity_migration(context):
          },
         {'AT_field_name': 'watchers',
          'DX_field_name': 'watchers',
+         'field_migrator': return_list
          },
         {'AT_field_name': 'subject',
          'DX_field_name': 'subject',
