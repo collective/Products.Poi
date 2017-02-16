@@ -100,7 +100,7 @@
               <form action="${context/absolute_url}/@@toggle_watching"
                     id="poi-watch-tracker-form"
                     tal:define="type context/portal_type;
-                                type_text python:type == 'Issue' and 'issue' or 'tracker'">
+                                type_text python:type == 'Tracker' and 'tracker' or 'issue'">
                 <div tal:define="is_watching context/@@toggle_watching/is_watching;">
                   <input tal:condition="is_watching"
                          class="standalone"
