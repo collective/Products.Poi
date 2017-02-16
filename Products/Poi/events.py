@@ -5,6 +5,7 @@ from plone import api
 
 from Products.Archetypes.atapi import DisplayList
 from Products.CMFCore.utils import getToolByName
+from Products.CMFCore.WorkflowCore import WorkflowException
 
 from Products.Poi import permissions
 from Products.Poi.adapters import IResponseContainer
@@ -129,7 +130,11 @@ def post_issue(object, event):
     if portal_membership.isAnonymousUser():
         object.setCreators(('(anonymous)',))
     portal_workflow = api.portal.get_tool('portal_workflow')
-    portal_workflow.doActionFor(object, 'post')
+    try:
+        portal_workflow.doActionFor(object, 'post')
+    except(WorkflowException):
+        # move on, this errors after migration, but all is well
+        pass
 
 
 def mail_issue_change(object, event):
