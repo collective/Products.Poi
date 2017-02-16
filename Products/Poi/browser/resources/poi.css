@@ -20,6 +20,10 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
 #tracker-actions {
     margin-bottom: 1em;
 }
+.trackerAction {
+    padding: 0 1em 10px 0;
+    float: left;
+}
 
 #issue-quicksearch-box input[type="text"] {
     display: inline;
@@ -32,6 +36,10 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
 
 .issue-tags {
     margin: 1em 0
+}
+
+.template-poi_issue_search h1 .discreent {
+    font-size: 40%;
 }
 
 .response-clarification,

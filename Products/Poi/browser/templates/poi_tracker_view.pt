@@ -51,77 +51,74 @@
         </tal:block>
       </div>
       
-          <div class="col-xs-6 col-sm-3">
-            <form action="createObject"
-                  id="poi-submit-new-issue-form"
-                  tal:condition="python: user.has_permission('Poi: Add Issue', here)"
-                  tal:define="portal_type context/portal_type;
-                              iinfo context/@@plone_interface_info;
-                              tracker python: iinfo.provides('Products.Poi.content.issue.IIssue') and context.getTracker() or False;
-                              allowed_types python: tracker and tracker.allowedContentTypes() or context.allowedContentTypes();
-                              is_multiple python: len(allowed_types) > 1;"
-                  tal:attributes="action python: is_multiple and trackerUrl+'/folder_factories' or trackerUrl+'/++add++'+allowed_types[0].id">
-              <input type="hidden"
-                     value="Issue"
-                     />
-              <input class="context"
-                     type="submit"
-                     i18n:attributes="value"
-                     value="Submit new issue"
-                     />
-            </form>
-          </div>
-          
-          <div class="col-xs-6 col-sm-3"
-               tal:condition="python:context.portal_type == 'Tracker'">
-              <a href="#" class="standalone" id="poi-show-log-form"
-                 i18n:translate="view_issue_logs"
-                 tal:attributes="href string:${trackerUrl}/log">View activity feed</a>
-          </div>
-          
-          <div class="col-xs-6 col-sm-3"
-               tal:condition="isAnon">
-            <form
-                id="poi-login-form"
-                tal:attributes="action string:${portal_url}/login_form?came_from=${here/absolute_url}">
-                  <a class="context pat-plone-modal" id="poi-login-form" href="#"
-                     data-pat-plone-modal='{"prependContent": ".portalMessage", "title": "Log in", "width": "26em"}'
-                     tal:attributes="href string:${portal_url}/login"
-                     i18n:domain="plone"
-                     i18n:attributes="value label_log_in;">
-                     Log In
-                  </a>
-            </form>
-          </div>
-
-          <metal:additional-slot define-slot="additional-header-actions">
-            <div class="col-xs-6 col-sm-3"
-                 tal:condition="python:not isAnon">
-              <form action="${context/absolute_url}/@@toggle_watching"
-                    id="poi-watch-tracker-form"
-                    tal:define="type context/portal_type;
-                                type_text python:type == 'Tracker' and 'tracker' or 'issue'">
-                <div tal:define="is_watching context/@@toggle_watching/is_watching;">
-                  <input tal:condition="is_watching"
-                         class="standalone"
+          <div class="col-xs-12 col-sm-7">
+              <div class="trackerAction">
+                <form action="createObject"
+                      id="poi-submit-new-issue-form"
+                      tal:condition="python: user.has_permission('Poi: Add Issue', here)"
+                      tal:define="portal_type context/portal_type;
+                                  iinfo context/@@plone_interface_info;
+                                  tracker python: iinfo.provides('Products.Poi.content.issue.IIssue') and context.getTracker() or False;
+                                  allowed_types python: tracker and tracker.allowedContentTypes() or context.allowedContentTypes();
+                                  is_multiple python: len(allowed_types) > 1;"
+                      tal:attributes="action python: is_multiple and trackerUrl+'/folder_factories' or trackerUrl+'/++add++'+allowed_types[0].id">
+                  <input type="hidden"
+                         value="Issue"
+                         />
+                  <input class="context"
                          type="submit"
                          i18n:attributes="value"
-                         tal:attributes="value string:Stop watching this ${type_text}"
+                         value="Submit new issue"
                          />
-                  <input tal:condition="not:is_watching"
-                         class="context"
-                         type="submit"
-                         i18n:attributes="value"
-                         tal:attributes="value string:Watch this ${type_text}"
-                         />
-                </div>
-              </form>
+                </form>
             </div>
-          </metal:additional-slot>
           
-          <div tal:define="type context/portal_type;
-                           wdth python:type == 'Tracker' and 'col-xs-6 col-sm-3' or 'col-xs-6 col-sm-6'"
-               tal:attributes="class wdth">
+              <div class="trackerAction" tal:condition="python:context.portal_type == 'Tracker'">
+                  <a href="#" class="standalone" id="poi-show-log-form"
+                     i18n:translate="view_issue_logs"
+                     tal:attributes="href string:${trackerUrl}/log">View activity feed</a>
+              </div>
+              
+              <div class="trackerAction" tal:condition="isAnon">
+                <form
+                    id="poi-login-form"
+                    tal:attributes="action string:${portal_url}/login_form?came_from=${here/absolute_url}">
+                      <a class="context pat-plone-modal" id="poi-login-form" href="#"
+                         data-pat-plone-modal='{"prependContent": ".portalMessage", "title": "Log in", "width": "26em"}'
+                         tal:attributes="href string:${portal_url}/login"
+                         i18n:domain="plone"
+                         i18n:attributes="value label_log_in;">
+                         Log In
+                      </a>
+                </form>
+              </div>
+
+              <metal:additional-slot define-slot="additional-header-actions">
+                <div class="trackerAction" tal:condition="python:not isAnon">
+                  <form action="${context/absolute_url}/@@toggle_watching"
+                        id="poi-watch-tracker-form"
+                        tal:define="type context/portal_type;
+                                    type_text python:type == 'Tracker' and 'tracker' or 'issue'">
+                    <div tal:define="is_watching context/@@toggle_watching/is_watching;">
+                      <input tal:condition="is_watching"
+                             class="standalone"
+                             type="submit"
+                             i18n:attributes="value"
+                             tal:attributes="value string:Stop watching this ${type_text}"
+                             />
+                      <input tal:condition="not:is_watching"
+                             class="context"
+                             type="submit"
+                             i18n:attributes="value"
+                             tal:attributes="value string:Watch this ${type_text}"
+                             />
+                    </div>
+                  </form>
+                </div>
+              </metal:additional-slot>
+          </div>
+          
+          <div class="col-xs-12 col-sm-5">
               <div id="issue-quicksearch-box">
                  <form action="" tal:attributes="action string:${trackerUrl}/@@poi_issue_quicksearch">
                     <input type="text" name="searchText" size="15"

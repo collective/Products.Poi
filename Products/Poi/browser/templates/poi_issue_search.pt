@@ -30,21 +30,17 @@
 
         <metal:intro fill-slot="intro-text">
 
-          <h1 class="documentFirstHeading" i18n:translate="poi_heading_search_results">Issue search results</h1>
-
-          <a href=""
-             class="link-parent visualNoPrint"
-             tal:attributes="href string:${here/absolute_url}/poi_issue_search_form">
-            <span i18n:translate="poi_return_to_search">Return to search</span>
-          </a>
+          <h1 class="documentFirstHeading">
+              <span i18n:translate="poi_heading_search_results">Issue search results</span>
+              
+              <strong class="discreet" tal:condition="nocall:results">
+                <span i18n:translate="batch_x_items_matching_your_criteria"><span i18n:name="number" tal:content="python:len(results)">234</span> items matching your criteria.</span>
+              </strong>
+          </h1>
 
           <div tal:condition="not:nocall:results">
             <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
           </div>
-
-          <strong tal:condition="nocall:results">
-            <span i18n:translate="batch_x_items_matching_your_criteria"><span i18n:name="number" tal:content="python:len(issues)">234</span> items matching your criteria.</span>
-          </strong>
 
         </metal:intro>
 
