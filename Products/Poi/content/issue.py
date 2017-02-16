@@ -37,7 +37,7 @@ def tracker_issues(context):
         current_tracker = context.getTracker()
     path = '/'.join(current_tracker.getPhysicalPath())
     query = {'path': {'query': path},
-             'portal_type': ('Issue',)}
+             'object_provides': IIssue.__identifier__}
     return CatalogSource(**query)
 
 
