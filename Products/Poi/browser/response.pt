@@ -3,6 +3,11 @@
      xmlns:metal="http://xml.zope.org/namespaces/metal"
      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
      i18n:domain="Poi">
+  
+  <h3 i18n:translate="title_change_history"
+      tal:condition="view/responses">
+      Change History
+  </h3>
   <tal:responses repeat="response_info view/responses">
     <div class="response-reply"
          tal:define="id response_info/id;
@@ -77,6 +82,11 @@
 
     </div>
   </tal:responses>
+  
+  <tal:add condition="python:user.has_permission('Poi: Upload attachment', here)">
+    <h3 i18n:translate="title_add_remove_attachments">Add/remove attachments</h3>
+    <metal:uploads use-macro="context/@@poi_issue_uploads/macros/issue-uploads" />
+  </tal:add>
 
   <tal:noadd condition="python:not user.has_permission('Poi: Add Response', here)">
     <p class="discreet"
@@ -142,133 +152,119 @@
 
           <textarea
               tal:condition="not:view/use_wysiwyg"
-              cols="40" rows="15" name="response" id="response"></textarea>
+              cols="40" rows="10" name="response" id="response"></textarea>
 
         </div>
 
       </div>
+      
+      <h3 i18n:translate="Poi_label_modify">Modify Issue</h3>
 
-      <div class="field"
-           tal:condition="view/transitions_for_display">
-        <label for="transition"
-               i18n:translate="Poi_label_issueTransition">
-          Change issue state
-        </label>
+      <div class="row">
+      <div class="col-xs-12 col-sm-6">
+          <div class="field"
+               tal:condition="view/transitions_for_display">
+            <label for="transition"
+                   i18n:translate="Poi_label_issueTransition">
+              Change issue state
+            </label>
 
-        <div class="formHelp"
-             id="issueTransition_help"
-             i18n:translate="Poi_help_issueTransition">
-          Select a change of state in the issue this response is for, if applicable
-        </div>
+            <div class="formHelp"
+                 id="issueTransition_help"
+                 i18n:translate="Poi_help_issueTransition">
+              Set a new state, if applicable
+            </div>
+            
+            <select name="transition">
+                <tal:transitions
+                    repeat="transition view/transitions_for_display">
+                    <option tal:content="transition/label"
+                            tal:attributes="value transition/value;
+                                            selected transition/checked;">
+                        transition
+                    </option>
+                </tal:transitions>
+            </select>
+          </div>
 
-        <tal:transitions
-            repeat="transition view/transitions_for_display">
-          <input class="noborder" name="transition"
-                 value="" id="transition_1" type="radio"
-                 tal:attributes="value transition/value;
-                                 id python:transition['value'] or 'issuetransition-novalue';
-                                 checked transition/checked;" />
 
+          <div class="field"
+               tal:condition="python:view.severities_for_display">
+            <label for="severity"
+                   i18n:translate="Poi_label_newSeverity">
+              Change issue severity
+            </label>
 
-          <label
-              i18n:domain="plone"
-              i18n:translate=""
-              tal:attributes="for python:transition['value'] or 'issuetransition-novalue'"
-              tal:content="transition/label" />
-
-          <br />
-        </tal:transitions>
+            <div class="formHelp" id="severity_help"
+                 i18n:translate="Poi_help_newSeverity">
+              Select the severity for this issue
+            </div>
+            
+            <select name="severity">
+                <tal:severities repeat="option view/severities_for_display">
+                    <option tal:define="term python:option['value']"
+                            tal:content="python:term.token"
+                            tal:attributes="value python:term.token;
+                                            selected option/checked;">
+                        severity
+                    </option>
+                </tal:severities>
+            </select>
+          </div>
       </div>
 
+      <div class="col-xs-12 col-sm-6">
+          <div class="field"
+               tal:condition="view/show_target_releases">
+            <label for="newTargetRelease"
+                   i18n:translate="Poi_label_newTargetRelease">
+              Change target release
+            </label>
 
-      <div class="field"
-           tal:condition="python:view.severities_for_display">
-        <label for="severity"
-               i18n:translate="Poi_label_newSeverity">
-          Change issue severity
-        </label>
+            <div class="formHelp" id="newTargetRelease_help"
+                 i18n:translate="Poi_help_newTargetRelease">
+              Set the target release for this issue
+            </div>
+            
+            <select name="targetRelease">
+                <tal:releases repeat="option view/releases_for_display">
+                    <option tal:define="term python:option['value']"
+                            tal:content="python:term.token"
+                            tal:attributes="value python:term.token;
+                                            selected option/checked;">
+                        target release
+                    </option>
+                </tal:releases>
+            </select>
+          </div>
 
-        <div class="formHelp" id="severity_help"
-             i18n:translate="Poi_help_newSeverity">
-          Select the severity for this issue
-        </div>
+          <div class="field"
+               tal:condition="view/assignees_for_display">
+            <label for="assignee"
+                   i18n:translate="Poi_label_newResponsibleManager">
+              Change assignee
+            </label>
 
-        <tal:options
-            repeat="option view/severities_for_display">
-          <tal:def define="term python:option['value']">
-              <input class="noborder" name="severity"
-                     value="" id="" type="radio"
-                     tal:attributes="value python:term.token;
-                                     id python:term.token;
-                                     checked option/checked;" />
-
-              <label
-                  tal:attributes="for python:term.token"
-                  tal:content="python:term.token" />
-
-              <br />
-          </tal:def>
-        </tal:options>
-      </div>
-
-      <div class="field"
-           tal:condition="view/show_target_releases">
-        <label for="newTargetRelease"
-               i18n:translate="Poi_label_newTargetRelease">
-          Change target release
-        </label>
-
-        <div class="formHelp" id="newTargetRelease_help"
-             i18n:translate="Poi_help_newTargetRelease">
-          Set the target release for this issue
-        </div>
-
-        <tal:options
-            repeat="option view/releases_for_display">
-          <tal:def define="term python:option['value']">
-              <input class="noborder" name="targetRelease"
-                     value="" id="" type="radio"
-                     tal:attributes="value python:term.token;
-                                     id python:term.token;
-                                     checked python:option['checked'];" />
-
-              <label
-                  tal:attributes="for python:term.token"
-                  tal:content="python:term.token" />
-
-              <br />
-          </tal:def>
-        </tal:options>
-      </div>
-
-      <div class="field"
-           tal:condition="view/assignees_for_display">
-        <label for="assignee"
-               i18n:translate="Poi_label_newResponsibleManager">
-          Change assignee
-        </label>
-
-        <div class="formHelp" id="manager_help"
-             i18n:translate="Poi_help_newResponsibleManager">
-          Select the assignee for this issue
-        </div>
-
-        <tal:options
-            repeat="option view/assignees_for_display">
-          <input class="noborder" name="current_assignee"
-                 value="" id="" type="radio"
-                 tal:attributes="value option/value;
-                                 id option/value;
-                                 checked option/checked;" />
-
-          <label
-              i18n:translate=""
-              tal:attributes="for option/value"
-              tal:content="option/label" />
-
-          <br />
-        </tal:options>
-      </div>
+            <div class="formHelp" id="manager_help"
+                 i18n:translate="Poi_help_newResponsibleManager">
+              Select the assignee for this issue
+            </div>
+            
+            <select name="current_assignee">
+                <option value="">
+                    No change
+                </option>
+                <tal:assignees repeat="option view/assignees_for_display">
+                    <option tal:content="option/label"
+                            tal:attributes="value option/value;
+                                            selected option/checked;">
+                        assignee
+                    </option>
+                </tal:assignees>
+            </select>
+          </div>
+     </div>
+     </div>
 
       <div class="formControls">
         <span tal:replace="structure context/@@authenticator/authenticator"/>
@@ -276,10 +272,5 @@
                i18n:domain="plone" i18n:attributes="value"/>
       </div>
     </form>
-  </tal:add>
-
-  <tal:add condition="python:user.has_permission('Poi: Upload attachment', here)">
-    <h3 i18n:translate="title_add_remove_attachments">Add/remove attachments</h3>
-    <metal:uploads use-macro="context/@@poi_issue_uploads/macros/issue-uploads" />
   </tal:add>
 </div>

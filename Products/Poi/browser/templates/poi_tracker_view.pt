@@ -44,7 +44,7 @@
                   trackerUrl trackerUrl|here/absolute_url;
                   logUrl string:$trackerUrl/log">
 
-    <div class="formControls">
+    <div class="row" id="tracker-actions">
       <div class="login-suggestion" tal:condition="isAnon">
         <tal:block i18n:translate="login_suggestion">
           If you can, please log in before submitting your issue.
@@ -71,7 +71,9 @@
                      />
             </form>
           </div>
-          <div class="col-xs-6 col-sm-3">
+          
+          <div class="col-xs-6 col-sm-3"
+               tal:condition="python:context.portal_type == 'Tracker'">
               <a href="#" class="standalone" id="poi-show-log-form"
                  i18n:translate="view_issue_logs"
                  tal:attributes="href string:${trackerUrl}/log">View activity feed</a>
@@ -117,7 +119,9 @@
             </div>
           </metal:additional-slot>
           
-          <div class="col-xs-6 col-sm-3">
+          <div tal:define="type context/portal_type;
+                           wdth python:type == 'Tracker' and 'col-xs-6 col-sm-3' or 'col-xs-6 col-sm-6'"
+               tal:attributes="class wdth">
               <div id="issue-quicksearch-box">
                  <form action="" tal:attributes="action string:${trackerUrl}/@@poi_issue_quicksearch">
                     <input type="text" name="searchText" size="15"

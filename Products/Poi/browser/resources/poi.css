@@ -17,13 +17,26 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
     content: '\e80e';
 }
 
+#tracker-actions {
+    margin-bottom: 1em;
+}
+
 #issue-quicksearch-box input[type="text"] {
     display: inline;
     width: auto;
 }
 
+.portaltype-issue #plone-document-byline {
+    display: none;
+}
+
+.issue-tags {
+    margin: 1em 0
+}
+
 .response-clarification,
-.response-file {
+.response-file,
+.response-reply {
     clear: both;
     padding-bottom: 1em;
     border-bottom: 1px solid #eeeeee;
