@@ -121,20 +121,10 @@ def post_issue(object, event):
     the root zope manager, as this user will become the owner.
     Instead we give a more sensible default.
 
-    And we do the 'post' transition.
-
-    And send the initial email.
-
     """
     portal_membership = api.portal.get_tool('portal_membership')
     if portal_membership.isAnonymousUser():
         object.setCreators(('(anonymous)',))
-    portal_workflow = api.portal.get_tool('portal_workflow')
-    try:
-        portal_workflow.doActionFor(object, 'post')
-    except(WorkflowException):
-        # move on, this errors after migration, but all is well
-        pass
 
 
 def mail_issue_change(object, event):
