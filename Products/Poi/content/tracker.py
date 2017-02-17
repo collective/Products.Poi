@@ -386,6 +386,12 @@ class Tracker(Container):
             context=self,
         )
 
+    def getAllTags(self):
+        """return all site tags"""
+        pc = api.portal.get_tool('portal_catalog')
+        key_indexes = pc._catalog.indexes['Subject']
+        return [i[0] for i in key_indexes.items()]
+
     def getTagsInUse(self):
         """Get a list of the issue tags in use in this tracker."""
         tags = Counter()

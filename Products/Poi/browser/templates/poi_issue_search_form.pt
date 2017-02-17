@@ -245,7 +245,7 @@
                     size="5"
                     multiple="multiple"
                     name="tags.query:record:list"
-                    tal:define="tags context/getTagsInUse">
+                    tal:define="tags context/getAllTags">
               <option tal:repeat="item tags"
                       tal:attributes="value item;
                                       selected python:item in request.get('tags.query', []) and 'selected' or None"
