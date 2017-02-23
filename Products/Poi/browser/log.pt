@@ -41,7 +41,10 @@
                i18n:name="name" />:
           </dt>
           <dd>
-            <p tal:content="structure entry/text" />
+            <tal:text condition="entry/text"
+                    on-error="structure entry/text">
+              <div tal:content="structure entry/text/output" />
+            </tal:text>
 
             <p class="discreet">
 
