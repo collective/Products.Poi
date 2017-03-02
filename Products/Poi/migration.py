@@ -345,6 +345,8 @@ def return_blank(src_obj, dst_obj, src_fieldname, dst_fieldname):
     field = src_obj.getField(src_fieldname).get(src_obj)
     if field == '(UNASSIGNED)':
         setattr(dst_obj, dst_fieldname, '')
+    else:
+        setattr(dst_obj, dst_fieldname, field)
 
 
 def move_attachments(src_obj, dst_obj, src_fieldname, dst_fieldname):
