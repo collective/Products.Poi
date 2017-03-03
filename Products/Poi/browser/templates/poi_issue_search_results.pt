@@ -129,14 +129,12 @@
                    </td>
                    <td tal:content="python: sort_on == 'subject_tags' and slug or ', '.join(item.subject) if item.subject else ''" />
                    <td tal:condition="display_related">
-                       <tal:def define="obj python:item.getObject()"
-                                on-error="nothing">
-                           <tal:related repeat="relate obj/getRelatedIssue">
-                               <a tal:content="string:#${relate/id}"
-                                  tal:attributes="href relate/absolute_url;
-                                                  title relate/Title" />
-                           </tal:related>
-                       </tal:def>
+                       <tal:related repeat="related item/related_issue">
+                           <a tal:define="relobj python: related.to_object"
+                              tal:content="string:#${relobj/id}"
+                              tal:attributes="href relobj/absolute_url;
+                                              title relobj/Title" />
+                       </tal:related>
                    </td>
                    <td tal:define="review_state python:item.getReviewState()">
                        <a tal:content="python:review_state['title']"
