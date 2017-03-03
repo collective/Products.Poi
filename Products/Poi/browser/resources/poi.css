@@ -189,3 +189,7 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
 #formfield-form-widgets-empty {
     display: none;
 }
+
+.issue-uploads {
+    margin-bottom: 2em;
+}
