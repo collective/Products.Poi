@@ -344,7 +344,7 @@ def return_blank(src_obj, dst_obj, src_fieldname, dst_fieldname):
     """
     field = src_obj.getField(src_fieldname).get(src_obj)
     if field == '(UNASSIGNED)':
-        setattr(dst_obj, dst_fieldname, '')
+        setattr(dst_obj, dst_fieldname, None)
     else:
         setattr(dst_obj, dst_fieldname, field)
 
