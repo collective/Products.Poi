@@ -51,10 +51,10 @@
                   issueQueryString python:'%s/poi_issue_search?state=%s' %
                   (here.aq_parent.absolute_url(), '&amp;state='.join(activeStates),);">
 
-    <a href="${context/absolute_url}/edit"
+    <p><a href="${context/absolute_url}/edit"
         class="context"
         i18n:translate=""
-        tal:condition="python: user.has_permission('Modify portal content', here)">Edit issue</a>
+        tal:condition="python: user.has_permission('Modify portal content', here)">Edit issue</a></p>
 
     <div class="issue-tags" tal:condition="here/Subject">
       <span class="issue-tags-label" i18n:translate="poi_label_tags">Tags:</span>
