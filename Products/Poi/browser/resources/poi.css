@@ -124,7 +124,7 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
     display: block;
     position: absolute;
     right: 5px;
-    top: 7px;
+    bottom: 7px;
     opacity: 0.5;
 }
 
@@ -160,7 +160,7 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
     display: block;
     position: absolute;
     right: 5px;
-    top: 7px;
+    bottom: 7px;
     transform: rotate(0deg);
 }
 
@@ -183,7 +183,7 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
 .template-poi_issue_search .sorton-subject_tags #subject_tags a:hover:after,
 .template-poi_issue_search .sorton-review_state #review_state a:hover:after {
     transform: rotate(180deg);
-    top: 9px;
+    bottom: 9px;
 }
 
 #formfield-form-widgets-empty {
