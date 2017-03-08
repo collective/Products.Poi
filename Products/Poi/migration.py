@@ -364,7 +364,7 @@ def move_attachments(src_obj, dst_obj, src_fieldname, dst_fieldname):
         api.content.create(
             container=dst_obj,
             type='File',
-            file=field.data,
+            file=src_obj.getAttachment(),
             title=fname
         )
         transaction.commit()
@@ -382,7 +382,7 @@ def move_attachments(src_obj, dst_obj, src_fieldname, dst_fieldname):
             new_atch = api.content.create(
                 container=dst_obj,
                 type='File',
-                file=atch.data,
+                file=atch,
                 title=fname
             )
             atch.id = new_atch.id
