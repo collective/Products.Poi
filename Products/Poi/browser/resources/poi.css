@@ -113,6 +113,7 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
     text-decoration: none;
     border-bottom: none;
     display: block;
+    padding-right: 8px;
 }
 
 .template-poi_issue_search .issue-search-results th a:hover {
@@ -183,7 +184,7 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
 .template-poi_issue_search .sorton-subject_tags #subject_tags a:hover:after,
 .template-poi_issue_search .sorton-review_state #review_state a:hover:after {
     transform: rotate(180deg);
-    bottom: 9px;
+    bottom: 5px;
 }
 
 #formfield-form-widgets-empty {
