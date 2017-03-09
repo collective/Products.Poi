@@ -30,12 +30,18 @@
 
         <metal:intro fill-slot="intro-text">
 
-          <h1 class="documentFirstHeading">
+          <h1 class="documentFirstHeading trackerSearchHeading">
               <span i18n:translate="poi_heading_search_results">Issue search results</span>
               
               <strong class="discreet" tal:condition="nocall:results">
-                <span i18n:translate="batch_x_items_matching_your_criteria"><span i18n:name="number" tal:content="python:len(results)">234</span> items matching your criteria.</span>
+                <span i18n:translate="batch_x_items_matching_your_criteria">(<span i18n:name="number" tal:content="python:len(results)">234</span> matches)</span>
               </strong>
+
+              <a href=""
+                 class="link-parent visualNoPrint"
+                 tal:attributes="href string:${here/absolute_url}">
+                <span i18n:translate="poi_return_to_tracker">Return to tracker</span>
+              </a>
           </h1>
 
           <div tal:condition="not:nocall:results">

@@ -38,8 +38,16 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
     margin: 1em 0
 }
 
-.template-poi_issue_search h1 .discreent {
-    font-size: 40%;
+.trackerSearchHeading .discreet {
+    font-size: .6em;
+}
+
+.trackerSearchHeading .link-parent {
+    margin-left: 1em;
+}
+
+.trackerSearchHeading .link-parent:hover {
+    border-bottom-width: 1px;
 }
 
 .response-clarification,
