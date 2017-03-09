@@ -158,7 +158,13 @@
 
       </div>
       
-      <h3 i18n:translate="Poi_label_modify">Modify Issue</h3>
+      <h3 i18n:translate="Poi_label_modify"
+              tal:define="transitions view/transitions_for_display;
+                          severities view/severities_for_display;
+                          target_releases view/show_target_releases;
+                          assignees view/assignees_for_display"
+           tal:condition="transitions|severities|target_releases|assignees">
+          Modify Issue</h3>
 
       <div class="row">
       <div class="col-xs-12 col-sm-6">
