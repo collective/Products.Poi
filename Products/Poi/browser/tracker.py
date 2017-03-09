@@ -99,7 +99,7 @@ class IssueFolderView(BrowserView):
         }
 
         query = {}
-        query['context'] = context
+        query['path'] = query['path'] = '/'.join(context.getPhysicalPath())
         query['portal_type'] = [i.id for i in context.allowedContentTypes()]
 
         for k, v in allowedCriteria.items():
