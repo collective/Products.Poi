@@ -1,3 +1,6 @@
+from urllib import urlencode
+from urlparse import parse_qsl
+
 from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
@@ -211,6 +214,17 @@ class IssueFolderView(BrowserView):
                     issues.append(i)
 
         return issues
+
+    def getBaseQuery(self):
+        query = self.request.QUERY_STRING
+        if query:
+            params = parse_qsl(query)
+            params = [i for i in params if i[0] != 'sort_on']
+            params = [i for i in params if i[0] != 'sort_order']
+            params = [i for i in params if i[0] != '_authenticator']
+            return urlencode(params)
+        else:
+            return ""
 
 
 class QuickSearchView(BrowserView):

@@ -23,6 +23,8 @@
                   trackerUrl context/absolute_url;
                   issueQueryString python:'%s/poi_issue_search?state=%s' %
                     (trackerUrl, '&amp;state='.join(activeStates),);
+                  baseURL issuefolder/getBaseQuery;
+                  requestURL request/URL;
                   pas_member context/@@pas_member;
                   can_edit python:checkPermission('Modify portal content', here);
                   releases context/getReleasesVocab;
@@ -38,43 +40,43 @@
         <th id="id" i18n:translate="listingheader_number">
           <a tal:omit-tag="not: sort_enabled"
              tal:define="new_sort_order python: (sort_on in ('','id') and request['sort_order'] == '') and 'reverse' or ''"
-             tal:attributes="href python:addTokenToUrl('%s&amp;sort_order=%s&amp;sort_on=id' % (issueQueryString, new_sort_order))">#</a>
+             tal:attributes="href python:addTokenToUrl('%s?%s&amp;sort_order=%s&amp;sort_on=id' % (requestURL, baseURL, new_sort_order))">#</a>
         </th>
         <th id="sortable_title" i18n:translate="listingheader_title">
           <a tal:omit-tag="not: sort_enabled"
              tal:define="new_sort_order python: (sort_on == 'sortable_title' and request['sort_order'] == '') and 'reverse' or ''"
-             tal:attributes="href python:addTokenToUrl('%s&amp;sort_order=%s&amp;sort_on=sortable_title' % (issueQueryString, new_sort_order));">Title</a>
+             tal:attributes="href python:addTokenToUrl('%s?%s&amp;sort_order=%s&amp;sort_on=sortable_title' % (requestURL, baseURL, new_sort_order));">Title</a>
         </th>
         <th id="target_release" i18n:translate="listingheader_release"
             tal:condition="here/isUsingReleases">
           <a tal:omit-tag="not: sort_enabled"
              tal:define="new_sort_order python: (sort_on == 'target_release' and request['sort_order'] == '') and 'reverse' or ''"
-             tal:attributes="href python:addTokenToUrl('%s&amp;sort_order=%s&amp;sort_on=target_release' % (issueQueryString, new_sort_order));">Target</a>
+             tal:attributes="href python:addTokenToUrl('%s?%s&amp;sort_order=%s&amp;sort_on=target_release' % (requestURL, baseURL, new_sort_order));">Target</a>
         </th>
         <th id="area" i18n:translate="listingheader_area">
           <a tal:omit-tag="not: sort_enabled"
              tal:define="new_sort_order python: (sort_on == 'area' and request['sort_order'] == '') and 'reverse' or ''"
-             tal:attributes="href python:addTokenToUrl('%s&amp;sort_order=%s&amp;sort_on=area' % (issueQueryString, new_sort_order));">Area</a>
+             tal:attributes="href python:addTokenToUrl('%s?%s&amp;sort_order=%s&amp;sort_on=area' % (requestURL, baseURL, new_sort_order));">Area</a>
         </th>
         <th id="issue_type" i18n:translate="listingheader_type">
           <a tal:omit-tag="not: sort_enabled"
              tal:define="new_sort_order python: (sort_on == 'issue_type' and request['sort_order'] == '') and 'reverse' or ''"
-             tal:attributes="href python:addTokenToUrl('%s&amp;sort_order=%s&amp;sort_on=issue_type' % (issueQueryString, new_sort_order));">Type</a>
+             tal:attributes="href python:addTokenToUrl('%s?%s&amp;sort_order=%s&amp;sort_on=issue_type' % (requestURL, baseURL, new_sort_order));">Type</a>
         </th>
         <th id="severity" i18n:translate="listingheader_severity">
           <a tal:omit-tag="not: sort_enabled"
              tal:define="new_sort_order python: (sort_on == 'severity' and request['sort_order'] == '') and 'reverse' or ''"
-             tal:attributes="href python:addTokenToUrl('%s&amp;sort_order=%s&amp;sort_on=severity' % (issueQueryString, new_sort_order));">Severity</a>
+             tal:attributes="href python:addTokenToUrl('%s?%s&amp;sort_order=%s&amp;sort_on=severity' % (requestURL, baseURL, new_sort_order));">Severity</a>
          </th>
         <th id="assignee" i18n:translate="listingheader_responsible">
           <a tal:omit-tag="not: sort_enabled"
              tal:define="new_sort_order python: (sort_on == 'assignee' and request['sort_order'] == '') and 'reverse' or ''"
-             tal:attributes="href python:addTokenToUrl('%s&amp;sort_order=%s&amp;sort_on=assignee' % (issueQueryString, new_sort_order));">Assignee</a>
+             tal:attributes="href python:addTokenToUrl('%s?%s&amp;sort_order=%s&amp;sort_on=assignee' % (requestURL, baseURL, new_sort_order));">Assignee</a>
            </th>
         <th id="subject_tags" i18n:translate="listingheader_tags">
           <a tal:omit-tag="not: sort_enabled"
              tal:define="new_sort_order python: (sort_on == 'subject_tags' and request['sort_order'] == '') and 'reverse' or ''"
-             tal:attributes="href python:addTokenToUrl('%s&amp;sort_order=%s&amp;sort_on=subject_tags' % (issueQueryString, new_sort_order));">Tags</a>
+             tal:attributes="href python:addTokenToUrl('%s?%s&amp;sort_order=%s&amp;sort_on=subject_tags' % (requestURL, baseURL, new_sort_order));">Tags</a>
         </th>
         <th id="related"
             tal:condition="display_related"
@@ -82,7 +84,7 @@
         <th id="review_state" i18n:translate="listingheader_state">
           <a tal:omit-tag="not: sort_enabled"
              tal:define="new_sort_order python: (sort_on == 'review_state' and request['sort_order'] == '') and 'reverse' or ''"
-             tal:attributes="href python:addTokenToUrl('%s&amp;sort_order=%s&amp;sort_on=review_state' % (issueQueryString, new_sort_order));">State</a>
+             tal:attributes="href python:addTokenToUrl('%s?%s&amp;sort_order=%s&amp;sort_on=review_state' % (requestURL, baseURL, new_sort_order));">State</a>
         </th>
       </tr>
     </thead>
