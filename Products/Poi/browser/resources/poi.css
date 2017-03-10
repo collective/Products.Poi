@@ -111,12 +111,12 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
     margin-left: 10px;
 }
 
-.template-poi_issue_search .issue-search-results th {
+.serp-yes.issue-search-results th {
     position: relative;
 }
 
 #content-core .issue-search-results th a,
-.template-poi_issue_search .issue-search-results th a {
+.serp-yes.issue-search-results th a {
     color: #4d4d4d;
     text-decoration: none;
     border-bottom: none;
@@ -124,11 +124,11 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
     padding-right: 8px;
 }
 
-.template-poi_issue_search .issue-search-results th a:hover {
+.serp-yes.issue-search-results th a:hover {
     color: #007bb1;
 }
 
-.template-poi_issue_search .issue-search-results th a:hover:after {
+.serp-yes.issue-search-results th a:hover:after {
     content: "▴";
     display: block;
     position: absolute;
@@ -147,24 +147,24 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
     list-style-position: inside;
 }
 
-.template-poi_issue_search .sorton-id #id a:after,
-.template-poi_issue_search .sorton-sortable_title #sortable_title a:after,
-.template-poi_issue_search .sorton-target_release #target_release a:after,
-.template-poi_issue_search .sorton-area #area a:after,
-.template-poi_issue_search .sorton-issue_type #issue_type a:after,
-.template-poi_issue_search .sorton-severity #severity a:after,
-.template-poi_issue_search .sorton-assignee #assignee a:after,
-.template-poi_issue_search .sorton-subject_tags #subject_tags a:after,
-.template-poi_issue_search .sorton-review_state #review_state a:after,
-.template-poi_issue_search .sorton-id.sortorder-reverse #id a:hover:after,
-.template-poi_issue_search .sorton-sortable_title.sortorder-reverse #sortable_title a:hover:after,
-.template-poi_issue_search .sorton-target_release.sortorder-reverse #target_release a:hover:after,
-.template-poi_issue_search .sorton-area.sortorder-reverse #area a:hover:after,
-.template-poi_issue_search .sorton-issue_type.sortorder-reverse #issue_type a:hover:after,
-.template-poi_issue_search .sorton-severity.sortorder-reverse #severity a:hover:after,
-.template-poi_issue_search .sorton-assignee.sortorder-reverse #assignee a:hover:after,
-.template-poi_issue_search .sorton-subject_tags.sortorder-reverse #subject_tags a:hover:after,
-.template-poi_issue_search .sorton-review_state.sortorder-reverse #review_state a:hover:after {
+.serp-yes .sorton-id #id a:after,
+.serp-yes .sorton-sortable_title #sortable_title a:after,
+.serp-yes .sorton-target_release #target_release a:after,
+.serp-yes .sorton-area #area a:after,
+.serp-yes .sorton-issue_type #issue_type a:after,
+.serp-yes .sorton-severity #severity a:after,
+.serp-yes .sorton-assignee #assignee a:after,
+.serp-yes .sorton-subject_tags #subject_tags a:after,
+.serp-yes .sorton-review_state #review_state a:after,
+.serp-yes .sorton-id.sortorder-reverse #id a:hover:after,
+.serp-yes .sorton-sortable_title.sortorder-reverse #sortable_title a:hover:after,
+.serp-yes .sorton-target_release.sortorder-reverse #target_release a:hover:after,
+.serp-yes .sorton-area.sortorder-reverse #area a:hover:after,
+.serp-yes .sorton-issue_type.sortorder-reverse #issue_type a:hover:after,
+.serp-yes .sorton-severity.sortorder-reverse #severity a:hover:after,
+.serp-yes .sorton-assignee.sortorder-reverse #assignee a:hover:after,
+.serp-yes .sorton-subject_tags.sortorder-reverse #subject_tags a:hover:after,
+.serp-yes .sorton-review_state.sortorder-reverse #review_state a:hover:after {
     content: "▴";
     display: block;
     position: absolute;
@@ -173,24 +173,24 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
     transform: rotate(0deg);
 }
 
-.template-poi_issue_search .sorton-id.sortorder-reverse #id a:after,
-.template-poi_issue_search .sorton-sortable_title.sortorder-reverse #sortable_title a:after,
-.template-poi_issue_search .sorton-target_release.sortorder-reverse #target_release a:after,
-.template-poi_issue_search .sorton-area.sortorder-reverse #area a:after,
-.template-poi_issue_search .sorton-issue_type.sortorder-reverse #issue_type a:after,
-.template-poi_issue_search .sorton-severity.sortorder-reverse #severity a:after,
-.template-poi_issue_search .sorton-assignee.sortorder-reverse #assignee a:after,
-.template-poi_issue_search .sorton-subject_tags.sortorder-reverse #subject_tags a:after,
-.template-poi_issue_search .sorton-review_state.sortorder-reverse #review_state a:after,
-.template-poi_issue_search .sorton-id #id a:hover:after,
-.template-poi_issue_search .sorton-sortable_title #sortable_title a:hover:after,
-.template-poi_issue_search .sorton-target_release #target_release a:hover:after,
-.template-poi_issue_search .sorton-area #area a:hover:after,
-.template-poi_issue_search .sorton-issue_type #issue_type a:hover:after,
-.template-poi_issue_search .sorton-severity #severity a:hover:after,
-.template-poi_issue_search .sorton-assignee #assignee a:hover:after,
-.template-poi_issue_search .sorton-subject_tags #subject_tags a:hover:after,
-.template-poi_issue_search .sorton-review_state #review_state a:hover:after {
+.serp-yes .sorton-id.sortorder-reverse #id a:after,
+.serp-yes .sorton-sortable_title.sortorder-reverse #sortable_title a:after,
+.serp-yes .sorton-target_release.sortorder-reverse #target_release a:after,
+.serp-yes .sorton-area.sortorder-reverse #area a:after,
+.serp-yes .sorton-issue_type.sortorder-reverse #issue_type a:after,
+.serp-yes .sorton-severity.sortorder-reverse #severity a:after,
+.serp-yes .sorton-assignee.sortorder-reverse #assignee a:after,
+.serp-yes .sorton-subject_tags.sortorder-reverse #subject_tags a:after,
+.serp-yes .sorton-review_state.sortorder-reverse #review_state a:after,
+.serp-yes .sorton-id #id a:hover:after,
+.serp-yes .sorton-sortable_title #sortable_title a:hover:after,
+.serp-yes .sorton-target_release #target_release a:hover:after,
+.serp-yes .sorton-area #area a:hover:after,
+.serp-yes .sorton-issue_type #issue_type a:hover:after,
+.serp-yes .sorton-severity #severity a:hover:after,
+.serp-yes .sorton-assignee #assignee a:hover:after,
+.serp-yes .sorton-subject_tags #subject_tags a:hover:after,
+.serp-yes .sorton-review_state #review_state a:hover:after {
     transform: rotate(180deg);
     bottom: 5px;
 }

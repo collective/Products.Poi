@@ -16,7 +16,7 @@
 
   <metal:block define-slot="intro-text" />
 
-   <table class="listing issue-search-results"
+   <table tal:attributes="class string:listing issue-search-results serp-${serp_page}"
        tal:define="states context/getIssueWorkflowStates;
                   activeStates issuefolder/getActiveStates;
                   addTokenToUrl python:context.addTokenToUrl;
@@ -33,7 +33,8 @@
                   sort_order request/sort_order|nothing;
                   area_search request/form/area|nothing;
                   target_search request/form/targetRelease|nothing;
-                  sort_enabled sort_enabled|nothing"
+                  sort_enabled sort_enabled|nothing;
+                  serp_page python: sort_enabled and 'yes' or 'no';"
        tal:condition="nocall:issues">
        <thead>
       <tr tal:attributes="class string:sorton-${sort_on} sortorder-${sort_order}">
