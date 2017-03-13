@@ -62,6 +62,16 @@ class IssueFolderView(BrowserView):
                                 slug=r[1]) for r in
                            sorted((i for i in newresults),
                                   key=lambda x: x[1], reverse=sort_order)]
+            elif criteria.get('sort_on') == 'id':
+                results = self.getFilteredIssues(criteria, **kwargs)
+                for i in results:
+                    id_as_number = int(i.id)
+                    newresults.append((i, id_as_number))
+
+                results = [dict(brain=r[0],
+                                slug=r[1]) for r in
+                           sorted((i for i in newresults),
+                                  key=lambda x: x[1], reverse=sort_order)]
             else:
                 results = self.getFilteredIssues(criteria, **kwargs)
         else:
