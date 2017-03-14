@@ -9,6 +9,9 @@ from ZTUtils import make_query
 
 from plone import api
 
+from Products.Poi.content.issue import IIssue
+
+
 ACTIVE_STATES = ['open', 'in-progress', 'unconfirmed']
 
 
@@ -113,7 +116,7 @@ class IssueFolderView(BrowserView):
 
         query = {}
         query['path'] = query['path'] = '/'.join(context.getPhysicalPath())
-        query['portal_type'] = [i.id for i in context.allowedContentTypes()]
+        query['object_provides'] = IIssue
 
         for k, v in allowedCriteria.items():
             if criteria.get(k):
