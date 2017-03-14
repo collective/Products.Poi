@@ -53,6 +53,10 @@
         require(['mockup-patterns-relateditems']);
     }
 
+    // hide Fields tab in Dexterity Content Types
+    $("body[class*='Tracker'].section-dexterity-types .autotoc-nav, body[class*='Issue'].section-dexterity-types .autotoc-nav").find("a:contains('Fields')").css("display", "none");
+
+
 }); })(jQuery);
 
 function displayEditor(field) {
