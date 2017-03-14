@@ -297,9 +297,9 @@ class ITracker(model.Schema):
     )
     assignees = schema.List(
         title=_(u'Poi_label_assignees', default=u'Assignees'),
-        description=_(u'A list of users that can be assigned issues. '
-                      u'Users also need to be added as Watchers to '
-                      u'receive notifications.'),
+        description=_(u"Enter users who will be responsible for solving "
+                      u"the issues. Users also need to be added as "
+                      u"Watchers to receive notifications."),
         value_type=schema.Choice(
             source='plone.app.vocabularies.Users'
             ),
