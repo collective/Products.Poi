@@ -124,7 +124,7 @@
 
         <div class="formHelp" id="response_help"
              i18n:translate="Poi_help_response">
-          Please enter your response below
+          Please enter your response below.
         </div>
         <div>
 

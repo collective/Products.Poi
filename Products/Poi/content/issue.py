@@ -80,7 +80,7 @@ class IIssue(model.Schema):
     details = RichText(
         title=_(u'Poi_label_issue_details', default=u'Details'),
         description=_(u'Poi_help_issue_details',
-                      default=u"Please provide further details")
+                      default=u"Please provide further details.")
     )
 
     dexteritytextindexer.searchable('steps')
@@ -123,7 +123,7 @@ class IIssue(model.Schema):
         title=_(u'Poi_label_issue_target_release', default=u'Target Release'),
         description=_(u'Poi_help_issue_target_release',
                       default=u"Release this issue is targetted to be fixed "
-                              u"in"),
+                              u"in."),
         source=possibleTargetReleases,
         required=False,
     )
