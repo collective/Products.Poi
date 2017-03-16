@@ -44,6 +44,26 @@
     // update list after upload
     $(".template-poi_issue_view .pat-upload").on('uploadAllCompleted', updateAttachmentsList);
 
+    // add tooltips for automatic linking
+    if ($('.portaltype-issue').length>0) {
+        $("label[for='form-widgets-details'] .formHelp, #response_help").append(" This field can create Automatic Links.<a href='@@poi_issue_automatic_linking' class='automatic-linking' title='test'><span class='icon-contentInfo'></span></a>");
+        $(document).tooltip({
+            items: '.automatic-linking',
+            content: function(callback){
+                $.ajax({
+                    url:'@@poi_issue_automatic_linking',
+                    cache: true,
+                    success: function(data){
+                        callback(data);
+                        $('.automatic-linking').click(function (e) {
+                            e.preventDefault();
+                        });
+                    }
+                });
+            }
+        });
+    }
+
     // manually load tinymce is user is not authenticated...
     if($('body.userrole-anonymous.template-products-poi-content-issue-issue').length === 1){
         require(['tinymce'], function(){

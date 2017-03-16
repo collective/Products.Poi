@@ -164,6 +164,13 @@
      template="issue_uploads.pt"
      />
 
+  <browser:page
+     name="poi_issue_automatic_linking"
+     for="*"
+     permission="zope2.View"
+     template="automatic_linking.pt"
+     />
+
   <!-- CSV Export -->
   <browser:page
      name="poi-issue-export"

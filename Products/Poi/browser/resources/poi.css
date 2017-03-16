@@ -202,3 +202,18 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
 .issue-uploads {
     margin-bottom: 2em;
 }
+
+#content-core .automatic-linking {
+    font-size: 1.2em;
+    text-decoration: none;
+    border-bottom: none;
+}
+
+#automaticLinking ul {
+    list-style-type: none;
+}
+
+.ui-widget {
+    font-size: 1em;
+    background: #FAFAFA;
+}
