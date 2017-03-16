@@ -9,10 +9,9 @@ ISSUE_RECOGNITION_PATTERNS = (
     r'\bbug:([1-9][0-9]*)\b',
 )
 REVISION_RECOGNITION_PATTERNS = (
-    r'\b([0-9a-f]{7,})\b',
-    r'\br([0-9]+)\b',
-    r'\bchangeset:([0-9]+)\b',
-    r'\B\[([0-9]+)\]\B',
+    r'\br([0-9a-f]+)\b',
+    r'\bchangeset:([0-9a-f]+)\b',
+    r'\B\[([0-9a-f]+)\]\B',
 )
 # Template to use when recognizing a link to another issue:
 ISSUE_LINK_TEMPLATE = '<a href="%(base_url)s/%(bug)s">%(linktext)s</a>'
