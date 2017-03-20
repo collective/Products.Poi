@@ -6,7 +6,7 @@
   <!-- Basic metadata -->
   <property name="title" i18n:translate="">Issue</property>
   <property name="description" i18n:translate="">An Issue in a Poi Tracker</property>
-  <property name="icon_expr">string:${portal_url}/PoiIssue.gif</property>
+  <property name="icon_expr">string:${portal_url}/++resource++poi/attachment.png</property>
   <property name="factory">Products.Poi.content.issue.Issue</property>
   <property name="global_allow">False</property>
   <property name="filter_content_types">True</property>
