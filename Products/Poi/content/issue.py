@@ -3,6 +3,7 @@ from zope.interface import implementer
 from zope.interface import provider
 from zope import schema
 
+from Acquisition import aq_chain
 from collective import dexteritytextindexer
 from plone import api
 from plone.app.textfield import RichText
@@ -230,7 +231,13 @@ class Issue(Container):
 
     def getTracker(self):
         """Return the tracker."""
-        return api.content.get(UID=self._tracker_uid)
+        tracker = api.content.get(UID=self._tracker_uid)
+        if tracker:
+            return tracker
+        chain = aq_chain(self)
+        for parent in chain:
+            if ITracker.providedBy(parent):
+                return parent
 
     def getContactEmail(self):
         return api.user.get(self.Creator()).getProperty('email')
