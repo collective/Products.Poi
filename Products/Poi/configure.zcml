@@ -130,8 +130,6 @@
         handler=".events.add_response_for_files"
         />
 
-  <adapter factory=".adapters.rvUUID"/>
-
   <adapter
       provides=".adapters.IResponseContainer"
       factory=".adapters.ResponseContainer"

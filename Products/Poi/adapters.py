@@ -15,22 +15,10 @@ from zope.event import notify
 from zope.interface import Attribute
 from zope.interface import Interface
 from zope.interface import implements
-from zope.interface import implementer
-from plone.uuid.interfaces import IUUID
-from plone.uuid.interfaces import ATTRIBUTE_NAME
-from z3c.relationfield.interfaces import IRelationValue
 
 from Products.Poi.interfaces import IIssue
 
 logger = logging.getLogger('Products.Poi.adapters')
-
-
-@implementer(IUUID)
-@adapter(IRelationValue)
-def rvUUID(context):
-    """ XXX: This should probably live in the z3c.relationfield product
-    """
-    return getattr(aq_base(context.to_object), ATTRIBUTE_NAME, None)
 
 
 class IssueWatcherList(WatcherList):
