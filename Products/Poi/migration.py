@@ -11,6 +11,7 @@ from Products.Poi.adapters import IResponseContainer, ResponseContainer
 from Products.Poi.utils import normalize_filename
 from ZODB.POSException import ConflictError
 from zope.annotation.interfaces import IAnnotations
+from zope.container.interfaces import INameChooser
 from zope.schema._bootstrapinterfaces import ConstraintNotSatisfied
 
 import logging
@@ -361,13 +362,23 @@ def move_attachments(src_obj, dst_obj, src_fieldname, dst_fieldname):
             fname = field.title
         else:
             fname = "Attachment"
-        api.content.create(
-            container=dst_obj,
-            type='File',
-            file=src_obj.getAttachment(),
-            title=fname
-        )
+        file_obj = src_obj.getAttachment()
+        data = file_obj.data
+        if base_hasattr(data, 'data'):
+            data = data.data
+        filename = safe_unicode(fname)
+        new_atch = dst_obj.invokeFactory(
+            'File',
+            title=filename,
+            id="tmp",
+            file=data)
         transaction.commit()
+        new_obj = dst_obj._getOb(new_atch)
+        oid = INameChooser(dst_obj).chooseName(fname, new_obj)
+        new_obj.setId(oid)
+        new_obj.setFilename(oid)
+        new_obj.content_type = file_obj.getContentType()
+        new_obj.reindexObject()
     atresponses = IResponseContainer(src_obj, None)
     dxissue = ResponseContainer(dst_obj)
     for response in atresponses:
@@ -379,14 +390,23 @@ def move_attachments(src_obj, dst_obj, src_fieldname, dst_fieldname):
                 fname = atch.title
             else:
                 fname = "Attachment"
-            new_atch = api.content.create(
-                container=dst_obj,
-                type='File',
-                file=atch,
-                title=fname
-            )
-            atch.id = new_atch.id
+            data = atch.data
+            if base_hasattr(data, 'data'):
+                data = data.data
+            filename = safe_unicode(fname)
+            new_atch = dst_obj.invokeFactory(
+                'File',
+                title=filename,
+                id="tmp",
+                file=data)
             transaction.commit()
+            new_obj = dst_obj._getOb(new_atch)
+            oid = INameChooser(dst_obj).chooseName(fname, new_obj)
+            new_obj.setId(oid)
+            new_obj.setFilename(oid)
+            new_obj.content_type = atch.getContentType()
+            new_obj.reindexObject()
+            atch.id = oid
         dxissue.add(response)
 
 
