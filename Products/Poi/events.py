@@ -194,6 +194,8 @@ def update_references(object, event=None):
     # add this issue to its related issues where needed
     for issue in relatedIssues:
         others_related = issue.to_object.related_issue
+        if not others_related:
+            others_related = []
         for other in others_related:
             if objintid == other.to_id:
                 break
