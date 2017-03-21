@@ -461,7 +461,8 @@ class TrackerRoleProvider(object):
         return self.roles
 
     def getAllRoles(self):
-        try:
-            yield [(i, self.roles) for i in self.context.assignees]
-        except AttributeError:
-            yield '', ()
+        for assignee in self.context.assignees:
+            try:
+                yield assignee, self.roles
+            except AttributeError:
+                yield '', ()
