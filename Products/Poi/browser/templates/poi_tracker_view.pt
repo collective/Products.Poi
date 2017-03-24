@@ -127,7 +127,8 @@
                  <form action="" tal:attributes="action string:${trackerUrl}/@@poi_issue_quicksearch">
                     <input type="text" name="searchText" size="15"
                            tal:attributes="value request/SearchableText|nothing" />
-                    <input class="searchButton" type="submit" value="Search" i18n:attributes="value"/>
+                    <button class="searchButton" type="submit" value="Search" i18n:attributes="value">
+                    </button>
                  </form>
                  <a id="issue-search-link"
                     tal:attributes="href string:${trackerUrl}/poi_issue_search_form?${request/QUERY_STRING}"

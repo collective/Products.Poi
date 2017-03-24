@@ -27,7 +27,17 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
 
 #issue-quicksearch-box input[type="text"] {
     display: inline;
-    width: auto;
+    width: calc(100% - 40px);
+}
+#issue-quicksearch-box .searchButton {
+    position: absolute;
+    top: 0;
+    padding: 6px 9px;
+    margin-left: 4px;
+}
+#issue-quicksearch-box .searchButton::before {
+    font-family: fontello;
+    content: '\e83a';
 }
 
 .portaltype-issue #plone-document-byline {
