@@ -140,6 +140,7 @@
      name="poi_issue_view"
      for="*"
      permission="zope2.View"
+     class=".issue.IssueView"
      template="templates/poi_issue_view.pt"
      />
 

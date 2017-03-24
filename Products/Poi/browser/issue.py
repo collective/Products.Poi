@@ -1,4 +1,8 @@
 from plone.dexterity.browser.edit import DefaultEditForm
+from plone.protect.interfaces import IDisableCSRFProtection
+from Products.Five import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from zope.interface import alsoProvides
 
 
 class IssueEdit(DefaultEditForm):
@@ -9,3 +13,12 @@ class IssueEdit(DefaultEditForm):
         self.context = context
         self.request = request
         self.request.set('disable_border', 1)
+
+
+class IssueView(BrowserView):
+
+    template = ViewPageTemplateFile('templates/poi_issue_view.pt')
+
+    def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+        return self.template()
