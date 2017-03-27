@@ -238,11 +238,17 @@ def available_assignees(issue):
         return DisplayList()
     return possibleAssignees(tracker)
 
+
 def add_response_for_files(object, event):
     """If a file/image is added or deleted, add a response."""
     if isinstance(event, ObjectAddedEvent):
-        if event.newParent.portal_type == "Issue":
-            issue = event.newParent
+        parent = event.newParent
+        # do not add response if attachment is migrating to DX
+        checkid = object.id + '_MIGRATION_'
+        if any(att.id == checkid for att in parent.getFolderContents()):
+            return
+        if parent.portal_type == "Issue":
+            issue = parent
             new_response = Response("")
         else:
             return
