@@ -180,7 +180,11 @@
 
     <dl class="steps-to-reproduce" tal:condition="nocall:context/steps">
       <dt i18n:translate="poi_label_steps">Steps to reproduce:</dt>
-      <dd tal:content="structure context/linkedSteps" />
+      <dd>
+          <tal:text condition="context/linkedSteps" on-error="structure context/linkedSteps">
+            <div tal:content="structure context/linkedSteps/output" />
+          </tal:text>
+      </dd>
     </dl>
 
     <dl class="related-issues" tal:define="related context/related_issue" tal:condition="related">
