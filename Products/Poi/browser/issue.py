@@ -20,5 +20,6 @@ class IssueView(BrowserView):
     template = ViewPageTemplateFile('templates/poi_issue_view.pt')
 
     def __call__(self):
-        alsoProvides(self.request, IDisableCSRFProtection)
+        if self.request.method == 'GET':
+            alsoProvides(self.request, IDisableCSRFProtection)
         return self.template()
