@@ -227,3 +227,7 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
     font-size: 1em;
     background: #FAFAFA;
 }
+
+#content-core .issue-details {
+    margin-bottom: 1em;
+}
