@@ -363,17 +363,23 @@ def move_attachments(src_obj, dst_obj, src_fieldname, dst_fieldname):
         else:
             fname = "Attachment"
         file_obj = src_obj.getAttachment()
-        data = file_obj.data
-        if base_hasattr(data, 'data'):
-            data = data.data
         filename = safe_unicode(fname)
-        new_atch = dst_obj.invokeFactory(
-            'File',
-            title=filename,
-            id="tmp",
-            file=data)
+        exts = ['jpg', 'jpeg', 'gif', 'png', 'tiff']
+        if any(ext in filename for ext in exts):
+            new_obj = api.content.create(
+                container=dst_obj,
+                type='Image',
+                title=filename,
+                id="tmp",
+                file=file_obj.data)
+        else:
+            new_obj = api.content.create(
+                container=dst_obj,
+                type='File',
+                title=filename,
+                id="tmp",
+                file=file_obj.data)
         transaction.commit()
-        new_obj = dst_obj._getOb(new_atch)
         oid = INameChooser(dst_obj).chooseName(fname, new_obj)
         new_obj.setId(oid)
         new_obj.setFilename(oid)
@@ -385,28 +391,37 @@ def move_attachments(src_obj, dst_obj, src_fieldname, dst_fieldname):
         if not response:
             continue
         atch = response.attachment
-        if atch:
-            if atch.title:
-                fname = atch.title
-            else:
-                fname = "Attachment"
-            data = atch.data
-            if base_hasattr(data, 'data'):
-                data = data.data
-            filename = safe_unicode(fname)
-            new_atch = dst_obj.invokeFactory(
-                'File',
+        if not atch:
+            dxissue.add(response)
+            continue
+
+        if atch.title:
+            fname = atch.title
+        else:
+            fname = "Attachment"
+        filename = safe_unicode(fname)
+        exts = ['jpg', 'jpeg', 'gif', 'png', 'tiff']
+        if any(ext in filename for ext in exts):
+            new_obj = api.content.create(
+                container=dst_obj,
+                type='Image',
                 title=filename,
                 id="tmp",
-                file=data)
-            transaction.commit()
-            new_obj = dst_obj._getOb(new_atch)
-            oid = INameChooser(dst_obj).chooseName(fname, new_obj)
-            new_obj.setId(oid)
-            new_obj.setFilename(oid)
-            new_obj.content_type = atch.getContentType()
-            new_obj.reindexObject()
-            atch.id = oid
+                file=atch.data)
+        else:
+            new_obj = api.content.create(
+                container=dst_obj,
+                type='File',
+                title=filename,
+                id="tmp",
+                file=atch.data)
+        transaction.commit()
+        oid = INameChooser(dst_obj).chooseName(fname, new_obj)
+        new_obj.setId(oid)
+        new_obj.setFilename(oid)
+        new_obj.content_type = atch.getContentType()
+        new_obj.reindexObject()
+        atch.id = oid
         dxissue.add(response)
 
 
