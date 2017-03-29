@@ -160,7 +160,7 @@ class IssueFolderView(BrowserView):
         if criteria.get('sort_limit'):
             query['sort_limit'] = criteria.get('sort_limit')
         # allow substring searches
-        if 'SearchableText' in query:
+        if 'exacttext' not in criteria and 'SearchableText' in query:
             query['SearchableText'] = '*{}*'.format(query['SearchableText'])
 
         return query

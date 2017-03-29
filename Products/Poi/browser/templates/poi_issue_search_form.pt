@@ -62,6 +62,16 @@
                    name="text"
                    tal:attributes="value request/form/text|nothing"
                    size="30" />
+
+           <input type="checkbox"
+                  id="exacttext"
+                  name="exacttext"
+                  checked="checked"
+                  tal:attributes="value request/form/exacttext|nothing" />
+
+           <label for="exacttext">
+               Exact Text Search
+               <span class="discreet">Unchecking may result in slower search performance</span>
           </div>
 
           <div class="field">
