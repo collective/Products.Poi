@@ -231,3 +231,8 @@ body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
 #content-core .issue-details {
     margin-bottom: 1em;
 }
+
+.portaltype-issue div[aria-label='Insert/edit image'],
+.template-products-poi-content-issue-issue div[aria-label='Insert/edit image'] {
+    display: none;
+}
