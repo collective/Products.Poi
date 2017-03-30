@@ -47,7 +47,6 @@
     // add tooltips for automatic linking
     if ($('.portaltype-issue').length>0) {
         $("label[for='form-widgets-details'] .formHelp, #response_help").append(" This field can create Automatic Links.<a href='@@poi_issue_automatic_linking' class='automatic-linking' title='test'><span class='icon-contentInfo'></span></a>");
-        var bootstrapTooltip = $.fn.tooltip.noConflict();
         $(document).tooltip({
             items: '.automatic-linking',
             content: function(callback){
