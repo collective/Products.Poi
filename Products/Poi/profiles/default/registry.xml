@@ -53,8 +53,4 @@
     </value>
 </records>
 
-<records interface="collective.js.jqueryui.controlpanel.IJQueryUIPlugins">
-  <value key="ui_tooltip">True</value>
-</records>
-
 </registry>
