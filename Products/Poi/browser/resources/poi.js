@@ -45,23 +45,26 @@
     $(".template-poi_issue_view .pat-upload").on('uploadAllCompleted', updateAttachmentsList);
 
     // add tooltips for automatic linking
-    if ($('.portaltype-issue').length>0) {
-        $("label[for='form-widgets-details'] .formHelp, #response_help").append(" This field can create Automatic Links.<a href='@@poi_issue_automatic_linking' class='automatic-linking' title='test'><span class='icon-contentInfo'></span></a>");
-        $(document).tooltip({
-            items: '.automatic-linking',
-            content: function(callback){
-                $.ajax({
-                    url:'@@poi_issue_automatic_linking',
-                    cache: true,
-                    success: function(data){
-                        callback(data);
-                        $('.automatic-linking').click(function (e) {
-                            e.preventDefault();
-                        });
-                    }
-                });
-            }
-        });
+    if ($('.portaltype-issue').length>0 || ($('.portaltype-tracker').length>0) && /\+\+add\+\+Issue/.test(window.location.href)) {
+        $('body').append(
+            "<div id='automatic-linking' style='display: none'>"+
+              "<h1>Automatic linking</strong></h1>"+
+              "<p><strong>Issues</strong> <span class='formHelp'>This field will automatically link to other issues in this tracker when you use these formats</span></p>"+
+              "<ul>"+
+              "<li>#123</li>"+
+              "<li>issue:123</li>"+
+              "<li>ticket:123</li>"+
+              "<li>bug:123</li>"+
+              "</ul>"+
+              "<p><strong>Repository</strong> <span class='formHelp'>This field will automatically link to the Repository set in the tracker settings when you use these formats</span></p>"+
+              "<ul>"+
+              "<li>r123</li>"+
+              "<li>changeset:123</li>"+
+              "<li>[123]</li>"+
+              "</ul>"+
+              "<p class='formHelp'>Note: Repositories that use alphanumeric identification numbers need at least 4 characters to correctly identify the changeset when linking.</p>"+
+            "</div>");
+        $("label[for='form-widgets-details'] .formHelp, label[for='form-widgets-steps'] .formHelp, #response_help").append(" This field can create Automatic Links.<a href='#automatic-linking' class='automatic-linking pat-plone-modal' data-pat-plone-modal='width: 500px'><span class='icon-contentInfo'></span></a>");
     }
 
     // manually load tinymce is user is not authenticated...
