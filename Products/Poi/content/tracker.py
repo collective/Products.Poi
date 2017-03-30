@@ -25,10 +25,12 @@ __docformat__ = 'plaintext'
 
 
 from zope.component import adapts
+from zope.component import provideAdapter
 from zope.interface import implementer
 from zope import schema
 from zope.interface import implements
 from zope.interface import Interface
+from zope.interface import Invalid
 from zope.interface import directlyProvides
 from zope.interface import provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
@@ -53,6 +55,7 @@ from plone.protect.utils import addTokenToUrl
 from plone.supermodel import model
 from plone.z3cform.textlines import TextLinesFieldWidget
 from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
+from z3c.form import validator
 
 
 DEFAULT_SEVERITIES = [
@@ -466,3 +469,85 @@ class TrackerRoleProvider(object):
                 yield assignee, self.roles
             except AttributeError:
                 yield '', ()
+
+
+class AlphaNumericValidator(validator.SimpleFieldValidator):
+    """Only allow letters, numbers, hyphens, and underscores
+    """
+
+    def validate(self, value):
+        allowed_chars = "abcdefghijklmnopqrstuvwxyz"
+        allowed_chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789_-"
+        if not value:
+            return
+        error = False
+        for val in value:
+            if val['short_name']:
+                error = any(c not in allowed_chars for c in val['short_name'])
+            if val['title']:
+                error = any(c not in allowed_chars for c in val['title'])
+        if error:
+            errtext = u"Please enter only alpha-numeric characters into this \
+                       field, no special characters other than hyphens and \
+                       underscores"
+            raise Invalid(errtext)
+        else:
+            return
+
+
+class AlphaNumericValidator2(validator.SimpleFieldValidator):
+    """Only allow letters, numbers, hyphens, and underscores
+    """
+
+    def validate(self, value):
+        allowed_chars = "abcdefghijklmnopqrstuvwxyz"
+        allowed_chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789_-"
+        if not value:
+            return
+        error = False
+        for val in value:
+            if val['short_name']:
+                error = any(c not in allowed_chars for c in val['short_name'])
+            if val['title']:
+                error = any(c not in allowed_chars for c in val['title'])
+        if error:
+            errtext = u"Please enter only alpha-numeric characters into this \
+                       field, no special characters other than hyphens and \
+                       underscores"
+            raise Invalid(errtext)
+        else:
+            return
+
+
+class AlphaNumericLinesValidator(validator.SimpleFieldValidator):
+    """Only allow letters, numbers, hyphens, and underscores
+    """
+
+    def validate(self, value):
+        allowed_chars = "abcdefghijklmnopqrstuvwxyz"
+        allowed_chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789_-"
+        if not value:
+            return
+        error = False
+        for val in value:
+            if any(c not in allowed_chars for c in val):
+                error = True
+        if error:
+            errtext = u"Please enter only alpha-numeric characters into this \
+                       field, no special characters other than hyphens and \
+                       underscores"
+            raise Invalid(errtext)
+        else:
+            return
+
+# can't use a validator multiple times, or I don't know how
+# see https://github.com/zopefoundation/z3c.form/issues/61
+validator.WidgetValidatorDiscriminators(
+    AlphaNumericValidator, field=ITracker['available_areas'])
+validator.WidgetValidatorDiscriminators(
+    AlphaNumericValidator2, field=ITracker['available_issue_types'])
+validator.WidgetValidatorDiscriminators(
+    AlphaNumericLinesValidator, field=ITracker['available_severities'])
+provideAdapter(AlphaNumericValidator)
+provideAdapter(AlphaNumericValidator2)
+provideAdapter(AlphaNumericLinesValidator)
