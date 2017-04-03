@@ -16,8 +16,9 @@
 
     // function to update attchments list
     function updateAttachmentsList() {
+        var viewname = /poi_issue_view/;
         if($('.template-poi_issue_view').length>0) {
-            var path = window.location.pathname + "/@@poi_issue_uploads" + window.location.search;
+            var path = window.location.pathname.replace(viewname, '') + "/@@poi_issue_uploads" + window.location.search;
         } else {
             var path = "@@poi_issue_uploads";
         }
