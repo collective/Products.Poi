@@ -83,7 +83,6 @@
 
     // hide Release and Target Release on Add/Edit Issue form if there are no values supplied via the Tracker
     if ($('.template-edit.portaltype-issue, .template-products-poi-content-issue-issue.viewpermission-add-portal-content')) {
-        console.log('foo');
         var release = $('#form-widgets-release');
         var target = $('#form-widgets-target_release');
         if (release.children().length<2) { release.parent().css('display', 'none'); }
