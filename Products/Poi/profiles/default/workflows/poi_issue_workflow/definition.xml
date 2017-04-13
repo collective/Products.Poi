@@ -4,6 +4,7 @@
  <permission>Modify portal content</permission>
  <permission>List folder contents</permission>
  <permission>Poi: Modify issue state</permission>
+ <permission>plone.app.contenttypes: Add Document</permission>
  <permission>plone.app.contenttypes: Add File</permission>
  <permission>plone.app.contenttypes: Add Image</permission>
  <state state_id="closed" title="Tested and confirmed closed">
@@ -31,6 +32,9 @@
   <permission-map name="List folder contents" acquired="True">
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Document" acquired="True">
+   <permission-role>Member</permission-role>
   </permission-map>
   <permission-map name="plone.app.contenttypes: Add File" acquired="True">
    <permission-role>Member</permission-role>
@@ -65,6 +69,9 @@
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Document" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
   <permission-map name="plone.app.contenttypes: Add File" acquired="True">
    <permission-role>Member</permission-role>
   </permission-map>
@@ -98,6 +105,9 @@
   <permission-map name="List folder contents" acquired="True">
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Document" acquired="True">
+   <permission-role>Member</permission-role>
   </permission-map>
   <permission-map name="plone.app.contenttypes: Add File" acquired="True">
    <permission-role>Member</permission-role>
@@ -134,6 +144,9 @@
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Document" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
   <permission-map name="plone.app.contenttypes: Add File" acquired="True">
    <permission-role>Member</permission-role>
   </permission-map>
@@ -167,6 +180,9 @@
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Document" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
   <permission-map name="plone.app.contenttypes: Add File" acquired="True">
    <permission-role>Member</permission-role>
   </permission-map>
@@ -198,6 +214,9 @@
   <permission-map name="List folder contents" acquired="True">
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Document" acquired="True">
+   <permission-role>Member</permission-role>
   </permission-map>
   <permission-map name="plone.app.contenttypes: Add File" acquired="True">
    <permission-role>Member</permission-role>
@@ -233,6 +252,9 @@
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Document" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
   <permission-map name="plone.app.contenttypes: Add File" acquired="True">
    <permission-role>Member</permission-role>
   </permission-map>
@@ -267,6 +289,9 @@
   <permission-map name="List folder contents" acquired="True">
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Document" acquired="True">
+   <permission-role>Member</permission-role>
   </permission-map>
   <permission-map name="plone.app.contenttypes: Add File" acquired="True">
    <permission-role>Member</permission-role>
