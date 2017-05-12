@@ -1,5 +1,4 @@
 from Products.CMFPlone.utils import safe_unicode
-from Products.Poi.config import ISSUE_LINK_TEMPLATE
 
 import re
 

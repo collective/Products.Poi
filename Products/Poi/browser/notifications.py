@@ -25,7 +25,7 @@ class BasePoiMail(BaseMail):
 
     index = ViewPageTemplateFile('templates/poi_mail.pt')
     plain_index = ''
-    css_file_name = '++resource++poi/poi-email.css''
+    css_file_name = '++resource++poi/poi-email.css'
 
     def plain2rst(self):
         """Try to interpret the plain text as reStructuredText.
