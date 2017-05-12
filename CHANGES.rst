@@ -2,10 +2,24 @@ Changelog for Poi
 =================
 
 
-3.0 (unreleased)
+4.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Plone 5 compatibility
+- Complete refactor using Dexterity for Trackers and
+  Issues (see Poi 3.x for migration)
+- Issues are now folderish for holding attachments.
+- New template layouts
+- CSV export from issue search
+- New field for relating issues to each other
+
+
+3.0
+---
+
+- Added a migration path from Poi 2.x to 4.x, which migrates
+  Trackers and Issues to Dexterity. This version is to only be
+  used in Plone 4 as a migration step, and is not a useable version of Poi.
 
 
 2.2.8 (2015-08-31)
