@@ -94,6 +94,10 @@ msgstr ""
 msgid "No response text added and no issue changes made."
 msgstr ""
 
+#: skins/Poi/poi_tracker_view.pt:80
+msgid "view_issue_logs"
+msgstr ""
+
 #: ./skins/Poi/poi_tracker_view.pt:129
 msgid "Note"
 msgstr ""
@@ -213,8 +217,9 @@ msgstr ""
 msgid "Poi_help_responsibleManager"
 msgstr ""
 
-#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:245
+
+#. Default: "If selected, tracker assignees will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
+#: ./content/PoiTracker.py:247
 msgid "Poi_help_sendNotificationEmails"
 msgstr ""
 
@@ -344,9 +349,10 @@ msgstr ""
 msgid "Poi_label_mailingList"
 msgstr ""
 
-#. Default: "Tracker managers"
-#: ./content/PoiTracker.py:195
-msgid "Poi_label_managers"
+
+#. Default: "Tracker assignees"
+#: ./content/tracker.py:147
+msgid "msgid \"Poi_label_assignees\""
 msgstr ""
 
 #. Default: "Change responsible manager"
@@ -399,8 +405,9 @@ msgstr ""
 msgid "Poi_label_subject"
 msgstr ""
 
-#. Default: "URL to SVN"
-#: ./content/PoiTracker.py:279
+
+#. Default: "URL to Repository"
+#: ./content/PoiTracker.py:281
 msgid "Poi_label_svnurl"
 msgstr ""
 

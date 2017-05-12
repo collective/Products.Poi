@@ -1,68 +1,57 @@
 Poi: A friendly issue tracker
 =============================
 
+Poi is an issue tracker product for Plone. It has a goal to be 
+simple and attractive whilst providing the most commonly needed issue
+tracking functionality. Poi 4.0 uses Dexterity and is for Plone 5 only.
+
+Feedback is very welcome. Please submit any bugs or feature requests at: 
+    
+    https://github.com/collective/Products.Poi/issues
+
+
  by Martin Aspeli <optilude@gmx.net>
 
  current maintainer: Maurits van Rees <maurits@vanrees.org>
 
  Released under the GNU General Public License, version 2
- 
-Poi is an issue tracker product for Plone. It has three overarching aims:
 
-- Provide the default tracker for open source software projects on
-  http://plone.org
-
-- Be simple and attractive whilst providing the most commonly needed issue
-  tracking functionality.
-
-- Optionally integrate with the PloneSoftwareCenter to allow
-  individual products to have their own issue trackers
-
-Poi is not and will not be a track-anything-and-everything tracker, a help desk
-product or anything else. If Poi is too simple for your needs, you may want to
-look at something like PloneCollectorNG.
-
-Feedback is very welcome. 
-
-Please submit any bugs or feature requests at: 
-    
-    http://plone.org/products/poi/issues
-    
-(Yes, this is a Poi tracker). Please do search the tracker first, so we can
-avoid unnecessary duplicates.
-    
-See http://plone.org/products/poi for the latest release and the development 
-road map.
 
 
 Installation and dependencies
 -----------------------------
 
 Best is to use zc.buildout.  Just add Products.Poi to your eggs, rerun
-buildout and you are done.  Optionally add
-Products.PloneSoftwareCenter.
+buildout and you are done.  
 
-Poi requires:
+Poi 4.0+ requires:
 
-  - Plone 4; this version of Poi will *not* work with Plone 3.
-
-  - DataGridField
-
-  - AddRemoveWidget
-
+  - Plone 5
   - collective.watcherlist
 
-  - For PloneSoftwareCenter integration, PloneSoftwareCenter is
-    required.  See http://plone.org/products/plonesoftwarecenter
-    Tested with PloneSoftwareCenter 1.5.
 
-For new installations, install using Add/Remove Products as normal. If you want
-PloneSoftwareCenter configuration to be automatically configured, install PSC
-*first*.
+What version of Poi to use?
+---------------------------
+
+* Poi 2.x is for Plone 4
+* Poi 3.x is a migration step from Poi 2.x to Poi 4.x
+* Poi 4.0+ only works on Plone 5
+
 
 
 Upgrading
 ---------
+
+Version 3.x of Poi is only for migrating to Dexterity in preparation of
+moving to Plone 5. It requires plone.app.contenttypes 1.1.2, but don't activate
+the add-on unless you plan on migrating all your default Archetypes
+to Dexterity.
+
+Upgrade steps:
+
+* Do the migration in Plone 4 (reinstall Poi or run the upgrade steps)
+* Upgrade to Plone 5
+* Upgrade to Poi 4.x
 
 Re-install Poi from the Add/Remove Products control panel.  Some
 upgrade steps will be executed; these can also be found in the ZMI, in
@@ -71,75 +60,163 @@ Backup your Data.fs first before upgrading!
 
 
 Usage
------
+=====
 
-Add a Tracker, and use the "state" menu to open it for submissions. 
- 
-The tracker front pages allows you to browse for issues by release,
-state or area, as well as search for issues. Note that if you are not
-tracking software releases, you can leave the list of "releases"
-empty, and organisation by release will be turned off. The fields for
-areas and issue types come pre-configured with simple values that
-presume you are tracking software bugs.  You can change these to
-whatever you want.
+Poi is a folderish object type. Many Poi Trackers can exist within the
+same Plone instance.
 
-Once you have set up the tracker, add Issues inside, and Responses
-inside Issues. Anyone can add responses to issues with the default
-workflow. Responses from tracker managers (as configured on the root
-tracker object) and the original submitter are colour coded to make
-them easier to pick out. When adding a response as a tracker manager,
-you can change the state, importance or assignment of an issue.
-
-If email notification is enabled in the root tracker object, managers
-will get an email when there are new issues and responses, optionally
-via a mailing list. Issue submitters will also get emails upon issue
-responses. Additionally, when an issue is marked as "resolved" by a
-tracker manager, the submitter will receive an email asking him or her
-to mark the issue as confirmed closed.
-
-To use with the PloneSoftwareCenter, install PSC and *then* install
-Poi. This will ensure PoiPscTracker is added to the list of allowed
-content types in portal_types/PSCProject. You can then add Trackers
-inside a project in the software center. The trackers will function in
-the same way as regular trackers, but will use releases from the
-software center project instead of a manually defined list.
-
-For a look at how the various workflow states of an issue are
-connected, take a look at the attachment added by bethor to this
-issue: http://plone.org/products/poi/issues/179
+Prior to adding a new Tracker, ensure that some Assignees (users) are
+created in the system.
 
 
-Using HTML/kupu and other markups for issue text:
--------------------------------------------------
+Tracker Usage
+-------------
 
- **Please see notes about migration above!**
+Add a new Tracker, and customize the following to suit your
+organization's needs:
 
-Before version 1.0b2 Poi used to support kupu/rich text fields with HTML in the
-issue and response body. This was removed in favour of "intelligenttext", a
-plain-text markup that preserves whitespace and makes links clickable.
+- Areas - top level categories for the Tracker (e.g., UI)
+- Issue Types -- ticket types in the system (e.g., Bug)
+- Severities - levels of severity for the Issues (e.g., Low)
+- Available Releases -- used for assigning version values (e.g. v1.0)
+- Assignees -- list of users to whom Issues can be assigned
+- Watchers -- list of users who should be notified when Issues or comments are added
+- Mailing List -- single email address, similar to Watchers
+- Repository URL -- git/subversion repository used by your organization 
 
-This was found to work very well on plone.org and for the type of simple 
-trackers that Poi was intended for. However, a lot of users wanted kupu back.
+Note that if you are not tracking software releases, you can leave the list
+of "releases" empty, and organization by release will be turned off. The
+fields for areas and issue types come pre-configured with simple values that
+presume you are tracking software bugs. You can modify these to suit your needs.
 
-To get kupu back, you will need to edit Poi/config.py::
+If a repository URL is provided, revision numbers will automatically be
+hyperlinked when included in Issue descriptions and comments.
 
-  ISSUE_MIME_TYPES = ('text/x-web-intelligent', 'text/html')
-  DEFAULT_ISSUE_MIME_TYPE = 'text/html'
+After creating the Tracker, use the "state" menu to open it for submissions.
+Available workflow states are:
 
-You may also need to re-install Poi, and perform an Archetypes schema update,
-by going to archetypes_tool, and the Schema Update tab in the ZMI.
+- Open: Anonymous users can view and submit issues
+- Restricted: Anonymous users can view, but only members can submit
+- Protected: Only members can view and submit
+- Closed: Tracker is closed to submissions 
 
-And you may need to remove some conditional expressions in the
-portal_javascripts to make sure all needed scripts load (at least for
-TinyMCE).
+The Tracker front page includes:
 
-Please note one **very important** thing:
+- Issue search (as well as link to Advanced Search)
+- Issue Logs link (view all Tracker activity)
+- Watch This Tracker / Stop Watching This Tracker button to enable/disable notifications
+- Browse Issues by release, state, area or tag
+- "My Submitted Issues" listing
+- "Orphaned Issues" listing (unassigned Issues)
+- "Issues Assigned to Me" 
 
-- If you upgrade Poi, you are likely to have to make this change again!
+
+Issue Usage
+-----------
+
+Once you have set up the Tracker, Issues (tickets) can be created within the
+Tracker. Who can create them depends on the Tracker's state (see list above).
+Issues contain:
+
+- Title
+- Release (version Issue was found in)
+- Details (description)
+- Steps to Reproduce
+- Related Issues (select from existing Issues within the Tracker)
+- Area, Type and Severity
+- Target Release (for fix)
+- Contact Email
+- Requested By Date
+- Ticket Owner (Assignee)
+- Watchers
+- Subjects (Tags) 
+
+Once an Issue is created:
+
+- Attachments can be added to the Issue
+- Responses can be added
+- When adding a response as a tracker manager, you can change the state, importance or assignment of an issue.
+
+Issues have the following workflow:
+
+.. image:: http://www.sixfeetup.com/logos/issue-workflow.png
+   :height: 756
+   :width: 553
+   :alt: Issue Workflow
+   :align: left
+
+
+Email Notification
+------------------
+
+If email notification is enabled in the Tracker setup, the following conditions will exist.
+
+- If a mailing list was provided in the Tracker setup, members of the list will also be notified.
+- All listed Tracker Assignees automatically become Tracker Watchers when the tracker is created.
+- A Ticket Owner (assignee assigned to an issue) automatically becomes an Issue Watcher for that issue. 
+
++--------------------------+-------------+----------------+----------------+
+| User                     | New Issue   | Issue Response | Issue Resolved |
++==========================+=============+================+================+
+| **Tracker Watcher**      | X           | X              | X              |
++--------------------------+-------------+----------------+----------------+
+| **Tracker Mailing List** | X           | X              | X              |
++--------------------------+-------------+----------------+----------------+
+| **Issue Watcher**        |             | X*             | X              |
++--------------------------+-------------+----------------+----------------+
+| **Issue Submitter**      |             |                | X              |
++--------------------------+-------------+----------------+----------------+
+| **Member**               |             |                | X              |
++--------------------------+-------------+----------------+----------------+
+
+
+`*` except responses they post 
+
+For additional mail functionality, also see `poi.receivemail` and
+`poi.maildefaults`
+
+
+Roles and Permissions
+---------------------
+
+Poi adds 3 Roles to the defaults in Plone. Roles honor inheritance.
+Note that some of these permissions will change based on the
+state of the tracker.
+
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+|                             | Anonymous   | Member         | Manager        | TrackerManager | Technician |
++=============================+=============+================+================+================+============+
+| Add Tracker                 |             |                | X              |                |            |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Manage Tracker              |             |                | X              | X              |            |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Add Issue                   |  X          | X              | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Add Response                |  X          | X              | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Edit Response               |             |                | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Upload Attachment           |             | X              | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Modify Issue Severity       |             |                | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Modify Issue Assignment     |             |                | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Modify Issue State          |             |                | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Modify Issue Tags           |             |                | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Modify Issue Watchers       |             |                | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Modify Issue Target Release |             |                | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+| Modify Related Issues       |  X          | X              | X              | X              | X          |
++-----------------------------+-------------+----------------+----------------+----------------+------------+
+
 
 
 Credits
--------
+=======
 
 If you have contributed to Poi in some fashion, be sure to add
 yourself in the hall of fame here!
@@ -164,3 +241,5 @@ yourself in the hall of fame here!
 
  o Refactoring of emailing and watching code into
    collective.watcherlist: Maurits van Rees.
+
+ o Plone 5 Refactoring by Six Feet Up

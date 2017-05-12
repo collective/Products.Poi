@@ -13,10 +13,18 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <gs:registerProfile
+      name="migration2-3"
+      title="Poi Migration to version 3.0"
+      directory="profiles/migration2-3"
+      description="Migration Steps"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
   <!-- Uninstall profile for items the the QI uninstall misses. -->
   <gs:registerProfile
       name="uninstall"
-      title="Poi"
+      title="Poi Uninstall"
       directory="profiles/uninstall"
       description="Partial uninstall profile for Poi, in addition to the QI one."
       provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -137,6 +145,18 @@
     <gs:upgradeStep
         title="Migrate attachments of responses to blob storage"
         handler="Products.Poi.migration.migrate_response_attachments_to_blobstorage" />
+  </gs:upgradeSteps>
+
+  <gs:upgradeSteps
+      source="2999"
+      destination="3000"
+      profile="Products.Poi:default">
+    <gs:upgradeStep
+        title="Clean up old properties"
+        handler="Products.Poi.migration.clean_properties" />
+    <gs:upgradeStep
+        title="Set _tracker_uid property"
+        handler="Products.Poi.migration.set_tracker_uid" />
   </gs:upgradeSteps>
 
 </configure>

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>2008</version>
+  <version>3000</version>
   <dependencies>
-    <dependency>profile-Products.AddRemoveWidget:default</dependency>
-    <dependency>profile-Products.DataGridField:default</dependency>
+    <dependency>profile-collective.z3cform.datagridfield:default</dependency>
+    <dependency>profile-plone.app.referenceablebehavior:default</dependency>
   </dependencies>
 </metadata>

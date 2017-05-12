@@ -1,0 +1,214 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="Poi">
+
+  <head>
+    <metal:block fill-slot="top_slot"
+             tal:define="dummy python:request.set('disable_border',1)" />
+  </head>
+
+<body>
+
+<metal:title fill-slot="content-title"
+             tal:define="trackerUrl context/aq_parent/absolute_url;">
+
+    <div tal:condition="python:not ajax_load">
+      <metal:header
+      use-macro="context/@@poi_tracker_view/macros/trackerheader"></metal:header>
+    </div>
+
+  <h1 class="documentFirstHeading">
+    #<span tal:replace="context/getId" /> &#8212;
+    <span tal:replace="context/title"/>
+  </h1>
+</metal:title>
+
+<metal:description fill-slot="content-description">
+  <metal:comment tal:content="nothing">
+    The description field is normally not set. We use the details field instead.
+  </metal:comment>
+</metal:description>
+
+<metal:content-core fill-slot="content-core">
+  <metal:content-core
+      define-macro="content-core"
+      tal:define="member context/@@plone_portal_state/member;
+                  template_id template/getId;
+                  isAnon context/@@plone_portal_state/anonymous;
+                  wftool here/portal_workflow;
+                  isManager isManager|python:member.has_role('Manager', context);
+                  isSubmitter python:member.getId() == here.Creator();
+                  pas_member context/@@pas_member;
+                  basicOpenStates python:['open', 'in-progress'];
+                  openStates python:['unconfirmed'] + basicOpenStates;
+                  trackerUrl context/aq_parent/absolute_url;
+                  ajax_load request/ajax_load | nothing;
+                  activeStates context/aq_parent/@@issuefolder/getActiveStates;
+                  issueQueryString python:'%s/poi_issue_search?state=%s' %
+                  (here.aq_parent.absolute_url(), '&amp;state='.join(activeStates),);">
+
+    <p><a href="${context/absolute_url}/edit"
+        class="context"
+        i18n:translate=""
+        tal:condition="python: user.has_permission('Modify portal content', here)">Edit issue</a></p>
+
+    <div class="issue-tags" tal:condition="here/Subject">
+      <span class="issue-tags-label" i18n:translate="poi_label_tags">Tags:</span>
+        <span tal:repeat="tag here/Subject">
+          <a tal:content="tag" tal:attributes="href string:${here/aq_parent/absolute_url}/poi_issue_search?tags=${tag}"/>
+          <tal:div condition="not:repeat/tag/end">-</tal:div>
+        </span>
+    </div>
+    
+    <div class="row">
+    <div class="col-xs-12 col-sm-6">
+        <table class="vertical listing issue-info-box">
+          <tr tal:define="state python:wftool.getInfoFor(here, 'review_state');
+                          state_title python:wftool.getTitleForStateOnType(state, here.getPortalTypeName());">
+            <th i18n:translate="poi_label_state">State</th>
+            <td><a tal:content="state_title"
+                   i18n:translate="" i18n:domain="plone"
+                   tal:attributes="class string:issue-${state};
+                                   href string:${trackerUrl}/poi_issue_search?state=${state};"
+                 ></a>
+            </td>
+          </tr>
+          <tr tal:condition="context/isUsingReleases">
+            <th i18n:translate="poi_label_version">Version:</th>
+            <td tal:define="release context/release">
+              <a tal:condition="python:release is not None"
+                 tal:content="python:release"
+                 tal:attributes="href string:${issueQueryString}&amp;release=${release};" />
+              <div tal:condition="python:release is None" class="unassigned-field">
+                &#8212;
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th i18n:translate="poi_label_area">Area</th>
+            <td>
+                <a tal:define="issueArea context/display_area"
+                 tal:content="issueArea"
+                 tal:attributes="href string:${issueQueryString}&area=${issueArea}"
+                  />
+            </td>
+          </tr>
+          <tr>
+            <th i18n:translate="poi_label_type">Issue type</th>
+            <td>
+                <a tal:define="issueType context/display_issue_type"
+                 tal:content="issueType"
+                 tal:attributes="href string:${issueQueryString}&issueType=${issueType}"
+                  />
+            </td>
+          </tr>
+          <tr>
+            <th i18n:translate="poi_label_severity">Severity</th>
+            <td>
+              <a tal:condition="context/severity"
+                 tal:content="context/severity"
+                 tal:attributes="href string:${issueQueryString}&amp;severity=${context/severity};" />
+            </td>
+          </tr>
+      </table>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+          <table class="vertical listing issue-info-box"
+                 tal:define="releases here/getReleasesVocab">
+             <tr tal:condition="context/contact_email">
+               <th i18n:translate="poi_label_issue_contact_email">Contact Email</th>
+               <td><a tal:content="context/contact_email"
+                      tal:attributes="href string:mailto:${context/contact_email};"
+                    ></a>
+               </td>
+             </tr>
+          <tr>
+            <th i18n:translate="poi_label_submitted_by">Submitted by</th>
+            <td
+                tal:define="creator python:pas_member.info(here.Creator())"
+                tal:content="creator/name_or_id" />
+
+          </tr>
+          <tr>
+            <th i18n:translate="poi_label_submitted_on">Submitted on</th>
+            <td tal:content="python:here.toLocalizedTime(here.created())" />
+          </tr>
+          <tr>
+            <th i18n:translate="poi_label_assignee">Ticket Owner</th>
+            <td tal:define="issueAssignee context/assignee">
+               <a tal:condition="issueAssignee"
+                  tal:define="manager python:pas_member.info(issueAssignee)"
+                  tal:attributes="href string:${issueQueryString}&amp;responsible=${issueAssignee};"
+                  tal:content="manager/name_or_id" />
+                <div class="unassigned" tal:condition="not: issueAssignee"
+                     >&#8212;</div>
+            </td>
+          </tr>
+          <tr tal:condition="here/isUsingReleases">
+            <th i18n:translate="poi_label_target_release">Target release:</th>
+            <td tal:define="release here/target_release">
+              <a tal:condition="python:release != '(UNASSIGNED)'"
+                 tal:content="python:release"
+                 tal:attributes="href string:${issueQueryString}&targetRelease=${release}"
+                  />
+              <div tal:condition="python:release == '(UNASSIGNED)'" class="unassigned-field">
+                &#8212;
+              </div>
+            </td>
+          </tr>
+        </table>
+    </div>
+    </div>
+
+    <div class="return-to-search"
+         tal:define="backURL request/HTTP_REFERER | nothing;
+                     cameFromSearch python:backURL and backURL.startswith(here.aq_inner.aq_parent.absolute_url() + '/poi_issue_search');">
+      <a href=""
+         class="link-parent"
+         tal:condition="cameFromSearch"
+         tal:attributes="href backURL"
+         i18n:translate="poi_return_to_search_results">
+        Return to search results
+      </a>
+    </div>
+
+    <div class="issue-details" tal:content="structure context/linkedDetails" />
+
+    <dl class="steps-to-reproduce" tal:condition="nocall:context/steps">
+      <dt i18n:translate="poi_label_steps">Steps to reproduce:</dt>
+      <dd>
+          <tal:text condition="context/linkedSteps" on-error="structure context/linkedSteps">
+            <div tal:content="structure context/linkedSteps/output" />
+          </tal:text>
+      </dd>
+    </dl>
+
+    <dl class="related-issues" tal:define="related context/related_issue" tal:condition="related">
+        <dt i18n:translate="poi_label_related">Related issue(s):</dt>
+        <dd>
+          <ul>
+              <li tal:repeat="relate related">
+                  <a href="" tal:define="relobj python: relate.to_object"
+                             tal:attributes="href relobj/absolute_url">
+                      #<span tal:replace="relobj/id">123</span> –
+                      <span tal:replace="relobj/Title">Issue Title</span>
+                  </a>
+              </li>
+          </ul>
+        </dd>
+    </dl>
+
+    <div class="visualClear"><!----></div>
+    
+    <div tal:replace="structure provider:poi.response.add" />
+    
+    <div class="visualClear"><!----></div>
+
+  </metal:content-core>
+</metal:content-core>
+</body>
+</html>

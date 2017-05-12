@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+ <object name="Poi" meta_type="Filesystem Directory View"
+    directory="Poi/skins/Poi" remove="True"/>
+ <skin-path name="*">
+  <layer name="Poi"
+    insert-after="custom" remove="True"/>
+ </skin-path>
+</object> 

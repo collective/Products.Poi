@@ -7,6 +7,9 @@ from Products.CMFPlone.utils import safe_unicode
 from Products.Poi.adapters import IResponseContainer
 from Products.Poi.utils import normalize_filename
 from ZODB.POSException import ConflictError
+from Products.Poi.interfaces import ITracker
+from collective.watcherlist.interfaces import IWatcherList
+from plone import api
 from zope.annotation.interfaces import IAnnotations
 from zope.schema._bootstrapinterfaces import ConstraintNotSatisfied
 
@@ -307,3 +310,22 @@ def migrate_issue_attachments_to_blobstorage(context):
     # differ that much.
     migrate(context, 'PoiIssue')
     logger.info("Done migrating to blob attachment for issues.")
+
+def clean_properties(context):
+    """Clean up any old-style properties
+    """
+    setuptool = api.portal.get_tool('portal_setup')
+    setuptool.runAllImportStepsFromProfile('profile-Products.Poi:migration2-3')
+
+
+def set_tracker_uid(context):
+    """set _tracker_uid on Issues
+    """
+
+    issues = api.content.find(portal_type="Issue")
+    for issue in issues:
+        obj = issue.getObject()
+        if ITracker.providedBy(obj.aq_parent):
+            obj._tracker_uid = obj.aq_parent.UID()
+            transaction.commit()
+

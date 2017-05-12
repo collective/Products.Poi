@@ -99,6 +99,10 @@ msgstr "Geen reactie geselecteerd."
 msgid "No response text added and no issue changes made."
 msgstr "Geen tekst toegevoegd in deze reactie en geen wijzigingen aan de issue gemaakt."
 
+#: skins/Poi/poi_tracker_view.pt:80
+msgid "view_issue_logs"
+msgstr ""
+
 #: ./skins/Poi/poi_tracker_view.pt:129
 msgid "Note"
 msgstr "Opmerking"
@@ -240,8 +244,8 @@ msgid "Poi_help_responsibleManager"
 msgstr "Selecteer welke manager, als er een is, verantwoordelijk is voor deze issue."
 
 # ./content/PoiTracker.py
-#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:245
+#. Default: "If selected, tracker assignees will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
+#: ./content/PoiTracker.py:247
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Indien geselecteerd, krijgen tracker managers een e-mail elke keer als een nieuwe issue of reactie is geplaatst. Issue toevoegers ontvangen een e-mail als er een nieuwe reactie is geplaatst of een issue is opgelost. Technici krijgen een e-mail als een issue aan hen is toegekend."
 
@@ -328,6 +332,11 @@ msgstr "Gebieden"
 msgid "Poi_label_availableIssueTypes"
 msgstr "Issue types"
 
+#. Default: "Issue types"
+#: ./browser/templates/poi_issue_search_form.pt:150
+msgid "poi_search_label_type"
+msgstr "Issue types"
+
 # ./content/PoiTracker.py
 #. Default: "Available releases"
 #: ./content/PoiTracker.py:180
@@ -394,10 +403,10 @@ msgid "Poi_label_mailingList"
 msgstr "Mailinglijst"
 
 # ./content/PoiTracker.py
-#. Default: "Tracker managers"
-#: ./content/PoiTracker.py:195
-msgid "Poi_label_managers"
-msgstr "Tracker managers"
+#. Default: "Tracker assignees"
+#: ./content/tracker.py:147
+msgid "msgid \"Poi_label_assignees\""
+msgstr "Tracker assignees"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
@@ -460,8 +469,8 @@ msgid "Poi_label_subject"
 msgstr "Tags"
 
 # ./content/PoiTracker.py
-#. Default: "URL to SVN"
-#: ./content/PoiTracker.py:279
+#. Default: "URL to Repository"
+#: ./content/PoiTracker.py:281
 msgid "Poi_label_svnurl"
 msgstr "Url naar subversion"
 
@@ -470,12 +479,6 @@ msgstr "Url naar subversion"
 #: ./content/PoiIssue.py:220
 msgid "Poi_label_targetRelease"
 msgstr "Doelrelease"
-
-# ./content/PoiTracker.py
-#. Default: "Technicians"
-#: ./content/PoiTracker.py:209
-msgid "Poi_label_technicians"
-msgstr "Technici"
 
 #. Default: "Tracker description"
 #: ./content/PoiTracker.py:72
@@ -856,9 +859,9 @@ msgstr "Gebied"
 msgid "poi_label_attachment"
 msgstr "Bijlage:"
 
-#. Default: "Responsible"
-#: ./skins/Poi/poi_issue_view.pt:120
-msgid "poi_label_responsible"
+#. Default: "Assignee"
+#: ./browser/templates/poi_issue_view.pt:114
+msgid "poi_label_assignee"
 msgstr "Verantwoordelijke"
 
 #. Default: "Severity"
@@ -916,6 +919,11 @@ msgstr "Zoektermen"
 msgid "poi_match_all_tags"
 msgstr "Zoek op de combinatie van alle geselecteerde tags"
 
+#. Default: "Include Related Issues"
+#: ./skins/Poi/poi_issue_search_form.pt:267
+msgid "poi_display_related"
+msgstr ""
+
 #. Default: "New issue ${name} added by ${author}"
 #: ./browser/log.pt:36
 msgid "poi_new_issue_added"
@@ -967,9 +975,9 @@ msgstr "Selecteer de issue types waarop u wilt zoeken"
 msgid "poi_search_help_release"
 msgstr "Selecteer de versie voor de bugs die u wilde vinden, werden gemeld."
 
-#. Default: "Select the responsible managers you wish to search for."
+#. Default: "Select the assignee you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:221
-msgid "poi_search_help_responsible"
+msgid "poi_search_help_assignee"
 msgstr "Selecteer de verantwoordelijke managers waarop u wilt zoeken"
 
 #. Default: "Select the severities you wish to search for."
@@ -1022,9 +1030,9 @@ msgstr "Issue type"
 msgid "poi_search_label_release"
 msgstr "Versie"
 
-#. Default: "Responsible tracker managers"
-#: ./skins/Poi/poi_issue_search_form.pt:219
-msgid "poi_search_label_responsible"
+#. Default: "Assignee"
+#: ./skins/Poi/poi_issue_search_form.pt:215
+msgid "poi_search_label_assignee"
 msgstr "Verantwoordelijke tracker managers"
 
 #. Default: "Severity"

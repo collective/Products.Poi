@@ -4,9 +4,8 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="Poi">
 
+  <include package="Products.CMFCore" />
   <include package=".browser" />
-  <include package="Products.AddRemoveWidget" />
-  <include package="Products.DataGridField" />
   <include file="permissions.zcml" />
   <include file="profiles.zcml" />
 
@@ -31,33 +30,105 @@
       />
 
   <subscriber
-      for="Products.Poi.interfaces.ITracker
-           Products.Archetypes.interfaces.IObjectInitializedEvent"
-        handler=".events.update_tracker_watchers"
+      for="Products.Poi.content.issue.IIssue
+           OFS.interfaces.IObjectWillBeAddedEvent"
+        handler=".events.remember_tracker"
         />
 
   <subscriber
-      for="Products.Poi.interfaces.ITracker
-           Products.Archetypes.interfaces.IObjectEditedEvent"
-        handler=".events.update_tracker_watchers"
+      for="Products.Poi.content.issue.IIssue
+           zope.lifecycleevent.IObjectAddedEvent"
+        handler=".events.assign_id"
         />
 
   <subscriber
-      for="Products.Poi.interfaces.IIssue
-           Products.Archetypes.interfaces.IObjectInitializedEvent"
+      for="Products.Poi.content.issue.IIssue
+           OFS.interfaces.IObjectClonedEvent"
+        handler=".events.fix_copy_move_id"
+        />
+
+  <subscriber
+      for="Products.Poi.content.issue.IIssue
+           zope.lifecycleevent.IObjectAddedEvent"
         handler=".events.post_issue"
         />
 
   <subscriber
       for="Products.Poi.interfaces.IIssue
-           Products.Archetypes.interfaces.IObjectEditedEvent"
+           Products.DCWorkflow.interfaces.IAfterTransitionEvent"
+      handler=".events.mail_issue_change"
+      />
+
+  <subscriber
+      for="Products.Poi.interfaces.IIssue
+           zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".events.update_references"
+        />
+        
+  <subscriber
+      for="Products.Poi.interfaces.IIssue
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+        handler=".events.update_references"
+        />
+
+  <subscriber
+      for="Products.Poi.interfaces.IIssue
+           zope.lifecycleevent.interfaces.IObjectAddedEvent"
         handler=".events.add_contact_to_issue_watchers"
         />
 
   <subscriber
       for="Products.Poi.interfaces.IIssue
-           Products.DCWorkflow.interfaces.IAfterTransitionEvent"
-        handler=".events.mail_issue_change"
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+        handler=".events.add_contact_to_issue_watchers"
+        />
+
+  <subscriber
+      for="Products.Poi.interfaces.IIssue
+           zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".events.add_assignee_to_issue_watchers"
+        />
+
+  <subscriber
+      for="Products.Poi.interfaces.IIssue
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+        handler=".events.add_assignee_to_issue_watchers"
+        />
+
+  <subscriber
+        for="plone.app.contenttypes.interfaces.IFile
+           zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".events.add_response_for_files"
+        />
+
+  <subscriber
+        for="plone.app.contenttypes.interfaces.IImage
+           zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".events.add_response_for_files"
+        />
+
+  <subscriber
+        for="plone.app.contenttypes.interfaces.IFile
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+        handler=".events.add_response_for_files"
+        />
+
+  <subscriber
+        for="plone.app.contenttypes.interfaces.IImage
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+        handler=".events.add_response_for_files"
+        />
+
+  <subscriber
+        for="plone.app.contenttypes.interfaces.IFile
+           zope.lifecycleevent.interfaces.IObjectRemovedEvent"
+        handler=".events.add_response_for_files"
+        />
+
+  <subscriber
+        for="plone.app.contenttypes.interfaces.IImage
+           zope.lifecycleevent.interfaces.IObjectRemovedEvent"
+        handler=".events.add_response_for_files"
         />
 
   <adapter
@@ -75,6 +146,11 @@
       factory="Products.Poi.adapters.TrackerWatcherList"
       />
 
+  <adapter name="IIssue" factory=".indexers.ResponseIndexer"/>
+
+  <adapter name="Products.Poi.content.tracker.TrackerRoleAdapter"
+      factory=".content.tracker.TrackerRoleProvider" />
+
   <!-- Register a basically empty content exporter for issues, as they
        can give unicode errors when making a snapshot in portal_setup.
        See http://plone.org/products/poi/issues/217 -->
@@ -84,24 +160,14 @@
       for="Products.Poi.interfaces.IIssue"
       />
 
-  <utility
-      name="ZPublisher.HTTPRequest.FileUpload"
-      provides="plone.namedfile.interfaces.IStorage"
-      factory=".adapters.FileUploadStorable"
-      />
-
-  <!-- Avoid deprecation warnings for manage_afterAdd and friends. -->
-  <five:deprecatedManageAddDelete
-      class=".content.PoiTracker.PoiTracker" />
-  <five:deprecatedManageAddDelete
-      class=".content.PoiIssue.PoiIssue" />
-
   <!-- Allow assigning portlets to trackers and issues. -->
+  <!--
   <class class=".content.PoiTracker.PoiTracker">
     <implements interface="plone.portlets.interfaces.ILocalPortletAssignable"/>
   </class>
   <class class=".content.PoiIssue.PoiIssue">
     <implements interface="plone.portlets.interfaces.ILocalPortletAssignable"/>
   </class>
+  -->
 
 </configure>

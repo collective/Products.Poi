@@ -1,4 +1,6 @@
 from AccessControl import getSecurityManager
+from Acquisition import aq_base
+from DateTime import DateTime
 from collective.watcherlist.watchers import WatcherList
 from DateTime import DateTime
 from persistent import Persistent
@@ -8,6 +10,7 @@ from plone.namedfile.storages import MAXCHUNKSIZE
 from Products.Poi.interfaces import IIssue
 from zope.annotation.interfaces import IAnnotations
 from zope.component import adapts
+from zope.component import adapter
 from zope.event import notify
 from zope.interface import Attribute
 from zope.interface import implements
@@ -25,10 +28,10 @@ logger = logging.getLogger('Products.Poi.adapters')
 class IssueWatcherList(WatcherList):
 
     def __get_watchers(self):
-        return self.context.getWatchers()
+        return self.context.watchers or []
 
     def __set_watchers(self, v):
-        self.context.setWatchers(v)
+        self.context.watchers = v
 
     watchers = property(__get_watchers, __set_watchers)
 
@@ -36,16 +39,16 @@ class IssueWatcherList(WatcherList):
 class TrackerWatcherList(WatcherList):
 
     def __get_send_emails(self):
-        return self.context.getSendNotificationEmails()
+        return self.context.notification_emails
 
     def __set_send_emails(self, v):
-        self.context.setSendNotificationEmails(v)
+        self.context.notification_emails = v
 
     send_emails = property(__get_send_emails, __set_send_emails)
 
     def __get_extra_addresses(self):
         # Return a tuple, not a string!
-        return (self.context.getMailingList(), )
+        return (self.context.mailing_list, )
 
     def __set_extra_addresses(self, v):
         if not isinstance(v, basestring):
@@ -56,10 +59,10 @@ class TrackerWatcherList(WatcherList):
     extra_addresses = property(__get_extra_addresses, __set_extra_addresses)
 
     def __get_watchers(self):
-        return self.context.getWatchers()
+        return self.context.watchers or []
 
     def __set_watchers(self, v):
-        self.context.setWatchers(v)
+        self.context.watchers = v
 
     watchers = property(__get_watchers, __set_watchers)
 
@@ -75,7 +78,7 @@ class IResponse(Interface):
     changes = Attribute("Changes made to the issue in this response.")
     creator = Attribute("Id of user making this change.")
     date = Attribute("Date (plus time) this response was made.")
-    type = Attribute("Type of response (additional/clarification/reply).")
+    type = Attribute("Type of response (additional/clarification/reply/file).")
     mimetype = Attribute("Mime type of the response.")
     attachment = Attribute("File attachment.")
 

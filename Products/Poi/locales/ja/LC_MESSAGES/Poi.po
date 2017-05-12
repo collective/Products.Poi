@@ -96,6 +96,10 @@ msgstr ""
 msgid "No response text added and no issue changes made."
 msgstr ""
 
+#: skins/Poi/poi_tracker_view.pt:80
+msgid "view_issue_logs"
+msgstr ""
+
 #: ./skins/Poi/poi_tracker_view.pt:129
 msgid "Note"
 msgstr ""
@@ -244,8 +248,8 @@ msgid "Poi_help_responsibleManager"
 msgstr "この課題の責任者を，もしあれば，管理者から選んで下さい。"
 
 # ./content/PoiTracker.py
-#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:245
+#. Default: "If selected, tracker assignees will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
+#: ./content/PoiTracker.py:247
 #, fuzzy
 msgid "Poi_help_sendNotificationEmails"
 msgstr "もし選択されたなら，トラッカーマネージャーは新しい課題か対応が送られる毎に電子メールを受け取ります。課題の提出者は新しい対応がされたときと，課題が解決したときに確認を待つために電子メールを受け取ります。"
@@ -334,6 +338,11 @@ msgstr "領域"
 msgid "Poi_label_availableIssueTypes"
 msgstr "課題の種別"
 
+#. Default: "Issue types"
+#: ./browser/templates/poi_issue_search_form.pt:150
+msgid "poi_search_label_type"
+msgstr "課題の種別"
+
 # ./content/PoiTracker.py
 #. Default: "Available releases"
 #: ./content/PoiTracker.py:180
@@ -400,9 +409,9 @@ msgid "Poi_label_mailingList"
 msgstr "メーリングリスト"
 
 # ./content/PoiTracker.py
-#. Default: "Tracker managers"
-#: ./content/PoiTracker.py:195
-msgid "Poi_label_managers"
+#. Default: "Tracker assignees"
+#: ./content/tracker.py:147
+msgid "msgid \"Poi_label_assignees\""
 msgstr "トラッカー管理者"
 
 # ./content/PoiResponse.py
@@ -467,8 +476,8 @@ msgid "Poi_label_subject"
 msgstr "タグ"
 
 # ./content/PoiTracker.py
-#. Default: "URL to SVN"
-#: ./content/PoiTracker.py:279
+#. Default: "URL to Repository"
+#: ./content/PoiTracker.py:281
 msgid "Poi_label_svnurl"
 msgstr ""
 
@@ -476,12 +485,6 @@ msgstr ""
 #. Default: "Target release"
 #: ./content/PoiIssue.py:220
 msgid "Poi_label_targetRelease"
-msgstr ""
-
-# ./content/PoiTracker.py
-#. Default: "Technicians"
-#: ./content/PoiTracker.py:209
-msgid "Poi_label_technicians"
 msgstr ""
 
 #. Default: "Tracker description"
@@ -833,7 +836,6 @@ msgstr "以下の未解決の課題はあなたが報告しました。"
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
 #: ./skins/Poi/poi_tracker_view.pt:142
-#, fuzzy
 msgid "poi_help_open_issues"
 msgstr "領域またはリリース，課題の状態をクリックすることでこの分類の全ての未解決の課題を見ることができます。さらに詳細な検索をするには「課題を検索」をクリックしてください。"
 
@@ -870,9 +872,9 @@ msgstr "領域"
 msgid "poi_label_attachment"
 msgstr "添付:"
 
-#. Default: "Responsible"
-#: ./skins/Poi/poi_issue_view.pt:120
-msgid "poi_label_responsible"
+#. Default: "Assignee"
+#: ./browser/templates/poi_issue_view.pt:114
+msgid "poi_label_assignee"
 msgstr "責任者"
 
 #. Default: "Severity"
@@ -930,6 +932,11 @@ msgstr "検索単語"
 msgid "poi_match_all_tags"
 msgstr ""
 
+#. Default: "Include Related Issues"
+#: ./skins/Poi/poi_issue_search_form.pt:267
+msgid "poi_display_related"
+msgstr ""
+
 #. Default: "New issue ${name} added by ${author}"
 #: ./browser/log.pt:36
 msgid "poi_new_issue_added"
@@ -942,7 +949,6 @@ msgstr ""
 
 #. Default: "Return to search"
 #: ./skins/Poi/poi_issue_search.pt:41
-#, fuzzy
 msgid "poi_return_to_search"
 msgstr "検索に戻る"
 
@@ -983,9 +989,9 @@ msgstr "検索対象とする課題の種類を選択して下さい。"
 msgid "poi_search_help_release"
 msgstr "検索対象とするリリースを選択して下さい。"
 
-#. Default: "Select the responsible managers you wish to search for."
+#. Default: "Select the assignee you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:221
-msgid "poi_search_help_responsible"
+msgid "poi_search_help_assignee"
 msgstr "検索対象とする対応責任者を選択して下さい。"
 
 #. Default: "Select the severities you wish to search for."
@@ -1039,9 +1045,9 @@ msgstr "課題の種類"
 msgid "poi_search_label_release"
 msgstr "リリース"
 
-#. Default: "Responsible tracker managers"
-#: ./skins/Poi/poi_issue_search_form.pt:219
-msgid "poi_search_label_responsible"
+#. Default: "Assignee"
+#: ./skins/Poi/poi_issue_search_form.pt:215
+msgid "poi_search_label_assignee"
 msgstr "トラッカー管理者の責任者"
 
 #. Default: "Severity"

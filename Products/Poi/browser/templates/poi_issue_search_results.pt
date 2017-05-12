@@ -1,0 +1,155 @@
+<metal:block define-macro="issue_search_results"
+             xmlns:tal="http://xml.zope.org/namespaces/tal"
+             xmlns:metal="http://xml.zope.org/namespaces/metal"
+             xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+             i18n:domain="Poi">
+
+  <metal:block define-slot="rss-button" tal:condition="rssQueryString | nothing">
+      <a class="standalone" id="export-btn"
+          tal:attributes="href string:${here/absolute_url}/@@poi-issue-export?${rssQueryString}">Export CSV</a>
+      <div class="issue-search-rss">
+        <a href="" tal:attributes="href string:${here/absolute_url}/poi-issue-search-rss.xml?${rssQueryString}">
+          RSS
+        </a>
+    </div>
+  </metal:block>
+
+  <metal:block define-slot="intro-text" />
+
+   <table tal:attributes="class string:listing issue-search-results serp-${serp_page}"
+       tal:define="states context/getIssueWorkflowStates;
+                  activeStates issuefolder/getActiveStates;
+                  addTokenToUrl python:context.addTokenToUrl;
+                  trackerUrl context/absolute_url;
+                  issueQueryString python:'%s/poi_issue_search?state=%s' %
+                    (trackerUrl, '&amp;state='.join(activeStates),);
+                  baseURL issuefolder/getBaseQuery;
+                  requestURL request/URL;
+                  pas_member context/@@pas_member;
+                  can_edit python:checkPermission('Modify portal content', here);
+                  releases context/getReleasesVocab;
+                  display_related request/display_related|nothing;
+                  sort_on request/form/sort_on|nothing;
+                  sort_order request/sort_order|nothing;
+                  area_search request/form/area|nothing;
+                  target_search request/form/targetRelease|nothing;
+                  sort_enabled sort_enabled|nothing;
+                  serp_page python: sort_enabled and 'yes' or 'no';"
+       tal:condition="nocall:issues">
+       <thead>
+      <tr tal:attributes="class string:sorton-${sort_on} sortorder-${sort_order}">
+        <th id="id" i18n:translate="listingheader_number">
+          <a tal:omit-tag="not: sort_enabled"
+             tal:define="new_sort_order python: (sort_on in ('','id') and request['sort_order'] == '') and 'reverse' or ''"
+             tal:attributes="href python:addTokenToUrl('%s?%s&amp;sort_order=%s&amp;sort_on=id' % (requestURL, baseURL, new_sort_order))">#</a>
+        </th>
+        <th id="sortable_title" i18n:translate="listingheader_title">
+          <a tal:omit-tag="not: sort_enabled"
+             tal:define="new_sort_order python: (sort_on == 'sortable_title' and request['sort_order'] == '') and 'reverse' or ''"
+             tal:attributes="href python:addTokenToUrl('%s?%s&amp;sort_order=%s&amp;sort_on=sortable_title' % (requestURL, baseURL, new_sort_order));">Title</a>
+        </th>
+        <th id="target_release" i18n:translate="listingheader_release"
+            tal:condition="here/isUsingReleases">
+          <a tal:omit-tag="not: sort_enabled"
+             tal:define="new_sort_order python: (sort_on == 'target_release' and request['sort_order'] == '') and 'reverse' or ''"
+             tal:attributes="href python:addTokenToUrl('%s?%s&amp;sort_order=%s&amp;sort_on=target_release' % (requestURL, baseURL, new_sort_order));">Target</a>
+        </th>
+        <th id="area" i18n:translate="listingheader_area">
+          <a tal:omit-tag="not: sort_enabled"
+             tal:define="new_sort_order python: (sort_on == 'area' and request['sort_order'] == '') and 'reverse' or ''"
+             tal:attributes="href python:addTokenToUrl('%s?%s&amp;sort_order=%s&amp;sort_on=area' % (requestURL, baseURL, new_sort_order));">Area</a>
+        </th>
+        <th id="issue_type" i18n:translate="listingheader_type">
+          <a tal:omit-tag="not: sort_enabled"
+             tal:define="new_sort_order python: (sort_on == 'issue_type' and request['sort_order'] == '') and 'reverse' or ''"
+             tal:attributes="href python:addTokenToUrl('%s?%s&amp;sort_order=%s&amp;sort_on=issue_type' % (requestURL, baseURL, new_sort_order));">Type</a>
+        </th>
+        <th id="severity" i18n:translate="listingheader_severity">
+          <a tal:omit-tag="not: sort_enabled"
+             tal:define="new_sort_order python: (sort_on == 'severity' and request['sort_order'] == '') and 'reverse' or ''"
+             tal:attributes="href python:addTokenToUrl('%s?%s&amp;sort_order=%s&amp;sort_on=severity' % (requestURL, baseURL, new_sort_order));">Severity</a>
+         </th>
+        <th id="assignee" i18n:translate="listingheader_responsible">
+          <a tal:omit-tag="not: sort_enabled"
+             tal:define="new_sort_order python: (sort_on == 'assignee' and request['sort_order'] == '') and 'reverse' or ''"
+             tal:attributes="href python:addTokenToUrl('%s?%s&amp;sort_order=%s&amp;sort_on=assignee' % (requestURL, baseURL, new_sort_order));">Assignee</a>
+           </th>
+        <th id="subject_tags" i18n:translate="listingheader_tags">
+          <a tal:omit-tag="not: sort_enabled"
+             tal:define="new_sort_order python: (sort_on == 'subject_tags' and request['sort_order'] == '') and 'reverse' or ''"
+             tal:attributes="href python:addTokenToUrl('%s?%s&amp;sort_order=%s&amp;sort_on=subject_tags' % (requestURL, baseURL, new_sort_order));">Tags</a>
+        </th>
+        <th id="related"
+            tal:condition="display_related"
+            i18n:translate="listingheader_related">Related Issue(s)</th>
+        <th id="review_state" i18n:translate="listingheader_state">
+          <a tal:omit-tag="not: sort_enabled"
+             tal:define="new_sort_order python: (sort_on == 'review_state' and request['sort_order'] == '') and 'reverse' or ''"
+             tal:attributes="href python:addTokenToUrl('%s?%s&amp;sort_order=%s&amp;sort_on=review_state' % (requestURL, baseURL, new_sort_order));">State</a>
+        </th>
+      </tr>
+    </thead>
+       <tbody>
+           <tal:issues repeat="raw_item issues">
+               <tr tal:define="item raw_item/brain/getObject|raw_item/getObject;
+                               slug raw_item/slug|nothing">
+                   <td tal:content="item/getId">
+                   </td>
+                   <td>
+                       <a tal:attributes="href  raw_item/brain/getURL|raw_item/getURL;
+                                          title item/Description;"
+                          tal:content="item/Title" />
+                   </td>
+                   <td tal:condition="here/isUsingReleases"
+                       tal:define="release item/target_release">
+                       <a tal:define="releases here/getReleasesVocab"
+                          tal:attributes="href python:addTokenToUrl('%s&amp;targetRelease=%s' % (issueQueryString, release))"
+                          tal:content="python:release if release else ''" />
+                       <div tal:condition="python:item.target_release == '(UNASSIGNED)'"
+                            style="text-align:center">&#8212;</div>
+                   </td>
+                   <td><a tal:content="item/display_area"
+                          tal:attributes="href python:addTokenToUrl('%s&amp;area=%s' % (issueQueryString, item.area))"
+                          tal:on-error="item/area"/>
+                   </td>
+
+                   <td><a tal:content="item/display_issue_type"
+                          tal:attributes="href python:addTokenToUrl('%s&amp;issueType=%s' % (issueQueryString, item.issue_type))"
+                          tal:on-error="item/issue_type" />
+                   </td>
+                   <td>
+                     <a tal:condition="item/severity"
+                        tal:content="item/severity"
+                        tal:attributes="href python:addTokenToUrl('%s&amp;severity=%s' % (issueQueryString, item.severity))" />
+                   </td>
+                   <td>
+                      <a tal:condition="item/assignee"
+                         tal:define="manager python:pas_member.info(item.assignee)"
+                         tal:attributes="href python:addTokenToUrl('%s&amp;responsible=%s' % (issueQueryString, item.assignee))"
+                         tal:content="manager/name_or_id" />
+                       <div tal:condition="not: item/assignee"
+                            style="text-align:center">&#8212;</div>
+                   </td>
+                   <td tal:content="python: sort_on == 'subject_tags' and slug or ', '.join(item.subject) if item.subject else ''" />
+                   <td tal:condition="display_related">
+                       <tal:related repeat="related item/related_issue">
+                           <a tal:define="relobj python: related.to_object"
+                              tal:content="string:#${relobj/id}"
+                              tal:attributes="href relobj/absolute_url;
+                                              title relobj/Title" />
+                       </tal:related>
+                   </td>
+                   <td tal:define="review_state python:item.getReviewState()">
+                       <a tal:content="python:review_state['title']"
+                          tal:attributes="href python:addTokenToUrl('%s/poi_issue_search?state=%s' % (trackerUrl, review_state['state']));
+                                          class string:issue-${review_state/state}"
+                          i18n:translate="" i18n:domain="plone" />
+                   </td>
+               </tr>
+           </tal:issues>
+       </tbody>
+   </table>
+
+  <metal:block define-slot="footer" />
+
+</metal:block>

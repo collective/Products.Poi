@@ -2,6 +2,7 @@ import reStructuredText as rst
 import textwrap
 
 from Acquisition import aq_inner
+from plone.app.textfield.interfaces import ITransformer
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ZODB.POSException import ConflictError
@@ -24,7 +25,7 @@ class BasePoiMail(BaseMail):
 
     index = ViewPageTemplateFile('templates/poi_mail.pt')
     plain_index = ''
-    css_file_name = 'poi-email.css'
+    css_file_name = '++resource++poi/poi-email.css''
 
     def plain2rst(self):
         """Try to interpret the plain text as reStructuredText.
@@ -53,9 +54,9 @@ class BasePoiMail(BaseMail):
         if not portal:
             return u''
         try:
-            # Render the css, in a way that seems to work for both
-            # dtml and plain css files.
-            css = '%s' % portal.restrictedTraverse(self.css_file_name)
+            # read in the contents of the CSS file
+            css_resource = portal.restrictedTraverse(self.css_file_name)
+            css = open(css_resource.context.path).read()
         except (ConflictError, KeyboardInterrupt):
             raise
         except:
@@ -128,11 +129,16 @@ class NewIssueMail(BasePoiMail):
         if issueCreatorInfo:
             issueAuthor = issueCreatorInfo['fullname'] or issueCreator
 
-        issueText = context.getDetails(mimetype="text/x-web-intelligent")
+        issueText = context.details.output
         paras = issueText.splitlines()
-        issueDetails = '\n\n'.join([wrapper.fill(p) for p in paras])
+        issueDetails = '\n'.join([wrapper.fill(p) for p in paras])
+        transformer = ITransformer(context)
+        issuePlainText = transformer(context.details, 'text/plain')
+        issuePlainDetails = '\n'.join([wrapper.fill(p) for p in paras])
+        paras = issuePlainText.splitlines()
         mapping['issue_author'] = su(issueAuthor)
         mapping['issue_details'] = su(issueDetails)
+        mapping['issue_plain_details'] = su(issuePlainDetails)
         return mapping
 
     @property
@@ -143,7 +149,7 @@ class NewIssueMail(BasePoiMail):
             'poi_email_new_issue_subject_template',
             u"[${tracker_title}] #${issue_id} - New issue: ${issue_title}",
             mapping=dict(
-                tracker_title=su(tracker.getExternalTitle()),
+                tracker_title=su(tracker.Title()),
                 issue_id=su(context.getId()),
                 issue_title=su(context.Title())))
         # Make the subject unicode and translate it too.
@@ -206,7 +212,7 @@ class NewResponseMail(BasePoiMail):
             'poi_email_new_response_subject_template',
             u"[${tracker_title}] #${issue_id} - Re: ${issue_title}",
             mapping=dict(
-                tracker_title=su(tracker.getExternalTitle()),
+                tracker_title=su(tracker.Title()),
                 issue_id=su(context.getId()),
                 issue_title=su(context.Title())))
         # Ensure that the subject is unicode and translate it too.
@@ -229,7 +235,7 @@ class ResolvedIssueMail(BasePoiMail):
             'poi_email_issue_resolved_subject_template',
             u"[${tracker_title}] Resolved #${issue_id} - ${issue_title}",
             mapping=dict(
-                tracker_title=su(tracker.getExternalTitle()),
+                tracker_title=su(tracker.Title()),
                 issue_id=su(context.getId()),
                 issue_title=su(context.Title())))
         # Make the subject unicode and translate it too.

@@ -55,8 +55,8 @@ class IResponseAdder(IViewletManager):
         """Get the releases from the project.
         """
 
-    def managers_for_display():
-        """Get the tracker managers.
+    def assignees_for_display():
+        """Get the tracker assignees.
         """
 
 directlyProvides(IResponseAdder, ITALNamespaceData)

@@ -1,0 +1,332 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="Poi">
+
+<body>
+
+<metal:content-core fill-slot="content-core">
+  <metal:content-core
+      define-macro="content-core"
+      tal:define="member context/@@plone_portal_state/member;
+                  isAnon context/@@plone_portal_state/anonymous;
+                  trackerUrl here/absolute_url;
+                  addTokenToUrl python:here.addTokenToUrl;
+                  is_editable context/@@plone_context_state/is_editable;
+                  portal context/@@plone_portal_state/portal;
+                  wtool context/portal_workflow;
+                  basicOpenStates python:['open', 'in-progress'];
+                  openStates python:['unconfirmed'] + basicOpenStates;
+                  ignoredStates python:['new'];
+                  pendingStates python:openStates + ['resolved'];
+                  issuefolder context/@@issuefolder;
+                  activeStates issuefolder/getActiveStates;
+                  issueQueryString python:'%s/poi_issue_search?state=%s' %
+                  (trackerUrl, '&amp;state='.join(activeStates),);
+                  isManager isManager|python:member.has_role('Manager', context);
+                  isTrackerManager python:member.has_role('TrackerManager', context);
+                  mq python:modules['ZTUtils'].make_query;">
+
+    <tal:text condition="context/help_text"
+            on-error="structure context/help_text">
+      <div class="tracker-help"
+           tal:content="structure context/help_text/output" />
+    </tal:text>
+    
+    <metal:trackerheader define-macro="trackerheader"
+      tal:define="member context/@@plone_portal_state/member;
+                  isManager isManager|python:member.has_role('Manager', context);
+                  isAnon isAnon|context/@@plone_portal_state/anonymous;
+                  portal_url context/@@plone_portal_state/portal_url;
+                  trackerUrl trackerUrl|here/absolute_url;
+                  logUrl string:$trackerUrl/log">
+
+    <div class="row" tal:condition="isAnon">
+      <div class="col-xs-12 login-suggestion">
+        <p>
+          <tal:block i18n:translate="login_suggestion">
+            If you can, please log in before submitting your issue.
+          </tal:block>
+        </p>
+      </div>
+    </div>
+
+    <div class="row" id="tracker-actions">
+      
+          <div class="col-xs-12 col-sm-7" tal:condition="python: user.has_permission('Poi: Add Issue', here)">
+              <div class="trackerAction">
+                <form action="createObject"
+                      id="poi-submit-new-issue-form"
+                      tal:define="portal_type context/portal_type;
+                                  iinfo context/@@plone_interface_info;
+                                  tracker python: iinfo.provides('Products.Poi.content.issue.IIssue') and context.getTracker() or False;
+                                  allowed_types python: tracker and tracker.allowedContentTypes() or context.allowedContentTypes();
+                                  is_multiple python: len(allowed_types) > 1;"
+                      tal:attributes="action python: is_multiple and trackerUrl+'/folder_factories' or trackerUrl+'/++add++'+allowed_types[0].id">
+                  <input type="hidden"
+                         value="Issue"
+                         />
+                  <input class="context"
+                         type="submit"
+                         i18n:attributes="value"
+                         value="Submit new issue"
+                         />
+                </form>
+            </div>
+          
+              <div class="trackerAction" tal:condition="python:context.portal_type == 'Tracker'">
+                  <a href="#" class="standalone" id="poi-show-log-form"
+                     i18n:translate="view_issue_logs"
+                     tal:attributes="href string:${trackerUrl}/log">View activity feed</a>
+              </div>
+              
+              <div class="trackerAction" tal:condition="isAnon">
+                <form
+                    id="poi-login-form"
+                    tal:attributes="action string:${portal_url}/login_form?came_from=${here/absolute_url}">
+                      <a class="context pat-plone-modal" id="poi-login-form" href="#"
+                         data-pat-plone-modal='{"prependContent": ".portalMessage", "title": "Log in", "width": "26em"}'
+                         tal:attributes="href string:${portal_url}/login"
+                         i18n:domain="plone"
+                         i18n:attributes="value label_log_in;">
+                         Log In
+                      </a>
+                </form>
+              </div>
+
+              <metal:additional-slot define-slot="additional-header-actions">
+                <div class="trackerAction" tal:condition="python:not isAnon">
+                  <form action="${context/absolute_url}/@@toggle_watching"
+                        id="poi-watch-tracker-form"
+                        tal:define="type context/portal_type;
+                                    type_text python:type == 'Tracker' and 'tracker' or 'issue'">
+                    <div tal:define="is_watching context/@@toggle_watching/is_watching;">
+                      <input tal:condition="is_watching"
+                             class="standalone"
+                             type="submit"
+                             i18n:attributes="value"
+                             tal:attributes="value string:Stop watching this ${type_text}"
+                             />
+                      <input tal:condition="not:is_watching"
+                             class="context"
+                             type="submit"
+                             i18n:attributes="value"
+                             tal:attributes="value string:Watch this ${type_text}"
+                             />
+                    </div>
+                  </form>
+                </div>
+              </metal:additional-slot>
+          </div>
+          
+          <div class="col-xs-12 col-sm-5">
+              <div id="issue-quicksearch-box">
+                 <form action="" tal:attributes="action string:${trackerUrl}/@@poi_issue_quicksearch">
+                    <input type="text" name="searchText" size="15"
+                           tal:attributes="value request/SearchableText|nothing" />
+                    <button class="searchButton" type="submit" value="Search" i18n:attributes="value">
+                    </button>
+                 </form>
+                 <a id="issue-search-link"
+                    tal:attributes="href string:${trackerUrl}/poi_issue_search_form?${request/QUERY_STRING}"
+                    i18n:translate="poi_issue_search">Advanced issue search</a>
+
+              </div>
+          </div>
+          
+    </div>
+
+    </metal:trackerheader>
+
+    <dl class="portalMessage"
+	    tal:condition="python: is_editable and wtool.getInfoFor(here, 'review_state')=='closed'">
+	   <dt i18n:translate="">Note</dt>
+	   <dd i18n:translate="description_cannot_add_issues_before_opened">
+          Others cannot submit issues to your tracker until you open it for
+          submissions using the 'state' drop down in the green bar above.
+	   </dd>
+    </dl>
+
+    <h2 i18n:translate="poi_heading_open_issues">Open issues</h2>
+
+
+
+    <p i18n:translate="poi_help_open_issues">
+      Click an area, release or issue state to see all open issues in that
+      category. For more advanced search options, click "Advanced issue search".
+    </p>
+
+
+    <div id="open-issues-by-area" class="issue-quick-search-box">
+      <h3 i18n:translate="poi_heading_by_area">By area</h3>
+      <ul>
+        <tal:areas repeat="area context/available_areas">
+          <li tal:define="areaId          area/short_name;
+                          areaTitle       area/title;
+                          areaDescription area/description;
+                          issues          python:issuefolder.getFilteredIssues(area=areaId, state=openStates)">
+            <a tal:attributes="href python:addTokenToUrl('%s&amp;area=%s' % (issueQueryString, areaId));
+                               title areaDescription"
+               tal:content="areaTitle" /> (<span tal:replace="python:len(issues)" />)
+          </li>
+        </tal:areas>
+      </ul>
+    </div>
+
+    <div id="open-issues-by-release" class="issue-quick-search-box"
+         tal:condition="here/isUsingReleases">
+      <h3 i18n:translate="poi_heading_by_release">By target release</h3>
+      <ul tal:define="releases context/available_releases;">
+        <tal:releases repeat="release releases">
+          <li tal:define="issues python:issuefolder.getFilteredIssues(targetRelease=release, state=openStates)">
+            <a tal:attributes="href python:addTokenToUrl('%s&amp;targetRelease=%s' % (issueQueryString, release))"
+               tal:content="release" /> (<span tal:replace="python:len(issues)" />)
+          </li>
+        </tal:releases>
+      </ul>
+    </div>
+
+      <div id="open-issues-by-state" class="issue-quick-search-box"
+           tal:define="issueStates here/getIssueWorkflowStates;">
+          <h3 i18n:translate="poi_heading_by_state">By state</h3>
+          <ul>
+             <li tal:define="issues python:issuefolder.getFilteredIssues(state=openStates)">
+                 <a class="issue-unconfirmed"
+                    tal:attributes="href python:addTokenToUrl(issueQueryString)"
+                    i18n:translate="poi_all_pending_issues">All pending issues</a> (<span tal:replace="python:len(issues)" />)
+             </li>
+              <tal:releases repeat="state issueStates">
+                  <tal:block condition="python:state not in ignoredStates">
+                      <li tal:define="issues python:issuefolder.getFilteredIssues(state=state); 
+                                      state_id python:state[0];
+                                      state_text python:state[1]">
+                        <a tal:attributes="href python:addTokenToUrl('%s/poi_issue_search?state=%s' % (trackerUrl, state_id));
+                                           class string:issue-${state_id}"
+                           i18n:translate=""
+                           i18n:domain="plone"
+                           tal:content="state_text" /> (<span tal:replace="python:len(issues)" />)
+                      </li>
+                  </tal:block>
+              </tal:releases>
+          </ul>
+      </div>
+
+    <div class="visualClear"><!----></div>
+
+    <div id="open-issues-by-tag" class="issue-quick-search-box"
+         tal:define="tags context/getTagsInUse"
+         tal:condition="python:isManager and len(tags) > 0">
+      <h3 i18n:translate="poi_heading_by_tag">By top tags</h3>
+      <ul>
+        <li tal:repeat="tag tags">
+          <a tal:define="tagtext python:tag[0]"
+              tal:attributes="href string:${trackerUrl}/poi_issue_search?&amp;tags=${tagtext}"
+             tal:content="tagtext" />
+          (<span tal:replace="python:tag[1]"/>)
+        </li>
+      </ul>
+    </div>
+
+    <div style="clear:both"><!----></div>
+    
+    <tal:loggedIn condition="not:isAnon">
+      <div id="my-issues"
+           tal:define="issues python:issuefolder.getMyIssues(manager=False)"
+           tal:condition="nocall:issues">
+
+        <metal:table use-macro="context/poi_issue_search_results/macros/issue_search_results">
+
+          <metal:intro fill-slot="intro-text">
+            <h2 i18n:translate="poi_heading_my_issues">Issues assigned to me</h2>
+            <p tal:condition="isManager" i18n:translate="poi_help_my_issues_manager">
+              The following open issues have been assigned to you.
+              Note that the RSS feed for this list will include unconfirmed and orphaned issues as well,
+              to make it possible to subscribe to a single feed with all the issues you may be interested
+              in.
+            </p>
+
+            <p tal:condition="not:isManager" i18n:translate="poi_help_my_issues_not_manager">
+              The following open issues are assigned you.
+            </p>
+          </metal:intro>
+          <metal:rss fill-slot="rss-button">
+            <div class="issue-search-rss">
+              <a href="" tal:attributes="href string:${here/absolute_url}/poi-my-issues-rss.xml?memberId=${member/getId}&amp;isManager:boolean=${isManager}">
+                RSS
+              </a>
+            </div>
+          </metal:rss>
+        </metal:table>
+      </div>
+      
+      <div id="my-submitted"
+           tal:define="issues python:issuefolder.getMySubmitted(manager=False)"
+           tal:condition="nocall:issues">
+
+        <metal:table use-macro="context/poi_issue_search_results/macros/issue_search_results">
+
+          <metal:intro fill-slot="intro-text">
+            <h2 i18n:translate="poi_heading_my_submitted_issues">My submitted issues</h2>
+            <p tal:condition="isManager" i18n:translate="poi_help_my_submitted_issues_manager">
+              The following open issues were submitted by you.
+              Note that the RSS feed for this list will include unconfirmed and orphaned issues as well,
+              to make it possible to subscribe to a single feed with all the issues you may be interested
+              in.
+            </p>
+
+            <p tal:condition="not:isManager" i18n:translate="poi_help_my_submitted_issues_not_manager">
+              The following issues were submitted by you.
+            </p>
+          </metal:intro>
+          <metal:rss fill-slot="rss-button">
+            <div class="issue-search-rss">
+              <a href="" tal:attributes="href string:${here/absolute_url}/poi-my-submitted-issues-rss.xml?memberId=${member/getId}&amp;isManager:boolean=${isManager}">
+                RSS
+              </a>
+            </div>
+          </metal:rss>
+        </metal:table>
+      </div>
+    </tal:loggedIn>
+    
+
+      <div id="orphaned-issues"
+           tal:define="issues issuefolder/getOrphanedIssues"
+           tal:condition="nocall:issues">
+
+        <metal:table use-macro="here/poi_issue_search_results/macros/issue_search_results">
+
+          <metal:intro fill-slot="intro-text">
+            <h2 i18n:translate="poi_heading_orphaned_issues">Orphaned issues</h2>
+            <p i18n:translate="poi_help_orphaned_issues_">
+              The following issues are not assigned to anyone.
+            </p>
+          </metal:intro>
+
+          <metal:rss fill-slot="rss-button">
+            <div class="issue-search-rss">
+              <a href="" tal:attributes="href string:${here/absolute_url}/poi-orphaned-issues-rss.xml?memberId=${member/getId}">
+                RSS
+              </a>
+            </div>
+          </metal:rss>
+        </metal:table>
+      </div>
+
+
+    <div class="poweredBy">
+      <tal:powered i18n:translate="label_powered_by">
+        Powered by
+      </tal:powered>
+      <a class="link-plain"
+         href="http://plone.org/products/poi" i18n:translate="">Poi</a>
+    </div>
+
+  </metal:content-core>
+</metal:content-core>
+</body>
+</html>
+

@@ -97,6 +97,10 @@ msgstr ""
 msgid "No response text added and no issue changes made."
 msgstr ""
 
+#: skins/Poi/poi_tracker_view.pt:80
+msgid "view_issue_logs"
+msgstr ""
+
 #: ./skins/Poi/poi_tracker_view.pt:129
 msgid "Note"
 msgstr ""
@@ -245,8 +249,8 @@ msgid "Poi_help_responsibleManager"
 msgstr "选择哪个管理人员，如果有人负责这个问题。"
 
 # ./content/PoiTracker.py
-#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:245
+#. Default: "If selected, tracker assignees will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
+#: ./content/PoiTracker.py:247
 #, fuzzy
 msgid "Poi_help_sendNotificationEmails"
 msgstr "如果选中，一旦张贴新的问题或者答复，管理人员将收到一个通知邮件；问题的提交人将在有新的答复，或问题解决、等待确认的时候收到通知邮件。"
@@ -335,6 +339,11 @@ msgstr "领域"
 msgid "Poi_label_availableIssueTypes"
 msgstr "问题类型"
 
+#. Default: "Issue types"
+#: ./browser/templates/poi_issue_search_form.pt:150
+msgid "poi_search_label_type"
+msgstr "问题类型"
+
 # ./content/PoiTracker.py
 #. Default: "Available releases"
 #: ./content/PoiTracker.py:180
@@ -401,9 +410,9 @@ msgid "Poi_label_mailingList"
 msgstr "邮件列表"
 
 # ./content/PoiTracker.py
-#. Default: "Tracker managers"
-#: ./content/PoiTracker.py:195
-msgid "Poi_label_managers"
+#. Default: "Tracker assignees"
+#: ./content/tracker.py:147
+msgid "msgid \"Poi_label_assignees\""
 msgstr "跟踪器管理人员"
 
 # ./content/PoiResponse.py
@@ -468,8 +477,8 @@ msgid "Poi_label_subject"
 msgstr "标记"
 
 # ./content/PoiTracker.py
-#. Default: "URL to SVN"
-#: ./content/PoiTracker.py:279
+#. Default: "URL to Repository"
+#: ./content/PoiTracker.py:281
 msgid "Poi_label_svnurl"
 msgstr ""
 
@@ -477,12 +486,6 @@ msgstr ""
 #. Default: "Target release"
 #: ./content/PoiIssue.py:220
 msgid "Poi_label_targetRelease"
-msgstr ""
-
-# ./content/PoiTracker.py
-#. Default: "Technicians"
-#: ./content/PoiTracker.py:209
-msgid "Poi_label_technicians"
 msgstr ""
 
 #. Default: "Tracker description"
@@ -834,7 +837,6 @@ msgstr "下面的开放问题是你提交的"
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
 #: ./skins/Poi/poi_tracker_view.pt:142
-#, fuzzy
 msgid "poi_help_open_issues"
 msgstr "点击一个领域、版本或者问题状态，查看所有这个分类的开放问题。要使用更高级的搜索选项，点击“查找问题”"
 
@@ -871,9 +873,9 @@ msgstr "领域"
 msgid "poi_label_attachment"
 msgstr "附件："
 
-#. Default: "Responsible"
-#: ./skins/Poi/poi_issue_view.pt:120
-msgid "poi_label_responsible"
+#. Default: "Assignee"
+#: ./browser/templates/poi_issue_view.pt:114
+msgid "poi_label_assignee"
 msgstr "负责人"
 
 #. Default: "Severity"
@@ -931,6 +933,11 @@ msgstr "搜索词"
 msgid "poi_match_all_tags"
 msgstr ""
 
+#. Default: "Include Related Issues"
+#: ./skins/Poi/poi_issue_search_form.pt:267
+msgid "poi_display_related"
+msgstr ""
+
 #. Default: "New issue ${name} added by ${author}"
 #: ./browser/log.pt:36
 msgid "poi_new_issue_added"
@@ -943,7 +950,6 @@ msgstr ""
 
 #. Default: "Return to search"
 #: ./skins/Poi/poi_issue_search.pt:41
-#, fuzzy
 msgid "poi_return_to_search"
 msgstr "回到查找"
 
@@ -984,9 +990,9 @@ msgstr "选择你需要查找的问题类型"
 msgid "poi_search_help_release"
 msgstr "选择你希望查找的版本"
 
-#. Default: "Select the responsible managers you wish to search for."
+#. Default: "Select the assignee you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:221
-msgid "poi_search_help_responsible"
+msgid "poi_search_help_assignee"
 msgstr "选择你希望查找的问题的负责人"
 
 #. Default: "Select the severities you wish to search for."
@@ -1040,9 +1046,9 @@ msgstr "问题类型"
 msgid "poi_search_label_release"
 msgstr "版本"
 
-#. Default: "Responsible tracker managers"
-#: ./skins/Poi/poi_issue_search_form.pt:219
-msgid "poi_search_label_responsible"
+#. Default: "Assignee"
+#: ./skins/Poi/poi_issue_search_form.pt:215
+msgid "poi_search_label_assignee"
 msgstr "负责人"
 
 #. Default: "Severity"

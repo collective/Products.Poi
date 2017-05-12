@@ -97,6 +97,10 @@ msgstr ""
 msgid "No response text added and no issue changes made."
 msgstr ""
 
+#: skins/Poi/poi_tracker_view.pt:80
+msgid "view_issue_logs"
+msgstr ""
+
 #: ./skins/Poi/poi_tracker_view.pt:129
 msgid "Note"
 msgstr ""
@@ -114,7 +118,7 @@ msgstr ""
 #. Default: "Select the area this issue is relevant to."
 #: ./content/PoiIssue.py:176
 msgid "Poi_help_area"
-msgstr "Velg for hvilket område dette er relevant."
+msgstr "Velg for hvilket omrï¿½de dette er relevant."
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
@@ -122,21 +126,21 @@ msgstr "Velg for hvilket område dette er relevant."
 #: ./content/PoiIssue.py:161
 #, fuzzy
 msgid "Poi_help_attachment"
-msgstr "Hvis du ønsker det kan du legge ved en fil. Vennligst ikke legg ved veldig store filer."
+msgstr "Hvis du ï¿½nsker det kan du legge ved en fil. Vennligst ikke legg ved veldig store filer."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker."
 #: ./content/PoiTracker.py:115
 #, fuzzy
 msgid "Poi_help_availableAreas"
-msgstr "Skriv emnet/området, en på hver linje. Formatet er \"Kort navn | Tittel | Beskrivelse\"."
+msgstr "Skriv emnet/omrï¿½det, en pï¿½ hver linje. Formatet er \"Kort navn | Tittel | Beskrivelse\"."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker."
 #: ./content/PoiTracker.py:139
 #, fuzzy
 msgid "Poi_help_availableIssueTypes"
-msgstr " Skriv emne-typene, en på hver linje. Formatet er \"Kort navn | Tittel | Beskrivelse\"."
+msgstr " Skriv emne-typene, en pï¿½ hver linje. Formatet er \"Kort navn | Tittel | Beskrivelse\"."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release."
@@ -148,14 +152,14 @@ msgstr ""
 #. Default: "Enter the different type of issue severities that should be available, one per line."
 #: ./content/PoiTracker.py:154
 msgid "Poi_help_availableSeverities"
-msgstr "Beskriv de forskjellige 'alvorlighetsgrader' som skal være tilgjengelig, en på hver linje."
+msgstr "Beskriv de forskjellige 'alvorlighetsgrader' som skal vï¿½re tilgjengelig, en pï¿½ hver linje."
 
 # ./content/PoiIssue.py
 #. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
 #: ./content/PoiIssue.py:256
 #, fuzzy
 msgid "Poi_help_contactEmail"
-msgstr "Eventuelt, skriv e-post-adr. hvor du kan bli kontaktet for videre informasjon eller når tilfellet er ferdigbehandlet."
+msgstr "Eventuelt, skriv e-post-adr. hvor du kan bli kontaktet for videre informasjon eller nï¿½r tilfellet er ferdigbehandlet."
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
@@ -179,7 +183,7 @@ msgstr ""
 #. Default: "Select a change of state in the issue this response is for, if applicable"
 #: ./browser/response.pt:176
 msgid "Poi_help_issueTransition"
-msgstr "Velg en forandring i tilstanden for emnet dette er et svar på, hvis mulig."
+msgstr "Velg en forandring i tilstanden for emnet dette er et svar pï¿½, hvis mulig."
 
 # ./content/PoiIssue.py
 #. Default: "Select the type of issue."
@@ -191,7 +195,7 @@ msgstr "Velg type emne."
 #. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
 #: ./content/PoiIssue.py:92
 msgid "Poi_help_issue_title"
-msgstr "Velg en kort, forklarende tittel for emnet. En god tittel vil gjøre det enklere å identifisere og svare på emnet."
+msgstr "Velg en kort, forklarende tittel for emnet. En god tittel vil gjï¿½re det enklere ï¿½ identifisere og svare pï¿½ emnet."
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
@@ -244,8 +248,8 @@ msgid "Poi_help_responsibleManager"
 msgstr "Velg hvilken support-person som er ansvarlig for dette emnet."
 
 # ./content/PoiTracker.py
-#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:245
+#. Default: "If selected, tracker assignees will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
+#: ./content/PoiTracker.py:247
 #, fuzzy
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Hvis valgt, vil managere motta e-post hver gang et nytt emne eller svar blir opprettet, og emnedeltakerne vil motta en e-post hver gang det er svar e.l.."
@@ -266,7 +270,7 @@ msgstr "Hvis det er mulig, beskriv hva/hvordan det skjedde."
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
 #: ./content/PoiIssue.py:291
 msgid "Poi_help_subject"
-msgstr "Merkelapper kan brukes for å legge til egne kategorier for emner. Listen under viser eksisterende merkelapper som du kan velge, eller du kan legge til nye."
+msgstr "Merkelapper kan brukes for ï¿½ legge til egne kategorier for emner. Listen under viser eksisterende merkelapper som du kan velge, eller du kan legge til nye."
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
@@ -307,13 +311,13 @@ msgstr ""
 #: ./content/PoiIssue.py:273
 #, fuzzy
 msgid "Poi_help_watchers"
-msgstr "Skriv brukernavn på dem som følger med dette emnet, en per linje. Disse medlemmene vil motta en e-post når et svar blir lagt til emnet. Brukere kan også legge seg selv til som som 'betrakterer'"
+msgstr "Skriv brukernavn pï¿½ dem som fï¿½lger med dette emnet, en per linje. Disse medlemmene vil motta en e-post nï¿½r et svar blir lagt til emnet. Brukere kan ogsï¿½ legge seg selv til som som 'betrakterer'"
 
 # ./content/PoiIssue.py
 #. Default: "Area"
 #: ./content/PoiIssue.py:174
 msgid "Poi_label_area"
-msgstr "Område"
+msgstr "Omrï¿½de"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
@@ -326,12 +330,17 @@ msgstr "Vedlegg"
 #. Default: "Areas"
 #: ./content/PoiTracker.py:113
 msgid "Poi_label_availableAreas"
-msgstr "Områder"
+msgstr "Omrï¿½der"
 
 # ./content/PoiTracker.py
 #. Default: "Issue types"
 #: ./content/PoiTracker.py:137
 msgid "Poi_label_availableIssueTypes"
+msgstr "Enmetype"
+
+#. Default: "Issue types"
+#: ./browser/templates/poi_issue_search_form.pt:150
+msgid "poi_search_label_type"
 msgstr "Enmetype"
 
 # ./content/PoiTracker.py
@@ -400,9 +409,9 @@ msgid "Poi_label_mailingList"
 msgstr "Mailing-liste"
 
 # ./content/PoiTracker.py
-#. Default: "Tracker managers"
-#: ./content/PoiTracker.py:195
-msgid "Poi_label_managers"
+#. Default: "Tracker assignees"
+#: ./content/tracker.py:147
+msgid "msgid \"Poi_label_assignees\""
 msgstr "Managere"
 
 # ./content/PoiResponse.py
@@ -467,8 +476,8 @@ msgid "Poi_label_subject"
 msgstr "Merkelapper"
 
 # ./content/PoiTracker.py
-#. Default: "URL to SVN"
-#: ./content/PoiTracker.py:279
+#. Default: "URL to Repository"
+#: ./content/PoiTracker.py:281
 msgid "Poi_label_svnurl"
 msgstr ""
 
@@ -478,11 +487,6 @@ msgstr ""
 msgid "Poi_label_targetRelease"
 msgstr ""
 
-# ./content/PoiTracker.py
-#. Default: "Technicians"
-#: ./content/PoiTracker.py:209
-msgid "Poi_label_technicians"
-msgstr ""
 
 #. Default: "Tracker description"
 #: ./content/PoiTracker.py:72
@@ -561,7 +565,7 @@ msgstr ""
 #. Default: "Stop watching this issue"
 #: ./skins/Poi/poi_issue_view.pt:176
 msgid "Stop watching this issue"
-msgstr "Slutt å følge med dette emnet"
+msgstr "Slutt ï¿½ fï¿½lge med dette emnet"
 
 #: ./skins/Poi/poi_tracker_view.pt:105
 msgid "Stop watching this tracker"
@@ -590,7 +594,7 @@ msgstr ""
 #. Default: "Watch this issue"
 #: ./skins/Poi/poi_issue_view.pt:182
 msgid "Watch this issue"
-msgstr "Følg med dette emnet"
+msgstr "Fï¿½lg med dette emnet"
 
 #: ./skins/Poi/poi_tracker_view.pt:111
 msgid "Watch this tracker"
@@ -643,12 +647,12 @@ msgstr ""
 #. Default: "Search"
 #: ./skins/Poi/poi_issue_search_form.pt:270
 msgid "label_search"
-msgstr "Søk"
+msgstr "Sï¿½k"
 
 #. Default: "Area"
 #: ./skins/Poi/poi_issue_search_results.pt:37
 msgid "listingheader_area"
-msgstr "Område"
+msgstr "Omrï¿½de"
 
 #. Default: "#"
 #: ./skins/Poi/poi_issue_search_results.pt:33
@@ -761,7 +765,7 @@ msgstr ""
 #. Default: "By area"
 #: ./skins/Poi/poi_tracker_view.pt:149
 msgid "poi_heading_by_area"
-msgstr "Etter område"
+msgstr "Etter omrï¿½de"
 
 #. Default: "By target release"
 #: ./skins/Poi/poi_tracker_view.pt:166
@@ -782,7 +786,7 @@ msgstr "Etter merkelapp"
 #. Default: "Issue search"
 #: ./skins/Poi/poi_issue_search_form.pt:19
 msgid "poi_heading_issue_search"
-msgstr "Emnesøk"
+msgstr "Emnesï¿½k"
 
 #. Default: "Tracker log"
 #: ./browser/log.pt:19
@@ -797,7 +801,7 @@ msgstr "Mine emner"
 #. Default: "Open issues"
 #: ./skins/Poi/poi_tracker_view.pt:138
 msgid "poi_heading_open_issues"
-msgstr "Åpne emner"
+msgstr "ï¿½pne emner"
 
 #. Default: "Orphaned issues"
 #: ./skins/Poi/poi_tracker_view.pt:291
@@ -807,7 +811,7 @@ msgstr ""
 #. Default: "Issue search results"
 #: ./skins/Poi/poi_issue_search.pt:36
 msgid "poi_heading_search_results"
-msgstr "Resultater av emnesøk"
+msgstr "Resultater av emnesï¿½k"
 
 #. Default: "Unconfirmed issues"
 #: ./skins/Poi/poi_tracker_view.pt:226
@@ -823,19 +827,18 @@ msgstr ""
 #: ./skins/Poi/poi_tracker_view.pt:258
 #, fuzzy
 msgid "poi_help_my_issues_manager"
-msgstr "De følgende åpne emner ble enten sent av deg, eller de er blitt tildelt deg."
+msgstr "De fï¿½lgende ï¿½pne emner ble enten sent av deg, eller de er blitt tildelt deg."
 
 #. Default: "The following open issues were submitted by you."
 #: ./skins/Poi/poi_tracker_view.pt:265
 #, fuzzy
 msgid "poi_help_my_issues_not_manager"
-msgstr "De følgende åpne emner ble enten sent av deg."
+msgstr "De fï¿½lgende ï¿½pne emner ble enten sent av deg."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
 #: ./skins/Poi/poi_tracker_view.pt:142
-#, fuzzy
 msgid "poi_help_open_issues"
-msgstr "Klikk et område eller emne-tilstand for å se alle åpne emner i den kategorien. For mere avanserte søkevalg, klikk  \"Søk etter emner\"."
+msgstr "Klikk et omrï¿½de eller emne-tilstand for ï¿½ se alle ï¿½pne emner i den kategorien. For mere avanserte sï¿½kevalg, klikk  \"Sï¿½k etter emner\"."
 
 #. Default: "The following open issues are not assigned to anyone."
 #: ./skins/Poi/poi_tracker_view.pt:292
@@ -846,23 +849,23 @@ msgstr ""
 #: ./skins/Poi/poi_tracker_view.pt:227
 #, fuzzy
 msgid "poi_help_unconfirmed_issues"
-msgstr "De følgende emner har ikke blitt bekreftet eller tildelt. Vennligst sjekk dem og gjør nødvendige tiltak."
+msgstr "De fï¿½lgende emner har ikke blitt bekreftet eller tildelt. Vennligst sjekk dem og gjï¿½r nï¿½dvendige tiltak."
 
 #. Default: "Advanced issue search"
 #: ./skins/Poi/poi_tracker_view.pt:51
 #, fuzzy
 msgid "poi_issue_search"
-msgstr "Søk etter emner"
+msgstr "Sï¿½k etter emner"
 
 #. Default: "This form allows you to search for issue according to a variety of criteria. Please make your selection below and click Search."
 #: ./skins/Poi/poi_issue_search_form.pt:27
 msgid "poi_issue_search_description"
-msgstr "Denne formen gjør det mulig å søke etter emner ved hjelp av mange kreterier. Vennligst gjør dine valg og klikk \"Søk\"."
+msgstr "Denne formen gjï¿½r det mulig ï¿½ sï¿½ke etter emner ved hjelp av mange kreterier. Vennligst gjï¿½r dine valg og klikk \"Sï¿½k\"."
 
 #. Default: "Area"
 #: ./skins/Poi/poi_issue_view.pt:83
 msgid "poi_label_area"
-msgstr "Område"
+msgstr "Omrï¿½de"
 
 #. Default: "Attached:"
 #: ./browser/response.pt:64
@@ -870,9 +873,9 @@ msgstr "Område"
 msgid "poi_label_attachment"
 msgstr "Vedlagt."
 
-#. Default: "Responsible"
-#: ./skins/Poi/poi_issue_view.pt:120
-msgid "poi_label_responsible"
+#. Default: "Assignee"
+#: ./browser/templates/poi_issue_view.pt:114
+msgid "poi_label_assignee"
 msgstr "Ansvarlig"
 
 #. Default: "Severity"
@@ -923,11 +926,16 @@ msgstr ""
 #. Default: "Search Terms"
 #: ./skins/Poi/poi_issue_search_form.pt:39
 msgid "poi_legend_search_terms"
-msgstr "Søkevalg"
+msgstr "Sï¿½kevalg"
 
 #. Default: "Match all tags"
 #: ./skins/Poi/poi_issue_search_form.pt:265
 msgid "poi_match_all_tags"
+msgstr ""
+
+#. Default: "Include Related Issues"
+#: ./skins/Poi/poi_issue_search_form.pt:267
+msgid "poi_display_related"
 msgstr ""
 
 #. Default: "New issue ${name} added by ${author}"
@@ -942,9 +950,8 @@ msgstr ""
 
 #. Default: "Return to search"
 #: ./skins/Poi/poi_issue_search.pt:41
-#, fuzzy
 msgid "poi_return_to_search"
-msgstr "Tilbake til søk"
+msgstr "Tilbake til sï¿½k"
 
 #. Default: "Return to search results"
 #: ./skins/Poi/poi_issue_view.pt:147
@@ -960,7 +967,7 @@ msgstr "Tilbake"
 #. Default: "Select the areas you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:135
 msgid "poi_search_help_area"
-msgstr "Velg områdene du vil søke etter."
+msgstr "Velg omrï¿½dene du vil sï¿½ke etter."
 
 #. Default: "Enter the username of the issue submitter,"
 #: ./skins/Poi/poi_issue_search_form.pt:75
@@ -975,7 +982,7 @@ msgstr ""
 #. Default: "Select the issue types you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:156
 msgid "poi_search_help_issue_type"
-msgstr "Velg emne-typene du vil søke etter."
+msgstr "Velg emne-typene du vil sï¿½ke etter."
 
 #. Default: "Select the version for which the bugs you want to find were reported."
 #: ./skins/Poi/poi_issue_search_form.pt:88
@@ -983,25 +990,25 @@ msgstr "Velg emne-typene du vil søke etter."
 msgid "poi_search_help_release"
 msgstr "Select the releases you wish to search for."
 
-#. Default: "Select the responsible managers you wish to search for."
+#. Default: "Select the assignee you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:221
-msgid "poi_search_help_responsible"
-msgstr "Velg de ansvarlige managerene du vil søke etter."
+msgid "poi_search_help_assignee"
+msgstr "Velg de ansvarlige managerene du vil sï¿½ke etter."
 
 #. Default: "Select the severities you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:177
 msgid "poi_search_help_severity"
-msgstr "Velg alvorlighetsgraden du vil søke etter."
+msgstr "Velg alvorlighetsgraden du vil sï¿½ke etter."
 
 #. Default: "Select the states you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:198
 msgid "poi_search_help_state"
-msgstr "Velg tilstandene du vil søke etter."
+msgstr "Velg tilstandene du vil sï¿½ke etter."
 
 #. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:243
 msgid "poi_search_help_tags"
-msgstr "Velg merkelappene du vil søker etter."
+msgstr "Velg merkelappene du vil sï¿½ker etter."
 
 #. Default: "Select the assigned target release you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:112
@@ -1016,7 +1023,7 @@ msgstr "Skriv hvilen som helst tekst du vil at emnet skal inneholde."
 #. Default: "Area"
 #: ./skins/Poi/poi_issue_search_form.pt:133
 msgid "poi_search_label_area"
-msgstr "Område"
+msgstr "Omrï¿½de"
 
 #. Default: "Submitter"
 #: ./skins/Poi/poi_issue_search_form.pt:73
@@ -1039,9 +1046,9 @@ msgstr "Emne-type"
 msgid "poi_search_label_release"
 msgstr "Versjoon"
 
-#. Default: "Responsible tracker managers"
-#: ./skins/Poi/poi_issue_search_form.pt:219
-msgid "poi_search_label_responsible"
+#. Default: "Assignee"
+#: ./skins/Poi/poi_issue_search_form.pt:215
+msgid "poi_search_label_assignee"
 msgstr "Ansvarlige managere"
 
 #. Default: "Severity"

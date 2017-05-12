@@ -1,8 +1,12 @@
 <?xml version="1.0"?>
-<dc-workflow workflow_id="poi_issue_workflow" title="Poi issue workflow" description="" state_variable="review_state" initial_state="new" manager_bypass="False">
+<dc-workflow workflow_id="poi_issue_workflow" title="Poi issue workflow" description="" state_variable="review_state" initial_state="unconfirmed" manager_bypass="False">
  <permission>Delete objects</permission>
  <permission>Modify portal content</permission>
+ <permission>List folder contents</permission>
  <permission>Poi: Modify issue state</permission>
+ <permission>plone.app.contenttypes: Add Document</permission>
+ <permission>plone.app.contenttypes: Add File</permission>
+ <permission>plone.app.contenttypes: Add Image</permission>
  <state state_id="closed" title="Tested and confirmed closed">
   <exit-transition transition_id="open-closed"/>
   <permission-map name="Delete objects" acquired="False">
@@ -24,6 +28,19 @@
    <permission-role>Site Administrator</permission-role>
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="List folder contents" acquired="True">
+   <permission-role>Technician</permission-role>
+   <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Document" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add File" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Image" acquired="True">
+   <permission-role>Member</permission-role>
   </permission-map>
  </state>
  <state state_id="in-progress" title="In progress">
@@ -48,6 +65,19 @@
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
+  <permission-map name="List folder contents" acquired="True">
+   <permission-role>Technician</permission-role>
+   <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Document" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add File" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Image" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
  </state>
  <state state_id="new" title="Being created">
   <exit-transition transition_id="post"/>
@@ -71,6 +101,19 @@
    <permission-role>Owner</permission-role>
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="List folder contents" acquired="True">
+   <permission-role>Technician</permission-role>
+   <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Document" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add File" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Image" acquired="True">
+   <permission-role>Member</permission-role>
   </permission-map>
  </state>
  <state state_id="open" title="Confirmed">
@@ -97,6 +140,19 @@
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
+  <permission-map name="List folder contents" acquired="True">
+   <permission-role>Technician</permission-role>
+   <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Document" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add File" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Image" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
  </state>
  <state state_id="postponed" title="Postponed">
   <exit-transition transition_id="re-start"/>
@@ -120,6 +176,19 @@
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
+  <permission-map name="List folder contents" acquired="True">
+   <permission-role>Technician</permission-role>
+   <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Document" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add File" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Image" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
  </state>
  <state state_id="rejected" title="Rejected">
   <exit-transition transition_id="open-rejected"/>
@@ -141,6 +210,19 @@
    <permission-role>Site Administrator</permission-role>
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="List folder contents" acquired="True">
+   <permission-role>Technician</permission-role>
+   <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Document" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add File" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Image" acquired="True">
+   <permission-role>Member</permission-role>
   </permission-map>
  </state>
  <state state_id="resolved" title="Resolved">
@@ -166,6 +248,19 @@
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
   </permission-map>
+  <permission-map name="List folder contents" acquired="True">
+   <permission-role>Technician</permission-role>
+   <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Document" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add File" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Image" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
  </state>
  <state state_id="unconfirmed" title="Unconfirmed">
   <exit-transition transition_id="accept-unconfirmed"/>
@@ -190,6 +285,19 @@
    <permission-role>Site Administrator</permission-role>
    <permission-role>Technician</permission-role>
    <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="List folder contents" acquired="True">
+   <permission-role>Technician</permission-role>
+   <permission-role>TrackerManager</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Document" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add File" acquired="True">
+   <permission-role>Member</permission-role>
+  </permission-map>
+  <permission-map name="plone.app.contenttypes: Add Image" acquired="True">
+   <permission-role>Member</permission-role>
   </permission-map>
  </state>
  <transition transition_id="accept-unconfirmed" title="Open" new_state="open" trigger="USER" before_script="" after_script="">

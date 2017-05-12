@@ -101,6 +101,10 @@ msgstr "No hay respuesta seleccionadas."
 msgid "No response text added and no issue changes made."
 msgstr "No hay respuesta en el texto añadido y no hay incidencia de cambios realizados."
 
+#: skins/Poi/poi_tracker_view.pt:80
+msgid "view_issue_logs"
+msgstr ""
+
 #: ./skins/Poi/poi_tracker_view.pt:129
 msgid "Note"
 msgstr ""
@@ -248,8 +252,8 @@ msgid "Poi_help_responsibleManager"
 msgstr "Selecciones que gestor, si lo hay, es el responsable de esta incidencia."
 
 # ./content/PoiTracker.py
-#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:245
+#. Default: "If selected, tracker assignees will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
+#: ./content/PoiTracker.py:247
 #, fuzzy
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Si se selecciona, los administradores recibirán un mensaje cada vez que se envíe una nueva incidencia o repuesta, y los que envíen incidencias recibirán un mensaje cuando sean respondidos y cuando se resuelvan las incidencias, esperando confirmación."
@@ -337,6 +341,10 @@ msgstr "Áreas"
 #. Default: "Issue types"
 #: ./content/PoiTracker.py:137
 msgid "Poi_label_availableIssueTypes"
+
+#. Default: "Issue types"
+#: ./browser/templates/poi_issue_search_form.pt:150
+msgid "poi_search_label_type"
 msgstr "Tipos de incidencia"
 
 # ./content/PoiTracker.py
@@ -406,9 +414,9 @@ msgid "Poi_label_mailingList"
 msgstr "Lista de correo"
 
 # ./content/PoiTracker.py
-#. Default: "Tracker managers"
-#: ./content/PoiTracker.py:195
-msgid "Poi_label_managers"
+#. Default: "Tracker assignees"
+#: ./content/tracker.py:147
+msgid "msgid \"Poi_label_assignees\""
 msgstr "Administradores del gestor"
 
 # ./content/PoiResponse.py
@@ -473,8 +481,8 @@ msgid "Poi_label_subject"
 msgstr "Etiquetas"
 
 # ./content/PoiTracker.py
-#. Default: "URL to SVN"
-#: ./content/PoiTracker.py:279
+#. Default: "URL to Repository"
+#: ./content/PoiTracker.py:281
 msgid "Poi_label_svnurl"
 msgstr "Ruta del servidor de versiones Subversión (SVN)"
 
@@ -483,12 +491,6 @@ msgstr "Ruta del servidor de versiones Subversión (SVN)"
 #: ./content/PoiIssue.py:220
 msgid "Poi_label_targetRelease"
 msgstr "Destino de publicación"
-
-# ./content/PoiTracker.py
-#. Default: "Technicians"
-#: ./content/PoiTracker.py:209
-msgid "Poi_label_technicians"
-msgstr ""
 
 #. Default: "Tracker description"
 #: ./content/PoiTracker.py:72
@@ -835,9 +837,8 @@ msgstr "Las siguientes incidencias fueron enviadas por usted."
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
 #: ./skins/Poi/poi_tracker_view.pt:142
-#, fuzzy
 msgid "poi_help_open_issues"
-msgstr "Haga click en un área, una versión o un estado para ver todas las incidencias abiertas de esa categoría. Para realizar una búsqueda avanzada, haga click en \"Buscar incidencias\""
+msgstr "Haga click en un área, una versión o un estado para ver todas las incidencias abiertas de esa categoría. Para realizar una búsqueda avanzada, haga click en \"Buscar incidencias\"."
 
 #. Default: "The following open issues are not assigned to anyone."
 #: ./skins/Poi/poi_tracker_view.pt:292
@@ -870,9 +871,9 @@ msgstr "Área"
 msgid "poi_label_attachment"
 msgstr "Adjunto:"
 
-#. Default: "Responsible"
-#: ./skins/Poi/poi_issue_view.pt:120
-msgid "poi_label_responsible"
+#. Default: "Assignee"
+#: ./browser/templates/poi_issue_view.pt:114
+msgid "poi_label_assignee"
 msgstr "Responsable"
 
 #. Default: "Severity"
@@ -930,6 +931,11 @@ msgstr "Términos de búsqueda"
 msgid "poi_match_all_tags"
 msgstr "Coincidir todas las etiquetas"
 
+#. Default: "Include Related Issues"
+#: ./skins/Poi/poi_issue_search_form.pt:267
+msgid "poi_display_related"
+msgstr ""
+
 #. Default: "New issue ${name} added by ${author}"
 #: ./browser/log.pt:36
 msgid "poi_new_issue_added"
@@ -942,7 +948,6 @@ msgstr ""
 
 #. Default: "Return to search"
 #: ./skins/Poi/poi_issue_search.pt:41
-#, fuzzy
 msgid "poi_return_to_search"
 msgstr "Volver a la búsqueda"
 
@@ -982,9 +987,9 @@ msgstr "Seleccione los tipos de incidencia que desea buscar."
 msgid "poi_search_help_release"
 msgstr "Seleccione las versiones que desea buscar."
 
-#. Default: "Select the responsible managers you wish to search for."
+#. Default: "Select the assignee you wish to search for."
 #: ./skins/Poi/poi_issue_search_form.pt:221
-msgid "poi_search_help_responsible"
+msgid "poi_search_help_assignee"
 msgstr "Selecciones los administradores que desea buscar."
 
 #. Default: "Select the severities you wish to search for."
@@ -1037,9 +1042,9 @@ msgstr "Tipo de incidencia"
 msgid "poi_search_label_release"
 msgstr "Versión"
 
-#. Default: "Responsible tracker managers"
-#: ./skins/Poi/poi_issue_search_form.pt:219
-msgid "poi_search_label_responsible"
+#. Default: "Assignee"
+#: ./skins/Poi/poi_issue_search_form.pt:215
+msgid "poi_search_label_assignee"
 msgstr "Administradores del gestor"
 
 #. Default: "Severity"
