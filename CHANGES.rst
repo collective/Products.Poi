@@ -7,7 +7,7 @@ Changelog for Poi
 
 - Added a migration path from Poi 2.x to 4.x, which migrates
   Trackers and Issues to Dexterity. This version is to only be
-  used in Plone 4 as a migration step, not a useable version of Poi.
+  used in Plone 4 as a migration step, and is not a useable version of Poi.
 
 
 2.3 (2016-12-30)

@@ -9,11 +9,9 @@ Released under the GNU General Public License, version 2
 
 Poi is an issue tracker product for Plone. It has a goal to be 
 simple and attractive whilst providing the most commonly needed issue
-tracking functionality. Poi 3.0 uses Dexterity and is for Plone 5 only.
+tracking functionality. Poi 4.0 uses Dexterity and is for Plone 5 only.
 
-Feedback is very welcome. 
-
-Please submit any bugs or feature requests at: 
+Feedback is very welcome. Please submit any bugs or feature requests at:
    
    https://github.com/collective/Products.Poi/issues
 
@@ -21,7 +19,7 @@ Please submit any bugs or feature requests at:
 Installation and dependencies
 -----------------------------
 
-This version of Poi is for migrating between 2.x and 3.x. If you are
+This version of Poi is for migrating between 2.x and 4.x. If you are
 installing Poi for the first time, see the next section for which
 version to use.
 
@@ -29,28 +27,24 @@ version to use.
 What version of Poi to use?
 ---------------------------
 
-* Poi 2.0 - 2.4 is for Plone 4
-* Poi 2.5 is a migration step from Poi 2.x to Poi 3.x
-* Poi 3.0+ only works on Plone 5
+* Poi 2.x is for Plone 4
+* Poi 3.x is a migration step from Poi 2.x to Poi 4.x
+* Poi 4.0+ only works on Plone 5
 
 
 Upgrading
 ---------
 
-Version 2.5.x of Poi is only for migrating to Dexterity in preparation of
-moving to Plone 5. It requires plone.app.contenttypes*, but don't activate
+Version 3.x of Poi is only for migrating to Dexterity in preparation of
+moving to Plone 5. It requires plone.app.contenttypes 1.1.2, but don't activate
 the add-on unless you plan on migrating all your default Archetypes
 to Dexterity.
-
-`*` Requires plone.app.contenttypes after 1.1.1, if released. If a new
-version in the 1.1.x series is not available, you can use 1.1.1.1
-from http://dist.sixfeetup.com/public
 
 Upgrade steps:
 
 * Do the Poi migration in Plone 4 (reinstall Poi or run the upgrade steps)
 * Upgrade to Plone 5
-* Upgrade to Poi 3.0
+* Upgrade to Poi 4.x
 
 Re-install Poi from the Add/Remove Products control panel.  Some
 upgrade steps will be executed; these can also be found in the ZMI, in
