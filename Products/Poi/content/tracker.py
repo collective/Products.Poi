@@ -464,6 +464,9 @@ class TrackerRoleProvider(object):
         return self.roles
 
     def getAllRoles(self):
+        if not self.context.assignees:
+            yield '', ()
+            return
         for assignee in self.context.assignees:
             try:
                 yield assignee, self.roles
