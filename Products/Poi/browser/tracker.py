@@ -210,8 +210,8 @@ class IssueFolderView(BrowserView):
                           memberId=None):
         """Get a catalog query result set of orphaned issues.
 
-        Meaning: all open issues not assigned to anyone and not owned
-        by the given user.
+        Meaning: all open issues not assigned to anyone. Displayed
+        to Managers and Assignees
         """
         if not memberId:
             memberId = api.user.get_current().id
