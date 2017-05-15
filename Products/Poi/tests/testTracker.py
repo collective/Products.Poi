@@ -175,7 +175,9 @@ class TestEmailNotifications(ptc.PoiTestCase):
         self.createIssue(self.tracker, tags=('A', 'B'), assignee=u'member2')
         self.createIssue(self.tracker, tags=('B', 'C'), assignee=u'member2')
         self.createIssue(self.tracker, tags=('A', 'D'), assignee=u'member2')
-        self.assertEqual(self.tracker.getTagsInUse(), ['A', 'B', 'C', 'D'])
+        self.assertEqual(self.tracker.getAllTags(), ['A', 'B', 'C', 'D'])
+        self.assertEqual(self.tracker.getTagsInUse(),
+                         [('A', 2), ('B', 2), ('C', 1), ('D', 1)])
 
     # The following tests don't map directly to functional methods but are
     # meant to make sure no errors arise from sending emails
