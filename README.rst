@@ -6,7 +6,10 @@ Poi: A friendly issue tracker
  current maintainer: Maurits van Rees <maurits@vanrees.org>
 
  Released under the GNU General Public License, version 2
- 
+
+.. image:: https://img.shields.io/travis/collective/Products.Poi/master.svg
+    :target: http://travis-ci.org/collective/Products.Poi
+
 Poi is an issue tracker product for Plone. It has three overarching aims:
 
 - Provide the default tracker for open source software projects on
