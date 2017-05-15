@@ -1,0 +1,19 @@
+language: python
+sudo: false
+cache:
+  directories:
+  - eggs
+  - downloads
+python:
+  - 2.7
+matrix:
+  fast_finish: true
+install:
+  - python bootstrap.py
+  - bin/buildout -N buildout:download-cache=downloads annotate
+  - bin/buildout -N buildout:download-cache=downloads
+script:
+  - bin/test
+notifications:
+  email:
+    - m.van.rees@zestsoftware.nl
