@@ -7,13 +7,14 @@ Poi: A friendly issue tracker
 
  Released under the GNU General Public License, version 2
 
-.. image:: https://img.shields.io/travis/collective/Products.Poi/master.svg
+.. image:: https://img.shields.io/travis/collective/Products.Poi/2.x.svg
     :target: http://travis-ci.org/collective/Products.Poi
 
 Poi is an issue tracker product for Plone. It has three overarching aims:
 
 - Provide the default tracker for open source software projects on
   http://plone.org
+  Actually, it is no longer used there.
 
 - Be simple and attractive whilst providing the most commonly needed issue
   tracking functionality.
@@ -25,16 +26,16 @@ Poi is not and will not be a track-anything-and-everything tracker, a help desk
 product or anything else. If Poi is too simple for your needs, you may want to
 look at something like PloneCollectorNG.
 
-Feedback is very welcome. 
+Feedback is very welcome.
 
-Please submit any bugs or feature requests at: 
-    
+Please submit any bugs or feature requests at:
+
     http://plone.org/products/poi/issues
-    
+
 (Yes, this is a Poi tracker). Please do search the tracker first, so we can
 avoid unnecessary duplicates.
-    
-See http://plone.org/products/poi for the latest release and the development 
+
+See http://plone.org/products/poi for the latest release and the development
 road map.
 
 
@@ -49,11 +50,11 @@ Poi requires:
 
   - Plone 4; this version of Poi will *not* work with Plone 3.
 
-  - DataGridField
+  - DataGridField (automatically added)
 
-  - AddRemoveWidget
+  - AddRemoveWidget (automatically added)
 
-  - collective.watcherlist
+  - collective.watcherlist (automatically added)
 
   - For PloneSoftwareCenter integration, PloneSoftwareCenter is
     required.  See http://plone.org/products/plonesoftwarecenter
@@ -62,6 +63,15 @@ Poi requires:
 For new installations, install using Add/Remove Products as normal. If you want
 PloneSoftwareCenter configuration to be automatically configured, install PSC
 *first*.
+
+
+What version of Poi to use?
+---------------------------
+
+* Poi 1.x is for Plone 3
+* Poi 2.x is for Plone 4
+* Poi 3.x is a migration step from Poi 2.x to Poi 4.x
+* Poi 4.0+ only works on Plone 5
 
 
 Upgrading
@@ -76,8 +86,8 @@ Backup your Data.fs first before upgrading!
 Usage
 -----
 
-Add a Tracker, and use the "state" menu to open it for submissions. 
- 
+Add a Tracker, and use the "state" menu to open it for submissions.
+
 The tracker front pages allows you to browse for issues by release,
 state or area, as well as search for issues. Note that if you are not
 tracking software releases, you can leave the list of "releases"
@@ -121,7 +131,7 @@ Before version 1.0b2 Poi used to support kupu/rich text fields with HTML in the
 issue and response body. This was removed in favour of "intelligenttext", a
 plain-text markup that preserves whitespace and makes links clickable.
 
-This was found to work very well on plone.org and for the type of simple 
+This was found to work very well on plone.org and for the type of simple
 trackers that Poi was intended for. However, a lot of users wanted kupu back.
 
 To get kupu back, you will need to edit Poi/config.py::

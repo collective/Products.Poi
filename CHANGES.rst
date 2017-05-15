@@ -5,7 +5,7 @@ Changelog for Poi
 2.3.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Note: Products.Poi 2.x is only for Plone 4.  [maurits]
 
 
 2.3 (2016-12-30)
