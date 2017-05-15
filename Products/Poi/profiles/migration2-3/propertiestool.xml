@@ -3,8 +3,8 @@
  <object name="navtree_properties" meta_type="Plone Property Sheet">
   <property name="parentMetaTypesNotToQuery" type="lines">
    <element value="PoiPscTracker" remove="True"/>
-   <element value="Tracker" remove="True"/>
-   <element value="Issue" remove="True"/>
+   <element value="Tracker" />
+   <element value="Issue" />
   </property>
  </object>
 </object>
