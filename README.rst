@@ -5,17 +5,19 @@ Poi is an issue tracker product for Plone. It has a goal to be
 simple and attractive whilst providing the most commonly needed issue
 tracking functionality. Poi 4.0 uses Dexterity and is for Plone 5 only.
 
-Feedback is very welcome. Please submit any bugs or feature requests at: 
-    
-    https://github.com/collective/Products.Poi/issues
-
-
  by Martin Aspeli <optilude@gmx.net>
 
  current maintainer: Maurits van Rees <maurits@vanrees.org>
 
  Released under the GNU General Public License, version 2
 
+.. image:: https://img.shields.io/travis/collective/Products.Poi/master.svg
+    :target: http://travis-ci.org/collective/Products.Poi
+
+
+Feedback is very welcome. Please submit any bugs or feature requests at: 
+    
+    https://github.com/collective/Products.Poi/issues
 
 
 Installation and dependencies
