@@ -640,8 +640,14 @@ class TestLinkDetection(ptc.PoiTestCase):
 
         # test just a hex number 7 or more characters:
         self.assertEqual(
-            tracker.linkDetection('55bfd6c'),
-            '<a href="https://github.com/collective/Products.Poi/commit/55bfd6c">55bfd6c</a>')
+            tracker.linkDetection('r55bfd6c'),
+            '<a href="https://github.com/collective/Products.Poi/commit/55bfd6c">r55bfd6c</a>')
+        self.assertEqual(
+            tracker.linkDetection('[55bfd6c]'),
+            '<a href="https://github.com/collective/Products.Poi/commit/55bfd6c">[55bfd6c]</a>')
+        self.assertEqual(
+            tracker.linkDetection('changeset:55bfd6c'),
+            '<a href="https://github.com/collective/Products.Poi/commit/55bfd6c">changeset:55bfd6c</a>')
 
         # test a hex number less than 7 characters
         self.assertEqual(tracker.linkDetection('55bfd6'), '55bfd6')
