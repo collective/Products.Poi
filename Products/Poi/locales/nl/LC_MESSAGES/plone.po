@@ -9,8 +9,9 @@ msgstr ""
 "PO-Revision-Date: 2010-10-14 14:10+0200\n"
 "Last-Translator: Maurits van Rees <maurits@vanrees.org>\n"
 "Language-Team: Plone Nederlands <plone-nl@lists.plone.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "Language-Code: nl\n"
@@ -19,83 +20,76 @@ msgstr ""
 "Domain: plone\n"
 "X-Is-Fallback-For: nl-be nl-nl\n"
 
-msgid "A response to an issue."
-msgstr "Een reactie op een issue"
-
-msgid "An issue tracker"
-msgstr "Een issue tracker"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Een issue. Issues beginnen in de 'niet bevestigd' status en kunnen beantwoord worden door de project managers."
-
-msgid "Begin work"
-msgstr "Start werkzaamheden"
-
-msgid "Being created"
-msgstr "Bezig met aanmaken"
-
-# tracker transitions
-msgid "Close tracker"
-msgstr "Sluit tracker"
-
-msgid "Closed for submissions"
-msgstr "Gesloten voor toevoegingen"
-
-msgid "Confirm resolved"
-msgstr "Bevestig als opgelost"
-
-msgid "Confirmed"
-msgstr "Bevestigd"
-
-msgid "In progress"
-msgstr "In behandeling"
-
-msgid "Issue"
-msgstr "Issue"
-
 # portal type nams
 msgid "Issue Tracker"
 msgstr "Issue Tracker"
 
-# browser/response.py:transitions_for_display
-msgid "No change"
-msgstr "Ongewijzigd"
+msgid "An issue tracker"
+msgstr "Een issue tracker"
 
-msgid "Only members can submit"
-msgstr "Alleen leden kunnen indienen"
+msgid "Issue"
+msgstr "Issue"
 
-msgid "Open"
-msgstr "Openstaand"
+msgid ""
+"An issue. Issues begin in the 'unconfirmed' state, and can be responded to "
+"by project managers."
+msgstr ""
+"Een issue. Issues beginnen in de 'niet bevestigd' status en kunnen "
+"beantwoord worden door de project managers."
+
+msgid "Response"
+msgstr "Antwoord"
+
+msgid "A response to an issue."
+msgstr "Een reactie op een issue"
 
 # tracker states
 msgid "Open for submissions"
 msgstr "Open voor toevoegingen"
 
+msgid "Closed for submissions"
+msgstr "Gesloten voor toevoegingen"
+
+# tracker transitions
+msgid "Close tracker"
+msgstr "Sluit tracker"
+
 msgid "Open tracker"
 msgstr "Open tracker"
 
-msgid "Post issue on save"
-msgstr "Plaats issue bij opslaan"
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "Getest en bevestigd gesloten"
 
-# response transitions
-msgid "Post response on save"
-msgstr "Plaats antwoord bij opslaan"
+msgid "In progress"
+msgstr "In behandeling"
 
-# response states
-msgid "Posted"
-msgstr "Geplaatst"
+msgid "Being created"
+msgstr "Bezig met aanmaken"
 
-msgid "Postpone"
-msgstr "Uitstellen"
+msgid "Confirmed"
+msgstr "Bevestigd"
+
+msgid "Open"
+msgstr "Openstaand"
 
 msgid "Postponed"
 msgstr "Uitgesteld"
 
-msgid "Protect tracker"
-msgstr "Bescherm tracker"
+msgid "Rejected"
+msgstr "Afgekeurd"
 
-msgid "Protected against anonymous views"
-msgstr "Beschermd tegen anonieme bezoeken"
+msgid "Resolved"
+msgstr "Opgelost"
+
+msgid "Unconfirmed"
+msgstr "Niet bevestigd"
+
+msgid "Begin work"
+msgstr "Start werkzaamheden"
+
+msgid "Confirm resolved"
+msgstr "Bevestig als opgelost"
 
 msgid "Put on hold"
 msgstr "Uitstellen"
@@ -103,31 +97,41 @@ msgstr "Uitstellen"
 msgid "Re-open"
 msgstr "Her-open"
 
+msgid "Post issue on save"
+msgstr "Plaats issue bij opslaan"
+
+msgid "Postpone"
+msgstr "Uitstellen"
+
 msgid "Reject"
 msgstr "Keur af"
-
-msgid "Rejected"
-msgstr "Afgekeurd"
 
 msgid "Resolve"
 msgstr "Opgelost"
 
-msgid "Resolve immediately"
-msgstr "Direct opgelost"
+# response states
+msgid "Posted"
+msgstr "Geplaatst"
 
-msgid "Resolved"
-msgstr "Opgelost"
+# response transitions
+msgid "Post response on save"
+msgstr "Plaats antwoord bij opslaan"
 
-msgid "Response"
-msgstr "Antwoord"
+# browser/response.py:transitions_for_display
+msgid "No change"
+msgstr "Ongewijzigd"
 
 msgid "Restrict tracker"
 msgstr "Beperk tracker"
 
-# issue states
-msgid "Tested and confirmed closed"
-msgstr "Getest en bevestigd gesloten"
+msgid "Only members can submit"
+msgstr "Alleen leden kunnen indienen"
 
-msgid "Unconfirmed"
-msgstr "Niet bevestigd"
+msgid "Protect tracker"
+msgstr "Bescherm tracker"
 
+msgid "Protected against anonymous views"
+msgstr "Beschermd tegen anonieme bezoeken"
+
+msgid "Resolve immediately"
+msgstr "Direct opgelost"

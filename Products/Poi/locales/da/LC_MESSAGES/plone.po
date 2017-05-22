@@ -1,100 +1,94 @@
 # Danish po file for Poi Issue Tracker product.
 # Jonas Nielsen <jonasn@mail.tele.dk>, 2008.
-# 
-# 
+#
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-05 23:00+0000\n"
 "PO-Revision-Date: 2008-12-08 14:51+0100\n"
 "Last-Translator: Jonas Nielsen <jonas@magenta-aps.dk>\n"
 "Language-Team: Magenta Aps\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: da\n"
 "Language-Name: Danish\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
-"Report-Msgid-Bugs-To: \n"
-
-msgid "A response to an issue."
-msgstr "Et respons til sagen."
-
-msgid "An issue tracker"
-msgstr "Et fejlrapporteringsværktøj"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "En sag. Sager starter med status 'ubekræftet' og kan besvares af projektledere."
-
-msgid "Begin work"
-msgstr "Påbegyndt"
-
-msgid "Being created"
-msgstr "Under oprettelse"
-
-# tracker transitions
-msgid "Close tracker"
-msgstr "Luk tracker"
-
-msgid "Closed for submissions"
-msgstr "Lukket for oprettelse"
-
-msgid "Confirm resolved"
-msgstr "Bekræft løsning"
-
-msgid "Confirmed"
-msgstr "Bekræftet"
-
-msgid "In progress"
-msgstr "Igang"
-
-msgid "Issue"
-msgstr "Sag"
 
 # portal type nams
 msgid "Issue Tracker"
 msgstr "Fejlrapporteringsværktøj"
 
-msgid "No change"
-msgstr "Ingen Ændring"
+msgid "An issue tracker"
+msgstr "Et fejlrapporteringsværktøj"
 
-msgid "Only members can submit"
+msgid "Issue"
+msgstr "Sag"
+
+msgid ""
+"An issue. Issues begin in the 'unconfirmed' state, and can be responded to "
+"by project managers."
 msgstr ""
+"En sag. Sager starter med status 'ubekræftet' og kan besvares af "
+"projektledere."
 
-msgid "Open"
-msgstr "Åben"
+msgid "Response"
+msgstr "Respons"
+
+msgid "A response to an issue."
+msgstr "Et respons til sagen."
 
 # tracker states
 msgid "Open for submissions"
 msgstr "Åben for oprettelse"
 
+msgid "Closed for submissions"
+msgstr "Lukket for oprettelse"
+
+# tracker transitions
+msgid "Close tracker"
+msgstr "Luk tracker"
+
 msgid "Open tracker"
 msgstr "Åbn tracker"
 
-msgid "Post issue on save"
-msgstr "Send sag når det blivet gemt"
+msgid "Tested and confirmed closed"
+msgstr "Efterprøvet og bekræftet lukket"
 
-# response transitions
-msgid "Post response on save"
-msgstr "Send respons ved gemning"
+msgid "In progress"
+msgstr "Igang"
 
-# response states
-msgid "Posted"
-msgstr "Oprettet"
+msgid "Being created"
+msgstr "Under oprettelse"
 
-msgid "Postpone"
-msgstr "Udsæt"
+msgid "Confirmed"
+msgstr "Bekræftet"
+
+msgid "Open"
+msgstr "Åben"
 
 msgid "Postponed"
 msgstr "Udsat"
 
-msgid "Protect tracker"
-msgstr ""
+msgid "Rejected"
+msgstr "Afvist"
 
-msgid "Protected against anonymous views"
-msgstr ""
+msgid "Resolved"
+msgstr "Løst"
+
+msgid "Unconfirmed"
+msgstr "Ubekræftet"
+
+msgid "Begin work"
+msgstr "Påbegyndt"
+
+msgid "Confirm resolved"
+msgstr "Bekræft løsning"
 
 msgid "Put on hold"
 msgstr "Sæt på hold"
@@ -102,30 +96,40 @@ msgstr "Sæt på hold"
 msgid "Re-open"
 msgstr "Genåbn"
 
+msgid "Post issue on save"
+msgstr "Send sag når det blivet gemt"
+
+msgid "Postpone"
+msgstr "Udsæt"
+
 msgid "Reject"
 msgstr "Afvis"
-
-msgid "Rejected"
-msgstr "Afvist"
 
 msgid "Resolve"
 msgstr "Løs"
 
-msgid "Resolve immediately"
-msgstr ""
+# response states
+msgid "Posted"
+msgstr "Oprettet"
 
-msgid "Resolved"
-msgstr "Løst"
+# response transitions
+msgid "Post response on save"
+msgstr "Send respons ved gemning"
 
-msgid "Response"
-msgstr "Respons"
+msgid "No change"
+msgstr "Ingen Ændring"
 
 msgid "Restrict tracker"
 msgstr ""
 
-msgid "Tested and confirmed closed"
-msgstr "Efterprøvet og bekræftet lukket"
+msgid "Only members can submit"
+msgstr ""
 
-msgid "Unconfirmed"
-msgstr "Ubekræftet"
+msgid "Protect tracker"
+msgstr ""
 
+msgid "Protected against anonymous views"
+msgstr ""
+
+msgid "Resolve immediately"
+msgstr ""

@@ -9,6 +9,7 @@ msgstr ""
 "PO-Revision-Date: 2008-12-09 09:15+0100\n"
 "Last-Translator: Pilar Marinas Luis <pilar.marinas@upcnet.es>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,83 +19,76 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-msgid "A response to an issue."
-msgstr "Una resposta a una incidència."
-
-msgid "An issue tracker"
-msgstr "Un gestor d'incidències"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Una incidència. Les incidències comencen en l'estat 'sense confirmar', i són ateses pels gestors del projecte."
-
-msgid "Begin work"
-msgstr "Començar treball"
-
-msgid "Being created"
-msgstr "Sent creada"
-
-# tracker transitions
-msgid "Close tracker"
-msgstr "Tancar gestor"
-
-msgid "Closed for submissions"
-msgstr "Tancat"
-
-msgid "Confirm resolved"
-msgstr "Confirmar resolució"
-
-msgid "Confirmed"
-msgstr "Confirmat"
-
-msgid "In progress"
-msgstr "En curs"
-
-msgid "Issue"
-msgstr "Incidència"
-
 # portal type nams
 msgid "Issue Tracker"
 msgstr "Gestor d'Incidències"
 
-# browser/respsonse.py:transitions_for_display
-msgid "No change"
-msgstr "Cap canvi"
+msgid "An issue tracker"
+msgstr "Un gestor d'incidències"
 
-msgid "Only members can submit"
+msgid "Issue"
+msgstr "Incidència"
+
+msgid ""
+"An issue. Issues begin in the 'unconfirmed' state, and can be responded to "
+"by project managers."
 msgstr ""
+"Una incidència. Les incidències comencen en l'estat 'sense confirmar', i són "
+"ateses pels gestors del projecte."
 
-msgid "Open"
-msgstr "Oberta"
+msgid "Response"
+msgstr "Resposta"
+
+msgid "A response to an issue."
+msgstr "Una resposta a una incidència."
 
 # tracker states
 msgid "Open for submissions"
 msgstr "Obert"
 
+msgid "Closed for submissions"
+msgstr "Tancat"
+
+# tracker transitions
+msgid "Close tracker"
+msgstr "Tancar gestor"
+
 msgid "Open tracker"
 msgstr "Obrir gestor"
 
-msgid "Post issue on save"
-msgstr "Publicar incidència al guardar"
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "Revisada i confirmada"
 
-# response transitions
-msgid "Post response on save"
-msgstr "Publicar resposta al guardar"
+msgid "In progress"
+msgstr "En curs"
 
-# response states
-msgid "Posted"
-msgstr "Publicada"
+msgid "Being created"
+msgstr "Sent creada"
 
-msgid "Postpone"
-msgstr "Posposar"
+msgid "Confirmed"
+msgstr "Confirmat"
+
+msgid "Open"
+msgstr "Oberta"
 
 msgid "Postponed"
 msgstr "Posposada"
 
-msgid "Protect tracker"
-msgstr ""
+msgid "Rejected"
+msgstr "Rebutjada"
 
-msgid "Protected against anonymous views"
-msgstr ""
+msgid "Resolved"
+msgstr "Resolta"
+
+msgid "Unconfirmed"
+msgstr "Sense confirmar"
+
+msgid "Begin work"
+msgstr "Començar treball"
+
+msgid "Confirm resolved"
+msgstr "Confirmar resolució"
 
 msgid "Put on hold"
 msgstr "Deixar en espera"
@@ -102,31 +96,41 @@ msgstr "Deixar en espera"
 msgid "Re-open"
 msgstr "Re-obrir"
 
+msgid "Post issue on save"
+msgstr "Publicar incidència al guardar"
+
+msgid "Postpone"
+msgstr "Posposar"
+
 msgid "Reject"
 msgstr "Rebutjar"
-
-msgid "Rejected"
-msgstr "Rebutjada"
 
 msgid "Resolve"
 msgstr "Resoldre"
 
-msgid "Resolve immediately"
-msgstr ""
+# response states
+msgid "Posted"
+msgstr "Publicada"
 
-msgid "Resolved"
-msgstr "Resolta"
+# response transitions
+msgid "Post response on save"
+msgstr "Publicar resposta al guardar"
 
-msgid "Response"
-msgstr "Resposta"
+# browser/respsonse.py:transitions_for_display
+msgid "No change"
+msgstr "Cap canvi"
 
 msgid "Restrict tracker"
 msgstr ""
 
-# issue states
-msgid "Tested and confirmed closed"
-msgstr "Revisada i confirmada"
+msgid "Only members can submit"
+msgstr ""
 
-msgid "Unconfirmed"
-msgstr "Sense confirmar"
+msgid "Protect tracker"
+msgstr ""
 
+msgid "Protected against anonymous views"
+msgstr ""
+
+msgid "Resolve immediately"
+msgstr ""

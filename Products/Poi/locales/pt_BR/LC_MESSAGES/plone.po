@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2012-04-09 13:48-0300\n"
 "Last-Translator: Gustavo Lepri <lepri@simplesconsultoria.com.br>\n"
 "Language-Team: Simples Consultoria <contato@simplesconsultoria.com.br>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,83 +20,77 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-msgid "A response to an issue."
-msgstr "Resposta para uma ocorrência."
-
-msgid "An issue tracker"
-msgstr "Um gerenciador de ocorrência. "
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Uma ocorrência. Ocorrências são adicionadas como 'não confirmada' e podem ser respondidas pelos gerentes de projeto."
-
-msgid "Begin work"
-msgstr "Iniciar trabalho"
-
-# response states
-msgid "Being created"
-msgstr "Sendo criada"
-
-# tracker transitions
-msgid "Close tracker"
-msgstr "Fechar gerenciador"
-
-msgid "Closed for submissions"
-msgstr "Fechado para submissões"
-
-msgid "Confirm resolved"
-msgstr "Confirmar a solução"
-
-msgid "Confirmed"
-msgstr "Confirmada"
-
-msgid "In progress"
-msgstr "Em andamento"
-
-msgid "Issue"
-msgstr "Ocorrência "
-
 # portal type nams
 msgid "Issue Tracker"
 msgstr "Gerenciador de Ocorrências"
 
-# browser/respsonse.py:transitions_for_display
-msgid "No change"
-msgstr "Nenhuma alteração"
+msgid "An issue tracker"
+msgstr "Um gerenciador de ocorrência. "
 
-msgid "Only members can submit"
-msgstr "Apenas membros podem enviar"
+msgid "Issue"
+msgstr "Ocorrência "
 
-msgid "Open"
-msgstr "Aberto"
+msgid ""
+"An issue. Issues begin in the 'unconfirmed' state, and can be responded to "
+"by project managers."
+msgstr ""
+"Uma ocorrência. Ocorrências são adicionadas como 'não confirmada' e podem "
+"ser respondidas pelos gerentes de projeto."
+
+msgid "Response"
+msgstr "Resposta"
+
+msgid "A response to an issue."
+msgstr "Resposta para uma ocorrência."
 
 # tracker states
 msgid "Open for submissions"
 msgstr "Aberto para submissões"
 
+msgid "Closed for submissions"
+msgstr "Fechado para submissões"
+
+# tracker transitions
+msgid "Close tracker"
+msgstr "Fechar gerenciador"
+
 msgid "Open tracker"
 msgstr "Abrir ocorrência "
 
-msgid "Post issue on save"
-msgstr "Enviar ocorrência  ao salvar"
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "Testada e confirmado o fechado"
 
-# response transitions
-msgid "Post response on save"
-msgstr "Enviar resposta ao salvar"
+msgid "In progress"
+msgstr "Em andamento"
 
-msgid "Posted"
-msgstr "Enviada"
+# response states
+msgid "Being created"
+msgstr "Sendo criada"
 
-msgid "Postpone"
-msgstr "Adiar"
+msgid "Confirmed"
+msgstr "Confirmada"
+
+msgid "Open"
+msgstr "Aberto"
 
 msgid "Postponed"
 msgstr "Adiada"
 
-msgid "Protect tracker"
-msgstr "Proteger ocorrência"
+msgid "Rejected"
+msgstr "Rejeitada"
 
-msgid "Protected against anonymous views"
-msgstr "Protegido contra visualização por anônimos"
+msgid "Resolved"
+msgstr "Resolvida"
+
+msgid "Unconfirmed"
+msgstr "Não confirmada"
+
+msgid "Begin work"
+msgstr "Iniciar trabalho"
+
+msgid "Confirm resolved"
+msgstr "Confirmar a solução"
 
 msgid "Put on hold"
 msgstr "Colocar em espera"
@@ -103,31 +98,40 @@ msgstr "Colocar em espera"
 msgid "Re-open"
 msgstr "Reabrir"
 
+msgid "Post issue on save"
+msgstr "Enviar ocorrência  ao salvar"
+
+msgid "Postpone"
+msgstr "Adiar"
+
 msgid "Reject"
 msgstr "Rejeitar"
-
-msgid "Rejected"
-msgstr "Rejeitada"
 
 msgid "Resolve"
 msgstr "Resolver"
 
-msgid "Resolve immediately"
-msgstr "Resolver imediatamente"
+msgid "Posted"
+msgstr "Enviada"
 
-msgid "Resolved"
-msgstr "Resolvida"
+# response transitions
+msgid "Post response on save"
+msgstr "Enviar resposta ao salvar"
 
-msgid "Response"
-msgstr "Resposta"
+# browser/respsonse.py:transitions_for_display
+msgid "No change"
+msgstr "Nenhuma alteração"
 
 msgid "Restrict tracker"
 msgstr "Restringir ocorrência"
 
-# issue states
-msgid "Tested and confirmed closed"
-msgstr "Testada e confirmado o fechado"
+msgid "Only members can submit"
+msgstr "Apenas membros podem enviar"
 
-msgid "Unconfirmed"
-msgstr "Não confirmada"
+msgid "Protect tracker"
+msgstr "Proteger ocorrência"
 
+msgid "Protected against anonymous views"
+msgstr "Protegido contra visualização por anônimos"
+
+msgid "Resolve immediately"
+msgstr "Resolver imediatamente"

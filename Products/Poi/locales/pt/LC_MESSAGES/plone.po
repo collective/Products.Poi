@@ -7,6 +7,7 @@ msgstr ""
 "PO-Revision-Date: 2008-11-17 11:53-0000\n"
 "Last-Translator: Nuno Cruz <nuno.cruz@inst-informatica.pt>\n"
 "Language-Team: NWEB <nwebmaster@inst-informatica.pt>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,82 +20,76 @@ msgstr ""
 "X-Poedit-Country: PORTUGAL\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-msgid "A response to an issue."
-msgstr "Uma resposta para uma ocorrência."
-
-msgid "An issue tracker"
-msgstr "Um gestor de ocorrências."
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Uma ocorrência inicia no estado 'não confirmado', e pode ser respondida pelo responsável do projeto."
-
-msgid "Begin work"
-msgstr "Iniciar trabalho"
-
-msgid "Being created"
-msgstr "Criação em curso"
-
-msgid "Close tracker"
-msgstr "Fechar ocorrência "
-
-msgid "Closed for submissions"
-msgstr "Fechado para submissões"
-
-msgid "Confirm resolved"
-msgstr "Confirmar a solução"
-
-msgid "Confirmed"
-msgstr "Confirmado"
-
-msgid "In progress"
-msgstr "Resolução em curso"
-
-msgid "Issue"
-msgstr "Ocorrência"
-
 # portal type nams
 msgid "Issue Tracker"
 msgstr "Gestor de Ocorrência"
 
-msgid "No change"
-msgstr "Sem alteração"
+msgid "An issue tracker"
+msgstr "Um gestor de ocorrências."
 
-msgid "Only members can submit"
+msgid "Issue"
+msgstr "Ocorrência"
+
+msgid ""
+"An issue. Issues begin in the 'unconfirmed' state, and can be responded to "
+"by project managers."
 msgstr ""
+"Uma ocorrência inicia no estado 'não confirmado', e pode ser respondida pelo "
+"responsável do projeto."
 
-msgid "Open"
-msgstr "Aberto"
+msgid "Response"
+msgstr "Resposta"
+
+msgid "A response to an issue."
+msgstr "Uma resposta para uma ocorrência."
 
 # tracker states
 msgid "Open for submissions"
 msgstr "Aberto para submissões"
 
+msgid "Closed for submissions"
+msgstr "Fechado para submissões"
+
+msgid "Close tracker"
+msgstr "Fechar ocorrência "
+
 # tracker transitions
 msgid "Open tracker"
 msgstr "Abrir ocorrência "
 
-msgid "Post issue on save"
-msgstr "Enviar ocorrência  ao guardar"
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "Testado e fechado"
 
-# response transitions
-msgid "Post response on save"
-msgstr "Enviar resposta ao guardar"
+msgid "In progress"
+msgstr "Resolução em curso"
 
-# response states
-msgid "Posted"
-msgstr "Enviado"
+msgid "Being created"
+msgstr "Criação em curso"
 
-msgid "Postpone"
-msgstr "Adiar"
+msgid "Confirmed"
+msgstr "Confirmado"
+
+msgid "Open"
+msgstr "Aberto"
 
 msgid "Postponed"
 msgstr "Adiado"
 
-msgid "Protect tracker"
-msgstr ""
+msgid "Rejected"
+msgstr "Rejeitado"
 
-msgid "Protected against anonymous views"
-msgstr ""
+msgid "Resolved"
+msgstr "Resolvido"
+
+msgid "Unconfirmed"
+msgstr "Não confirmado"
+
+msgid "Begin work"
+msgstr "Iniciar trabalho"
+
+msgid "Confirm resolved"
+msgstr "Confirmar a solução"
 
 msgid "Put on hold"
 msgstr "Suspender"
@@ -102,31 +97,40 @@ msgstr "Suspender"
 msgid "Re-open"
 msgstr "Reabrir"
 
+msgid "Post issue on save"
+msgstr "Enviar ocorrência  ao guardar"
+
+msgid "Postpone"
+msgstr "Adiar"
+
 msgid "Reject"
 msgstr "Rejeitar"
-
-msgid "Rejected"
-msgstr "Rejeitado"
 
 msgid "Resolve"
 msgstr "Resolver"
 
-msgid "Resolve immediately"
-msgstr ""
+# response states
+msgid "Posted"
+msgstr "Enviado"
 
-msgid "Resolved"
-msgstr "Resolvido"
+# response transitions
+msgid "Post response on save"
+msgstr "Enviar resposta ao guardar"
 
-msgid "Response"
-msgstr "Resposta"
+msgid "No change"
+msgstr "Sem alteração"
 
 msgid "Restrict tracker"
 msgstr ""
 
-# issue states
-msgid "Tested and confirmed closed"
-msgstr "Testado e fechado"
+msgid "Only members can submit"
+msgstr ""
 
-msgid "Unconfirmed"
-msgstr "Não confirmado"
+msgid "Protect tracker"
+msgstr ""
 
+msgid "Protected against anonymous views"
+msgstr ""
+
+msgid "Resolve immediately"
+msgstr ""

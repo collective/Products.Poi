@@ -7,8 +7,9 @@ msgstr ""
 "PO-Revision-Date: 2010-10-19 13:13+0100\n"
 "Last-Translator: Lukas Zdych <lukas.zdych@gmail.com>\n"
 "Language-Team: DMS4U <dms4u.cz>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: cs\n"
@@ -16,84 +17,78 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin2\n"
 "Domain: plone\n"
 
-msgid "A response to an issue."
-msgstr "Reakce k úloze."
-
-msgid "An issue tracker"
-msgstr "Manažer úloh"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Úloha. Úloha začíná ve stavu 'nepotvrzeno' a může být řešena projekt manažery."
-
-# issue transitions
-msgid "Begin work"
-msgstr "Začít práci"
-
-# response states
-msgid "Being created"
-msgstr "Právě vytvářeno"
-
-# tracker transitions
-msgid "Close tracker"
-msgstr "Uzavřít manažer úloh"
-
-msgid "Closed for submissions"
-msgstr "Uzavřený pro zadávání"
-
-msgid "Confirm resolved"
-msgstr "Potvrdit vyřešení"
-
-msgid "Confirmed"
-msgstr "Potvrzeno"
-
-msgid "In progress"
-msgstr "V řešení"
-
-msgid "Issue"
-msgstr "Úloha"
-
 # portal type nams
 msgid "Issue Tracker"
 msgstr "Manažer úloh"
 
-# browser/respsonse.py:transitions_for_display
-msgid "No change"
-msgstr "Žádná změna"
+msgid "An issue tracker"
+msgstr "Manažer úloh"
 
-msgid "Only members can submit"
-msgstr "Pouze členové mohou vkládat"
+msgid "Issue"
+msgstr "Úloha"
 
-msgid "Open"
-msgstr "Přijato"
+msgid ""
+"An issue. Issues begin in the 'unconfirmed' state, and can be responded to "
+"by project managers."
+msgstr ""
+"Úloha. Úloha začíná ve stavu 'nepotvrzeno' a může být řešena projekt "
+"manažery."
+
+msgid "Response"
+msgstr "Reakce"
+
+msgid "A response to an issue."
+msgstr "Reakce k úloze."
 
 # tracker states
 msgid "Open for submissions"
 msgstr "Otevřený pro zadávání"
 
+msgid "Closed for submissions"
+msgstr "Uzavřený pro zadávání"
+
+# tracker transitions
+msgid "Close tracker"
+msgstr "Uzavřít manažer úloh"
+
 msgid "Open tracker"
 msgstr "Otevřít manažer úloh"
 
-msgid "Post issue on save"
-msgstr "Zadat po uložení"
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "Otestováno, potvrzeno a uzavřeno"
 
-# response transitions
-msgid "Post response on save"
-msgstr "Vytvořit po uložení"
+msgid "In progress"
+msgstr "V řešení"
 
-msgid "Posted"
-msgstr "Vytvořeno"
+# response states
+msgid "Being created"
+msgstr "Právě vytvářeno"
 
-msgid "Postpone"
-msgstr "Odložit"
+msgid "Confirmed"
+msgstr "Potvrzeno"
+
+msgid "Open"
+msgstr "Přijato"
 
 msgid "Postponed"
 msgstr "Odloženo"
 
-msgid "Protect tracker"
-msgstr "Zabezpečit manažer úloh"
+msgid "Rejected"
+msgstr "Odmítnuto"
 
-msgid "Protected against anonymous views"
-msgstr "Zabezpečeno proti anonymnímu zobrazení"
+msgid "Resolved"
+msgstr "Vyřešeno"
+
+msgid "Unconfirmed"
+msgstr "Neodsouhlaseno"
+
+# issue transitions
+msgid "Begin work"
+msgstr "Začít práci"
+
+msgid "Confirm resolved"
+msgstr "Potvrdit vyřešení"
 
 msgid "Put on hold"
 msgstr "Odložit"
@@ -101,31 +96,40 @@ msgstr "Odložit"
 msgid "Re-open"
 msgstr "Znovu přijmout"
 
+msgid "Post issue on save"
+msgstr "Zadat po uložení"
+
+msgid "Postpone"
+msgstr "Odložit"
+
 msgid "Reject"
 msgstr "Odmítnout"
-
-msgid "Rejected"
-msgstr "Odmítnuto"
 
 msgid "Resolve"
 msgstr "Vyřešit"
 
-msgid "Resolve immediately"
-msgstr "Vyřešit ihned"
+msgid "Posted"
+msgstr "Vytvořeno"
 
-msgid "Resolved"
-msgstr "Vyřešeno"
+# response transitions
+msgid "Post response on save"
+msgstr "Vytvořit po uložení"
 
-msgid "Response"
-msgstr "Reakce"
+# browser/respsonse.py:transitions_for_display
+msgid "No change"
+msgstr "Žádná změna"
 
 msgid "Restrict tracker"
 msgstr "Chránit"
 
-# issue states
-msgid "Tested and confirmed closed"
-msgstr "Otestováno, potvrzeno a uzavřeno"
+msgid "Only members can submit"
+msgstr "Pouze členové mohou vkládat"
 
-msgid "Unconfirmed"
-msgstr "Neodsouhlaseno"
+msgid "Protect tracker"
+msgstr "Zabezpečit manažer úloh"
 
+msgid "Protected against anonymous views"
+msgstr "Zabezpečeno proti anonymnímu zobrazení"
+
+msgid "Resolve immediately"
+msgstr "Vyřešit ihned"

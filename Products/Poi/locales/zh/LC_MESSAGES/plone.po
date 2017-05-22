@@ -7,8 +7,9 @@ msgstr ""
 "PO-Revision-Date: 2005-12-26 03:19 +0000\n"
 "Last-Translator: Junyong Pan <panjy@zopechina.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: zh\n"
@@ -17,84 +18,76 @@ msgstr ""
 "Domain: plone\n"
 "X-Is-Fallback-For: zh-cn zh-hk zh-mo zh-sg\n"
 
-msgid "A response to an issue."
-msgstr "问题的一个答复."
-
-msgid "An issue tracker"
-msgstr "一个问题跟踪器"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "一个问题（或者提案）。问题起始于“未确认”状态，能够被管理人员答复。"
-
-# issue transitions
-msgid "Begin work"
-msgstr "开始工作"
-
-# response states
-msgid "Being created"
-msgstr "正在创建"
-
-# tracker transitions
-msgid "Close tracker"
-msgstr "关闭跟踪器"
-
-msgid "Closed for submissions"
-msgstr "关闭提交"
-
-msgid "Confirm resolved"
-msgstr "确认解决"
-
-msgid "Confirmed"
-msgstr ""
-
-msgid "In progress"
-msgstr "工作中"
-
-msgid "Issue"
-msgstr "问题（提案）"
-
 # portal type nams
 msgid "Issue Tracker"
 msgstr "问题跟踪器"
 
-# browser/respsonse.py:transitions_for_display
-msgid "No change"
-msgstr ""
+msgid "An issue tracker"
+msgstr "一个问题跟踪器"
 
-msgid "Only members can submit"
-msgstr ""
+msgid "Issue"
+msgstr "问题（提案）"
 
-msgid "Open"
-msgstr "开启"
+msgid ""
+"An issue. Issues begin in the 'unconfirmed' state, and can be responded to "
+"by project managers."
+msgstr "一个问题（或者提案）。问题起始于“未确认”状态，能够被管理人员答复。"
+
+msgid "Response"
+msgstr "答复"
+
+msgid "A response to an issue."
+msgstr "问题的一个答复."
 
 # tracker states
 msgid "Open for submissions"
 msgstr "允许提交"
 
+msgid "Closed for submissions"
+msgstr "关闭提交"
+
+# tracker transitions
+msgid "Close tracker"
+msgstr "关闭跟踪器"
+
 msgid "Open tracker"
 msgstr "打开跟踪器"
 
-msgid "Post issue on save"
-msgstr "保存的时候发布问题"
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "验证且确认关闭"
 
-# response transitions
-msgid "Post response on save"
-msgstr "保存的时候张贴"
+msgid "In progress"
+msgstr "工作中"
 
-msgid "Posted"
-msgstr "已张贴"
+# response states
+msgid "Being created"
+msgstr "正在创建"
 
-msgid "Postpone"
-msgstr "推延"
+msgid "Confirmed"
+msgstr ""
+
+msgid "Open"
+msgstr "开启"
 
 msgid "Postponed"
 msgstr "已推延"
 
-msgid "Protect tracker"
-msgstr ""
+msgid "Rejected"
+msgstr "已拒绝"
 
-msgid "Protected against anonymous views"
-msgstr ""
+msgid "Resolved"
+msgstr "已解决"
+
+msgid "Unconfirmed"
+msgstr "未确认"
+
+# issue transitions
+msgid "Begin work"
+msgstr "开始工作"
+
+msgid "Confirm resolved"
+msgstr "确认解决"
 
 msgid "Put on hold"
 msgstr "推延"
@@ -102,31 +95,40 @@ msgstr "推延"
 msgid "Re-open"
 msgstr "再次开启"
 
+msgid "Post issue on save"
+msgstr "保存的时候发布问题"
+
+msgid "Postpone"
+msgstr "推延"
+
 msgid "Reject"
 msgstr "拒绝"
-
-msgid "Rejected"
-msgstr "已拒绝"
 
 msgid "Resolve"
 msgstr "解决"
 
-msgid "Resolve immediately"
+msgid "Posted"
+msgstr "已张贴"
+
+# response transitions
+msgid "Post response on save"
+msgstr "保存的时候张贴"
+
+# browser/respsonse.py:transitions_for_display
+msgid "No change"
 msgstr ""
-
-msgid "Resolved"
-msgstr "已解决"
-
-msgid "Response"
-msgstr "答复"
 
 msgid "Restrict tracker"
 msgstr ""
 
-# issue states
-msgid "Tested and confirmed closed"
-msgstr "验证且确认关闭"
+msgid "Only members can submit"
+msgstr ""
 
-msgid "Unconfirmed"
-msgstr "未确认"
+msgid "Protect tracker"
+msgstr ""
 
+msgid "Protected against anonymous views"
+msgstr ""
+
+msgid "Resolve immediately"
+msgstr ""

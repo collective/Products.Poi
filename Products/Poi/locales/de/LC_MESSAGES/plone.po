@@ -7,8 +7,9 @@ msgstr ""
 "PO-Revision-Date: 2010-01-19 18:01 +0200\n"
 "Last-Translator: Ida Ebkes <ida.ebkes@veit-schiele.de>\n"
 "Language-Team: DE <de@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: de\n"
@@ -17,83 +18,76 @@ msgstr ""
 "Domain: plone\n"
 "X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
 
-msgid "A response to an issue."
-msgstr "Eine Antwort auf eine Problemstellung"
-
-msgid "An issue tracker"
-msgstr "Ein System zum Dokumentieren und Lösen von Problemstellungen."
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Eine Problemstellung. Problemstellungen beginnen im Status 'nicht bestätigt' und können nur von Projektmanagern beantwortet werden."
-
-msgid "Begin work"
-msgstr "Arbeit beginnen"
-
-msgid "Being created"
-msgstr "Bei der Erstellung"
-
-# tracker transitions
-msgid "Close tracker"
-msgstr "Schließen des Trackers"
-
-msgid "Closed for submissions"
-msgstr "Keine neuen Problemstellungen einzugeben."
-
-msgid "Confirm resolved"
-msgstr "Bestätige Lösung"
-
-msgid "Confirmed"
-msgstr "Bestätigt"
-
-msgid "In progress"
-msgstr "In Arbeit"
-
-msgid "Issue"
-msgstr "Problem"
-
 # portal type nams
 msgid "Issue Tracker"
 msgstr "Problem Tracker"
 
-# browser/respsonse.py:transitions_for_display
-msgid "No change"
-msgstr "Kein Änderung"
+msgid "An issue tracker"
+msgstr "Ein System zum Dokumentieren und Lösen von Problemstellungen."
 
-msgid "Only members can submit"
-msgstr "Einreichen nur für Mitglieder"
+msgid "Issue"
+msgstr "Problem"
 
-msgid "Open"
-msgstr "Offen"
+msgid ""
+"An issue. Issues begin in the 'unconfirmed' state, and can be responded to "
+"by project managers."
+msgstr ""
+"Eine Problemstellung. Problemstellungen beginnen im Status 'nicht bestätigt' "
+"und können nur von Projektmanagern beantwortet werden."
+
+msgid "Response"
+msgstr "Antwort"
+
+msgid "A response to an issue."
+msgstr "Eine Antwort auf eine Problemstellung"
 
 # tracker states
 msgid "Open for submissions"
 msgstr "Offen für neue Problemstellungen."
 
+msgid "Closed for submissions"
+msgstr "Keine neuen Problemstellungen einzugeben."
+
+# tracker transitions
+msgid "Close tracker"
+msgstr "Schließen des Trackers"
+
 msgid "Open tracker"
 msgstr "Öffne Tracker"
 
-msgid "Post issue on save"
-msgstr "Verschicke Problemstellung beim Speichern"
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "Getestet und bestätigt geschlossen"
 
-# response transitions
-msgid "Post response on save"
-msgstr "Verschicke Antwort beim Speichern"
+msgid "In progress"
+msgstr "In Arbeit"
 
-# response states
-msgid "Posted"
-msgstr "Verschickt"
+msgid "Being created"
+msgstr "Bei der Erstellung"
 
-msgid "Postpone"
-msgstr "Verschieben"
+msgid "Confirmed"
+msgstr "Bestätigt"
+
+msgid "Open"
+msgstr "Offen"
 
 msgid "Postponed"
 msgstr "Verschoben"
 
-msgid "Protect tracker"
-msgstr "Tracker schützen"
+msgid "Rejected"
+msgstr "Zurückgewiesen"
 
-msgid "Protected against anonymous views"
-msgstr "Vor anonymem Zugriff schützen"
+msgid "Resolved"
+msgstr "Gelöst"
+
+msgid "Unconfirmed"
+msgstr "Unbestätigt"
+
+msgid "Begin work"
+msgstr "Arbeit beginnen"
+
+msgid "Confirm resolved"
+msgstr "Bestätige Lösung"
 
 msgid "Put on hold"
 msgstr "Zurückstellen"
@@ -101,31 +95,41 @@ msgstr "Zurückstellen"
 msgid "Re-open"
 msgstr "Erneut Öffnen"
 
+msgid "Post issue on save"
+msgstr "Verschicke Problemstellung beim Speichern"
+
+msgid "Postpone"
+msgstr "Verschieben"
+
 msgid "Reject"
 msgstr "Zurückweisen"
-
-msgid "Rejected"
-msgstr "Zurückgewiesen"
 
 msgid "Resolve"
 msgstr "Lösen"
 
-msgid "Resolve immediately"
-msgstr "Sofort lösen"
+# response states
+msgid "Posted"
+msgstr "Verschickt"
 
-msgid "Resolved"
-msgstr "Gelöst"
+# response transitions
+msgid "Post response on save"
+msgstr "Verschicke Antwort beim Speichern"
 
-msgid "Response"
-msgstr "Antwort"
+# browser/respsonse.py:transitions_for_display
+msgid "No change"
+msgstr "Kein Änderung"
 
 msgid "Restrict tracker"
 msgstr "Tracker einschränken"
 
-# issue states
-msgid "Tested and confirmed closed"
-msgstr "Getestet und bestätigt geschlossen"
+msgid "Only members can submit"
+msgstr "Einreichen nur für Mitglieder"
 
-msgid "Unconfirmed"
-msgstr "Unbestätigt"
+msgid "Protect tracker"
+msgstr "Tracker schützen"
 
+msgid "Protected against anonymous views"
+msgstr "Vor anonymem Zugriff schützen"
+
+msgid "Resolve immediately"
+msgstr "Sofort lösen"
