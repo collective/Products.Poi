@@ -118,16 +118,15 @@ class TestEmailNotifications(ptc.PoiTestCase):
 
     def testGetAddressesOnNewIssue(self):
         self.tracker.mailing_list = None
-        addresses = IWatcherList(self.tracker).addresses
-        self.assertEqual(len(addresses), 2)
-        self.failUnless('member1@example.com' in addresses)
-        self.failUnless('member2@example.com' in addresses)
+        assignees = self.tracker.assignees
+        self.assertEqual(len(assignees), 2)
+        self.failUnless('member1' in assignees)
+        self.failUnless('member2' in assignees)
         # issue creator should be a watcher
         issue = self.createIssue(
             self.tracker, contactEmail='submitter@example.com',
             watchers=None, assignee=u'member2')
         addresses = IWatcherList(issue).addresses
-        self.failUnless('member1@example.com' in addresses)
         self.failUnless('member2@example.com' in addresses)
         self.failUnless('submitter@example.com' in addresses)
 
@@ -135,7 +134,7 @@ class TestEmailNotifications(ptc.PoiTestCase):
         self.tracker.mailing_list = 'list@example.com'
         addresses = IWatcherList(self.tracker).addresses
         # Addresses are the mailing list and the tracker assignees.
-        self.assertEqual(len(addresses), 3)
+        self.assertEqual(len(addresses), 1)
         self.failUnless('list@example.com' in addresses)
 
     def testGetAddressesOnNewResponse(self):
