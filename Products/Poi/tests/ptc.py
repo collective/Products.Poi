@@ -4,7 +4,6 @@ from plone import api
 from plone.app.textfield import RichTextValue
 from plone.protect.interfaces import IDisableCSRFProtection
 from plone.registry.interfaces import IRegistry
-from Products.Archetypes.event import ObjectInitializedEvent
 from Products.CMFPlone.interfaces.controlpanel import IMailSchema
 from Products.MailHost.interfaces import IMailHost
 from Testing import ZopeTestCase
@@ -12,6 +11,7 @@ from zope.component import getSiteManager
 from zope.component import getUtility
 from zope.event import notify
 from zope.interface import alsoProvides
+from zope.lifecycleevent import ObjectAddedEvent
 from zope.lifecycleevent import ObjectModifiedEvent
 
 from Products.Poi.adapters import IResponseContainer
@@ -130,7 +130,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
         tracker.notification_emails = sendNotificationEmails
         tracker.mailing_list = mailingList
         tracker.reindexObject()
-        notify(ObjectInitializedEvent(tracker))
+        notify(ObjectAddedEvent(tracker))
         self.setRoles(['Member'])
 
         return tracker
@@ -166,7 +166,7 @@ class PoiTestCase(PloneTestCase.PloneTestCase):
             assignee=assignee,
         )
         issue.reindexObject()
-        notify(ObjectInitializedEvent(issue))
+        notify(ObjectAddedEvent(issue))
         return issue
 
     def createResponse(self, issue, text='Response text', issueTransition='',
