@@ -132,7 +132,7 @@ def mail_issue_change(object, event):
 
     Specifically: new issue and resolved issue.
     """
-    if event.transition and event.transition.id == 'post':
+    if event.new_state.id == 'unconfirmed':
         watchers = IWatcherList(object)
         watchers.send('new-issue-mail')
     elif event.new_state.id == 'resolved':
