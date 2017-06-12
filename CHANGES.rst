@@ -6,10 +6,13 @@ Changelog for Poi
 ------------------
 
 - Added a migration path from Poi 2.x to 4.x, which migrates
-  Trackers and Issues to Dexterity. This version is to only be
-  used in Plone 4 as a migration step, and is not a useable version of Poi.
+  Trackers and Issues to Dexterity.
   This requires a version of plone.app.contenttypes compatible with Plone 4.3,
   with minimum version 1.1.2.
+  This version of Poi is to only be
+  used in Plone 4 as a migration step, and is not a useable version of Poi.
+  You will see errors like ``AttributeError: @@issuefolder`` when you try to
+  view a tracker. This is okay. You can now migrate to Plone 5.
 
 
 2.3 (2016-12-30)
