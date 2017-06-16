@@ -199,6 +199,7 @@ class ITracker(model.Schema):
             u'Poi_help_tracker_description',
             default=u"Describe the purpose of this tracker"
         ),
+        required=False,
     )
 
     help_text = RichText(
@@ -208,6 +209,7 @@ class ITracker(model.Schema):
             default=(u"Enter any introductory help text you'd like to "
                      u"display on the tracker front page.")
         ),
+        required=False,
     )
 
     widget(available_areas=DataGridFieldFactory)
