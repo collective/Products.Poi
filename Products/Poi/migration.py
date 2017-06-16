@@ -311,11 +311,12 @@ def migrate_issue_attachments_to_blobstorage(context):
     migrate(context, 'PoiIssue')
     logger.info("Done migrating to blob attachment for issues.")
 
+
 def clean_properties(context):
     """Clean up any old-style properties
     """
     setuptool = api.portal.get_tool('portal_setup')
-    setuptool.runAllImportStepsFromProfile('profile-Products.Poi:migration2-3')
+    setuptool.runAllImportStepsFromProfile('profile-Products.Poi:migrationto4')
 
 
 def set_tracker_uid(context):

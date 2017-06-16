@@ -14,9 +14,9 @@
       />
 
   <gs:registerProfile
-      name="migration2-3"
-      title="Poi Migration to version 3.0"
-      directory="profiles/migration2-3"
+      name="migrationto4"
+      title="Poi Migration to version 4.0"
+      directory="profiles/migrationto4"
       description="Migration Steps"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
