@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>2009</version>
+  <version>2500</version>
   <dependencies>
     <dependency>profile-Products.AddRemoveWidget:default</dependency>
     <dependency>profile-Products.DataGridField:default</dependency>

@@ -142,8 +142,8 @@
   <gs:upgradeStep
       title="Dexterity Migration"
       description="Migrate Tracker and Issues to Dexterity"
-      source="2008"
-      destination="2009"
+      source="2499"
+      destination="2500"
       handler="Products.Poi.migration.dexterity_migration"
       profile="Products.Poi:default" />
 
