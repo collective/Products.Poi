@@ -158,5 +158,14 @@
         title="Set _tracker_uid property"
         handler="Products.Poi.migration.set_tracker_uid" />
   </gs:upgradeSteps>
+  
+  <gs:upgradeSteps
+      source="3000"
+      destination="3001"
+      profile="Products.Poi:default">
+    <gs:upgradeStep
+        title="Reinstall Poi"
+        handler="Products.Poi.migration.reinstall_Poi" />
+  </gs:upgradeSteps>
 
 </configure>
