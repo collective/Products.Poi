@@ -532,3 +532,23 @@ def dexterity_migration(context):
         fields_mapping,
         src_type='PoiIssue',
         dst_type='Issue')
+    # All issues now appear to be in the 'new' state.
+    # The workflow *has* been migrated, but it is not yet in the catalog.
+    # So update the catalog info.
+    # Same problem may be there for trackers, when you have custom workflow,
+    # so handle those too.
+    logger.info('Updating security info.')
+    catalog = getToolByName(context, 'portal_catalog')
+    # Note: we need the *new* dexterity type names.
+    for brain in catalog.unrestrictedSearchResults(
+            portal_type=['Issue', 'Tracker']):
+        path = brain.getPath()
+        try:
+            obj = brain.getObject()
+        except (AttributeError, ValueError, TypeError):
+            logger.warn('Error getting object from catalog for path %s', path)
+            continue
+        # We need to reindex the review_state.
+        # And the object security (allowedRolesAndUsers) seems good too.
+        obj.reindexObject(idxs=['review_state'])
+        obj.reindexObjectSecurity()
