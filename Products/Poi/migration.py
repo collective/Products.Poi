@@ -318,6 +318,8 @@ def clean_properties(context):
     """
     setuptool = api.portal.get_tool('portal_setup')
     setuptool.runAllImportStepsFromProfile('profile-Products.Poi:migrationto4')
+    qi = api.portal.get_tool('portal_quickinstaller')
+    qi.installProducts(products=['Products.Poi'])
 
 
 def set_tracker_uid(context):
@@ -331,15 +333,3 @@ def set_tracker_uid(context):
             obj._tracker_uid = obj.aq_parent.UID()
             transaction.commit()
 
-
-def reinstall_Poi(context):
-    """After migration, Poi appears as installed in
-       portal_quickinstaller, but not Site Setup > Add-ons.
-       Reinstall so it will appear as installed.
-       Bump to next version number first, so install doesn't
-       get stuck in a loop.
-    """
-    setup = api.portal.get_tool('portal_setup')
-    setup.setLastVersionForProfile('Products.Poi:default', '3001')
-    qi = api.portal.get_tool('portal_quickinstaller')
-    qi.installProducts(products=['Products.Poi'])
