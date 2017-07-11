@@ -1,3 +1,4 @@
+from plone import api
 from Products.Poi.tests import ptc
 
 
@@ -40,9 +41,9 @@ class TestInstallation(ptc.PoiTestCase):
         self.failUnless('UID' in self.catalog.schema())
 
     def testParentMetaTypesNotToQuery(self):
-        p = self.properties.navtree_properties
+        qtypes = api.portal.get_registry_record('plone.parent_types_not_to_query')
         for t in self.poiTypes.keys():
-            self.failUnless(t in p.getProperty('parentMetaTypesNotToQuery'))
+            self.assertIn(t, qtypes)
 
     def testReinstall(self):
         """Reinstalling should not empty our indexes.
