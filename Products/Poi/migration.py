@@ -313,13 +313,10 @@ def migrate_issue_attachments_to_blobstorage(context):
 
 
 def clean_properties(context):
-    """Clean up any old-style properties, make sure Poi appears
-       as installed
+    """Clean up any old-style properties
     """
     setuptool = api.portal.get_tool('portal_setup')
     setuptool.runAllImportStepsFromProfile('profile-Products.Poi:migrationto4')
-    qi = api.portal.get_tool('portal_quickinstaller')
-    qi.installProducts(products=['Products.Poi'])
 
 
 def set_tracker_uid(context):
