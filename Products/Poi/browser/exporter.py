@@ -6,7 +6,7 @@ from Acquisition import aq_inner
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
-from plone import api
+from Products.Poi.adapters import IResponseContainer
 
 
 class CSVExport(BrowserView):
@@ -42,35 +42,27 @@ class CSVExport(BrowserView):
         writer.writerow(header)
         # to get the previous person who changed something
         # we need to get workflow and revision history
-        rt = getToolByName(context, "portal_repository", None)
-        workflow = getToolByName(context, 'portal_workflow')
         mt = getToolByName(self.context, 'portal_membership')
         for issue in issues:
             obj = issue.getObject()
-            version_history = []
-            history = None
-            with api.env.adopt_roles(['Editor', 'Member']):
-                review_history = workflow.getInfoFor(obj, 'review_history')
-                history = rt.getHistoryMetadata(obj)
-            if history:
-                retrieve = history.retrieve
-                for i in xrange(
-                        history.getLength(countPurged=False)-1, -1, -1):
-                    vdata = retrieve(i, countPurged=False)
-                    meta = vdata["metadata"]["sys_metadata"]
-                    info = dict(
-                        actor=meta["principal"],
-                        time=meta["timestamp"]
-                    )
-                    version_history.append(info)
-            full_history = review_history + version_history
-            full_history.sort(key=lambda x: x["time"], reverse=True)
-            last_actor = full_history[0]["actor"]
+            responsefolder = IResponseContainer(obj)
+            responses = []
+            for id, response in enumerate(responsefolder):
+                if response is None:
+                    # Has been removed.
+                    continue
+                responses.append({'creator': response.creator,
+                                 'date': response.date})
+            # the responses are in order so we just grab the last one
+            if len(responses) > 0:
+                last_actor = responses[-1]['creator']
+                last_modified = responses[-1]['date']
+            else:
+                last_actor = obj.Creator()
+                last_modified = obj.modified()
             actor_info = mt.getMemberInfo(last_actor)
             if actor_info and actor_info.get("fullname", None):
                 last_actor = actor_info["fullname"]
-            else:
-                last_actor = ""
 
             row = []
             row.append(issue.id)
@@ -87,9 +79,7 @@ class CSVExport(BrowserView):
                                         key=lambda x: x.lower())))
             row.append(obj.getReviewState()['title'].encode('utf-8'))
             row.append(last_actor.encode('utf-8'))
-            row.append(dateutil.parser.parse(
-                issue.modified.ISO()).strftime('%Y-%m-%d %H:%M:%S')
-            )
+            row.append(last_modified.strftime('%Y-%m-%d %H:%M:%S'))
             row.append(issue.release and issue.release.encode('utf-8') or "")
             row.append(
                 pas_member.info(issue.Creator)['name_or_id'].encode('utf-8'))
