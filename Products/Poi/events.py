@@ -128,20 +128,23 @@ def post_issue(object, event):
 
 
 def mail_issue_change(object, event):
-    """Send an email on some transitions of an issue.
-
-    Specifically: new issue and resolved issue.
+    """Send an email when an issue is resolved
     """
-    if event.new_state.id == 'unconfirmed':
-        watchers = IWatcherList(object)
-        watchers.send('new-issue-mail')
-    elif event.new_state.id == 'resolved':
+    if event.new_state.id == 'resolved':
         watchers = IWatcherList(object)
         # Only mail the original poster, if available.
         address = object.getContactEmail()
         if address:
             watchers.send('resolved-issue-mail',
                           only_these_addresses=[address])
+
+
+def mail_issue_add(object, event):
+    """Send an email when a new issue is created
+    """
+    if object.getReviewState()['state'] == 'unconfirmed':
+        watchers = IWatcherList(object)
+        watchers.send('new-issue-mail')
 
 
 def removedResponse(object, event):

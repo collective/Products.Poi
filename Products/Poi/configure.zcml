@@ -62,6 +62,12 @@
   <subscriber
       for="Products.Poi.interfaces.IIssue
            zope.lifecycleevent.interfaces.IObjectAddedEvent"
+      handler=".events.mail_issue_add"
+      />
+
+  <subscriber
+      for="Products.Poi.interfaces.IIssue
+           zope.lifecycleevent.interfaces.IObjectAddedEvent"
         handler=".events.update_references"
         />
         
