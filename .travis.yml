@@ -14,6 +14,3 @@ install:
   - bin/buildout -N buildout:download-cache=downloads
 script:
   - bin/test
-notifications:
-  email:
-    - m.van.rees@zestsoftware.nl
