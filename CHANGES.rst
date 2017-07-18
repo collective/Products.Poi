@@ -2,8 +2,8 @@ Changelog for Poi
 =================
 
 
-3.0 (unreleased)
-------------------
+3.0
+---
 
 - Added a migration path from Poi 2.x to 4.x, which migrates
   Trackers and Issues to Dexterity.
