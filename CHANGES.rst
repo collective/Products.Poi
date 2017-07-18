@@ -2,8 +2,8 @@ Changelog for Poi
 =================
 
 
-4.0
----
+4.0 (2017-07-18)
+----------------
 
 - Plone 5 compatibility
 - Complete refactor using Dexterity for Trackers and
@@ -14,8 +14,8 @@ Changelog for Poi
 - New field for relating issues to each other
 
 
-3.0
----
+3.0 (2017-07-18)
+----------------
 
 - Added a migration path from Poi 2.x to 4.x, which migrates
   Trackers and Issues to Dexterity.
