@@ -15,9 +15,9 @@ tal:content="options/response_author" />.
   <tal:title content="options/issue_title" />
   (<tal:link tal:content="options/issue_url" />)
 
-<tal:changes
-    condition="options/changes" repeat="change options/changes"
-    >- <tal:name content="change/name" />: <tal:before content="change/before" /> -> <tal:after content="change/after" /></tal:changes>
+<tal:changes condition="options/changes" repeat="change options/changes">
+    - <tal:name content="change/name" />: <tal:before content="change/before" /> -> <tal:after content="change/after" />
+</tal:changes>
 <tal:attachment
     condition="options/attachment_id"
     >- <tal:block i18n:translate="">An attachment has been added with id <tal:id i18n:name="id" tal:content="options/attachment_id" />.</tal:block></tal:attachment>

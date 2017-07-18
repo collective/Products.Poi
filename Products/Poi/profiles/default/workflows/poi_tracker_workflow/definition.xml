@@ -7,7 +7,7 @@
  <permission>Poi: Add Response</permission>
  <permission>Poi: Edit response</permission>
  <permission>View</permission>
- <state state_id="closed" title="Closed for submissions">
+ <state state_id="closed" title="Closed">
   <exit-transition transition_id="open"/>
   <exit-transition transition_id="protect"/>
   <exit-transition transition_id="restrict"/>
@@ -63,7 +63,7 @@
    <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
- <state state_id="open" title="Open for submissions">
+ <state state_id="open" title="Open">
   <exit-transition transition_id="close"/>
   <exit-transition transition_id="protect"/>
   <exit-transition transition_id="restrict"/>
@@ -130,7 +130,7 @@
    <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
- <state state_id="protected" title="Protected against anonymous views">
+ <state state_id="protected" title="Protected">
   <description>Contributor can contribute. Editor can edit. Reader can read.</description>
   <exit-transition transition_id="close"/>
   <exit-transition transition_id="open"/>
@@ -196,7 +196,7 @@
    <permission-role>TrackerManager</permission-role>
   </permission-map>
  </state>
- <state state_id="restricted" title="Only members can submit">
+ <state state_id="restricted" title="Restricted">
   <description>Issues are free for access. Only members can add them.</description>
   <exit-transition transition_id="close"/>
   <exit-transition transition_id="open"/>
@@ -285,8 +285,8 @@
    <guard-role>TrackerManager</guard-role>
   </guard>
  </transition>
- <transition transition_id="restrict" title="Restrict tracker" new_state="restricted" trigger="USER" before_script="" after_script="">
-  <action url="" category="workflow" icon="">Restrict tracker</action>
+ <transition transition_id="restrict" title="Restrict tracker to members" new_state="restricted" trigger="USER" before_script="" after_script="">
+  <action url="" category="workflow" icon="">Restrict tracker to members</action>
   <guard>
    <guard-role>Manager</guard-role>
    <guard-role>Owner</guard-role>

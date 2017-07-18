@@ -3,12 +3,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2015-11-12 01:25+0000\n"
+"POT-Creation-Date: Mon May 22 09:32:30 2017\n"
 "PO-Revision-Date: 2010-10-19 14:38+0100\n"
 "Last-Translator: Lukas Zdych <lukas.zdych@gmail.com>\n"
 "Language-Team: DMS4U <dms4u.cz>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: cs\n"
@@ -16,1072 +17,1382 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin2\n"
 "Domain: Poi\n"
 
-#: ./profiles.zcml:14
-msgid "A friendly issue tracker"
+#. Default: "Tracker log"
+#: Products.Poi:/browser/log.pt:12
+msgid "poi_heading_log"
+msgstr "Záznam manažeru"
+
+#. Default: "An overview of recent activity in the tracker."
+#: Products.Poi:/browser/log.pt:14
+msgid "poi_help_log"
+msgstr "Přehled posledních změn v manažeru úloh."
+
+#. Default: "New issue ${name} added by ${author}"
+#: Products.Poi:/browser/log.pt:32
+msgid "poi_new_issue_added"
+msgstr "\"Nová úloha ${name} přidána od ${author}"
+
+#. Default: "${author} added a new response to ${name}:"
+#: Products.Poi:/browser/log.pt:39
+msgid "poi_new_response_added"
+msgstr "${author} přidal novou reakci k ${name}:"
+
+#: Products.Poi:/browser/log.pt:53 Products.Poi:/browser/log.pt:54
+#: Products.Poi:/browser/log.pt:57 Products.Poi:/browser/response.pt:54
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:107
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:113
+msgid "${DYNAMIC_CONTENT}"
 msgstr ""
 
-#: ./browser/templates/poi_email_new_issue_html.pt:23
-#: ./browser/templates/poi_email_new_issue_plain.pt:8
-msgid "A new issue has been submitted to the ${tracker_title} tracker by ${issue_author} and awaits confirmation."
-msgstr ""
+#. Default: "Added ${count} minute(s) ago."
+#: Products.Poi:/browser/log.pt:68
+msgid "poi_added_minutes_ago"
+msgstr "Přidáno před ${count} minutami."
 
-#: ./browser/templates/poi_email_new_response_html.pt:24
-#: ./browser/templates/poi_email_new_response_plain.pt:8
-msgid "A new response has been given to the issue ${issue_title} in the tracker ${tracker_title} by ${response_author}."
-msgstr ""
+#. Default: "Added ${count} hour(s) ago."
+#: Products.Poi:/browser/log.pt:75
+msgid "poi_added_hours_ago"
+msgstr "Přidáno před ${count} hodinami."
 
-#: ./browser/templates/poi_email_new_response_html.pt:42
-#: ./browser/templates/poi_email_new_response_plain.pt:23
-msgid "An attachment has been added with id ${id}."
-msgstr ""
+#. Default: "Added ${count} day(s) ago."
+#: Products.Poi:/browser/log.pt:82
+msgid "poi_added_days_ago"
+msgstr "Přidáno před ${count} dny."
 
-#: ./browser/response.py:510
-msgid "Changes saved to response id ${response_id}."
-msgstr "Změny byly uloženy do reakce s id ${response_id}."
+#. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
+#: Products.Poi:/browser/notifications.py:148
+msgid "poi_email_new_issue_subject_template"
+msgstr "[${tracker_title}] #${issue_id} - Nová úloha: ${issue_title}"
 
-#. Default: "Delete"
-#: ./browser/response.pt:30
-msgid "Delete"
-msgstr "Odstranit"
+#. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
+#: Products.Poi:/browser/notifications.py:211
+msgid "poi_email_new_response_subject_template"
+msgstr "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
 
-#. Default: "Edit"
-#: ./browser/response.pt:20
-msgid "Edit"
-msgstr "Upravit"
+#. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
+#: Products.Poi:/browser/notifications.py:234
+msgid "poi_email_issue_resolved_subject_template"
+msgstr "[${tracker_title}] Vyřešeno #${issue_id} - ${issue_title}"
 
-#. Default: "Edit issue"
-#: ./skins/Poi/poi_issue_view.pt:206
-msgid "Edit issue"
-msgstr "Upravit úlohu"
+#. Default: "If you can, please log in before submitting a reaction."
+#: Products.Poi:/browser/response.pt:100
+msgid "login_suggestion_response"
+msgstr "Přihlašte se, pokud je to možné, před zadáním reakce."
 
-#: ./browser/templates/poi_email_new_issue_html.pt:29
-#: ./browser/templates/poi_email_resolved_issue_html.pt:31
-msgid "Issue"
-msgstr ""
-
-#: ./browser/templates/poi_email_new_issue_html.pt:34
-#: ./browser/templates/poi_email_new_issue_plain.pt:19
-msgid "Issue Details:"
-msgstr ""
-
-#: ./browser/templates/poi_email_new_issue_html.pt:27
-#: ./browser/templates/poi_email_new_issue_plain.pt:13
-#: ./browser/templates/poi_email_resolved_issue_html.pt:29
-msgid "Issue Information"
-msgstr ""
-
-#: ./browser/response.py:407
-msgid "Issue state"
-msgstr "Stav úlohy"
-
-#: ./browser/templates/poi_email_new_issue_plain.pt:15
-#: ./browser/templates/poi_email_new_response_html.pt:31
-#: ./browser/templates/poi_email_new_response_plain.pt:14
-msgid "Issue:"
-msgstr ""
-
-#: ./browser/response.py:538
-msgid "No response selected for removal."
-msgstr "Nebyly vybrány žádné reakce k odstranění."
-
-#: ./browser/response.py:496
-msgid "No response selected for saving."
-msgstr "Nebyly vybrány žádné reakce k uložení."
-
-#: ./browser/response.py:202
-msgid "No response selected."
-msgstr "Nebyla vybrána žádná reakce."
-
-#: ./browser/response.py:450
-msgid "No response text added and no issue changes made."
-msgstr "Nebyl zadán žádný text reakce ani provedeny změny úlohy."
-
-#: ./skins/Poi/poi_tracker_view.pt:129
-msgid "Note"
-msgstr ""
-
-#: ./profiles.zcml:23
-msgid "Partial uninstall profile for Poi, in addition to the QI one."
-msgstr ""
-
-#: ./profiles.zcml:14
-#: ./skins/Poi/poi_tracker_view.pt:316
-msgid "Poi"
-msgstr ""
+#. Default: "Add response"
+#: Products.Poi:/browser/response.pt:115
+msgid "title_add_response"
+msgstr "Přidat reakci"
 
 # ./content/PoiIssue.py
-#. Default: "Select the area this issue is relevant to."
-#: ./content/PoiIssue.py:176
-msgid "Poi_help_area"
-msgstr "Zvolte oblast, ke které se tato úloha vztahuje."
+#. Default: "Response"
+#: Products.Poi:/browser/response.pt:122
+msgid "Poi_label_response"
+msgstr "Reakce"
 
 # ./content/PoiIssue.py
-#. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ./browser/response.pt:151
-#: ./content/PoiIssue.py:161
-msgid "Poi_help_attachment"
-msgstr "K vaší úloze můžete přiložit soubor jako přílohu. Prosíme nenahrávejte zbytečně velké soubory."
-
-# ./content/PoiTracker.py
-#. Default: "Enter the issue topics/areas for this tracker."
-#: ./content/PoiTracker.py:115
-msgid "Poi_help_availableAreas"
-msgstr "Zadejte témata/oblasti pro úlohy v tomto manažeru úloh."
-
-# ./content/PoiTracker.py
-#. Default: "Enter the issue types for this tracker."
-#: ./content/PoiTracker.py:139
-msgid "Poi_help_availableIssueTypes"
-msgstr "Zadejte typy úloh pro tento manažer úloh."
-
-# ./content/PoiTracker.py
-#. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release."
-#: ./content/PoiTracker.py:182
-msgid "Poi_help_availableReleases"
-msgstr "Zadejte vydání verzí, ke kterým mohou být úlohy přiřazeny. Každé na samostatný řádek. Pokud nebudou zadána žádná vydání, úlohy podle nich nebudou organizovány."
-
-# ./content/PoiTracker.py
-#. Default: "Enter the different type of issue severities that should be available, one per line."
-#: ./content/PoiTracker.py:154
-msgid "Poi_help_availableSeverities"
-msgstr "Zadejte různé stupně důležitosti úloh, každý na samostatný řádek."
-
-# ./content/PoiIssue.py
-#. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
-#: ./content/PoiIssue.py:256
-msgid "Poi_help_contactEmail"
-msgstr "Prosíme zadejte emailovou adresu, na které budete k zastižení pro získání více informací nebo v případě vyřešení úlohy. Poznámka: vaše emailová adresa nebude zobrazena ostatním uživatelům."
-
-# ./content/PoiTracker.py
-#. Default: "Select the default severity for new issues."
-#: ./content/PoiTracker.py:168
-msgid "Poi_help_defaultSeverity"
-msgstr "Zvolte výchozí důležitost pro nové úlohy."
-
-# ./content/PoiIssue.py
-#. Default: "Please provide further details"
-#: ./content/PoiIssue.py:125
-msgid "Poi_help_details"
-msgstr "Prosíme doplňte další informace"
-
-# ./content/PoiTracker.py
-#. Default: "Enter any introductory help text you'd like to display on the tracker front page."
-#: ./content/PoiTracker.py:91
-msgid "Poi_help_helpText"
-msgstr "Zadejte jakýkoli úvodní text, který bude zobrazen na úvodní stránce manažeru úloh."
-
-# ./content/PoiIssue.py
-#. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ./browser/response.pt:176
-msgid "Poi_help_issueTransition"
-msgstr "Pokud je to vhodné, zvolte změnu stavu úlohy, které se tato reakce týká."
-
-# ./content/PoiIssue.py
-#. Default: "Select the type of issue."
-#: ./content/PoiIssue.py:191
-msgid "Poi_help_issueType"
-msgstr "Zvolte typ úlohy."
-
-# ./content/PoiIssue.py
-#. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
-#: ./content/PoiIssue.py:92
-msgid "Poi_help_issue_title"
-msgstr "Zadejte krátký, ale výstižný nadpis pro tuto úlohu. Dobrý nadpis usnadní správcům projektu rozpoznat a reagovat na tuto úlohu."
-
-# ./content/PoiTracker.py
-#. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
-#: ./content/PoiTracker.py:262
-msgid "Poi_help_mailingList"
-msgstr "Pokud je zadáno a pokud je zaškrtnuto i 'Zasílat emailová upozornění', bude na tuto adresu odeslán email při každé nové úloze nebo reakci. Správci zároveň obdrží individuální emaily. Pokud toto není žádoucí změťe je na techniky."
-
-# ./content/PoiTracker.py
-#. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
-#: ./content/PoiTracker.py:197
-msgid "Poi_help_managers"
-msgstr "Zadejte identifikátory (login) uživatelů, kterým bude umožněno spravovat tento manažer úloh, každého na samostatný řádek."
-
-# ./content/PoiResponse.py
-#. Default: "Select the responsible manager for this issue"
-#: ./browser/response.pt:266
-msgid "Poi_help_newResponsibleManager"
-msgstr "Vyberte odpovědného správce pro tuto úlohu"
-
-# ./content/PoiResponse.py
-#. Default: "Select the severity for this issue"
-#: ./browser/response.pt:209
-msgid "Poi_help_newSeverity"
-msgstr "Vyberte důležitost této úlohy"
-
-# ./content/PoiResponse.py
-#. Default: "Set the target release for this issue"
-#: ./browser/response.pt:237
-msgid "Poi_help_newTargetRelease"
-msgstr "Zadejte cílové vydání pro tuto úlohu"
-
-# ./content/PoiIssue.py
-#. Default: "Select the version the issue was found in."
-#: ./content/PoiIssue.py:110
-msgid "Poi_help_release"
-msgstr "Zvolte verzi, ve které byla problém zjištěn."
-
-# ./content/PoiIssue.py
-#. Default: "Please enter your response below"
-#: ./browser/response.pt:111
+#. Default: "Please enter your response below."
+#: Products.Poi:/browser/response.pt:125
 msgid "Poi_help_response"
 msgstr "Prosíme níže zadejte vaší reakci"
 
-# ./content/PoiIssue.py
-#. Default: "Select which manager, if any, is responsible for this issue."
-#: ./content/PoiIssue.py:238
-msgid "Poi_help_responsibleManager"
-msgstr "Zvolte, který správce, pokud nějaký, je odpovědný za tuto úlohu."
-
-# ./content/PoiTracker.py
-#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: ./content/PoiTracker.py:245
-msgid "Poi_help_sendNotificationEmails"
-msgstr "Pokud je zaškrtnuto, správci manažeru úloh obdrží email při každé nové úloze nebo reakci a autoři úloh obdrží email při každé nové reakci, pokud je úloha vyřešena nebo čekající na potvrzení. Technici obdrží email když jim je úloha přiřazena."
-
-# ./content/PoiIssue.py
-#. Default: "Select the severity of this issue."
-#: ./content/PoiIssue.py:206
-msgid "Poi_help_severity"
-msgstr "Zvolte důležitost této úlohy."
-
-# ./content/PoiIssue.py
-#. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
-#: ./content/PoiIssue.py:142
-msgid "Poi_help_steps"
-msgstr "Pokud je to možné, prosíme popište postup vedoucí k výskytu chyby nebo rozeznání úlohy, každý na samostatný řádek."
-
-# ./content/PoiIssue.py
-#. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: ./content/PoiIssue.py:291
-msgid "Poi_help_subject"
-msgstr "Značky mohou být použity pro tvorbu libovolné kategorizace úloh. Níže uvedený seznam zobrazuje existující značky, které můžete vybrat nebo můžete přidat nové."
-
-# ./content/PoiTracker.py
-#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
-#: ./content/PoiTracker.py:281
-msgid "Poi_help_svnurl"
-msgstr "Prosíme zadejte Url souvisejícího SVN repositáře, např.: http://dev.plone.org/changeset/%(rev)s/collective pro produkty v Plone collective."
-
-# ./content/PoiIssue.py
-#. Default: "Release this issue is targetted to be fixed in"
-#: ./content/PoiIssue.py:222
-msgid "Poi_help_targetRelease"
-msgstr "Vydání, ve kterém má být tato úloha vyřešena"
-
-# ./content/PoiTracker.py
-#. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
-#: ./content/PoiTracker.py:211
-msgid "Poi_help_technicians"
-msgstr "Zadejte uživatelská jména uživatelů, kteří budou odpovědni za řešení úloh, každé na samostatný řádek. Poznámka: Je v pořádku definovat pouze správce a žádné techniky, protože správci mohou řešit úlohy také."
-
-#. Default: "Describe the purpose of this tracker"
-#: ./content/PoiTracker.py:74
-msgid "Poi_help_tracker_description"
-msgstr "Popište účel tohoto manažeru úloh."
-
-# ./content/PoiTracker.py
-#. Default: "Enter a descriptive name for this tracker"
-#: ./content/PoiTracker.py:60
-msgid "Poi_help_tracker_title"
-msgstr "Zadejte výstižné jméno pro tento manažer úloh."
-
-#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
-#: ./content/PoiTracker.py:226
-msgid "Poi_help_tracker_watchers"
+#. Default: "Modify Issue"
+#: Products.Poi:/browser/response.pt:161
+msgid "Poi_label_modify"
 msgstr ""
 
 # ./content/PoiIssue.py
-#. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
-#: ./content/PoiIssue.py:273
-#, fuzzy
-msgid "Poi_help_watchers"
-msgstr "Zadejte jména uživatelů, kteří sledují tuto úlohu, každého na samostatný řádek. Tito uživatelé obdrží email při vyvoření nové reakce k tého úloze. Uživatelé se také mohou přidat do tohoto seznamu sami."
-
-# ./content/PoiIssue.py
-#. Default: "Area"
-#: ./content/PoiIssue.py:174
-msgid "Poi_label_area"
-msgstr "Oblast"
-
-# ./content/PoiIssue.py
-#. Default: "Attachment"
-#: ./browser/response.pt:148
-#: ./content/PoiIssue.py:159
-msgid "Poi_label_attachment"
-msgstr "Příloha"
-
-# ./content/PoiTracker.py
-#. Default: "Areas"
-#: ./content/PoiTracker.py:113
-msgid "Poi_label_availableAreas"
-msgstr "Oblasti"
-
-# ./content/PoiTracker.py
-#. Default: "Issue types"
-#: ./content/PoiTracker.py:137
-msgid "Poi_label_availableIssueTypes"
-msgstr "Typy úloh"
-
-# ./content/PoiTracker.py
-#. Default: "Available releases"
-#: ./content/PoiTracker.py:180
-msgid "Poi_label_availableReleases"
-msgstr "Dostupná vydání"
-
-# ./content/PoiTracker.py
-#. Default: "Available severities"
-#: ./content/PoiTracker.py:152
-msgid "Poi_label_availableSeverities"
-msgstr "Dostupné důležitosti"
-
-# ./content/PoiIssue.py
-#. Default: "Contact email address"
-#: ./content/PoiIssue.py:254
-msgid "Poi_label_contactEmail"
-msgstr "Kontaktní emailová adresa"
-
-# ./content/PoiTracker.py
-#. Default: "Default severity"
-#: ./content/PoiTracker.py:166
-msgid "Poi_label_defaultSeverity"
-msgstr "Výchozí důležitost"
-
-# ./content/PoiIssue.py
-#. Default: "Details"
-#: ./content/PoiIssue.py:123
-msgid "Poi_label_details"
-msgstr "Detaily"
-
-# ./content/PoiTracker.py
-#. Default: "Help text"
-#: ./content/PoiTracker.py:89
-msgid "Poi_label_helpText"
-msgstr "Pomocný text"
-
-# ./content/PoiIssue.py
 #. Default: "Change issue state"
-#: ./browser/response.pt:171
+#: Products.Poi:/browser/response.pt:173
 msgid "Poi_label_issueTransition"
 msgstr "Změnit stav úlohy"
 
 # ./content/PoiIssue.py
+#. Default: "Set a new state, if applicable"
+#: Products.Poi:/browser/response.pt:178
+msgid "Poi_help_issueTransition"
+msgstr ""
+"Pokud je to vhodné, zvolte změnu stavu úlohy, které se tato reakce týká."
+
+# ./content/PoiResponse.py
+#. Default: "Change issue severity"
+#: Products.Poi:/browser/response.pt:199
+msgid "Poi_label_newSeverity"
+msgstr "Změnit důležitost úlohy"
+
+# ./content/PoiResponse.py
+#. Default: "Select the severity for this issue"
+#: Products.Poi:/browser/response.pt:204
+msgid "Poi_help_newSeverity"
+msgstr "Vyberte důležitost této úlohy"
+
+# ./content/PoiResponse.py
+#. Default: "Change target release"
+#: Products.Poi:/browser/response.pt:225
+msgid "Poi_label_newTargetRelease"
+msgstr "Změnit cílové vydání"
+
+# ./content/PoiResponse.py
+#. Default: "Set the target release for this issue"
+#: Products.Poi:/browser/response.pt:230
+msgid "Poi_help_newTargetRelease"
+msgstr "Zadejte cílové vydání pro tuto úlohu"
+
+# ./content/PoiResponse.py
+#. Default: "Change assignee"
+#: Products.Poi:/browser/response.pt:249
+msgid "Poi_label_newResponsibleManager"
+msgstr "Změnit odpovědného správce"
+
+#: Products.Poi:/browser/response.pt:25
+msgid "Edit"
+msgstr "Upravit"
+
+# ./content/PoiResponse.py
+#. Default: "Select the assignee for this issue"
+#: Products.Poi:/browser/response.pt:254
+msgid "Poi_help_newResponsibleManager"
+msgstr "Vyberte odpovědného správce pro tuto úlohu"
+
+#: Products.Poi:/browser/response.pt:35
+msgid "Delete"
+msgstr "Odstranit"
+
+#. Default: "Added by"
+#: Products.Poi:/browser/response.pt:44
+msgid "poi_added_by"
+msgstr "Přidal"
+
+#. Default: "on"
+#: Products.Poi:/browser/response.pt:49
+msgid "poi_added_on"
+msgstr "v"
+
+#. Default: "Change History"
+#: Products.Poi:/browser/response.pt:7
+msgid "title_change_history"
+msgstr ""
+
+#. Default: "Attached:"
+#: Products.Poi:/browser/response.pt:72
+msgid "poi_label_attachment"
+msgstr "Přiloženo:"
+
+#. Default: "Add/remove attachments"
+#: Products.Poi:/browser/response.pt:87
+msgid "title_add_remove_attachments"
+msgstr ""
+
+#. Default: "No responses can be added."
+#: Products.Poi:/browser/response.pt:92
+msgid "msg_no_responses_can_be_added"
+msgstr "Není možné vkládat reakce."
+
+#: Products.Poi:/browser/response.py:194
+msgid "No response selected."
+msgstr "Nebyla vybrána žádná reakce."
+
+#. Default: ""
+#: Products.Poi:/browser/response.py:202
+msgid "Response id ${response_id} is no integer."
+msgstr "Id reakce ${response_id} není celé číslo."
+
+#. Default: ""
+#: Products.Poi:/browser/response.py:208
+msgid "Response id ${response_id} does not exist."
+msgstr "Reakce s id ${reponse_id} neexistuje."
+
+#: Products.Poi:/browser/response.py:413
+msgid "Issue state"
+msgstr "Stav úlohy"
+
+#: Products.Poi:/browser/response.py:418
+msgid "Severity"
+msgstr "Důležitost"
+
+#: Products.Poi:/browser/response.py:419
+msgid "Assignee"
+msgstr ""
+
+#: Products.Poi:/browser/response.py:421
+msgid "Target release"
+msgstr "Cílové vydání"
+
+#: Products.Poi:/browser/response.py:440
+msgid "No response text added and no issue changes made."
+msgstr "Nebyl zadán žádný text reakce ani provedeny změny úlohy."
+
+#: Products.Poi:/browser/response.py:482
+msgid "You are not allowed to edit responses."
+msgstr "Nejste oprávněni upravovat reakce."
+
+#: Products.Poi:/browser/response.py:488
+msgid "No response selected for saving."
+msgstr "Nebyly vybrány žádné reakce k uložení."
+
+#: Products.Poi:/browser/response.py:492
+msgid ""
+"Response does not exist anymore; perhaps it was removed by another user."
+msgstr "Reakce již neexistuje; je možné, že byla odstraněna jiným uživatelem."
+
+#. Default: ""
+#: Products.Poi:/browser/response.py:502
+msgid "Changes saved to response id ${response_id}."
+msgstr "Změny byly uloženy do reakce s id ${response_id}."
+
+#: Products.Poi:/browser/response.py:526
+msgid "You are not allowed to delete responses."
+msgstr "Nejste oprávněni odstraňovat reakce."
+
+#: Products.Poi:/browser/response.py:532
+msgid "No response selected for removal."
+msgstr "Nebyly vybrány žádné reakce k odstranění."
+
+#. Default: ""
+#: Products.Poi:/browser/response.py:539
+msgid "Response id ${response_id} is no integer so it cannot be removed."
+msgstr ""
+"Id reakce ${response_id} není celé číslo, a proto nemůže být odstraněna."
+
+#. Default: ""
+#: Products.Poi:/browser/response.py:547
+msgid "Response id ${response_id} does not exist so it cannot be removed."
+msgstr "Reakce s id ${response_id} neexistuje a nemůže být tedy odstraněna."
+
+#. Default: ""
+#: Products.Poi:/browser/response.py:554
+msgid "Removed response id ${response_id}."
+msgstr "Reakce s id ${response_id} byla odstraněna."
+
+#. Default: "Error: no response found for editing"
+#: Products.Poi:/browser/templates/edit_response.pt:19
+msgid "title_error_no_response"
+msgstr "Chyba: nebyla nalezena žádná reakce pro úpravy"
+
+#. Default: "Return to issue."
+#: Products.Poi:/browser/templates/edit_response.pt:23
+#: Products.Poi:/browser/templates/edit_response.pt:36
+msgid "label_return_to_issue"
+msgstr "Zpět na úlohu"
+
+#. Default: "Edit response"
+#: Products.Poi:/browser/templates/edit_response.pt:30
+msgid "title_edit_response"
+msgstr "Upravit reakci"
+
+#. Default: "You are not allowed to edit this response."
+#: Products.Poi:/browser/templates/edit_response.pt:33
+msgid "label_edit_response_not_allowed"
+msgstr "Nejste oprávněni upravovat tuto reakci."
+
+#. Default: "${tracker} - Issue search results"
+#: Products.Poi:/browser/templates/poi-issue-search-rss.xml.pt:11
+#: Products.Poi:/browser/templates/poi_issue_search.pt:34
+msgid "poi_heading_search_results"
+msgstr "Výsledky vyhledávání úloh"
+
+#. Default: "No results were found"
+#: Products.Poi:/browser/templates/poi-issue-search-rss.xml.pt:14
+#: Products.Poi:/browser/templates/poi-my-issues-rss.xml.pt:19
+#: Products.Poi:/browser/templates/poi-my-submitted-issues-rss.xml.pt:19
+#: Products.Poi:/browser/templates/poi-orphaned-issues-rss.xml.pt:15
+#: Products.Poi:/browser/templates/poi_issue_search.pt:48
+msgid "description_no_results_found"
+msgstr "Nebyli nalezeny žádné úlohy."
+
+#. Default: "${number} items matching your criteria."
+#: Products.Poi:/browser/templates/poi-issue-search-rss.xml.pt:18
+#: Products.Poi:/browser/templates/poi-my-issues-rss.xml.pt:23
+#: Products.Poi:/browser/templates/poi-my-submitted-issues-rss.xml.pt:23
+#: Products.Poi:/browser/templates/poi-orphaned-issues-rss.xml.pt:17
+#: Products.Poi:/browser/templates/poi_issue_search.pt:37
+msgid "batch_x_items_matching_your_criteria"
+msgstr "${number} úloh splňujících vaše kritéria"
+
+#: Products.Poi:/browser/templates/poi-issue-search-rss.xml.pt:20
+#: Products.Poi:/browser/templates/poi-my-issues-rss.xml.pt:25
+#: Products.Poi:/browser/templates/poi-my-submitted-issues-rss.xml.pt:25
+#: Products.Poi:/browser/templates/poi-orphaned-issues-rss.xml.pt:19
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:324
+msgid "Poi"
+msgstr ""
+
+#. Default: "${tracker} - My issues"
+#: Products.Poi:/browser/templates/poi-my-issues-rss.xml.pt:16
+#: Products.Poi:/browser/templates/poi-orphaned-issues-rss.xml.pt:13
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:243
+msgid "poi_heading_my_issues"
+msgstr "Mé úlohy"
+
+#. Default: "${tracker} - My Submitted Issues"
+#: Products.Poi:/browser/templates/poi-my-submitted-issues-rss.xml.pt:16
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:272
+msgid "poi_heading_my_submitted_issues"
+msgstr ""
+
+#: Products.Poi:/browser/templates/poi_email_new_issue_html.pt:23
+#: Products.Poi:/browser/templates/poi_email_new_issue_plain.pt:8
+msgid ""
+"A new issue has been submitted to the ${tracker_title} tracker by "
+"${issue_author} and awaits confirmation."
+msgstr ""
+
+#: Products.Poi:/browser/templates/poi_email_new_issue_html.pt:27
+#: Products.Poi:/browser/templates/poi_email_new_issue_plain.pt:13
+#: Products.Poi:/browser/templates/poi_email_resolved_issue_html.pt:30
+msgid "Issue Information"
+msgstr ""
+
+#: Products.Poi:/browser/templates/poi_email_new_issue_html.pt:29
+#: Products.Poi:/browser/templates/poi_email_resolved_issue_html.pt:32
+msgid "Issue"
+msgstr ""
+
+#: Products.Poi:/browser/templates/poi_email_new_issue_html.pt:34
+#: Products.Poi:/browser/templates/poi_email_new_issue_plain.pt:19
+msgid "Issue Details:"
+msgstr ""
+
+#: Products.Poi:/browser/templates/poi_email_new_issue_html.pt:39
+#: Products.Poi:/browser/templates/poi_email_new_issue_plain.pt:23
+#: Products.Poi:/browser/templates/poi_email_new_response_html.pt:54
+#: Products.Poi:/browser/templates/poi_email_new_response_plain.pt:29
+#: Products.Poi:/browser/templates/poi_email_resolved_issue_html.pt:38
+#: Products.Poi:/browser/templates/poi_email_resolved_issue_plain.pt:22
+msgid "This is an automated email, please do not reply."
+msgstr ""
+
+#: Products.Poi:/browser/templates/poi_email_new_issue_plain.pt:15
+#: Products.Poi:/browser/templates/poi_email_new_response_html.pt:31
+#: Products.Poi:/browser/templates/poi_email_new_response_plain.pt:14
+#: Products.Poi:/browser/templates/poi_email_resolved_issue_plain.pt:18
+msgid "Issue:"
+msgstr ""
+
+#: Products.Poi:/browser/templates/poi_email_new_response_html.pt:24
+#: Products.Poi:/browser/templates/poi_email_new_response_plain.pt:8
+msgid ""
+"A new response has been given to the issue ${issue_title} in the tracker "
+"${tracker_title} by ${response_author}."
+msgstr ""
+
+#: Products.Poi:/browser/templates/poi_email_new_response_html.pt:29
+#: Products.Poi:/browser/templates/poi_email_new_response_plain.pt:12
+#: Products.Poi:/browser/templates/poi_email_resolved_issue_plain.pt:16
+msgid "Response Information"
+msgstr ""
+
+#: Products.Poi:/browser/templates/poi_email_new_response_html.pt:42
+#: Products.Poi:/browser/templates/poi_email_new_response_plain.pt:23
+msgid "An attachment has been added with id ${id}."
+msgstr ""
+
+#: Products.Poi:/browser/templates/poi_email_new_response_html.pt:47
+#: Products.Poi:/browser/templates/poi_email_new_response_plain.pt:25
+msgid "Response Details:"
+msgstr ""
+
+#: Products.Poi:/browser/templates/poi_email_resolved_issue_html.pt:23
+#: Products.Poi:/browser/templates/poi_email_resolved_issue_plain.pt:8
+msgid ""
+"The issue ${issue_title} in the ${tracker_title} tracker has been marked as "
+"resolved by ${response_author}."
+msgstr ""
+
+#: Products.Poi:/browser/templates/poi_email_resolved_issue_html.pt:25
+#: Products.Poi:/browser/templates/poi_email_resolved_issue_plain.pt:11
+msgid ""
+"Please visit the issue and either confirm that it has been satisfactorily "
+"resolved or re-open it."
+msgstr ""
+
+#. Default: "Return to tracker"
+#: Products.Poi:/browser/templates/poi_issue_search.pt:43
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:20
+msgid "poi_return_to_tracker"
+msgstr "Zpět do manažeru úloh"
+
+#. Default: "Target release"
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:116
+msgid "poi_search_label_target_release"
+msgstr "Cílové vydání"
+
+#. Default: "Select the assigned target release you wish to search for."
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:118
+msgid "poi_search_help_target_release"
+msgstr "Vyberte cílové vydání, ve kterém chcete hledat."
+
+#. Default: "Area"
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:139
+msgid "poi_search_label_area"
+msgstr "Oblast"
+
+#. Default: "Select the areas you wish to search for."
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:141
+msgid "poi_search_help_area"
+msgstr "Vyberte oblasti, ve kterých si přejete hledat."
+
+#. Default: "Issue search"
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:15
+msgid "poi_heading_issue_search"
+msgstr "Hledat úlohu"
+
+#. Default: "Issue Types"
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:160
+msgid "poi_search_label_type"
+msgstr "Typy úloh"
+
+#. Default: "Select the types you wish to search for."
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:162
+msgid "poi_search_help_issue_type"
+msgstr "Vyberte jaké typy úloh si přejete hledat."
+
+#. Default: "Severity"
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:181
+msgid "poi_search_label_severity"
+msgstr "Důležitost"
+
+#. Default: "Select the severities you wish to search for."
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:183
+msgid "poi_search_help_severity"
+msgstr "Vyberte s jakými stupni důležitosti si přejete úlohy hledat."
+
+#. Default: "State"
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:202
+msgid "poi_search_label_state"
+msgstr "Stav"
+
+#. Default: "Select the states you wish to search for."
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:204
+msgid "poi_search_help_state"
+msgstr "Vyberte v jakých stavech si přejete úlohy hledat."
+
+#. Default: "Assignee"
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:225
+msgid "poi_search_label_assignee"
+msgstr "Odpovědní správci manažeru úloh"
+
+#. Default: "Select the assignee you wish to search for."
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:227
+msgid "poi_search_help_assignee"
+msgstr "Vyberte odpovědné správce jejichž úlohy si přejete hledat."
+
+#. Default: "This form allows you to search for issue according to a variety of criteria. Please make your selection below and click Search."
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:23
+msgid "poi_issue_search_description"
+msgstr ""
+"Tento formulář vám umožňuje hledat úlohy podle různých kritérií. Prosíme "
+"níže zadejte váš výběr a klikněte na Hledat."
+
+#. Default: "Tags"
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:246
+msgid "poi_search_label_tags"
+msgstr "Značky"
+
+#. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:248
+msgid "poi_search_help_tags"
+msgstr ""
+"Značky jsou klíčová slova přiřazená správci manažeru úloh k jednotlivým "
+"úlohám, aby umožnili podrobnější organizaci úloh. Vyberte značku nebo "
+"značky, se kterými si přejete úlohy hledat."
+
+#. Default: "Match all tags"
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:270
+msgid "poi_match_all_tags"
+msgstr "Odpovídá všem značkám"
+
+#. Default: "Include Related Issues"
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:277
+msgid "poi_display_related"
+msgstr ""
+
+#. Default: "Search"
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:282
+msgid "label_search"
+msgstr "Hledat"
+
+#. Default: "Search Terms"
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:35
+msgid "poi_legend_search_terms"
+msgstr "Podmínky Vyhledávání"
+
+#. Default: "Issue number"
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:39
+msgid "poi_search_label_id"
+msgstr "Číslo úlohy"
+
+#. Default: "If you wish to search for a particular issue, please enter its number."
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:41
+msgid "poi_search_help_id"
+msgstr "Pokud chcete vyhledat konkrétní úlohu, prosíme zadejte její číslo."
+
+#. Default: "Issue text"
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:54
+msgid "poi_search_label_text"
+msgstr "Text úlohy"
+
+#. Default: "Enter any text you wish the issue to include."
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:56
+msgid "poi_search_help_text"
+msgstr "Zadejte jaký-koli text, který by měla úloha obsahovat."
+
+#. Default: "Submitter"
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:79
+msgid "poi_search_label_creator"
+msgstr "Zadavatel"
+
+#. Default: "Enter the username of the issue submitter,"
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:81
+msgid "poi_search_help_creator"
+msgstr "Zadejte uživatelské jméno zadavatele úlohy."
+
+#. Default: "Version"
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:92
+msgid "poi_search_label_release"
+msgstr "Verze"
+
+#. Default: "Select the version for which the bugs you want to find were reported."
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:94
+msgid "poi_search_help_release"
+msgstr "Vyberte verzi, podle které chcete vyhledat nahlášené chyby."
+
+#. Default: "#"
+#: Products.Poi:/browser/templates/poi_issue_search_results.pt:42
+msgid "listingheader_number"
+msgstr "#"
+
+#. Default: "Title"
+#: Products.Poi:/browser/templates/poi_issue_search_results.pt:47
+msgid "listingheader_title"
+msgstr "Nadpis"
+
+#. Default: "Target"
+#: Products.Poi:/browser/templates/poi_issue_search_results.pt:53
+msgid "listingheader_release"
+msgstr "Cíl"
+
+#. Default: "Area"
+#: Products.Poi:/browser/templates/poi_issue_search_results.pt:58
+msgid "listingheader_area"
+msgstr "Oblast"
+
+#. Default: "Type"
+#: Products.Poi:/browser/templates/poi_issue_search_results.pt:63
+msgid "listingheader_type"
+msgstr "Typ"
+
+#. Default: "Severity"
+#: Products.Poi:/browser/templates/poi_issue_search_results.pt:68
+msgid "listingheader_severity"
+msgstr "Důležitost"
+
+#. Default: "Assignee"
+#: Products.Poi:/browser/templates/poi_issue_search_results.pt:73
+msgid "listingheader_responsible"
+msgstr "Odpovědný"
+
+#. Default: "Tags"
+#: Products.Poi:/browser/templates/poi_issue_search_results.pt:78
+msgid "listingheader_tags"
+msgstr "Značky"
+
+#. Default: "Related Issue(s)"
+#: Products.Poi:/browser/templates/poi_issue_search_results.pt:82
+msgid "listingheader_related"
+msgstr ""
+
+#. Default: "State"
+#: Products.Poi:/browser/templates/poi_issue_search_results.pt:86
+msgid "listingheader_state"
+msgstr "Stav"
+
 #. Default: "Issue type"
-#: ./content/PoiIssue.py:189
+#: Products.Poi:/browser/templates/poi_issue_view.pt:101
+msgid "poi_label_type"
+msgstr "Typ úlohy"
+
+#. Default: "Severity"
+#: Products.Poi:/browser/templates/poi_issue_view.pt:110
+msgid "poi_label_severity"
+msgstr "Důležitost"
+
+#. Default: "Contact Email"
+#: Products.Poi:/browser/templates/poi_issue_view.pt:123
+msgid "poi_label_issue_contact_email"
+msgstr ""
+
+#. Default: "Submitted by"
+#: Products.Poi:/browser/templates/poi_issue_view.pt:130
+msgid "poi_label_submitted_by"
+msgstr "Přidal"
+
+#. Default: "Submitted on"
+#: Products.Poi:/browser/templates/poi_issue_view.pt:137
+msgid "poi_label_submitted_on"
+msgstr "Přidal v"
+
+#. Default: "Ticket Owner"
+#: Products.Poi:/browser/templates/poi_issue_view.pt:141
+msgid "poi_label_assignee"
+msgstr "Odpovědný"
+
+#. Default: "Target release:"
+#: Products.Poi:/browser/templates/poi_issue_view.pt:152
+msgid "poi_label_target_release"
+msgstr "Cílové vydání:"
+
+#. Default: "Return to search results"
+#: Products.Poi:/browser/templates/poi_issue_view.pt:170
+msgid "poi_return_to_search_results"
+msgstr "Zpět na výsledky vyhledávání"
+
+#. Default: "Steps to reproduce:"
+#: Products.Poi:/browser/templates/poi_issue_view.pt:182
+msgid "poi_label_steps"
+msgstr "Postup reprodukce："
+
+#. Default: "Related issue(s):"
+#: Products.Poi:/browser/templates/poi_issue_view.pt:191
+msgid "poi_label_related"
+msgstr ""
+
+#: Products.Poi:/browser/templates/poi_issue_view.pt:54
+msgid "Edit issue"
+msgstr "Upravit úlohu"
+
+#. Default: "Tags:"
+#: Products.Poi:/browser/templates/poi_issue_view.pt:60
+msgid "poi_label_tags"
+msgstr "Značky:"
+
+#. Default: "State"
+#: Products.Poi:/browser/templates/poi_issue_view.pt:72
+msgid "poi_label_state"
+msgstr "Stav"
+
+#. Default: "Version:"
+#: Products.Poi:/browser/templates/poi_issue_view.pt:81
+msgid "poi_label_version"
+msgstr "Verze:"
+
+#. Default: "Area"
+#: Products.Poi:/browser/templates/poi_issue_view.pt:92
+msgid "poi_label_area"
+msgstr "Oblast"
+
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:130
+msgid "Search"
+msgstr "Hledat"
+
+#. Default: "Advanced issue search"
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:133
+msgid "poi_issue_search"
+msgstr "Rozšířené vyhledávání úloh"
+
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:146
+msgid "Note"
+msgstr ""
+
+#. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:147
+msgid "description_cannot_add_issues_before_opened"
+msgstr ""
+"Ostatní nemohou zadat úlohy do vašeho manažeru úloh dokud ho neotevřete pro "
+"zadávání pomocí rozbalovací nabídky 'stav', nahoře v zelené liště."
+
+#. Default: "Open issues"
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:153
+msgid "poi_heading_open_issues"
+msgstr "Otevřené úlohy"
+
+#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:157
+msgid "poi_help_open_issues"
+msgstr ""
+"Klikněte na oblast, vydání nebo stav úlohy, abyste viděli otevřené úlohy ve "
+"zvolené kategorii. Pro pokročilejší vyhledávání klikněte na \"Rozšířené "
+"vyhledávání úloh\"."
+
+#. Default: "By area"
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:164
+msgid "poi_heading_by_area"
+msgstr "Podle oblasti"
+
+#. Default: "By target release"
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:181
+msgid "poi_heading_by_release"
+msgstr "Podle cílového vydání"
+
+#. Default: "By state"
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:194
+msgid "poi_heading_by_state"
+msgstr "Podle stavu"
+
+#. Default: "All pending issues"
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:197
+msgid "poi_all_pending_issues"
+msgstr "Všechny nevyřízené úlohy"
+
+#. Default: "By top tags"
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:222
+msgid "poi_heading_by_tag"
+msgstr "Podle značky"
+
+#. Default: "The following open issues have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:244
+msgid "poi_help_my_issues_manager"
+msgstr ""
+"Následující otevřené úlohy byly buď vámi zadány, nebo vám byly přiřazeny. "
+"Poznámka: RSS zdroj pro tento seznam bude obsahovat i nepotvrzené a "
+"nepřiřazené úlohy, aby bylo možné přihlásit se k odběru jednoho zdroje se "
+"všemi úlohami, které by vás mohli zajímat."
+
+#. Default: "The following open issues are assigned you."
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:251
+msgid "poi_help_my_issues_not_manager"
+msgstr "Následující otevřené úlohy byly vámi zadány."
+
+#. Default: "The following open issues were submitted by you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:273
+msgid "poi_help_my_submitted_issues_manager"
+msgstr ""
+
+#. Default: "The following issues were submitted by you."
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:280
+msgid "poi_help_my_submitted_issues_not_manager"
+msgstr ""
+
+#. Default: "Orphaned issues"
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:303
+msgid "poi_heading_orphaned_issues"
+msgstr "Nepřiřazené úlohy"
+
+#. Default: "The following issues are not assigned to anyone."
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:304
+msgid "poi_help_orphaned_issues_"
+msgstr "Následující otevřené úlohy nebyly nikomu přiřazeny."
+
+#. Default: "Powered by"
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:321
+msgid "label_powered_by"
+msgstr "Založeno na"
+
+#. Default: "If you can, please log in before submitting your issue."
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:50
+msgid "login_suggestion"
+msgstr "Přihlašte se, pokud je to možné, před zadáním úlohy."
+
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:72
+msgid "Submit new issue"
+msgstr "Zadat novou úlohu"
+
+#. Default: "View activity feed"
+#: Products.Poi:/browser/templates/poi_tracker_view.pt:81
+msgid "view_issue_logs"
+msgstr ""
+
+# ./content/PoiIssue.py
+#. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
+#: Products.Poi:/content/PoiIssue.py:101 Products.Poi:/content/issue.py:65
+msgid "Poi_help_issue_title"
+msgstr ""
+"Zadejte krátký, ale výstižný nadpis pro tuto úlohu. Dobrý nadpis usnadní "
+"správcům projektu rozpoznat a reagovat na tuto úlohu."
+
+# ./content/PoiIssue.py
+#. Default: "Version"
+#: Products.Poi:/content/PoiIssue.py:117
+msgid "Poi_label_release"
+msgstr "Verze"
+
+# ./content/PoiIssue.py
+#. Default: "Select the version the issue was found in."
+#: Products.Poi:/content/PoiIssue.py:119
+msgid "Poi_help_release"
+msgstr "Zvolte verzi, ve které byla problém zjištěn."
+
+# ./content/PoiIssue.py
+#. Default: "Details"
+#: Products.Poi:/content/PoiIssue.py:132
+msgid "Poi_label_details"
+msgstr "Detaily"
+
+# ./content/PoiIssue.py
+#. Default: "Please provide further details"
+#: Products.Poi:/content/PoiIssue.py:134
+msgid "Poi_help_details"
+msgstr "Prosíme doplňte další informace"
+
+# ./content/PoiIssue.py
+#. Default: "Steps to reproduce"
+#: Products.Poi:/content/PoiIssue.py:149
+msgid "Poi_label_steps"
+msgstr "Postup reprodukce"
+
+# ./content/PoiIssue.py
+#. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
+#: Products.Poi:/content/PoiIssue.py:151
+msgid "Poi_help_steps"
+msgstr ""
+"Pokud je to možné, prosíme popište postup vedoucí k výskytu chyby nebo "
+"rozeznání úlohy, každý na samostatný řádek."
+
+# ./content/PoiIssue.py
+#. Default: "Attachment"
+#: Products.Poi:/content/PoiIssue.py:168
+msgid "Poi_label_attachment"
+msgstr "Příloha"
+
+# ./content/PoiIssue.py
+#. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
+#: Products.Poi:/content/PoiIssue.py:170
+msgid "Poi_help_attachment"
+msgstr ""
+"K vaší úloze můžete přiložit soubor jako přílohu. Prosíme nenahrávejte "
+"zbytečně velké soubory."
+
+# ./content/PoiIssue.py
+#. Default: "Area"
+#: Products.Poi:/content/PoiIssue.py:183
+msgid "Poi_label_area"
+msgstr "Oblast"
+
+# ./content/PoiIssue.py
+#. Default: "Select the area this issue is relevant to."
+#: Products.Poi:/content/PoiIssue.py:185
+msgid "Poi_help_area"
+msgstr "Zvolte oblast, ke které se tato úloha vztahuje."
+
+# ./content/PoiIssue.py
+#. Default: "Issue type"
+#: Products.Poi:/content/PoiIssue.py:198
 msgid "Poi_label_issueType"
 msgstr "Druh úlohy"
 
+# ./content/PoiIssue.py
+#. Default: "Select the type of issue."
+#: Products.Poi:/content/PoiIssue.py:200
+msgid "Poi_help_issueType"
+msgstr "Zvolte typ úlohy."
+
+# ./content/PoiIssue.py
+#. Default: "Severity"
+#: Products.Poi:/content/PoiIssue.py:213
+msgid "Poi_label_severity"
+msgstr "Důležitost"
+
+# ./content/PoiIssue.py
+#. Default: "Select the severity of this issue."
+#: Products.Poi:/content/PoiIssue.py:215
+msgid "Poi_help_severity"
+msgstr "Zvolte důležitost této úlohy."
+
+# ./content/PoiIssue.py
+#. Default: "Target release"
+#: Products.Poi:/content/PoiIssue.py:229
+msgid "Poi_label_targetRelease"
+msgstr "Cílové vydání"
+
+# ./content/PoiIssue.py
+#. Default: "Release this issue is targetted to be fixed in"
+#: Products.Poi:/content/PoiIssue.py:231
+msgid "Poi_help_targetRelease"
+msgstr "Vydání, ve kterém má být tato úloha vyřešena"
+
+# ./content/PoiIssue.py
+#. Default: "Responsible"
+#: Products.Poi:/content/PoiIssue.py:245
+msgid "Poi_label_responsibleManager"
+msgstr "Odpovědný"
+
+# ./content/PoiIssue.py
+#. Default: "Select which manager, if any, is responsible for this issue."
+#: Products.Poi:/content/PoiIssue.py:247
+msgid "Poi_help_responsibleManager"
+msgstr "Zvolte, který správce, pokud nějaký, je odpovědný za tuto úlohu."
+
+# ./content/PoiIssue.py
+#. Default: "Contact email address"
+#: Products.Poi:/content/PoiIssue.py:263
+msgid "Poi_label_contactEmail"
+msgstr "Kontaktní emailová adresa"
+
+# ./content/PoiIssue.py
+#. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
+#: Products.Poi:/content/PoiIssue.py:265
+msgid "Poi_help_contactEmail"
+msgstr ""
+"Prosíme zadejte emailovou adresu, na které budete k zastižení pro získání "
+"více informací nebo v případě vyřešení úlohy. Poznámka: vaše emailová adresa "
+"nebude zobrazena ostatním uživatelům."
+
+# ./content/PoiIssue.py
+#. Default: "Issue watchers"
+#: Products.Poi:/content/PoiIssue.py:280
+msgid "Poi_label_watchers"
+msgstr "Sledující úlohu"
+
+# ./content/PoiIssue.py
+#. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+#: Products.Poi:/content/PoiIssue.py:282
+#, fuzzy
+msgid "Poi_help_watchers"
+msgstr ""
+"Zadejte jména uživatelů, kteří sledují tuto úlohu, každého na samostatný "
+"řádek. Tito uživatelé obdrží email při vyvoření nové reakce k tého úloze. "
+"Uživatelé se také mohou přidat do tohoto seznamu sami."
+
+# ./content/PoiIssue.py
+#. Default: "Tags"
+#: Products.Poi:/content/PoiIssue.py:298
+msgid "Poi_label_subject"
+msgstr "Značky"
+
+# ./content/PoiIssue.py
+#. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
+#: Products.Poi:/content/PoiIssue.py:300
+msgid "Poi_help_subject"
+msgstr ""
+"Značky mohou být použity pro tvorbu libovolné kategorizace úloh. Níže "
+"uvedený seznam zobrazuje existující značky, které můžete vybrat nebo můžete "
+"přidat nové."
+
+#. Default: "(Not assigned)"
+#: Products.Poi:/content/PoiIssue.py:524
+#: Products.Poi:/content/PoiTracker.py:430
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:104
+#: Products.Poi:/browser/templates/poi_issue_search_form.pt:127
+msgid "not_assigned"
+msgstr "(Nepřiřazeno)"
+
 #. Default: "Id"
-#: ./content/PoiIssue.py:81
+#: Products.Poi:/content/PoiIssue.py:90
 msgid "Poi_label_issue_id"
 msgstr "Id"
 
 # ./content/PoiIssue.py
 #. Default: "Title"
-#: ./content/PoiIssue.py:90
+#: Products.Poi:/content/PoiIssue.py:99 Products.Poi:/content/issue.py:64
 msgid "Poi_label_issue_title"
 msgstr "Nadpis"
 
 # ./content/PoiTracker.py
+#. Default: "Areas"
+#: Products.Poi:/content/PoiTracker.py:113 Products.Poi:/content/tracker.py:215
+msgid "Poi_label_availableAreas"
+msgstr "Oblasti"
+
+# ./content/PoiTracker.py
+#. Default: "Enter the issue topics/areas for this tracker."
+#: Products.Poi:/content/PoiTracker.py:115 Products.Poi:/content/tracker.py:217
+msgid "Poi_help_availableAreas"
+msgstr "Zadejte témata/oblasti pro úlohy v tomto manažeru úloh."
+
+# ./content/PoiTracker.py
+#. Default: "Issue types"
+#: Products.Poi:/content/PoiTracker.py:137 Products.Poi:/content/tracker.py:238
+msgid "Poi_label_availableIssueTypes"
+msgstr "Typy úloh"
+
+# ./content/PoiTracker.py
+#. Default: "Enter the issue types for this tracker."
+#: Products.Poi:/content/PoiTracker.py:139 Products.Poi:/content/tracker.py:240
+msgid "Poi_help_availableIssueTypes"
+msgstr "Zadejte typy úloh pro tento manažer úloh."
+
+# ./content/PoiTracker.py
+#. Default: "Available severities"
+#: Products.Poi:/content/PoiTracker.py:152 Products.Poi:/content/tracker.py:260
+msgid "Poi_label_availableSeverities"
+msgstr "Dostupné důležitosti"
+
+# ./content/PoiTracker.py
+#. Default: "Enter the different type of issue severities that should be available, one per line."
+#: Products.Poi:/content/PoiTracker.py:154 Products.Poi:/content/tracker.py:263
+msgid "Poi_help_availableSeverities"
+msgstr "Zadejte různé stupně důležitosti úloh, každý na samostatný řádek."
+
+# ./content/PoiTracker.py
+#. Default: "Default severity"
+#: Products.Poi:/content/PoiTracker.py:166 Products.Poi:/content/tracker.py:272
+msgid "Poi_label_defaultSeverity"
+msgstr "Výchozí důležitost"
+
+# ./content/PoiTracker.py
+#. Default: "Select the default severity for new issues."
+#: Products.Poi:/content/PoiTracker.py:168 Products.Poi:/content/tracker.py:277
+msgid "Poi_help_defaultSeverity"
+msgstr "Zvolte výchozí důležitost pro nové úlohy."
+
+# ./content/PoiTracker.py
+#. Default: "Available releases"
+#: Products.Poi:/content/PoiTracker.py:180 Products.Poi:/content/tracker.py:286
+msgid "Poi_label_availableReleases"
+msgstr "Dostupná vydání"
+
+# ./content/PoiTracker.py
+#. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release."
+#: Products.Poi:/content/PoiTracker.py:182 Products.Poi:/content/tracker.py:290
+msgid "Poi_help_availableReleases"
+msgstr ""
+"Zadejte vydání verzí, ke kterým mohou být úlohy přiřazeny. Každé na "
+"samostatný řádek. Pokud nebudou zadána žádná vydání, úlohy podle nich "
+"nebudou organizovány."
+
+#. Default: "Tracker managers"
+#: Products.Poi:/content/PoiTracker.py:195
+msgid "Poi_label_managers"
+msgstr ""
+
+# ./content/PoiTracker.py
+#. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
+#: Products.Poi:/content/PoiTracker.py:197
+msgid "Poi_help_managers"
+msgstr ""
+"Zadejte identifikátory (login) uživatelů, kterým bude umožněno spravovat "
+"tento manažer úloh, každého na samostatný řádek."
+
+#. Default: "Technicians"
+#: Products.Poi:/content/PoiTracker.py:209
+msgid "Poi_label_technicians"
+msgstr ""
+
+# ./content/PoiTracker.py
+#. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
+#: Products.Poi:/content/PoiTracker.py:211
+msgid "Poi_help_technicians"
+msgstr ""
+"Zadejte uživatelská jména uživatelů, kteří budou odpovědni za řešení úloh, "
+"každé na samostatný řádek. Poznámka: Je v pořádku definovat pouze správce a "
+"žádné techniky, protože správci mohou řešit úlohy také."
+
+#. Default: "Tracker watchers"
+#: Products.Poi:/content/PoiTracker.py:224 Products.Poi:/content/tracker.py:321
+msgid "Poi_label_tracker_watchers"
+msgstr ""
+
+#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
+#: Products.Poi:/content/PoiTracker.py:226 Products.Poi:/content/tracker.py:322
+msgid "Poi_help_tracker_watchers"
+msgstr ""
+
+# ./content/PoiTracker.py
+#. Default: "Send notification emails"
+#: Products.Poi:/content/PoiTracker.py:243 Products.Poi:/content/tracker.py:337
+msgid "Poi_label_sendNotificationEmails"
+msgstr "Zasílat emailová upozornění"
+
+# ./content/PoiTracker.py
+#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
+#: Products.Poi:/content/PoiTracker.py:245 Products.Poi:/content/tracker.py:341
+msgid "Poi_help_sendNotificationEmails"
+msgstr ""
+"Pokud je zaškrtnuto, správci manažeru úloh obdrží email při každé nové úloze "
+"nebo reakci a autoři úloh obdrží email při každé nové reakci, pokud je úloha "
+"vyřešena nebo čekající na potvrzení. Technici obdrží email když jim je úloha "
+"přiřazena."
+
+# ./content/PoiTracker.py
 #. Default: "Mailing list"
-#: ./content/PoiTracker.py:260
+#: Products.Poi:/content/PoiTracker.py:260 Products.Poi:/content/tracker.py:353
 msgid "Poi_label_mailingList"
 msgstr "Konference"
 
 # ./content/PoiTracker.py
-#. Default: "Tracker managers"
-#: ./content/PoiTracker.py:195
-msgid "Poi_label_managers"
-msgstr "Správci manažeru úloh"
-
-# ./content/PoiResponse.py
-#. Default: "Change responsible manager"
-#: ./browser/response.pt:261
-msgid "Poi_label_newResponsibleManager"
-msgstr "Změnit odpovědného správce"
-
-# ./content/PoiResponse.py
-#. Default: "Change issue severity"
-#: ./browser/response.pt:204
-msgid "Poi_label_newSeverity"
-msgstr "Změnit důležitost úlohy"
-
-# ./content/PoiResponse.py
-#. Default: "Change target release"
-#: ./browser/response.pt:232
-msgid "Poi_label_newTargetRelease"
-msgstr "Změnit cílové vydání"
-
-# ./content/PoiIssue.py
-#. Default: "Version"
-#: ./content/PoiIssue.py:108
-msgid "Poi_label_release"
-msgstr "Verze"
-
-# ./content/PoiIssue.py
-#. Default: "Response"
-#: ./browser/response.pt:108
-msgid "Poi_label_response"
-msgstr "Reakce"
-
-# ./content/PoiIssue.py
-#. Default: "Responsible"
-#: ./content/PoiIssue.py:236
-msgid "Poi_label_responsibleManager"
-msgstr "Odpovědný"
-
-# ./content/PoiTracker.py
-#. Default: "Send notification emails"
-#: ./content/PoiTracker.py:243
-msgid "Poi_label_sendNotificationEmails"
-msgstr "Zasílat emailová upozornění"
-
-# ./content/PoiIssue.py
-#. Default: "Severity"
-#: ./content/PoiIssue.py:204
-msgid "Poi_label_severity"
-msgstr "Důležitost"
-
-# ./content/PoiIssue.py
-#. Default: "Steps to reproduce"
-#: ./content/PoiIssue.py:140
-msgid "Poi_label_steps"
-msgstr "Postup reprodukce"
-
-# ./content/PoiIssue.py
-#. Default: "Tags"
-#: ./content/PoiIssue.py:289
-msgid "Poi_label_subject"
-msgstr "Značky"
+#. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
+#: Products.Poi:/content/PoiTracker.py:262 Products.Poi:/content/tracker.py:357
+msgid "Poi_help_mailingList"
+msgstr ""
+"Pokud je zadáno a pokud je zaškrtnuto i 'Zasílat emailová upozornění', bude "
+"na tuto adresu odeslán email při každé nové úloze nebo reakci. Správci "
+"zároveň obdrží individuální emaily. Pokud toto není žádoucí změťe je na "
+"techniky."
 
 # ./content/PoiTracker.py
 #. Default: "URL to SVN"
-#: ./content/PoiTracker.py:279
+#: Products.Poi:/content/PoiTracker.py:279 Products.Poi:/content/tracker.py:369
 msgid "Poi_label_svnurl"
 msgstr "URL SVN repositáře"
 
-# ./content/PoiIssue.py
-#. Default: "Target release"
-#: ./content/PoiIssue.py:220
-msgid "Poi_label_targetRelease"
-msgstr "Cílové vydání"
-
 # ./content/PoiTracker.py
-#. Default: "Technicians"
-#: ./content/PoiTracker.py:209
-msgid "Poi_label_technicians"
-msgstr "Technici"
-
-#. Default: "Tracker description"
-#: ./content/PoiTracker.py:72
-msgid "Poi_label_tracker_description"
-msgstr "Popis manažeru úloh"
+#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
+#: Products.Poi:/content/PoiTracker.py:281 Products.Poi:/content/tracker.py:371
+msgid "Poi_help_svnurl"
+msgstr ""
+"Prosíme zadejte Url souvisejícího SVN repositáře, např.: http://dev.plone."
+"org/changeset/%(rev)s/collective pro produkty v Plone collective."
 
 # ./content/PoiTracker.py
 #. Default: "Tracker name"
-#: ./content/PoiTracker.py:58
+#: Products.Poi:/content/PoiTracker.py:58
 msgid "Poi_label_tracker_title"
 msgstr "Název manažeru úloh"
 
-#. Default: "Tracker watchers"
-#: ./content/PoiTracker.py:224
-msgid "Poi_label_tracker_watchers"
+# ./content/PoiTracker.py
+#. Default: "Enter a descriptive name for this tracker"
+#: Products.Poi:/content/PoiTracker.py:60 Products.Poi:/content/tracker.py:190
+msgid "Poi_help_tracker_title"
+msgstr "Zadejte výstižné jméno pro tento manažer úloh."
+
+#. Default: "Tracker description"
+#: Products.Poi:/content/PoiTracker.py:72
+msgid "Poi_label_tracker_description"
+msgstr "Popis manažeru úloh"
+
+#. Default: "Describe the purpose of this tracker"
+#: Products.Poi:/content/PoiTracker.py:74 Products.Poi:/content/tracker.py:198
+msgid "Poi_help_tracker_description"
+msgstr "Popište účel tohoto manažeru úloh."
+
+# ./content/PoiTracker.py
+#. Default: "Help text"
+#: Products.Poi:/content/PoiTracker.py:89
+msgid "Poi_label_helpText"
+msgstr "Pomocný text"
+
+# ./content/PoiTracker.py
+#. Default: "Enter any introductory help text you'd like to display on the tracker front page."
+#: Products.Poi:/content/PoiTracker.py:91 Products.Poi:/content/tracker.py:206
+msgid "Poi_help_helpText"
+msgstr ""
+"Zadejte jakýkoli úvodní text, který bude zobrazen na úvodní stránce manažeru "
+"úloh."
+
+#. Default: "Issue Type"
+#: Products.Poi:/content/issue.py:105
+msgid "Poi_label_issue_type"
 msgstr ""
 
-# ./content/PoiIssue.py
-#. Default: "Issue watchers"
-#: ./content/PoiIssue.py:271
-msgid "Poi_label_watchers"
-msgstr "Sledující úlohu"
-
-#: ./browser/response.py:560
-msgid "Removed response id ${response_id}."
-msgstr "Reakce s id ${response_id} byla odstraněna."
-
-#: ./browser/templates/poi_email_new_response_html.pt:47
-#: ./browser/templates/poi_email_new_response_plain.pt:25
-msgid "Response Details:"
+#. Default: "Select the type of issue."
+#: Products.Poi:/content/issue.py:106
+msgid "Poi_help_issue_type"
 msgstr ""
-
-#: ./browser/templates/poi_email_new_response_html.pt:29
-#: ./browser/templates/poi_email_new_response_plain.pt:12
-#: ./browser/templates/poi_email_resolved_issue_plain.pt:14
-msgid "Response Information"
-msgstr ""
-
-#: ./browser/response.py:500
-msgid "Response does not exist anymore; perhaps it was removed by another user."
-msgstr "Reakce již neexistuje; je možné, že byla odstraněna jiným uživatelem."
-
-#: ./browser/response.py:553
-msgid "Response id ${response_id} does not exist so it cannot be removed."
-msgstr "Reakce s id ${response_id} neexistuje a nemůže být tedy odstraněna."
-
-#: ./browser/response.py:216
-msgid "Response id ${response_id} does not exist."
-msgstr "Reakce s id ${reponse_id} neexistuje."
-
-#: ./browser/response.py:581
-msgid "Response id ${response_id} has no attachment."
-msgstr "Reakce s id ${response_id} nemá žádné přílohy."
-
-#: ./browser/response.py:545
-msgid "Response id ${response_id} is no integer so it cannot be removed."
-msgstr "Id reakce ${response_id} není celé číslo, a proto nemůže být odstraněna."
-
-#: ./browser/response.py:210
-msgid "Response id ${response_id} is no integer."
-msgstr "Id reakce ${response_id} není celé číslo."
-
-#: ./browser/response.py:413
-msgid "Responsible manager"
-msgstr "Odpovědný správce"
-
-#. Default: "Search"
-#: ./skins/Poi/poi_tracker_view.pt:49
-msgid "Search"
-msgstr "Hledat"
-
-#: ./browser/response.py:412
-msgid "Severity"
-msgstr "Důležitost"
-
-#. Default: "Stop watching this issue"
-#: ./skins/Poi/poi_issue_view.pt:176
-msgid "Stop watching this issue"
-msgstr "Přestat sledovat tuto úlohu"
-
-#: ./skins/Poi/poi_tracker_view.pt:105
-msgid "Stop watching this tracker"
-msgstr "Přestat sledovat tento manažer úloh"
-
-#. Default: "Submit new issue"
-#: ./skins/Poi/poi_tracker_view.pt:75
-msgid "Submit new issue"
-msgstr "Zadat novou úlohu"
-
-#: ./browser/response.py:437
-msgid "Target release"
-msgstr "Cílové vydání"
-
-#: ./browser/templates/poi_email_resolved_issue_html.pt:23
-#: ./browser/templates/poi_email_resolved_issue_plain.pt:8
-msgid "The issue ${issue_title} in the ${tracker_title} tracker has been marked as resolved by ${response_author} Please visit the issue and either confirm that it has been satisfactorily resolved or re-open it."
-msgstr ""
-
-#: ./browser/templates/poi_email_new_issue_html.pt:40
-#: ./browser/templates/poi_email_new_issue_plain.pt:23
-#: ./browser/templates/poi_email_new_response_html.pt:54
-msgid "This is an automated email, please do not reply."
-msgstr ""
-
-#. Default: "Watch this issue"
-#: ./skins/Poi/poi_issue_view.pt:182
-msgid "Watch this issue"
-msgstr "Sledovat tuto úlohu"
-
-#: ./skins/Poi/poi_tracker_view.pt:111
-msgid "Watch this tracker"
-msgstr "Sledovat tento manažer úloh"
-
-#: ./browser/response.py:532
-msgid "You are not allowed to delete responses."
-msgstr "Nejste oprávněni odstraňovat reakce."
-
-#: ./browser/response.py:490
-msgid "You are not allowed to edit responses."
-msgstr "Nejste oprávněni upravovat reakce."
-
-#. Default: "${number} items matching your criteria."
-#: ./skins/Poi/poi_issue_search.pt:49
-msgid "batch_x_items_matching_your_criteria"
-msgstr "${number} úloh splňujících vaše kritéria"
-
-#. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ./skins/Poi/poi_tracker_view.pt:130
-msgid "description_cannot_add_issues_before_opened"
-msgstr "Ostatní nemohou zadat úlohy do vašeho manažeru úloh dokud ho neotevřete pro zadávání pomocí rozbalovací nabídky 'stav', nahoře v zelené liště."
-
-#. Default: "No results were found."
-#: ./skins/Poi/poi_issue_search.pt:45
-msgid "description_no_results_found"
-msgstr "Nebyli nalezeny žádné úlohy."
-
-#. Default: "You are not allowed to edit this response."
-#: ./browser/edit_response.pt:38
-msgid "label_edit_response_not_allowed"
-msgstr "Nejste oprávněni upravovat tuto reakci."
-
-#. Default: "Powered by"
-#: ./skins/Poi/poi_tracker_view.pt:313
-msgid "label_powered_by"
-msgstr "Založeno na"
-
-#. Default: "Return to issue."
-#: ./browser/edit_response.pt:28
-msgid "label_return_to_issue"
-msgstr "Zpět na úlohu"
-
-#. Default: "RSS Feed"
-#: ./skins/Poi/poi_issue_search_results.pt:10
-#: ./skins/Poi/poi_tracker_view.pt:236
-msgid "label_rss_feed"
-msgstr "RSS zdroj"
-
-#. Default: "Search"
-#: ./skins/Poi/poi_issue_search_form.pt:270
-msgid "label_search"
-msgstr "Hledat"
-
-#. Default: "Area"
-#: ./skins/Poi/poi_issue_search_results.pt:37
-msgid "listingheader_area"
-msgstr "Oblast"
-
-#. Default: "#"
-#: ./skins/Poi/poi_issue_search_results.pt:33
-msgid "listingheader_number"
-msgstr "#"
-
-#. Default: "Target"
-#: ./skins/Poi/poi_issue_search_results.pt:35
-msgid "listingheader_release"
-msgstr "Cíl"
-
-#. Default: "Responsible"
-#: ./skins/Poi/poi_issue_search_results.pt:40
-msgid "listingheader_responsible"
-msgstr "Odpovědný"
 
 #. Default: "Severity"
-#: ./skins/Poi/poi_issue_search_results.pt:39
-msgid "listingheader_severity"
-msgstr "Důležitost"
+#: Products.Poi:/content/issue.py:114
+msgid "Poi_label_issue_severity"
+msgstr ""
 
-#. Default: "State"
-#: ./skins/Poi/poi_issue_search_results.pt:42
-msgid "listingheader_state"
-msgstr "Stav"
+#. Default: "Select the severity of this issue."
+#: Products.Poi:/content/issue.py:115
+msgid "Poi_help_issue_severity"
+msgstr ""
 
-#. Default: "Tags"
-#: ./skins/Poi/poi_issue_search_results.pt:41
-msgid "listingheader_tags"
-msgstr "Značky"
+#. Default: "Target Release"
+#: Products.Poi:/content/issue.py:124
+msgid "Poi_label_issue_target_release"
+msgstr ""
+
+#. Default: "Release this issue is targetted to be fixed in."
+#: Products.Poi:/content/issue.py:125
+msgid "Poi_help_issue_target_release"
+msgstr ""
+
+#. Default: "Assignee"
+#: Products.Poi:/content/issue.py:135
+msgid "Poi_label_issue_assignee"
+msgstr ""
+
+#. Default: "Select which person, if any, is assigned to this issue."
+#: Products.Poi:/content/issue.py:136
+msgid "Poi_help_issue_assignee"
+msgstr ""
+
+#. Default: "Contact Email"
+#: Products.Poi:/content/issue.py:144
+msgid "Poi_label_issue_contact_email"
+msgstr ""
+
+#. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
+#: Products.Poi:/content/issue.py:145
+msgid "Poi_help_issue_contact_email"
+msgstr ""
+
+#. Default: "Watchers"
+#: Products.Poi:/content/issue.py:159
+msgid "Poi_label_issue_watchers"
+msgstr ""
+
+#. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+#: Products.Poi:/content/issue.py:160
+msgid "Poi_help_issue_watchers"
+msgstr ""
+
+#. Default: "Subject"
+#: Products.Poi:/content/issue.py:181
+msgid "Poi_label_issue_subject"
+msgstr ""
+
+#. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
+#: Products.Poi:/content/issue.py:182
+msgid "Poi_help_issue_subject"
+msgstr ""
+
+#. Default: "Related Issue(s)"
+#: Products.Poi:/content/issue.py:208
+msgid "Poi_label_issue_related"
+msgstr ""
+
+#. Default: "Link related issues."
+#: Products.Poi:/content/issue.py:209
+msgid "Poi_help_issue_related"
+msgstr ""
+
+#. Default: "Leave this field empty"
+#: Products.Poi:/content/issue.py:219
+msgid "Poi_label_issue_empty"
+msgstr ""
+
+#. Default: "Release"
+#: Products.Poi:/content/issue.py:73
+msgid "Poi_label_issue_release"
+msgstr ""
+
+#. Default: "Select the version the issue was found in."
+#: Products.Poi:/content/issue.py:74
+msgid "Poi_help_issue_release"
+msgstr ""
+
+#. Default: "Details"
+#: Products.Poi:/content/issue.py:82
+msgid "Poi_label_issue_details"
+msgstr ""
+
+#. Default: "Please provide further details."
+#: Products.Poi:/content/issue.py:83
+msgid "Poi_help_issue_details"
+msgstr ""
+
+#. Default: "Steps To Reproduce"
+#: Products.Poi:/content/issue.py:89
+msgid "Poi_label_issue_steps"
+msgstr ""
+
+#. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
+#: Products.Poi:/content/issue.py:90
+msgid "Poi_help_issue_steps"
+msgstr ""
+
+#. Default: "Area"
+#: Products.Poi:/content/issue.py:98
+msgid "Poi_label_issue_area"
+msgstr ""
+
+#. Default: "Select the area this issue is relevant to."
+#: Products.Poi:/content/issue.py:99
+msgid "Poi_help_issue_area"
+msgstr ""
+
+#: Products.Poi:/content/tracker.py:176
+msgid "Short Name"
+msgstr ""
+
+#: Products.Poi:/content/tracker.py:179
+msgid "Title"
+msgstr ""
+
+#: Products.Poi:/content/tracker.py:182
+msgid "Description"
+msgstr ""
 
 #. Default: "Title"
-#: ./skins/Poi/poi_issue_search_results.pt:34
-msgid "listingheader_title"
-msgstr "Nadpis"
-
-#. Default: "Type"
-#: ./skins/Poi/poi_issue_search_results.pt:38
-msgid "listingheader_type"
-msgstr "Typ"
-
-#. Default: "If you can, please log in before submitting your issue."
-#: ./skins/Poi/poi_tracker_view.pt:58
-msgid "login_suggestion"
-msgstr "Přihlašte se, pokud je to možné, před zadáním úlohy."
-
-#. Default: "If you can, please log in before submitting a reaction."
-#: ./browser/response.pt:87
-msgid "login_suggestion_response"
-msgstr "Přihlašte se, pokud je to možné, před zadáním reakce."
-
-#. Default: "No responses can be added."
-#: ./browser/response.pt:79
-msgid "msg_no_responses_can_be_added"
-msgstr "Není možné vkládat reakce."
-
-#. Default: "(Not assigned)"
-#: ./content/PoiIssue.py:507
-#: ./content/PoiTracker.py:430
-#: ./skins/Poi/poi_issue_search_form.pt:98
-msgid "not_assigned"
-msgstr "(Nepřiřazeno)"
-
-#. Default: "Added by"
-#: ./browser/response.pt:39
-msgid "poi_added_by"
-msgstr "Přidal"
-
-#. Default: "Added ${count} day(s) ago."
-#: ./browser/log.pt:83
-msgid "poi_added_days_ago"
-msgstr "Přidáno před ${count} dny."
-
-#. Default: "Added ${count} hour(s) ago."
-#: ./browser/log.pt:76
-msgid "poi_added_hours_ago"
-msgstr "Přidáno před ${count} hodinami."
-
-#. Default: "Added ${count} minute(s) ago."
-#: ./browser/log.pt:69
-msgid "poi_added_minutes_ago"
-msgstr "Přidáno před ${count} minutami."
-
-#. Default: "on"
-#: ./browser/response.pt:44
-msgid "poi_added_on"
-msgstr "v"
-
-#. Default: "All pending issues"
-#: ./skins/Poi/poi_tracker_view.pt:182
-msgid "poi_all_pending_issues"
-msgstr "Všechny nevyřízené úlohy"
-
-#. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
-#: ./browser/notifications.py:240
-msgid "poi_email_issue_resolved_subject_template"
-msgstr "[${tracker_title}] Vyřešeno #${issue_id} - ${issue_title}"
-
-#. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
-#: ./browser/notifications.py:115
-msgid "poi_email_new_issue_subject_template"
-msgstr "[${tracker_title}] #${issue_id} - Nová úloha: ${issue_title}"
-
-#. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
-#: ./browser/notifications.py:198
-msgid "poi_email_new_response_subject_template"
-msgstr "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
-
-#. Default: "By area"
-#: ./skins/Poi/poi_tracker_view.pt:149
-msgid "poi_heading_by_area"
-msgstr "Podle oblasti"
-
-#. Default: "By target release"
-#: ./skins/Poi/poi_tracker_view.pt:166
-msgid "poi_heading_by_release"
-msgstr "Podle cílového vydání"
-
-#. Default: "By state"
-#: ./skins/Poi/poi_tracker_view.pt:179
-msgid "poi_heading_by_state"
-msgstr "Podle stavu"
-
-#. Default: "By tag"
-#: ./skins/Poi/poi_tracker_view.pt:205
-msgid "poi_heading_by_tag"
-msgstr "Podle značky"
-
-#. Default: "Issue search"
-#: ./skins/Poi/poi_issue_search_form.pt:19
-msgid "poi_heading_issue_search"
-msgstr "Hledat úlohu"
-
-#. Default: "Tracker log"
-#: ./browser/log.pt:19
-msgid "poi_heading_log"
-msgstr "Záznam manažeru"
-
-#. Default: "My issues"
-#: ./skins/Poi/poi_tracker_view.pt:257
-msgid "poi_heading_my_issues"
-msgstr "Mé úlohy"
-
-#. Default: "Open issues"
-#: ./skins/Poi/poi_tracker_view.pt:138
-msgid "poi_heading_open_issues"
-msgstr "Otevřené úlohy"
-
-#. Default: "Orphaned issues"
-#: ./skins/Poi/poi_tracker_view.pt:291
-msgid "poi_heading_orphaned_issues"
-msgstr "Nepřiřazené úlohy"
-
-#. Default: "Issue search results"
-#: ./skins/Poi/poi_issue_search.pt:36
-msgid "poi_heading_search_results"
-msgstr "Výsledky vyhledávání úloh"
-
-#. Default: "Unconfirmed issues"
-#: ./skins/Poi/poi_tracker_view.pt:226
-msgid "poi_heading_unconfirmed_issues"
-msgstr "Nepotvrzené úlohy"
-
-#. Default: "An overview of recent activity in the tracker."
-#: ./browser/log.pt:21
-msgid "poi_help_log"
-msgstr "Přehled posledních změn v manažeru úloh."
-
-#. Default: "The following open issues were either submitted by you, or have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ./skins/Poi/poi_tracker_view.pt:258
-msgid "poi_help_my_issues_manager"
-msgstr "Následující otevřené úlohy byly buď vámi zadány, nebo vám byly přiřazeny. Poznámka: RSS zdroj pro tento seznam bude obsahovat i nepotvrzené a nepřiřazené úlohy, aby bylo možné přihlásit se k odběru jednoho zdroje se všemi úlohami, které by vás mohli zajímat."
-
-#. Default: "The following open issues were submitted by you."
-#: ./skins/Poi/poi_tracker_view.pt:265
-msgid "poi_help_my_issues_not_manager"
-msgstr "Následující otevřené úlohy byly vámi zadány."
-
-#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
-#: ./skins/Poi/poi_tracker_view.pt:142
-msgid "poi_help_open_issues"
-msgstr "Klikněte na oblast, vydání nebo stav úlohy, abyste viděli otevřené úlohy ve zvolené kategorii. Pro pokročilejší vyhledávání klikněte na \"Rozšířené vyhledávání úloh\"."
-
-#. Default: "The following open issues are not assigned to anyone."
-#: ./skins/Poi/poi_tracker_view.pt:292
-msgid "poi_help_orphaned_issues_"
-msgstr "Následující otevřené úlohy nebyly nikomu přiřazeny."
-
-#. Default: "The following issues have not yet been confirmed. Please review them and take the appropriate action."
-#: ./skins/Poi/poi_tracker_view.pt:227
-msgid "poi_help_unconfirmed_issues"
-msgstr "Následující úlohy nebyly zatím potvrzeny nebo přiřazeny. Prosíme prohlédněte si je a zvolte pro ně odpovídající akci."
-
-#. Default: "Advanced issue search"
-#: ./skins/Poi/poi_tracker_view.pt:51
-msgid "poi_issue_search"
-msgstr "Rozšířené vyhledávání úloh"
-
-#. Default: "This form allows you to search for issue according to a variety of criteria. Please make your selection below and click Search."
-#: ./skins/Poi/poi_issue_search_form.pt:27
-msgid "poi_issue_search_description"
-msgstr "Tento formulář vám umožňuje hledat úlohy podle různých kritérií. Prosíme níže zadejte váš výběr a klikněte na Hledat."
-
-#. Default: "Area"
-#: ./skins/Poi/poi_issue_view.pt:83
-msgid "poi_label_area"
-msgstr "Oblast"
-
-#. Default: "Attached:"
-#: ./browser/response.pt:64
-#: ./skins/Poi/poi_issue_view.pt:198
-msgid "poi_label_attachment"
-msgstr "Přiloženo:"
-
-#. Default: "Responsible"
-#: ./skins/Poi/poi_issue_view.pt:120
-msgid "poi_label_responsible"
-msgstr "Odpovědný"
-
-#. Default: "Severity"
-#: ./skins/Poi/poi_issue_view.pt:101
-msgid "poi_label_severity"
-msgstr "Důležitost"
-
-#. Default: "State"
-#: ./skins/Poi/poi_issue_view.pt:63
-msgid "poi_label_state"
-msgstr "Stav"
-
-#. Default: "Steps to reproduce:"
-#: ./skins/Poi/poi_issue_view.pt:193
-msgid "poi_label_steps"
-msgstr "Postup reprodukce："
-
-#. Default: "Submitted by"
-#: ./skins/Poi/poi_issue_view.pt:109
-msgid "poi_label_submitted_by"
-msgstr "Přidal"
-
-#. Default: "Submitted on"
-#: ./skins/Poi/poi_issue_view.pt:116
-msgid "poi_label_submitted_on"
-msgstr "Přidal v"
-
-#. Default: "Tags:"
-#: ./skins/Poi/poi_issue_view.pt:165
-msgid "poi_label_tags"
-msgstr "Značky:"
-
-#. Default: "Target release:"
-#: ./skins/Poi/poi_issue_view.pt:131
-msgid "poi_label_target_release"
-msgstr "Cílové vydání:"
-
-#. Default: "Issue type"
-#: ./skins/Poi/poi_issue_view.pt:92
-msgid "poi_label_type"
-msgstr "Typ úlohy"
-
-#. Default: "Version:"
-#: ./skins/Poi/poi_issue_view.pt:72
-msgid "poi_label_version"
-msgstr "Verze:"
-
-#. Default: "Search Terms"
-#: ./skins/Poi/poi_issue_search_form.pt:39
-msgid "poi_legend_search_terms"
-msgstr "Podmínky Vyhledávání"
-
-#. Default: "Match all tags"
-#: ./skins/Poi/poi_issue_search_form.pt:265
-msgid "poi_match_all_tags"
-msgstr "Odpovídá všem značkám"
-
-#. Default: "New issue ${name} added by ${author}"
-#: ./browser/log.pt:36
-msgid "poi_new_issue_added"
-msgstr "\"Nová úloha ${name} přidána od ${author}"
-
-#. Default: "${author} added a new response to ${name}:"
-#: ./browser/log.pt:43
-msgid "poi_new_response_added"
-msgstr "${author} přidal novou reakci k ${name}:"
-
-#. Default: "Return to search"
-#: ./skins/Poi/poi_issue_search.pt:41
-msgid "poi_return_to_search"
-msgstr "Zpět na vyhledávání"
-
-#. Default: "Return to search results"
-#: ./skins/Poi/poi_issue_view.pt:147
-msgid "poi_return_to_search_results"
-msgstr "Zpět na výsledky vyhledávání"
-
-#. Default: "Return to tracker"
-#: ./skins/Poi/poi_issue_search_form.pt:24
-#: ./skins/Poi/poi_issue_view.pt:154
-msgid "poi_return_to_tracker"
-msgstr "Zpět do manažeru úloh"
-
-#. Default: "Select the areas you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt:135
-msgid "poi_search_help_area"
-msgstr "Vyberte oblasti, ve kterých si přejete hledat."
-
-#. Default: "Enter the username of the issue submitter,"
-#: ./skins/Poi/poi_issue_search_form.pt:75
-msgid "poi_search_help_creator"
-msgstr "Zadejte uživatelské jméno zadavatele úlohy."
-
-#. Default: "If you wish to search for a particular issue, please enter its number."
-#: ./skins/Poi/poi_issue_search_form.pt:45
-msgid "poi_search_help_id"
-msgstr "Pokud chcete vyhledat konkrétní úlohu, prosíme zadejte její číslo."
-
-#. Default: "Select the issue types you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt:156
-msgid "poi_search_help_issue_type"
-msgstr "Vyberte jaké typy úloh si přejete hledat."
-
-#. Default: "Select the version for which the bugs you want to find were reported."
-#: ./skins/Poi/poi_issue_search_form.pt:88
-msgid "poi_search_help_release"
-msgstr "Vyberte verzi, podle které chcete vyhledat nahlášené chyby."
-
-#. Default: "Select the responsible managers you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt:221
-msgid "poi_search_help_responsible"
-msgstr "Vyberte odpovědné správce jejichž úlohy si přejete hledat."
-
-#. Default: "Select the severities you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt:177
-msgid "poi_search_help_severity"
-msgstr "Vyberte s jakými stupni důležitosti si přejete úlohy hledat."
-
-#. Default: "Select the states you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt:198
-msgid "poi_search_help_state"
-msgstr "Vyberte v jakých stavech si přejete úlohy hledat."
-
-#. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt:243
-msgid "poi_search_help_tags"
-msgstr "Značky jsou klíčová slova přiřazená správci manažeru úloh k jednotlivým úlohám, aby umožnili podrobnější organizaci úloh. Vyberte značku nebo značky, se kterými si přejete úlohy hledat."
-
-#. Default: "Select the assigned target release you wish to search for."
-#: ./skins/Poi/poi_issue_search_form.pt:112
-msgid "poi_search_help_target_release"
-msgstr "Vyberte cílové vydání, ve kterém chcete hledat."
-
-#. Default: "Enter any text you wish the issue to include."
-#: ./skins/Poi/poi_issue_search_form.pt:60
-msgid "poi_search_help_text"
-msgstr "Zadejte jaký-koli text, který by měla úloha obsahovat."
-
-#. Default: "Area"
-#: ./skins/Poi/poi_issue_search_form.pt:133
-msgid "poi_search_label_area"
-msgstr "Oblast"
-
-#. Default: "Submitter"
-#: ./skins/Poi/poi_issue_search_form.pt:73
-msgid "poi_search_label_creator"
-msgstr "Zadavatel"
-
-#. Default: "Issue number"
-#: ./skins/Poi/poi_issue_search_form.pt:43
-msgid "poi_search_label_id"
-msgstr "Číslo úlohy"
-
-#. Default: "Issue type"
-#: ./skins/Poi/poi_issue_search_form.pt:154
-msgid "poi_search_label_issue_type"
-msgstr "Typ úlohy"
-
-#. Default: "Version"
-#: ./skins/Poi/poi_issue_search_form.pt:86
-msgid "poi_search_label_release"
-msgstr "Verze"
-
-#. Default: "Responsible tracker managers"
-#: ./skins/Poi/poi_issue_search_form.pt:219
-msgid "poi_search_label_responsible"
-msgstr "Odpovědní správci manažeru úloh"
-
-#. Default: "Severity"
-#: ./skins/Poi/poi_issue_search_form.pt:175
-msgid "poi_search_label_severity"
-msgstr "Důležitost"
-
-#. Default: "State"
-#: ./skins/Poi/poi_issue_search_form.pt:196
-msgid "poi_search_label_state"
-msgstr "Stav"
-
-#. Default: "Tags"
-#: ./skins/Poi/poi_issue_search_form.pt:241
-msgid "poi_search_label_tags"
-msgstr "Značky"
-
-#. Default: "Target release"
-#: ./skins/Poi/poi_issue_search_form.pt:110
-msgid "poi_search_label_target_release"
-msgstr "Cílové vydání"
-
-#. Default: "Issue text"
-#: ./skins/Poi/poi_issue_search_form.pt:58
-msgid "poi_search_label_text"
-msgstr "Text úlohy"
-
-#. Default: "Add response"
-#: ./browser/response.pt:102
-msgid "title_add_response"
-msgstr "Přidat reakci"
-
-#. Default: "Edit response"
-#: ./browser/edit_response.pt:35
-msgid "title_edit_response"
-msgstr "Upravit reakci"
-
-#. Default: "Error: no response found for editing"
-#: ./browser/edit_response.pt:24
-msgid "title_error_no_response"
-msgstr "Chyba: nebyla nalezena žádná reakce pro úpravy"
-
-#. Default: "RSS feed of these search results"
-#: ./skins/Poi/poi_issue_search_results.pt:10
-msgid "title_rss_feed"
-msgstr "RSS zdroj těchto výsledků vyhledávání"
-
-#. Default: "RSS feed of my issues"
-#: ./skins/Poi/poi_tracker_view.pt:272
-msgid "title_rss_feed_my_issues"
-msgstr "RSS zdroj mých úloh"
-
-#. Default: "RSS feed of orphaned issues"
-#: ./skins/Poi/poi_tracker_view.pt:300
-msgid "title_rss_feed_orphaned"
-msgstr "RSS zdroj nepřiřazených úloh"
-
-#. Default: "RSS feed of unconfirmed issues"
-#: ./skins/Poi/poi_tracker_view.pt:236
-msgid "title_rss_feed_unconfirmed"
-msgstr "RSS zdroj nepotvrzených úloh"
+#: Products.Poi:/content/tracker.py:189
+msgid "title"
+msgstr ""
 
+#. Default: "Description"
+#: Products.Poi:/content/tracker.py:197
+msgid "description"
+msgstr ""
+
+#. Default: "Help Text"
+#: Products.Poi:/content/tracker.py:205
+msgid "help_text"
+msgstr ""
+
+#: Products.Poi:/content/tracker.py:233
+msgid "Area"
+msgstr ""
+
+#: Products.Poi:/content/tracker.py:255
+msgid "Issue Type"
+msgstr ""
+
+#. Default: "Assignees"
+#: Products.Poi:/content/tracker.py:306
+msgid "Poi_label_assignees"
+msgstr ""
+
+#: Products.Poi:/content/tracker.py:307
+msgid ""
+"Enter users who will be responsible for solving the issues. Users also need "
+"to be added as Watchers to receive notifications."
+msgstr ""
+
+#: Products.Poi:/content/tracker.py:62
+msgid "Critical"
+msgstr ""
+
+#: Products.Poi:/content/tracker.py:63
+msgid "Important"
+msgstr ""
+
+#: Products.Poi:/content/tracker.py:64 Products.Poi:/content/tracker.py:276
+msgid "Medium"
+msgstr ""
+
+#: Products.Poi:/content/tracker.py:65
+msgid "Low"
+msgstr ""
+
+# ./content/PoiTracker.py
+#~ msgid "msgid \"Poi_label_assignees\""
+#~ msgstr "Správci manažeru úloh"
+
+#~ msgid "Response id ${response_id} has no attachment."
+#~ msgstr "Reakce s id ${response_id} nemá žádné přílohy."
+
+#~ msgid "Responsible manager"
+#~ msgstr "Odpovědný správce"
+
+#~ msgid "Stop watching this issue"
+#~ msgstr "Přestat sledovat tuto úlohu"
+
+#~ msgid "Stop watching this tracker"
+#~ msgstr "Přestat sledovat tento manažer úloh"
+
+#~ msgid "Watch this issue"
+#~ msgstr "Sledovat tuto úlohu"
+
+#~ msgid "Watch this tracker"
+#~ msgstr "Sledovat tento manažer úloh"
+
+#~ msgid "label_rss_feed"
+#~ msgstr "RSS zdroj"
+
+#~ msgid "poi_heading_unconfirmed_issues"
+#~ msgstr "Nepotvrzené úlohy"
+
+#~ msgid "poi_help_unconfirmed_issues"
+#~ msgstr ""
+#~ "Následující úlohy nebyly zatím potvrzeny nebo přiřazeny. Prosíme "
+#~ "prohlédněte si je a zvolte pro ně odpovídající akci."
+
+#~ msgid "poi_return_to_search"
+#~ msgstr "Zpět na vyhledávání"
+
+#~ msgid "poi_search_label_issue_type"
+#~ msgstr "Typ úlohy"
+
+#~ msgid "title_rss_feed"
+#~ msgstr "RSS zdroj těchto výsledků vyhledávání"
+
+#~ msgid "title_rss_feed_my_issues"
+#~ msgstr "RSS zdroj mých úloh"
+
+#~ msgid "title_rss_feed_orphaned"
+#~ msgstr "RSS zdroj nepřiřazených úloh"
+
+#~ msgid "title_rss_feed_unconfirmed"
+#~ msgstr "RSS zdroj nepotvrzených úloh"

@@ -11,20 +11,17 @@ historyfile.close()
 long_description = readme + "\n\n" + history
 
 setup(name='Products.Poi',
-      version='2.3.1.dev0',
+      version='4.0',
       description="Poi: A friendly issue tracker",
       long_description=long_description,
       # Get more strings from
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
           "Framework :: Plone",
-          "Framework :: Plone :: 4.1",
-          "Framework :: Plone :: 4.2",
-          "Framework :: Plone :: 4.3",
+          "Framework :: Plone :: 5.0",
           "Framework :: Zope2",
           "Framework :: Zope3",
           "Programming Language :: Python",
-          "Programming Language :: Python :: 2.6",
           "Programming Language :: Python :: 2.7",
           "Topic :: Software Development :: Libraries :: Python Modules",
           ],
@@ -39,12 +36,15 @@ setup(name='Products.Poi',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'Products.CMFPlone>=4.0b1',
-          'Products.AddRemoveWidget>=1.4.2',
-          'Products.DataGridField>=1.9.2',
-          'collective.watcherlist>=0.2',
           'plone.app.blob',
           'plone.namedfile',
+          'Products.CMFPlone>=5.0.5',
+          'collective.dexteritytextindexer',
+          'collective.watcherlist>=3.0',
+          'collective.z3cform.datagridfield',
+          'Products.OrderableReferenceField',
+          'plone.app.referenceablebehavior',
+          'plone.app.relationfield>=1.3.4',
       ],
       extras_require={
           'test': [

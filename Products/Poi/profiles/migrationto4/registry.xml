@@ -1,0 +1,17 @@
+<registry>
+<record name="plone.parent_types_not_to_query" interface="Products.CMFPlone.interfaces.controlpanel.INavigationSchema"
+        field="parent_types_not_to_query">
+  <value purge="False">
+      <element>Tracker</element>
+      <element>Issue</element>
+  </value>
+</record>
+
+<record name="poi.default_issue_mime_type">
+    <field type="plone.registry.field.Text">
+      <title>Default Poi Issue Mime Type</title>
+    </field>
+    <value>text/plain</value>
+</record>
+
+</registry>

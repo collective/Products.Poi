@@ -1,4 +1,4 @@
-from Products.CMFCore.utils import getToolByName
+from plone import api
 
 PROFILE_ID = 'profile-Products.Poi:uninstall'
 
@@ -12,5 +12,17 @@ def uninstall(portal, reinstall=False):
     """
     if reinstall:
         return
-    setup_tool = getToolByName(portal, 'portal_setup')
+
+    qtypes = api.portal.get_registry_record('plone.parent_types_not_to_query')
+    if u'Tracker' in qtypes:
+        qtypes.remove(u'Tracker')
+    if u'Issue' in qtypes:
+        qtypes.remove(u'Issue')
+    types = api.portal.get_registry_record('plone.displayed_types')
+    if 'Tracker' in types:
+        type_list = [x for x in types if x != 'Tracker']
+        types = tuple(type_list)
+        api.portal.set_registry_record('plone.displayed_types', types)
+
+    setup_tool = api.portal.get_tool('portal_setup')
     return setup_tool.runAllImportStepsFromProfile(PROFILE_ID)

@@ -7,8 +7,9 @@ msgstr ""
 "PO-Revision-Date: 2007-03-19 16:36+0100\n"
 "Last-Translator: Maurizio Delmonte <maurizio.delmonte@redomino.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: it\n"
@@ -16,83 +17,76 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-msgid "A response to an issue."
-msgstr "Risposta ad una richiesta attività"
-
-msgid "An issue tracker"
-msgstr "Un gestore attività"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Una attività. Le richieste di attività hanno stato iniziale 'da confermare', e possono essere gestite dai project manager."
-
-msgid "Begin work"
-msgstr "Avvia attività"
-
-msgid "Being created"
-msgstr "Creato"
-
-# tracker transitions
-msgid "Close tracker"
-msgstr "Disattiva gestore richieste"
-
-msgid "Closed for submissions"
-msgstr "Invio richieste non attivo"
-
-msgid "Confirm resolved"
-msgstr "Conferma risoluzione"
-
-msgid "Confirmed"
-msgstr "Confermato"
-
-msgid "In progress"
-msgstr "In gestione"
-
-msgid "Issue"
-msgstr "Attività"
-
 # portal type nams
 msgid "Issue Tracker"
 msgstr "Gestore Attività"
 
-# browser/respsonse.py:transitions_for_display
-msgid "No change"
-msgstr "Nessuna modifica"
+msgid "An issue tracker"
+msgstr "Un gestore attività"
 
-msgid "Only members can submit"
-msgstr "Solo collaboratori possono inserire"
+msgid "Issue"
+msgstr "Attività"
 
-msgid "Open"
-msgstr "Attiva"
+msgid ""
+"An issue. Issues begin in the 'unconfirmed' state, and can be responded to "
+"by project managers."
+msgstr ""
+"Una attività. Le richieste di attività hanno stato iniziale 'da confermare', "
+"e possono essere gestite dai project manager."
+
+msgid "Response"
+msgstr "Risposta"
+
+msgid "A response to an issue."
+msgstr "Risposta ad una richiesta attività"
 
 # tracker states
 msgid "Open for submissions"
 msgstr "Invio richieste attivo"
 
+msgid "Closed for submissions"
+msgstr "Invio richieste non attivo"
+
+# tracker transitions
+msgid "Close tracker"
+msgstr "Disattiva gestore richieste"
+
 msgid "Open tracker"
 msgstr "Attiva gestore richieste"
 
-msgid "Post issue on save"
-msgstr "Invia la richiesta al salvataggio"
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "Test effettuati e chiusura confermata"
 
-# response transitions
-msgid "Post response on save"
-msgstr "Invia la risposta al salvataggio"
+msgid "In progress"
+msgstr "In gestione"
 
-# response states
-msgid "Posted"
-msgstr "Inviato"
+msgid "Being created"
+msgstr "Creato"
 
-msgid "Postpone"
-msgstr "Posticipa"
+msgid "Confirmed"
+msgstr "Confermato"
+
+msgid "Open"
+msgstr "Attiva"
 
 msgid "Postponed"
 msgstr "Posticipato"
 
-msgid "Protect tracker"
-msgstr "Proteggi gestore segnalazioni"
+msgid "Rejected"
+msgstr "Rifiutato"
 
-msgid "Protected against anonymous views"
-msgstr "Proteggi dall'accesso di anonimi"
+msgid "Resolved"
+msgstr "Risolto"
+
+msgid "Unconfirmed"
+msgstr "Da confermare"
+
+msgid "Begin work"
+msgstr "Avvia attività"
+
+msgid "Confirm resolved"
+msgstr "Conferma risoluzione"
 
 msgid "Put on hold"
 msgstr "Sospendi"
@@ -100,31 +94,41 @@ msgstr "Sospendi"
 msgid "Re-open"
 msgstr "Ri-attiva"
 
+msgid "Post issue on save"
+msgstr "Invia la richiesta al salvataggio"
+
+msgid "Postpone"
+msgstr "Posticipa"
+
 msgid "Reject"
 msgstr "Rifiuta"
-
-msgid "Rejected"
-msgstr "Rifiutato"
 
 msgid "Resolve"
 msgstr "Risolto"
 
-msgid "Resolve immediately"
-msgstr "Risolvi immediatamente"
+# response states
+msgid "Posted"
+msgstr "Inviato"
 
-msgid "Resolved"
-msgstr "Risolto"
+# response transitions
+msgid "Post response on save"
+msgstr "Invia la risposta al salvataggio"
 
-msgid "Response"
-msgstr "Risposta"
+# browser/respsonse.py:transitions_for_display
+msgid "No change"
+msgstr "Nessuna modifica"
 
 msgid "Restrict tracker"
 msgstr "Limita gestione segnalazioni"
 
-# issue states
-msgid "Tested and confirmed closed"
-msgstr "Test effettuati e chiusura confermata"
+msgid "Only members can submit"
+msgstr "Solo collaboratori possono inserire"
 
-msgid "Unconfirmed"
-msgstr "Da confermare"
+msgid "Protect tracker"
+msgstr "Proteggi gestore segnalazioni"
 
+msgid "Protected against anonymous views"
+msgstr "Proteggi dall'accesso di anonimi"
+
+msgid "Resolve immediately"
+msgstr "Risolvi immediatamente"

@@ -9,6 +9,7 @@ msgstr ""
 "PO-Revision-Date: 2008-06-19 15:46+0200\n"
 "Last-Translator: Encolpe Degoute <encolpe@gmail.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,83 +21,76 @@ msgstr ""
 "X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
 "X-Generator: KBabel 1.11.4\n"
 
-msgid "A response to an issue."
-msgstr "Une réponse à un ticket."
-
-msgid "An issue tracker"
-msgstr "Un gestionnaire de tickets"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Un ticket. Les tickets commencent dans l'état « ouvert », et peuvent être gérés par les chefs de projets."
-
-msgid "Begin work"
-msgstr "Démarrer le traitement"
-
-msgid "Being created"
-msgstr "En cours de création"
-
-# tracker transitions
-msgid "Close tracker"
-msgstr "Désactiver le gestionnaire"
-
-msgid "Closed for submissions"
-msgstr "Fermé aux demandes"
-
-msgid "Confirm resolved"
-msgstr "Confirmer la résolution"
-
-msgid "Confirmed"
-msgstr "Confirmé"
-
-msgid "In progress"
-msgstr "En cours de résolution"
-
-msgid "Issue"
-msgstr "Ticket"
-
 # portal type nams
 msgid "Issue Tracker"
 msgstr "Gestionnaire de tickets"
 
-# browser/respsonse.py:transitions_for_display
-msgid "No change"
-msgstr "Pas de changement"
+msgid "An issue tracker"
+msgstr "Un gestionnaire de tickets"
 
-msgid "Only members can submit"
-msgstr "Soumission réservée aux membres"
+msgid "Issue"
+msgstr "Ticket"
 
-msgid "Open"
-msgstr "Ouvert"
+msgid ""
+"An issue. Issues begin in the 'unconfirmed' state, and can be responded to "
+"by project managers."
+msgstr ""
+"Un ticket. Les tickets commencent dans l'état « ouvert », et peuvent être "
+"gérés par les chefs de projets."
+
+msgid "Response"
+msgstr "Réponse"
+
+msgid "A response to an issue."
+msgstr "Une réponse à un ticket."
 
 # tracker states
 msgid "Open for submissions"
 msgstr "Ouvert pour des demandes"
 
+msgid "Closed for submissions"
+msgstr "Fermé aux demandes"
+
+# tracker transitions
+msgid "Close tracker"
+msgstr "Désactiver le gestionnaire"
+
 msgid "Open tracker"
 msgstr "Activer le gestionnaire"
 
-msgid "Post issue on save"
-msgstr "Diffuser le ticket par courriel à l'enregistrement"
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "Testé et validé par les utilisateurs"
 
-# response transitions
-msgid "Post response on save"
-msgstr "Diffuser le ticket par courriel à l'enregistrement"
+msgid "In progress"
+msgstr "En cours de résolution"
 
-# response states
-msgid "Posted"
-msgstr "Posté"
+msgid "Being created"
+msgstr "En cours de création"
 
-msgid "Postpone"
-msgstr "Reporter"
+msgid "Confirmed"
+msgstr "Confirmé"
+
+msgid "Open"
+msgstr "Ouvert"
 
 msgid "Postponed"
 msgstr "Reporté"
 
-msgid "Protect tracker"
-msgstr "Gestionnaire privé"
+msgid "Rejected"
+msgstr "Rejeté"
 
-msgid "Protected against anonymous views"
-msgstr "Protégé contre la consultation anonyme"
+msgid "Resolved"
+msgstr "Résolu"
+
+msgid "Unconfirmed"
+msgstr "Non confirmé"
+
+msgid "Begin work"
+msgstr "Démarrer le traitement"
+
+msgid "Confirm resolved"
+msgstr "Confirmer la résolution"
 
 msgid "Put on hold"
 msgstr "Suspendre"
@@ -104,31 +98,41 @@ msgstr "Suspendre"
 msgid "Re-open"
 msgstr "Réouvrir"
 
+msgid "Post issue on save"
+msgstr "Diffuser le ticket par courriel à l'enregistrement"
+
+msgid "Postpone"
+msgstr "Reporter"
+
 msgid "Reject"
 msgstr "Rejeter"
-
-msgid "Rejected"
-msgstr "Rejeté"
 
 msgid "Resolve"
 msgstr "Résoudre"
 
-msgid "Resolve immediately"
-msgstr "Résoudre immédiatement"
+# response states
+msgid "Posted"
+msgstr "Posté"
 
-msgid "Resolved"
-msgstr "Résolu"
+# response transitions
+msgid "Post response on save"
+msgstr "Diffuser le ticket par courriel à l'enregistrement"
 
-msgid "Response"
-msgstr "Réponse"
+# browser/respsonse.py:transitions_for_display
+msgid "No change"
+msgstr "Pas de changement"
 
 msgid "Restrict tracker"
 msgstr "Gestionnaire restreint"
 
-# issue states
-msgid "Tested and confirmed closed"
-msgstr "Testé et validé par les utilisateurs"
+msgid "Only members can submit"
+msgstr "Soumission réservée aux membres"
 
-msgid "Unconfirmed"
-msgstr "Non confirmé"
+msgid "Protect tracker"
+msgstr "Gestionnaire privé"
 
+msgid "Protected against anonymous views"
+msgstr "Protégé contre la consultation anonyme"
+
+msgid "Resolve immediately"
+msgstr "Résoudre immédiatement"

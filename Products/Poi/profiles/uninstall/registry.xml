@@ -1,0 +1,13 @@
+<registry>
+
+<records prefix="plone.bundles/poi"
+            interface='Products.CMFPlone.interfaces.IBundleRegistry' remove="True">
+</records>
+
+<records prefix="plone.bundles/poi-resources"
+         interface='Products.CMFPlone.interfaces.IBundleRegistry' remove="True">
+</records>
+<record name="poi.default_issue_mime_type" remove="True">
+</record>
+
+</registry>

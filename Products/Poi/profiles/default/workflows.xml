@@ -3,13 +3,10 @@
  <object name="poi_issue_workflow" meta_type="Workflow"/>
  <object name="poi_tracker_workflow" meta_type="Workflow"/>
  <bindings>
-  <type type_id="PoiIssue">
+  <type type_id="Issue">
    <bound-workflow workflow_id="poi_issue_workflow"/>
   </type>
-  <type type_id="PoiPscTracker">
-   <bound-workflow workflow_id="poi_tracker_workflow"/>
-  </type>
-  <type type_id="PoiTracker">
+  <type type_id="Tracker">
    <bound-workflow workflow_id="poi_tracker_workflow"/>
   </type>
  </bindings>

@@ -7,8 +7,9 @@ msgstr ""
 "PO-Revision-Date: 2010-07-10 01:05+0200\n"
 "Last-Translator: STX Next <info@stxnext.pl>\n"
 "Language-Team: STX Next <info@stxnext.pl>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: pl\n"
@@ -16,84 +17,75 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-msgid "A response to an issue."
-msgstr "Odpowiedź do zgłoszenia."
-
-msgid "An issue tracker"
-msgstr "System Zgłoszeniowy"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "Po stworzeniu zgłoszenie będzie w stanie 'Niezaakceptowany'."
-
-# issue transitions
-msgid "Begin work"
-msgstr "Zacznij pracę"
-
-msgid "Being created"
-msgstr "Dopiero stworzone"
-
-# tracker transitions
-msgid "Close tracker"
-msgstr "Zamknij System Zgłoszeniowy"
-
-msgid "Closed for submissions"
-msgstr "Zamknięty"
-
-msgid "Confirm resolved"
-msgstr "Akceptuj rozwiązanie"
-
-msgid "Confirmed"
-msgstr "Zaakceptowane"
-
-msgid "In progress"
-msgstr "W toku"
-
-msgid "Issue"
-msgstr "Zgłoszenie"
-
 # portal type nams
 msgid "Issue Tracker"
 msgstr "System Zgłoszeniowy"
 
-# browser/response.py:transitions_for_display
-msgid "No change"
-msgstr "Bez zmian"
+msgid "An issue tracker"
+msgstr "System Zgłoszeniowy"
 
-msgid "Only members can submit"
-msgstr "Tylko użytkownicy mogą dodawać zgłoszenia"
+msgid "Issue"
+msgstr "Zgłoszenie"
 
-msgid "Open"
-msgstr "Otwórz"
+msgid ""
+"An issue. Issues begin in the 'unconfirmed' state, and can be responded to "
+"by project managers."
+msgstr "Po stworzeniu zgłoszenie będzie w stanie 'Niezaakceptowany'."
+
+msgid "Response"
+msgstr "Odpowiedź"
+
+msgid "A response to an issue."
+msgstr "Odpowiedź do zgłoszenia."
 
 # tracker states
 msgid "Open for submissions"
 msgstr "Otwarty"
 
+msgid "Closed for submissions"
+msgstr "Zamknięty"
+
+# tracker transitions
+msgid "Close tracker"
+msgstr "Zamknij System Zgłoszeniowy"
+
 msgid "Open tracker"
 msgstr "Otwórz System Zgłoszeniowy"
 
-msgid "Post issue on save"
-msgstr "Zapisz i wyślij"
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "Przetestowany i zamknięty"
 
-# response transitions
-msgid "Post response on save"
-msgstr "Zapisz i wyślij"
+msgid "In progress"
+msgstr "W toku"
 
-# response states
-msgid "Posted"
-msgstr "Zgłoszona"
+msgid "Being created"
+msgstr "Dopiero stworzone"
 
-msgid "Postpone"
-msgstr "Odłóż"
+msgid "Confirmed"
+msgstr "Zaakceptowane"
+
+msgid "Open"
+msgstr "Otwórz"
 
 msgid "Postponed"
 msgstr "Odroczone"
 
-msgid "Protect tracker"
-msgstr "Zabezpiecz System Zgłoszeniowy"
+msgid "Rejected"
+msgstr "Odrzucone"
 
-msgid "Protected against anonymous views"
-msgstr "Chronione przed nieautoryzowanym podglądem"
+msgid "Resolved"
+msgstr "Rozwiązane"
+
+msgid "Unconfirmed"
+msgstr "Niezaakceptowane"
+
+# issue transitions
+msgid "Begin work"
+msgstr "Zacznij pracę"
+
+msgid "Confirm resolved"
+msgstr "Akceptuj rozwiązanie"
 
 msgid "Put on hold"
 msgstr "Zawieszone"
@@ -101,31 +93,41 @@ msgstr "Zawieszone"
 msgid "Re-open"
 msgstr "Ponownie otwarte"
 
+msgid "Post issue on save"
+msgstr "Zapisz i wyślij"
+
+msgid "Postpone"
+msgstr "Odłóż"
+
 msgid "Reject"
 msgstr "Odrzuć"
-
-msgid "Rejected"
-msgstr "Odrzucone"
 
 msgid "Resolve"
 msgstr "Rozwiąż"
 
-msgid "Resolve immediately"
-msgstr ""
+# response states
+msgid "Posted"
+msgstr "Zgłoszona"
 
-msgid "Resolved"
-msgstr "Rozwiązane"
+# response transitions
+msgid "Post response on save"
+msgstr "Zapisz i wyślij"
 
-msgid "Response"
-msgstr "Odpowiedź"
+# browser/response.py:transitions_for_display
+msgid "No change"
+msgstr "Bez zmian"
 
 msgid "Restrict tracker"
 msgstr "Zastrzeż System Zgłoszeniowy"
 
-# issue states
-msgid "Tested and confirmed closed"
-msgstr "Przetestowany i zamknięty"
+msgid "Only members can submit"
+msgstr "Tylko użytkownicy mogą dodawać zgłoszenia"
 
-msgid "Unconfirmed"
-msgstr "Niezaakceptowane"
+msgid "Protect tracker"
+msgstr "Zabezpiecz System Zgłoszeniowy"
 
+msgid "Protected against anonymous views"
+msgstr "Chronione przed nieautoryzowanym podglądem"
+
+msgid "Resolve immediately"
+msgstr ""

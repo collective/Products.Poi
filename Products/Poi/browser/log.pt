@@ -6,13 +6,6 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="Poi">
 
-<head>
-  <metal:css fill-slot="style_slot">
-    <style type="text/css" media="all"
-      tal:content="string:@import url($portal_url/poi.css);"></style>
-  </metal:css>
-</head>
-
 <body>
 <metal:main fill-slot="main">
   <metal:body define-macro="body">
@@ -23,9 +16,12 @@
     </p>
 
     <div id="content-core">
-      <dl tal:define="entries view/getLogEntries">
-        <tal:entries repeat="entry entries">
-          <dt tal:condition="python: entry['type'] == 'PoiIssue'"
+      <dl tal:define="entries view/getLogEntries;
+                      Batch   python:modules['Products.CMFPlone'].Batch;
+                      b_size  python:10;b_start python:0;b_start request/b_start | b_start;
+                      batch   python:Batch(entries, b_size, int(b_start), orphan=1)">
+        <tal:entries repeat="entry batch">
+          <dt tal:condition="python: entry['type'] == 'Issue'"
               i18n:translate="poi_new_issue_added">
             New issue
             <a tal:attributes="href entry/url"
@@ -45,7 +41,10 @@
                i18n:name="name" />:
           </dt>
           <dd>
-            <p tal:content="structure entry/text" />
+            <tal:text condition="entry/text"
+                    on-error="structure entry/text">
+              <div tal:content="structure entry/text/output" />
+            </tal:text>
 
             <p class="discreet">
 
@@ -87,6 +86,7 @@
             </p>
           </dd>
         </tal:entries>
+        <div metal:use-macro="here/batch_macros/macros/navigation" />
       </dl>
     </div>
   </metal:body>

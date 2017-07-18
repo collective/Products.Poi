@@ -7,8 +7,9 @@ msgstr ""
 "PO-Revision-Date: 2006-01-22 17:48+0900\n"
 "Last-Translator: TANIGUCHI Takaki <takaki@asis.media-as.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: ja\n"
@@ -16,83 +17,77 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-msgid "A response to an issue."
-msgstr "課題に対する対応"
-
-msgid "An issue tracker"
-msgstr "課題トラッカー"
-
-msgid "An issue. Issues begin in the 'unconfirmed' state, and can be responded to by project managers."
-msgstr "課題。課題は\"未確認\"から始まります。プロジェクトマネージャによって対応されます。"
-
-msgid "Begin work"
-msgstr "作業を開始"
-
-# response states
-msgid "Being created"
-msgstr "作成中"
-
-# tracker transitions
-msgid "Close tracker"
-msgstr "トラッカーを閉鎖する"
-
-msgid "Closed for submissions"
-msgstr "登録停止中"
-
-msgid "Confirm resolved"
-msgstr "解決を確認"
-
-msgid "Confirmed"
-msgstr ""
-
-msgid "In progress"
-msgstr "作業中"
-
-msgid "Issue"
-msgstr "課題"
-
 # portal type nams
 msgid "Issue Tracker"
 msgstr "課題トラッカー"
 
-# browser/respsonse.py:transitions_for_display
-msgid "No change"
-msgstr ""
+msgid "An issue tracker"
+msgstr "課題トラッカー"
 
-msgid "Only members can submit"
-msgstr ""
+msgid "Issue"
+msgstr "課題"
 
-msgid "Open"
-msgstr "オープン"
+msgid ""
+"An issue. Issues begin in the 'unconfirmed' state, and can be responded to "
+"by project managers."
+msgstr ""
+"課題。課題は\"未確認\"から始まります。プロジェクトマネージャによって対応され"
+"ます。"
+
+msgid "Response"
+msgstr "対応"
+
+msgid "A response to an issue."
+msgstr "課題に対する対応"
 
 # tracker states
 msgid "Open for submissions"
 msgstr "登録可能"
 
+msgid "Closed for submissions"
+msgstr "登録停止中"
+
+# tracker transitions
+msgid "Close tracker"
+msgstr "トラッカーを閉鎖する"
+
 msgid "Open tracker"
 msgstr "トラッカーを公開する"
 
-msgid "Post issue on save"
-msgstr "保存時に課題を提出"
+# issue states
+msgid "Tested and confirmed closed"
+msgstr "テスト確認済"
 
-# response transitions
-msgid "Post response on save"
-msgstr "保存時に対応を投稿"
+msgid "In progress"
+msgstr "作業中"
 
-msgid "Posted"
-msgstr "投稿済み"
+# response states
+msgid "Being created"
+msgstr "作成中"
 
-msgid "Postpone"
-msgstr "延期"
+msgid "Confirmed"
+msgstr ""
+
+msgid "Open"
+msgstr "オープン"
 
 msgid "Postponed"
 msgstr "延期"
 
-msgid "Protect tracker"
-msgstr ""
+msgid "Rejected"
+msgstr "却下"
 
-msgid "Protected against anonymous views"
-msgstr ""
+msgid "Resolved"
+msgstr "解決済み"
+
+msgid "Unconfirmed"
+msgstr "未確認"
+
+msgid "Begin work"
+msgstr "作業を開始"
+
+msgid "Confirm resolved"
+msgstr "解決を確認"
 
 msgid "Put on hold"
 msgstr "保留"
@@ -100,31 +95,40 @@ msgstr "保留"
 msgid "Re-open"
 msgstr "再び未解決にする"
 
-msgid "Reject"
-msgstr "却下"
+msgid "Post issue on save"
+msgstr "保存時に課題を提出"
 
-msgid "Rejected"
+msgid "Postpone"
+msgstr "延期"
+
+msgid "Reject"
 msgstr "却下"
 
 msgid "Resolve"
 msgstr "解決"
 
-msgid "Resolve immediately"
+msgid "Posted"
+msgstr "投稿済み"
+
+# response transitions
+msgid "Post response on save"
+msgstr "保存時に対応を投稿"
+
+# browser/respsonse.py:transitions_for_display
+msgid "No change"
 msgstr ""
-
-msgid "Resolved"
-msgstr "解決済み"
-
-msgid "Response"
-msgstr "対応"
 
 msgid "Restrict tracker"
 msgstr ""
 
-# issue states
-msgid "Tested and confirmed closed"
-msgstr "テスト確認済"
+msgid "Only members can submit"
+msgstr ""
 
-msgid "Unconfirmed"
-msgstr "未確認"
+msgid "Protect tracker"
+msgstr ""
 
+msgid "Protected against anonymous views"
+msgstr ""
+
+msgid "Resolve immediately"
+msgstr ""

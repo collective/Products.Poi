@@ -2,10 +2,29 @@ Changelog for Poi
 =================
 
 
-2.3.1 (unreleased)
-------------------
+4.0
+---
 
-- Nothing changed yet.
+- Plone 5 compatibility
+- Complete refactor using Dexterity for Trackers and
+  Issues (see Poi 3.x for migration)
+- Issues are now folderish for holding attachments.
+- New template layouts
+- CSV export from issue search
+- New field for relating issues to each other
+
+
+3.0
+---
+
+- Added a migration path from Poi 2.x to 4.x, which migrates
+  Trackers and Issues to Dexterity.
+  This requires a version of plone.app.contenttypes compatible with Plone 4.3,
+  with minimum version 1.1.2.
+  This version of Poi is to only be
+  used in Plone 4 as a migration step, and is not a useable version of Poi.
+  You will see errors like ``AttributeError: @@issuefolder`` when you try to
+  view a tracker. This is okay. You can now migrate to Plone 5.
 
 
 2.3 (2016-12-30)
