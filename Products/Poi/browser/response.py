@@ -7,6 +7,7 @@ from plone.namedfile.browser import Download as BlobDownload
 from Products.Archetypes.atapi import DisplayList
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as PMF
+from Products.CMFPlone.utils import base_hasattr
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
@@ -68,6 +69,31 @@ def voc2dict(vocab, current=None):
         options.append(dict(value=value, label=label,
                             checked=checked))
     return options
+
+
+def get_content_type(attachment):
+    # Get the content type (mimetype).
+    content_type = ''
+    if base_hasattr(attachment, 'contentType'):
+        content_type = attachment.contentType
+    elif base_hasattr(attachment, 'content_type'):
+        content_type = attachment.content_type
+    if not content_type:
+        content_type = 'application/octet-stream'
+    return content_type
+
+
+def get_filename(attachment):
+    filename = ''
+    if base_hasattr(attachment, 'filename'):
+        filename = attachment.filename
+    elif base_hasattr(attachment, 'id'):
+        filename = attachment.id
+        if callable(filename):
+            filename = filename()
+    if not filename:
+        filename = 'attachment'
+    return filename
 
 
 class Base(BrowserView):
@@ -146,8 +172,7 @@ class Base(BrowserView):
         mtr = getToolByName(context, 'mimetypes_registry', None)
         if mtr is None:
             icon = context.getIcon()
-        content_type = getattr(
-            attachment, 'contentType', 'application/octet-stream')
+        content_type = get_content_type(attachment)
         size = getattr(attachment, 'get_size', 0)
         if callable(size):
             size = size()
@@ -161,7 +186,7 @@ class Base(BrowserView):
                 pass
         if icon is None:
             icon = context.getIcon()
-        filename = getattr(attachment, 'filename', '')
+        filename = get_filename(attachment)
         info = dict(
             icon=self.portal_url + '/' + icon,
             url=context.absolute_url() +
@@ -601,7 +626,7 @@ class Download(Base, BlobDownload):
         # Set attributes on self, so BlobDownload can do its work.
         self.fieldname = 'attachment'
         self.file = file
-        filename = getattr(file, 'filename', self.fieldname)
+        filename = get_filename(file)
         if filename is not None:
             filename = normalize_filename(filename, request)
         self.filename = filename
