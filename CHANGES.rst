@@ -5,6 +5,9 @@ Changelog for Poi
 2.3.1 (unreleased)
 ------------------
 
+- Fixed response attachments code to nicely display both blob and non-blob files.
+  [maurits]
+
 - Note: Products.Poi 2.x is only for Plone 4.  [maurits]
 
 
