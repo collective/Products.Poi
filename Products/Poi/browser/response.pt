@@ -65,9 +65,10 @@
         <img tal:attributes="src attachment/icon" />
         <a tal:attributes="href attachment/url"
            tal:content="attachment/filename" />
-        <span class="discreet">
+        <span class="discreet"
+          tal:define="doc_type python:context.lookupMime(attachment['content_type'])">
           &#8212;
-          <tal:type content="attachment/content_type" />,
+          <tal:type content="doc_type" />,
           <tal:size content="attachment/size" />
         </span>
       </div>
