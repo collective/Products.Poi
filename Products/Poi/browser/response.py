@@ -148,7 +148,7 @@ class Base(BrowserView):
             icon = context.getIcon()
         content_type = getattr(
             attachment, 'contentType', 'application/octet-stream')
-        size = getattr(attachment, 'get_size', 0)
+        size = getattr(attachment, 'getSize', 0)
         if callable(size):
             size = size()
         lookup = mtr.lookup(content_type)

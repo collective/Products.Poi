@@ -5,6 +5,11 @@ Changelog for Poi
 2.3.1 (unreleased)
 ------------------
 
+- Make response attachment info prettier.
+  Translate the mimetype info into a user readable text.
+  Get the proper size, instead of zero.
+  [maurits]
+
 - Note: Products.Poi 2.x is only for Plone 4.  [maurits]
 
 
