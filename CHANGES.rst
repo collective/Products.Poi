@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.3.1 (unreleased)
+2.3.1 (2017-10-31)
 ------------------
 
 - Make response attachment info prettier.
