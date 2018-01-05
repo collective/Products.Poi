@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-2.3.2 (unreleased)
+2.3.2 (2018-01-05)
 ------------------
 
 - Check if send_emails is True before sending mails for changes.
