@@ -5,7 +5,8 @@ Changelog for Poi
 2.3.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Check if send_emails is True before sending mails for changes.
+  [maurits]
 
 
 2.3.1 (2017-10-31)

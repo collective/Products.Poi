@@ -137,9 +137,13 @@ def mail_issue_change(object, event):
     """
     if event.transition and event.transition.id == 'post':
         watchers = IWatcherList(object)
+        if not watchers.send_emails:
+            return
         watchers.send('new-issue-mail')
     elif event.new_state.id == 'resolved':
         watchers = IWatcherList(object)
+        if not watchers.send_emails:
+            return
         # Only mail the original poster, if available.
         address = object.getContactEmail()
         if address:
@@ -174,4 +178,6 @@ def addedNewStyleResponse(object, event):
 def sendResponseNotificationMail(issue):
     # As we take the last response by default, we can keep this simple.
     watchers = IWatcherList(issue)
+    if not watchers.send_emails:
+        return
     watchers.send('new-response-mail')
