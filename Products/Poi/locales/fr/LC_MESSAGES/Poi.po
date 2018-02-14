@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2015-11-12 01:25+0000\n"
+"POT-Creation-Date: 2018-02-14 14:02+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Kevin Deldycke <kevin@deldycke.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -40,7 +40,7 @@ msgstr "Une nouvelle réponse a été donnée à propos du ticket ${issue_title}
 msgid "An attachment has been added with id ${id}."
 msgstr "Une pièce jointe a été ajoutée avec l'identifiant ${id}."
 
-#: ./browser/response.py:510
+#: ./browser/response.py:522
 msgid "Changes saved to response id ${response_id}."
 msgstr "Les modifications à la réponse ${response_id} sont enregistrées."
 
@@ -75,7 +75,7 @@ msgstr "Détails du ticket :"
 msgid "Issue Information"
 msgstr "Information sur le ticket"
 
-#: ./browser/response.py:407
+#: ./browser/response.py:417
 msgid "Issue state"
 msgstr "État du ticket"
 
@@ -85,19 +85,19 @@ msgstr "État du ticket"
 msgid "Issue:"
 msgstr "Ticket :"
 
-#: ./browser/response.py:538
+#: ./browser/response.py:550
 msgid "No response selected for removal."
 msgstr "Aucune réponse n'est sélectionnée pour la suppression."
 
-#: ./browser/response.py:496
+#: ./browser/response.py:508
 msgid "No response selected for saving."
 msgstr "Aucune réponse n'est sélectionnée pour la sauvegarde."
 
-#: ./browser/response.py:202
+#: ./browser/response.py:203
 msgid "No response selected."
 msgstr "Aucune réponse n'est sélectionnée."
 
-#: ./browser/response.py:450
+#: ./browser/response.py:462
 msgid "No response text added and no issue changes made."
 msgstr "Aucun texte de réponse ajouté et aucune modification effectuée."
 
@@ -116,14 +116,14 @@ msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."
-#: ./content/PoiIssue.py:176
+#: ./content/PoiIssue.py:182
 msgid "Poi_help_area"
 msgstr "Sélectionnez le domaine approprié à ce ticket."
 
 # ./content/PoiIssue.py
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ./browser/response.pt:151
-#: ./content/PoiIssue.py:161
+#: ./browser/response.pt:152
+#: ./content/PoiIssue.py:167
 msgid "Poi_help_attachment"
 msgstr "Vous pouvez télécharger vers le serveur un fichier attaché à votre ticket. Veuillez ne pas télécharger inutilement de gros fichiers."
 
@@ -153,7 +153,7 @@ msgstr "Entrer les différents types de criticités des tickets disponibles, un 
 
 # ./content/PoiIssue.py
 #. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
-#: ./content/PoiIssue.py:256
+#: ./content/PoiIssue.py:262
 msgid "Poi_help_contactEmail"
 msgstr "Merci de fournir une adresse de courriel où vous pouvez être contacté pour plus d'information ou être tenu informé quand la résolution sera disponible. Note: cette adresse ne sera pas affiché."
 
@@ -165,7 +165,7 @@ msgstr "Sélectionnez une criticité par défaut pour les nouveaux tickets."
 
 # ./content/PoiIssue.py
 #. Default: "Please provide further details"
-#: ./content/PoiIssue.py:125
+#: ./content/PoiIssue.py:131
 msgid "Poi_help_details"
 msgstr "Veuillez fournir plus détails"
 
@@ -177,19 +177,19 @@ msgstr "Entrer une notice d'emploi de votre gestionnaire de tickets qui sera aff
 
 # ./content/PoiIssue.py
 #. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ./browser/response.pt:176
+#: ./browser/response.pt:177
 msgid "Poi_help_issueTransition"
 msgstr "Sélectionnez un changement d'état pour cette réponse, si cela est applicable."
 
 # ./content/PoiIssue.py
 #. Default: "Select the type of issue."
-#: ./content/PoiIssue.py:191
+#: ./content/PoiIssue.py:197
 msgid "Poi_help_issueType"
 msgstr "Sélectionnez le type du ticket."
 
 # ./content/PoiIssue.py
 #. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
-#: ./content/PoiIssue.py:92
+#: ./content/PoiIssue.py:98
 msgid "Poi_help_issue_title"
 msgstr "Entrer un titre court et descriptif pour ce ticket. Un bon titre rendra plus facile pour les chefs de projets l'identification et pour réponse à ce ticket."
 
@@ -207,37 +207,37 @@ msgstr "Entrer les identifiants des utilisateurs qui sont autorisés à gérer c
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
-#: ./browser/response.pt:266
+#: ./browser/response.pt:267
 msgid "Poi_help_newResponsibleManager"
 msgstr "Sélectionnez le gestionnaire responsable du suivi de ce ticket."
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ./browser/response.pt:209
+#: ./browser/response.pt:210
 msgid "Poi_help_newSeverity"
 msgstr "Sélectionnez la criticité de ce ticket"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ./browser/response.pt:237
+#: ./browser/response.pt:238
 msgid "Poi_help_newTargetRelease"
 msgstr "Assignez la distribution voulue pour ce ticket"
 
 # ./content/PoiIssue.py
 #. Default: "Select the version the issue was found in."
-#: ./content/PoiIssue.py:110
+#: ./content/PoiIssue.py:116
 msgid "Poi_help_release"
 msgstr "Sélectionnez la version dans laquelle le problème a été découvert."
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below"
-#: ./browser/response.pt:111
+#: ./browser/response.pt:112
 msgid "Poi_help_response"
 msgstr "Veuillez saisir votre réponse ci-dessous"
 
 # ./content/PoiIssue.py
 #. Default: "Select which manager, if any, is responsible for this issue."
-#: ./content/PoiIssue.py:238
+#: ./content/PoiIssue.py:244
 msgid "Poi_help_responsibleManager"
 msgstr "Sélectionnez le gestionnaire de ce ticket, s'il en existe un."
 
@@ -249,19 +249,19 @@ msgstr "Si coché, les responsables du gestionnaire de tickets recevront un mess
 
 # ./content/PoiIssue.py
 #. Default: "Select the severity of this issue."
-#: ./content/PoiIssue.py:206
+#: ./content/PoiIssue.py:212
 msgid "Poi_help_severity"
 msgstr "Sélectionnez la criticité de ce ticket."
 
 # ./content/PoiIssue.py
 #. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
-#: ./content/PoiIssue.py:142
+#: ./content/PoiIssue.py:148
 msgid "Poi_help_steps"
 msgstr "Si cela est applicable, veuillez fournir les étapes pour reproduire l'erreur ou un cas d'utilisation type en cas de demande d'évolution."
 
 # ./content/PoiIssue.py
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: ./content/PoiIssue.py:291
+#: ./content/PoiIssue.py:297
 msgid "Poi_help_subject"
 msgstr "Des étiquettes peuvent être employées pour ajouter une catégorisation arbitraire aux tickets. La liste ci dessous affiche les étiquettes existantes que vous pouvez sélectionner. Vous pouvez aussi en ajouter de nouvelles."
 
@@ -273,7 +273,7 @@ msgstr "Merci de saisir l'Url vers le dépôt SVN correspondant au projet, e.g.:
 
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"
-#: ./content/PoiIssue.py:222
+#: ./content/PoiIssue.py:228
 msgid "Poi_help_targetRelease"
 msgstr "Distribution cible dans laquelle ce ticket sera corrigé"
 
@@ -301,20 +301,20 @@ msgstr "Entrez les identifiants des utilisateurs qui observent ce ticket, un par
 
 # ./content/PoiIssue.py
 #. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
-#: ./content/PoiIssue.py:273
+#: ./content/PoiIssue.py:279
 msgid "Poi_help_watchers"
 msgstr "Entrez les noms d'utilisateur des utilisateurs qui observent ce ticket, un par la ligne. Ces utilisateurs recevront un message lorsqu'une réponse sera ajoutée à ce ticket. Les utilisateurs peuvent également s'ajouter comme observateurs."
 
 # ./content/PoiIssue.py
 #. Default: "Area"
-#: ./content/PoiIssue.py:174
+#: ./content/PoiIssue.py:180
 msgid "Poi_label_area"
 msgstr "Domaine"
 
 # ./content/PoiIssue.py
 #. Default: "Attachment"
-#: ./browser/response.pt:148
-#: ./content/PoiIssue.py:159
+#: ./browser/response.pt:149
+#: ./content/PoiIssue.py:165
 msgid "Poi_label_attachment"
 msgstr "Pièce-jointe"
 
@@ -344,7 +344,7 @@ msgstr "Sévérités disponibles"
 
 # ./content/PoiIssue.py
 #. Default: "Contact email address"
-#: ./content/PoiIssue.py:254
+#: ./content/PoiIssue.py:260
 msgid "Poi_label_contactEmail"
 msgstr "Adresse courriel de contact"
 
@@ -356,7 +356,7 @@ msgstr "Criticité par défaut"
 
 # ./content/PoiIssue.py
 #. Default: "Details"
-#: ./content/PoiIssue.py:123
+#: ./content/PoiIssue.py:129
 msgid "Poi_label_details"
 msgstr "Détails"
 
@@ -368,24 +368,24 @@ msgstr "Texte d'aide"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
-#: ./browser/response.pt:171
+#: ./browser/response.pt:172
 msgid "Poi_label_issueTransition"
 msgstr "Modifier l'état du ticket"
 
 # ./content/PoiIssue.py
 #. Default: "Issue type"
-#: ./content/PoiIssue.py:189
+#: ./content/PoiIssue.py:195
 msgid "Poi_label_issueType"
 msgstr "Type du ticket"
 
 #. Default: "Id"
-#: ./content/PoiIssue.py:81
+#: ./content/PoiIssue.py:87
 msgid "Poi_label_issue_id"
 msgstr "Identifiant"
 
 # ./content/PoiIssue.py
 #. Default: "Title"
-#: ./content/PoiIssue.py:90
+#: ./content/PoiIssue.py:96
 msgid "Poi_label_issue_title"
 msgstr "Titre"
 
@@ -403,37 +403,37 @@ msgstr "Responsables du gestionnaire de tickets"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
-#: ./browser/response.pt:261
+#: ./browser/response.pt:262
 msgid "Poi_label_newResponsibleManager"
 msgstr "Modifier le gestionnaire responsable"
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ./browser/response.pt:204
+#: ./browser/response.pt:205
 msgid "Poi_label_newSeverity"
 msgstr "Modifier la criticité du ticket"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ./browser/response.pt:232
+#: ./browser/response.pt:233
 msgid "Poi_label_newTargetRelease"
 msgstr "Modifier la distribution voulue"
 
 # ./content/PoiIssue.py
 #. Default: "Version"
-#: ./content/PoiIssue.py:108
+#: ./content/PoiIssue.py:114
 msgid "Poi_label_release"
 msgstr "Version"
 
 # ./content/PoiIssue.py
 #. Default: "Response"
-#: ./browser/response.pt:108
+#: ./browser/response.pt:109
 msgid "Poi_label_response"
 msgstr "Réponse"
 
 # ./content/PoiIssue.py
 #. Default: "Responsible"
-#: ./content/PoiIssue.py:236
+#: ./content/PoiIssue.py:242
 msgid "Poi_label_responsibleManager"
 msgstr "Responsable"
 
@@ -445,19 +445,19 @@ msgstr "Envoyer des courriels de notification"
 
 # ./content/PoiIssue.py
 #. Default: "Severity"
-#: ./content/PoiIssue.py:204
+#: ./content/PoiIssue.py:210
 msgid "Poi_label_severity"
 msgstr "Criticité"
 
 # ./content/PoiIssue.py
 #. Default: "Steps to reproduce"
-#: ./content/PoiIssue.py:140
+#: ./content/PoiIssue.py:146
 msgid "Poi_label_steps"
 msgstr "Étapes pour reproduire"
 
 # ./content/PoiIssue.py
 #. Default: "Tags"
-#: ./content/PoiIssue.py:289
+#: ./content/PoiIssue.py:295
 msgid "Poi_label_subject"
 msgstr "Étiquettes"
 
@@ -469,7 +469,7 @@ msgstr "URL du SVN"
 
 # ./content/PoiIssue.py
 #. Default: "Target release"
-#: ./content/PoiIssue.py:220
+#: ./content/PoiIssue.py:226
 msgid "Poi_label_targetRelease"
 msgstr "Distribution cible"
 
@@ -497,11 +497,11 @@ msgstr "Observateurs du gestionnaire de tickets"
 
 # ./content/PoiIssue.py
 #. Default: "Issue watchers"
-#: ./content/PoiIssue.py:271
+#: ./content/PoiIssue.py:277
 msgid "Poi_label_watchers"
 msgstr "Observateurs du ticket"
 
-#: ./browser/response.py:560
+#: ./browser/response.py:572
 msgid "Removed response id ${response_id}."
 msgstr "La réponse « ${response_id} » a été supprimé."
 
@@ -516,31 +516,31 @@ msgstr "Détails de la réponse :"
 msgid "Response Information"
 msgstr "Informations sur la réponse"
 
-#: ./browser/response.py:500
+#: ./browser/response.py:512
 msgid "Response does not exist anymore; perhaps it was removed by another user."
 msgstr "La réponse n'existe plus; peut être qu'elle a été supprimée par un autre utilisateur."
 
-#: ./browser/response.py:553
+#: ./browser/response.py:565
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr "La réponse « ${response_id} » n'existe pas donc n'a pu être effacée."
 
-#: ./browser/response.py:216
+#: ./browser/response.py:217
 msgid "Response id ${response_id} does not exist."
 msgstr "La réponse « ${response_id} » n'existe pas."
 
-#: ./browser/response.py:581
+#: ./browser/response.py:593
 msgid "Response id ${response_id} has no attachment."
 msgstr "La réponse « ${response_id} » n'a pas de pièce jointe."
 
-#: ./browser/response.py:545
+#: ./browser/response.py:557
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr "L'identifiant « ${response_id} » de la réponse n'est pas un entier donc elle n'a pu être effacée."
 
-#: ./browser/response.py:210
+#: ./browser/response.py:211
 msgid "Response id ${response_id} is no integer."
 msgstr "L'identifiant « ${response_id} » de la réponse n'est pas un entier."
 
-#: ./browser/response.py:413
+#: ./browser/response.py:423
 msgid "Responsible manager"
 msgstr "Responsable"
 
@@ -549,7 +549,7 @@ msgstr "Responsable"
 msgid "Search"
 msgstr "Rechercher"
 
-#: ./browser/response.py:412
+#: ./browser/response.py:422
 msgid "Severity"
 msgstr "Sévérité"
 
@@ -567,7 +567,7 @@ msgstr "Arrêter la surveillance de ce gestionnaire"
 msgid "Submit new issue"
 msgstr "Soumettre un nouveau ticket"
 
-#: ./browser/response.py:437
+#: ./browser/response.py:447
 msgid "Target release"
 msgstr "Distribution cible"
 
@@ -591,11 +591,11 @@ msgstr "Suivre ce ticket"
 msgid "Watch this tracker"
 msgstr "Surveiller ce gestionnaire"
 
-#: ./browser/response.py:532
+#: ./browser/response.py:544
 msgid "You are not allowed to delete responses."
 msgstr "Vous n'êtes pas autorisé à effacer des réponses."
 
-#: ./browser/response.py:490
+#: ./browser/response.py:502
 msgid "You are not allowed to edit responses."
 msgstr "Vous n'êtes pas autorisé à modifier des réponses."
 
@@ -691,17 +691,17 @@ msgid "login_suggestion"
 msgstr "Si vous le pouvez, vous devriez <a href=\"${DYNAMIC_CONTENT}\">identifiant</a> avant d'intervenir dans ce tracker."
 
 #. Default: "If you can, please log in before submitting a reaction."
-#: ./browser/response.pt:87
+#: ./browser/response.pt:88
 msgid "login_suggestion_response"
 msgstr "Si vous le pouvez, authentifiez-vous s'il vous plaît avant de poster une réaction."
 
 #. Default: "No responses can be added."
-#: ./browser/response.pt:79
+#: ./browser/response.pt:80
 msgid "msg_no_responses_can_be_added"
 msgstr "Aucune réponse ne peut être ajoutée."
 
 #. Default: "(Not assigned)"
-#: ./content/PoiIssue.py:507
+#: ./content/PoiIssue.py:513
 #: ./content/PoiTracker.py:430
 #: ./skins/Poi/poi_issue_search_form.pt:98
 msgid "not_assigned"
@@ -738,17 +738,17 @@ msgid "poi_all_pending_issues"
 msgstr "Tous les tickets en attente"
 
 #. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
-#: ./browser/notifications.py:240
+#: ./browser/notifications.py:228
 msgid "poi_email_issue_resolved_subject_template"
 msgstr "[${tracker_title}] Ticket #${issue_id} résolu - ${issue_title}"
 
 #. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
-#: ./browser/notifications.py:115
+#: ./browser/notifications.py:142
 msgid "poi_email_new_issue_subject_template"
 msgstr "[${tracker_title}] #${issue_id} - Nouveau ticket: ${issue_title}"
 
 #. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
-#: ./browser/notifications.py:198
+#: ./browser/notifications.py:205
 msgid "poi_email_new_response_subject_template"
 msgstr "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
 
@@ -1055,7 +1055,7 @@ msgid "poi_search_label_text"
 msgstr "Texte du ticket"
 
 #. Default: "Add response"
-#: ./browser/response.pt:102
+#: ./browser/response.pt:103
 msgid "title_add_response"
 msgstr "Ajouter une réponse"
 
@@ -1088,4 +1088,3 @@ msgstr "Flux RSS des tickets orphelins"
 #: ./skins/Poi/poi_tracker_view.pt:236
 msgid "title_rss_feed_unconfirmed"
 msgstr "Flux RSS des tickets non confirmés"
-

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-pt-br\n"
-"POT-Creation-Date: 2015-11-12 01:25+0000\n"
+"POT-Creation-Date: 2018-02-14 14:02+0000\n"
 "PO-Revision-Date: 2012-04-09 13:59-0300\n"
 "Last-Translator: Gustavo Lepri <lepri@simplesconsultoria.com.br>\n"
 "Language-Team: Simples Consultoria <contato@simplesconsultoria.com.br>\n"
@@ -38,7 +38,7 @@ msgstr ""
 msgid "An attachment has been added with id ${id}."
 msgstr ""
 
-#: ./browser/response.py:510
+#: ./browser/response.py:522
 msgid "Changes saved to response id ${response_id}."
 msgstr "Alterações salvas para a resposta com id ${response_id}"
 
@@ -73,7 +73,7 @@ msgstr ""
 msgid "Issue Information"
 msgstr ""
 
-#: ./browser/response.py:407
+#: ./browser/response.py:417
 msgid "Issue state"
 msgstr "Estado da ocorrência"
 
@@ -83,19 +83,19 @@ msgstr "Estado da ocorrência"
 msgid "Issue:"
 msgstr ""
 
-#: ./browser/response.py:538
+#: ./browser/response.py:550
 msgid "No response selected for removal."
 msgstr "Nenhuma resposta selecionada para remoção."
 
-#: ./browser/response.py:496
+#: ./browser/response.py:508
 msgid "No response selected for saving."
 msgstr "Nenhuma resposta selecionada para salvamento."
 
-#: ./browser/response.py:202
+#: ./browser/response.py:203
 msgid "No response selected."
 msgstr "Nenhuma resposta selecionada."
 
-#: ./browser/response.py:450
+#: ./browser/response.py:462
 msgid "No response text added and no issue changes made."
 msgstr "Não foi adicionado um texto à resposta e nenhuma alteração foi realizada na ocorrência."
 
@@ -113,13 +113,13 @@ msgid "Poi"
 msgstr ""
 
 #. Default: "Select the area this issue is relevant to."
-#: ./content/PoiIssue.py:176
+#: ./content/PoiIssue.py:182
 msgid "Poi_help_area"
 msgstr "Selecione a área a qual esta ocorrência se refere."
 
 #. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ./browser/response.pt:151
-#: ./content/PoiIssue.py:161
+#: ./browser/response.pt:152
+#: ./content/PoiIssue.py:167
 msgid "Poi_help_attachment"
 msgstr "Você pode, opcionalmente, anexar um arquivo a sua ocorrência. Por favor não adicione desnecessariamente arquivos grandes."
 
@@ -147,7 +147,7 @@ msgid "Poi_help_availableSeverities"
 msgstr "Informe os valores distintos possíveis para a gravidade das ocorrências, um por linha."
 
 #. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
-#: ./content/PoiIssue.py:256
+#: ./content/PoiIssue.py:262
 #, fuzzy
 msgid "Poi_help_contactEmail"
 msgstr "Opcionalmente, informe um endereço de email pelo qual você pode ser encontrado para informações adicionais ou quando uma solução estiver disponível."
@@ -158,7 +158,7 @@ msgid "Poi_help_defaultSeverity"
 msgstr "Selecione a gravidade padrão para novas ocorrências."
 
 #. Default: "Please provide further details"
-#: ./content/PoiIssue.py:125
+#: ./content/PoiIssue.py:131
 msgid "Poi_help_details"
 msgstr "Por favor, informe detalhes adicionais."
 
@@ -169,17 +169,17 @@ msgid "Poi_help_helpText"
 msgstr "Digite uma mensagem introdutória a ser exibida na página inicial do gerenciador de ocorrências."
 
 #. Default: "Select a change of state in the issue this response is for, if applicable"
-#: ./browser/response.pt:176
+#: ./browser/response.pt:177
 msgid "Poi_help_issueTransition"
 msgstr "Selecione a troca de situação da ocorrência a que esta resposta se refere, se aplicável."
 
 #. Default: "Select the type of issue."
-#: ./content/PoiIssue.py:191
+#: ./content/PoiIssue.py:197
 msgid "Poi_help_issueType"
 msgstr "Selecione o tipo de ocorrência."
 
 #. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
-#: ./content/PoiIssue.py:92
+#: ./content/PoiIssue.py:98
 msgid "Poi_help_issue_title"
 msgstr "Informe um título curto e descritivo para a ocorrência. Um bom título facilitará a identificação e resposta da ocorrência pelo responsável pelo projeto."
 
@@ -196,35 +196,35 @@ msgstr "Informe a idendificação dos usuários que terão permissão de adminis
 
 # ./content/PoiResponse.py
 #. Default: "Select the responsible manager for this issue"
-#: ./browser/response.pt:266
+#: ./browser/response.pt:267
 msgid "Poi_help_newResponsibleManager"
 msgstr "Escolha o responsável por esta ocorrência"
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ./browser/response.pt:209
+#: ./browser/response.pt:210
 msgid "Poi_help_newSeverity"
 msgstr "Escolha a severidade desta ocorrência"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ./browser/response.pt:237
+#: ./browser/response.pt:238
 msgid "Poi_help_newTargetRelease"
 msgstr "Informe a versão que corrigirá esta ocorrência"
 
 #. Default: "Select the version the issue was found in."
-#: ./content/PoiIssue.py:110
+#: ./content/PoiIssue.py:116
 #, fuzzy
 msgid "Poi_help_release"
 msgstr "Selecione a versão a que esta ocorrência pertence."
 
 #. Default: "Please enter your response below"
-#: ./browser/response.pt:111
+#: ./browser/response.pt:112
 msgid "Poi_help_response"
 msgstr "Por favor, informe a sua resposta abaixo."
 
 #. Default: "Select which manager, if any, is responsible for this issue."
-#: ./content/PoiIssue.py:238
+#: ./content/PoiIssue.py:244
 msgid "Poi_help_responsibleManager"
 msgstr "Selecione qual o gerente, se existir, é responsável por esta ocorrência. "
 
@@ -235,17 +235,17 @@ msgid "Poi_help_sendNotificationEmails"
 msgstr "Se selecionado, gerentes de ocorrências receberão um email a cada vez que uma nova ocorrência ou resposta for criada, e os criadores de ocorrências receberão uma mensagem quando tiver uma nova resposta e quando uma ocorrência for resolvida e estiver aguardando confirmação."
 
 #. Default: "Select the severity of this issue."
-#: ./content/PoiIssue.py:206
+#: ./content/PoiIssue.py:212
 msgid "Poi_help_severity"
 msgstr "Selecione a gravidade desta ocorrência."
 
 #. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
-#: ./content/PoiIssue.py:142
+#: ./content/PoiIssue.py:148
 msgid "Poi_help_steps"
 msgstr "Se aplicável, por favor informe os passos necessários para reproduzir o erro ou identificar a ocorrência, um por linha."
 
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: ./content/PoiIssue.py:291
+#: ./content/PoiIssue.py:297
 msgid "Poi_help_subject"
 msgstr "Rótulos podem ser usado para adicionar categorias arbitrárias às ocorrências. A lista abaixo mostra rótulos existentes que você pode selecionar, ou você pode adicionar algum novo."
 
@@ -258,7 +258,7 @@ msgstr "Por favor informe a URL do repositório SVN relativo a este gerenciador.
 
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"
-#: ./content/PoiIssue.py:222
+#: ./content/PoiIssue.py:228
 msgid "Poi_help_targetRelease"
 msgstr "Versão prevista para a correção desta ocorrência"
 
@@ -284,19 +284,19 @@ msgid "Poi_help_tracker_watchers"
 msgstr ""
 
 #. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
-#: ./content/PoiIssue.py:273
+#: ./content/PoiIssue.py:279
 #, fuzzy
 msgid "Poi_help_watchers"
 msgstr "Informe os nomes de usuário das pessoas que estão observando  esta ocorrência, um por linha. Estas pessoas receberão um email a cada vez que uma resposta for adicionada a esta ocorrência. Membros do portal podem eles mesmos se adicionarem como observadores."
 
 #. Default: "Area"
-#: ./content/PoiIssue.py:174
+#: ./content/PoiIssue.py:180
 msgid "Poi_label_area"
 msgstr "Área"
 
 #. Default: "Attachment"
-#: ./browser/response.pt:148
-#: ./content/PoiIssue.py:159
+#: ./browser/response.pt:149
+#: ./content/PoiIssue.py:165
 msgid "Poi_label_attachment"
 msgstr "Anexo"
 
@@ -321,7 +321,7 @@ msgid "Poi_label_availableSeverities"
 msgstr "Gravidades Disponíveis"
 
 #. Default: "Contact email address"
-#: ./content/PoiIssue.py:254
+#: ./content/PoiIssue.py:260
 msgid "Poi_label_contactEmail"
 msgstr "Email para Contato"
 
@@ -331,7 +331,7 @@ msgid "Poi_label_defaultSeverity"
 msgstr "Gravidade Padrão"
 
 #. Default: "Details"
-#: ./content/PoiIssue.py:123
+#: ./content/PoiIssue.py:129
 msgid "Poi_label_details"
 msgstr "Detalhes"
 
@@ -343,22 +343,22 @@ msgid "Poi_label_helpText"
 msgstr "Texto de ajuda"
 
 #. Default: "Change issue state"
-#: ./browser/response.pt:171
+#: ./browser/response.pt:172
 msgid "Poi_label_issueTransition"
 msgstr "Troca da Situação da Ocorrência"
 
 #. Default: "Issue type"
-#: ./content/PoiIssue.py:189
+#: ./content/PoiIssue.py:195
 msgid "Poi_label_issueType"
 msgstr "Tipo da Ocorrência"
 
 #. Default: "Id"
-#: ./content/PoiIssue.py:81
+#: ./content/PoiIssue.py:87
 msgid "Poi_label_issue_id"
 msgstr "Id"
 
 #. Default: "Title"
-#: ./content/PoiIssue.py:90
+#: ./content/PoiIssue.py:96
 msgid "Poi_label_issue_title"
 msgstr "Título"
 
@@ -374,35 +374,35 @@ msgstr "Administradores do Gerenciador"
 
 # ./content/PoiResponse.py
 #. Default: "Change responsible manager"
-#: ./browser/response.pt:261
+#: ./browser/response.pt:262
 msgid "Poi_label_newResponsibleManager"
 msgstr "Alterar o responsável"
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ./browser/response.pt:204
+#: ./browser/response.pt:205
 msgid "Poi_label_newSeverity"
 msgstr "Alterar a severidade da ocorrência"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ./browser/response.pt:232
+#: ./browser/response.pt:233
 msgid "Poi_label_newTargetRelease"
 msgstr "Alterar a versão"
 
 #. Default: "Version"
-#: ./content/PoiIssue.py:108
+#: ./content/PoiIssue.py:114
 #, fuzzy
 msgid "Poi_label_release"
 msgstr "Versão"
 
 #. Default: "Response"
-#: ./browser/response.pt:108
+#: ./browser/response.pt:109
 msgid "Poi_label_response"
 msgstr "Resposta"
 
 #. Default: "Responsible"
-#: ./content/PoiIssue.py:236
+#: ./content/PoiIssue.py:242
 msgid "Poi_label_responsibleManager"
 msgstr "Responsável"
 
@@ -412,17 +412,17 @@ msgid "Poi_label_sendNotificationEmails"
 msgstr "Notificar por Emails"
 
 #. Default: "Severity"
-#: ./content/PoiIssue.py:204
+#: ./content/PoiIssue.py:210
 msgid "Poi_label_severity"
 msgstr "Gravidade"
 
 #. Default: "Steps to reproduce"
-#: ./content/PoiIssue.py:140
+#: ./content/PoiIssue.py:146
 msgid "Poi_label_steps"
 msgstr "Passos para Reproduzir o Problema"
 
 #. Default: "Tags"
-#: ./content/PoiIssue.py:289
+#: ./content/PoiIssue.py:295
 msgid "Poi_label_subject"
 msgstr "Rótulos"
 
@@ -434,7 +434,7 @@ msgstr "URL para o SVN"
 
 # ./content/PoiIssue.py
 #. Default: "Target release"
-#: ./content/PoiIssue.py:220
+#: ./content/PoiIssue.py:226
 msgid "Poi_label_targetRelease"
 msgstr "Versão"
 
@@ -460,11 +460,11 @@ msgid "Poi_label_tracker_watchers"
 msgstr ""
 
 #. Default: "Issue watchers"
-#: ./content/PoiIssue.py:271
+#: ./content/PoiIssue.py:277
 msgid "Poi_label_watchers"
 msgstr "Observadores da Ocorrência"
 
-#: ./browser/response.py:560
+#: ./browser/response.py:572
 msgid "Removed response id ${response_id}."
 msgstr "Removida a resposta com id ${response_id}"
 
@@ -479,31 +479,31 @@ msgstr ""
 msgid "Response Information"
 msgstr ""
 
-#: ./browser/response.py:500
+#: ./browser/response.py:512
 msgid "Response does not exist anymore; perhaps it was removed by another user."
 msgstr "A resposta não existe mais; talvez ela foi removida por outro usuário."
 
-#: ./browser/response.py:553
+#: ./browser/response.py:565
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr "A resposta com id ${response_id} não existe, portanto não poderia ser removida."
 
-#: ./browser/response.py:216
+#: ./browser/response.py:217
 msgid "Response id ${response_id} does not exist."
 msgstr "Resposta com id ${response_id} não existe."
 
-#: ./browser/response.py:581
+#: ./browser/response.py:593
 msgid "Response id ${response_id} has no attachment."
 msgstr "Resposta com id ${response_id} não possui nenhum anexo."
 
-#: ./browser/response.py:545
+#: ./browser/response.py:557
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr "O id ${response_id} da resposta não é um número inteiro, portanto não pode ser removido;"
 
-#: ./browser/response.py:210
+#: ./browser/response.py:211
 msgid "Response id ${response_id} is no integer."
 msgstr "Id de resposta ${response_id} não é um número inteiro."
 
-#: ./browser/response.py:413
+#: ./browser/response.py:423
 msgid "Responsible manager"
 msgstr "Responsável"
 
@@ -512,7 +512,7 @@ msgstr "Responsável"
 msgid "Search"
 msgstr "Buscar"
 
-#: ./browser/response.py:412
+#: ./browser/response.py:422
 msgid "Severity"
 msgstr "Severidade"
 
@@ -530,7 +530,7 @@ msgstr "Parar de observar esta ocorrência"
 msgid "Submit new issue"
 msgstr "Submeter nova ocorrência "
 
-#: ./browser/response.py:437
+#: ./browser/response.py:447
 msgid "Target release"
 msgstr "Versão"
 
@@ -554,11 +554,11 @@ msgstr "Observar a Ocorrência"
 msgid "Watch this tracker"
 msgstr "Observar esta ocorrência"
 
-#: ./browser/response.py:532
+#: ./browser/response.py:544
 msgid "You are not allowed to delete responses."
 msgstr "Você não pode apagar respostas."
 
-#: ./browser/response.py:490
+#: ./browser/response.py:502
 msgid "You are not allowed to edit responses."
 msgstr "Você não pode editar respostas."
 
@@ -654,17 +654,17 @@ msgid "login_suggestion"
 msgstr "Se for possível, por favor, se autentique antes de enviar esta ocorrência."
 
 #. Default: "If you can, please log in before submitting a reaction."
-#: ./browser/response.pt:87
+#: ./browser/response.pt:88
 msgid "login_suggestion_response"
 msgstr "Se for possível, por favor, se autentique antes de enviar esta reação."
 
 #. Default: "No responses can be added."
-#: ./browser/response.pt:79
+#: ./browser/response.pt:80
 msgid "msg_no_responses_can_be_added"
 msgstr "Não é possível adicionar respostas."
 
 #. Default: "(Not assigned)"
-#: ./content/PoiIssue.py:507
+#: ./content/PoiIssue.py:513
 #: ./content/PoiTracker.py:430
 #: ./skins/Poi/poi_issue_search_form.pt:98
 msgid "not_assigned"
@@ -701,17 +701,17 @@ msgid "poi_all_pending_issues"
 msgstr "Todas as tarefas pendentes"
 
 #. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
-#: ./browser/notifications.py:240
+#: ./browser/notifications.py:228
 msgid "poi_email_issue_resolved_subject_template"
 msgstr "[${tracker_title}] Resolvido #${issue_id} - ${issue_title}"
 
 #. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
-#: ./browser/notifications.py:115
+#: ./browser/notifications.py:142
 msgid "poi_email_new_issue_subject_template"
 msgstr "[${tracker_title}] #${issue_id} - Nova ocorrência: ${issue_title}"
 
 #. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
-#: ./browser/notifications.py:198
+#: ./browser/notifications.py:205
 msgid "poi_email_new_response_subject_template"
 msgstr "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
 
@@ -1020,7 +1020,7 @@ msgid "poi_search_label_text"
 msgstr "Texto da Ocorrência"
 
 #. Default: "Add response"
-#: ./browser/response.pt:102
+#: ./browser/response.pt:103
 msgid "title_add_response"
 msgstr "Adicionar uma resposta"
 
@@ -1053,4 +1053,3 @@ msgstr "Alimentação RSS de ocorrências sem responsável definido"
 #: ./skins/Poi/poi_tracker_view.pt:236
 msgid "title_rss_feed_unconfirmed"
 msgstr "Alimentação RSS de ocorrências não confirmadas"
-
