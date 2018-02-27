@@ -2,6 +2,12 @@ Changelog for Poi
 =================
 
 
+4.0.1 (unreleased)
+------------------
+
+- Nothing changed yet.
+
+
 4.0 (2017-07-18)
 ----------------
 
