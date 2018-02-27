@@ -91,7 +91,7 @@
                          data-pat-plone-modal='{"prependContent": ".portalMessage", "title": "Log in", "width": "26em"}'
                          tal:attributes="href string:${portal_url}/login"
                          i18n:domain="plone"
-                         i18n:attributes="value label_log_in;">
+                         i18n:translate="label_log_in;">
                          Log In
                       </a>
                 </form>
@@ -329,4 +329,3 @@
 </metal:content-core>
 </body>
 </html>
-
