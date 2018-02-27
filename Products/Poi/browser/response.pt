@@ -3,7 +3,7 @@
      xmlns:metal="http://xml.zope.org/namespaces/metal"
      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
      i18n:domain="Poi">
-  
+
   <h3 i18n:translate="title_change_history"
       tal:condition="view/responses">
       Change History
@@ -82,7 +82,7 @@
 
     </div>
   </tal:responses>
-  
+
   <tal:add condition="python:user.has_permission('Poi: Upload attachment', here)">
     <h3 i18n:translate="title_add_remove_attachments">Add/remove attachments</h3>
     <metal:uploads use-macro="context/@@poi_issue_uploads/macros/issue-uploads" />
@@ -157,7 +157,7 @@
         </div>
 
       </div>
-      
+
       <h3 i18n:translate="Poi_label_modify"
               tal:define="transitions view/transitions_for_display;
                           severities view/severities_for_display;
@@ -180,7 +180,7 @@
                  i18n:translate="Poi_help_issueTransition">
               Set a new state, if applicable
             </div>
-            
+
             <select name="transition">
                 <tal:transitions
                     repeat="transition view/transitions_for_display">
@@ -205,7 +205,7 @@
                  i18n:translate="Poi_help_newSeverity">
               Select the severity for this issue
             </div>
-            
+
             <select name="severity">
                 <tal:severities repeat="option view/severities_for_display">
                     <option tal:define="term python:option['value']"
@@ -231,7 +231,7 @@
                  i18n:translate="Poi_help_newTargetRelease">
               Set the target release for this issue
             </div>
-            
+
             <select name="targetRelease">
                 <tal:releases repeat="option view/releases_for_display">
                     <option tal:define="term python:option['value']"
@@ -255,7 +255,7 @@
                  i18n:translate="Poi_help_newResponsibleManager">
               Select the assignee for this issue
             </div>
-            
+
             <select name="current_assignee">
                 <option value="">
                     No change

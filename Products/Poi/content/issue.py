@@ -214,7 +214,7 @@ class IIssue(model.Schema):
         ),
         required=False
     )
-    
+
     empty = schema.Bool(
         title=_(u'Poi_label_issue_empty', default=u'Leave this field empty'),
         required=False,

@@ -22,7 +22,7 @@
           condition="refs">
 
 
-        <tal:notMultivalued condition="not:field/multiValued"> 
+        <tal:notMultivalued condition="not:field/multiValued">
         <tal:block condition="python: (can_view or not hide_inaccessible)"
                    define="obj python:refs[0];
                            obj_path python: '/'.join(obj.getPhysicalPath());
@@ -53,7 +53,7 @@
             </tal:if>
 
         </tal:block>
-        </tal:notMultivalued> 
+        </tal:notMultivalued>
 
         <ul tal:condition="field/multiValued">
           <tal:block tal:repeat="obj refs">

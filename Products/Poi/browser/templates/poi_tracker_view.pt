@@ -35,7 +35,7 @@
       <div class="tracker-help"
            tal:content="structure context/help_text/output" />
     </tal:text>
-    
+
     <metal:trackerheader define-macro="trackerheader"
       tal:define="member context/@@plone_portal_state/member;
                   isManager isManager|python:member.has_role('Manager', context);
@@ -55,7 +55,7 @@
     </div>
 
     <div class="row" id="tracker-actions">
-      
+
           <div class="col-xs-12 col-sm-7" tal:condition="python: user.has_permission('Poi: Add Issue', here)">
               <div class="trackerAction">
                 <form action="createObject"
@@ -76,13 +76,13 @@
                          />
                 </form>
             </div>
-          
+
               <div class="trackerAction" tal:condition="python:context.portal_type == 'Tracker'">
                   <a href="#" class="standalone" id="poi-show-log-form"
                      i18n:translate="view_issue_logs"
                      tal:attributes="href string:${trackerUrl}/log">View activity feed</a>
               </div>
-              
+
               <div class="trackerAction" tal:condition="isAnon">
                 <form
                     id="poi-login-form"
@@ -121,7 +121,7 @@
                 </div>
               </metal:additional-slot>
           </div>
-          
+
           <div class="col-xs-12 col-sm-5">
               <div id="issue-quicksearch-box">
                  <form action="" tal:attributes="action string:${trackerUrl}/@@poi_issue_quicksearch">
@@ -136,7 +136,7 @@
 
               </div>
           </div>
-          
+
     </div>
 
     </metal:trackerheader>
@@ -200,7 +200,7 @@
              </li>
               <tal:releases repeat="state issueStates">
                   <tal:block condition="python:state not in ignoredStates">
-                      <li tal:define="issues python:issuefolder.getFilteredIssues(state=state); 
+                      <li tal:define="issues python:issuefolder.getFilteredIssues(state=state);
                                       state_id python:state[0];
                                       state_text python:state[1]">
                         <a tal:attributes="href python:addTokenToUrl('%s/poi_issue_search?state=%s' % (trackerUrl, state_id));
@@ -231,7 +231,7 @@
     </div>
 
     <div style="clear:both"><!----></div>
-    
+
     <tal:loggedIn condition="not:isAnon">
       <div id="my-issues"
            tal:define="issues python:issuefolder.getMyIssues(manager=False)"
@@ -261,7 +261,7 @@
           </metal:rss>
         </metal:table>
       </div>
-      
+
       <div id="my-submitted"
            tal:define="issues python:issuefolder.getMySubmitted(manager=False)"
            tal:condition="nocall:issues">
@@ -291,7 +291,7 @@
         </metal:table>
       </div>
     </tal:loggedIn>
-    
+
 
       <div id="orphaned-issues"
            tal:define="issues issuefolder/getOrphanedIssues"

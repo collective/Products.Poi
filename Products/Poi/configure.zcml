@@ -70,7 +70,7 @@
            zope.lifecycleevent.interfaces.IObjectAddedEvent"
         handler=".events.update_references"
         />
-        
+
   <subscriber
       for="Products.Poi.interfaces.IIssue
            zope.lifecycleevent.interfaces.IObjectModifiedEvent"

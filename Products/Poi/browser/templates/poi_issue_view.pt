@@ -63,7 +63,7 @@
           <tal:div condition="not:repeat/tag/end">-</tal:div>
         </span>
     </div>
-    
+
     <div class="row">
     <div class="col-xs-12 col-sm-6">
         <table class="vertical listing issue-info-box">
@@ -203,9 +203,9 @@
     </dl>
 
     <div class="visualClear"><!----></div>
-    
+
     <div tal:replace="structure provider:poi.response.add" />
-    
+
     <div class="visualClear"><!----></div>
 
   </metal:content-core>
