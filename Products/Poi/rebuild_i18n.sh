@@ -15,7 +15,7 @@
 # - Problems?  Ask for help on the internationalization forum:
 #   http://www.nabble.com/Internationalization-f6748.html
 
-i18ndude rebuild-pot --pot locales/poi.pot --create Poi --exclude="poi-my-issues-rss.xml.pt poi-orphaned-issues-rss.xml.pt poi-issue-search-rss.xml.pt" .
+i18ndude rebuild-pot --pot locales/poi.pot --create Poi --exclude="poi-my-issues-rss.xml.pt poi-orphaned-issues-rss.xml.pt poi-issue-search-rss.xml.pt poi-my-submitted-issues-rss.xml.pt" .
 
 # Sync plone po files; but commented out by default as we have no code that updates the plone.pot file.
 # i18ndude sync --pot locales/plone.pot $(find . -name 'plone-.po')
