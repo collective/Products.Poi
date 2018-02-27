@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2018-02-27 12:12+0000\n"
+"POT-Creation-Date: 2018-02-27 14:22+0000\n"
 "PO-Revision-Date: 2005-12-26 03:19 +0000\n"
 "Last-Translator: Junyong Pan <panjy@zopechina.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -673,7 +673,7 @@ msgid "Poi_label_subject"
 msgstr "标记"
 
 # ./content/PoiTracker.py
-#. Default: "URL to Repositor"
+#. Default: "URL to Repository"
 #: ./content/PoiTracker.py:275
 #: ./content/tracker.py:371
 msgid "Poi_label_svnurl"

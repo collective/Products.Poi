@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-pt-br\n"
-"POT-Creation-Date: 2018-02-27 12:12+0000\n"
+"POT-Creation-Date: 2018-02-27 14:22+0000\n"
 "PO-Revision-Date: 2012-04-09 13:59-0300\n"
 "Last-Translator: Gustavo Lepri <lepri@simplesconsultoria.com.br>\n"
 "Language-Team: Simples Consultoria <contato@simplesconsultoria.com.br>\n"
@@ -633,7 +633,7 @@ msgid "Poi_label_subject"
 msgstr "Rótulos"
 
 # ./content/PoiTracker.py
-#. Default: "URL to Repositor"
+#. Default: "URL to Repository"
 #: ./content/PoiTracker.py:275
 #: ./content/tracker.py:371
 #, fuzzy

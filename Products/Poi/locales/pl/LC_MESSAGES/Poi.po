@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2018-02-27 12:12+0000\n"
+"POT-Creation-Date: 2018-02-27 14:22+0000\n"
 "PO-Revision-Date: 2010-01-24 15:00+0010\n"
 "Last-Translator: STX Next <info@stxnext.pl>\n"
 "Language-Team: STX Next <info@stxnext.pl>\n"
@@ -660,7 +660,7 @@ msgid "Poi_label_subject"
 msgstr "Kategorie"
 
 # ./content/PoiTracker.py
-#. Default: "URL to Repositor"
+#. Default: "URL to Repository"
 #: ./content/PoiTracker.py:275
 #: ./content/tracker.py:371
 #, fuzzy

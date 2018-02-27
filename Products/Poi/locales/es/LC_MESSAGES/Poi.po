@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-es\n"
-"POT-Creation-Date: 2018-02-27 12:12+0000\n"
+"POT-Creation-Date: 2018-02-27 14:22+0000\n"
 "PO-Revision-Date: 2009-08-11 13:53-0400\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Plone Cono Sur <plone-conosur@lists.plone.org>\n"
@@ -678,7 +678,7 @@ msgid "Poi_label_subject"
 msgstr "Etiquetas"
 
 # ./content/PoiTracker.py
-#. Default: "URL to Repositor"
+#. Default: "URL to Repository"
 #: ./content/PoiTracker.py:275
 #: ./content/tracker.py:371
 #, fuzzy
