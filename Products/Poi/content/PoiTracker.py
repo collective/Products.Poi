@@ -184,7 +184,7 @@ schema = atapi.Schema((
                 default=(
                     u"Enter the releases which issues can be assigned to, "
                     u"one per line. If no releases are entered, issues "
-                    u"will not be organised by release.")),
+                    u"will not be organized by release.")),
         ),
         required=False
     ),
@@ -222,7 +222,7 @@ schema = atapi.Schema((
         name='watchers',
         widget=atapi.LinesWidget(
             label=_(u'Poi_label_tracker_watchers',
-                    default=u"Tracker watchers"),
+                    default=u"Watchers"),
             description=_(
                 u'Poi_help_tracker_watchers',
                 default=(
@@ -245,12 +245,11 @@ schema = atapi.Schema((
             description=_(
                 u'Poi_help_sendNotificationEmails',
                 default=(
-                    u"If selected, tracker managers will receive an email "
-                    u"each time a new issue or response is posted, and "
-                    u"issue submitters will receive an email when there "
-                    u"is a new response and when an issue has been "
-                    u"resolved, awaiting confirmation. Technicians will "
-                    u"get an email when an issue is assigned to them.")),
+                    u"If selected, all tracker assignees above will "
+                    u"receive an email for new issues and all issue "
+                    u"responses. Issue watchers will receive an email "
+                    u"for all issue responses. Issue submitters will "
+                    u"receive an email when the issue has been resolved.")),
         ),
     ),
 
@@ -264,10 +263,7 @@ schema = atapi.Schema((
                 default=(
                     u"If given, and if 'Send notification emails' is "
                     u"selected, an email will be sent to this address "
-                    u"each time a new issue or response is posted. "
-                    u"Managers will receive individual emails as well. "
-                    u"If this is not wanted, you may want to make them "
-                    u"technician instead.")),
+                    u"each time a new issue or response is posted.")),
         ),
         required=False,
         validators=('isEmail',)
@@ -277,14 +273,14 @@ schema = atapi.Schema((
         name='svnUrl',
         widget=atapi.StringWidget(
             label=_(u'Poi_label_svnurl',
-                    default=u"URL to SVN"),
+                    default=u"URL to Repository"),
             description=_(
                 u'Poi_help_svnurl',
                 default=(
-                    u"Please enter the Url to the related SVN repository, "
+                    u"Please enter the URL to the related repository, "
                     u"e.g.: "
-                    u"http://dev.plone.org/changeset/%(rev)s/collective "
-                    u"for products in the Plone collective.")),
+                    u"https://github.com/collective/Products.Poi/commit/%(rev)s "
+                    u"for Products.Poi.")),
             size='90',
         ),
         required=False,

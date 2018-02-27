@@ -287,7 +287,7 @@ class ITracker(model.Schema):
     available_releases = schema.List(
         title=_(
             u'Poi_label_availableReleases',
-            default=u'Available Releases'
+            default=u'Available releases'
         ),
         description=_(
             u'Poi_help_availableReleases',
@@ -345,7 +345,7 @@ class ITracker(model.Schema):
             default=(
                 u"If selected, all tracker assignees above will "
                 u"receive an email for new issues and all issue "
-                u"responses. Issue watchers will recieve an email "
+                u"responses. Issue watchers will receive an email "
                 u"for all issue responses. Issue submitters will "
                 u"receive an email when the issue has been resolved.")
         ),
@@ -375,8 +375,8 @@ class ITracker(model.Schema):
             default=(
                 u"Please enter the URL to the related repository, "
                 u"e.g.: "
-                u"http://dev.plone.org/changeset/%(rev)s/collective "
-                u"for products in the Plone collective.")
+                u"https://github.com/collective/Products.Poi/commit/%(rev)s "
+                u"for Products.Poi.")
         ),
         required=False,
     )

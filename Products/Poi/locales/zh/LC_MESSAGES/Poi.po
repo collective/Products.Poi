@@ -3,11 +3,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: Mon May 22 09:32:30 2017\n"
+"POT-Creation-Date: 2018-02-27 12:12+0000\n"
 "PO-Revision-Date: 2005-12-26 03:19 +0000\n"
 "Last-Translator: Junyong Pan <panjy@zopechina.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,1339 +15,1307 @@ msgstr ""
 "Language-Name: 简体中文\n"
 "Preferred-Encodings: utf-8\n"
 "Domain: Poi\n"
+"Language: \n"
 "X-Is-Fallback-For: zh-cn zh-hk zh-mo zh-sg\n"
 
-#. Default: "Tracker log"
-#: Products.Poi:/browser/log.pt:12
-msgid "poi_heading_log"
+#: ./profiles.zcml:14
+msgid "A friendly issue tracker"
 msgstr ""
 
-#. Default: "An overview of recent activity in the tracker."
-#: Products.Poi:/browser/log.pt:14
-msgid "poi_help_log"
+#: ./browser/templates/poi_email_new_issue_html.pt:23
+#: ./browser/templates/poi_email_new_issue_plain.pt:8
+msgid "A new issue has been submitted to the ${tracker_title} tracker by ${issue_author} and awaits confirmation."
 msgstr ""
 
-#. Default: "New issue ${name} added by ${author}"
-#: Products.Poi:/browser/log.pt:32
-msgid "poi_new_issue_added"
+#: ./browser/templates/poi_email_new_response_html.pt:24
+#: ./browser/templates/poi_email_new_response_plain.pt:8
+msgid "A new response has been given to the issue ${issue_title} in the tracker ${tracker_title} by ${response_author}."
 msgstr ""
 
-#. Default: "${author} added a new response to ${name}:"
-#: Products.Poi:/browser/log.pt:39
-msgid "poi_new_response_added"
-msgstr ""
-
-#: Products.Poi:/browser/log.pt:53 Products.Poi:/browser/log.pt:54
-#: Products.Poi:/browser/log.pt:57 Products.Poi:/browser/response.pt:54
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:107
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:113
-msgid "${DYNAMIC_CONTENT}"
-msgstr ""
-
-#. Default: "Added ${count} minute(s) ago."
-#: Products.Poi:/browser/log.pt:68
-msgid "poi_added_minutes_ago"
-msgstr ""
-
-#. Default: "Added ${count} hour(s) ago."
-#: Products.Poi:/browser/log.pt:75
-msgid "poi_added_hours_ago"
-msgstr ""
-
-#. Default: "Added ${count} day(s) ago."
-#: Products.Poi:/browser/log.pt:82
-msgid "poi_added_days_ago"
-msgstr ""
-
-#. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
-#: Products.Poi:/browser/notifications.py:148
-msgid "poi_email_new_issue_subject_template"
-msgstr ""
-
-#. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
-#: Products.Poi:/browser/notifications.py:211
-msgid "poi_email_new_response_subject_template"
-msgstr ""
-
-#. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
-#: Products.Poi:/browser/notifications.py:234
-msgid "poi_email_issue_resolved_subject_template"
-msgstr ""
-
-#. Default: "If you can, please log in before submitting a reaction."
-#: Products.Poi:/browser/response.pt:100
-msgid "login_suggestion_response"
-msgstr ""
-
-#. Default: "Add response"
-#: Products.Poi:/browser/response.pt:115
-msgid "title_add_response"
-msgstr ""
-
-# ./content/PoiIssue.py
-#. Default: "Response"
-#: Products.Poi:/browser/response.pt:122
-msgid "Poi_label_response"
-msgstr "答复"
-
-# ./content/PoiIssue.py
-#. Default: "Please enter your response below."
-#: Products.Poi:/browser/response.pt:125
-msgid "Poi_help_response"
-msgstr "请在下面填写答复"
-
-#. Default: "Modify Issue"
-#: Products.Poi:/browser/response.pt:161
-msgid "Poi_label_modify"
-msgstr ""
-
-# ./content/PoiIssue.py
-#. Default: "Change issue state"
-#: Products.Poi:/browser/response.pt:173
-msgid "Poi_label_issueTransition"
-msgstr "改变问题状态"
-
-# ./content/PoiIssue.py
-#. Default: "Set a new state, if applicable"
-#: Products.Poi:/browser/response.pt:178
-msgid "Poi_help_issueTransition"
-msgstr "如果可以，选择答复问题的状态改变"
-
-# ./content/PoiResponse.py
-#. Default: "Change issue severity"
-#: Products.Poi:/browser/response.pt:199
-msgid "Poi_label_newSeverity"
-msgstr ""
-
-# ./content/PoiResponse.py
-#. Default: "Select the severity for this issue"
-#: Products.Poi:/browser/response.pt:204
-msgid "Poi_help_newSeverity"
-msgstr ""
-
-# ./content/PoiResponse.py
-#. Default: "Change target release"
-#: Products.Poi:/browser/response.pt:225
-msgid "Poi_label_newTargetRelease"
-msgstr ""
-
-# ./content/PoiResponse.py
-#. Default: "Set the target release for this issue"
-#: Products.Poi:/browser/response.pt:230
-msgid "Poi_help_newTargetRelease"
-msgstr ""
-
-# ./content/PoiResponse.py
-#. Default: "Change assignee"
-#: Products.Poi:/browser/response.pt:249
-msgid "Poi_label_newResponsibleManager"
-msgstr ""
-
-#: Products.Poi:/browser/response.pt:25
-msgid "Edit"
-msgstr "编辑"
-
-# ./content/PoiResponse.py
-#. Default: "Select the assignee for this issue"
-#: Products.Poi:/browser/response.pt:254
-msgid "Poi_help_newResponsibleManager"
-msgstr ""
-
-#: Products.Poi:/browser/response.pt:35
-msgid "Delete"
-msgstr "删除"
-
-#. Default: "Added by"
-#: Products.Poi:/browser/response.pt:44
-msgid "poi_added_by"
-msgstr "添加人："
-
-#. Default: "on"
-#: Products.Poi:/browser/response.pt:49
-msgid "poi_added_on"
-msgstr "时间："
-
-#. Default: "Change History"
-#: Products.Poi:/browser/response.pt:7
-msgid "title_change_history"
-msgstr ""
-
-#. Default: "Attached:"
-#: Products.Poi:/browser/response.pt:72
-msgid "poi_label_attachment"
-msgstr "附件："
-
-#. Default: "Add/remove attachments"
-#: Products.Poi:/browser/response.pt:87
-msgid "title_add_remove_attachments"
-msgstr ""
-
-#. Default: "No responses can be added."
-#: Products.Poi:/browser/response.pt:92
-msgid "msg_no_responses_can_be_added"
-msgstr ""
-
-#: Products.Poi:/browser/response.py:194
-msgid "No response selected."
-msgstr ""
-
-#. Default: ""
-#: Products.Poi:/browser/response.py:202
-msgid "Response id ${response_id} is no integer."
-msgstr ""
-
-#. Default: ""
-#: Products.Poi:/browser/response.py:208
-msgid "Response id ${response_id} does not exist."
-msgstr ""
-
-#: Products.Poi:/browser/response.py:413
-msgid "Issue state"
-msgstr ""
-
-#: Products.Poi:/browser/response.py:418
-msgid "Severity"
-msgstr ""
-
-#: Products.Poi:/browser/response.py:419
-msgid "Assignee"
-msgstr ""
-
-#: Products.Poi:/browser/response.py:421
-msgid "Target release"
-msgstr ""
-
-#: Products.Poi:/browser/response.py:440
-msgid "No response text added and no issue changes made."
-msgstr ""
-
-#: Products.Poi:/browser/response.py:482
-msgid "You are not allowed to edit responses."
-msgstr ""
-
-#: Products.Poi:/browser/response.py:488
-msgid "No response selected for saving."
-msgstr ""
-
-#: Products.Poi:/browser/response.py:492
-msgid ""
-"Response does not exist anymore; perhaps it was removed by another user."
-msgstr ""
-
-#. Default: ""
-#: Products.Poi:/browser/response.py:502
-msgid "Changes saved to response id ${response_id}."
-msgstr ""
-
-#: Products.Poi:/browser/response.py:526
-msgid "You are not allowed to delete responses."
-msgstr ""
-
-#: Products.Poi:/browser/response.py:532
-msgid "No response selected for removal."
-msgstr ""
-
-#. Default: ""
-#: Products.Poi:/browser/response.py:539
-msgid "Response id ${response_id} is no integer so it cannot be removed."
-msgstr ""
-
-#. Default: ""
-#: Products.Poi:/browser/response.py:547
-msgid "Response id ${response_id} does not exist so it cannot be removed."
-msgstr ""
-
-#. Default: ""
-#: Products.Poi:/browser/response.py:554
-msgid "Removed response id ${response_id}."
-msgstr ""
-
-#. Default: "Error: no response found for editing"
-#: Products.Poi:/browser/templates/edit_response.pt:19
-msgid "title_error_no_response"
-msgstr ""
-
-#. Default: "Return to issue."
-#: Products.Poi:/browser/templates/edit_response.pt:23
-#: Products.Poi:/browser/templates/edit_response.pt:36
-msgid "label_return_to_issue"
-msgstr ""
-
-#. Default: "Edit response"
-#: Products.Poi:/browser/templates/edit_response.pt:30
-msgid "title_edit_response"
-msgstr ""
-
-#. Default: "You are not allowed to edit this response."
-#: Products.Poi:/browser/templates/edit_response.pt:33
-msgid "label_edit_response_not_allowed"
-msgstr ""
-
-#. Default: "${tracker} - Issue search results"
-#: Products.Poi:/browser/templates/poi-issue-search-rss.xml.pt:11
-#: Products.Poi:/browser/templates/poi_issue_search.pt:34
-msgid "poi_heading_search_results"
-msgstr "问题查找结果"
-
-#. Default: "No results were found"
-#: Products.Poi:/browser/templates/poi-issue-search-rss.xml.pt:14
-#: Products.Poi:/browser/templates/poi-my-issues-rss.xml.pt:19
-#: Products.Poi:/browser/templates/poi-my-submitted-issues-rss.xml.pt:19
-#: Products.Poi:/browser/templates/poi-orphaned-issues-rss.xml.pt:15
-#: Products.Poi:/browser/templates/poi_issue_search.pt:48
-msgid "description_no_results_found"
-msgstr "没有找到结果。"
-
-#. Default: "${number} items matching your criteria."
-#: Products.Poi:/browser/templates/poi-issue-search-rss.xml.pt:18
-#: Products.Poi:/browser/templates/poi-my-issues-rss.xml.pt:23
-#: Products.Poi:/browser/templates/poi-my-submitted-issues-rss.xml.pt:23
-#: Products.Poi:/browser/templates/poi-orphaned-issues-rss.xml.pt:17
-#: Products.Poi:/browser/templates/poi_issue_search.pt:37
-msgid "batch_x_items_matching_your_criteria"
-msgstr "有${number}个条目满足您的条件。"
-
-#: Products.Poi:/browser/templates/poi-issue-search-rss.xml.pt:20
-#: Products.Poi:/browser/templates/poi-my-issues-rss.xml.pt:25
-#: Products.Poi:/browser/templates/poi-my-submitted-issues-rss.xml.pt:25
-#: Products.Poi:/browser/templates/poi-orphaned-issues-rss.xml.pt:19
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:324
-msgid "Poi"
-msgstr ""
-
-#. Default: "${tracker} - My issues"
-#: Products.Poi:/browser/templates/poi-my-issues-rss.xml.pt:16
-#: Products.Poi:/browser/templates/poi-orphaned-issues-rss.xml.pt:13
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:243
-msgid "poi_heading_my_issues"
-msgstr "我的问题"
-
-#. Default: "${tracker} - My Submitted Issues"
-#: Products.Poi:/browser/templates/poi-my-submitted-issues-rss.xml.pt:16
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:272
-msgid "poi_heading_my_submitted_issues"
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_email_new_issue_html.pt:23
-#: Products.Poi:/browser/templates/poi_email_new_issue_plain.pt:8
-msgid ""
-"A new issue has been submitted to the ${tracker_title} tracker by "
-"${issue_author} and awaits confirmation."
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_email_new_issue_html.pt:27
-#: Products.Poi:/browser/templates/poi_email_new_issue_plain.pt:13
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_html.pt:30
-msgid "Issue Information"
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_email_new_issue_html.pt:29
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_html.pt:32
-msgid "Issue"
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_email_new_issue_html.pt:34
-#: Products.Poi:/browser/templates/poi_email_new_issue_plain.pt:19
-msgid "Issue Details:"
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_email_new_issue_html.pt:39
-#: Products.Poi:/browser/templates/poi_email_new_issue_plain.pt:23
-#: Products.Poi:/browser/templates/poi_email_new_response_html.pt:54
-#: Products.Poi:/browser/templates/poi_email_new_response_plain.pt:29
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_html.pt:38
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_plain.pt:22
-msgid "This is an automated email, please do not reply."
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_email_new_issue_plain.pt:15
-#: Products.Poi:/browser/templates/poi_email_new_response_html.pt:31
-#: Products.Poi:/browser/templates/poi_email_new_response_plain.pt:14
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_plain.pt:18
-msgid "Issue:"
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_email_new_response_html.pt:24
-#: Products.Poi:/browser/templates/poi_email_new_response_plain.pt:8
-msgid ""
-"A new response has been given to the issue ${issue_title} in the tracker "
-"${tracker_title} by ${response_author}."
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_email_new_response_html.pt:29
-#: Products.Poi:/browser/templates/poi_email_new_response_plain.pt:12
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_plain.pt:16
-msgid "Response Information"
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_email_new_response_html.pt:42
-#: Products.Poi:/browser/templates/poi_email_new_response_plain.pt:23
+#: ./browser/templates/poi_email_new_response_html.pt:42
+#: ./browser/templates/poi_email_new_response_plain.pt:23
 msgid "An attachment has been added with id ${id}."
 msgstr ""
 
-#: Products.Poi:/browser/templates/poi_email_new_response_html.pt:47
-#: Products.Poi:/browser/templates/poi_email_new_response_plain.pt:25
-msgid "Response Details:"
+#: ./content/tracker.py:235
+msgid "Area"
 msgstr ""
 
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_html.pt:23
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_plain.pt:8
-msgid ""
-"The issue ${issue_title} in the ${tracker_title} tracker has been marked as "
-"resolved by ${response_author}."
+#: ./browser/response.py:419
+msgid "Assignee"
 msgstr ""
 
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_html.pt:25
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_plain.pt:11
-msgid ""
-"Please visit the issue and either confirm that it has been satisfactorily "
-"resolved or re-open it."
+#. Default: ""
+#: ./browser/response.py:502
+msgid "Changes saved to response id ${response_id}."
 msgstr ""
 
-#. Default: "Return to tracker"
-#: Products.Poi:/browser/templates/poi_issue_search.pt:43
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:20
-msgid "poi_return_to_tracker"
-msgstr "回到问题跟踪器"
-
-#. Default: "Target release"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:116
-msgid "poi_search_label_target_release"
+#: ./content/tracker.py:62
+msgid "Critical"
 msgstr ""
 
-#. Default: "Select the assigned target release you wish to search for."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:118
-msgid "poi_search_help_target_release"
+#: ./browser/response.pt:35
+msgid "Delete"
+msgstr "删除"
+
+#: ./content/tracker.py:182
+msgid "Description"
 msgstr ""
 
-#. Default: "Area"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:139
-msgid "poi_search_label_area"
-msgstr "领域"
+#: ./browser/response.pt:25
+msgid "Edit"
+msgstr "编辑"
 
-#. Default: "Select the areas you wish to search for."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:141
-msgid "poi_search_help_area"
-msgstr "选择你希望搜索的领域"
-
-#. Default: "Issue search"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:15
-msgid "poi_heading_issue_search"
-msgstr "查找问题"
-
-#. Default: "Issue Types"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:160
-msgid "poi_search_label_type"
-msgstr "问题类型"
-
-#. Default: "Select the types you wish to search for."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:162
-msgid "poi_search_help_issue_type"
-msgstr "选择你需要查找的问题类型"
-
-#. Default: "Severity"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:181
-msgid "poi_search_label_severity"
-msgstr "严重性"
-
-#. Default: "Select the severities you wish to search for."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:183
-msgid "poi_search_help_severity"
-msgstr "选择你要查找的严重性"
-
-#. Default: "State"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:202
-msgid "poi_search_label_state"
-msgstr "状态"
-
-#. Default: "Select the states you wish to search for."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:204
-msgid "poi_search_help_state"
-msgstr "选择你要查找的状态"
-
-#. Default: "Assignee"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:225
-msgid "poi_search_label_assignee"
-msgstr "负责人"
-
-#. Default: "Select the assignee you wish to search for."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:227
-msgid "poi_search_help_assignee"
-msgstr "选择你希望查找的问题的负责人"
-
-#. Default: "This form allows you to search for issue according to a variety of criteria. Please make your selection below and click Search."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:23
-msgid "poi_issue_search_description"
-msgstr "你可在这个表单中查找满足某些条件的问题。请在下面选择，并点击查找。"
-
-#. Default: "Tags"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:246
-msgid "poi_search_label_tags"
-msgstr "标记"
-
-#. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:248
-msgid "poi_search_help_tags"
-msgstr ""
-"标记是有问题跟踪器管理员分配的关键字，用来更细的组织问题。选择你希望查找的标"
-"记"
-
-#. Default: "Match all tags"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:270
-msgid "poi_match_all_tags"
-msgstr ""
-
-#. Default: "Include Related Issues"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:277
-msgid "poi_display_related"
-msgstr ""
-
-#. Default: "Search"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:282
-msgid "label_search"
-msgstr "查找"
-
-#. Default: "Search Terms"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:35
-msgid "poi_legend_search_terms"
-msgstr "搜索词"
-
-#. Default: "Issue number"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:39
-msgid "poi_search_label_id"
-msgstr ""
-
-#. Default: "If you wish to search for a particular issue, please enter its number."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:41
-msgid "poi_search_help_id"
-msgstr ""
-
-#. Default: "Issue text"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:54
-msgid "poi_search_label_text"
-msgstr "问题正文"
-
-#. Default: "Enter any text you wish the issue to include."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:56
-msgid "poi_search_help_text"
-msgstr "选择你希望问题包含的文字"
-
-#. Default: "Submitter"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:79
-msgid "poi_search_label_creator"
-msgstr "提交人"
-
-#. Default: "Enter the username of the issue submitter,"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:81
-msgid "poi_search_help_creator"
-msgstr "输入问题提交人的用户名"
-
-#. Default: "Version"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:92
-#, fuzzy
-msgid "poi_search_label_release"
-msgstr "版本"
-
-#. Default: "Select the version for which the bugs you want to find were reported."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:94
-#, fuzzy
-msgid "poi_search_help_release"
-msgstr "选择你希望查找的版本"
-
-#. Default: "#"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:42
-msgid "listingheader_number"
-msgstr ""
-
-#. Default: "Title"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:47
-msgid "listingheader_title"
-msgstr "标题"
-
-#. Default: "Target"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:53
-#, fuzzy
-msgid "listingheader_release"
-msgstr "版本"
-
-#. Default: "Area"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:58
-msgid "listingheader_area"
-msgstr "领域"
-
-#. Default: "Type"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:63
-msgid "listingheader_type"
-msgstr "类型"
-
-#. Default: "Severity"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:68
-msgid "listingheader_severity"
-msgstr "严重性"
-
-#. Default: "Assignee"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:73
-msgid "listingheader_responsible"
-msgstr "负责人"
-
-#. Default: "Tags"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:78
-msgid "listingheader_tags"
-msgstr ""
-
-#. Default: "Related Issue(s)"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:82
-msgid "listingheader_related"
-msgstr ""
-
-#. Default: "State"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:86
-msgid "listingheader_state"
-msgstr "状态"
-
-#. Default: "Issue type"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:101
-msgid "poi_label_type"
-msgstr "问题类型"
-
-#. Default: "Severity"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:110
-msgid "poi_label_severity"
-msgstr "严重性"
-
-#. Default: "Contact Email"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:123
-msgid "poi_label_issue_contact_email"
-msgstr ""
-
-#. Default: "Submitted by"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:130
-msgid "poi_label_submitted_by"
-msgstr "提交人:"
-
-#. Default: "Submitted on"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:137
-msgid "poi_label_submitted_on"
-msgstr "提交时间："
-
-#. Default: "Ticket Owner"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:141
-msgid "poi_label_assignee"
-msgstr "负责人"
-
-#. Default: "Target release:"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:152
-msgid "poi_label_target_release"
-msgstr ""
-
-#. Default: "Return to search results"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:170
-msgid "poi_return_to_search_results"
-msgstr ""
-
-#. Default: "Steps to reproduce:"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:182
-msgid "poi_label_steps"
-msgstr "重现的步骤："
-
-#. Default: "Related issue(s):"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:191
-msgid "poi_label_related"
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_issue_view.pt:54
+#: ./browser/templates/poi_issue_view.pt:54
 msgid "Edit issue"
 msgstr ""
 
-#. Default: "Tags:"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:60
-msgid "poi_label_tags"
-msgstr "标记："
-
-#. Default: "State"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:72
-msgid "poi_label_state"
-msgstr "状态"
-
-#. Default: "Version:"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:81
-msgid "poi_label_version"
+#: ./content/tracker.py:309
+msgid "Enter users who will be responsible for solving the issues. Users also need to be added as Watchers to receive notifications."
 msgstr ""
 
-#. Default: "Area"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:92
-msgid "poi_label_area"
-msgstr "领域"
-
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:130
-msgid "Search"
+#: ./content/tracker.py:63
+msgid "Important"
 msgstr ""
 
-#. Default: "Advanced issue search"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:133
-#, fuzzy
-msgid "poi_issue_search"
-msgstr "查找问题"
+#: ./browser/templates/poi_email_new_issue_html.pt:29
+#: ./browser/templates/poi_email_resolved_issue_html.pt:32
+msgid "Issue"
+msgstr ""
 
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:146
+#: ./browser/templates/poi_email_new_issue_html.pt:34
+#: ./browser/templates/poi_email_new_issue_plain.pt:19
+msgid "Issue Details:"
+msgstr ""
+
+#: ./browser/templates/poi_email_new_issue_html.pt:27
+#: ./browser/templates/poi_email_new_issue_plain.pt:13
+#: ./browser/templates/poi_email_resolved_issue_html.pt:30
+msgid "Issue Information"
+msgstr ""
+
+#: ./content/tracker.py:257
+msgid "Issue Type"
+msgstr ""
+
+#: ./browser/response.py:413
+msgid "Issue state"
+msgstr ""
+
+#: ./browser/templates/poi_email_new_issue_plain.pt:15
+#: ./browser/templates/poi_email_new_response_html.pt:31
+#: ./browser/templates/poi_email_new_response_plain.pt:14
+msgid "Issue:"
+msgstr ""
+
+#: ./content/tracker.py:65
+msgid "Low"
+msgstr ""
+
+#: ./content/tracker.py:64
+msgid "Medium"
+msgstr ""
+
+#: ./profiles.zcml:22
+msgid "Migration Steps"
+msgstr ""
+
+#: ./browser/response.py:532
+msgid "No response selected for removal."
+msgstr ""
+
+#: ./browser/response.py:488
+msgid "No response selected for saving."
+msgstr ""
+
+#: ./browser/response.py:194
+msgid "No response selected."
+msgstr ""
+
+#: ./browser/response.py:440
+msgid "No response text added and no issue changes made."
+msgstr ""
+
+#: ./browser/templates/poi_tracker_view.pt:146
 msgid "Note"
 msgstr ""
 
-#. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:147
-msgid "description_cannot_add_issues_before_opened"
+#: ./profiles.zcml:31
+msgid "Partial uninstall profile for Poi, in addition to the QI one."
 msgstr ""
 
-#. Default: "Open issues"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:153
-msgid "poi_heading_open_issues"
-msgstr "开放的问题"
-
-#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:157
-msgid "poi_help_open_issues"
-msgstr ""
-"点击一个领域、版本或者问题状态，查看所有这个分类的开放问题。要使用更高级的搜"
-"索选项，点击“查找问题”"
-
-#. Default: "By area"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:164
-msgid "poi_heading_by_area"
-msgstr "按“领域”"
-
-#. Default: "By target release"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:181
-#, fuzzy
-msgid "poi_heading_by_release"
-msgstr "按“版本”"
-
-#. Default: "By state"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:194
-msgid "poi_heading_by_state"
-msgstr "按“状态”"
-
-#. Default: "All pending issues"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:197
-msgid "poi_all_pending_issues"
+#: ./browser/templates/poi_email_resolved_issue_html.pt:25
+#: ./browser/templates/poi_email_resolved_issue_plain.pt:11
+msgid "Please visit the issue and either confirm that it has been satisfactorily resolved or re-open it."
 msgstr ""
 
-#. Default: "By top tags"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:222
-msgid "poi_heading_by_tag"
-msgstr "按“标记”"
-
-#. Default: "The following open issues have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:244
-#, fuzzy
-msgid "poi_help_my_issues_manager"
-msgstr "下面的开放问题要么是你提交的，要么是分配给你的"
-
-#. Default: "The following open issues are assigned you."
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:251
-#, fuzzy
-msgid "poi_help_my_issues_not_manager"
-msgstr "下面的开放问题是你提交的"
-
-#. Default: "The following open issues were submitted by you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:273
-msgid "poi_help_my_submitted_issues_manager"
+#: ./browser/templates/poi_tracker_view.pt:324
+#: ./profiles.zcml:14
+msgid "Poi"
 msgstr ""
 
-#. Default: "The following issues were submitted by you."
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:280
-msgid "poi_help_my_submitted_issues_not_manager"
+#: ./profiles.zcml:22
+msgid "Poi Migration to version 4.0"
 msgstr ""
 
-#. Default: "Orphaned issues"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:303
-msgid "poi_heading_orphaned_issues"
+#: ./profiles.zcml:31
+msgid "Poi Uninstall"
 msgstr ""
-
-#. Default: "The following issues are not assigned to anyone."
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:304
-msgid "poi_help_orphaned_issues_"
-msgstr ""
-
-#. Default: "Powered by"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:321
-msgid "label_powered_by"
-msgstr ""
-
-#. Default: "If you can, please log in before submitting your issue."
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:50
-msgid "login_suggestion"
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:72
-msgid "Submit new issue"
-msgstr "提交新的问题(提案)"
-
-#. Default: "View activity feed"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:81
-msgid "view_issue_logs"
-msgstr ""
-
-# ./content/PoiIssue.py
-#. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
-#: Products.Poi:/content/PoiIssue.py:101 Products.Poi:/content/issue.py:65
-msgid "Poi_help_issue_title"
-msgstr ""
-"为这个问题输入一个简短的、描述性的标题。一个好的标题将让项目管理人员更好的识"
-"别和答复这个问题。"
-
-# ./content/PoiIssue.py
-#. Default: "Version"
-#: Products.Poi:/content/PoiIssue.py:117
-#, fuzzy
-msgid "Poi_label_release"
-msgstr "版本"
-
-# ./content/PoiIssue.py
-#. Default: "Select the version the issue was found in."
-#: Products.Poi:/content/PoiIssue.py:119
-#, fuzzy
-msgid "Poi_help_release"
-msgstr "选择这个问题属于的版本。"
-
-# ./content/PoiIssue.py
-#. Default: "Details"
-#: Products.Poi:/content/PoiIssue.py:132
-msgid "Poi_label_details"
-msgstr "详细说明"
-
-# ./content/PoiIssue.py
-#. Default: "Please provide further details"
-#: Products.Poi:/content/PoiIssue.py:134
-msgid "Poi_help_details"
-msgstr "请提供更多详细信息"
-
-# ./content/PoiIssue.py
-#. Default: "Steps to reproduce"
-#: Products.Poi:/content/PoiIssue.py:149
-msgid "Poi_label_steps"
-msgstr "重现步骤"
-
-# ./content/PoiIssue.py
-#. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
-#: Products.Poi:/content/PoiIssue.py:151
-msgid "Poi_help_steps"
-msgstr "如果能够，请提供重现这个错误或者识别这个问题的步骤，每行一个步骤。"
-
-# ./content/PoiIssue.py
-#. Default: "Attachment"
-#: Products.Poi:/content/PoiIssue.py:168
-msgid "Poi_label_attachment"
-msgstr "附件"
-
-# ./content/PoiIssue.py
-#. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: Products.Poi:/content/PoiIssue.py:170
-#, fuzzy
-msgid "Poi_help_attachment"
-msgstr "你可选择上载一个文件附件到这个问题。请注意不要上载过大的文件。"
-
-# ./content/PoiIssue.py
-#. Default: "Area"
-#: Products.Poi:/content/PoiIssue.py:183
-msgid "Poi_label_area"
-msgstr "领域"
 
 # ./content/PoiIssue.py
 #. Default: "Select the area this issue is relevant to."
-#: Products.Poi:/content/PoiIssue.py:185
+#: ./content/PoiIssue.py:185
 msgid "Poi_help_area"
 msgstr "选择这个问题相关的领域"
 
 # ./content/PoiIssue.py
-#. Default: "Issue type"
-#: Products.Poi:/content/PoiIssue.py:198
-msgid "Poi_label_issueType"
-msgstr "问题类型"
-
-# ./content/PoiIssue.py
-#. Default: "Select the type of issue."
-#: Products.Poi:/content/PoiIssue.py:200
-msgid "Poi_help_issueType"
-msgstr "选择问题的类型"
-
-# ./content/PoiIssue.py
-#. Default: "Severity"
-#: Products.Poi:/content/PoiIssue.py:213
-msgid "Poi_label_severity"
-msgstr "严重性"
-
-# ./content/PoiIssue.py
-#. Default: "Select the severity of this issue."
-#: Products.Poi:/content/PoiIssue.py:215
-msgid "Poi_help_severity"
-msgstr "选择问题的严重性"
-
-# ./content/PoiIssue.py
-#. Default: "Target release"
-#: Products.Poi:/content/PoiIssue.py:229
-msgid "Poi_label_targetRelease"
-msgstr ""
-
-# ./content/PoiIssue.py
-#. Default: "Release this issue is targetted to be fixed in"
-#: Products.Poi:/content/PoiIssue.py:231
-msgid "Poi_help_targetRelease"
-msgstr ""
-
-# ./content/PoiIssue.py
-#. Default: "Responsible"
-#: Products.Poi:/content/PoiIssue.py:245
-msgid "Poi_label_responsibleManager"
-msgstr "负责人"
-
-# ./content/PoiIssue.py
-#. Default: "Select which manager, if any, is responsible for this issue."
-#: Products.Poi:/content/PoiIssue.py:247
-msgid "Poi_help_responsibleManager"
-msgstr "选择哪个管理人员，如果有人负责这个问题。"
-
-# ./content/PoiIssue.py
-#. Default: "Contact email address"
-#: Products.Poi:/content/PoiIssue.py:263
-msgid "Poi_label_contactEmail"
-msgstr "联系邮件地址"
-
-# ./content/PoiIssue.py
-#. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
-#: Products.Poi:/content/PoiIssue.py:265
+#. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
+#: ./content/PoiIssue.py:170
 #, fuzzy
-msgid "Poi_help_contactEmail"
-msgstr "提供一个邮件地址，以便联系你更多信息，或者问题解决后能够通知你。"
-
-# ./content/PoiIssue.py
-#. Default: "Issue watchers"
-#: Products.Poi:/content/PoiIssue.py:280
-msgid "Poi_label_watchers"
-msgstr "问题观察人员"
-
-# ./content/PoiIssue.py
-#. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
-#: Products.Poi:/content/PoiIssue.py:282
-#, fuzzy
-msgid "Poi_help_watchers"
-msgstr ""
-"填写观察这个问题的成员用户名。这些成员将在答复添加到这个问题的时候接收到通知"
-"邮件。成员也能够把他们自己加做观察人员。"
-
-# ./content/PoiIssue.py
-#. Default: "Tags"
-#: Products.Poi:/content/PoiIssue.py:298
-msgid "Poi_label_subject"
-msgstr "标记"
-
-# ./content/PoiIssue.py
-#. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: Products.Poi:/content/PoiIssue.py:300
-msgid "Poi_help_subject"
-msgstr ""
-"标记用于添加任意的分类到问题。下面的列表显示了可添加的现存标记，你也可添加一"
-"个新的。"
-
-#. Default: "(Not assigned)"
-#: Products.Poi:/content/PoiIssue.py:524
-#: Products.Poi:/content/PoiTracker.py:430
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:104
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:127
-msgid "not_assigned"
-msgstr "(未分配)"
-
-#. Default: "Id"
-#: Products.Poi:/content/PoiIssue.py:90
-msgid "Poi_label_issue_id"
-msgstr ""
-
-# ./content/PoiIssue.py
-#. Default: "Title"
-#: Products.Poi:/content/PoiIssue.py:99 Products.Poi:/content/issue.py:64
-msgid "Poi_label_issue_title"
-msgstr "标题"
-
-# ./content/PoiTracker.py
-#. Default: "Areas"
-#: Products.Poi:/content/PoiTracker.py:113 Products.Poi:/content/tracker.py:215
-msgid "Poi_label_availableAreas"
-msgstr "领域"
+msgid "Poi_help_attachment"
+msgstr "你可选择上载一个文件附件到这个问题。请注意不要上载过大的文件。"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker."
-#: Products.Poi:/content/PoiTracker.py:115 Products.Poi:/content/tracker.py:217
+#: ./content/PoiTracker.py:115
+#: ./content/tracker.py:219
 #, fuzzy
 msgid "Poi_help_availableAreas"
-msgstr ""
-"输入跟踪器中问题的主题或者领域，每行输入一个。格式是“代号 | 标题 | 描述”。"
-
-# ./content/PoiTracker.py
-#. Default: "Issue types"
-#: Products.Poi:/content/PoiTracker.py:137 Products.Poi:/content/tracker.py:238
-msgid "Poi_label_availableIssueTypes"
-msgstr "问题类型"
+msgstr "输入跟踪器中问题的主题或者领域，每行输入一个。格式是“代号 | 标题 | 描述”。"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker."
-#: Products.Poi:/content/PoiTracker.py:139 Products.Poi:/content/tracker.py:240
+#: ./content/PoiTracker.py:139
+#: ./content/tracker.py:242
 #, fuzzy
 msgid "Poi_help_availableIssueTypes"
 msgstr "输入这个跟踪器的问题类型，每行输入一个。格式是“代号 | 标题 | 描述”。"
 
 # ./content/PoiTracker.py
-#. Default: "Available severities"
-#: Products.Poi:/content/PoiTracker.py:152 Products.Poi:/content/tracker.py:260
-msgid "Poi_label_availableSeverities"
-msgstr "可用的严重性"
+#. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organized by release."
+#: ./content/PoiTracker.py:182
+#: ./content/tracker.py:292
+#, fuzzy
+msgid "Poi_help_availableReleases"
+msgstr "输入问题可分配的版本号，每行一个。如果没有发行版本，问题就不会按照版本组织。"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
-#: Products.Poi:/content/PoiTracker.py:154 Products.Poi:/content/tracker.py:263
+#: ./content/PoiTracker.py:154
+#: ./content/tracker.py:265
 msgid "Poi_help_availableSeverities"
 msgstr "输入不同类型的问题可选严重性，每行一个。"
 
-# ./content/PoiTracker.py
-#. Default: "Default severity"
-#: Products.Poi:/content/PoiTracker.py:166 Products.Poi:/content/tracker.py:272
-msgid "Poi_label_defaultSeverity"
-msgstr "默认严重性"
+# ./content/PoiIssue.py
+#. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
+#: ./content/PoiIssue.py:265
+#, fuzzy
+msgid "Poi_help_contactEmail"
+msgstr "提供一个邮件地址，以便联系你更多信息，或者问题解决后能够通知你。"
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
-#: Products.Poi:/content/PoiTracker.py:168 Products.Poi:/content/tracker.py:277
+#: ./content/PoiTracker.py:168
+#: ./content/tracker.py:279
 msgid "Poi_help_defaultSeverity"
 msgstr "选择问题的默认严重性"
 
-# ./content/PoiTracker.py
-#. Default: "Available releases"
-#: Products.Poi:/content/PoiTracker.py:180 Products.Poi:/content/tracker.py:286
-msgid "Poi_label_availableReleases"
-msgstr "可用的版本"
+# ./content/PoiIssue.py
+#. Default: "Please provide further details"
+#: ./content/PoiIssue.py:134
+msgid "Poi_help_details"
+msgstr "请提供更多详细信息"
 
 # ./content/PoiTracker.py
-#. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release."
-#: Products.Poi:/content/PoiTracker.py:182 Products.Poi:/content/tracker.py:290
+#. Default: "Enter any introductory help text you'd like to display on the tracker front page."
+#: ./content/PoiTracker.py:91
+#: ./content/tracker.py:207
+msgid "Poi_help_helpText"
+msgstr ""
+
+# ./content/PoiIssue.py
+#. Default: "Set a new state, if applicable"
+#: ./browser/response.pt:178
+msgid "Poi_help_issueTransition"
+msgstr "如果可以，选择答复问题的状态改变"
+
+# ./content/PoiIssue.py
+#. Default: "Select the type of issue."
+#: ./content/PoiIssue.py:200
+msgid "Poi_help_issueType"
+msgstr "选择问题的类型"
+
+#. Default: "Select the area this issue is relevant to."
+#: ./content/issue.py:99
+msgid "Poi_help_issue_area"
+msgstr ""
+
+#. Default: "Select which person, if any, is assigned to this issue."
+#: ./content/issue.py:136
+msgid "Poi_help_issue_assignee"
+msgstr ""
+
+#. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
+#: ./content/issue.py:145
+msgid "Poi_help_issue_contact_email"
+msgstr ""
+
+#. Default: "Please provide further details."
+#: ./content/issue.py:83
+msgid "Poi_help_issue_details"
+msgstr ""
+
+#. Default: "Link related issues."
+#: ./content/issue.py:209
+msgid "Poi_help_issue_related"
+msgstr ""
+
+#. Default: "Select the version the issue was found in."
+#: ./content/issue.py:74
+msgid "Poi_help_issue_release"
+msgstr ""
+
+#. Default: "Select the severity of this issue."
+#: ./content/issue.py:115
+msgid "Poi_help_issue_severity"
+msgstr ""
+
+#. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
+#: ./content/issue.py:90
+msgid "Poi_help_issue_steps"
+msgstr ""
+
+#. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
+#: ./content/issue.py:182
+msgid "Poi_help_issue_subject"
+msgstr ""
+
+#. Default: "Release this issue is targetted to be fixed in."
+#: ./content/issue.py:125
+msgid "Poi_help_issue_target_release"
+msgstr ""
+
+# ./content/PoiIssue.py
+#. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
+#: ./content/PoiIssue.py:101
+#: ./content/issue.py:65
+msgid "Poi_help_issue_title"
+msgstr "为这个问题输入一个简短的、描述性的标题。一个好的标题将让项目管理人员更好的识别和答复这个问题。"
+
+#. Default: "Select the type of issue."
+#: ./content/issue.py:106
+msgid "Poi_help_issue_type"
+msgstr ""
+
+#. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+#: ./content/issue.py:160
+msgid "Poi_help_issue_watchers"
+msgstr ""
+
+# ./content/PoiTracker.py
+#. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted."
+#: ./content/PoiTracker.py:261
+#: ./content/tracker.py:359
 #, fuzzy
-msgid "Poi_help_availableReleases"
-msgstr ""
-"输入问题可分配的版本号，每行一个。如果没有发行版本，问题就不会按照版本组织。"
-
-#. Default: "Tracker managers"
-#: Products.Poi:/content/PoiTracker.py:195
-msgid "Poi_label_managers"
-msgstr ""
+msgid "Poi_help_mailingList"
+msgstr "如果提供，而且如果“发送通知邮件”选中，每次张贴新的问题或者答复时，都将有一个通知邮件发送到这个地址。如果没有提供邮件地址，就只有管理人员收到邮件。"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
-#: Products.Poi:/content/PoiTracker.py:197
+#: ./content/PoiTracker.py:197
 msgid "Poi_help_managers"
-msgstr ""
-"输入允许管理这个跟踪器的用户代号（登录帐号），每个一行。提交的问题后，可指派"
-"由某个管理人员负责处理。"
+msgstr "输入允许管理这个跟踪器的用户代号（登录帐号），每个一行。提交的问题后，可指派由某个管理人员负责处理。"
 
-#. Default: "Technicians"
-#: Products.Poi:/content/PoiTracker.py:209
-msgid "Poi_label_technicians"
+# ./content/PoiResponse.py
+#. Default: "Select the assignee for this issue"
+#: ./browser/response.pt:254
+msgid "Poi_help_newResponsibleManager"
+msgstr ""
+
+# ./content/PoiResponse.py
+#. Default: "Select the severity for this issue"
+#: ./browser/response.pt:204
+msgid "Poi_help_newSeverity"
+msgstr ""
+
+# ./content/PoiResponse.py
+#. Default: "Set the target release for this issue"
+#: ./browser/response.pt:230
+msgid "Poi_help_newTargetRelease"
+msgstr ""
+
+# ./content/PoiIssue.py
+#. Default: "Select the version the issue was found in."
+#: ./content/PoiIssue.py:119
+#, fuzzy
+msgid "Poi_help_release"
+msgstr "选择这个问题属于的版本。"
+
+# ./content/PoiIssue.py
+#. Default: "Please enter your response below."
+#: ./browser/response.pt:125
+msgid "Poi_help_response"
+msgstr "请在下面填写答复"
+
+# ./content/PoiIssue.py
+#. Default: "Select which manager, if any, is responsible for this issue."
+#: ./content/PoiIssue.py:247
+msgid "Poi_help_responsibleManager"
+msgstr "选择哪个管理人员，如果有人负责这个问题。"
+
+# ./content/PoiTracker.py
+#. Default: "If selected, all tracker assignees above will receive an email for new issues and all issue responses. Issue watchers will receive an email for all issue responses. Issue submitters will receive an email when the issue has been resolved."
+#: ./content/PoiTracker.py:245
+#: ./content/tracker.py:343
+#, fuzzy
+msgid "Poi_help_sendNotificationEmails"
+msgstr "如果选中，一旦张贴新的问题或者答复，管理人员将收到一个通知邮件；问题的提交人将在有新的答复，或问题解决、等待确认的时候收到通知邮件。"
+
+# ./content/PoiIssue.py
+#. Default: "Select the severity of this issue."
+#: ./content/PoiIssue.py:215
+msgid "Poi_help_severity"
+msgstr "选择问题的严重性"
+
+# ./content/PoiIssue.py
+#. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
+#: ./content/PoiIssue.py:151
+msgid "Poi_help_steps"
+msgstr "如果能够，请提供重现这个错误或者识别这个问题的步骤，每行一个步骤。"
+
+# ./content/PoiIssue.py
+#. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
+#: ./content/PoiIssue.py:300
+msgid "Poi_help_subject"
+msgstr "标记用于添加任意的分类到问题。下面的列表显示了可添加的现存标记，你也可添加一个新的。"
+
+# ./content/PoiTracker.py
+#. Default: "Please enter the URL to the related repository, e.g.: https://github.com/collective/Products.Poi/commit/%(rev)s for Products.Poi."
+#: ./content/PoiTracker.py:277
+#: ./content/tracker.py:373
+msgid "Poi_help_svnurl"
+msgstr ""
+
+# ./content/PoiIssue.py
+#. Default: "Release this issue is targetted to be fixed in"
+#: ./content/PoiIssue.py:231
+msgid "Poi_help_targetRelease"
 msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
-#: Products.Poi:/content/PoiTracker.py:211
+#: ./content/PoiTracker.py:211
 msgid "Poi_help_technicians"
 msgstr ""
 
-#. Default: "Tracker watchers"
-#: Products.Poi:/content/PoiTracker.py:224 Products.Poi:/content/tracker.py:321
-msgid "Poi_label_tracker_watchers"
-msgstr ""
-
-#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
-#: Products.Poi:/content/PoiTracker.py:226 Products.Poi:/content/tracker.py:322
-msgid "Poi_help_tracker_watchers"
-msgstr ""
-
-# ./content/PoiTracker.py
-#. Default: "Send notification emails"
-#: Products.Poi:/content/PoiTracker.py:243 Products.Poi:/content/tracker.py:337
-msgid "Poi_label_sendNotificationEmails"
-msgstr "发送一个通知邮件"
-
-# ./content/PoiTracker.py
-#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: Products.Poi:/content/PoiTracker.py:245 Products.Poi:/content/tracker.py:341
-#, fuzzy
-msgid "Poi_help_sendNotificationEmails"
-msgstr ""
-"如果选中，一旦张贴新的问题或者答复，管理人员将收到一个通知邮件；问题的提交人"
-"将在有新的答复，或问题解决、等待确认的时候收到通知邮件。"
-
-# ./content/PoiTracker.py
-#. Default: "Mailing list"
-#: Products.Poi:/content/PoiTracker.py:260 Products.Poi:/content/tracker.py:353
-msgid "Poi_label_mailingList"
-msgstr "邮件列表"
-
-# ./content/PoiTracker.py
-#. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
-#: Products.Poi:/content/PoiTracker.py:262 Products.Poi:/content/tracker.py:357
-#, fuzzy
-msgid "Poi_help_mailingList"
-msgstr ""
-"如果提供，而且如果“发送通知邮件”选中，每次张贴新的问题或者答复时，都将有一个"
-"通知邮件发送到这个地址。如果没有提供邮件地址，就只有管理人员收到邮件。"
-
-# ./content/PoiTracker.py
-#. Default: "URL to SVN"
-#: Products.Poi:/content/PoiTracker.py:279 Products.Poi:/content/tracker.py:369
-msgid "Poi_label_svnurl"
-msgstr ""
-
-# ./content/PoiTracker.py
-#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
-#: Products.Poi:/content/PoiTracker.py:281 Products.Poi:/content/tracker.py:371
-msgid "Poi_help_svnurl"
-msgstr ""
-
-# ./content/PoiTracker.py
-#. Default: "Tracker name"
-#: Products.Poi:/content/PoiTracker.py:58
-msgid "Poi_label_tracker_title"
-msgstr "跟踪器名"
-
-# ./content/PoiTracker.py
-#. Default: "Enter a descriptive name for this tracker"
-#: Products.Poi:/content/PoiTracker.py:60 Products.Poi:/content/tracker.py:190
-msgid "Poi_help_tracker_title"
-msgstr "给跟踪器输入一个描述名"
-
-#. Default: "Tracker description"
-#: Products.Poi:/content/PoiTracker.py:72
-msgid "Poi_label_tracker_description"
-msgstr ""
-
 #. Default: "Describe the purpose of this tracker"
-#: Products.Poi:/content/PoiTracker.py:74 Products.Poi:/content/tracker.py:198
+#: ./content/PoiTracker.py:74
+#: ./content/tracker.py:198
 msgid "Poi_help_tracker_description"
 msgstr ""
 
 # ./content/PoiTracker.py
-#. Default: "Help text"
-#: Products.Poi:/content/PoiTracker.py:89
-msgid "Poi_label_helpText"
+#. Default: "Enter a descriptive name for this tracker"
+#: ./content/PoiTracker.py:60
+#: ./content/tracker.py:190
+msgid "Poi_help_tracker_title"
+msgstr "给跟踪器输入一个描述名"
+
+#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
+#: ./content/PoiTracker.py:226
+#: ./content/tracker.py:324
+msgid "Poi_help_tracker_watchers"
 msgstr ""
 
-# ./content/PoiTracker.py
-#. Default: "Enter any introductory help text you'd like to display on the tracker front page."
-#: Products.Poi:/content/PoiTracker.py:91 Products.Poi:/content/tracker.py:206
-msgid "Poi_help_helpText"
-msgstr ""
-
-#. Default: "Issue Type"
-#: Products.Poi:/content/issue.py:105
-msgid "Poi_label_issue_type"
-msgstr ""
-
-#. Default: "Select the type of issue."
-#: Products.Poi:/content/issue.py:106
-msgid "Poi_help_issue_type"
-msgstr ""
-
-#. Default: "Severity"
-#: Products.Poi:/content/issue.py:114
-msgid "Poi_label_issue_severity"
-msgstr ""
-
-#. Default: "Select the severity of this issue."
-#: Products.Poi:/content/issue.py:115
-msgid "Poi_help_issue_severity"
-msgstr ""
-
-#. Default: "Target Release"
-#: Products.Poi:/content/issue.py:124
-msgid "Poi_label_issue_target_release"
-msgstr ""
-
-#. Default: "Release this issue is targetted to be fixed in."
-#: Products.Poi:/content/issue.py:125
-msgid "Poi_help_issue_target_release"
-msgstr ""
-
-#. Default: "Assignee"
-#: Products.Poi:/content/issue.py:135
-msgid "Poi_label_issue_assignee"
-msgstr ""
-
-#. Default: "Select which person, if any, is assigned to this issue."
-#: Products.Poi:/content/issue.py:136
-msgid "Poi_help_issue_assignee"
-msgstr ""
-
-#. Default: "Contact Email"
-#: Products.Poi:/content/issue.py:144
-msgid "Poi_label_issue_contact_email"
-msgstr ""
-
-#. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
-#: Products.Poi:/content/issue.py:145
-msgid "Poi_help_issue_contact_email"
-msgstr ""
-
-#. Default: "Watchers"
-#: Products.Poi:/content/issue.py:159
-msgid "Poi_label_issue_watchers"
-msgstr ""
-
+# ./content/PoiIssue.py
 #. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
-#: Products.Poi:/content/issue.py:160
-msgid "Poi_help_issue_watchers"
-msgstr ""
+#: ./content/PoiIssue.py:282
+#, fuzzy
+msgid "Poi_help_watchers"
+msgstr "填写观察这个问题的成员用户名。这些成员将在答复添加到这个问题的时候接收到通知邮件。成员也能够把他们自己加做观察人员。"
 
-#. Default: "Subject"
-#: Products.Poi:/content/issue.py:181
-msgid "Poi_label_issue_subject"
-msgstr ""
-
-#. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: Products.Poi:/content/issue.py:182
-msgid "Poi_help_issue_subject"
-msgstr ""
-
-#. Default: "Related Issue(s)"
-#: Products.Poi:/content/issue.py:208
-msgid "Poi_label_issue_related"
-msgstr ""
-
-#. Default: "Link related issues."
-#: Products.Poi:/content/issue.py:209
-msgid "Poi_help_issue_related"
-msgstr ""
-
-#. Default: "Leave this field empty"
-#: Products.Poi:/content/issue.py:219
-msgid "Poi_label_issue_empty"
-msgstr ""
-
-#. Default: "Release"
-#: Products.Poi:/content/issue.py:73
-msgid "Poi_label_issue_release"
-msgstr ""
-
-#. Default: "Select the version the issue was found in."
-#: Products.Poi:/content/issue.py:74
-msgid "Poi_help_issue_release"
-msgstr ""
-
-#. Default: "Details"
-#: Products.Poi:/content/issue.py:82
-msgid "Poi_label_issue_details"
-msgstr ""
-
-#. Default: "Please provide further details."
-#: Products.Poi:/content/issue.py:83
-msgid "Poi_help_issue_details"
-msgstr ""
-
-#. Default: "Steps To Reproduce"
-#: Products.Poi:/content/issue.py:89
-msgid "Poi_label_issue_steps"
-msgstr ""
-
-#. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
-#: Products.Poi:/content/issue.py:90
-msgid "Poi_help_issue_steps"
-msgstr ""
-
+# ./content/PoiIssue.py
 #. Default: "Area"
-#: Products.Poi:/content/issue.py:98
-msgid "Poi_label_issue_area"
-msgstr ""
-
-#. Default: "Select the area this issue is relevant to."
-#: Products.Poi:/content/issue.py:99
-msgid "Poi_help_issue_area"
-msgstr ""
-
-#: Products.Poi:/content/tracker.py:176
-msgid "Short Name"
-msgstr ""
-
-#: Products.Poi:/content/tracker.py:179
-msgid "Title"
-msgstr ""
-
-#: Products.Poi:/content/tracker.py:182
-msgid "Description"
-msgstr ""
-
-#. Default: "Title"
-#: Products.Poi:/content/tracker.py:189
-msgid "title"
-msgstr ""
-
-#. Default: "Description"
-#: Products.Poi:/content/tracker.py:197
-msgid "description"
-msgstr ""
-
-#. Default: "Help Text"
-#: Products.Poi:/content/tracker.py:205
-msgid "help_text"
-msgstr ""
-
-#: Products.Poi:/content/tracker.py:233
-msgid "Area"
-msgstr ""
-
-#: Products.Poi:/content/tracker.py:255
-msgid "Issue Type"
-msgstr ""
+#: ./content/PoiIssue.py:183
+msgid "Poi_label_area"
+msgstr "领域"
 
 #. Default: "Assignees"
-#: Products.Poi:/content/tracker.py:306
+#: ./content/tracker.py:308
 msgid "Poi_label_assignees"
 msgstr ""
 
-#: Products.Poi:/content/tracker.py:307
-msgid ""
-"Enter users who will be responsible for solving the issues. Users also need "
-"to be added as Watchers to receive notifications."
+# ./content/PoiIssue.py
+#. Default: "Attachment"
+#: ./content/PoiIssue.py:168
+msgid "Poi_label_attachment"
+msgstr "附件"
+
+# ./content/PoiTracker.py
+#. Default: "Areas"
+#: ./content/PoiTracker.py:113
+#: ./content/tracker.py:217
+msgid "Poi_label_availableAreas"
+msgstr "领域"
+
+# ./content/PoiTracker.py
+#. Default: "Issue types"
+#: ./content/PoiTracker.py:137
+#: ./content/tracker.py:240
+msgid "Poi_label_availableIssueTypes"
+msgstr "问题类型"
+
+# ./content/PoiTracker.py
+#. Default: "Available releases"
+#: ./content/PoiTracker.py:180
+#: ./content/tracker.py:288
+msgid "Poi_label_availableReleases"
+msgstr "可用的版本"
+
+# ./content/PoiTracker.py
+#. Default: "Available severities"
+#: ./content/PoiTracker.py:152
+#: ./content/tracker.py:262
+msgid "Poi_label_availableSeverities"
+msgstr "可用的严重性"
+
+# ./content/PoiIssue.py
+#. Default: "Contact email address"
+#: ./content/PoiIssue.py:263
+msgid "Poi_label_contactEmail"
+msgstr "联系邮件地址"
+
+# ./content/PoiTracker.py
+#. Default: "Default severity"
+#: ./content/PoiTracker.py:166
+#: ./content/tracker.py:274
+msgid "Poi_label_defaultSeverity"
+msgstr "默认严重性"
+
+# ./content/PoiIssue.py
+#. Default: "Details"
+#: ./content/PoiIssue.py:132
+msgid "Poi_label_details"
+msgstr "详细说明"
+
+# ./content/PoiTracker.py
+#. Default: "Help text"
+#: ./content/PoiTracker.py:89
+msgid "Poi_label_helpText"
 msgstr ""
 
-#: Products.Poi:/content/tracker.py:62
-msgid "Critical"
+# ./content/PoiIssue.py
+#. Default: "Change issue state"
+#: ./browser/response.pt:173
+msgid "Poi_label_issueTransition"
+msgstr "改变问题状态"
+
+# ./content/PoiIssue.py
+#. Default: "Issue type"
+#: ./content/PoiIssue.py:198
+msgid "Poi_label_issueType"
+msgstr "问题类型"
+
+#. Default: "Area"
+#: ./content/issue.py:98
+msgid "Poi_label_issue_area"
 msgstr ""
 
-#: Products.Poi:/content/tracker.py:63
-msgid "Important"
+#. Default: "Assignee"
+#: ./content/issue.py:135
+msgid "Poi_label_issue_assignee"
 msgstr ""
 
-#: Products.Poi:/content/tracker.py:64 Products.Poi:/content/tracker.py:276
-msgid "Medium"
+#. Default: "Contact Email"
+#: ./content/issue.py:144
+msgid "Poi_label_issue_contact_email"
 msgstr ""
 
-#: Products.Poi:/content/tracker.py:65
-msgid "Low"
+#. Default: "Details"
+#: ./content/issue.py:82
+msgid "Poi_label_issue_details"
+msgstr ""
+
+#. Default: "Leave this field empty"
+#: ./content/issue.py:219
+msgid "Poi_label_issue_empty"
+msgstr ""
+
+#. Default: "Id"
+#: ./content/PoiIssue.py:90
+msgid "Poi_label_issue_id"
+msgstr ""
+
+#. Default: "Related Issue(s)"
+#: ./content/issue.py:208
+msgid "Poi_label_issue_related"
+msgstr ""
+
+#. Default: "Release"
+#: ./content/issue.py:73
+msgid "Poi_label_issue_release"
+msgstr ""
+
+#. Default: "Severity"
+#: ./content/issue.py:114
+msgid "Poi_label_issue_severity"
+msgstr ""
+
+#. Default: "Steps To Reproduce"
+#: ./content/issue.py:89
+msgid "Poi_label_issue_steps"
+msgstr ""
+
+#. Default: "Subject"
+#: ./content/issue.py:181
+msgid "Poi_label_issue_subject"
+msgstr ""
+
+#. Default: "Target Release"
+#: ./content/issue.py:124
+msgid "Poi_label_issue_target_release"
+msgstr ""
+
+# ./content/PoiIssue.py
+#. Default: "Title"
+#: ./content/PoiIssue.py:99
+#: ./content/issue.py:64
+msgid "Poi_label_issue_title"
+msgstr "标题"
+
+#. Default: "Issue Type"
+#: ./content/issue.py:105
+msgid "Poi_label_issue_type"
+msgstr ""
+
+#. Default: "Watchers"
+#: ./content/issue.py:159
+msgid "Poi_label_issue_watchers"
 msgstr ""
 
 # ./content/PoiTracker.py
-#~ msgid "msgid \"Poi_label_assignees\""
-#~ msgstr "跟踪器管理人员"
+#. Default: "Mailing list"
+#: ./content/PoiTracker.py:259
+#: ./content/tracker.py:355
+msgid "Poi_label_mailingList"
+msgstr "邮件列表"
 
-#~ msgid "Stop watching this issue"
-#~ msgstr "退定这个问题的答复"
+#. Default: "Tracker managers"
+#: ./content/PoiTracker.py:195
+msgid "Poi_label_managers"
+msgstr ""
 
-#~ msgid "Watch this issue"
-#~ msgstr "邮件订阅这个问题的答复情况"
+#. Default: "Modify Issue"
+#: ./browser/response.pt:161
+msgid "Poi_label_modify"
+msgstr ""
 
-#~ msgid "poi_heading_unconfirmed_issues"
-#~ msgstr "未确认的问题"
+# ./content/PoiResponse.py
+#. Default: "Change assignee"
+#: ./browser/response.pt:249
+msgid "Poi_label_newResponsibleManager"
+msgstr ""
 
+# ./content/PoiResponse.py
+#. Default: "Change issue severity"
+#: ./browser/response.pt:199
+msgid "Poi_label_newSeverity"
+msgstr ""
+
+# ./content/PoiResponse.py
+#. Default: "Change target release"
+#: ./browser/response.pt:225
+msgid "Poi_label_newTargetRelease"
+msgstr ""
+
+# ./content/PoiIssue.py
+#. Default: "Version"
+#: ./content/PoiIssue.py:117
 #, fuzzy
-#~ msgid "poi_help_unconfirmed_issues"
-#~ msgstr "下面的问题还没有确认或者分配。请审查他们，进行适当的处理。"
+msgid "Poi_label_release"
+msgstr "版本"
 
-#~ msgid "poi_return_to_search"
-#~ msgstr "回到查找"
+# ./content/PoiIssue.py
+#. Default: "Response"
+#: ./browser/response.pt:122
+msgid "Poi_label_response"
+msgstr "答复"
 
-#~ msgid "poi_search_label_issue_type"
-#~ msgstr "问题类型"
+# ./content/PoiIssue.py
+#. Default: "Responsible"
+#: ./content/PoiIssue.py:245
+msgid "Poi_label_responsibleManager"
+msgstr "负责人"
+
+# ./content/PoiTracker.py
+#. Default: "Send notification emails"
+#: ./content/PoiTracker.py:243
+#: ./content/tracker.py:339
+msgid "Poi_label_sendNotificationEmails"
+msgstr "发送一个通知邮件"
+
+# ./content/PoiIssue.py
+#. Default: "Severity"
+#: ./content/PoiIssue.py:213
+msgid "Poi_label_severity"
+msgstr "严重性"
+
+# ./content/PoiIssue.py
+#. Default: "Steps to reproduce"
+#: ./content/PoiIssue.py:149
+msgid "Poi_label_steps"
+msgstr "重现步骤"
+
+# ./content/PoiIssue.py
+#. Default: "Tags"
+#: ./content/PoiIssue.py:298
+msgid "Poi_label_subject"
+msgstr "标记"
+
+# ./content/PoiTracker.py
+#. Default: "URL to Repositor"
+#: ./content/PoiTracker.py:275
+#: ./content/tracker.py:371
+msgid "Poi_label_svnurl"
+msgstr ""
+
+# ./content/PoiIssue.py
+#. Default: "Target release"
+#: ./content/PoiIssue.py:229
+msgid "Poi_label_targetRelease"
+msgstr ""
+
+#. Default: "Technicians"
+#: ./content/PoiTracker.py:209
+msgid "Poi_label_technicians"
+msgstr ""
+
+#. Default: "Tracker description"
+#: ./content/PoiTracker.py:72
+msgid "Poi_label_tracker_description"
+msgstr ""
+
+# ./content/PoiTracker.py
+#. Default: "Tracker name"
+#: ./content/PoiTracker.py:58
+msgid "Poi_label_tracker_title"
+msgstr "跟踪器名"
+
+#. Default: "Watchers"
+#: ./content/PoiTracker.py:224
+#: ./content/tracker.py:323
+msgid "Poi_label_tracker_watchers"
+msgstr ""
+
+# ./content/PoiIssue.py
+#. Default: "Issue watchers"
+#: ./content/PoiIssue.py:280
+msgid "Poi_label_watchers"
+msgstr "问题观察人员"
+
+#. Default: ""
+#: ./browser/response.py:554
+msgid "Removed response id ${response_id}."
+msgstr ""
+
+#: ./browser/templates/poi_email_new_response_html.pt:47
+#: ./browser/templates/poi_email_new_response_plain.pt:25
+msgid "Response Details:"
+msgstr ""
+
+#: ./browser/templates/poi_email_new_response_html.pt:29
+#: ./browser/templates/poi_email_new_response_plain.pt:12
+#: ./browser/templates/poi_email_resolved_issue_plain.pt:16
+msgid "Response Information"
+msgstr ""
+
+#: ./browser/response.py:492
+msgid "Response does not exist anymore; perhaps it was removed by another user."
+msgstr ""
+
+#. Default: ""
+#: ./browser/response.py:547
+msgid "Response id ${response_id} does not exist so it cannot be removed."
+msgstr ""
+
+#. Default: ""
+#: ./browser/response.py:208
+msgid "Response id ${response_id} does not exist."
+msgstr ""
+
+#. Default: ""
+#: ./browser/response.py:539
+msgid "Response id ${response_id} is no integer so it cannot be removed."
+msgstr ""
+
+#. Default: ""
+#: ./browser/response.py:202
+msgid "Response id ${response_id} is no integer."
+msgstr ""
+
+#: ./browser/templates/poi_tracker_view.pt:130
+msgid "Search"
+msgstr ""
+
+#: ./browser/response.py:418
+msgid "Severity"
+msgstr ""
+
+#: ./content/tracker.py:176
+msgid "Short Name"
+msgstr ""
+
+#: ./browser/templates/poi_tracker_view.pt:72
+msgid "Submit new issue"
+msgstr "提交新的问题(提案)"
+
+#: ./browser/response.py:421
+msgid "Target release"
+msgstr ""
+
+#: ./browser/templates/poi_email_resolved_issue_html.pt:23
+#: ./browser/templates/poi_email_resolved_issue_plain.pt:8
+msgid "The issue ${issue_title} in the ${tracker_title} tracker has been marked as resolved by ${response_author}."
+msgstr ""
+
+#: ./browser/templates/poi_email_new_issue_html.pt:39
+#: ./browser/templates/poi_email_new_issue_plain.pt:23
+#: ./browser/templates/poi_email_new_response_html.pt:54
+msgid "This is an automated email, please do not reply."
+msgstr ""
+
+#: ./content/tracker.py:179
+msgid "Title"
+msgstr ""
+
+#: ./browser/response.py:526
+msgid "You are not allowed to delete responses."
+msgstr ""
+
+#: ./browser/response.py:482
+msgid "You are not allowed to edit responses."
+msgstr ""
+
+#. Default: "(${number} matches)"
+#: ./browser/templates/poi_issue_search.pt:37
+#, fuzzy
+msgid "batch_x_items_matching_your_criteria"
+msgstr "有${number}个条目满足您的条件。"
+
+#. Default: "Description"
+#: ./content/tracker.py:197
+msgid "description"
+msgstr ""
+
+#. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
+#: ./browser/templates/poi_tracker_view.pt:147
+msgid "description_cannot_add_issues_before_opened"
+msgstr ""
+
+#. Default: "No results were found."
+#: ./browser/templates/poi_issue_search.pt:48
+#, fuzzy
+msgid "description_no_results_found"
+msgstr "没有找到结果。"
+
+#. Default: "Help Text"
+#: ./content/tracker.py:206
+msgid "help_text"
+msgstr ""
+
+#. Default: "You are not allowed to edit this response."
+#: ./browser/templates/edit_response.pt:33
+msgid "label_edit_response_not_allowed"
+msgstr ""
+
+#. Default: "Powered by"
+#: ./browser/templates/poi_tracker_view.pt:321
+msgid "label_powered_by"
+msgstr ""
+
+#. Default: "Return to issue."
+#: ./browser/templates/edit_response.pt:23
+msgid "label_return_to_issue"
+msgstr ""
+
+#. Default: "Search"
+#: ./browser/templates/poi_issue_search_form.pt:282
+msgid "label_search"
+msgstr "查找"
+
+#. Default: "Area"
+#: ./browser/templates/poi_issue_search_results.pt:58
+msgid "listingheader_area"
+msgstr "领域"
+
+#. Default: "#"
+#: ./browser/templates/poi_issue_search_results.pt:42
+msgid "listingheader_number"
+msgstr ""
+
+#. Default: "Related Issue(s)"
+#: ./browser/templates/poi_issue_search_results.pt:82
+msgid "listingheader_related"
+msgstr ""
+
+#. Default: "Target"
+#: ./browser/templates/poi_issue_search_results.pt:53
+#, fuzzy
+msgid "listingheader_release"
+msgstr "版本"
+
+#. Default: "Assignee"
+#: ./browser/templates/poi_issue_search_results.pt:73
+msgid "listingheader_responsible"
+msgstr "负责人"
+
+#. Default: "Severity"
+#: ./browser/templates/poi_issue_search_results.pt:68
+msgid "listingheader_severity"
+msgstr "严重性"
+
+#. Default: "State"
+#: ./browser/templates/poi_issue_search_results.pt:86
+msgid "listingheader_state"
+msgstr "状态"
+
+#. Default: "Tags"
+#: ./browser/templates/poi_issue_search_results.pt:78
+msgid "listingheader_tags"
+msgstr ""
+
+#. Default: "Title"
+#: ./browser/templates/poi_issue_search_results.pt:47
+msgid "listingheader_title"
+msgstr "标题"
+
+#. Default: "Type"
+#: ./browser/templates/poi_issue_search_results.pt:63
+msgid "listingheader_type"
+msgstr "类型"
+
+#. Default: "If you can, please log in before submitting your issue."
+#: ./browser/templates/poi_tracker_view.pt:50
+msgid "login_suggestion"
+msgstr ""
+
+#. Default: "If you can, please log in before submitting a reaction."
+#: ./browser/response.pt:100
+msgid "login_suggestion_response"
+msgstr ""
+
+#. Default: "No responses can be added."
+#: ./browser/response.pt:92
+msgid "msg_no_responses_can_be_added"
+msgstr ""
+
+#. Default: "(Not assigned)"
+#: ./browser/templates/poi_issue_search_form.pt:104
+#: ./content/PoiIssue.py:524
+#: ./content/PoiTracker.py:426
+msgid "not_assigned"
+msgstr "(未分配)"
+
+#. Default: "Added by"
+#: ./browser/response.pt:44
+msgid "poi_added_by"
+msgstr "添加人："
+
+#. Default: "Added ${count} day(s) ago."
+#: ./browser/log.pt:82
+msgid "poi_added_days_ago"
+msgstr ""
+
+#. Default: "Added ${count} hour(s) ago."
+#: ./browser/log.pt:75
+msgid "poi_added_hours_ago"
+msgstr ""
+
+#. Default: "Added ${count} minute(s) ago."
+#: ./browser/log.pt:68
+msgid "poi_added_minutes_ago"
+msgstr ""
+
+#. Default: "on"
+#: ./browser/response.pt:49
+msgid "poi_added_on"
+msgstr "时间："
+
+#. Default: "All pending issues"
+#: ./browser/templates/poi_tracker_view.pt:197
+msgid "poi_all_pending_issues"
+msgstr ""
+
+#. Default: "Include Related Issues"
+#: ./browser/templates/poi_issue_search_form.pt:277
+msgid "poi_display_related"
+msgstr ""
+
+#. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
+#: ./browser/notifications.py:234
+msgid "poi_email_issue_resolved_subject_template"
+msgstr ""
+
+#. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
+#: ./browser/notifications.py:148
+msgid "poi_email_new_issue_subject_template"
+msgstr ""
+
+#. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
+#: ./browser/notifications.py:211
+msgid "poi_email_new_response_subject_template"
+msgstr ""
+
+#. Default: "By area"
+#: ./browser/templates/poi_tracker_view.pt:164
+msgid "poi_heading_by_area"
+msgstr "按“领域”"
+
+#. Default: "By target release"
+#: ./browser/templates/poi_tracker_view.pt:181
+#, fuzzy
+msgid "poi_heading_by_release"
+msgstr "按“版本”"
+
+#. Default: "By state"
+#: ./browser/templates/poi_tracker_view.pt:194
+msgid "poi_heading_by_state"
+msgstr "按“状态”"
+
+#. Default: "By top tags"
+#: ./browser/templates/poi_tracker_view.pt:222
+msgid "poi_heading_by_tag"
+msgstr "按“标记”"
+
+#. Default: "Issue search"
+#: ./browser/templates/poi_issue_search_form.pt:15
+msgid "poi_heading_issue_search"
+msgstr "查找问题"
+
+#. Default: "Tracker log"
+#: ./browser/log.pt:12
+msgid "poi_heading_log"
+msgstr ""
+
+#. Default: "Issues assigned to me"
+#: ./browser/templates/poi_tracker_view.pt:243
+#, fuzzy
+msgid "poi_heading_my_issues"
+msgstr "我的问题"
+
+#. Default: "My submitted issues"
+#: ./browser/templates/poi_tracker_view.pt:272
+msgid "poi_heading_my_submitted_issues"
+msgstr ""
+
+#. Default: "Open issues"
+#: ./browser/templates/poi_tracker_view.pt:153
+msgid "poi_heading_open_issues"
+msgstr "开放的问题"
+
+#. Default: "Orphaned issues"
+#: ./browser/templates/poi_tracker_view.pt:303
+msgid "poi_heading_orphaned_issues"
+msgstr ""
+
+#. Default: "Issue search results"
+#: ./browser/templates/poi_issue_search.pt:34
+#, fuzzy
+msgid "poi_heading_search_results"
+msgstr "问题查找结果"
+
+#. Default: "An overview of recent activity in the tracker."
+#: ./browser/log.pt:14
+msgid "poi_help_log"
+msgstr ""
+
+#. Default: "The following open issues have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
+#: ./browser/templates/poi_tracker_view.pt:244
+#, fuzzy
+msgid "poi_help_my_issues_manager"
+msgstr "下面的开放问题要么是你提交的，要么是分配给你的"
+
+#. Default: "The following open issues are assigned you."
+#: ./browser/templates/poi_tracker_view.pt:251
+#, fuzzy
+msgid "poi_help_my_issues_not_manager"
+msgstr "下面的开放问题是你提交的"
+
+#. Default: "The following open issues were submitted by you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
+#: ./browser/templates/poi_tracker_view.pt:273
+msgid "poi_help_my_submitted_issues_manager"
+msgstr ""
+
+#. Default: "The following issues were submitted by you."
+#: ./browser/templates/poi_tracker_view.pt:280
+msgid "poi_help_my_submitted_issues_not_manager"
+msgstr ""
+
+#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
+#: ./browser/templates/poi_tracker_view.pt:157
+msgid "poi_help_open_issues"
+msgstr "点击一个领域、版本或者问题状态，查看所有这个分类的开放问题。要使用更高级的搜索选项，点击“查找问题”"
+
+#. Default: "The following issues are not assigned to anyone."
+#: ./browser/templates/poi_tracker_view.pt:304
+msgid "poi_help_orphaned_issues_"
+msgstr ""
+
+#. Default: "Advanced issue search"
+#: ./browser/templates/poi_tracker_view.pt:133
+#, fuzzy
+msgid "poi_issue_search"
+msgstr "查找问题"
+
+#. Default: "This form allows you to search for issue according to a variety of criteria. Please make your selection below and click Search."
+#: ./browser/templates/poi_issue_search_form.pt:23
+msgid "poi_issue_search_description"
+msgstr "你可在这个表单中查找满足某些条件的问题。请在下面选择，并点击查找。"
+
+#. Default: "Area"
+#: ./browser/templates/poi_issue_view.pt:92
+msgid "poi_label_area"
+msgstr "领域"
+
+#. Default: "Ticket Owner"
+#: ./browser/templates/poi_issue_view.pt:141
+msgid "poi_label_assignee"
+msgstr "负责人"
+
+#. Default: "Attached:"
+#: ./browser/response.pt:72
+msgid "poi_label_attachment"
+msgstr "附件："
+
+#. Default: "Contact Email"
+#: ./browser/templates/poi_issue_view.pt:123
+msgid "poi_label_issue_contact_email"
+msgstr ""
+
+#. Default: "Related issue(s):"
+#: ./browser/templates/poi_issue_view.pt:191
+msgid "poi_label_related"
+msgstr ""
+
+#. Default: "Severity"
+#: ./browser/templates/poi_issue_view.pt:110
+msgid "poi_label_severity"
+msgstr "严重性"
+
+#. Default: "State"
+#: ./browser/templates/poi_issue_view.pt:72
+msgid "poi_label_state"
+msgstr "状态"
+
+#. Default: "Steps to reproduce:"
+#: ./browser/templates/poi_issue_view.pt:182
+msgid "poi_label_steps"
+msgstr "重现的步骤："
+
+#. Default: "Submitted by"
+#: ./browser/templates/poi_issue_view.pt:130
+msgid "poi_label_submitted_by"
+msgstr "提交人:"
+
+#. Default: "Submitted on"
+#: ./browser/templates/poi_issue_view.pt:137
+msgid "poi_label_submitted_on"
+msgstr "提交时间："
+
+#. Default: "Tags:"
+#: ./browser/templates/poi_issue_view.pt:60
+msgid "poi_label_tags"
+msgstr "标记："
+
+#. Default: "Target release:"
+#: ./browser/templates/poi_issue_view.pt:152
+msgid "poi_label_target_release"
+msgstr ""
+
+#. Default: "Issue type"
+#: ./browser/templates/poi_issue_view.pt:101
+msgid "poi_label_type"
+msgstr "问题类型"
+
+#. Default: "Version:"
+#: ./browser/templates/poi_issue_view.pt:81
+msgid "poi_label_version"
+msgstr ""
+
+#. Default: "Search Terms"
+#: ./browser/templates/poi_issue_search_form.pt:35
+msgid "poi_legend_search_terms"
+msgstr "搜索词"
+
+#. Default: "Match all tags"
+#: ./browser/templates/poi_issue_search_form.pt:270
+msgid "poi_match_all_tags"
+msgstr ""
+
+#. Default: "New issue ${name} added by ${author}"
+#: ./browser/log.pt:32
+msgid "poi_new_issue_added"
+msgstr ""
+
+#. Default: "${author} added a new response to ${name}:"
+#: ./browser/log.pt:39
+msgid "poi_new_response_added"
+msgstr ""
+
+#. Default: "Return to search results"
+#: ./browser/templates/poi_issue_view.pt:170
+msgid "poi_return_to_search_results"
+msgstr ""
+
+#. Default: "Return to tracker"
+#: ./browser/templates/poi_issue_search.pt:43
+#: ./browser/templates/poi_issue_search_form.pt:20
+msgid "poi_return_to_tracker"
+msgstr "回到问题跟踪器"
+
+#. Default: "Select the areas you wish to search for."
+#: ./browser/templates/poi_issue_search_form.pt:141
+msgid "poi_search_help_area"
+msgstr "选择你希望搜索的领域"
+
+#. Default: "Select the assignee you wish to search for."
+#: ./browser/templates/poi_issue_search_form.pt:227
+msgid "poi_search_help_assignee"
+msgstr "选择你希望查找的问题的负责人"
+
+#. Default: "Enter the username of the issue submitter,"
+#: ./browser/templates/poi_issue_search_form.pt:81
+msgid "poi_search_help_creator"
+msgstr "输入问题提交人的用户名"
+
+#. Default: "If you wish to search for a particular issue, please enter its number."
+#: ./browser/templates/poi_issue_search_form.pt:41
+msgid "poi_search_help_id"
+msgstr ""
+
+#. Default: "Select the types you wish to search for."
+#: ./browser/templates/poi_issue_search_form.pt:162
+msgid "poi_search_help_issue_type"
+msgstr "选择你需要查找的问题类型"
+
+#. Default: "Select the version for which the bugs you want to find were reported."
+#: ./browser/templates/poi_issue_search_form.pt:94
+#, fuzzy
+msgid "poi_search_help_release"
+msgstr "选择你希望查找的版本"
+
+#. Default: "Select the severities you wish to search for."
+#: ./browser/templates/poi_issue_search_form.pt:183
+msgid "poi_search_help_severity"
+msgstr "选择你要查找的严重性"
+
+#. Default: "Select the states you wish to search for."
+#: ./browser/templates/poi_issue_search_form.pt:204
+msgid "poi_search_help_state"
+msgstr "选择你要查找的状态"
+
+#. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
+#: ./browser/templates/poi_issue_search_form.pt:248
+msgid "poi_search_help_tags"
+msgstr "标记是有问题跟踪器管理员分配的关键字，用来更细的组织问题。选择你希望查找的标记"
+
+#. Default: "Select the assigned target release you wish to search for."
+#: ./browser/templates/poi_issue_search_form.pt:118
+msgid "poi_search_help_target_release"
+msgstr ""
+
+#. Default: "Enter any text you wish the issue to include."
+#: ./browser/templates/poi_issue_search_form.pt:56
+msgid "poi_search_help_text"
+msgstr "选择你希望问题包含的文字"
+
+#. Default: "Area"
+#: ./browser/templates/poi_issue_search_form.pt:139
+msgid "poi_search_label_area"
+msgstr "领域"
+
+#. Default: "Assignee"
+#: ./browser/templates/poi_issue_search_form.pt:225
+msgid "poi_search_label_assignee"
+msgstr "负责人"
+
+#. Default: "Submitter"
+#: ./browser/templates/poi_issue_search_form.pt:79
+msgid "poi_search_label_creator"
+msgstr "提交人"
+
+#. Default: "Issue number"
+#: ./browser/templates/poi_issue_search_form.pt:39
+msgid "poi_search_label_id"
+msgstr ""
+
+#. Default: "Version"
+#: ./browser/templates/poi_issue_search_form.pt:92
+#, fuzzy
+msgid "poi_search_label_release"
+msgstr "版本"
+
+#. Default: "Severity"
+#: ./browser/templates/poi_issue_search_form.pt:181
+msgid "poi_search_label_severity"
+msgstr "严重性"
+
+#. Default: "State"
+#: ./browser/templates/poi_issue_search_form.pt:202
+msgid "poi_search_label_state"
+msgstr "状态"
+
+#. Default: "Tags"
+#: ./browser/templates/poi_issue_search_form.pt:246
+msgid "poi_search_label_tags"
+msgstr "标记"
+
+#. Default: "Target release"
+#: ./browser/templates/poi_issue_search_form.pt:116
+msgid "poi_search_label_target_release"
+msgstr ""
+
+#. Default: "Issue text"
+#: ./browser/templates/poi_issue_search_form.pt:54
+msgid "poi_search_label_text"
+msgstr "问题正文"
+
+#. Default: "Issue Types"
+#: ./browser/templates/poi_issue_search_form.pt:160
+msgid "poi_search_label_type"
+msgstr "问题类型"
+
+#. Default: "Title"
+#: ./content/tracker.py:189
+msgid "title"
+msgstr ""
+
+#. Default: "Add/remove attachments"
+#: ./browser/response.pt:87
+msgid "title_add_remove_attachments"
+msgstr ""
+
+#. Default: "Add response"
+#: ./browser/response.pt:115
+msgid "title_add_response"
+msgstr ""
+
+#. Default: "Change History"
+#: ./browser/response.pt:7
+msgid "title_change_history"
+msgstr ""
+
+#. Default: "Edit response"
+#: ./browser/templates/edit_response.pt:30
+msgid "title_edit_response"
+msgstr ""
+
+#. Default: "Error: no response found for editing"
+#: ./browser/templates/edit_response.pt:19
+msgid "title_error_no_response"
+msgstr ""
+
+#. Default: "View activity feed"
+#: ./browser/templates/poi_tracker_view.pt:81
+msgid "view_issue_logs"
+msgstr ""

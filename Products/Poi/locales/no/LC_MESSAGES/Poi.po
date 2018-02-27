@@ -3,11 +3,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: Mon May 22 09:32:30 2017\n"
+"POT-Creation-Date: 2018-02-27 12:12+0000\n"
 "PO-Revision-Date: 2007-05-06 17:00+0000\n"
 "Last-Translator: Espen Moe-Nilssen <espen@medialog.no>\n"
 "Language-Team: None <plone-i18n@lists.sourceforge.net>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,1354 +15,1306 @@ msgstr ""
 "Language-Name: Norsk\n"
 "Preferred-Encodings: utf-8 iso-8859-1\n"
 "Domain: Poi\n"
+"Language: \n"
 "X-Is-Fallback-For: nb nb-no no-bok\n"
 
-#. Default: "Tracker log"
-#: Products.Poi:/browser/log.pt:12
-msgid "poi_heading_log"
+#: ./profiles.zcml:14
+msgid "A friendly issue tracker"
 msgstr ""
 
-#. Default: "An overview of recent activity in the tracker."
-#: Products.Poi:/browser/log.pt:14
-msgid "poi_help_log"
+#: ./browser/templates/poi_email_new_issue_html.pt:23
+#: ./browser/templates/poi_email_new_issue_plain.pt:8
+msgid "A new issue has been submitted to the ${tracker_title} tracker by ${issue_author} and awaits confirmation."
 msgstr ""
 
-#. Default: "New issue ${name} added by ${author}"
-#: Products.Poi:/browser/log.pt:32
-msgid "poi_new_issue_added"
+#: ./browser/templates/poi_email_new_response_html.pt:24
+#: ./browser/templates/poi_email_new_response_plain.pt:8
+msgid "A new response has been given to the issue ${issue_title} in the tracker ${tracker_title} by ${response_author}."
 msgstr ""
 
-#. Default: "${author} added a new response to ${name}:"
-#: Products.Poi:/browser/log.pt:39
-msgid "poi_new_response_added"
-msgstr ""
-
-#: Products.Poi:/browser/log.pt:53 Products.Poi:/browser/log.pt:54
-#: Products.Poi:/browser/log.pt:57 Products.Poi:/browser/response.pt:54
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:107
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:113
-msgid "${DYNAMIC_CONTENT}"
-msgstr ""
-
-#. Default: "Added ${count} minute(s) ago."
-#: Products.Poi:/browser/log.pt:68
-msgid "poi_added_minutes_ago"
-msgstr ""
-
-#. Default: "Added ${count} hour(s) ago."
-#: Products.Poi:/browser/log.pt:75
-msgid "poi_added_hours_ago"
-msgstr ""
-
-#. Default: "Added ${count} day(s) ago."
-#: Products.Poi:/browser/log.pt:82
-msgid "poi_added_days_ago"
-msgstr ""
-
-#. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
-#: Products.Poi:/browser/notifications.py:148
-msgid "poi_email_new_issue_subject_template"
-msgstr ""
-
-#. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
-#: Products.Poi:/browser/notifications.py:211
-msgid "poi_email_new_response_subject_template"
-msgstr ""
-
-#. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
-#: Products.Poi:/browser/notifications.py:234
-msgid "poi_email_issue_resolved_subject_template"
-msgstr ""
-
-#. Default: "If you can, please log in before submitting a reaction."
-#: Products.Poi:/browser/response.pt:100
-msgid "login_suggestion_response"
-msgstr ""
-
-#. Default: "Add response"
-#: Products.Poi:/browser/response.pt:115
-msgid "title_add_response"
-msgstr ""
-
-# ./content/PoiIssue.py
-#. Default: "Response"
-#: Products.Poi:/browser/response.pt:122
-msgid "Poi_label_response"
-msgstr "Svar"
-
-# ./content/PoiIssue.py
-#. Default: "Please enter your response below."
-#: Products.Poi:/browser/response.pt:125
-msgid "Poi_help_response"
-msgstr "Vennligst skriv inn ditt svar nedenfor"
-
-#. Default: "Modify Issue"
-#: Products.Poi:/browser/response.pt:161
-msgid "Poi_label_modify"
-msgstr ""
-
-# ./content/PoiIssue.py
-#. Default: "Change issue state"
-#: Products.Poi:/browser/response.pt:173
-msgid "Poi_label_issueTransition"
-msgstr "Forandre emne-tilstand"
-
-# ./content/PoiIssue.py
-#. Default: "Set a new state, if applicable"
-#: Products.Poi:/browser/response.pt:178
-msgid "Poi_help_issueTransition"
-msgstr ""
-"Velg en forandring i tilstanden for emnet dette er et svar pï¿½, hvis mulig."
-
-# ./content/PoiResponse.py
-#. Default: "Change issue severity"
-#: Products.Poi:/browser/response.pt:199
-msgid "Poi_label_newSeverity"
-msgstr ""
-
-# ./content/PoiResponse.py
-#. Default: "Select the severity for this issue"
-#: Products.Poi:/browser/response.pt:204
-msgid "Poi_help_newSeverity"
-msgstr ""
-
-# ./content/PoiResponse.py
-#. Default: "Change target release"
-#: Products.Poi:/browser/response.pt:225
-msgid "Poi_label_newTargetRelease"
-msgstr ""
-
-# ./content/PoiResponse.py
-#. Default: "Set the target release for this issue"
-#: Products.Poi:/browser/response.pt:230
-msgid "Poi_help_newTargetRelease"
-msgstr ""
-
-# ./content/PoiResponse.py
-#. Default: "Change assignee"
-#: Products.Poi:/browser/response.pt:249
-msgid "Poi_label_newResponsibleManager"
-msgstr ""
-
-#: Products.Poi:/browser/response.pt:25
-msgid "Edit"
-msgstr "Rediger"
-
-# ./content/PoiResponse.py
-#. Default: "Select the assignee for this issue"
-#: Products.Poi:/browser/response.pt:254
-msgid "Poi_help_newResponsibleManager"
-msgstr ""
-
-#: Products.Poi:/browser/response.pt:35
-msgid "Delete"
-msgstr "Slett"
-
-#. Default: "Added by"
-#: Products.Poi:/browser/response.pt:44
-msgid "poi_added_by"
-msgstr "Lagt til av"
-
-#. Default: "on"
-#: Products.Poi:/browser/response.pt:49
-msgid "poi_added_on"
-msgstr "den"
-
-#. Default: "Change History"
-#: Products.Poi:/browser/response.pt:7
-msgid "title_change_history"
-msgstr ""
-
-#. Default: "Attached:"
-#: Products.Poi:/browser/response.pt:72
-msgid "poi_label_attachment"
-msgstr "Vedlagt."
-
-#. Default: "Add/remove attachments"
-#: Products.Poi:/browser/response.pt:87
-msgid "title_add_remove_attachments"
-msgstr ""
-
-#. Default: "No responses can be added."
-#: Products.Poi:/browser/response.pt:92
-msgid "msg_no_responses_can_be_added"
-msgstr ""
-
-#: Products.Poi:/browser/response.py:194
-msgid "No response selected."
-msgstr ""
-
-#. Default: ""
-#: Products.Poi:/browser/response.py:202
-msgid "Response id ${response_id} is no integer."
-msgstr ""
-
-#. Default: ""
-#: Products.Poi:/browser/response.py:208
-msgid "Response id ${response_id} does not exist."
-msgstr ""
-
-#: Products.Poi:/browser/response.py:413
-msgid "Issue state"
-msgstr ""
-
-#: Products.Poi:/browser/response.py:418
-msgid "Severity"
-msgstr ""
-
-#: Products.Poi:/browser/response.py:419
-msgid "Assignee"
-msgstr ""
-
-#: Products.Poi:/browser/response.py:421
-msgid "Target release"
-msgstr ""
-
-#: Products.Poi:/browser/response.py:440
-msgid "No response text added and no issue changes made."
-msgstr ""
-
-#: Products.Poi:/browser/response.py:482
-msgid "You are not allowed to edit responses."
-msgstr ""
-
-#: Products.Poi:/browser/response.py:488
-msgid "No response selected for saving."
-msgstr ""
-
-#: Products.Poi:/browser/response.py:492
-msgid ""
-"Response does not exist anymore; perhaps it was removed by another user."
-msgstr ""
-
-#. Default: ""
-#: Products.Poi:/browser/response.py:502
-msgid "Changes saved to response id ${response_id}."
-msgstr ""
-
-#: Products.Poi:/browser/response.py:526
-msgid "You are not allowed to delete responses."
-msgstr ""
-
-#: Products.Poi:/browser/response.py:532
-msgid "No response selected for removal."
-msgstr ""
-
-#. Default: ""
-#: Products.Poi:/browser/response.py:539
-msgid "Response id ${response_id} is no integer so it cannot be removed."
-msgstr ""
-
-#. Default: ""
-#: Products.Poi:/browser/response.py:547
-msgid "Response id ${response_id} does not exist so it cannot be removed."
-msgstr ""
-
-#. Default: ""
-#: Products.Poi:/browser/response.py:554
-msgid "Removed response id ${response_id}."
-msgstr ""
-
-#. Default: "Error: no response found for editing"
-#: Products.Poi:/browser/templates/edit_response.pt:19
-msgid "title_error_no_response"
-msgstr ""
-
-#. Default: "Return to issue."
-#: Products.Poi:/browser/templates/edit_response.pt:23
-#: Products.Poi:/browser/templates/edit_response.pt:36
-msgid "label_return_to_issue"
-msgstr ""
-
-#. Default: "Edit response"
-#: Products.Poi:/browser/templates/edit_response.pt:30
-msgid "title_edit_response"
-msgstr ""
-
-#. Default: "You are not allowed to edit this response."
-#: Products.Poi:/browser/templates/edit_response.pt:33
-msgid "label_edit_response_not_allowed"
-msgstr ""
-
-#. Default: "${tracker} - Issue search results"
-#: Products.Poi:/browser/templates/poi-issue-search-rss.xml.pt:11
-#: Products.Poi:/browser/templates/poi_issue_search.pt:34
-msgid "poi_heading_search_results"
-msgstr "Resultater av emnesï¿½k"
-
-#. Default: "No results were found"
-#: Products.Poi:/browser/templates/poi-issue-search-rss.xml.pt:14
-#: Products.Poi:/browser/templates/poi-my-issues-rss.xml.pt:19
-#: Products.Poi:/browser/templates/poi-my-submitted-issues-rss.xml.pt:19
-#: Products.Poi:/browser/templates/poi-orphaned-issues-rss.xml.pt:15
-#: Products.Poi:/browser/templates/poi_issue_search.pt:48
-msgid "description_no_results_found"
-msgstr "Ingenting ble funnet."
-
-#. Default: "${number} items matching your criteria."
-#: Products.Poi:/browser/templates/poi-issue-search-rss.xml.pt:18
-#: Products.Poi:/browser/templates/poi-my-issues-rss.xml.pt:23
-#: Products.Poi:/browser/templates/poi-my-submitted-issues-rss.xml.pt:23
-#: Products.Poi:/browser/templates/poi-orphaned-issues-rss.xml.pt:17
-#: Products.Poi:/browser/templates/poi_issue_search.pt:37
-msgid "batch_x_items_matching_your_criteria"
-msgstr "${number} stk. samsvarer med dine kreterier."
-
-#: Products.Poi:/browser/templates/poi-issue-search-rss.xml.pt:20
-#: Products.Poi:/browser/templates/poi-my-issues-rss.xml.pt:25
-#: Products.Poi:/browser/templates/poi-my-submitted-issues-rss.xml.pt:25
-#: Products.Poi:/browser/templates/poi-orphaned-issues-rss.xml.pt:19
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:324
-msgid "Poi"
-msgstr ""
-
-#. Default: "${tracker} - My issues"
-#: Products.Poi:/browser/templates/poi-my-issues-rss.xml.pt:16
-#: Products.Poi:/browser/templates/poi-orphaned-issues-rss.xml.pt:13
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:243
-msgid "poi_heading_my_issues"
-msgstr "Mine emner"
-
-#. Default: "${tracker} - My Submitted Issues"
-#: Products.Poi:/browser/templates/poi-my-submitted-issues-rss.xml.pt:16
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:272
-msgid "poi_heading_my_submitted_issues"
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_email_new_issue_html.pt:23
-#: Products.Poi:/browser/templates/poi_email_new_issue_plain.pt:8
-msgid ""
-"A new issue has been submitted to the ${tracker_title} tracker by "
-"${issue_author} and awaits confirmation."
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_email_new_issue_html.pt:27
-#: Products.Poi:/browser/templates/poi_email_new_issue_plain.pt:13
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_html.pt:30
-msgid "Issue Information"
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_email_new_issue_html.pt:29
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_html.pt:32
-msgid "Issue"
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_email_new_issue_html.pt:34
-#: Products.Poi:/browser/templates/poi_email_new_issue_plain.pt:19
-msgid "Issue Details:"
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_email_new_issue_html.pt:39
-#: Products.Poi:/browser/templates/poi_email_new_issue_plain.pt:23
-#: Products.Poi:/browser/templates/poi_email_new_response_html.pt:54
-#: Products.Poi:/browser/templates/poi_email_new_response_plain.pt:29
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_html.pt:38
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_plain.pt:22
-msgid "This is an automated email, please do not reply."
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_email_new_issue_plain.pt:15
-#: Products.Poi:/browser/templates/poi_email_new_response_html.pt:31
-#: Products.Poi:/browser/templates/poi_email_new_response_plain.pt:14
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_plain.pt:18
-msgid "Issue:"
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_email_new_response_html.pt:24
-#: Products.Poi:/browser/templates/poi_email_new_response_plain.pt:8
-msgid ""
-"A new response has been given to the issue ${issue_title} in the tracker "
-"${tracker_title} by ${response_author}."
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_email_new_response_html.pt:29
-#: Products.Poi:/browser/templates/poi_email_new_response_plain.pt:12
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_plain.pt:16
-msgid "Response Information"
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_email_new_response_html.pt:42
-#: Products.Poi:/browser/templates/poi_email_new_response_plain.pt:23
+#: ./browser/templates/poi_email_new_response_html.pt:42
+#: ./browser/templates/poi_email_new_response_plain.pt:23
 msgid "An attachment has been added with id ${id}."
 msgstr ""
 
-#: Products.Poi:/browser/templates/poi_email_new_response_html.pt:47
-#: Products.Poi:/browser/templates/poi_email_new_response_plain.pt:25
-msgid "Response Details:"
+#: ./content/tracker.py:235
+msgid "Area"
 msgstr ""
 
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_html.pt:23
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_plain.pt:8
-msgid ""
-"The issue ${issue_title} in the ${tracker_title} tracker has been marked as "
-"resolved by ${response_author}."
+#: ./browser/response.py:419
+msgid "Assignee"
 msgstr ""
 
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_html.pt:25
-#: Products.Poi:/browser/templates/poi_email_resolved_issue_plain.pt:11
-msgid ""
-"Please visit the issue and either confirm that it has been satisfactorily "
-"resolved or re-open it."
+#. Default: ""
+#: ./browser/response.py:502
+msgid "Changes saved to response id ${response_id}."
 msgstr ""
 
-#. Default: "Return to tracker"
-#: Products.Poi:/browser/templates/poi_issue_search.pt:43
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:20
-msgid "poi_return_to_tracker"
-msgstr "Tilbake"
-
-#. Default: "Target release"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:116
-msgid "poi_search_label_target_release"
+#: ./content/tracker.py:62
+msgid "Critical"
 msgstr ""
 
-#. Default: "Select the assigned target release you wish to search for."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:118
-msgid "poi_search_help_target_release"
+#: ./browser/response.pt:35
+msgid "Delete"
+msgstr "Slett"
+
+#: ./content/tracker.py:182
+msgid "Description"
 msgstr ""
 
-#. Default: "Area"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:139
-msgid "poi_search_label_area"
-msgstr "Omrï¿½de"
+#: ./browser/response.pt:25
+msgid "Edit"
+msgstr "Rediger"
 
-#. Default: "Select the areas you wish to search for."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:141
-msgid "poi_search_help_area"
-msgstr "Velg omrï¿½dene du vil sï¿½ke etter."
-
-#. Default: "Issue search"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:15
-msgid "poi_heading_issue_search"
-msgstr "Emnesï¿½k"
-
-#. Default: "Issue Types"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:160
-msgid "poi_search_label_type"
-msgstr "Enmetype"
-
-#. Default: "Select the types you wish to search for."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:162
-msgid "poi_search_help_issue_type"
-msgstr "Velg emne-typene du vil sï¿½ke etter."
-
-#. Default: "Severity"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:181
-msgid "poi_search_label_severity"
-msgstr "'Alvorlighetsgrad'"
-
-#. Default: "Select the severities you wish to search for."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:183
-msgid "poi_search_help_severity"
-msgstr "Velg alvorlighetsgraden du vil sï¿½ke etter."
-
-#. Default: "State"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:202
-msgid "poi_search_label_state"
-msgstr "Tilstand"
-
-#. Default: "Select the states you wish to search for."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:204
-msgid "poi_search_help_state"
-msgstr "Velg tilstandene du vil sï¿½ke etter."
-
-#. Default: "Assignee"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:225
-msgid "poi_search_label_assignee"
-msgstr "Ansvarlige managere"
-
-#. Default: "Select the assignee you wish to search for."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:227
-msgid "poi_search_help_assignee"
-msgstr "Velg de ansvarlige managerene du vil sï¿½ke etter."
-
-#. Default: "This form allows you to search for issue according to a variety of criteria. Please make your selection below and click Search."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:23
-msgid "poi_issue_search_description"
-msgstr ""
-"Denne formen gjï¿½r det mulig ï¿½ sï¿½ke etter emner ved hjelp av mange "
-"kreterier. Vennligst gjï¿½r dine valg og klikk \"Sï¿½k\"."
-
-#. Default: "Tags"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:246
-msgid "poi_search_label_tags"
-msgstr "Merkelapper"
-
-#. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:248
-msgid "poi_search_help_tags"
-msgstr "Velg merkelappene du vil sï¿½ker etter."
-
-#. Default: "Match all tags"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:270
-msgid "poi_match_all_tags"
-msgstr ""
-
-#. Default: "Include Related Issues"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:277
-msgid "poi_display_related"
-msgstr ""
-
-#. Default: "Search"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:282
-msgid "label_search"
-msgstr "Sï¿½k"
-
-#. Default: "Search Terms"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:35
-msgid "poi_legend_search_terms"
-msgstr "Sï¿½kevalg"
-
-#. Default: "Issue number"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:39
-msgid "poi_search_label_id"
-msgstr ""
-
-#. Default: "If you wish to search for a particular issue, please enter its number."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:41
-msgid "poi_search_help_id"
-msgstr ""
-
-#. Default: "Issue text"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:54
-msgid "poi_search_label_text"
-msgstr "Emnetekst"
-
-#. Default: "Enter any text you wish the issue to include."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:56
-msgid "poi_search_help_text"
-msgstr "Skriv hvilen som helst tekst du vil at emnet skal inneholde."
-
-#. Default: "Submitter"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:79
-msgid "poi_search_label_creator"
-msgstr "Oppretter"
-
-#. Default: "Enter the username of the issue submitter,"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:81
-msgid "poi_search_help_creator"
-msgstr "Skriv brukernavnet for emneoppretteren."
-
-#. Default: "Version"
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:92
-#, fuzzy
-msgid "poi_search_label_release"
-msgstr "Versjoon"
-
-#. Default: "Select the version for which the bugs you want to find were reported."
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:94
-#, fuzzy
-msgid "poi_search_help_release"
-msgstr "Select the releases you wish to search for."
-
-#. Default: "#"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:42
-msgid "listingheader_number"
-msgstr ""
-
-#. Default: "Title"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:47
-msgid "listingheader_title"
-msgstr "Tittel"
-
-#. Default: "Target"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:53
-#, fuzzy
-msgid "listingheader_release"
-msgstr "Versjon"
-
-#. Default: "Area"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:58
-msgid "listingheader_area"
-msgstr "Omrï¿½de"
-
-#. Default: "Type"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:63
-msgid "listingheader_type"
-msgstr "Type"
-
-#. Default: "Severity"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:68
-msgid "listingheader_severity"
-msgstr "Alvorlighetsgrad"
-
-#. Default: "Assignee"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:73
-msgid "listingheader_responsible"
-msgstr "Ansvarlig"
-
-#. Default: "Tags"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:78
-msgid "listingheader_tags"
-msgstr ""
-
-#. Default: "Related Issue(s)"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:82
-msgid "listingheader_related"
-msgstr ""
-
-#. Default: "State"
-#: Products.Poi:/browser/templates/poi_issue_search_results.pt:86
-msgid "listingheader_state"
-msgstr "Tilstand"
-
-#. Default: "Issue type"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:101
-msgid "poi_label_type"
-msgstr "Emnetype"
-
-#. Default: "Severity"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:110
-msgid "poi_label_severity"
-msgstr "'Alvorlighetsgrad'"
-
-#. Default: "Contact Email"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:123
-msgid "poi_label_issue_contact_email"
-msgstr ""
-
-#. Default: "Submitted by"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:130
-msgid "poi_label_submitted_by"
-msgstr "Sendt av "
-
-#. Default: "Submitted on"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:137
-msgid "poi_label_submitted_on"
-msgstr "Sendt den"
-
-#. Default: "Ticket Owner"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:141
-msgid "poi_label_assignee"
-msgstr "Ansvarlig"
-
-#. Default: "Target release:"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:152
-msgid "poi_label_target_release"
-msgstr ""
-
-#. Default: "Return to search results"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:170
-msgid "poi_return_to_search_results"
-msgstr ""
-
-#. Default: "Steps to reproduce:"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:182
-msgid "poi_label_steps"
-msgstr "Hvordan/hvorfor skjedde dette :"
-
-#. Default: "Related issue(s):"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:191
-msgid "poi_label_related"
-msgstr ""
-
-#: Products.Poi:/browser/templates/poi_issue_view.pt:54
+#: ./browser/templates/poi_issue_view.pt:54
 msgid "Edit issue"
 msgstr ""
 
-#. Default: "Tags:"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:60
-msgid "poi_label_tags"
-msgstr "Merkelapper :"
-
-#. Default: "State"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:72
-msgid "poi_label_state"
-msgstr "Tilstand"
-
-#. Default: "Version:"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:81
-msgid "poi_label_version"
+#: ./content/tracker.py:309
+msgid "Enter users who will be responsible for solving the issues. Users also need to be added as Watchers to receive notifications."
 msgstr ""
 
-#. Default: "Area"
-#: Products.Poi:/browser/templates/poi_issue_view.pt:92
-msgid "poi_label_area"
-msgstr "Omrï¿½de"
-
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:130
-msgid "Search"
+#: ./content/tracker.py:63
+msgid "Important"
 msgstr ""
 
-#. Default: "Advanced issue search"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:133
-#, fuzzy
-msgid "poi_issue_search"
-msgstr "Sï¿½k etter emner"
+#: ./browser/templates/poi_email_new_issue_html.pt:29
+#: ./browser/templates/poi_email_resolved_issue_html.pt:32
+msgid "Issue"
+msgstr ""
 
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:146
+#: ./browser/templates/poi_email_new_issue_html.pt:34
+#: ./browser/templates/poi_email_new_issue_plain.pt:19
+msgid "Issue Details:"
+msgstr ""
+
+#: ./browser/templates/poi_email_new_issue_html.pt:27
+#: ./browser/templates/poi_email_new_issue_plain.pt:13
+#: ./browser/templates/poi_email_resolved_issue_html.pt:30
+msgid "Issue Information"
+msgstr ""
+
+#: ./content/tracker.py:257
+msgid "Issue Type"
+msgstr ""
+
+#: ./browser/response.py:413
+msgid "Issue state"
+msgstr ""
+
+#: ./browser/templates/poi_email_new_issue_plain.pt:15
+#: ./browser/templates/poi_email_new_response_html.pt:31
+#: ./browser/templates/poi_email_new_response_plain.pt:14
+msgid "Issue:"
+msgstr ""
+
+#: ./content/tracker.py:65
+msgid "Low"
+msgstr ""
+
+#: ./content/tracker.py:64
+msgid "Medium"
+msgstr ""
+
+#: ./profiles.zcml:22
+msgid "Migration Steps"
+msgstr ""
+
+#: ./browser/response.py:532
+msgid "No response selected for removal."
+msgstr ""
+
+#: ./browser/response.py:488
+msgid "No response selected for saving."
+msgstr ""
+
+#: ./browser/response.py:194
+msgid "No response selected."
+msgstr ""
+
+#: ./browser/response.py:440
+msgid "No response text added and no issue changes made."
+msgstr ""
+
+#: ./browser/templates/poi_tracker_view.pt:146
 msgid "Note"
 msgstr ""
 
-#. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:147
-msgid "description_cannot_add_issues_before_opened"
+#: ./profiles.zcml:31
+msgid "Partial uninstall profile for Poi, in addition to the QI one."
 msgstr ""
 
-#. Default: "Open issues"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:153
-msgid "poi_heading_open_issues"
-msgstr "ï¿½pne emner"
-
-#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:157
-msgid "poi_help_open_issues"
+#: ./browser/templates/poi_email_resolved_issue_html.pt:25
+#: ./browser/templates/poi_email_resolved_issue_plain.pt:11
+msgid "Please visit the issue and either confirm that it has been satisfactorily resolved or re-open it."
 msgstr ""
-"Klikk et omrï¿½de eller emne-tilstand for ï¿½ se alle ï¿½pne emner i den "
-"kategorien. For mere avanserte sï¿½kevalg, klikk  \"Sï¿½k etter emner\"."
 
-#. Default: "By area"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:164
-msgid "poi_heading_by_area"
-msgstr "Etter omrï¿½de"
+#: ./browser/templates/poi_tracker_view.pt:324
+#: ./profiles.zcml:14
+msgid "Poi"
+msgstr ""
 
-#. Default: "By target release"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:181
+#: ./profiles.zcml:22
+msgid "Poi Migration to version 4.0"
+msgstr ""
+
+#: ./profiles.zcml:31
+msgid "Poi Uninstall"
+msgstr ""
+
+# ./content/PoiIssue.py
+#. Default: "Select the area this issue is relevant to."
+#: ./content/PoiIssue.py:185
+msgid "Poi_help_area"
+msgstr "Velg for hvilket omrï¿½de dette er relevant."
+
+# ./content/PoiIssue.py
+#. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
+#: ./content/PoiIssue.py:170
 #, fuzzy
-msgid "poi_heading_by_release"
-msgstr "Etter versjon"
+msgid "Poi_help_attachment"
+msgstr "Hvis du ï¿½nsker det kan du legge ved en fil. Vennligst ikke legg ved veldig store filer."
 
-#. Default: "By state"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:194
-msgid "poi_heading_by_state"
-msgstr "Etter tilstand"
-
-#. Default: "All pending issues"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:197
-msgid "poi_all_pending_issues"
-msgstr ""
-
-#. Default: "By top tags"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:222
-msgid "poi_heading_by_tag"
-msgstr "Etter merkelapp"
-
-#. Default: "The following open issues have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:244
+# ./content/PoiTracker.py
+#. Default: "Enter the issue topics/areas for this tracker."
+#: ./content/PoiTracker.py:115
+#: ./content/tracker.py:219
 #, fuzzy
-msgid "poi_help_my_issues_manager"
-msgstr ""
-"De fï¿½lgende ï¿½pne emner ble enten sent av deg, eller de er blitt tildelt "
-"deg."
+msgid "Poi_help_availableAreas"
+msgstr "Skriv emnet/omrï¿½det, en pï¿½ hver linje. Formatet er \"Kort navn | Tittel | Beskrivelse\"."
 
-#. Default: "The following open issues are assigned you."
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:251
+# ./content/PoiTracker.py
+#. Default: "Enter the issue types for this tracker."
+#: ./content/PoiTracker.py:139
+#: ./content/tracker.py:242
 #, fuzzy
-msgid "poi_help_my_issues_not_manager"
-msgstr "De fï¿½lgende ï¿½pne emner ble enten sent av deg."
+msgid "Poi_help_availableIssueTypes"
+msgstr " Skriv emne-typene, en pï¿½ hver linje. Formatet er \"Kort navn | Tittel | Beskrivelse\"."
 
-#. Default: "The following open issues were submitted by you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:273
-msgid "poi_help_my_submitted_issues_manager"
+# ./content/PoiTracker.py
+#. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organized by release."
+#: ./content/PoiTracker.py:182
+#: ./content/tracker.py:292
+msgid "Poi_help_availableReleases"
 msgstr ""
 
-#. Default: "The following issues were submitted by you."
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:280
-msgid "poi_help_my_submitted_issues_not_manager"
+# ./content/PoiTracker.py
+#. Default: "Enter the different type of issue severities that should be available, one per line."
+#: ./content/PoiTracker.py:154
+#: ./content/tracker.py:265
+msgid "Poi_help_availableSeverities"
+msgstr "Beskriv de forskjellige 'alvorlighetsgrader' som skal vï¿½re tilgjengelig, en pï¿½ hver linje."
+
+# ./content/PoiIssue.py
+#. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
+#: ./content/PoiIssue.py:265
+#, fuzzy
+msgid "Poi_help_contactEmail"
+msgstr "Eventuelt, skriv e-post-adr. hvor du kan bli kontaktet for videre informasjon eller nï¿½r tilfellet er ferdigbehandlet."
+
+# ./content/PoiTracker.py
+#. Default: "Select the default severity for new issues."
+#: ./content/PoiTracker.py:168
+#: ./content/tracker.py:279
+msgid "Poi_help_defaultSeverity"
+msgstr "'Default alvorlighetsgrad' for nye emner."
+
+# ./content/PoiIssue.py
+#. Default: "Please provide further details"
+#: ./content/PoiIssue.py:134
+msgid "Poi_help_details"
+msgstr "Vennligst gi flere detaljer"
+
+# ./content/PoiTracker.py
+#. Default: "Enter any introductory help text you'd like to display on the tracker front page."
+#: ./content/PoiTracker.py:91
+#: ./content/tracker.py:207
+msgid "Poi_help_helpText"
 msgstr ""
 
-#. Default: "Orphaned issues"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:303
-msgid "poi_heading_orphaned_issues"
+# ./content/PoiIssue.py
+#. Default: "Set a new state, if applicable"
+#: ./browser/response.pt:178
+msgid "Poi_help_issueTransition"
+msgstr "Velg en forandring i tilstanden for emnet dette er et svar pï¿½, hvis mulig."
+
+# ./content/PoiIssue.py
+#. Default: "Select the type of issue."
+#: ./content/PoiIssue.py:200
+msgid "Poi_help_issueType"
+msgstr "Velg type emne."
+
+#. Default: "Select the area this issue is relevant to."
+#: ./content/issue.py:99
+msgid "Poi_help_issue_area"
 msgstr ""
 
-#. Default: "The following issues are not assigned to anyone."
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:304
-msgid "poi_help_orphaned_issues_"
+#. Default: "Select which person, if any, is assigned to this issue."
+#: ./content/issue.py:136
+msgid "Poi_help_issue_assignee"
 msgstr ""
 
-#. Default: "Powered by"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:321
-msgid "label_powered_by"
+#. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
+#: ./content/issue.py:145
+msgid "Poi_help_issue_contact_email"
 msgstr ""
 
-#. Default: "If you can, please log in before submitting your issue."
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:50
-msgid "login_suggestion"
+#. Default: "Please provide further details."
+#: ./content/issue.py:83
+msgid "Poi_help_issue_details"
 msgstr ""
 
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:72
-msgid "Submit new issue"
-msgstr "Opprett nytt emne"
+#. Default: "Link related issues."
+#: ./content/issue.py:209
+msgid "Poi_help_issue_related"
+msgstr ""
 
-#. Default: "View activity feed"
-#: Products.Poi:/browser/templates/poi_tracker_view.pt:81
-msgid "view_issue_logs"
+#. Default: "Select the version the issue was found in."
+#: ./content/issue.py:74
+msgid "Poi_help_issue_release"
+msgstr ""
+
+#. Default: "Select the severity of this issue."
+#: ./content/issue.py:115
+msgid "Poi_help_issue_severity"
+msgstr ""
+
+#. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
+#: ./content/issue.py:90
+msgid "Poi_help_issue_steps"
+msgstr ""
+
+#. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
+#: ./content/issue.py:182
+msgid "Poi_help_issue_subject"
+msgstr ""
+
+#. Default: "Release this issue is targetted to be fixed in."
+#: ./content/issue.py:125
+msgid "Poi_help_issue_target_release"
 msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
-#: Products.Poi:/content/PoiIssue.py:101 Products.Poi:/content/issue.py:65
+#: ./content/PoiIssue.py:101
+#: ./content/issue.py:65
 msgid "Poi_help_issue_title"
-msgstr ""
-"Velg en kort, forklarende tittel for emnet. En god tittel vil gjï¿½re det "
-"enklere ï¿½ identifisere og svare pï¿½ emnet."
+msgstr "Velg en kort, forklarende tittel for emnet. En god tittel vil gjï¿½re det enklere ï¿½ identifisere og svare pï¿½ emnet."
 
-# ./content/PoiIssue.py
-#. Default: "Version"
-#: Products.Poi:/content/PoiIssue.py:117
+#. Default: "Select the type of issue."
+#: ./content/issue.py:106
+msgid "Poi_help_issue_type"
+msgstr ""
+
+#. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
+#: ./content/issue.py:160
+msgid "Poi_help_issue_watchers"
+msgstr ""
+
+# ./content/PoiTracker.py
+#. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted."
+#: ./content/PoiTracker.py:261
+#: ./content/tracker.py:359
 #, fuzzy
-msgid "Poi_label_release"
-msgstr "Versjon"
+msgid "Poi_help_mailingList"
+msgstr "Hvis gitt, og hvis \"Send bekreftelses-epost\" vil en e-post bli sent til denne adressen hver hver gang et nytt emne eller svar blir opprettet. Hvis ingen mailing-liste er gitt, vil managere motta individuelle e-poster."
+
+# ./content/PoiTracker.py
+#. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
+#: ./content/PoiTracker.py:197
+msgid "Poi_help_managers"
+msgstr "Skriv inn bruker-id-ene for personer som skal ha administrasjons-rettigheter. En per linje."
+
+# ./content/PoiResponse.py
+#. Default: "Select the assignee for this issue"
+#: ./browser/response.pt:254
+msgid "Poi_help_newResponsibleManager"
+msgstr ""
+
+# ./content/PoiResponse.py
+#. Default: "Select the severity for this issue"
+#: ./browser/response.pt:204
+msgid "Poi_help_newSeverity"
+msgstr ""
+
+# ./content/PoiResponse.py
+#. Default: "Set the target release for this issue"
+#: ./browser/response.pt:230
+msgid "Poi_help_newTargetRelease"
+msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Select the version the issue was found in."
-#: Products.Poi:/content/PoiIssue.py:119
+#: ./content/PoiIssue.py:119
 #, fuzzy
 msgid "Poi_help_release"
 msgstr "Select the release this issue pertains to.."
 
 # ./content/PoiIssue.py
-#. Default: "Details"
-#: Products.Poi:/content/PoiIssue.py:132
-msgid "Poi_label_details"
-msgstr "Detaljer"
+#. Default: "Please enter your response below."
+#: ./browser/response.pt:125
+msgid "Poi_help_response"
+msgstr "Vennligst skriv inn ditt svar nedenfor"
 
 # ./content/PoiIssue.py
-#. Default: "Please provide further details"
-#: Products.Poi:/content/PoiIssue.py:134
-msgid "Poi_help_details"
-msgstr "Vennligst gi flere detaljer"
+#. Default: "Select which manager, if any, is responsible for this issue."
+#: ./content/PoiIssue.py:247
+msgid "Poi_help_responsibleManager"
+msgstr "Velg hvilken support-person som er ansvarlig for dette emnet."
 
-# ./content/PoiIssue.py
-#. Default: "Steps to reproduce"
-#: Products.Poi:/content/PoiIssue.py:149
-msgid "Poi_label_steps"
-msgstr "Hvordan/Hvorfor skjedde dette"
-
-# ./content/PoiIssue.py
-#. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
-#: Products.Poi:/content/PoiIssue.py:151
-msgid "Poi_help_steps"
-msgstr "Hvis det er mulig, beskriv hva/hvordan det skjedde."
-
-# ./content/PoiIssue.py
-#. Default: "Attachment"
-#: Products.Poi:/content/PoiIssue.py:168
-msgid "Poi_label_attachment"
-msgstr "Vedlegg"
-
-# ./content/PoiIssue.py
-#. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: Products.Poi:/content/PoiIssue.py:170
+# ./content/PoiTracker.py
+#. Default: "If selected, all tracker assignees above will receive an email for new issues and all issue responses. Issue watchers will receive an email for all issue responses. Issue submitters will receive an email when the issue has been resolved."
+#: ./content/PoiTracker.py:245
+#: ./content/tracker.py:343
 #, fuzzy
-msgid "Poi_help_attachment"
-msgstr ""
-"Hvis du ï¿½nsker det kan du legge ved en fil. Vennligst ikke legg ved veldig "
-"store filer."
-
-# ./content/PoiIssue.py
-#. Default: "Area"
-#: Products.Poi:/content/PoiIssue.py:183
-msgid "Poi_label_area"
-msgstr "Omrï¿½de"
-
-# ./content/PoiIssue.py
-#. Default: "Select the area this issue is relevant to."
-#: Products.Poi:/content/PoiIssue.py:185
-msgid "Poi_help_area"
-msgstr "Velg for hvilket omrï¿½de dette er relevant."
-
-# ./content/PoiIssue.py
-#. Default: "Issue type"
-#: Products.Poi:/content/PoiIssue.py:198
-msgid "Poi_label_issueType"
-msgstr "Emne-type"
-
-# ./content/PoiIssue.py
-#. Default: "Select the type of issue."
-#: Products.Poi:/content/PoiIssue.py:200
-msgid "Poi_help_issueType"
-msgstr "Velg type emne."
-
-# ./content/PoiIssue.py
-#. Default: "Severity"
-#: Products.Poi:/content/PoiIssue.py:213
-msgid "Poi_label_severity"
-msgstr "Alvorlighetsgrad"
+msgid "Poi_help_sendNotificationEmails"
+msgstr "Hvis valgt, vil managere motta e-post hver gang et nytt emne eller svar blir opprettet, og emnedeltakerne vil motta en e-post hver gang det er svar e.l.."
 
 # ./content/PoiIssue.py
 #. Default: "Select the severity of this issue."
-#: Products.Poi:/content/PoiIssue.py:215
+#: ./content/PoiIssue.py:215
 msgid "Poi_help_severity"
 msgstr "Velg 'alvorlighetsgrad' for emnet."
 
 # ./content/PoiIssue.py
-#. Default: "Target release"
-#: Products.Poi:/content/PoiIssue.py:229
-msgid "Poi_label_targetRelease"
+#. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
+#: ./content/PoiIssue.py:151
+msgid "Poi_help_steps"
+msgstr "Hvis det er mulig, beskriv hva/hvordan det skjedde."
+
+# ./content/PoiIssue.py
+#. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
+#: ./content/PoiIssue.py:300
+msgid "Poi_help_subject"
+msgstr "Merkelapper kan brukes for ï¿½ legge til egne kategorier for emner. Listen under viser eksisterende merkelapper som du kan velge, eller du kan legge til nye."
+
+# ./content/PoiTracker.py
+#. Default: "Please enter the URL to the related repository, e.g.: https://github.com/collective/Products.Poi/commit/%(rev)s for Products.Poi."
+#: ./content/PoiTracker.py:277
+#: ./content/tracker.py:373
+msgid "Poi_help_svnurl"
 msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Release this issue is targetted to be fixed in"
-#: Products.Poi:/content/PoiIssue.py:231
+#: ./content/PoiIssue.py:231
 msgid "Poi_help_targetRelease"
-msgstr ""
-
-# ./content/PoiIssue.py
-#. Default: "Responsible"
-#: Products.Poi:/content/PoiIssue.py:245
-msgid "Poi_label_responsibleManager"
-msgstr "Ansvarlig"
-
-# ./content/PoiIssue.py
-#. Default: "Select which manager, if any, is responsible for this issue."
-#: Products.Poi:/content/PoiIssue.py:247
-msgid "Poi_help_responsibleManager"
-msgstr "Velg hvilken support-person som er ansvarlig for dette emnet."
-
-# ./content/PoiIssue.py
-#. Default: "Contact email address"
-#: Products.Poi:/content/PoiIssue.py:263
-msgid "Poi_label_contactEmail"
-msgstr "Kontakt-e-post"
-
-# ./content/PoiIssue.py
-#. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
-#: Products.Poi:/content/PoiIssue.py:265
-#, fuzzy
-msgid "Poi_help_contactEmail"
-msgstr ""
-"Eventuelt, skriv e-post-adr. hvor du kan bli kontaktet for videre "
-"informasjon eller nï¿½r tilfellet er ferdigbehandlet."
-
-# ./content/PoiIssue.py
-#. Default: "Issue watchers"
-#: Products.Poi:/content/PoiIssue.py:280
-msgid "Poi_label_watchers"
-msgstr "Emne-betraktere"
-
-# ./content/PoiIssue.py
-#. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
-#: Products.Poi:/content/PoiIssue.py:282
-#, fuzzy
-msgid "Poi_help_watchers"
-msgstr ""
-"Skriv brukernavn pï¿½ dem som fï¿½lger med dette emnet, en per linje. Disse "
-"medlemmene vil motta en e-post nï¿½r et svar blir lagt til emnet. Brukere "
-"kan ogsï¿½ legge seg selv til som som 'betrakterer'"
-
-# ./content/PoiIssue.py
-#. Default: "Tags"
-#: Products.Poi:/content/PoiIssue.py:298
-msgid "Poi_label_subject"
-msgstr "Merkelapper"
-
-# ./content/PoiIssue.py
-#. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: Products.Poi:/content/PoiIssue.py:300
-msgid "Poi_help_subject"
-msgstr ""
-"Merkelapper kan brukes for ï¿½ legge til egne kategorier for emner. Listen "
-"under viser eksisterende merkelapper som du kan velge, eller du kan legge "
-"til nye."
-
-#. Default: "(Not assigned)"
-#: Products.Poi:/content/PoiIssue.py:524
-#: Products.Poi:/content/PoiTracker.py:430
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:104
-#: Products.Poi:/browser/templates/poi_issue_search_form.pt:127
-msgid "not_assigned"
-msgstr "(Ikke tildelt)"
-
-#. Default: "Id"
-#: Products.Poi:/content/PoiIssue.py:90
-msgid "Poi_label_issue_id"
-msgstr ""
-
-# ./content/PoiIssue.py
-#. Default: "Title"
-#: Products.Poi:/content/PoiIssue.py:99 Products.Poi:/content/issue.py:64
-msgid "Poi_label_issue_title"
-msgstr "Tittel"
-
-# ./content/PoiTracker.py
-#. Default: "Areas"
-#: Products.Poi:/content/PoiTracker.py:113 Products.Poi:/content/tracker.py:215
-msgid "Poi_label_availableAreas"
-msgstr "Omrï¿½der"
-
-# ./content/PoiTracker.py
-#. Default: "Enter the issue topics/areas for this tracker."
-#: Products.Poi:/content/PoiTracker.py:115 Products.Poi:/content/tracker.py:217
-#, fuzzy
-msgid "Poi_help_availableAreas"
-msgstr ""
-"Skriv emnet/omrï¿½det, en pï¿½ hver linje. Formatet er \"Kort navn | Tittel "
-"| Beskrivelse\"."
-
-# ./content/PoiTracker.py
-#. Default: "Issue types"
-#: Products.Poi:/content/PoiTracker.py:137 Products.Poi:/content/tracker.py:238
-msgid "Poi_label_availableIssueTypes"
-msgstr "Enmetype"
-
-# ./content/PoiTracker.py
-#. Default: "Enter the issue types for this tracker."
-#: Products.Poi:/content/PoiTracker.py:139 Products.Poi:/content/tracker.py:240
-#, fuzzy
-msgid "Poi_help_availableIssueTypes"
-msgstr ""
-" Skriv emne-typene, en pï¿½ hver linje. Formatet er \"Kort navn | Tittel | "
-"Beskrivelse\"."
-
-# ./content/PoiTracker.py
-#. Default: "Available severities"
-#: Products.Poi:/content/PoiTracker.py:152 Products.Poi:/content/tracker.py:260
-msgid "Poi_label_availableSeverities"
-msgstr "Tilgjengelige 'alvorlighetsgrader'"
-
-# ./content/PoiTracker.py
-#. Default: "Enter the different type of issue severities that should be available, one per line."
-#: Products.Poi:/content/PoiTracker.py:154 Products.Poi:/content/tracker.py:263
-msgid "Poi_help_availableSeverities"
-msgstr ""
-"Beskriv de forskjellige 'alvorlighetsgrader' som skal vï¿½re tilgjengelig, "
-"en pï¿½ hver linje."
-
-# ./content/PoiTracker.py
-#. Default: "Default severity"
-#: Products.Poi:/content/PoiTracker.py:166 Products.Poi:/content/tracker.py:272
-msgid "Poi_label_defaultSeverity"
-msgstr "'Default alvorlighetsgrad'"
-
-# ./content/PoiTracker.py
-#. Default: "Select the default severity for new issues."
-#: Products.Poi:/content/PoiTracker.py:168 Products.Poi:/content/tracker.py:277
-msgid "Poi_help_defaultSeverity"
-msgstr "'Default alvorlighetsgrad' for nye emner."
-
-# ./content/PoiTracker.py
-#. Default: "Available releases"
-#: Products.Poi:/content/PoiTracker.py:180 Products.Poi:/content/tracker.py:286
-msgid "Poi_label_availableReleases"
-msgstr "Available releases"
-
-# ./content/PoiTracker.py
-#. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organised by release."
-#: Products.Poi:/content/PoiTracker.py:182 Products.Poi:/content/tracker.py:290
-msgid "Poi_help_availableReleases"
-msgstr ""
-
-#. Default: "Tracker managers"
-#: Products.Poi:/content/PoiTracker.py:195
-msgid "Poi_label_managers"
-msgstr ""
-
-# ./content/PoiTracker.py
-#. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
-#: Products.Poi:/content/PoiTracker.py:197
-msgid "Poi_help_managers"
-msgstr ""
-"Skriv inn bruker-id-ene for personer som skal ha administrasjons-"
-"rettigheter. En per linje."
-
-#. Default: "Technicians"
-#: Products.Poi:/content/PoiTracker.py:209
-msgid "Poi_label_technicians"
 msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
-#: Products.Poi:/content/PoiTracker.py:211
+#: ./content/PoiTracker.py:211
 msgid "Poi_help_technicians"
 msgstr ""
 
-#. Default: "Tracker watchers"
-#: Products.Poi:/content/PoiTracker.py:224 Products.Poi:/content/tracker.py:321
-msgid "Poi_label_tracker_watchers"
-msgstr ""
-
-#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
-#: Products.Poi:/content/PoiTracker.py:226 Products.Poi:/content/tracker.py:322
-msgid "Poi_help_tracker_watchers"
-msgstr ""
-
-# ./content/PoiTracker.py
-#. Default: "Send notification emails"
-#: Products.Poi:/content/PoiTracker.py:243 Products.Poi:/content/tracker.py:337
-msgid "Poi_label_sendNotificationEmails"
-msgstr "Send bekreftelses-e-post"
-
-# ./content/PoiTracker.py
-#. Default: "If selected, tracker managers will receive an email each time a new issue or response is posted, and issue submitters will receive an email when there is a new response and when an issue has been resolved, awaiting confirmation. Technicians will get an email when an issue is assigned to them."
-#: Products.Poi:/content/PoiTracker.py:245 Products.Poi:/content/tracker.py:341
-#, fuzzy
-msgid "Poi_help_sendNotificationEmails"
-msgstr ""
-"Hvis valgt, vil managere motta e-post hver gang et nytt emne eller svar blir "
-"opprettet, og emnedeltakerne vil motta en e-post hver gang det er svar e.l.."
-
-# ./content/PoiTracker.py
-#. Default: "Mailing list"
-#: Products.Poi:/content/PoiTracker.py:260 Products.Poi:/content/tracker.py:353
-msgid "Poi_label_mailingList"
-msgstr "Mailing-liste"
-
-# ./content/PoiTracker.py
-#. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted. Managers will receive individual emails as well. If this is not wanted, you may want to make them technician instead."
-#: Products.Poi:/content/PoiTracker.py:262 Products.Poi:/content/tracker.py:357
-#, fuzzy
-msgid "Poi_help_mailingList"
-msgstr ""
-"Hvis gitt, og hvis \"Send bekreftelses-epost\" vil en e-post bli sent til "
-"denne adressen hver hver gang et nytt emne eller svar blir opprettet. Hvis "
-"ingen mailing-liste er gitt, vil managere motta individuelle e-poster."
-
-# ./content/PoiTracker.py
-#. Default: "URL to SVN"
-#: Products.Poi:/content/PoiTracker.py:279 Products.Poi:/content/tracker.py:369
-msgid "Poi_label_svnurl"
-msgstr ""
-
-# ./content/PoiTracker.py
-#. Default: "Please enter the Url to the related SVN repository, e.g.: http://dev.plone.org/changeset/%(rev)s/collective for products in the Plone collective."
-#: Products.Poi:/content/PoiTracker.py:281 Products.Poi:/content/tracker.py:371
-msgid "Poi_help_svnurl"
-msgstr ""
-
-# ./content/PoiTracker.py
-#. Default: "Tracker name"
-#: Products.Poi:/content/PoiTracker.py:58
-msgid "Poi_label_tracker_title"
-msgstr "Navn"
-
-# ./content/PoiTracker.py
-#. Default: "Enter a descriptive name for this tracker"
-#: Products.Poi:/content/PoiTracker.py:60 Products.Poi:/content/tracker.py:190
-msgid "Poi_help_tracker_title"
-msgstr "Skriv et passende navn for denne 'sporeren'."
-
-#. Default: "Tracker description"
-#: Products.Poi:/content/PoiTracker.py:72
-msgid "Poi_label_tracker_description"
-msgstr ""
-
 #. Default: "Describe the purpose of this tracker"
-#: Products.Poi:/content/PoiTracker.py:74 Products.Poi:/content/tracker.py:198
+#: ./content/PoiTracker.py:74
+#: ./content/tracker.py:198
 msgid "Poi_help_tracker_description"
 msgstr ""
 
 # ./content/PoiTracker.py
-#. Default: "Help text"
-#: Products.Poi:/content/PoiTracker.py:89
-msgid "Poi_label_helpText"
+#. Default: "Enter a descriptive name for this tracker"
+#: ./content/PoiTracker.py:60
+#: ./content/tracker.py:190
+msgid "Poi_help_tracker_title"
+msgstr "Skriv et passende navn for denne 'sporeren'."
+
+#. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
+#: ./content/PoiTracker.py:226
+#: ./content/tracker.py:324
+msgid "Poi_help_tracker_watchers"
 msgstr ""
 
-# ./content/PoiTracker.py
-#. Default: "Enter any introductory help text you'd like to display on the tracker front page."
-#: Products.Poi:/content/PoiTracker.py:91 Products.Poi:/content/tracker.py:206
-msgid "Poi_help_helpText"
-msgstr ""
-
-#. Default: "Issue Type"
-#: Products.Poi:/content/issue.py:105
-msgid "Poi_label_issue_type"
-msgstr ""
-
-#. Default: "Select the type of issue."
-#: Products.Poi:/content/issue.py:106
-msgid "Poi_help_issue_type"
-msgstr ""
-
-#. Default: "Severity"
-#: Products.Poi:/content/issue.py:114
-msgid "Poi_label_issue_severity"
-msgstr ""
-
-#. Default: "Select the severity of this issue."
-#: Products.Poi:/content/issue.py:115
-msgid "Poi_help_issue_severity"
-msgstr ""
-
-#. Default: "Target Release"
-#: Products.Poi:/content/issue.py:124
-msgid "Poi_label_issue_target_release"
-msgstr ""
-
-#. Default: "Release this issue is targetted to be fixed in."
-#: Products.Poi:/content/issue.py:125
-msgid "Poi_help_issue_target_release"
-msgstr ""
-
-#. Default: "Assignee"
-#: Products.Poi:/content/issue.py:135
-msgid "Poi_label_issue_assignee"
-msgstr ""
-
-#. Default: "Select which person, if any, is assigned to this issue."
-#: Products.Poi:/content/issue.py:136
-msgid "Poi_help_issue_assignee"
-msgstr ""
-
-#. Default: "Contact Email"
-#: Products.Poi:/content/issue.py:144
-msgid "Poi_label_issue_contact_email"
-msgstr ""
-
-#. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
-#: Products.Poi:/content/issue.py:145
-msgid "Poi_help_issue_contact_email"
-msgstr ""
-
-#. Default: "Watchers"
-#: Products.Poi:/content/issue.py:159
-msgid "Poi_label_issue_watchers"
-msgstr ""
-
+# ./content/PoiIssue.py
 #. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
-#: Products.Poi:/content/issue.py:160
-msgid "Poi_help_issue_watchers"
-msgstr ""
+#: ./content/PoiIssue.py:282
+#, fuzzy
+msgid "Poi_help_watchers"
+msgstr "Skriv brukernavn pï¿½ dem som fï¿½lger med dette emnet, en per linje. Disse medlemmene vil motta en e-post nï¿½r et svar blir lagt til emnet. Brukere kan ogsï¿½ legge seg selv til som som 'betrakterer'"
 
-#. Default: "Subject"
-#: Products.Poi:/content/issue.py:181
-msgid "Poi_label_issue_subject"
-msgstr ""
-
-#. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: Products.Poi:/content/issue.py:182
-msgid "Poi_help_issue_subject"
-msgstr ""
-
-#. Default: "Related Issue(s)"
-#: Products.Poi:/content/issue.py:208
-msgid "Poi_label_issue_related"
-msgstr ""
-
-#. Default: "Link related issues."
-#: Products.Poi:/content/issue.py:209
-msgid "Poi_help_issue_related"
-msgstr ""
-
-#. Default: "Leave this field empty"
-#: Products.Poi:/content/issue.py:219
-msgid "Poi_label_issue_empty"
-msgstr ""
-
-#. Default: "Release"
-#: Products.Poi:/content/issue.py:73
-msgid "Poi_label_issue_release"
-msgstr ""
-
-#. Default: "Select the version the issue was found in."
-#: Products.Poi:/content/issue.py:74
-msgid "Poi_help_issue_release"
-msgstr ""
-
-#. Default: "Details"
-#: Products.Poi:/content/issue.py:82
-msgid "Poi_label_issue_details"
-msgstr ""
-
-#. Default: "Please provide further details."
-#: Products.Poi:/content/issue.py:83
-msgid "Poi_help_issue_details"
-msgstr ""
-
-#. Default: "Steps To Reproduce"
-#: Products.Poi:/content/issue.py:89
-msgid "Poi_label_issue_steps"
-msgstr ""
-
-#. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
-#: Products.Poi:/content/issue.py:90
-msgid "Poi_help_issue_steps"
-msgstr ""
-
+# ./content/PoiIssue.py
 #. Default: "Area"
-#: Products.Poi:/content/issue.py:98
-msgid "Poi_label_issue_area"
-msgstr ""
-
-#. Default: "Select the area this issue is relevant to."
-#: Products.Poi:/content/issue.py:99
-msgid "Poi_help_issue_area"
-msgstr ""
-
-#: Products.Poi:/content/tracker.py:176
-msgid "Short Name"
-msgstr ""
-
-#: Products.Poi:/content/tracker.py:179
-msgid "Title"
-msgstr ""
-
-#: Products.Poi:/content/tracker.py:182
-msgid "Description"
-msgstr ""
-
-#. Default: "Title"
-#: Products.Poi:/content/tracker.py:189
-msgid "title"
-msgstr ""
-
-#. Default: "Description"
-#: Products.Poi:/content/tracker.py:197
-msgid "description"
-msgstr ""
-
-#. Default: "Help Text"
-#: Products.Poi:/content/tracker.py:205
-msgid "help_text"
-msgstr ""
-
-#: Products.Poi:/content/tracker.py:233
-msgid "Area"
-msgstr ""
-
-#: Products.Poi:/content/tracker.py:255
-msgid "Issue Type"
-msgstr ""
+#: ./content/PoiIssue.py:183
+msgid "Poi_label_area"
+msgstr "Omrï¿½de"
 
 #. Default: "Assignees"
-#: Products.Poi:/content/tracker.py:306
+#: ./content/tracker.py:308
 msgid "Poi_label_assignees"
 msgstr ""
 
-#: Products.Poi:/content/tracker.py:307
-msgid ""
-"Enter users who will be responsible for solving the issues. Users also need "
-"to be added as Watchers to receive notifications."
+# ./content/PoiIssue.py
+#. Default: "Attachment"
+#: ./content/PoiIssue.py:168
+msgid "Poi_label_attachment"
+msgstr "Vedlegg"
+
+# ./content/PoiTracker.py
+#. Default: "Areas"
+#: ./content/PoiTracker.py:113
+#: ./content/tracker.py:217
+msgid "Poi_label_availableAreas"
+msgstr "Omrï¿½der"
+
+# ./content/PoiTracker.py
+#. Default: "Issue types"
+#: ./content/PoiTracker.py:137
+#: ./content/tracker.py:240
+msgid "Poi_label_availableIssueTypes"
+msgstr "Enmetype"
+
+# ./content/PoiTracker.py
+#. Default: "Available releases"
+#: ./content/PoiTracker.py:180
+#: ./content/tracker.py:288
+msgid "Poi_label_availableReleases"
+msgstr "Available releases"
+
+# ./content/PoiTracker.py
+#. Default: "Available severities"
+#: ./content/PoiTracker.py:152
+#: ./content/tracker.py:262
+msgid "Poi_label_availableSeverities"
+msgstr "Tilgjengelige 'alvorlighetsgrader'"
+
+# ./content/PoiIssue.py
+#. Default: "Contact email address"
+#: ./content/PoiIssue.py:263
+msgid "Poi_label_contactEmail"
+msgstr "Kontakt-e-post"
+
+# ./content/PoiTracker.py
+#. Default: "Default severity"
+#: ./content/PoiTracker.py:166
+#: ./content/tracker.py:274
+msgid "Poi_label_defaultSeverity"
+msgstr "'Default alvorlighetsgrad'"
+
+# ./content/PoiIssue.py
+#. Default: "Details"
+#: ./content/PoiIssue.py:132
+msgid "Poi_label_details"
+msgstr "Detaljer"
+
+# ./content/PoiTracker.py
+#. Default: "Help text"
+#: ./content/PoiTracker.py:89
+msgid "Poi_label_helpText"
 msgstr ""
 
-#: Products.Poi:/content/tracker.py:62
-msgid "Critical"
+# ./content/PoiIssue.py
+#. Default: "Change issue state"
+#: ./browser/response.pt:173
+msgid "Poi_label_issueTransition"
+msgstr "Forandre emne-tilstand"
+
+# ./content/PoiIssue.py
+#. Default: "Issue type"
+#: ./content/PoiIssue.py:198
+msgid "Poi_label_issueType"
+msgstr "Emne-type"
+
+#. Default: "Area"
+#: ./content/issue.py:98
+msgid "Poi_label_issue_area"
 msgstr ""
 
-#: Products.Poi:/content/tracker.py:63
-msgid "Important"
+#. Default: "Assignee"
+#: ./content/issue.py:135
+msgid "Poi_label_issue_assignee"
 msgstr ""
 
-#: Products.Poi:/content/tracker.py:64 Products.Poi:/content/tracker.py:276
-msgid "Medium"
+#. Default: "Contact Email"
+#: ./content/issue.py:144
+msgid "Poi_label_issue_contact_email"
 msgstr ""
 
-#: Products.Poi:/content/tracker.py:65
-msgid "Low"
+#. Default: "Details"
+#: ./content/issue.py:82
+msgid "Poi_label_issue_details"
+msgstr ""
+
+#. Default: "Leave this field empty"
+#: ./content/issue.py:219
+msgid "Poi_label_issue_empty"
+msgstr ""
+
+#. Default: "Id"
+#: ./content/PoiIssue.py:90
+msgid "Poi_label_issue_id"
+msgstr ""
+
+#. Default: "Related Issue(s)"
+#: ./content/issue.py:208
+msgid "Poi_label_issue_related"
+msgstr ""
+
+#. Default: "Release"
+#: ./content/issue.py:73
+msgid "Poi_label_issue_release"
+msgstr ""
+
+#. Default: "Severity"
+#: ./content/issue.py:114
+msgid "Poi_label_issue_severity"
+msgstr ""
+
+#. Default: "Steps To Reproduce"
+#: ./content/issue.py:89
+msgid "Poi_label_issue_steps"
+msgstr ""
+
+#. Default: "Subject"
+#: ./content/issue.py:181
+msgid "Poi_label_issue_subject"
+msgstr ""
+
+#. Default: "Target Release"
+#: ./content/issue.py:124
+msgid "Poi_label_issue_target_release"
+msgstr ""
+
+# ./content/PoiIssue.py
+#. Default: "Title"
+#: ./content/PoiIssue.py:99
+#: ./content/issue.py:64
+msgid "Poi_label_issue_title"
+msgstr "Tittel"
+
+#. Default: "Issue Type"
+#: ./content/issue.py:105
+msgid "Poi_label_issue_type"
+msgstr ""
+
+#. Default: "Watchers"
+#: ./content/issue.py:159
+msgid "Poi_label_issue_watchers"
 msgstr ""
 
 # ./content/PoiTracker.py
-#~ msgid "msgid \"Poi_label_assignees\""
-#~ msgstr "Managere"
+#. Default: "Mailing list"
+#: ./content/PoiTracker.py:259
+#: ./content/tracker.py:355
+msgid "Poi_label_mailingList"
+msgstr "Mailing-liste"
 
-#~ msgid "Stop watching this issue"
-#~ msgstr "Slutt ï¿½ fï¿½lge med dette emnet"
+#. Default: "Tracker managers"
+#: ./content/PoiTracker.py:195
+msgid "Poi_label_managers"
+msgstr ""
 
-#~ msgid "Watch this issue"
-#~ msgstr "Fï¿½lg med dette emnet"
+#. Default: "Modify Issue"
+#: ./browser/response.pt:161
+msgid "Poi_label_modify"
+msgstr ""
 
-#~ msgid "poi_heading_unconfirmed_issues"
-#~ msgstr "Ubekreftete emner"
+# ./content/PoiResponse.py
+#. Default: "Change assignee"
+#: ./browser/response.pt:249
+msgid "Poi_label_newResponsibleManager"
+msgstr ""
 
+# ./content/PoiResponse.py
+#. Default: "Change issue severity"
+#: ./browser/response.pt:199
+msgid "Poi_label_newSeverity"
+msgstr ""
+
+# ./content/PoiResponse.py
+#. Default: "Change target release"
+#: ./browser/response.pt:225
+msgid "Poi_label_newTargetRelease"
+msgstr ""
+
+# ./content/PoiIssue.py
+#. Default: "Version"
+#: ./content/PoiIssue.py:117
 #, fuzzy
-#~ msgid "poi_help_unconfirmed_issues"
-#~ msgstr ""
-#~ "De fï¿½lgende emner har ikke blitt bekreftet eller tildelt. Vennligst "
-#~ "sjekk dem og gjï¿½r nï¿½dvendige tiltak."
+msgid "Poi_label_release"
+msgstr "Versjon"
 
-#~ msgid "poi_return_to_search"
-#~ msgstr "Tilbake til sï¿½k"
+# ./content/PoiIssue.py
+#. Default: "Response"
+#: ./browser/response.pt:122
+msgid "Poi_label_response"
+msgstr "Svar"
 
-#~ msgid "poi_search_label_issue_type"
-#~ msgstr "Emne-type"
+# ./content/PoiIssue.py
+#. Default: "Responsible"
+#: ./content/PoiIssue.py:245
+msgid "Poi_label_responsibleManager"
+msgstr "Ansvarlig"
+
+# ./content/PoiTracker.py
+#. Default: "Send notification emails"
+#: ./content/PoiTracker.py:243
+#: ./content/tracker.py:339
+msgid "Poi_label_sendNotificationEmails"
+msgstr "Send bekreftelses-e-post"
+
+# ./content/PoiIssue.py
+#. Default: "Severity"
+#: ./content/PoiIssue.py:213
+msgid "Poi_label_severity"
+msgstr "Alvorlighetsgrad"
+
+# ./content/PoiIssue.py
+#. Default: "Steps to reproduce"
+#: ./content/PoiIssue.py:149
+msgid "Poi_label_steps"
+msgstr "Hvordan/Hvorfor skjedde dette"
+
+# ./content/PoiIssue.py
+#. Default: "Tags"
+#: ./content/PoiIssue.py:298
+msgid "Poi_label_subject"
+msgstr "Merkelapper"
+
+# ./content/PoiTracker.py
+#. Default: "URL to Repositor"
+#: ./content/PoiTracker.py:275
+#: ./content/tracker.py:371
+msgid "Poi_label_svnurl"
+msgstr ""
+
+# ./content/PoiIssue.py
+#. Default: "Target release"
+#: ./content/PoiIssue.py:229
+msgid "Poi_label_targetRelease"
+msgstr ""
+
+#. Default: "Technicians"
+#: ./content/PoiTracker.py:209
+msgid "Poi_label_technicians"
+msgstr ""
+
+#. Default: "Tracker description"
+#: ./content/PoiTracker.py:72
+msgid "Poi_label_tracker_description"
+msgstr ""
+
+# ./content/PoiTracker.py
+#. Default: "Tracker name"
+#: ./content/PoiTracker.py:58
+msgid "Poi_label_tracker_title"
+msgstr "Navn"
+
+#. Default: "Watchers"
+#: ./content/PoiTracker.py:224
+#: ./content/tracker.py:323
+msgid "Poi_label_tracker_watchers"
+msgstr ""
+
+# ./content/PoiIssue.py
+#. Default: "Issue watchers"
+#: ./content/PoiIssue.py:280
+msgid "Poi_label_watchers"
+msgstr "Emne-betraktere"
+
+#. Default: ""
+#: ./browser/response.py:554
+msgid "Removed response id ${response_id}."
+msgstr ""
+
+#: ./browser/templates/poi_email_new_response_html.pt:47
+#: ./browser/templates/poi_email_new_response_plain.pt:25
+msgid "Response Details:"
+msgstr ""
+
+#: ./browser/templates/poi_email_new_response_html.pt:29
+#: ./browser/templates/poi_email_new_response_plain.pt:12
+#: ./browser/templates/poi_email_resolved_issue_plain.pt:16
+msgid "Response Information"
+msgstr ""
+
+#: ./browser/response.py:492
+msgid "Response does not exist anymore; perhaps it was removed by another user."
+msgstr ""
+
+#. Default: ""
+#: ./browser/response.py:547
+msgid "Response id ${response_id} does not exist so it cannot be removed."
+msgstr ""
+
+#. Default: ""
+#: ./browser/response.py:208
+msgid "Response id ${response_id} does not exist."
+msgstr ""
+
+#. Default: ""
+#: ./browser/response.py:539
+msgid "Response id ${response_id} is no integer so it cannot be removed."
+msgstr ""
+
+#. Default: ""
+#: ./browser/response.py:202
+msgid "Response id ${response_id} is no integer."
+msgstr ""
+
+#: ./browser/templates/poi_tracker_view.pt:130
+msgid "Search"
+msgstr ""
+
+#: ./browser/response.py:418
+msgid "Severity"
+msgstr ""
+
+#: ./content/tracker.py:176
+msgid "Short Name"
+msgstr ""
+
+#: ./browser/templates/poi_tracker_view.pt:72
+msgid "Submit new issue"
+msgstr "Opprett nytt emne"
+
+#: ./browser/response.py:421
+msgid "Target release"
+msgstr ""
+
+#: ./browser/templates/poi_email_resolved_issue_html.pt:23
+#: ./browser/templates/poi_email_resolved_issue_plain.pt:8
+msgid "The issue ${issue_title} in the ${tracker_title} tracker has been marked as resolved by ${response_author}."
+msgstr ""
+
+#: ./browser/templates/poi_email_new_issue_html.pt:39
+#: ./browser/templates/poi_email_new_issue_plain.pt:23
+#: ./browser/templates/poi_email_new_response_html.pt:54
+msgid "This is an automated email, please do not reply."
+msgstr ""
+
+#: ./content/tracker.py:179
+msgid "Title"
+msgstr ""
+
+#: ./browser/response.py:526
+msgid "You are not allowed to delete responses."
+msgstr ""
+
+#: ./browser/response.py:482
+msgid "You are not allowed to edit responses."
+msgstr ""
+
+#. Default: "(${number} matches)"
+#: ./browser/templates/poi_issue_search.pt:37
+#, fuzzy
+msgid "batch_x_items_matching_your_criteria"
+msgstr "${number} stk. samsvarer med dine kreterier."
+
+#. Default: "Description"
+#: ./content/tracker.py:197
+msgid "description"
+msgstr ""
+
+#. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
+#: ./browser/templates/poi_tracker_view.pt:147
+msgid "description_cannot_add_issues_before_opened"
+msgstr ""
+
+#. Default: "No results were found."
+#: ./browser/templates/poi_issue_search.pt:48
+#, fuzzy
+msgid "description_no_results_found"
+msgstr "Ingenting ble funnet."
+
+#. Default: "Help Text"
+#: ./content/tracker.py:206
+msgid "help_text"
+msgstr ""
+
+#. Default: "You are not allowed to edit this response."
+#: ./browser/templates/edit_response.pt:33
+msgid "label_edit_response_not_allowed"
+msgstr ""
+
+#. Default: "Powered by"
+#: ./browser/templates/poi_tracker_view.pt:321
+msgid "label_powered_by"
+msgstr ""
+
+#. Default: "Return to issue."
+#: ./browser/templates/edit_response.pt:23
+msgid "label_return_to_issue"
+msgstr ""
+
+#. Default: "Search"
+#: ./browser/templates/poi_issue_search_form.pt:282
+msgid "label_search"
+msgstr "Sï¿½k"
+
+#. Default: "Area"
+#: ./browser/templates/poi_issue_search_results.pt:58
+msgid "listingheader_area"
+msgstr "Omrï¿½de"
+
+#. Default: "#"
+#: ./browser/templates/poi_issue_search_results.pt:42
+msgid "listingheader_number"
+msgstr ""
+
+#. Default: "Related Issue(s)"
+#: ./browser/templates/poi_issue_search_results.pt:82
+msgid "listingheader_related"
+msgstr ""
+
+#. Default: "Target"
+#: ./browser/templates/poi_issue_search_results.pt:53
+#, fuzzy
+msgid "listingheader_release"
+msgstr "Versjon"
+
+#. Default: "Assignee"
+#: ./browser/templates/poi_issue_search_results.pt:73
+msgid "listingheader_responsible"
+msgstr "Ansvarlig"
+
+#. Default: "Severity"
+#: ./browser/templates/poi_issue_search_results.pt:68
+msgid "listingheader_severity"
+msgstr "Alvorlighetsgrad"
+
+#. Default: "State"
+#: ./browser/templates/poi_issue_search_results.pt:86
+msgid "listingheader_state"
+msgstr "Tilstand"
+
+#. Default: "Tags"
+#: ./browser/templates/poi_issue_search_results.pt:78
+msgid "listingheader_tags"
+msgstr ""
+
+#. Default: "Title"
+#: ./browser/templates/poi_issue_search_results.pt:47
+msgid "listingheader_title"
+msgstr "Tittel"
+
+#. Default: "Type"
+#: ./browser/templates/poi_issue_search_results.pt:63
+msgid "listingheader_type"
+msgstr "Type"
+
+#. Default: "If you can, please log in before submitting your issue."
+#: ./browser/templates/poi_tracker_view.pt:50
+msgid "login_suggestion"
+msgstr ""
+
+#. Default: "If you can, please log in before submitting a reaction."
+#: ./browser/response.pt:100
+msgid "login_suggestion_response"
+msgstr ""
+
+#. Default: "No responses can be added."
+#: ./browser/response.pt:92
+msgid "msg_no_responses_can_be_added"
+msgstr ""
+
+#. Default: "(Not assigned)"
+#: ./browser/templates/poi_issue_search_form.pt:104
+#: ./content/PoiIssue.py:524
+#: ./content/PoiTracker.py:426
+msgid "not_assigned"
+msgstr "(Ikke tildelt)"
+
+#. Default: "Added by"
+#: ./browser/response.pt:44
+msgid "poi_added_by"
+msgstr "Lagt til av"
+
+#. Default: "Added ${count} day(s) ago."
+#: ./browser/log.pt:82
+msgid "poi_added_days_ago"
+msgstr ""
+
+#. Default: "Added ${count} hour(s) ago."
+#: ./browser/log.pt:75
+msgid "poi_added_hours_ago"
+msgstr ""
+
+#. Default: "Added ${count} minute(s) ago."
+#: ./browser/log.pt:68
+msgid "poi_added_minutes_ago"
+msgstr ""
+
+#. Default: "on"
+#: ./browser/response.pt:49
+msgid "poi_added_on"
+msgstr "den"
+
+#. Default: "All pending issues"
+#: ./browser/templates/poi_tracker_view.pt:197
+msgid "poi_all_pending_issues"
+msgstr ""
+
+#. Default: "Include Related Issues"
+#: ./browser/templates/poi_issue_search_form.pt:277
+msgid "poi_display_related"
+msgstr ""
+
+#. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
+#: ./browser/notifications.py:234
+msgid "poi_email_issue_resolved_subject_template"
+msgstr ""
+
+#. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
+#: ./browser/notifications.py:148
+msgid "poi_email_new_issue_subject_template"
+msgstr ""
+
+#. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
+#: ./browser/notifications.py:211
+msgid "poi_email_new_response_subject_template"
+msgstr ""
+
+#. Default: "By area"
+#: ./browser/templates/poi_tracker_view.pt:164
+msgid "poi_heading_by_area"
+msgstr "Etter omrï¿½de"
+
+#. Default: "By target release"
+#: ./browser/templates/poi_tracker_view.pt:181
+#, fuzzy
+msgid "poi_heading_by_release"
+msgstr "Etter versjon"
+
+#. Default: "By state"
+#: ./browser/templates/poi_tracker_view.pt:194
+msgid "poi_heading_by_state"
+msgstr "Etter tilstand"
+
+#. Default: "By top tags"
+#: ./browser/templates/poi_tracker_view.pt:222
+msgid "poi_heading_by_tag"
+msgstr "Etter merkelapp"
+
+#. Default: "Issue search"
+#: ./browser/templates/poi_issue_search_form.pt:15
+msgid "poi_heading_issue_search"
+msgstr "Emnesï¿½k"
+
+#. Default: "Tracker log"
+#: ./browser/log.pt:12
+msgid "poi_heading_log"
+msgstr ""
+
+#. Default: "Issues assigned to me"
+#: ./browser/templates/poi_tracker_view.pt:243
+#, fuzzy
+msgid "poi_heading_my_issues"
+msgstr "Mine emner"
+
+#. Default: "My submitted issues"
+#: ./browser/templates/poi_tracker_view.pt:272
+msgid "poi_heading_my_submitted_issues"
+msgstr ""
+
+#. Default: "Open issues"
+#: ./browser/templates/poi_tracker_view.pt:153
+msgid "poi_heading_open_issues"
+msgstr "ï¿½pne emner"
+
+#. Default: "Orphaned issues"
+#: ./browser/templates/poi_tracker_view.pt:303
+msgid "poi_heading_orphaned_issues"
+msgstr ""
+
+#. Default: "Issue search results"
+#: ./browser/templates/poi_issue_search.pt:34
+#, fuzzy
+msgid "poi_heading_search_results"
+msgstr "Resultater av emnesï¿½k"
+
+#. Default: "An overview of recent activity in the tracker."
+#: ./browser/log.pt:14
+msgid "poi_help_log"
+msgstr ""
+
+#. Default: "The following open issues have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
+#: ./browser/templates/poi_tracker_view.pt:244
+#, fuzzy
+msgid "poi_help_my_issues_manager"
+msgstr "De fï¿½lgende ï¿½pne emner ble enten sent av deg, eller de er blitt tildelt deg."
+
+#. Default: "The following open issues are assigned you."
+#: ./browser/templates/poi_tracker_view.pt:251
+#, fuzzy
+msgid "poi_help_my_issues_not_manager"
+msgstr "De fï¿½lgende ï¿½pne emner ble enten sent av deg."
+
+#. Default: "The following open issues were submitted by you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
+#: ./browser/templates/poi_tracker_view.pt:273
+msgid "poi_help_my_submitted_issues_manager"
+msgstr ""
+
+#. Default: "The following issues were submitted by you."
+#: ./browser/templates/poi_tracker_view.pt:280
+msgid "poi_help_my_submitted_issues_not_manager"
+msgstr ""
+
+#. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
+#: ./browser/templates/poi_tracker_view.pt:157
+msgid "poi_help_open_issues"
+msgstr "Klikk et omrï¿½de eller emne-tilstand for ï¿½ se alle ï¿½pne emner i den kategorien. For mere avanserte sï¿½kevalg, klikk  \"Sï¿½k etter emner\"."
+
+#. Default: "The following issues are not assigned to anyone."
+#: ./browser/templates/poi_tracker_view.pt:304
+msgid "poi_help_orphaned_issues_"
+msgstr ""
+
+#. Default: "Advanced issue search"
+#: ./browser/templates/poi_tracker_view.pt:133
+#, fuzzy
+msgid "poi_issue_search"
+msgstr "Sï¿½k etter emner"
+
+#. Default: "This form allows you to search for issue according to a variety of criteria. Please make your selection below and click Search."
+#: ./browser/templates/poi_issue_search_form.pt:23
+msgid "poi_issue_search_description"
+msgstr "Denne formen gjï¿½r det mulig ï¿½ sï¿½ke etter emner ved hjelp av mange kreterier. Vennligst gjï¿½r dine valg og klikk \"Sï¿½k\"."
+
+#. Default: "Area"
+#: ./browser/templates/poi_issue_view.pt:92
+msgid "poi_label_area"
+msgstr "Omrï¿½de"
+
+#. Default: "Ticket Owner"
+#: ./browser/templates/poi_issue_view.pt:141
+msgid "poi_label_assignee"
+msgstr "Ansvarlig"
+
+#. Default: "Attached:"
+#: ./browser/response.pt:72
+msgid "poi_label_attachment"
+msgstr "Vedlagt."
+
+#. Default: "Contact Email"
+#: ./browser/templates/poi_issue_view.pt:123
+msgid "poi_label_issue_contact_email"
+msgstr ""
+
+#. Default: "Related issue(s):"
+#: ./browser/templates/poi_issue_view.pt:191
+msgid "poi_label_related"
+msgstr ""
+
+#. Default: "Severity"
+#: ./browser/templates/poi_issue_view.pt:110
+msgid "poi_label_severity"
+msgstr "'Alvorlighetsgrad'"
+
+#. Default: "State"
+#: ./browser/templates/poi_issue_view.pt:72
+msgid "poi_label_state"
+msgstr "Tilstand"
+
+#. Default: "Steps to reproduce:"
+#: ./browser/templates/poi_issue_view.pt:182
+msgid "poi_label_steps"
+msgstr "Hvordan/hvorfor skjedde dette :"
+
+#. Default: "Submitted by"
+#: ./browser/templates/poi_issue_view.pt:130
+msgid "poi_label_submitted_by"
+msgstr "Sendt av "
+
+#. Default: "Submitted on"
+#: ./browser/templates/poi_issue_view.pt:137
+msgid "poi_label_submitted_on"
+msgstr "Sendt den"
+
+#. Default: "Tags:"
+#: ./browser/templates/poi_issue_view.pt:60
+msgid "poi_label_tags"
+msgstr "Merkelapper :"
+
+#. Default: "Target release:"
+#: ./browser/templates/poi_issue_view.pt:152
+msgid "poi_label_target_release"
+msgstr ""
+
+#. Default: "Issue type"
+#: ./browser/templates/poi_issue_view.pt:101
+msgid "poi_label_type"
+msgstr "Emnetype"
+
+#. Default: "Version:"
+#: ./browser/templates/poi_issue_view.pt:81
+msgid "poi_label_version"
+msgstr ""
+
+#. Default: "Search Terms"
+#: ./browser/templates/poi_issue_search_form.pt:35
+msgid "poi_legend_search_terms"
+msgstr "Sï¿½kevalg"
+
+#. Default: "Match all tags"
+#: ./browser/templates/poi_issue_search_form.pt:270
+msgid "poi_match_all_tags"
+msgstr ""
+
+#. Default: "New issue ${name} added by ${author}"
+#: ./browser/log.pt:32
+msgid "poi_new_issue_added"
+msgstr ""
+
+#. Default: "${author} added a new response to ${name}:"
+#: ./browser/log.pt:39
+msgid "poi_new_response_added"
+msgstr ""
+
+#. Default: "Return to search results"
+#: ./browser/templates/poi_issue_view.pt:170
+msgid "poi_return_to_search_results"
+msgstr ""
+
+#. Default: "Return to tracker"
+#: ./browser/templates/poi_issue_search.pt:43
+#: ./browser/templates/poi_issue_search_form.pt:20
+msgid "poi_return_to_tracker"
+msgstr "Tilbake"
+
+#. Default: "Select the areas you wish to search for."
+#: ./browser/templates/poi_issue_search_form.pt:141
+msgid "poi_search_help_area"
+msgstr "Velg omrï¿½dene du vil sï¿½ke etter."
+
+#. Default: "Select the assignee you wish to search for."
+#: ./browser/templates/poi_issue_search_form.pt:227
+msgid "poi_search_help_assignee"
+msgstr "Velg de ansvarlige managerene du vil sï¿½ke etter."
+
+#. Default: "Enter the username of the issue submitter,"
+#: ./browser/templates/poi_issue_search_form.pt:81
+msgid "poi_search_help_creator"
+msgstr "Skriv brukernavnet for emneoppretteren."
+
+#. Default: "If you wish to search for a particular issue, please enter its number."
+#: ./browser/templates/poi_issue_search_form.pt:41
+msgid "poi_search_help_id"
+msgstr ""
+
+#. Default: "Select the types you wish to search for."
+#: ./browser/templates/poi_issue_search_form.pt:162
+msgid "poi_search_help_issue_type"
+msgstr "Velg emne-typene du vil sï¿½ke etter."
+
+#. Default: "Select the version for which the bugs you want to find were reported."
+#: ./browser/templates/poi_issue_search_form.pt:94
+#, fuzzy
+msgid "poi_search_help_release"
+msgstr "Select the releases you wish to search for."
+
+#. Default: "Select the severities you wish to search for."
+#: ./browser/templates/poi_issue_search_form.pt:183
+msgid "poi_search_help_severity"
+msgstr "Velg alvorlighetsgraden du vil sï¿½ke etter."
+
+#. Default: "Select the states you wish to search for."
+#: ./browser/templates/poi_issue_search_form.pt:204
+msgid "poi_search_help_state"
+msgstr "Velg tilstandene du vil sï¿½ke etter."
+
+#. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
+#: ./browser/templates/poi_issue_search_form.pt:248
+msgid "poi_search_help_tags"
+msgstr "Velg merkelappene du vil sï¿½ker etter."
+
+#. Default: "Select the assigned target release you wish to search for."
+#: ./browser/templates/poi_issue_search_form.pt:118
+msgid "poi_search_help_target_release"
+msgstr ""
+
+#. Default: "Enter any text you wish the issue to include."
+#: ./browser/templates/poi_issue_search_form.pt:56
+msgid "poi_search_help_text"
+msgstr "Skriv hvilen som helst tekst du vil at emnet skal inneholde."
+
+#. Default: "Area"
+#: ./browser/templates/poi_issue_search_form.pt:139
+msgid "poi_search_label_area"
+msgstr "Omrï¿½de"
+
+#. Default: "Assignee"
+#: ./browser/templates/poi_issue_search_form.pt:225
+msgid "poi_search_label_assignee"
+msgstr "Ansvarlige managere"
+
+#. Default: "Submitter"
+#: ./browser/templates/poi_issue_search_form.pt:79
+msgid "poi_search_label_creator"
+msgstr "Oppretter"
+
+#. Default: "Issue number"
+#: ./browser/templates/poi_issue_search_form.pt:39
+msgid "poi_search_label_id"
+msgstr ""
+
+#. Default: "Version"
+#: ./browser/templates/poi_issue_search_form.pt:92
+#, fuzzy
+msgid "poi_search_label_release"
+msgstr "Versjoon"
+
+#. Default: "Severity"
+#: ./browser/templates/poi_issue_search_form.pt:181
+msgid "poi_search_label_severity"
+msgstr "'Alvorlighetsgrad'"
+
+#. Default: "State"
+#: ./browser/templates/poi_issue_search_form.pt:202
+msgid "poi_search_label_state"
+msgstr "Tilstand"
+
+#. Default: "Tags"
+#: ./browser/templates/poi_issue_search_form.pt:246
+msgid "poi_search_label_tags"
+msgstr "Merkelapper"
+
+#. Default: "Target release"
+#: ./browser/templates/poi_issue_search_form.pt:116
+msgid "poi_search_label_target_release"
+msgstr ""
+
+#. Default: "Issue text"
+#: ./browser/templates/poi_issue_search_form.pt:54
+msgid "poi_search_label_text"
+msgstr "Emnetekst"
+
+#. Default: "Issue Types"
+#: ./browser/templates/poi_issue_search_form.pt:160
+msgid "poi_search_label_type"
+msgstr "Enmetype"
+
+#. Default: "Title"
+#: ./content/tracker.py:189
+msgid "title"
+msgstr ""
+
+#. Default: "Add/remove attachments"
+#: ./browser/response.pt:87
+msgid "title_add_remove_attachments"
+msgstr ""
+
+#. Default: "Add response"
+#: ./browser/response.pt:115
+msgid "title_add_response"
+msgstr ""
+
+#. Default: "Change History"
+#: ./browser/response.pt:7
+msgid "title_change_history"
+msgstr ""
+
+#. Default: "Edit response"
+#: ./browser/templates/edit_response.pt:30
+msgid "title_edit_response"
+msgstr ""
+
+#. Default: "Error: no response found for editing"
+#: ./browser/templates/edit_response.pt:19
+msgid "title_error_no_response"
+msgstr ""
+
+#. Default: "View activity feed"
+#: ./browser/templates/poi_tracker_view.pt:81
+msgid "view_issue_logs"
+msgstr ""
