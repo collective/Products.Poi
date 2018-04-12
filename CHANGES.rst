@@ -6,6 +6,7 @@ Changelog for Poi
 ------------------
 
 - Fixed several internationalization problems.  [maurits]
+- Allow for graceful handling of missing vocab terms [cdw9]
 
 
 4.0 (2017-07-18)
