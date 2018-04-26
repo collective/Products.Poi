@@ -254,13 +254,17 @@ class Issue(Container):
 
     def display_area(self):
         tracker = self.getTracker()
-        areas = possibleAreas(tracker)
-        return areas.by_value[self.area].title
+        area = possibleAreas(tracker).by_value.get(self.area)
+        if area:
+            return area.title
+        return self.area + ' (missing)'
 
     def display_issue_type(self):
         tracker = self.getTracker()
-        issue_types = possibleIssueTypes(tracker)
-        return issue_types.by_value[self.issue_type].title
+        issue_type = possibleIssueTypes(tracker).by_value.get(self.issue_type)
+        if issue_type:
+            return issue_type.title
+        return self.issue_type + ' (missing)'
 
     def isWatching(self):
         """
