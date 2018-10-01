@@ -4,6 +4,10 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="Poi">
 
+  <!-- Set up z3c.autoinlcude to scan dependencies and plugins of this package -->
+  <includePlugins package="." />
+  <includeDependencies package="." />
+
   <include package="Products.CMFCore" />
   <include package=".browser" />
   <include file="permissions.zcml" />
