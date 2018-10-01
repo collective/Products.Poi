@@ -53,4 +53,11 @@
     </value>
 </records>
 
+<record name="poi.default_issue_mime_type">
+    <field type="plone.registry.field.Text">
+      <title>Default Poi Issue Mime Type</title>
+    </field>
+    <value>text/plain</value>
+</record>
+
 </registry>
