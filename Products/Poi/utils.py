@@ -17,7 +17,7 @@ ISSUE_RECOGNITION_PATTERNS = (
     r'\bbug:([1-9][0-9]*)\b',
 )
 REVISION_RECOGNITION_PATTERNS = (
-    r'\br([0-9a-f]+)\b',
+    r'\br([0-9a-f]{5,})\b',
     r'\bchangeset:([0-9a-f]+)\b',
     r'\B\[([0-9a-f]+)\]\B',
 )
