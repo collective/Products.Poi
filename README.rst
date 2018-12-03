@@ -141,7 +141,7 @@ Once an Issue is created:
 
 Issues have the following workflow:
 
-.. image:: http://www.sixfeetup.com/logos/issue-workflow.png
+.. image:: http://www.sixfeetup.com/images/issue-workflow.png
    :height: 756
    :width: 553
    :alt: Issue Workflow
