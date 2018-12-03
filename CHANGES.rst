@@ -5,6 +5,10 @@ Changelog for Poi
 4.0.1 (unreleased)
 ------------------
 
+- Increase min chars for commit link detection to avoid false positives [abosio]
+- Fix handling of empty values for display [rpatterson]
+- Include ZCML of dependencies, fixes errors in add-on tests [rpatterson]
+- Fix a registry key missing from fresh installs [rpatterson]
 - Fixed several internationalization problems.  [maurits]
 - Allow for graceful handling of missing vocab terms [cdw9]
 
