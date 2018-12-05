@@ -672,18 +672,18 @@ class TestLinkDetection(ptc.PoiTestCase):
         )
 
     def testLinkRepo(self):
-        text = "r1 #22 changeset:333 [4444]"
+        text = "r1 r1e2b5 #22 changeset:333 [4444]"
         repo_url = "someurl?rev=%(rev)s"
         self.assertEqual(
             link_repo(text, repo_url),
-            '<a href="someurl?rev=1">r1</a> #22 <a '
-            'href="someurl?rev=333">changeset:333</a> <a '
-            'href="someurl?rev=4444">[4444]</a>'
+            '<a href="someurl?rev=1">r1</a> <a href="someurl?rev=1e2b5">r1e2b5</a> '
+            '#22 <a href="someurl?rev=333">changeset:333</a> '
+            '<a href="someurl?rev=4444">[4444]</a>'
         )
         self.assertEqual(
             link_repo(text, "here"),
-            '<a href="here">r1</a> #22 <a href="here">changeset:333</a> '
-            '<a href="here">[4444]</a>'
+            '<a href="here">r1</a> <a href="here">r1e2b5</a> #22 '
+            '<a href="here">changeset:333</a> <a href="here">[4444]</a>'
         )
         text = "r1 r2 norevisionr3 r4nope (r5) r6."
         self.assertEqual(
