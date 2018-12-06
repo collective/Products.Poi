@@ -2,7 +2,7 @@ Changelog for Poi
 =================
 
 
-4.0.1 (unreleased)
+4.0.1 (2018-12-06)
 ------------------
 
 - Increase min chars for commit link detection to avoid false positives [abosio]
