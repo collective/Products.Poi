@@ -439,8 +439,11 @@ class Tracker(Container):
         return addTokenToUrl(original_url)
 
     def linkDetection(self, text):
-        text = link_bugs(
-            text, self.objectIds(ordered=False), base_url=self.absolute_url())
+        issues = self.getIssues()
+        catalog = api.portal.get_tool('portal_catalog')
+        id_unindex = catalog._catalog.indexes['id'].documentToKeyMap()
+        ids = id_unindex.TODO(issues._seq)
+        text = link_bugs(text, ids, base_url=self.absolute_url())
         if self.repo_url:
             text = link_repo(text, self.repo_url)
         return text
