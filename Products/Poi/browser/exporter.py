@@ -47,6 +47,7 @@ class CSVExport(BrowserView):
             obj = issue.getObject()
             responsefolder = IResponseContainer(obj)
             responses = []
+            # TODO reverse iteration to get to the latest first
             for id, response in enumerate(responsefolder):
                 if response is None:
                     # Has been removed.
