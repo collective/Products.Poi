@@ -195,14 +195,12 @@ class IIssue(model.Schema):
            RelatedItemsFieldWidget,
            pattern_options={
                'resultTemplate': '' +
-                                 '<div class="   pattern-relateditems-result  <% if (selected) { %>pattern-relateditems-active<% } %>">' +
-                                 '  <a href="#" class=" pattern-relateditems-result-select <% if (selectable) { %>selectable<% } %>">' +
-                                 '    <% if (typeof getIcon !== "undefined" && getIcon) { %><img src="<%- getURL %>/@@images/image/icon "> <% } %>' +
-                                 '    <span class="pattern-relateditems-result-title  <% if (typeof review_state !== "undefined") { %> state-<%- review_state %> <% } %>  " /span>' +
-                                 '    <span class="pattern-relateditems contenttype-<%- portal_type.toLowerCase() %>"><%- Title %></span>' +
-                                 '    <span class="pattern-relateditems-result-path"><%- path %></span>' +
-                                 '  </a>' +
-                                 ' </span>' +
+                                 '<div class="pattern-relateditems-result<% if (oneLevelUp) { %> one-level-up<% } %>">'+
+                                 '  <a class="pattern-relateditems-result-select<% if (selectable) { %> selectable<% } else if (browsing && is_folderish) { %> pattern-relateditems-result-browse<% } %><% if (oneLevelUp) { %> one-level-up<% } %>" data-path="<%- path %>">'+
+                                 '    <% if (getURL && (getIcon || portal_type === "Image")) { %><img src="<%- getURL %>/@@images/image/icon "><br><% } %>'+
+                                 '    <span class="pattern-relateditems-result-title" title="<%- portal_type %>"><%- Title %></span>'+
+                                 '    <span class="pattern-relateditems-result-path"><%- path %></span>'+
+                                 '  </a>'+
                                  '</div>'})
     related_issue = RelationList(
         title=_(u'Poi_label_issue_related', default=u'Related Issue(s)'),
