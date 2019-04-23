@@ -3,6 +3,8 @@ Changelog for Poi
 
 4.0.2 (unreleased)
 ------------------
+- update customized RelatedItemsFieldWidget resultTemplate to
+  match mockup 2.7.7 / Plone 5.1.5 [abosio]
 - improve string encoding in csv export [abosio]
 
 
