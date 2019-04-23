@@ -78,11 +78,10 @@ class CSVExport(BrowserView):
             row.append(", ".join(sorted((y for y in issue.Subject),
                                         key=lambda x: x.lower())))
             row.append(obj.getReviewState()['title'].encode('utf-8'))
-            row.append(last_actor.encode('utf-8'))
+            row.append(last_actor)
             row.append(last_modified.strftime('%Y-%m-%d %H:%M:%S'))
             row.append(issue.release and issue.release.encode('utf-8') or "")
-            row.append(
-                pas_member.info(issue.Creator)['name_or_id'].encode('utf-8'))
+            row.append(pas_member.info(issue.Creator)['name_or_id'])
             row.append(dateutil.parser.parse(
                 issue.CreationDate).strftime('%Y-%m-%d %H:%M:%S')
             )
