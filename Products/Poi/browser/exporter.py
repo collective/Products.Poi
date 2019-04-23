@@ -1,6 +1,6 @@
 import csv
 import dateutil
-from cStringIO import StringIO
+from io import BytesIO
 
 from Acquisition import aq_inner
 from Products.Five.browser import BrowserView
@@ -20,7 +20,7 @@ class CSVExport(BrowserView):
         pas_member = context.restrictedTraverse('@@pas_member')
 
         issues = issuefolder.getFilteredIssues(self.request)
-        buffer = StringIO()
+        buffer = BytesIO()
 
         writer = csv.writer(buffer)
         header = [
@@ -74,7 +74,7 @@ class CSVExport(BrowserView):
             row.append(issue.severity.encode('utf-8'))
             row.append(issue.assignee and
                        pas_member.info(
-                           issue.assignee)['fullname'].encode('utf-8'))
+                           issue.assignee)['fullname'])
             row.append(", ".join(sorted((y for y in issue.Subject),
                                         key=lambda x: x.lower())))
             row.append(obj.getReviewState()['title'].encode('utf-8'))
@@ -88,7 +88,6 @@ class CSVExport(BrowserView):
             )
             writer.writerow(row)
         value = buffer.getvalue()
-        value = unicode(value, "utf-8").encode("iso-8859-1", "replace")
 
         if not encoding:
             encoding = 'UTF-8'

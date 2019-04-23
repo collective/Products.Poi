@@ -3,6 +3,7 @@ Changelog for Poi
 
 4.0.2 (unreleased)
 ------------------
+- improve string encoding in csv export [abosio]
 
 
 4.0.1 (2018-12-06)
