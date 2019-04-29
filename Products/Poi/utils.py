@@ -33,6 +33,7 @@ def link_bugs(text, ids, base_url='..'):
     for raw in ISSUE_RECOGNITION_PATTERNS:
         pos = 0
         pattern = re.compile(raw)
+        text = getattr(text, 'raw', text)
         while True:
             res = pattern.search(text, pos)
             if res is None:
@@ -66,6 +67,7 @@ def link_repo(text, repo_url):
     for raw in REVISION_RECOGNITION_PATTERNS:
         pos = 0
         pattern = re.compile(raw)
+        text = getattr(text, 'raw', text)
         while True:
             res = pattern.search(text, pos)
             if res is None:
