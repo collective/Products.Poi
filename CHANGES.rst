@@ -1,7 +1,11 @@
 Changelog for Poi
 =================
 
-4.0.2 (2018-08-19)
+4.0.3 (unreleased)
+-----------------
+
+
+4.0.2 (2019-08-19)
 ------------------
 - update customized RelatedItemsFieldWidget resultTemplate to
   match mockup 2.7.7 / Plone 5.1.5 [abosio]
