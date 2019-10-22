@@ -219,7 +219,7 @@ class IssueFolderView(BrowserView):
         issues = []
 
         isManager = api.user.get_current().has_role('Manager')
-        isAssignee = memberId in self.aq_parent.assignees
+        isAssignee = memberId in self.context.assignees
         if isManager or isAssignee:
             for i in self.getFilteredIssues(state=openStates):
                 assignee = i.assignee
