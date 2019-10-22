@@ -200,10 +200,6 @@ def purge_workflow_scripts(context):
             logger.info('Removed script %s from %s', script_name, wf_id)
 
 
-def run_javascript_step(context):
-    context.runImportStepFromProfile(PROFILE_ID, 'jsregistry')
-
-
 def migrate_tracker_watchers(context):
     """Migrate tracker watchers.
 
@@ -239,11 +235,6 @@ def migrate_tracker_watchers(context):
                     tracker.absolute_url(), old_value)
         tracker.setWatchers(old_value)
         del mapping['watchers']
-
-
-def recook_resources(context):
-    context.portal_javascripts.cookResources()
-    context.portal_css.cookResources()
 
 
 def migrate_response_attachments_to_blobstorage(context):

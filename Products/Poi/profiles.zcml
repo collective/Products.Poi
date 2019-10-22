@@ -104,17 +104,9 @@
       profile="Products.Poi:default" />
 
   <gs:upgradeStep
-      title="Run javascript import step"
-      description="Apply our own jsregistry.xml file."
-      source="2003"
-      destination="2004"
-      handler="Products.Poi.migration.run_javascript_step"
-      profile="Products.Poi:default" />
-
-  <gs:upgradeStep
       title="Migrate tracker watchers"
       description="Move tracker watcher to a LinesField."
-      source="2004"
+      source="2003"
       destination="2005"
       handler="Products.Poi.migration.migrate_tracker_watchers"
       profile="Products.Poi:default" />
@@ -127,16 +119,8 @@
       handler="Products.Poi.migration.run_workflow_step"
       profile="Products.Poi:default" />
 
-  <gs:upgradeStep
-      title="Recook javascript"
-      description="Recook javascript"
-      source="2006"
-      destination="2007"
-      handler="Products.Poi.migration.recook_resources"
-      profile="Products.Poi:default" />
-
   <gs:upgradeSteps
-      source="2007"
+      source="2006"
       destination="2008"
       profile="Products.Poi:default">
     <gs:upgradeStep
