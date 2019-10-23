@@ -177,15 +177,15 @@
     </div>
 
     <div class="issue-details"
-         tal:content="text context/linkedDetails"
+         tal:define="text context/linkedDetails"
          tal:content="structure python:getattr(text, 'output', text)" />
 
     <dl class="steps-to-reproduce" tal:condition="nocall:context/steps">
       <dt i18n:translate="poi_label_steps">Steps to reproduce:</dt>
       <dd>
           <tal:text condition="context/linkedSteps"
-                    define="context/linkedSteps">
-            <div tal:content="structure getattr(text, 'output', text)" />
+                    define="text context/linkedSteps">
+            <div tal:content="structure python:getattr(text, 'output', text)" />
           </tal:text>
       </dd>
     </dl>
