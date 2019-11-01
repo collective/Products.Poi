@@ -148,12 +148,15 @@ class IssueFolderView(BrowserView):
                 pass
             except KeyError:
                 # No operator, so nothing can go wrong.
+                query['Subject'] = dict(query['Subject'])
                 pass
             else:
                 try:
                     subject['query']
                 except KeyError:
                     del query['Subject']
+                else:
+                    query['Subject'] = dict(query['Subject'])
 
         query['sort_on'] = criteria.get('sort_on', 'created')
         query['sort_order'] = criteria.get('sort_order', 'reverse')
