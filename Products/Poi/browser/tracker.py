@@ -157,6 +157,8 @@ class IssueFolderView(BrowserView):
                     del query['Subject']
                 else:
                     query['Subject'] = dict(query['Subject'])
+                    if len(subject['query']) == 1:
+                        query['Subject'] = subject['query'][0]
 
         query['sort_on'] = criteria.get('sort_on', 'created')
         query['sort_order'] = criteria.get('sort_order', 'reverse')
