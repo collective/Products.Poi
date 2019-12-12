@@ -45,7 +45,7 @@ def tracker_issues(context):
 @provider(schema.interfaces.IContextAwareDefaultFactory)
 def default_watchers(context):
     creator = api.user.get_current()
-    username = unicode(creator.getUserName())
+    username = creator.getUserName()
     return [username]
 
 

@@ -32,7 +32,7 @@ ZopeTestCase.installProduct('ZCTextIndex', quiet=1)
 ZopeTestCase.installProduct('TextIndexNG2', quiet=1)
 ZopeTestCase.installProduct('SecureMailHost', quiet=1)
 ZopeTestCase.installProduct('CMFPlone')
-ZopeTestCase.installProduct('Archetypes')
+#ZopeTestCase.installProduct('Archetypes')
 ZopeTestCase.installProduct('PortalTransforms', quiet=1)
 ZopeTestCase.installProduct('MimetypesRegistry', quiet=1)
 

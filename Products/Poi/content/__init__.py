@@ -28,7 +28,7 @@ __author__ = """Martin Aspeli <optilude@gmx.net>"""
 __docformat__ = 'plaintext'
 
 # Classes
-import tracker
-import issue
+from Products.Poi.content import tracker
+from Products.Poi.content import issue
 
 tracker, issue

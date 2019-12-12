@@ -2,7 +2,7 @@ from Testing import ZopeTestCase
 
 from Products.Poi.tests import ptc
 
-default_user = unicode(ZopeTestCase.user_name)
+default_user = ZopeTestCase.user_name
 
 
 class TestFeeds(ptc.PoiTestCase):

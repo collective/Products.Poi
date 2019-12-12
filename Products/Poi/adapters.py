@@ -2,6 +2,7 @@ from AccessControl import getSecurityManager
 from Acquisition import aq_base
 from DateTime import DateTime
 from collective.watcherlist.watchers import WatcherList
+from collective.watcherlist.interfaces import IWatcherList
 from DateTime import DateTime
 from persistent import Persistent
 from persistent.list import PersistentList
@@ -13,7 +14,7 @@ from zope.component import adapts
 from zope.component import adapter
 from zope.event import notify
 from zope.interface import Attribute
-from zope.interface import implements
+from zope.interface import implementer
 from zope.interface import Interface
 from zope.lifecycleevent import ObjectAddedEvent
 from zope.lifecycleevent import ObjectRemovedEvent
@@ -25,6 +26,7 @@ import logging
 logger = logging.getLogger('Products.Poi.adapters')
 
 
+@implementer(IWatcherList)
 class IssueWatcherList(WatcherList):
 
     def __get_watchers(self):
@@ -36,6 +38,7 @@ class IssueWatcherList(WatcherList):
     watchers = property(__get_watchers, __set_watchers)
 
 
+@implementer(IWatcherList)
 class TrackerWatcherList(WatcherList):
 
     def __get_send_emails(self):
@@ -87,9 +90,9 @@ class IResponse(Interface):
         """
 
 
+@implementer(IResponseContainer)
 class ResponseContainer(Persistent):
 
-    implements(IResponseContainer)
     adapts(IIssue)
     ANNO_KEY = 'poi.responses'
 
@@ -172,9 +175,8 @@ class ResponseContainer(Persistent):
         notify(event)
 
 
+@implementer(IResponse)
 class Response(Persistent):
-
-    implements(IResponse)
 
     def __init__(self, text):
         self.__parent__ = self.__name__ = None

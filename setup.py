@@ -36,15 +36,12 @@ setup(name='Products.Poi',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'plone.app.blob',
           'plone.namedfile',
-          'Products.CMFPlone>=5.0.5',
+          'Products.CMFPlone>=5.2',
           'collective.dexteritytextindexer',
           'collective.watcherlist>=3.0',
           'collective.z3cform.datagridfield',
-          'Products.OrderableReferenceField',
-          'plone.app.referenceablebehavior',
-          'plone.app.relationfield>=1.3.4',
+          'plone.app.relationfield>=2.0.1',
       ],
       extras_require={
           'test': [

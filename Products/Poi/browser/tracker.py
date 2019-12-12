@@ -1,5 +1,4 @@
-from urllib import urlencode
-from urlparse import parse_qsl
+from urllib.parse import urlencode, parse_qsl
 
 from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName

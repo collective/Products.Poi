@@ -3,7 +3,7 @@ import logging
 from collective.watcherlist.interfaces import IWatcherList
 from plone import api
 
-from Products.Archetypes.atapi import DisplayList
+#from Products.Archetypes.atapi import DisplayList
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.WorkflowCore import WorkflowException
 
@@ -32,7 +32,7 @@ def add_contact_to_issue_watchers(object, event=None):
     """
     if not object.contact_email:
         return
-    value = unicode(object.contact_email)
+    value = object.contact_email
     watchers = object.watchers or []
     if value in watchers:
         return
@@ -240,7 +240,7 @@ def available_assignees(issue):
 
     if not memship.checkPermission(
             permissions.ModifyIssueAssignment, tracker):
-        return DisplayList()
+        return ()
     return possibleAssignees(tracker)
 
 
