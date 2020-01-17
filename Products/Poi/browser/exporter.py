@@ -1,6 +1,6 @@
 import csv
 import dateutil
-from io import BytesIO
+from io import StringIO
 
 from Acquisition import aq_inner
 from Products.Five.browser import BrowserView
@@ -20,7 +20,7 @@ class CSVExport(BrowserView):
         pas_member = context.restrictedTraverse('@@pas_member')
 
         issues = issuefolder.getFilteredIssues(self.request)
-        buffer = BytesIO()
+        buffer = StringIO()
 
         writer = csv.writer(buffer)
         header = [
@@ -67,20 +67,19 @@ class CSVExport(BrowserView):
             row = []
             row.append(issue.id)
             row.append(issue.Title)
-            row.append(issue.target_release and
-                       issue.target_release.encode('utf-8') or "")
-            row.append(obj.display_area().encode('utf-8'))
-            row.append(obj.display_issue_type().encode('utf-8'))
-            row.append(issue.severity.encode('utf-8'))
+            row.append(issue.target_release or "")
+            row.append(obj.display_area())
+            row.append(obj.display_issue_type())
+            row.append(issue.severity)
             row.append(issue.assignee and
                        pas_member.info(
                            issue.assignee)['fullname'])
             row.append(", ".join(sorted((y for y in issue.Subject),
                                         key=lambda x: x.lower())))
-            row.append(obj.getReviewState()['title'].encode('utf-8'))
+            row.append(obj.getReviewState()['title'])
             row.append(last_actor)
             row.append(last_modified.strftime('%Y-%m-%d %H:%M:%S'))
-            row.append(issue.release and issue.release.encode('utf-8') or "")
+            row.append(issue.release or "")
             row.append(pas_member.info(issue.Creator)['name_or_id'])
             row.append(dateutil.parser.parse(
                 issue.CreationDate).strftime('%Y-%m-%d %H:%M:%S')
