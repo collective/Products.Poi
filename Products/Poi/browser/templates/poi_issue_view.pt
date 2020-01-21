@@ -93,7 +93,7 @@
             <td>
                 <a tal:define="issueArea context/display_area"
                  tal:content="issueArea"
-                 tal:attributes="href string:${issueQueryString}&area=${issueArea}"
+                 tal:attributes="href string:${issueQueryString}&area=${context/area}"
                   />
             </td>
           </tr>
@@ -102,7 +102,7 @@
             <td>
                 <a tal:define="issueType context/display_issue_type"
                  tal:content="issueType"
-                 tal:attributes="href string:${issueQueryString}&issueType=${issueType}"
+                 tal:attributes="href string:${issueQueryString}&issueType=${context/issue_type}"
                   />
             </td>
           </tr>
