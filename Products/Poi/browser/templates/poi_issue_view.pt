@@ -93,7 +93,7 @@
             <td>
                 <a tal:define="issueArea context/display_area"
                  tal:content="issueArea"
-                 tal:attributes="href string:${issueQueryString}&area=${issueArea}"
+                 tal:attributes="href string:${issueQueryString}&area=${context/area}"
                   />
             </td>
           </tr>
@@ -102,7 +102,7 @@
             <td>
                 <a tal:define="issueType context/display_issue_type"
                  tal:content="issueType"
-                 tal:attributes="href string:${issueQueryString}&issueType=${issueType}"
+                 tal:attributes="href string:${issueQueryString}&issueType=${context/issue_type}"
                   />
             </td>
           </tr>
@@ -177,15 +177,15 @@
     </div>
 
     <div class="issue-details"
-         tal:define="details context/linkedDetails"
-         tal:content="structure python:getattr(details, 'output', details)" />
+         tal:define="text context/linkedDetails"
+         tal:content="structure python:getattr(text, 'output', text)" />
 
     <dl class="steps-to-reproduce" tal:condition="nocall:context/steps">
       <dt i18n:translate="poi_label_steps">Steps to reproduce:</dt>
       <dd>
           <tal:text condition="context/linkedSteps"
-                    define="steps context/linkedSteps">
-            <div tal:content="structure python:getattr(steps, 'output', steps)" />
+                    define="text context/linkedSteps">
+            <div tal:content="structure python:getattr(text, 'output', text)" />
           </tal:text>
       </dd>
     </dl>
