@@ -443,6 +443,7 @@ class Create(Base):
         else:
             # Add response
             self.folder.add(new_response)
+            context.reindexObject()
         redirect_url = "{0}?_authenticator={1}".format(context.absolute_url(),
                                                        authenticator.token())
         self.request.response.redirect(redirect_url)
