@@ -26,7 +26,7 @@ REVISION_RECOGNITION_PATTERNS = (
 ISSUE_LINK_TEMPLATE = '<a href="%(base_url)s/%(bug)s">%(linktext)s</a>'
 
 
-def link_bugs(text, ids, base_url='..'):
+def link_bugs(text, tracker, base_url='..'):
     """
     Replace patterns with links to other issues in the same tracker.
     """
@@ -43,7 +43,7 @@ def link_bugs(text, ids, base_url='..'):
             linktext = text[res.start(): res.end()]
             bug = res.group(1)
 
-            if bug is not None and bug in ids:
+            if bug is not None and bug in tracker.objectIds():
                 link = ISSUE_LINK_TEMPLATE % dict(
                     base_url=base_url,
                     bug=bug,
