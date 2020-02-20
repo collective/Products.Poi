@@ -656,6 +656,12 @@ class TestLinkDetection(ptc.PoiTestCase):
             'a href="https://github.com/collective/Products.Poi/commit/42">r42</a>.')
 
     def testLinkBugs(self):
+        # make sure there are at least 5 issues
+        self.createIssue(self.tracker, title='Example A')
+        self.createIssue(self.tracker, title='Example B')
+        self.createIssue(self.tracker, title='Example C')
+        self.createIssue(self.tracker, title='Example D')
+        self.createIssue(self.tracker, title='Example E')
         text = "issue:1 #2 r3 [4] ticket:5."
         self.assertEqual(
             link_bugs(text, self.tracker),
