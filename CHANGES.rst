@@ -1,8 +1,10 @@
 Changelog for Poi
 =================
 
-4.0.3 (unreleased)
+4.0.3 (2020-02-24)
 -----------------
+
+- speed up link detection [skurfer]
 
 
 4.0.2 (2019-08-19)
