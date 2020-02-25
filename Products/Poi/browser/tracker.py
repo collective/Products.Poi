@@ -96,8 +96,6 @@ class IssueFolderView(BrowserView):
 
         if criteria is None:
             criteria = kwargs
-        else:
-            criteria = dict(criteria)
 
         allowedCriteria = {
             'release': 'release',
