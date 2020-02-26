@@ -18,3 +18,5 @@ report
 src
 var
 env/
+build/
+dist/
