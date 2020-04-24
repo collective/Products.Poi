@@ -238,7 +238,12 @@ class Issue(Container):
                 return parent
 
     def getContactEmail(self):
-        return api.user.get(self.Creator()).getProperty('email')
+        if hasattr(self, 'contact_email'):
+            return self.contact_email
+        try:
+            return api.user.get(self.Creator()).getProperty('email')
+        except AttributeError:
+            return None
 
     def getReviewState(self):
         """get the current workflow state of the issue"""
