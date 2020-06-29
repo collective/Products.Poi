@@ -28,7 +28,7 @@ buildout and you are done.
 
 Poi 4.0+ requires:
 
-  - Plone 5
+  - Plone 5.0 or 5.1
   - collective.watcherlist
 
 
@@ -37,7 +37,7 @@ What version of Poi to use?
 
 * Poi 2.x is for Plone 4
 * Poi 3.x is a migration step from Poi 2.x to Poi 4.x
-* Poi 4.0+ only works on Plone 5
+* Poi 4.0+ only works on Plone 5.0 or 5.1
 
 
 
@@ -52,7 +52,7 @@ to Dexterity.
 Upgrade steps:
 
 * Do the migration in Plone 4 (reinstall Poi or run the upgrade steps)
-* Upgrade to Plone 5
+* Upgrade to Plone 5.1
 * Upgrade to Poi 4.x
 
 Re-install Poi from the Add/Remove Products control panel.  Some

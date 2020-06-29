@@ -24,6 +24,7 @@ __author__ = """Rob McBroom <rob@sixfeetup.com>"""
 __docformat__ = 'plaintext'
 
 
+from time import time
 from zope.component import adapts
 from zope.component import provideAdapter
 from zope.interface import implementer
@@ -50,6 +51,7 @@ from plone.app.z3cform.widget import AjaxSelectFieldWidget
 from plone.autoform.directives import widget
 from plone.autoform.directives import write_permission, read_permission
 from plone.dexterity.content import Container
+from plone.memoize import ram
 from plone.protect.utils import addTokenToUrl
 from plone.supermodel import model
 from plone.z3cform.textlines import TextLinesFieldWidget
@@ -400,6 +402,7 @@ class Tracker(Container):
         key_indexes = pc._catalog.indexes['Subject']
         return [i[0] for i in key_indexes.items()]
 
+    @ram.cache(lambda *args: time() // 86400)  # cache for a day
     def getTagsInUse(self):
         """Get a list of the issue tags in use in this tracker."""
         tags = Counter()
@@ -407,6 +410,7 @@ class Tracker(Container):
             tags += Counter(i.Subject)
         return tags.most_common(10)
 
+    @ram.cache(lambda *args: time() // 86400)  # cache for a day
     def getIssueWorkflowStates(self):
         """Get a DisplayList of the workflow states available on issues."""
         portal_workflow = api.portal.get_tool(name='portal_workflow')

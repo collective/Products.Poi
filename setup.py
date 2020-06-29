@@ -36,6 +36,7 @@ setup(name='Products.Poi',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'plone.memoize',
           'plone.namedfile',
           'Products.CMFPlone>=5.2',
           'collective.dexteritytextindexer',
