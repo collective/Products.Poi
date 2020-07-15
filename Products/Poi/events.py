@@ -169,6 +169,7 @@ def addedNewStyleResponse(object, event):
     if IIssue.providedBy(issue):
         merge_response_changes_to_issue(issue)
         sendResponseNotificationMail(issue)
+    update_last_actor(issue, event)
 
 
 def sendResponseNotificationMail(issue):
@@ -275,3 +276,12 @@ def add_response_for_files(object, event):
         new_response.type = "file"
         folder = IResponseContainer(issue)
         folder.add(new_response)
+
+
+def update_last_actor(object, event):
+    """ keep last actor updated for csv export """
+    if api.user.is_anonymous():
+        object.last_actor = '(anonymous)'
+    else:
+        user = api.user.get_current()
+        object.last_actor = user.id

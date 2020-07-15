@@ -10,8 +10,11 @@ from plone.app.textfield import RichText
 from plone.app.vocabularies.catalog import CatalogSource
 from plone.app.z3cform.widget import AjaxSelectFieldWidget
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
-from plone.autoform.directives import write_permission, read_permission
-from plone.autoform.directives import widget
+from plone.autoform.directives import \
+    omitted, \
+    read_permission, \
+    widget, \
+    write_permission
 from plone.dexterity.content import Container
 from plone.schema import email
 
@@ -218,6 +221,15 @@ class IIssue(model.Schema):
         required=False,
         constraint=checkEmpty
     )
+
+    last_actor = schema.TextLine(
+        title=_(u'Poi_label_issue_last_actor', default=u"Last Actor"),
+        required=False,
+        description=_(u'Poi_help_issue_last_actor',
+                      default=u"Last person to edit or add a Response")
+    )
+
+    omitted('last_actor')
 
 
 @implementer(IIssue)
