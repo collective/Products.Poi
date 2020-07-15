@@ -142,8 +142,6 @@ def mail_issue_change(object, event):
 def mail_issue_add(object, event):
     """Send an email when a new issue is created
     """
-    if object.modified() != object.created():
-        return
     if object.getReviewState()['state'] == 'unconfirmed':
         watchers = IWatcherList(object)
         watchers.send('new-issue-mail')
