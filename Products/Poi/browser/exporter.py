@@ -53,13 +53,14 @@ class CSVExport(BrowserView):
                     continue
                 responses.append({'creator': response.creator,
                                  'date': response.date})
-            # the responses are in order so we just grab the last one
-            if len(responses) > 0:
-                last_actor = responses[-1]['creator']
-                last_modified = responses[-1]['date']
+            if hasattr(issue, 'last_actor'):
+                last_actor = issue.last_actor
             else:
-                last_actor = obj.Creator()
-                last_modified = obj.modified()
+                # the responses are in order so we just grab the last one
+                if len(responses) > 0:
+                    last_actor = responses[-1]['creator']
+                else:
+                    last_actor = obj.Creator()
             actor_info = mt.getMemberInfo(last_actor)
             if actor_info and actor_info.get("fullname", None):
                 last_actor = actor_info["fullname"]
@@ -78,7 +79,8 @@ class CSVExport(BrowserView):
                                         key=lambda x: x.lower())))
             row.append(obj.getReviewState()['title'])
             row.append(last_actor)
-            row.append(last_modified.strftime('%Y-%m-%d %H:%M:%S'))
+            row.append(dateutil.parser.parse(
+                issue.ModificationDate).strftime('%Y-%m-%d %H:%M:%S'))
             row.append(issue.release or "")
             row.append(pas_member.info(issue.Creator)['name_or_id'])
             row.append(dateutil.parser.parse(
