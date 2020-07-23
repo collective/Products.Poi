@@ -53,8 +53,8 @@ class CSVExport(BrowserView):
                     continue
                 responses.append({'creator': response.creator,
                                  'date': response.date})
-            if hasattr(issue, 'last_actor'):
-                last_actor = issue.last_actor
+            if hasattr(obj, 'last_actor'):
+                last_actor = obj.last_actor
             else:
                 # the responses are in order so we just grab the last one
                 if len(responses) > 0:
