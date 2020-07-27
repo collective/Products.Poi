@@ -5,7 +5,7 @@
              i18n:domain="Poi">
 
   <metal:block define-slot="rss-button" tal:condition="rssQueryString | nothing">
-      <a class="standalone" id="export-btn"
+      <a class="standalone" id="export-btn" i18n:translate=""
           tal:attributes="href string:${here/absolute_url}/@@poi-issue-export?${rssQueryString}">Export CSV</a>
       <div class="issue-search-rss">
         <a href="" tal:attributes="href string:${here/absolute_url}/poi-issue-search-rss.xml?${rssQueryString}">

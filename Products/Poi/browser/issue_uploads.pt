@@ -1,7 +1,11 @@
-<metal:block define-macro="issue-uploads">
+<metal:block define-macro="issue-uploads"
+             xmlns:tal="http://xml.zope.org/namespaces/tal"
+             xmlns:metal="http://xml.zope.org/namespaces/metal"
+             xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+             i18n:domain="Poi">
     <div class="issue-uploads" id="formfield-form-widgets-attachments"
         tal:define="items context/getFolderContents">
-        <label for="fakeUploadFile" class="horizontal">Attachments</label>
+        <label i18n:translate="" for="fakeUploadFile" class="horizontal">Attachments</label>
         <ol>
             <tal:cond condition="items">
                 <tal:repeat repeat="item items">

@@ -69,9 +69,11 @@
                   checked="checked"
                   tal:attributes="value request/form/exacttext|nothing" />
 
-           <label for="exacttext">
+           <label for="exacttext" i18n:translate="">
                Exact Text Search
-               <span class="discreet">Unchecking may result in slower search performance</span>
+           </label>
+               <span class="discreet" i18n:translate="">Unchecking may result in slower search performance</span>
+           
           </div>
 
           <div class="field">
