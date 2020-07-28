@@ -222,7 +222,7 @@ msgstr "Selezionare quale persona è assegnata a questa attività."
 #. Default: "You may optionally upload file attachments. Please do not upload unnecessarily large files."
 #: ./browser/issue_uploads.pt:22
 msgid "Poi_help_issue_attachment"
-msgstr ""
+msgstr "E' possibile caricare allegati. Evitare di caricare file di grosse dimensioni"
 
 #. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
 #: ./content/issue.py:148
@@ -478,7 +478,7 @@ msgstr "Mailing list"
 #. Default: "Modify Issue"
 #: ./browser/response.pt:161
 msgid "Poi_label_modify"
-msgstr ""
+msgstr "Modifica attività"
 
 # ./content/PoiResponse.py
 #. Default: "Change assignee"
@@ -1094,7 +1094,7 @@ msgstr "Titolo"
 #. Default: "Add/remove attachments"
 #: ./browser/response.pt:87
 msgid "title_add_remove_attachments"
-msgstr ""
+msgstr "Aggiungi/rimuovi allegati"
 
 #. Default: "Add response"
 #: ./browser/response.pt:115
