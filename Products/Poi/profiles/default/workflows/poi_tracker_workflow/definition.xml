@@ -149,6 +149,7 @@
   <permission-map name="Add portal content" acquired="False">
    <permission-role>Contributor</permission-role>
    <permission-role>Manager</permission-role>
+   <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>Site Administrator</permission-role>
    <permission-role>Technician</permission-role>
@@ -164,6 +165,7 @@
   <permission-map name="Poi: Add Issue" acquired="False">
    <permission-role>Contributor</permission-role>
    <permission-role>Manager</permission-role>
+   <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>Site Administrator</permission-role>
    <permission-role>Technician</permission-role>
@@ -172,6 +174,7 @@
   <permission-map name="Poi: Add Response" acquired="False">
    <permission-role>Contributor</permission-role>
    <permission-role>Manager</permission-role>
+   <permission-role>Member</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>Site Administrator</permission-role>
    <permission-role>Technician</permission-role>
