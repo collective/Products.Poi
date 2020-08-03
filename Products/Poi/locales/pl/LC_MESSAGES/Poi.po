@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2018-02-27 14:22+0000\n"
+"POT-Creation-Date: 2020-07-27 16:31+0000\n"
 "PO-Revision-Date: 2010-01-24 15:00+0010\n"
 "Last-Translator: STX Next <info@stxnext.pl>\n"
 "Language-Team: STX Next <info@stxnext.pl>\n"
@@ -35,7 +35,7 @@ msgstr ""
 msgid "An attachment has been added with id ${id}."
 msgstr ""
 
-#: ./content/tracker.py:235
+#: ./content/tracker.py:236
 msgid "Area"
 msgstr ""
 
@@ -43,12 +43,16 @@ msgstr ""
 msgid "Assignee"
 msgstr ""
 
+#: ./browser/issue_uploads.pt:8
+msgid "Attachments"
+msgstr ""
+
 #. Default: ""
-#: ./browser/response.py:502
+#: ./browser/response.py:503
 msgid "Changes saved to response id ${response_id}."
 msgstr "Zamiany zostały zapisane dla odpowiedzi o id ${response_id}."
 
-#: ./content/tracker.py:62
+#: ./content/tracker.py:63
 msgid "Critical"
 msgstr ""
 
@@ -56,7 +60,7 @@ msgstr ""
 msgid "Delete"
 msgstr "Usuń"
 
-#: ./content/tracker.py:182
+#: ./content/tracker.py:183
 msgid "Description"
 msgstr ""
 
@@ -68,11 +72,19 @@ msgstr "Edytuj"
 msgid "Edit issue"
 msgstr "Edytuj zgłoszenie"
 
-#: ./content/tracker.py:309
+#: ./content/tracker.py:310
 msgid "Enter users who will be responsible for solving the issues. Users also need to be added as Watchers to receive notifications."
 msgstr ""
 
-#: ./content/tracker.py:63
+#: ./browser/templates/poi_issue_search_form.pt:72
+msgid "Exact Text Search"
+msgstr ""
+
+#: ./browser/templates/poi_issue_search_results.pt:8
+msgid "Export CSV"
+msgstr ""
+
+#: ./content/tracker.py:64
 msgid "Important"
 msgstr ""
 
@@ -92,7 +104,7 @@ msgstr ""
 msgid "Issue Information"
 msgstr ""
 
-#: ./content/tracker.py:257
+#: ./content/tracker.py:258
 msgid "Issue Type"
 msgstr ""
 
@@ -106,23 +118,19 @@ msgstr "Status zgłoszenia"
 msgid "Issue:"
 msgstr ""
 
-#: ./content/tracker.py:65
+#: ./content/tracker.py:66
 msgid "Low"
 msgstr ""
 
-#: ./content/tracker.py:64
+#: ./content/tracker.py:65
 msgid "Medium"
 msgstr ""
 
-#: ./profiles.zcml:22
-msgid "Migration Steps"
-msgstr ""
-
-#: ./browser/response.py:532
+#: ./browser/response.py:533
 msgid "No response selected for removal."
 msgstr "Brak zaznaczonych odpowiedzi do usunięcia."
 
-#: ./browser/response.py:488
+#: ./browser/response.py:489
 msgid "No response selected for saving."
 msgstr "Brak zaznaczonych odpowiedzi do zapisania."
 
@@ -138,7 +146,7 @@ msgstr "Nie dodano tekstu ani zgłoszenie nie zostało zmienione."
 msgid "Note"
 msgstr ""
 
-#: ./profiles.zcml:31
+#: ./profiles.zcml:23
 msgid "Partial uninstall profile for Poi, in addition to the QI one."
 msgstr ""
 
@@ -152,80 +160,46 @@ msgstr ""
 msgid "Poi"
 msgstr ""
 
-#: ./profiles.zcml:22
-msgid "Poi Migration to version 4.0"
-msgstr ""
-
-#: ./profiles.zcml:31
+#: ./profiles.zcml:23
 msgid "Poi Uninstall"
 msgstr ""
 
-# ./content/PoiIssue.py
-#. Default: "Select the area this issue is relevant to."
-#: ./content/PoiIssue.py:185
-msgid "Poi_help_area"
-msgstr "Wybierz obszar powiązany ze zgłoszeniem."
-
-#. Default: "You may optionally upload a file attachment. Please do not upload unnecessarily large files."
-#: ./content/PoiIssue.py:170
-msgid "Poi_help_attachment"
-msgstr "Możesz przesłać załącznik. Proszę nie przesyłać niepotrzebnych plików."
-
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker."
-#: ./content/PoiTracker.py:115
-#: ./content/tracker.py:219
+#: ./content/tracker.py:220
 #, fuzzy
 msgid "Poi_help_availableAreas"
 msgstr "Pozwala na ustawienie obszarów dostępnych w Systemie Zgłoszeniowym. Jeden wpis na linię w formacie \"Skrót | Tytuł | Opis\"."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker."
-#: ./content/PoiTracker.py:139
-#: ./content/tracker.py:242
+#: ./content/tracker.py:243
 #, fuzzy
 msgid "Poi_help_availableIssueTypes"
 msgstr "Pozwala na ustawienie typów zgłoszeń dostępnych w Systemie Zgłoszeniowym. Jeden wpis na linię w formacie \"Skrót | Tytuł | Opis\"."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organized by release."
-#: ./content/PoiTracker.py:182
-#: ./content/tracker.py:292
+#: ./content/tracker.py:293
 #, fuzzy
 msgid "Poi_help_availableReleases"
 msgstr "Pozwala na ustawienie wydań dostępnych w Systemie Zgłoszeniowym. Jeden wpis na linię. W przypadku gdy pole jest puste, nie będzie możliwości grupowania zgłoszeń po wydaniach."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
-#: ./content/PoiTracker.py:154
-#: ./content/tracker.py:265
+#: ./content/tracker.py:266
 msgid "Poi_help_availableSeverities"
 msgstr "Pozwala na ustawienie dostępnych priorytetów. Jeden wpis na linię."
 
-# ./content/PoiIssue.py
-#. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
-#: ./content/PoiIssue.py:265
-#, fuzzy
-msgid "Poi_help_contactEmail"
-msgstr "Adres e-mail służący do komunikacji (w celu otrzymania dodatkowych informacji lub powiadomienia o rozwiązaniu)."
-
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
-#: ./content/PoiTracker.py:168
-#: ./content/tracker.py:279
+#: ./content/tracker.py:280
 msgid "Poi_help_defaultSeverity"
 msgstr "Domyślny priorytet dla nowego zgłoszenia."
 
-# ./content/PoiIssue.py
-#. Default: "Please provide further details"
-#: ./content/PoiIssue.py:134
-msgid "Poi_help_details"
-msgstr "Dodatkowy opis"
-
 # ./content/PoiTracker.py
 #. Default: "Enter any introductory help text you'd like to display on the tracker front page."
-#: ./content/PoiTracker.py:91
-#: ./content/tracker.py:207
+#: ./content/tracker.py:208
 msgid "Poi_help_helpText"
 msgstr "Tekst pomocy, którą chcesz wyświetlić na stronie głównej Systemu Zgłoszeniowego."
 
@@ -234,92 +208,88 @@ msgstr "Tekst pomocy, którą chcesz wyświetlić na stronie głównej Systemu Z
 msgid "Poi_help_issueTransition"
 msgstr "Wybierz zmianę stanu zgłoszenia."
 
-# ./content/PoiIssue.py
-#. Default: "Select the type of issue."
-#: ./content/PoiIssue.py:200
-msgid "Poi_help_issueType"
-msgstr "Wybierz typ zgłoszenia."
-
 #. Default: "Select the area this issue is relevant to."
-#: ./content/issue.py:99
+#: ./content/issue.py:102
 msgid "Poi_help_issue_area"
 msgstr ""
 
 #. Default: "Select which person, if any, is assigned to this issue."
-#: ./content/issue.py:136
+#: ./content/issue.py:139
 msgid "Poi_help_issue_assignee"
 msgstr ""
 
+#. Default: "You may optionally upload file attachments. Please do not upload unnecessarily large files."
+#: ./browser/issue_uploads.pt:22
+msgid "Poi_help_issue_attachment"
+msgstr ""
+
 #. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
-#: ./content/issue.py:145
+#: ./content/issue.py:148
 msgid "Poi_help_issue_contact_email"
 msgstr ""
 
 #. Default: "Please provide further details."
-#: ./content/issue.py:83
+#: ./content/issue.py:86
 msgid "Poi_help_issue_details"
 msgstr ""
 
+#. Default: "Last person to edit or add a Response"
+#: ./content/issue.py:228
+msgid "Poi_help_issue_last_actor"
+msgstr ""
+
 #. Default: "Link related issues."
-#: ./content/issue.py:209
+#: ./content/issue.py:210
 msgid "Poi_help_issue_related"
 msgstr ""
 
 #. Default: "Select the version the issue was found in."
-#: ./content/issue.py:74
+#: ./content/issue.py:77
 msgid "Poi_help_issue_release"
 msgstr ""
 
 #. Default: "Select the severity of this issue."
-#: ./content/issue.py:115
+#: ./content/issue.py:118
 msgid "Poi_help_issue_severity"
 msgstr ""
 
 #. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
-#: ./content/issue.py:90
+#: ./content/issue.py:93
 msgid "Poi_help_issue_steps"
 msgstr ""
 
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: ./content/issue.py:182
+#: ./content/issue.py:185
 msgid "Poi_help_issue_subject"
 msgstr ""
 
 #. Default: "Release this issue is targetted to be fixed in."
-#: ./content/issue.py:125
+#: ./content/issue.py:128
 msgid "Poi_help_issue_target_release"
 msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
-#: ./content/PoiIssue.py:101
-#: ./content/issue.py:65
+#: ./content/issue.py:68
 msgid "Poi_help_issue_title"
 msgstr "Krótki opisowy tytuł ułatwi ocenę i reakcję na problem."
 
 #. Default: "Select the type of issue."
-#: ./content/issue.py:106
+#: ./content/issue.py:109
 msgid "Poi_help_issue_type"
 msgstr ""
 
 #. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
-#: ./content/issue.py:160
+#: ./content/issue.py:163
 msgid "Poi_help_issue_watchers"
 msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted."
-#: ./content/PoiTracker.py:261
-#: ./content/tracker.py:359
+#: ./content/tracker.py:360
 #, fuzzy
 msgid "Poi_help_mailingList"
 msgstr "Ustawienie tego pola oraz zaznaczenie opcji \"Powiadomienia e-mail\" spowoduje wysłanie na wskazany adres powiadomień o nowych zgłoszeniach i odpowiedziach do nich. Jeżeli adres nie zostanie ustawiony, powiadomienia będą wysyłane do każdej z osób oddzielnie."
-
-# ./content/PoiTracker.py
-#. Default: "Enter the user ids of the users who will be allowed to manage this tracker, one per line."
-#: ./content/PoiTracker.py:197
-msgid "Poi_help_managers"
-msgstr "Wpisz osoby odpowiedzialne za zarządzanie systemem oraz za rozwiązywanie zgłoszonych problemów. Jedna nazwa użytkownika na linię."
 
 #. Default: "Select the assignee for this issue"
 #: ./browser/response.pt:254
@@ -336,265 +306,162 @@ msgstr "Wybierz priorytet dla tego zgłoszenia"
 msgid "Poi_help_newTargetRelease"
 msgstr "Wybierz docelowe wydanie dla tego zgłoszenia"
 
-# ./content/PoiIssue.py
-#. Default: "Select the version the issue was found in."
-#: ./content/PoiIssue.py:119
-#, fuzzy
-msgid "Poi_help_release"
-msgstr "Wybierz wydanie do którego odnosi się to zgłoszenie."
-
 #. Default: "Please enter your response below."
 #: ./browser/response.pt:125
 msgid "Poi_help_response"
 msgstr "Wpisz odpowiedź poniżej"
 
-# ./content/PoiIssue.py
-#. Default: "Select which manager, if any, is responsible for this issue."
-#: ./content/PoiIssue.py:247
-msgid "Poi_help_responsibleManager"
-msgstr "Wybierz osobę odpowiedzialną za rozwiązanie tego zgłoszenia."
-
 # ./content/PoiTracker.py
 #. Default: "If selected, all tracker assignees above will receive an email for new issues and all issue responses. Issue watchers will receive an email for all issue responses. Issue submitters will receive an email when the issue has been resolved."
-#: ./content/PoiTracker.py:245
-#: ./content/tracker.py:343
+#: ./content/tracker.py:344
 #, fuzzy
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Opcja aktywuje wysyłanie powiadomień. Osoby odpowiedzialne dostaną wiadomość e-mail o dodaniu nowego zgłoszenia lub odpowiedzi. Osoba zgłaszająca otrzyma powiadomienie o dodaniu nowej odpowiedz lub o zamknięciu zgłoszenia."
 
-# ./content/PoiIssue.py
-#. Default: "Select the severity of this issue."
-#: ./content/PoiIssue.py:215
-msgid "Poi_help_severity"
-msgstr "Wybierz priorytet dla tego zgłoszenia"
-
-# ./content/PoiIssue.py
-#. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
-#: ./content/PoiIssue.py:151
-msgid "Poi_help_steps"
-msgstr "Kroki pozwalające na odtworzenie błędu lub identyfikację problemu. Jeden wpis na linię."
-
-# ./content/PoiIssue.py
-#. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: ./content/PoiIssue.py:300
-msgid "Poi_help_subject"
-msgstr "Kategorie (także znane jako słowa kluczowe, etykiety lub znaczniki) mogą być używane do grupowania zgłoszeń. Lista poniżej pokazuje istniejące kategorie, które mogą zostać wybrane. Możesz także dopisać nowe."
-
 # ./content/PoiTracker.py
 #. Default: "Please enter the URL to the related repository, e.g.: https://github.com/collective/Products.Poi/commit/%(rev)s for Products.Poi."
-#: ./content/PoiTracker.py:277
-#: ./content/tracker.py:373
+#: ./content/tracker.py:374
 #, fuzzy
 msgid "Poi_help_svnurl"
 msgstr "Powiązane repozytorium SVN, np. http://dev.plone.org/changeset/%(rev)s/collective dla produktów z repozytorium Plone collective."
 
-# ./content/PoiIssue.py
-#. Default: "Release this issue is targetted to be fixed in"
-#: ./content/PoiIssue.py:231
-msgid "Poi_help_targetRelease"
-msgstr "Planowane wydanie które będzie zawierało rozwiązanie zgłoszenia."
-
-# ./content/PoiTracker.py
-#. Default: "Enter the user ids of the users who will be responsible for solving the issues, one per line. Note that having only managers and no technicians is fine: managers can solve issues too."
-#: ./content/PoiTracker.py:211
-msgid "Poi_help_technicians"
-msgstr ""
-
 #. Default: "Describe the purpose of this tracker"
-#: ./content/PoiTracker.py:74
-#: ./content/tracker.py:198
+#: ./content/tracker.py:199
 msgid "Poi_help_tracker_description"
 msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
-#: ./content/PoiTracker.py:60
-#: ./content/tracker.py:190
+#: ./content/tracker.py:191
 msgid "Poi_help_tracker_title"
 msgstr "Opisowa nazwa Systemu Zgłoszeniowego"
 
 #. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
-#: ./content/PoiTracker.py:226
-#: ./content/tracker.py:324
+#: ./content/tracker.py:325
 msgid "Poi_help_tracker_watchers"
 msgstr ""
 
-# ./content/PoiIssue.py
-#. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
-#: ./content/PoiIssue.py:282
-#, fuzzy
-msgid "Poi_help_watchers"
-msgstr "Nazwy użytkowników obserwujących zgłoszenie. Jeden wpis na linię. Ci użytkownicy otrzymają powiadomienie o nowych odpowiedziach."
-
-# ./content/PoiIssue.py
-#. Default: "Area"
-#: ./content/PoiIssue.py:183
-msgid "Poi_label_area"
-msgstr "Obszar"
-
 #. Default: "Assignees"
-#: ./content/tracker.py:308
+#: ./content/tracker.py:309
 msgid "Poi_label_assignees"
 msgstr ""
 
-#. Default: "Attachment"
-#: ./content/PoiIssue.py:168
-msgid "Poi_label_attachment"
-msgstr "Załącznik"
-
 # ./content/PoiTracker.py
 #. Default: "Areas"
-#: ./content/PoiTracker.py:113
-#: ./content/tracker.py:217
+#: ./content/tracker.py:218
 msgid "Poi_label_availableAreas"
 msgstr "Dostępne obszary"
 
 # ./content/PoiTracker.py
 #. Default: "Issue types"
-#: ./content/PoiTracker.py:137
-#: ./content/tracker.py:240
+#: ./content/tracker.py:241
 msgid "Poi_label_availableIssueTypes"
 msgstr "Dostępne typy zgłoszeń"
 
 # ./content/PoiTracker.py
 #. Default: "Available releases"
-#: ./content/PoiTracker.py:180
-#: ./content/tracker.py:288
+#: ./content/tracker.py:289
 msgid "Poi_label_availableReleases"
 msgstr "Dostępne wydania"
 
 # ./content/PoiTracker.py
 #. Default: "Available severities"
-#: ./content/PoiTracker.py:152
-#: ./content/tracker.py:262
+#: ./content/tracker.py:263
 msgid "Poi_label_availableSeverities"
 msgstr "Dostępne priorytety"
 
-# ./content/PoiIssue.py
-#. Default: "Contact email address"
-#: ./content/PoiIssue.py:263
-msgid "Poi_label_contactEmail"
-msgstr "Kontaktowy adres e-mail"
-
 # ./content/PoiTracker.py
 #. Default: "Default severity"
-#: ./content/PoiTracker.py:166
-#: ./content/tracker.py:274
+#: ./content/tracker.py:275
 msgid "Poi_label_defaultSeverity"
 msgstr "Domyślny priorytet"
-
-# ./content/PoiIssue.py
-#. Default: "Details"
-#: ./content/PoiIssue.py:132
-msgid "Poi_label_details"
-msgstr "Szczegóły"
-
-# ./content/PoiTracker.py
-#. Default: "Help text"
-#: ./content/PoiTracker.py:89
-#, fuzzy
-msgid "Poi_label_helpText"
-msgstr "Tekst pomocniczy"
 
 #. Default: "Change issue state"
 #: ./browser/response.pt:173
 msgid "Poi_label_issueTransition"
 msgstr "Zamień stan zgłoszenia"
 
-# ./content/PoiIssue.py
-#. Default: "Issue type"
-#: ./content/PoiIssue.py:198
-msgid "Poi_label_issueType"
-msgstr "Typ zgłoszenia"
-
 #. Default: "Area"
-#: ./content/issue.py:98
+#: ./content/issue.py:101
 msgid "Poi_label_issue_area"
 msgstr ""
 
 #. Default: "Assignee"
-#: ./content/issue.py:135
+#: ./content/issue.py:138
 msgid "Poi_label_issue_assignee"
 msgstr ""
 
 #. Default: "Contact Email"
-#: ./content/issue.py:144
+#: ./content/issue.py:147
 msgid "Poi_label_issue_contact_email"
 msgstr ""
 
 #. Default: "Details"
-#: ./content/issue.py:82
+#: ./content/issue.py:85
 msgid "Poi_label_issue_details"
 msgstr ""
 
 #. Default: "Leave this field empty"
-#: ./content/issue.py:219
+#: ./content/issue.py:220
 msgid "Poi_label_issue_empty"
 msgstr ""
 
-#. Default: "Id"
-#: ./content/PoiIssue.py:90
-msgid "Poi_label_issue_id"
+#. Default: "Last Actor"
+#: ./content/issue.py:226
+msgid "Poi_label_issue_last_actor"
 msgstr ""
 
 #. Default: "Related Issue(s)"
-#: ./content/issue.py:208
+#: ./content/issue.py:209
 msgid "Poi_label_issue_related"
 msgstr ""
 
 #. Default: "Release"
-#: ./content/issue.py:73
+#: ./content/issue.py:76
 msgid "Poi_label_issue_release"
 msgstr ""
 
 #. Default: "Severity"
-#: ./content/issue.py:114
+#: ./content/issue.py:117
 msgid "Poi_label_issue_severity"
 msgstr ""
 
 #. Default: "Steps To Reproduce"
-#: ./content/issue.py:89
+#: ./content/issue.py:92
 msgid "Poi_label_issue_steps"
 msgstr ""
 
 #. Default: "Subject"
-#: ./content/issue.py:181
+#: ./content/issue.py:184
 msgid "Poi_label_issue_subject"
 msgstr ""
 
 #. Default: "Target Release"
-#: ./content/issue.py:124
+#: ./content/issue.py:127
 msgid "Poi_label_issue_target_release"
 msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Title"
-#: ./content/PoiIssue.py:99
-#: ./content/issue.py:64
+#: ./content/issue.py:67
 msgid "Poi_label_issue_title"
 msgstr "Tytuł"
 
 #. Default: "Issue Type"
-#: ./content/issue.py:105
+#: ./content/issue.py:108
 msgid "Poi_label_issue_type"
 msgstr ""
 
 #. Default: "Watchers"
-#: ./content/issue.py:159
+#: ./content/issue.py:162
 msgid "Poi_label_issue_watchers"
 msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Mailing list"
-#: ./content/PoiTracker.py:259
-#: ./content/tracker.py:355
+#: ./content/tracker.py:356
 msgid "Poi_label_mailingList"
 msgstr "Lista mailingowa"
-
-#. Default: "Tracker managers"
-#: ./content/PoiTracker.py:195
-msgid "Poi_label_managers"
-msgstr ""
 
 #. Default: "Modify Issue"
 #: ./browser/response.pt:161
@@ -616,93 +483,31 @@ msgstr "Zmień priorytet zgłoszenia"
 msgid "Poi_label_newTargetRelease"
 msgstr "Zmień docelowe wydanie"
 
-# ./content/PoiIssue.py
-#. Default: "Version"
-#: ./content/PoiIssue.py:117
-#, fuzzy
-msgid "Poi_label_release"
-msgstr "Wydanie"
-
 #. Default: "Response"
 #: ./browser/response.pt:122
 msgid "Poi_label_response"
 msgstr "Odpowiedź"
 
-# ./content/PoiIssue.py
-#. Default: "Responsible"
-#: ./content/PoiIssue.py:245
-msgid "Poi_label_responsibleManager"
-msgstr "Osoba odpowiedzialna"
-
 # ./content/PoiTracker.py
 #. Default: "Send notification emails"
-#: ./content/PoiTracker.py:243
-#: ./content/tracker.py:339
+#: ./content/tracker.py:340
 msgid "Poi_label_sendNotificationEmails"
 msgstr "Powiadomienia e-mail"
 
-# ./content/PoiIssue.py
-#. Default: "Severity"
-#: ./content/PoiIssue.py:213
-msgid "Poi_label_severity"
-msgstr "Priorytet"
-
-# ./content/PoiIssue.py
-#. Default: "Steps to reproduce"
-#: ./content/PoiIssue.py:149
-msgid "Poi_label_steps"
-msgstr "Kroki"
-
-# ./content/PoiIssue.py
-#. Default: "Tags"
-#: ./content/PoiIssue.py:298
-msgid "Poi_label_subject"
-msgstr "Kategorie"
-
 # ./content/PoiTracker.py
 #. Default: "URL to Repository"
-#: ./content/PoiTracker.py:275
-#: ./content/tracker.py:371
+#: ./content/tracker.py:372
 #, fuzzy
 msgid "Poi_label_svnurl"
 msgstr "URL do SVN"
 
-# ./content/PoiIssue.py
-#. Default: "Target release"
-#: ./content/PoiIssue.py:229
-msgid "Poi_label_targetRelease"
-msgstr "Docelowe wydanie"
-
-#. Default: "Technicians"
-#: ./content/PoiTracker.py:209
-msgid "Poi_label_technicians"
-msgstr ""
-
-#. Default: "Tracker description"
-#: ./content/PoiTracker.py:72
-msgid "Poi_label_tracker_description"
-msgstr ""
-
-# ./content/PoiTracker.py
-#. Default: "Tracker name"
-#: ./content/PoiTracker.py:58
-msgid "Poi_label_tracker_title"
-msgstr "Tytuł Systemu Zgłoszeniowego"
-
 #. Default: "Watchers"
-#: ./content/PoiTracker.py:224
-#: ./content/tracker.py:323
+#: ./content/tracker.py:324
 msgid "Poi_label_tracker_watchers"
 msgstr ""
 
-# ./content/PoiIssue.py
-#. Default: "Issue watchers"
-#: ./content/PoiIssue.py:280
-msgid "Poi_label_watchers"
-msgstr "Osoby obserwujące"
-
 #. Default: ""
-#: ./browser/response.py:554
+#: ./browser/response.py:555
 msgid "Removed response id ${response_id}."
 msgstr "Odpowiedź o id ${response_id} została usunięta."
 
@@ -717,12 +522,12 @@ msgstr ""
 msgid "Response Information"
 msgstr ""
 
-#: ./browser/response.py:492
+#: ./browser/response.py:493
 msgid "Response does not exist anymore; perhaps it was removed by another user."
 msgstr ""
 
 #. Default: ""
-#: ./browser/response.py:547
+#: ./browser/response.py:548
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr "Odpowiedź o id ${response_id} nie istnieje dlatego nie może być usunięte."
 
@@ -732,7 +537,7 @@ msgid "Response id ${response_id} does not exist."
 msgstr "Odpowiedź o id ${response_id} nie istnieje."
 
 #. Default: ""
-#: ./browser/response.py:539
+#: ./browser/response.py:540
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr "Id ${response_id} nie jest liczbą całkowitą, dlatego nie jest możliwe usunięcie odpowiedzi."
 
@@ -749,7 +554,7 @@ msgstr "Szukaj"
 msgid "Severity"
 msgstr "Priorytet"
 
-#: ./content/tracker.py:176
+#: ./content/tracker.py:177
 msgid "Short Name"
 msgstr ""
 
@@ -772,15 +577,19 @@ msgstr ""
 msgid "This is an automated email, please do not reply."
 msgstr ""
 
-#: ./content/tracker.py:179
+#: ./content/tracker.py:180
 msgid "Title"
 msgstr ""
 
-#: ./browser/response.py:526
+#: ./browser/templates/poi_issue_search_form.pt:75
+msgid "Unchecking may result in slower search performance"
+msgstr ""
+
+#: ./browser/response.py:527
 msgid "You are not allowed to delete responses."
 msgstr "Nie masz uprawnień do usuwania odpowiedzi."
 
-#: ./browser/response.py:482
+#: ./browser/response.py:483
 msgid "You are not allowed to edit responses."
 msgstr "Nie masz uprawnień do edytowania odpowiedzi."
 
@@ -791,7 +600,7 @@ msgid "batch_x_items_matching_your_criteria"
 msgstr "${number} zgłoszeń spełnia kryteria"
 
 #. Default: "Description"
-#: ./content/tracker.py:197
+#: ./content/tracker.py:198
 msgid "description"
 msgstr ""
 
@@ -807,7 +616,7 @@ msgid "description_no_results_found"
 msgstr "Brak wyników wyszukiwania."
 
 #. Default: "Help Text"
-#: ./content/tracker.py:206
+#: ./content/tracker.py:207
 msgid "help_text"
 msgstr ""
 
@@ -827,7 +636,7 @@ msgid "label_return_to_issue"
 msgstr "Wróć do zgłoszenia."
 
 #. Default: "Search"
-#: ./browser/templates/poi_issue_search_form.pt:282
+#: ./browser/templates/poi_issue_search_form.pt:284
 msgid "label_search"
 msgstr "Szukaj"
 
@@ -897,9 +706,7 @@ msgid "msg_no_responses_can_be_added"
 msgstr "Brak odpowiedzi do dodania."
 
 #. Default: "(Not assigned)"
-#: ./browser/templates/poi_issue_search_form.pt:104
-#: ./content/PoiIssue.py:524
-#: ./content/PoiTracker.py:426
+#: ./browser/templates/poi_issue_search_form.pt:106
 msgid "not_assigned"
 msgstr "(nie przypisane)"
 
@@ -934,22 +741,22 @@ msgid "poi_all_pending_issues"
 msgstr "Wszystkie oczekujące zgłoszenia"
 
 #. Default: "Include Related Issues"
-#: ./browser/templates/poi_issue_search_form.pt:277
+#: ./browser/templates/poi_issue_search_form.pt:279
 msgid "poi_display_related"
 msgstr ""
 
 #. Default: "[${tracker_title}] Resolved #${issue_id} - ${issue_title}"
-#: ./browser/notifications.py:234
+#: ./browser/notifications.py:217
 msgid "poi_email_issue_resolved_subject_template"
 msgstr "[${tracker_title}] Zamknięto #${issue_id} - ${issue_title}"
 
 #. Default: "[${tracker_title}] #${issue_id} - New issue: ${issue_title}"
-#: ./browser/notifications.py:148
+#: ./browser/notifications.py:131
 msgid "poi_email_new_issue_subject_template"
 msgstr "[${tracker_title}] Nowe zgłoszenie #${issue_id} - ${issue_title}"
 
 #. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
-#: ./browser/notifications.py:211
+#: ./browser/notifications.py:194
 msgid "poi_email_new_response_subject_template"
 msgstr "[${tracker_title}] Odpowiedz do #${issue_id} - ${issue_title}"
 
@@ -1076,7 +883,7 @@ msgid "poi_label_issue_contact_email"
 msgstr ""
 
 #. Default: "Related issue(s):"
-#: ./browser/templates/poi_issue_view.pt:191
+#: ./browser/templates/poi_issue_view.pt:194
 msgid "poi_label_related"
 msgstr ""
 
@@ -1091,7 +898,7 @@ msgid "poi_label_state"
 msgstr "Status"
 
 #. Default: "Steps to reproduce:"
-#: ./browser/templates/poi_issue_view.pt:182
+#: ./browser/templates/poi_issue_view.pt:184
 msgid "poi_label_steps"
 msgstr "Kroki"
 
@@ -1131,7 +938,7 @@ msgid "poi_legend_search_terms"
 msgstr "Kryteria wyszukiwania"
 
 #. Default: "Match all tags"
-#: ./browser/templates/poi_issue_search_form.pt:270
+#: ./browser/templates/poi_issue_search_form.pt:272
 msgid "poi_match_all_tags"
 msgstr "Dopasuj wszystkie kategorie"
 
@@ -1157,17 +964,17 @@ msgid "poi_return_to_tracker"
 msgstr "Wróć do strony głównej"
 
 #. Default: "Select the areas you wish to search for."
-#: ./browser/templates/poi_issue_search_form.pt:141
+#: ./browser/templates/poi_issue_search_form.pt:143
 msgid "poi_search_help_area"
 msgstr "Wybierz obszary po których chcesz szukać."
 
 #. Default: "Select the assignee you wish to search for."
-#: ./browser/templates/poi_issue_search_form.pt:227
+#: ./browser/templates/poi_issue_search_form.pt:229
 msgid "poi_search_help_assignee"
 msgstr "Wybierz osoby odpowiedzialne po których chcesz szukać."
 
 #. Default: "Enter the username of the issue submitter,"
-#: ./browser/templates/poi_issue_search_form.pt:81
+#: ./browser/templates/poi_issue_search_form.pt:83
 msgid "poi_search_help_creator"
 msgstr "Wpisz nazwę uzytkownik zgłaszającego."
 
@@ -1177,32 +984,32 @@ msgid "poi_search_help_id"
 msgstr "Jeżeli chcesz znaleźć konkretne zgłoszenie, wpisz jego numer."
 
 #. Default: "Select the types you wish to search for."
-#: ./browser/templates/poi_issue_search_form.pt:162
+#: ./browser/templates/poi_issue_search_form.pt:164
 msgid "poi_search_help_issue_type"
 msgstr "Wybierz typy zgłoszeń po których chcesz szukać."
 
 #. Default: "Select the version for which the bugs you want to find were reported."
-#: ./browser/templates/poi_issue_search_form.pt:94
+#: ./browser/templates/poi_issue_search_form.pt:96
 msgid "poi_search_help_release"
 msgstr "Wybierz wersję po których chcesz szukać."
 
 #. Default: "Select the severities you wish to search for."
-#: ./browser/templates/poi_issue_search_form.pt:183
+#: ./browser/templates/poi_issue_search_form.pt:185
 msgid "poi_search_help_severity"
 msgstr "Wybierz priorytety po których chcesz szukać."
 
 #. Default: "Select the states you wish to search for."
-#: ./browser/templates/poi_issue_search_form.pt:204
+#: ./browser/templates/poi_issue_search_form.pt:206
 msgid "poi_search_help_state"
 msgstr "Wybierz status po których chcesz szukać."
 
 #. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
-#: ./browser/templates/poi_issue_search_form.pt:248
+#: ./browser/templates/poi_issue_search_form.pt:250
 msgid "poi_search_help_tags"
 msgstr "Kategorie (także znane jako słowa kluczowe, etykiety lub znaczniki) służą do grupowania zgłoszeń. Wybierz kategorie po których chcesz szukać."
 
 #. Default: "Select the assigned target release you wish to search for."
-#: ./browser/templates/poi_issue_search_form.pt:118
+#: ./browser/templates/poi_issue_search_form.pt:120
 msgid "poi_search_help_target_release"
 msgstr "Wybierz docelowe wersje po których chcesz szukać."
 
@@ -1212,17 +1019,17 @@ msgid "poi_search_help_text"
 msgstr "Wpisz tekst który ma się znależć w treści zgłoszenia."
 
 #. Default: "Area"
-#: ./browser/templates/poi_issue_search_form.pt:139
+#: ./browser/templates/poi_issue_search_form.pt:141
 msgid "poi_search_label_area"
 msgstr "Obszar"
 
 #. Default: "Assignee"
-#: ./browser/templates/poi_issue_search_form.pt:225
+#: ./browser/templates/poi_issue_search_form.pt:227
 msgid "poi_search_label_assignee"
 msgstr "Osoba odpowiedzialna"
 
 #. Default: "Submitter"
-#: ./browser/templates/poi_issue_search_form.pt:79
+#: ./browser/templates/poi_issue_search_form.pt:81
 msgid "poi_search_label_creator"
 msgstr "Zgłaszający"
 
@@ -1232,27 +1039,27 @@ msgid "poi_search_label_id"
 msgstr "Numer zgłoszenia"
 
 #. Default: "Version"
-#: ./browser/templates/poi_issue_search_form.pt:92
+#: ./browser/templates/poi_issue_search_form.pt:94
 msgid "poi_search_label_release"
 msgstr "Wersja"
 
 #. Default: "Severity"
-#: ./browser/templates/poi_issue_search_form.pt:181
+#: ./browser/templates/poi_issue_search_form.pt:183
 msgid "poi_search_label_severity"
 msgstr "Priorytet"
 
 #. Default: "State"
-#: ./browser/templates/poi_issue_search_form.pt:202
+#: ./browser/templates/poi_issue_search_form.pt:204
 msgid "poi_search_label_state"
 msgstr "Status"
 
 #. Default: "Tags"
-#: ./browser/templates/poi_issue_search_form.pt:246
+#: ./browser/templates/poi_issue_search_form.pt:248
 msgid "poi_search_label_tags"
 msgstr "Kategorie"
 
 #. Default: "Target release"
-#: ./browser/templates/poi_issue_search_form.pt:116
+#: ./browser/templates/poi_issue_search_form.pt:118
 msgid "poi_search_label_target_release"
 msgstr "Docelowe wydanie"
 
@@ -1262,12 +1069,12 @@ msgid "poi_search_label_text"
 msgstr "Treść zgłoszenia"
 
 #. Default: "Issue Types"
-#: ./browser/templates/poi_issue_search_form.pt:160
+#: ./browser/templates/poi_issue_search_form.pt:162
 msgid "poi_search_label_type"
 msgstr "Dostępne typy zgłoszeń"
 
 #. Default: "Title"
-#: ./content/tracker.py:189
+#: ./content/tracker.py:190
 msgid "title"
 msgstr ""
 
