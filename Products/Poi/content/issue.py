@@ -61,7 +61,7 @@ def checkEmpty(value):
 
 @provider(schema.interfaces.IContextAwareDefaultFactory)
 def getContactEmail(context):
-    return api.user.get_current().getProperty('email') or "test@test.test"
+    return api.user.get_current().getProperty('email') or ""
     
 
 class IIssue(model.Schema):
