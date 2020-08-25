@@ -44,48 +44,59 @@ class TestBase(unittest.TestCase):
         title=u"",
         description=u"",
         helpText=u"",
-        availableAreas=[
-            {
-                "short_name": u"ui",
-                "title": u"User interface",
-                "description": u"User interface issues",
-            },
-            {
-                "short_name": u"functionality",
-                "title": u"Functionality",
-                "description": u"Issues with the basic functionality",
-            },
-            {
-                "short_name": u"process",
-                "title": u"Process",
-                "description": u"Issues relating to the development process itself",
-            },
-        ],
-        availableIssueTypes=[
-            {
-                "short_name": u"bug",
-                "title": u"Bug",
-                "description": u"Functionality bugs in the software",
-            },
-            {
-                "short_name": u"feature",
-                "title": u"Feature",
-                "description": u"Suggested features",
-            },
-            {
-                "short_name": u"patch",
-                "title": u"Patch",
-                "description": u"Patches to the software",
-            },
-        ],
-        availableSeverities=[u"Critical", u"Important", u"Medium", u"Low"],
+        availableAreas=None,
+        availableIssueTypes=None,
+        availableSeverities=None,
         defaultSeverity=u"Medium",
-        availableReleases=[u"2.0", u"1.0"],
-        assignees=[],
+        availableReleases=None,
+        assignees=None,
         sendNotificationEmails=False,
         mailingList=u"list@example.com",
     ):
         """Create a new tracker in the given folder"""
+        if availableAreas is None:
+            availableAreas = [
+                {
+                    "short_name": u"ui",
+                    "title": u"User interface",
+                    "description": u"User interface issues",
+                },
+                {
+                    "short_name": u"functionality",
+                    "title": u"Functionality",
+                    "description": u"Issues with the basic functionality",
+                },
+                {
+                    "short_name": u"process",
+                    "title": u"Process",
+                    "description": u"Issues relating to the development process itself",
+                },
+            ]
+        if availableIssueTypes is None:
+            availableIssueTypes = [
+                {
+                    "short_name": u"bug",
+                    "title": u"Bug",
+                    "description": u"Functionality bugs in the software",
+                },
+                {
+                    "short_name": u"feature",
+                    "title": u"Feature",
+                    "description": u"Suggested features",
+                },
+                {
+                    "short_name": u"patch",
+                    "title": u"Patch",
+                    "description": u"Patches to the software",
+                },
+            ]
+        if availableSeverities is None:
+            availableSeverities = [u"Critical", u"Important", u"Medium", u"Low"]
+        if availableReleases is None:
+            availableReleases = [u"2.0", u"1.0"]
+        if assignees is None:
+            assignees = []
+
         folder.invokeFactory("Tracker", id)
         tracker = getattr(folder, id)
         tracker.title = title
@@ -117,13 +128,17 @@ class TestBase(unittest.TestCase):
         steps=u"",
         attachment=None,
         contactEmail="submitter@example.com",
-        watchers=[],
-        tags=[],
+        watchers=None,
+        tags=None,
         assignee=None,
     ):
         """Create an issue in the given tracker, and perform workflow and
         rename-after-creation initialisation"""
         issue_id = next_issue_id(tracker)
+        if watchers is None:
+            watchers = []
+        if tags is None:
+            tags = []
         return api.content.create(
             id=issue_id,
             container=tracker,
