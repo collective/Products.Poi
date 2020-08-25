@@ -165,11 +165,11 @@
     </div>
 
     <div class="return-to-search"
+         tal:condition="cameFromSearch"
          tal:define="backURL request/HTTP_REFERER | nothing;
                      cameFromSearch python:backURL and backURL.startswith(here.aq_inner.aq_parent.absolute_url() + '/poi_issue_search');">
       <a href=""
-         class="link-parent"
-         tal:condition="cameFromSearch"
+         class="link-parent"        
          tal:attributes="href backURL"
          i18n:translate="poi_return_to_search_results">
         Return to search results

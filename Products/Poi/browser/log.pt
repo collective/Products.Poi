@@ -16,78 +16,80 @@
     </p>
 
     <div id="content-core">
-      <dl tal:define="entries view/getLogEntries;
+      <ul id="poi-log" tal:define="entries view/getLogEntries;
                       Batch   python:modules['Products.CMFPlone'].Batch;
                       b_size  python:10;b_start python:0;b_start request/b_start | b_start;
                       batch   python:Batch(entries, b_size, int(b_start), orphan=1)">
         <tal:entries repeat="entry batch">
-          <dt tal:condition="python: entry['type'] == 'Issue'"
-              i18n:translate="poi_new_issue_added">
-            New issue
-            <a tal:attributes="href entry/url"
-               tal:content="structure string:&#0187;${entry/title}&#0171;"
-               i18n:name="name">
-              Issue name
-            </a>
-            added by <span tal:replace="entry/author"
-            i18n:name="author" />
-          </dt>
-          <dt tal:condition="python: entry['type'] == 'response'"
-              i18n:translate="poi_new_response_added">
-            <span tal:replace="entry/author" i18n:name="author"/>
-            added a new response to
-            <a tal:attributes="href entry/url"
-               tal:content="structure string:&#0187;${entry/issue}&#0171;"
-               i18n:name="name" />:
-          </dt>
-          <dd>
-            <tal:text condition="entry/text"
-                    on-error="structure entry/text">
-              <div tal:content="structure entry/text/output" />
-            </tal:text>
+          <li>
+            <div class="header" tal:condition="python: entry['type'] == 'Issue'"
+                i18n:translate="poi_new_issue_added">
+              New issue
+              <a tal:attributes="href entry/url"
+                tal:content="structure string:&#0187;${entry/title}&#0171;"
+                i18n:name="name">
+                Issue name
+              </a>
+              added by <span tal:replace="entry/author"
+              i18n:name="author" />
+            </div>
+            <div class="header" tal:condition="python: entry['type'] == 'response'"
+                i18n:translate="poi_new_response_added">
+              <span tal:replace="entry/author" i18n:name="author"/>
+              added a new response to
+              <a tal:attributes="href entry/url"
+                tal:content="structure string:&#0187;${entry/issue}&#0171;"
+                i18n:name="name" />:
+            </div>
+            <div class="description">
+              <tal:text condition="entry/text"
+                      on-error="structure entry/text">
+                <div tal:content="structure entry/text/output" />
+              </tal:text>
 
-            <p class="discreet">
+              <p class="discreet">
 
-              <tal:response condition="python: entry['type'] == 'response'"
-                            tal:repeat="delta entry/changes">
-                <span i18n:translate="" tal:content="string:${delta/name}" />:
-                <span class="issueChange"
-                      i18n:translate="" tal:content="delta/before" />
-                &#8594;
-                <span class="issueChange"
-                      i18n:translate=""
-                      tal:content="delta/after" />.
-                <br />
-              </tal:response>
+                <tal:response condition="python: entry['type'] == 'response'"
+                              tal:repeat="delta entry/changes">
+                  <span i18n:translate="" tal:content="string:${delta/name}" />:
+                  <span class="issueChange"
+                        i18n:translate="" tal:content="delta/before" />
+                  &#8594;
+                  <span class="issueChange"
+                        i18n:translate=""
+                        tal:content="delta/after" />.
+                  <br />
+                </tal:response>
 
-              <span tal:define="delta entry/timedelta">
+                <span tal:define="delta entry/timedelta">
 
-                <tal:less-than-an-hour
-                    condition="delta/minutes"
-                    i18n:translate="poi_added_minutes_ago">
-                  Added <tal:hours replace="delta/minutes" i18n:name="count" />
-                  minute(s) ago.
-                </tal:less-than-an-hour>
+                  <tal:less-than-an-hour
+                      condition="delta/minutes"
+                      i18n:translate="poi_added_minutes_ago">
+                    Added <tal:hours replace="delta/minutes" i18n:name="count" />
+                    minute(s) ago.
+                  </tal:less-than-an-hour>
 
-                <tal:less-than-a-day
-                    condition="delta/hours"
-                    i18n:translate="poi_added_hours_ago">
-                  Added <tal:hours replace="delta/hours" i18n:name="count" />
-                  hour(s) ago.
-                </tal:less-than-a-day>
+                  <tal:less-than-a-day
+                      condition="delta/hours"
+                      i18n:translate="poi_added_hours_ago">
+                    Added <tal:hours replace="delta/hours" i18n:name="count" />
+                    hour(s) ago.
+                  </tal:less-than-a-day>
 
-                <tal:more-than-a-day
-                    condition="delta/days"
-                    i18n:translate="poi_added_days_ago">
-                  Added <tal:hours replace="delta/days" i18n:name="count" />
-                  day(s) ago.
-                </tal:more-than-a-day>
-              </span>
-            </p>
-          </dd>
+                  <tal:more-than-a-day
+                      condition="delta/days"
+                      i18n:translate="poi_added_days_ago">
+                    Added <tal:hours replace="delta/days" i18n:name="count" />
+                    day(s) ago.
+                  </tal:more-than-a-day>
+                </span>
+              </p>
+            </div>
+          </li>
         </tal:entries>
         <div metal:use-macro="here/batch_macros/macros/navigation" />
-      </dl>
+      </ul>
     </div>
   </metal:body>
 </metal:main>

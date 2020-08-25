@@ -1,7 +1,7 @@
-<metal:block define-macro="issue-uploads">
+<metal:block define-macro="issue-uploads"  i18n:domain="Poi">
     <div class="issue-uploads" id="formfield-form-widgets-attachments"
-        tal:define="items context/getFolderContents">
-        <label for="fakeUploadFile" class="horizontal">Attachments</label>
+        tal:define="items context/getFolderContents">        
+         <label i18n:translate="" for="fakeUploadFile" class="horizontal">Attachments</label>
         <ol>
             <tal:cond condition="items">
                 <tal:repeat repeat="item items">
