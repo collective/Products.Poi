@@ -14,13 +14,9 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-issue:before {
 }
 
 #tracker-actions {
-  margin-bottom: 1em;
-
-  border-top: 1px solid #ccc;
+  margin: 3em 0 2em 0;
+  padding: 1.5em 0 1em 0;
   border-bottom: 1px solid #ccc;
-
-  padding-top: 1.5em;
-  padding-bottom: 1em;
 }
 
 .trackerAction {
@@ -58,6 +54,10 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-issue:before {
 
 .issue-tags {
   margin: 1em 0;
+}
+
+.documentFirstHeading.trackerSearchHeading {
+  border-bottom: none;
 }
 
 .trackerSearchHeading .discreet {
@@ -114,6 +114,15 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-issue:before {
   border: none;
   color: #ffffff;
 }
+.panel .issue-search-rss,
+.panel #export-btn {
+  margin-right: 15px;
+  margin-top: 1rem;
+}
+.panel .issue-search-rss {
+  margin-top: 1.7rem;
+}
+
 .icon-maildefaults::before {
   content: '\e837';
 }
@@ -158,16 +167,6 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-issue:before {
   right: 5px;
   bottom: 7px;
   opacity: 0.5;
-}
-
-.issue-quick-search-box {
-  float: left;
-  min-width: 250px;
-  padding-right: 20px;
-}
-.issue-quick-search-box ul {
-  padding-left: 0;
-  list-style-position: inside;
 }
 
 .serp-yes .sorton-id #id a:after,
@@ -288,4 +287,80 @@ ul#poi-log li .header {
 }
 ul#poi-log li .description {
   padding: 1em;
+}
+
+header.poi-header {
+  display: flex;
+  justify-content: space-between;
+}
+header.poi-header .documentFirstHeading {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.panel {
+  clear: both;
+  border: 1px solid #ddd;
+  margin-bottom: 3em;
+  background-color: #fff;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.panel .panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+}
+.panel .panel-body {
+  padding: 15px;
+}
+.panel table.listing {
+  margin-bottom: 0;
+  border: none;
+}
+.issue-quick-search-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.issue-quick-search-box {
+  min-width: 250px;
+  padding-right: 25px;
+}
+.issue-quick-search-box ul {
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+.link-parent.simple-link {
+  background: none;
+  border: none;
+  padding: 0;
+  border-bottom: 1px solid transparent;
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 1em;
+  color: #007bb1;
+  border-radius: 0;
+  text-shadow: none;
+}
+.link-parent.simple-link:hover,
+.link-parent.simple-link:active {
+  color: #007bb1;
+  background: none;
+  border-bottom: 1px solid #007bb1;
+  box-shadow: none;
+}
+
+.template-poi_issue_search_form .documentDescription {
+  margin-top: 1em;
+}
+
+.poi_issue_search_form {
+  margin-top: 2em;
 }

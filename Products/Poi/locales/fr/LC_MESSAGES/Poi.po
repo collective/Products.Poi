@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2020-08-25 10:14+0000\n"
+"POT-Creation-Date: 2020-08-25 12:48+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Kevin Deldycke <kevin@deldycke.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -140,7 +140,7 @@ msgstr "Aucune réponse n'est sélectionnée."
 msgid "No response text added and no issue changes made."
 msgstr "Aucun texte de réponse ajouté et aucune modification effectuée."
 
-#: ./browser/templates/poi_tracker_view.pt:146
+#: ./browser/templates/poi_tracker_view.pt:147
 msgid "Note"
 msgstr ""
 
@@ -153,7 +153,7 @@ msgstr ""
 msgid "Please visit the issue and either confirm that it has been satisfactorily resolved or re-open it."
 msgstr ""
 
-#: ./browser/templates/poi_tracker_view.pt:324
+#: ./browser/templates/poi_tracker_view.pt:325
 #: ./profiles.zcml:14
 msgid "Poi"
 msgstr ""
@@ -553,7 +553,7 @@ msgstr "L'identifiant « ${response_id} » de la réponse n'est pas un entier 
 msgid "Response id ${response_id} is no integer."
 msgstr "L'identifiant « ${response_id} » de la réponse n'est pas un entier."
 
-#: ./browser/templates/poi_tracker_view.pt:130
+#: ./browser/templates/poi_tracker_view.pt:131
 msgid "Search"
 msgstr "Rechercher"
 
@@ -565,7 +565,7 @@ msgstr "Sévérité"
 msgid "Short Name"
 msgstr ""
 
-#: ./browser/templates/poi_tracker_view.pt:72
+#: ./browser/templates/poi_tracker_view.pt:117
 msgid "Submit new issue"
 msgstr "Soumettre un nouveau ticket"
 
@@ -607,7 +607,7 @@ msgid "description"
 msgstr ""
 
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ./browser/templates/poi_tracker_view.pt:147
+#: ./browser/templates/poi_tracker_view.pt:148
 msgid "description_cannot_add_issues_before_opened"
 msgstr "Les utilisateurs ne peuvent pas enregistrer d'informations dans ce gestionnaire de tickets tant que vous ne l'avez pas activé en utilisant le menu de 'état' dans la barre verte ci-dessus."
 
@@ -627,7 +627,7 @@ msgid "label_edit_response_not_allowed"
 msgstr "Vous n'êtes pas autorisé à modifier cette réponse."
 
 #. Default: "Powered by"
-#: ./browser/templates/poi_tracker_view.pt:321
+#: ./browser/templates/poi_tracker_view.pt:322
 msgid "label_powered_by"
 msgstr "Propulsé par"
 
@@ -692,7 +692,7 @@ msgid "listingheader_type"
 msgstr "Type"
 
 #. Default: "If you can, please log in before submitting your issue."
-#: ./browser/templates/poi_tracker_view.pt:50
+#: ./browser/templates/poi_tracker_view.pt:96
 msgid "login_suggestion"
 msgstr "Si vous le pouvez, vous devriez <a href=\"${DYNAMIC_CONTENT}\">identifiant</a> avant d'intervenir dans ce tracker."
 
@@ -737,7 +737,7 @@ msgid "poi_added_on"
 msgstr "le"
 
 #. Default: "All pending issues"
-#: ./browser/templates/poi_tracker_view.pt:197
+#: ./browser/templates/poi_tracker_view.pt:198
 msgid "poi_all_pending_issues"
 msgstr "Tous les tickets en attente"
 
@@ -762,22 +762,22 @@ msgid "poi_email_new_response_subject_template"
 msgstr "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
 
 #. Default: "By area"
-#: ./browser/templates/poi_tracker_view.pt:164
+#: ./browser/templates/poi_tracker_view.pt:165
 msgid "poi_heading_by_area"
 msgstr "Par domaine"
 
 #. Default: "By target release"
-#: ./browser/templates/poi_tracker_view.pt:181
+#: ./browser/templates/poi_tracker_view.pt:182
 msgid "poi_heading_by_release"
 msgstr "Par distribution"
 
 #. Default: "By state"
-#: ./browser/templates/poi_tracker_view.pt:194
+#: ./browser/templates/poi_tracker_view.pt:195
 msgid "poi_heading_by_state"
 msgstr "Par état"
 
 #. Default: "By top tags"
-#: ./browser/templates/poi_tracker_view.pt:222
+#: ./browser/templates/poi_tracker_view.pt:223
 msgid "poi_heading_by_tag"
 msgstr "Par étiquette"
 
@@ -792,23 +792,23 @@ msgid "poi_heading_log"
 msgstr "Le journal du gestionnaire de tickets"
 
 #. Default: "Issues assigned to me"
-#: ./browser/templates/poi_tracker_view.pt:243
+#: ./browser/templates/poi_tracker_view.pt:244
 #, fuzzy
 msgid "poi_heading_my_issues"
 msgstr "Mes tickets"
 
 #. Default: "My submitted issues"
-#: ./browser/templates/poi_tracker_view.pt:272
+#: ./browser/templates/poi_tracker_view.pt:273
 msgid "poi_heading_my_submitted_issues"
 msgstr ""
 
 #. Default: "Open issues"
-#: ./browser/templates/poi_tracker_view.pt:153
+#: ./browser/templates/poi_tracker_view.pt:154
 msgid "poi_heading_open_issues"
 msgstr "Tickets ouverts"
 
 #. Default: "Orphaned issues"
-#: ./browser/templates/poi_tracker_view.pt:303
+#: ./browser/templates/poi_tracker_view.pt:304
 msgid "poi_heading_orphaned_issues"
 msgstr "Tickets orphelins"
 
@@ -823,37 +823,37 @@ msgid "poi_help_log"
 msgstr "Un aperçu de la récente activité du gestionnaire de tickets"
 
 #. Default: "The following open issues have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ./browser/templates/poi_tracker_view.pt:244
+#: ./browser/templates/poi_tracker_view.pt:245
 msgid "poi_help_my_issues_manager"
 msgstr "Les tickets ouverts suivants sont soumis par vous, ou vous sont assignés. Notez que le flux RSS de cette liste inclus aussi les tickets non confirmés et orphelins pour qu'il vous soit possible de vous abonner à un flux unique qui contient tous les tickets qui vous intéresse potentiellement."
 
 #. Default: "The following open issues are assigned you."
-#: ./browser/templates/poi_tracker_view.pt:251
+#: ./browser/templates/poi_tracker_view.pt:252
 msgid "poi_help_my_issues_not_manager"
 msgstr "Les tickets suivants sont les tickets ouverts que vous avez soumis."
 
 #. Default: "The following open issues were submitted by you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ./browser/templates/poi_tracker_view.pt:273
+#: ./browser/templates/poi_tracker_view.pt:274
 msgid "poi_help_my_submitted_issues_manager"
 msgstr ""
 
 #. Default: "The following issues were submitted by you."
-#: ./browser/templates/poi_tracker_view.pt:280
+#: ./browser/templates/poi_tracker_view.pt:281
 msgid "poi_help_my_submitted_issues_not_manager"
 msgstr ""
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
-#: ./browser/templates/poi_tracker_view.pt:157
+#: ./browser/templates/poi_tracker_view.pt:158
 msgid "poi_help_open_issues"
 msgstr "Cliquez sur un domaine, une version ou un état de ticket pour voir tous les tickets ouverts dans cette catégorie. Pour avoir plus d'options de recherche, cliquez sur « Recherche avancée de tickets »."
 
 #. Default: "The following issues are not assigned to anyone."
-#: ./browser/templates/poi_tracker_view.pt:304
+#: ./browser/templates/poi_tracker_view.pt:305
 msgid "poi_help_orphaned_issues_"
 msgstr "Les tickets ouverts suivants sont orphelins (assignés à aucun gestionnaire)."
 
 #. Default: "Advanced issue search"
-#: ./browser/templates/poi_tracker_view.pt:133
+#: ./browser/templates/poi_tracker_view.pt:134
 msgid "poi_issue_search"
 msgstr "Recherche avancée de tickets"
 
@@ -1073,6 +1073,11 @@ msgstr "Texte du ticket"
 msgid "poi_search_label_type"
 msgstr "Types de ticket"
 
+#. Default: "Stop watching this"
+#: ./browser/templates/poi_tracker_view.pt:66
+msgid "stop_watching_this"
+msgstr ""
+
 #. Default: "Title"
 #: ./content/tracker.py:190
 msgid "title"
@@ -1104,6 +1109,11 @@ msgid "title_error_no_response"
 msgstr "Erreur: aucune réponse trouvée pour modification"
 
 #. Default: "View activity feed"
-#: ./browser/templates/poi_tracker_view.pt:81
+#: ./browser/templates/poi_tracker_view.pt:37
 msgid "view_issue_logs"
+msgstr ""
+
+#. Default: "Watch this"
+#: ./browser/templates/poi_tracker_view.pt:71
+msgid "watch_this"
 msgstr ""
