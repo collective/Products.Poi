@@ -1,4 +1,3 @@
-import reStructuredText as rst
 import textwrap
 
 from Acquisition import aq_inner
@@ -23,24 +22,8 @@ wrapper = textwrap.TextWrapper(initial_indent='    ', subsequent_indent='    ')
 
 class BasePoiMail(BaseMail):
 
-    index = ViewPageTemplateFile('templates/poi_mail.pt')
     plain_index = ''
     css_file_name = '++resource++poi/poi-email.css'
-
-    def plain2rst(self):
-        """Try to interpret the plain text as reStructuredText.
-        """
-        charset = get_charset()
-        rstText = self.plain
-        ignored, warnings = rst.render(
-            rstText, input_encoding=charset, output_encoding=charset)
-        if len(warnings.messages) == 0:
-            body = rst.HTML(
-                rstText, input_encoding=charset, output_encoding=charset)
-        else:
-            # There are warnings, so we keep it simple.
-            body = '<pre>%s</pre>' % rstText
-        return body
 
     @property
     def css(self):

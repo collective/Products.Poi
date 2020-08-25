@@ -10,8 +10,11 @@ from plone.app.textfield import RichText
 from plone.app.vocabularies.catalog import CatalogSource
 from plone.app.z3cform.widget import AjaxSelectFieldWidget
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
-from plone.autoform.directives import write_permission, read_permission
-from plone.autoform.directives import widget
+from plone.autoform.directives import \
+    omitted, \
+    read_permission, \
+    widget, \
+    write_permission
 from plone.dexterity.content import Container
 from plone.schema import email
 
@@ -45,7 +48,7 @@ def tracker_issues(context):
 @provider(schema.interfaces.IContextAwareDefaultFactory)
 def default_watchers(context):
     creator = api.user.get_current()
-    username = unicode(creator.getUserName())
+    username = creator.getUserName()
     return [username]
 
 
@@ -219,6 +222,15 @@ class IIssue(model.Schema):
         constraint=checkEmpty
     )
 
+    last_actor = schema.TextLine(
+        title=_(u'Poi_label_issue_last_actor', default=u"Last Actor"),
+        required=False,
+        description=_(u'Poi_help_issue_last_actor',
+                      default=u"Last person to edit or add a Response")
+    )
+
+    omitted('last_actor')
+
 
 @implementer(IIssue)
 class Issue(Container):
@@ -238,7 +250,12 @@ class Issue(Container):
                 return parent
 
     def getContactEmail(self):
-        return api.user.get(self.Creator()).getProperty('email')
+        if hasattr(self, 'contact_email'):
+            return self.contact_email
+        try:
+            return api.user.get(self.Creator()).getProperty('email')
+        except AttributeError:
+            return None
 
     def getReviewState(self):
         """get the current workflow state of the issue"""

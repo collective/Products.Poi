@@ -3,7 +3,7 @@ import logging
 from collective.watcherlist.interfaces import IWatcherList
 from plone import api
 
-from Products.Archetypes.atapi import DisplayList
+#from Products.Archetypes.atapi import DisplayList
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.WorkflowCore import WorkflowException
 
@@ -32,7 +32,7 @@ def add_contact_to_issue_watchers(object, event=None):
     """
     if not object.contact_email:
         return
-    value = unicode(object.contact_email)
+    value = object.contact_email
     watchers = object.watchers or []
     if value in watchers:
         return
@@ -142,8 +142,6 @@ def mail_issue_change(object, event):
 def mail_issue_add(object, event):
     """Send an email when a new issue is created
     """
-    if object.modified() != object.created():
-        return
     if object.getReviewState()['state'] == 'unconfirmed':
         watchers = IWatcherList(object)
         watchers.send('new-issue-mail')
@@ -171,6 +169,7 @@ def addedNewStyleResponse(object, event):
     if IIssue.providedBy(issue):
         merge_response_changes_to_issue(issue)
         sendResponseNotificationMail(issue)
+    update_last_actor(issue, event)
 
 
 def sendResponseNotificationMail(issue):
@@ -240,7 +239,7 @@ def available_assignees(issue):
 
     if not memship.checkPermission(
             permissions.ModifyIssueAssignment, tracker):
-        return DisplayList()
+        return ()
     return possibleAssignees(tracker)
 
 
@@ -277,3 +276,12 @@ def add_response_for_files(object, event):
         new_response.type = "file"
         folder = IResponseContainer(issue)
         folder.add(new_response)
+
+
+def update_last_actor(object, event):
+    """ keep last actor updated for csv export """
+    if api.user.is_anonymous():
+        object.last_actor = '(anonymous)'
+    else:
+        user = api.user.get_current()
+        object.last_actor = user.id

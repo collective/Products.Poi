@@ -10,12 +10,6 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-tracker:before 
 body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-issue:before {
     content: '\e80e';
 }
-body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-tracker:after {
-    content: '\e801';
-}
-body#visual-portal-wrapper.pat-plone #edit-zone .contenttype-issue:after {
-    content: '\e80e';
-}
 
 #tracker-actions {
     margin-bottom: 1em;

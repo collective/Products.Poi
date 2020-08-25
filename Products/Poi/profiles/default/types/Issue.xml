@@ -22,7 +22,6 @@
   <property name="klass">Products.Poi.content.issue.Issue</property>
 
   <property name="behaviors">
-    <element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />
     <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer" />
    </property>
 

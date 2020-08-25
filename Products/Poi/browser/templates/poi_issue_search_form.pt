@@ -206,10 +206,10 @@
             </div>
 
             <select id="state"
-                    size="5"
                     multiple="multiple"
                     name="state:list"
-                    tal:define="states context/getIssueWorkflowStates">
+                    tal:define="states context/getIssueWorkflowStates"
+                    tal:attributes="size python:len(states)">
               <option tal:repeat="item states"
                       tal:attributes="value python:item[0];
                                       selected python:item[0] in request.get('state', []) and 'selected' or None"

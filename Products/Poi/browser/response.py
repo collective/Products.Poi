@@ -3,8 +3,8 @@ import logging
 from AccessControl import Unauthorized
 from Acquisition import aq_inner
 from mimetypes import guess_type
-from Products.Archetypes.atapi import DisplayList
-from Products.Archetypes.utils import contentDispositionHeader
+#from Products.Archetypes.atapi import DisplayList
+#from Products.Archetypes.utils import contentDispositionHeader
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as PMF
 from Products.Five.browser import BrowserView
@@ -15,7 +15,7 @@ from plone.protect.interfaces import IDisableCSRFProtection
 from zope.cachedescriptors.property import Lazy
 from zope.component import getMultiAdapter
 from zope.i18n import translate
-from zope.interface import implements
+from zope.interface import implementer
 from zope.lifecycleevent import modified
 
 from Products.Poi import PoiMessageFactory as _
@@ -299,7 +299,7 @@ class Base(BrowserView):
         context = aq_inner(self.context)
         if not self.memship.checkPermission(
                 permissions.ModifyIssueTargetRelease, context):
-            return DisplayList()
+            return ()
         return possibleTargetReleases(context)
 
     @property
@@ -327,7 +327,7 @@ class Base(BrowserView):
         context = aq_inner(self.context)
         if not self.memship.checkPermission(
                 permissions.ModifyIssueAssignment, context):
-            return DisplayList()
+            return ()
         return possibleAssignees(context)
 
     @property
@@ -340,8 +340,8 @@ class Base(BrowserView):
             permissions.UploadAttachment, context)
 
 
+@implementer(IResponseAdder)
 class AddForm(Base):
-    implements(IResponseAdder)
 
     def __init__(self, context, request, view):
         super(AddForm, self).__init__(context, request)

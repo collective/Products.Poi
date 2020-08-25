@@ -29,7 +29,6 @@ from zope.component import adapts
 from zope.component import provideAdapter
 from zope.interface import implementer
 from zope import schema
-from zope.interface import implements
 from zope.interface import Interface
 from zope.interface import Invalid
 from zope.interface import directlyProvides
@@ -449,10 +448,10 @@ class Tracker(Container):
         return text
 
 
+@implementer(ILocalRoleProvider)
 class TrackerRoleProvider(object):
     """ role provider to give all Assignees the Technician role
     """
-    implements(ILocalRoleProvider)
     adapts(ITracker)
 
     def __init__(self, context):

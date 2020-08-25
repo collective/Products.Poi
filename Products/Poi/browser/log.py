@@ -1,4 +1,5 @@
 from datetime import datetime
+from math import floor
 
 from Acquisition import aq_inner
 from DateTime import DateTime
@@ -9,7 +10,7 @@ from Products.Poi.adapters import IResponseContainer
 
 
 def fixDate(date):
-    if isinstance(date, basestring):
+    if isinstance(date, str):
         # Should not happen, but I have seen it locally, and I am
         # not sure if that was just the result of temporarily
         # wrong code or something more important.
@@ -54,9 +55,9 @@ class LogView(BrowserView):
         days = delta.days
 
         if not days:
-            hours = delta.seconds / 3600
+            hours = floor(delta.seconds / 3600)
         if not hours and not days:
-            minutes = delta.seconds / 60
+            minutes = floor(delta.seconds / 60)
 
         return {'minutes': minutes,
                 'hours': hours,

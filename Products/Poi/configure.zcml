@@ -84,6 +84,18 @@
   <subscriber
       for="Products.Poi.interfaces.IIssue
            zope.lifecycleevent.interfaces.IObjectAddedEvent"
+        handler=".events.update_last_actor"
+        />
+
+  <subscriber
+      for="Products.Poi.interfaces.IIssue
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+        handler=".events.update_last_actor"
+        />
+
+  <subscriber
+      for="Products.Poi.interfaces.IIssue
+           zope.lifecycleevent.interfaces.IObjectAddedEvent"
         handler=".events.add_contact_to_issue_watchers"
         />
 
