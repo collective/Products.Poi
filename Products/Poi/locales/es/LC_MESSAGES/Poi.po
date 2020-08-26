@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-es\n"
-"POT-Creation-Date: 2020-08-25 12:48+0000\n"
+"POT-Creation-Date: 2020-08-26 07:47+0000\n"
 "PO-Revision-Date: 2009-08-11 13:53-0400\n"
 "Last-Translator: Leonardo Caballero <leonardocaballero@gmail.com>\n"
 "Language-Team: Plone Cono Sur <plone-conosur@lists.plone.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Assignee"
 msgstr ""
 
-#: ./browser/issue_uploads.pt:4
+#: ./browser/issue_uploads.pt:6
 msgid "Attachments"
 msgstr ""
 
@@ -62,7 +62,7 @@ msgstr "Se han guardado los cambios a la respuesta id ${response_id}."
 msgid "Critical"
 msgstr ""
 
-#: ./browser/response.pt:36
+#: ./browser/response.pt:37
 msgid "Delete"
 msgstr "Borrar"
 
@@ -70,11 +70,11 @@ msgstr "Borrar"
 msgid "Description"
 msgstr ""
 
-#: ./browser/response.pt:26
+#: ./browser/response.pt:27
 msgid "Edit"
 msgstr "Editar"
 
-#: ./browser/templates/poi_issue_view.pt:54
+#: ./browser/templates/poi_issue_view.pt:72
 msgid "Edit issue"
 msgstr "Editar incidencia"
 
@@ -140,7 +140,7 @@ msgstr "No hay respuesta seleccionadas."
 msgid "No response text added and no issue changes made."
 msgstr "No hay respuesta en el texto añadido y no hay incidencia de cambios realizados."
 
-#: ./browser/templates/poi_tracker_view.pt:147
+#: ./browser/templates/poi_tracker_view.pt:149
 msgid "Note"
 msgstr ""
 
@@ -153,7 +153,7 @@ msgstr ""
 msgid "Please visit the issue and either confirm that it has been satisfactorily resolved or re-open it."
 msgstr ""
 
-#: ./browser/templates/poi_tracker_view.pt:325
+#: ./browser/templates/poi_tracker_view.pt:341
 #: ./profiles.zcml:14
 msgid "Poi"
 msgstr ""
@@ -203,7 +203,7 @@ msgstr "Introduzca cualquier texto de ayuda introductoria que desea mostrar en l
 
 # ./content/PoiIssue.py
 #. Default: "Set a new state, if applicable"
-#: ./browser/response.pt:185
+#: ./browser/response.pt:183
 msgid "Poi_help_issueTransition"
 msgstr "Selecciones el cambio de estado de la incidencia al que se refiere esta respuesta, si procede."
 
@@ -218,7 +218,7 @@ msgid "Poi_help_issue_assignee"
 msgstr ""
 
 #. Default: "You may optionally upload file attachments. Please do not upload unnecessarily large files."
-#: ./browser/issue_uploads.pt:18
+#: ./browser/issue_uploads.pt:23
 msgid "Poi_help_issue_attachment"
 msgstr ""
 
@@ -292,25 +292,25 @@ msgstr "Si se indica, y se selecciona \"Enviar notificaciones\", se enviará un 
 
 # ./content/PoiResponse.py
 #. Default: "Select the assignee for this issue"
-#: ./browser/response.pt:258
+#: ./browser/response.pt:253
 msgid "Poi_help_newResponsibleManager"
 msgstr "Seleccione el administrador responsable de esta incidencia"
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ./browser/response.pt:207
+#: ./browser/response.pt:205
 msgid "Poi_help_newSeverity"
 msgstr "Seleccione la severidad para esta incidencia"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ./browser/response.pt:234
+#: ./browser/response.pt:231
 msgid "Poi_help_newTargetRelease"
 msgstr "Establecer el destino de la publicación para la incidencia"
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below."
-#: ./browser/response.pt:135
+#: ./browser/response.pt:141
 msgid "Poi_help_response"
 msgstr "Escriba su respuesta a continuación"
 
@@ -381,7 +381,7 @@ msgstr "Importancia por defecto"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
-#: ./browser/response.pt:181
+#: ./browser/response.pt:179
 msgid "Poi_label_issueTransition"
 msgstr "Cambiar el estado de la incidencia"
 
@@ -467,34 +467,23 @@ msgstr ""
 msgid "Poi_label_mailingList"
 msgstr "Lista de correo"
 
-#. Default: "Modify Issue"
-#: ./browser/response.pt:170
-msgid "Poi_label_modify"
-msgstr ""
-
 # ./content/PoiResponse.py
 #. Default: "Change assignee"
-#: ./browser/response.pt:253
+#: ./browser/response.pt:248
 msgid "Poi_label_newResponsibleManager"
 msgstr "Cambiar al administrador responsable"
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ./browser/response.pt:203
+#: ./browser/response.pt:201
 msgid "Poi_label_newSeverity"
 msgstr "Cambiar nivel de severidad"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ./browser/response.pt:229
+#: ./browser/response.pt:226
 msgid "Poi_label_newTargetRelease"
 msgstr "Cambiar destino de publicación"
-
-# ./content/PoiIssue.py
-#. Default: "Response"
-#: ./browser/response.pt:133
-msgid "Poi_label_response"
-msgstr "Respuesta"
 
 # ./content/PoiTracker.py
 #. Default: "Send notification emails"
@@ -554,7 +543,7 @@ msgstr "Respuesta del ID ${response_id} no es entero por lo que no se puede quit
 msgid "Response id ${response_id} is no integer."
 msgstr "Respuesta del ID ${response_id} no es entero."
 
-#: ./browser/templates/poi_tracker_view.pt:131
+#: ./browser/templates/poi_tracker_view.pt:133
 msgid "Search"
 msgstr "Búsqueda"
 
@@ -566,7 +555,11 @@ msgstr "Severidad"
 msgid "Short Name"
 msgstr ""
 
-#: ./browser/templates/poi_tracker_view.pt:117
+#: ./browser/response.pt:277
+msgid "Submit"
+msgstr ""
+
+#: ./browser/templates/poi_tracker_view.pt:122
 msgid "Submit new issue"
 msgstr "Notificar nueva incidencia"
 
@@ -608,7 +601,7 @@ msgid "description"
 msgstr ""
 
 #. Default: "Others cannot submit issues to your tracker until you open it for submissions using the 'state' drop down in the green bar above."
-#: ./browser/templates/poi_tracker_view.pt:148
+#: ./browser/templates/poi_tracker_view.pt:150
 msgid "description_cannot_add_issues_before_opened"
 msgstr "Otros no pueden suministrar incidencias en su gestor hasta que usted abra este para suministrar incidente usando el 'estado' menú desplegable en la barra verde arriba."
 
@@ -628,7 +621,7 @@ msgid "label_edit_response_not_allowed"
 msgstr "No está permitido editar esta respuesta."
 
 #. Default: "Powered by"
-#: ./browser/templates/poi_tracker_view.pt:322
+#: ./browser/templates/poi_tracker_view.pt:338
 msgid "label_powered_by"
 msgstr "Basado en"
 
@@ -638,7 +631,7 @@ msgid "label_return_to_issue"
 msgstr "Volver a incidencia."
 
 #. Default: "Search"
-#: ./browser/templates/poi_issue_search_form.pt:282
+#: ./browser/templates/poi_issue_search_form.pt:272
 msgid "label_search"
 msgstr "Buscar"
 
@@ -693,7 +686,7 @@ msgid "listingheader_type"
 msgstr "Tipo"
 
 #. Default: "If you can, please log in before submitting your issue."
-#: ./browser/templates/poi_tracker_view.pt:96
+#: ./browser/templates/poi_tracker_view.pt:99
 msgid "login_suggestion"
 msgstr "Si usted puede, por favor entrar antes de suministrar su incidencia."
 
@@ -708,12 +701,12 @@ msgid "msg_no_responses_can_be_added"
 msgstr "Las respuestas no se pueden agregar."
 
 #. Default: "(Not assigned)"
-#: ./browser/templates/poi_issue_search_form.pt:104
+#: ./browser/templates/poi_issue_search_form.pt:170
 msgid "not_assigned"
 msgstr "(No asignado)"
 
 #. Default: "Added by"
-#: ./browser/response.pt:45
+#: ./browser/response.pt:46
 msgid "poi_added_by"
 msgstr "Agregado por"
 
@@ -733,17 +726,17 @@ msgid "poi_added_minutes_ago"
 msgstr "Agregado hace ${count} minuto(s)."
 
 #. Default: "on"
-#: ./browser/response.pt:50
+#: ./browser/response.pt:51
 msgid "poi_added_on"
 msgstr "en"
 
 #. Default: "All pending issues"
-#: ./browser/templates/poi_tracker_view.pt:198
+#: ./browser/templates/poi_tracker_view.pt:201
 msgid "poi_all_pending_issues"
 msgstr "Todas las incidencias pendientes"
 
 #. Default: "Include Related Issues"
-#: ./browser/templates/poi_issue_search_form.pt:277
+#: ./browser/templates/poi_issue_search_form.pt:262
 msgid "poi_display_related"
 msgstr ""
 
@@ -763,27 +756,27 @@ msgid "poi_email_new_response_subject_template"
 msgstr ""
 
 #. Default: "By area"
-#: ./browser/templates/poi_tracker_view.pt:165
+#: ./browser/templates/poi_tracker_view.pt:168
 msgid "poi_heading_by_area"
 msgstr "Por área"
 
 #. Default: "By target release"
-#: ./browser/templates/poi_tracker_view.pt:182
+#: ./browser/templates/poi_tracker_view.pt:185
 msgid "poi_heading_by_release"
 msgstr "Por versión"
 
 #. Default: "By state"
-#: ./browser/templates/poi_tracker_view.pt:195
+#: ./browser/templates/poi_tracker_view.pt:198
 msgid "poi_heading_by_state"
 msgstr "Por estado"
 
 #. Default: "By top tags"
-#: ./browser/templates/poi_tracker_view.pt:223
+#: ./browser/templates/poi_tracker_view.pt:226
 msgid "poi_heading_by_tag"
 msgstr "Por etiqueta"
 
 #. Default: "Issue search"
-#: ./browser/templates/poi_issue_search_form.pt:15
+#: ./browser/templates/poi_issue_search_form.pt:16
 msgid "poi_heading_issue_search"
 msgstr "Buscar incidencias"
 
@@ -793,28 +786,28 @@ msgid "poi_heading_log"
 msgstr "Registro del gestor"
 
 #. Default: "Issues assigned to me"
-#: ./browser/templates/poi_tracker_view.pt:244
+#: ./browser/templates/poi_tracker_view.pt:252
 #, fuzzy
 msgid "poi_heading_my_issues"
 msgstr "Mis incidencias"
 
 #. Default: "My submitted issues"
-#: ./browser/templates/poi_tracker_view.pt:273
+#: ./browser/templates/poi_tracker_view.pt:284
 msgid "poi_heading_my_submitted_issues"
 msgstr ""
 
 #. Default: "Open issues"
-#: ./browser/templates/poi_tracker_view.pt:154
+#: ./browser/templates/poi_tracker_view.pt:159
 msgid "poi_heading_open_issues"
 msgstr "Incidencias abiertas"
 
 #. Default: "Orphaned issues"
-#: ./browser/templates/poi_tracker_view.pt:304
+#: ./browser/templates/poi_tracker_view.pt:318
 msgid "poi_heading_orphaned_issues"
 msgstr "Incidencias quedado huérfanas"
 
 #. Default: "Issue search results"
-#: ./browser/templates/poi_issue_search.pt:34
+#: ./browser/templates/poi_issue_search.pt:35
 msgid "poi_heading_search_results"
 msgstr ""
 
@@ -824,124 +817,115 @@ msgid "poi_help_log"
 msgstr "Una visión general de la actividad reciente en el gestor."
 
 #. Default: "The following open issues have been assigned to you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ./browser/templates/poi_tracker_view.pt:245
+#: ./browser/templates/poi_tracker_view.pt:253
 msgid "poi_help_my_issues_manager"
 msgstr "Las siguientes incidencias fueron enviadas por usted, o le han sido asignadas."
 
 #. Default: "The following open issues are assigned you."
-#: ./browser/templates/poi_tracker_view.pt:252
+#: ./browser/templates/poi_tracker_view.pt:260
 msgid "poi_help_my_issues_not_manager"
 msgstr "Las siguientes incidencias fueron enviadas por usted."
 
 #. Default: "The following open issues were submitted by you. Note that the RSS feed for this list will include unconfirmed and orphaned issues as well, to make it possible to subscribe to a single feed with all the issues you may be interested in."
-#: ./browser/templates/poi_tracker_view.pt:274
+#: ./browser/templates/poi_tracker_view.pt:285
 msgid "poi_help_my_submitted_issues_manager"
 msgstr ""
 
 #. Default: "The following issues were submitted by you."
-#: ./browser/templates/poi_tracker_view.pt:281
+#: ./browser/templates/poi_tracker_view.pt:292
 msgid "poi_help_my_submitted_issues_not_manager"
 msgstr ""
 
 #. Default: "Click an area, release or issue state to see all open issues in that category. For more advanced search options, click \"Advanced issue search\"."
-#: ./browser/templates/poi_tracker_view.pt:158
+#: ./browser/templates/poi_tracker_view.pt:160
 msgid "poi_help_open_issues"
 msgstr "Haga click en un área, una versión o un estado para ver todas las incidencias abiertas de esa categoría. Para realizar una búsqueda avanzada, haga click en \"Buscar incidencias\"."
 
 #. Default: "The following issues are not assigned to anyone."
-#: ./browser/templates/poi_tracker_view.pt:305
+#: ./browser/templates/poi_tracker_view.pt:319
 msgid "poi_help_orphaned_issues_"
 msgstr "Las siguientes incidencias con estado abierto no han sido asignadas a nadie."
 
 #. Default: "Advanced issue search"
-#: ./browser/templates/poi_tracker_view.pt:134
+#: ./browser/templates/poi_tracker_view.pt:136
 msgid "poi_issue_search"
 msgstr "Búsqueda avanzada de incidencias"
 
 #. Default: "This form allows you to search for issue according to a variety of criteria. Please make your selection below and click Search."
-#: ./browser/templates/poi_issue_search_form.pt:23
+#: ./browser/templates/poi_issue_search_form.pt:27
 msgid "poi_issue_search_description"
 msgstr "Este formulario le permite buscar incidencias según varios criterios. Por favor, marque las opciones que desee y haga clic en Buscar."
 
 #. Default: "Area"
-#: ./browser/templates/poi_issue_view.pt:92
+#: ./browser/templates/poi_issue_view.pt:110
 msgid "poi_label_area"
 msgstr "Área"
 
 #. Default: "Ticket Owner"
-#: ./browser/templates/poi_issue_view.pt:141
+#: ./browser/templates/poi_issue_view.pt:154
 msgid "poi_label_assignee"
 msgstr "Responsable"
 
 #. Default: "Attached:"
-#: ./browser/response.pt:73
+#: ./browser/response.pt:74
 msgid "poi_label_attachment"
 msgstr "Adjunto:"
 
 #. Default: "Contact Email"
-#: ./browser/templates/poi_issue_view.pt:123
+#: ./browser/templates/poi_issue_view.pt:136
 msgid "poi_label_issue_contact_email"
 msgstr ""
 
 #. Default: "Related issue(s):"
-#: ./browser/templates/poi_issue_view.pt:194
+#: ./browser/templates/poi_issue_view.pt:198
 msgid "poi_label_related"
 msgstr ""
 
 #. Default: "Severity"
-#: ./browser/templates/poi_issue_view.pt:110
+#: ./browser/templates/poi_issue_view.pt:128
 msgid "poi_label_severity"
 msgstr "Importancia"
 
 #. Default: "State"
-#: ./browser/templates/poi_issue_view.pt:72
+#: ./browser/templates/poi_issue_view.pt:90
 msgid "poi_label_state"
 msgstr "Estado"
 
 #. Default: "Steps to reproduce:"
-#: ./browser/templates/poi_issue_view.pt:184
+#: ./browser/templates/poi_issue_view.pt:188
 msgid "poi_label_steps"
 msgstr "Pasos para reproducir"
 
 #. Default: "Submitted by"
-#: ./browser/templates/poi_issue_view.pt:130
+#: ./browser/templates/poi_issue_view.pt:143
 msgid "poi_label_submitted_by"
 msgstr "Enviado por"
 
 #. Default: "Submitted on"
-#: ./browser/templates/poi_issue_view.pt:137
+#: ./browser/templates/poi_issue_view.pt:150
 msgid "poi_label_submitted_on"
 msgstr "Enviado el"
 
-#. Default: "Tags:"
-#: ./browser/templates/poi_issue_view.pt:60
+#. Default: "Tags"
+#: ./browser/templates/poi_issue_view.pt:79
+#, fuzzy
 msgid "poi_label_tags"
 msgstr "Etiquetas"
 
 #. Default: "Target release:"
-#: ./browser/templates/poi_issue_view.pt:152
+#: ./browser/templates/poi_issue_view.pt:165
 msgid "poi_label_target_release"
 msgstr "Destino de publicación"
 
 #. Default: "Issue type"
-#: ./browser/templates/poi_issue_view.pt:101
+#: ./browser/templates/poi_issue_view.pt:119
 msgid "poi_label_type"
 msgstr "Tipo de incidencia"
 
 #. Default: "Version:"
-#: ./browser/templates/poi_issue_view.pt:81
+#: ./browser/templates/poi_issue_view.pt:99
 msgid "poi_label_version"
 msgstr "Versión:"
-
-#. Default: "Search Terms"
-#: ./browser/templates/poi_issue_search_form.pt:35
-msgid "poi_legend_search_terms"
-msgstr "Términos de búsqueda"
-
-#. Default: "Match all tags"
-#: ./browser/templates/poi_issue_search_form.pt:270
-msgid "poi_match_all_tags"
-msgstr "Coincidir todas las etiquetas"
 
 #. Default: "New issue ${name} added by ${author}"
 #: ./browser/log.pt:33
@@ -954,128 +938,128 @@ msgid "poi_new_response_added"
 msgstr ""
 
 #. Default: "Return to search results"
-#: ./browser/templates/poi_issue_view.pt:171
+#: ./browser/templates/poi_issue_view.pt:28
 msgid "poi_return_to_search_results"
 msgstr ""
 
 #. Default: "Return to tracker"
-#: ./browser/templates/poi_issue_search.pt:38
-#: ./browser/templates/poi_issue_search_form.pt:20
+#: ./browser/templates/poi_issue_search.pt:40
+#: ./browser/templates/poi_issue_search_form.pt:22
 msgid "poi_return_to_tracker"
 msgstr "Volver al gestor de incidencias"
 
 #. Default: "Select the areas you wish to search for."
-#: ./browser/templates/poi_issue_search_form.pt:141
+#: ./browser/templates/poi_issue_search_form.pt:95
 msgid "poi_search_help_area"
 msgstr "Selecciones las áreas que desea buscar."
 
 #. Default: "Select the assignee you wish to search for."
-#: ./browser/templates/poi_issue_search_form.pt:227
+#: ./browser/templates/poi_issue_search_form.pt:202
 msgid "poi_search_help_assignee"
 msgstr "Selecciones los administradores que desea buscar."
 
 #. Default: "Enter the username of the issue submitter,"
-#: ./browser/templates/poi_issue_search_form.pt:81
+#: ./browser/templates/poi_issue_search_form.pt:82
 msgid "poi_search_help_creator"
 msgstr "Escriba el nombre de usuario de la persona que notifica la incidencia,"
 
 #. Default: "If you wish to search for a particular issue, please enter its number."
-#: ./browser/templates/poi_issue_search_form.pt:41
+#: ./browser/templates/poi_issue_search_form.pt:69
 msgid "poi_search_help_id"
 msgstr "Si usted desea realizar una búsqueda para un particular incidente, por favor introduzca su número de incidente."
 
 #. Default: "Select the types you wish to search for."
-#: ./browser/templates/poi_issue_search_form.pt:162
+#: ./browser/templates/poi_issue_search_form.pt:114
 msgid "poi_search_help_issue_type"
 msgstr "Seleccione los tipos de incidencia que desea buscar."
 
 #. Default: "Select the version for which the bugs you want to find were reported."
-#: ./browser/templates/poi_issue_search_form.pt:94
+#: ./browser/templates/poi_issue_search_form.pt:161
 msgid "poi_search_help_release"
 msgstr "Seleccione las versiones que desea buscar."
 
 #. Default: "Select the severities you wish to search for."
-#: ./browser/templates/poi_issue_search_form.pt:183
+#: ./browser/templates/poi_issue_search_form.pt:240
 msgid "poi_search_help_severity"
 msgstr "Seleccione la importancia que desea buscar."
 
 #. Default: "Select the states you wish to search for."
-#: ./browser/templates/poi_issue_search_form.pt:204
+#: ./browser/templates/poi_issue_search_form.pt:182
 msgid "poi_search_help_state"
 msgstr "Seleccione los estados que desea incluir en la búsqueda."
 
 #. Default: "Tags are keywords assigned by tracker managers to issues to allow finer-grained organisation of issues. Select the tag or tags you wish to search for."
-#: ./browser/templates/poi_issue_search_form.pt:248
+#: ./browser/templates/poi_issue_search_form.pt:132
 msgid "poi_search_help_tags"
 msgstr "Las etiquetas son claves asignadas a las incidencias para permitir organizarlas y filtrarlas. Selecciones la(s) etiqueta(s) que desea buscar."
 
 #. Default: "Select the assigned target release you wish to search for."
-#: ./browser/templates/poi_issue_search_form.pt:118
+#: ./browser/templates/poi_issue_search_form.pt:220
 msgid "poi_search_help_target_release"
 msgstr "Seleccione el destino de la publicación asignada que desea buscar."
 
 #. Default: "Enter any text you wish the issue to include."
-#: ./browser/templates/poi_issue_search_form.pt:56
+#: ./browser/templates/poi_issue_search_form.pt:43
 msgid "poi_search_help_text"
 msgstr "Escriba un texto para acompañar a la incidencia."
 
 #. Default: "Area"
-#: ./browser/templates/poi_issue_search_form.pt:139
+#: ./browser/templates/poi_issue_search_form.pt:94
 msgid "poi_search_label_area"
 msgstr "Área"
 
 #. Default: "Assignee"
-#: ./browser/templates/poi_issue_search_form.pt:225
+#: ./browser/templates/poi_issue_search_form.pt:201
 msgid "poi_search_label_assignee"
 msgstr "Administradores del gestor"
 
 #. Default: "Submitter"
-#: ./browser/templates/poi_issue_search_form.pt:79
+#: ./browser/templates/poi_issue_search_form.pt:81
 msgid "poi_search_label_creator"
 msgstr "Enviado por"
 
 #. Default: "Issue number"
-#: ./browser/templates/poi_issue_search_form.pt:39
+#: ./browser/templates/poi_issue_search_form.pt:68
 msgid "poi_search_label_id"
 msgstr "Número de incidente"
 
 #. Default: "Version"
-#: ./browser/templates/poi_issue_search_form.pt:92
+#: ./browser/templates/poi_issue_search_form.pt:160
 msgid "poi_search_label_release"
 msgstr "Versión"
 
 #. Default: "Severity"
-#: ./browser/templates/poi_issue_search_form.pt:181
+#: ./browser/templates/poi_issue_search_form.pt:239
 msgid "poi_search_label_severity"
 msgstr "Importancia"
 
 #. Default: "State"
-#: ./browser/templates/poi_issue_search_form.pt:202
+#: ./browser/templates/poi_issue_search_form.pt:181
 msgid "poi_search_label_state"
 msgstr "Estado"
 
 #. Default: "Tags"
-#: ./browser/templates/poi_issue_search_form.pt:246
+#: ./browser/templates/poi_issue_search_form.pt:131
 msgid "poi_search_label_tags"
 msgstr "Etiquetas"
 
 #. Default: "Target release"
-#: ./browser/templates/poi_issue_search_form.pt:116
+#: ./browser/templates/poi_issue_search_form.pt:219
 msgid "poi_search_label_target_release"
 msgstr "Destino de publicación"
 
 #. Default: "Issue text"
-#: ./browser/templates/poi_issue_search_form.pt:54
+#: ./browser/templates/poi_issue_search_form.pt:42
 msgid "poi_search_label_text"
 msgstr "Texto de la incidencia"
 
 #. Default: "Issue Types"
-#: ./browser/templates/poi_issue_search_form.pt:160
+#: ./browser/templates/poi_issue_search_form.pt:113
 msgid "poi_search_label_type"
 msgstr "Tipos de incidencia"
 
 #. Default: "Stop watching this"
-#: ./browser/templates/poi_tracker_view.pt:66
+#: ./browser/templates/poi_tracker_view.pt:68
 msgid "stop_watching_this"
 msgstr ""
 
@@ -1085,17 +1069,17 @@ msgid "title"
 msgstr ""
 
 #. Default: "Add/remove attachments"
-#: ./browser/response.pt:90
+#: ./browser/issue_uploads.pt:22
 msgid "title_add_remove_attachments"
 msgstr ""
 
 #. Default: "Add response"
-#: ./browser/response.pt:130
+#: ./browser/response.pt:132
 msgid "title_add_response"
 msgstr "Agregar respuesta"
 
-#. Default: "tal:condition=\"view/responses\"> Change History"
-#: ./browser/response.pt:8
+#. Default: "Change History"
+#: ./browser/response.pt:11
 msgid "title_change_history"
 msgstr ""
 
@@ -1110,11 +1094,11 @@ msgid "title_error_no_response"
 msgstr "Error: no hay respuesta encontrada para editar"
 
 #. Default: "View activity feed"
-#: ./browser/templates/poi_tracker_view.pt:37
+#: ./browser/templates/poi_tracker_view.pt:40
 msgid "view_issue_logs"
 msgstr ""
 
 #. Default: "Watch this"
-#: ./browser/templates/poi_tracker_view.pt:71
+#: ./browser/templates/poi_tracker_view.pt:74
 msgid "watch_this"
 msgstr ""

@@ -80,6 +80,12 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-issue:before {
   border-bottom: 1px solid #eeeeee;
   margin-bottom: 1em;
 }
+.response-clarification:last-child,
+.response-file:last-child,
+.response-reply:last-child {
+  border-bottom: none;
+}
+
 .response-actions {
   float: right;
   width: 160px;
@@ -241,6 +247,15 @@ body#visual-portal-wrapper.pat-plone .outer-wrapper .contenttype-issue:before {
   border-bottom: 1px solid #ccc;
   padding: 1em 0;
 }
+.response-adder .edit-attachments {
+  border: none;
+}
+.response-adder .add-response {
+  margin-bottom: 2em;
+}
+.response-adder .edit-status {
+  margin-bottom: 2em;
+}
 
 #content-core .automatic-linking {
   font-size: 1.2em;
@@ -324,6 +339,9 @@ header.poi-header .documentFirstHeading {
   margin-bottom: 0;
   border: none;
 }
+.panel .formControls {
+  background: none;
+}
 .issue-quick-search-container {
   display: flex;
   flex-wrap: wrap;
@@ -363,4 +381,41 @@ header.poi-header .documentFirstHeading {
 
 .poi_issue_search_form {
   margin-top: 2em;
+}
+
+.btn.btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0 1rem;
+  color: #007bb1;
+  box-shadow: none;
+  text-shadow: none;
+}
+.btn.btn-link:hover,
+.btn.btn-link:active {
+  border: none;
+  background: none;
+  box-shadow: none;
+  text-shadow: none;
+}
+.btn.btn-link.destructive {
+  color: #bb4f45;
+}
+.btn.btn-link.destructive:hover,
+.btn.btn-link.destructive:active {
+  color: #963f37;
+}
+
+body.template-poi_issue_view .upload-container .upload-area {
+  margin: 0;
+}
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.buttons a,
+.buttons button {
+  margin: 0 1em 1em 0;
 }
