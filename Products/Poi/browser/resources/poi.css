@@ -355,7 +355,8 @@ header.poi-header .documentFirstHeading {
   list-style-position: inside;
 }
 
-.link-parent.simple-link {
+.link-parent.simple-link,
+#content-core a.link-parent.simple-link {
   background: none;
   border: none;
   padding: 0;
@@ -410,12 +411,19 @@ header.poi-header .documentFirstHeading {
 body.template-poi_issue_view .upload-container .upload-area {
   margin: 0;
 }
+
 .buttons {
   display: flex;
   flex-wrap: wrap;
 }
 
 .buttons a,
-.buttons button {
+.buttons button,
+.buttons .link-parent.simple-link,
+#content-core .buttons .link-parent.simple-link {
   margin: 0 1em 1em 0;
+}
+.buttons .link-parent.simple-link,
+#content-core .buttons .link-parent.simple-link {
+  line-height: 2em;
 }

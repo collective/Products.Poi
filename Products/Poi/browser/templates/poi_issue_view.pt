@@ -20,13 +20,14 @@
       <metal:header
       use-macro="context/@@poi_tracker_view/macros/trackerheader"></metal:header>
     </div>
-
     
 
-      <h1 class="documentFirstHeading">
-        #<span tal:replace="context/getId" /> &#8212;
-        <span tal:replace="context/title"/>
-      </h1>
+    <h1 class="documentFirstHeading">
+      #<span tal:replace="context/getId" /> &#8212;
+      <span tal:replace="context/title"/>
+    </h1>
+
+    
   </metal:title>
 
 <metal:description fill-slot="content-description">
@@ -56,25 +57,27 @@
   
 
     <!-- Issue Buttons and main infos -->
-    <div class="row">
+    <div class="row " >
       <div class="col-xs-12 col-sm-8">
         <div class="buttons">
-          <a href="${context/absolute_url}/edit"
-          class="context"
-          i18n:translate=""
-          tal:condition="python: user.has_permission('Modify portal content', here)">Edit issue</a>  
+         
 
           <tal:returnToSearch
               tal:condition="cameFromSearch"
               tal:define="backURL request/HTTP_REFERER | nothing;
                           cameFromSearch python:backURL and backURL.startswith(here.aq_inner.aq_parent.absolute_url() + '/poi_issue_search');">
             <a href=""
-              class="link-parent"        
+              class="link-parent simple-link"        
               tal:attributes="href backURL"
               i18n:translate="poi_return_to_search_results">
               Return to search results
             </a>
-          </tal:returnToSearch>        
+          </tal:returnToSearch>     
+
+           <a href="${context/absolute_url}/edit"
+          class="context"
+          i18n:translate=""
+          tal:condition="python: user.has_permission('Modify portal content', here)">Edit issue</a>               
         </div>
 
         <div class="issue-tags" tal:condition="here/Subject">
