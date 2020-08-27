@@ -59,6 +59,11 @@ def checkEmpty(value):
     return True if value is False else False
 
 
+@provider(schema.interfaces.IContextAwareDefaultFactory)
+def getContactEmail(context):
+    return api.user.get_current().getProperty('email') or ""
+    
+
 class IIssue(model.Schema):
     """Marker interface for Poi issue"""
 
@@ -151,6 +156,7 @@ class IIssue(model.Schema):
                       u"resolution is available. Note that your email "
                       u"address will not be displayed to others."),
         required=False,
+        defaultFactory=getContactEmail,
     )
 
     read_permission(watchers='Poi.ModifyIssueWatchers')
