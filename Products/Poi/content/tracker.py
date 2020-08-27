@@ -402,7 +402,10 @@ class Tracker(Container):
         key_indexes = pc._catalog.indexes['Subject']
         return [i[0] for i in key_indexes.items()]
 
-    @ram.cache(lambda *args: time() // 86400)  # cache for a day
+    def _cache_key(method, self):
+        return str(time() // 86400) + self.absolute_url() # cache for a day
+
+    @ram.cache(_cache_key)
     def getTagsInUse(self):
         """Get a list of the issue tags in use in this tracker."""
         tags = Counter()
@@ -410,7 +413,7 @@ class Tracker(Container):
             tags += Counter(i.Subject)
         return tags.most_common(10)
 
-    @ram.cache(lambda *args: time() // 86400)  # cache for a day
+    @ram.cache(_cache_key)
     def getIssueWorkflowStates(self):
         """Get a DisplayList of the workflow states available on issues."""
         portal_workflow = api.portal.get_tool(name='portal_workflow')
