@@ -89,7 +89,8 @@ class IIssue(model.Schema):
     details = RichText(
         title=_(u'Poi_label_issue_details', default=u'Details'),
         description=_(u'Poi_help_issue_details',
-                      default=u"Please provide further details.")
+                      default=u"Please provide further details."
+                      u" This field can create Automatic Links.")
     )
 
     dexteritytextindexer.searchable('steps')
@@ -98,7 +99,7 @@ class IIssue(model.Schema):
         description=_(u'Poi_help_issue_steps',
                       default=u"If applicable, please provide the steps to "
                       u"reproduce the error or identify the issue, one per "
-                      u"line."),
+                      u"line. This field can create Automatic Links."),
         required=False,
     )
 

@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="Poi">
+<head>
+    <metal:noborder fill-slot="top_slot"
+                 tal:define="dummy python:request.set('disable_border',1)" />
+</head>
+
+<body>
+<metal:main fill-slot="main">
+
+    <h1 class="documentFirstHeading" i18n:translate="authomatic_linking_label">Automatic linking</h1>
+    <p>
+        <strong i18n:translate="Poi_issues_label">Issues</strong>
+        <span class='formHelp' i18n:translate="Poi_automatic_link_field_help">
+            This field will automatically link to other issues in this tracker when you use these formats
+        </span>
+    </p>
+    <ul>
+        <li>#123</li>
+        <li>issue:123</li>
+        <li>ticket:123</li>
+        <li>bug:123</li>
+    </ul>
+    <p>
+        <strong i18n:translate="Poi_repository_label">Repository</strong>
+        <span class='formHelp' i18n:translate="Poi_automatic_link_repository_help">
+            This field will automatically link to the Repository set in the tracker settings when you use these formats
+        </span>
+    </p>
+    <ul>
+        <li>r123</li>
+        <li>changeset:123</li>
+        <li>[123]</li>
+    </ul>
+    <p class='formHelp' i18n:translate="Poi_repository_alphanumeric_help">
+        Note: Repositories that use alphanumeric identification numbers need at least 4 characters to correctly identify the changeset when linking.
+    </p>
+</metal:main>
+</body>
+</html>

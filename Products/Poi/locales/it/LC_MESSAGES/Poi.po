@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2020-08-26 07:47+0000\n"
+"POT-Creation-Date: 2020-08-27 12:56+0000\n"
 "PO-Revision-Date: 2007-03-22 11:28+0100\n"
 "Last-Translator: Luca Fabbri <keul@redturtle.it>\n"
 "Language-Team: Plone Italian Translation Discussion <plone-italian-translation-discussion@lists.coactivate.org>\n"
@@ -69,7 +69,7 @@ msgstr "Descrizione"
 msgid "Edit"
 msgstr "Modifica"
 
-#: ./browser/templates/poi_issue_view.pt:72
+#: ./browser/templates/poi_issue_view.pt:77
 msgid "Edit issue"
 msgstr "Modifica richiesta"
 
@@ -157,6 +157,16 @@ msgstr "Poi"
 msgid "Poi Uninstall"
 msgstr ""
 
+#. Default: "This field will automatically link to other issues in this tracker when you use these formats"
+#: ./browser/templates/automatic_links_help_view.pt:19
+msgid "Poi_automatic_link_field_help"
+msgstr "Questo campo crea in automatico link ad altre richieste per questo gestore di richieste se viene utilizzato uno dei seguenti formati."
+
+#. Default: "This field will automatically link to the Repository set in the tracker settings when you use these formats"
+#: ./browser/templates/automatic_links_help_view.pt:31
+msgid "Poi_automatic_link_repository_help"
+msgstr "Questo campo crea in automatico link al repository impostato nel gestore di richieste se viene utilizzato uno dei seguenti formati."
+
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker."
 #: ./content/tracker.py:220
@@ -172,7 +182,10 @@ msgstr "Inserisci i tipi di richiesta previsti per questo gestore di richieste"
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organized by release."
 #: ./content/tracker.py:293
+<<<<<<< HEAD
 
+=======
+>>>>>>> style_poi
 msgid "Poi_help_availableReleases"
 msgstr ""
 "Inserisci i rilasci a cui la richiesta può essere assegnata, uno per linea.\n"
@@ -198,17 +211,17 @@ msgstr "Inserisci il testo introduttivo che vorresti visualizzare nella pagina p
 
 # ./content/PoiIssue.py
 #. Default: "Set a new state, if applicable"
-#: ./browser/response.pt:183
+#: ./browser/response.pt:184
 msgid "Poi_help_issueTransition"
 msgstr "Se necessario, seleziona un cambio di stato nella richiesta alla quale stai rispondendo."
 
 #. Default: "Select the area this issue is relevant to."
-#: ./content/issue.py:102
+#: ./content/issue.py:103
 msgid "Poi_help_issue_area"
 msgstr "Selezionare l'area per la quale questa richiesta è rilevante."
 
 #. Default: "Select which person, if any, is assigned to this issue."
-#: ./content/issue.py:139
+#: ./content/issue.py:140
 msgid "Poi_help_issue_assignee"
 msgstr "Selezionare quale persona è assegnata a questa richiesta."
 
@@ -218,22 +231,22 @@ msgid "Poi_help_issue_attachment"
 msgstr "E' possibile caricare allegati. Evitare di caricare file di grosse dimensioni"
 
 #. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
-#: ./content/issue.py:148
+#: ./content/issue.py:149
 msgid "Poi_help_issue_contact_email"
 msgstr "Indicare un indirizzo email valido dove poter essere contattati per ulteriori informazioni o quando una soluzione sarà disponibile. Questo indirizzo email può essere diverso da quello personale e se inserito riceverà tutte le notifiche fino alla risoluzione della richiesta."
 
-#. Default: "Please provide further details."
+#. Default: "Please provide further details. This field can create Automatic Links."
 #: ./content/issue.py:86
 msgid "Poi_help_issue_details"
-msgstr "Fornire ulteriori dettagli."
+msgstr "Fornire ulteriori dettagli. Questo campo può creare dei collegamenti automatici."
 
 #. Default: "Last person to edit or add a Response"
-#: ./content/issue.py:228
+#: ./content/issue.py:229
 msgid "Poi_help_issue_last_actor"
 msgstr "Ultima persona che ha risposto"
 
 #. Default: "Link related issues."
-#: ./content/issue.py:210
+#: ./content/issue.py:211
 msgid "Poi_help_issue_related"
 msgstr "Link alle richieste correlate."
 
@@ -243,22 +256,22 @@ msgid "Poi_help_issue_release"
 msgstr "Seleziona la versione della richiesta in cui è stata trovata"
 
 #. Default: "Select the severity of this issue."
-#: ./content/issue.py:118
+#: ./content/issue.py:119
 msgid "Poi_help_issue_severity"
 msgstr "Selezionare la priorità di questa richiesta."
 
-#. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line."
-#: ./content/issue.py:93
+#. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line. This field can create Automatic Links."
+#: ./content/issue.py:94
 msgid "Poi_help_issue_steps"
-msgstr "Se possibile, fornire i dettagli, uno per riga, su come riprodurre l'errore o identificare il problema."
+msgstr "Se possibile, fornire i dettagli, uno per riga, su come riprodurre l'errore o identificare il problema. Questo campo può creare dei collegamenti automatici."
 
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: ./content/issue.py:185
+#: ./content/issue.py:186
 msgid "Poi_help_issue_subject"
 msgstr "Le parole chiave possono essere usate per classificare le richieste. La lista sotto riportata mostra le parole chiave esistenti che si possono utilizzare, oppure se ne possono aggiungere di nuove."
 
 #. Default: "Release this issue is targetted to be fixed in."
-#: ./content/issue.py:128
+#: ./content/issue.py:129
 msgid "Poi_help_issue_target_release"
 msgstr "La versione di questa richiesta sarà risolta in "
 
@@ -269,19 +282,22 @@ msgid "Poi_help_issue_title"
 msgstr "Inserisci un breve titolo descrittivo della richiesta. Un buon titolo renderà più semplice per il project manager identificare e rispondere alla richiesta."
 
 #. Default: "Select the type of issue."
-#: ./content/issue.py:109
+#: ./content/issue.py:110
 msgid "Poi_help_issue_type"
 msgstr "Selezionare il tipo di richiesta."
 
 #. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
-#: ./content/issue.py:163
+#: ./content/issue.py:164
 msgid "Poi_help_issue_watchers"
 msgstr "Inserire gli identificativi degli utenti che devono seguire questa richiesta, uno per riga. Sono ammessi anche indirizzi email. Questi utenti riceveranno un email quando verrà aggiunta una risposta alla richiesta. Gli utenti con ruolo Membro posso aggiungersi loro stessi come Osservatori."
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted."
 #: ./content/tracker.py:360
+<<<<<<< HEAD
 
+=======
+>>>>>>> style_poi
 msgid "Poi_help_mailingList"
 msgstr ""
 "Se specificato e se \"Invia mail di notifica\" è selezionato, una email sarà inviata a questo indirizzo ogni volta che una nuova richiesta o risposta saranno generate.\n"
@@ -290,32 +306,35 @@ msgstr ""
 
 # ./content/PoiResponse.py
 #. Default: "Select the assignee for this issue"
-#: ./browser/response.pt:253
+#: ./browser/response.pt:254
 msgid "Poi_help_newResponsibleManager"
 msgstr "Seleziona il responsabile per questa richiesta"
 
 # ./content/PoiResponse.py
 #. Default: "Select the severity for this issue"
-#: ./browser/response.pt:205
+#: ./browser/response.pt:206
 msgid "Poi_help_newSeverity"
 msgstr "Seleziona la gravità/importanza di questa richiesta"
 
 # ./content/PoiResponse.py
 #. Default: "Set the target release for this issue"
-#: ./browser/response.pt:231
+#: ./browser/response.pt:232
 msgid "Poi_help_newTargetRelease"
 msgstr "Seleziona la release obbiettivo di questa richiesta"
 
 # ./content/PoiIssue.py
 #. Default: "Please enter your response below."
-#: ./browser/response.pt:141
+#: ./browser/response.pt:142
 msgid "Poi_help_response"
 msgstr "Per favore inserisci qui sotto la tua risposta."
 
 # ./content/PoiTracker.py
 #. Default: "If selected, all tracker assignees above will receive an email for new issues and all issue responses. Issue watchers will receive an email for all issue responses. Issue submitters will receive an email when the issue has been resolved."
 #: ./content/tracker.py:344
+<<<<<<< HEAD
 
+=======
+>>>>>>> style_poi
 msgid "Poi_help_sendNotificationEmails"
 msgstr ""
 "Se selezionato, i manager del gestore delle richieste riceveranno una mail ogni volta che una nuova richiesta o risposta saranno generate, e chi ha inviato la richiesta riceverà una email quando sarà presente una nuova risposta o quando una richiesta verrà risolta, in attesa della conferma.\n"
@@ -324,7 +343,10 @@ msgstr ""
 # ./content/PoiTracker.py
 #. Default: "Please enter the URL to the related repository, e.g.: https://github.com/collective/Products.Poi/commit/%(rev)s for Products.Poi."
 #: ./content/tracker.py:374
+<<<<<<< HEAD
 
+=======
+>>>>>>> style_poi
 msgid "Poi_help_svnurl"
 msgstr "Per favore inserisci l'URL del repository SVN connessi, ad esempio: http://dev.plone.org/changeset/%(rev)s/collective per i prodotti nella collective Plone (SVN)."
 
@@ -347,6 +369,11 @@ msgstr ""
 "Sono permessi anche indirizzi e-mail.\n"
 "Queste persone riceveranno una e-mail quando una nuova richiesta o un commento saranno aggiunti.\n"
 "I collaboratori possono aggiungersi come osservatori."
+
+#. Default: "Issues"
+#: ./browser/templates/automatic_links_help_view.pt:18
+msgid "Poi_issues_label"
+msgstr "Richieste"
 
 #. Default: "Assignees"
 #: ./content/tracker.py:309
@@ -385,22 +412,22 @@ msgstr "Priorità predefinita"
 
 # ./content/PoiIssue.py
 #. Default: "Change issue state"
-#: ./browser/response.pt:179
+#: ./browser/response.pt:180
 msgid "Poi_label_issueTransition"
 msgstr "Cambia lo stato della richiesta"
 
 #. Default: "Area"
-#: ./content/issue.py:101
+#: ./content/issue.py:102
 msgid "Poi_label_issue_area"
 msgstr "Seleziona l'area per cui è rilevante questa richiesta"
 
 #. Default: "Assignee"
-#: ./content/issue.py:138
+#: ./content/issue.py:139
 msgid "Poi_label_issue_assignee"
 msgstr "Responsabile"
 
 #. Default: "Contact Email"
-#: ./content/issue.py:147
+#: ./content/issue.py:148
 msgid "Poi_label_issue_contact_email"
 msgstr "Contatto Email"
 
@@ -410,17 +437,17 @@ msgid "Poi_label_issue_details"
 msgstr "Dettagli"
 
 #. Default: "Leave this field empty"
-#: ./content/issue.py:220
+#: ./content/issue.py:221
 msgid "Poi_label_issue_empty"
 msgstr "Lascia vuoto questo campo"
 
 #. Default: "Last Actor"
-#: ./content/issue.py:226
+#: ./content/issue.py:227
 msgid "Poi_label_issue_last_actor"
 msgstr "Ultima persona che ha dato una risposta"
 
 #. Default: "Related Issue(s)"
-#: ./content/issue.py:209
+#: ./content/issue.py:210
 msgid "Poi_label_issue_related"
 msgstr "Richieste correlate"
 
@@ -430,22 +457,22 @@ msgid "Poi_label_issue_release"
 msgstr "Rilascio"
 
 #. Default: "Severity"
-#: ./content/issue.py:117
+#: ./content/issue.py:118
 msgid "Poi_label_issue_severity"
 msgstr "Priorità"
 
 #. Default: "Steps To Reproduce"
-#: ./content/issue.py:92
+#: ./content/issue.py:93
 msgid "Poi_label_issue_steps"
 msgstr "Istruzioni per replicare il problema"
 
 #. Default: "Subject"
-#: ./content/issue.py:184
+#: ./content/issue.py:185
 msgid "Poi_label_issue_subject"
 msgstr "Parole chiave"
 
 #. Default: "Target Release"
-#: ./content/issue.py:127
+#: ./content/issue.py:128
 msgid "Poi_label_issue_target_release"
 msgstr "Rilascio previsto"
 
@@ -456,12 +483,12 @@ msgid "Poi_label_issue_title"
 msgstr "Titolo"
 
 #. Default: "Issue Type"
-#: ./content/issue.py:108
+#: ./content/issue.py:109
 msgid "Poi_label_issue_type"
 msgstr "Tipo di richiesta"
 
 #. Default: "Watchers"
-#: ./content/issue.py:162
+#: ./content/issue.py:163
 msgid "Poi_label_issue_watchers"
 msgstr "Osservatori del gestore di richieste"
 
@@ -473,19 +500,19 @@ msgstr "Mailing list"
 
 # ./content/PoiResponse.py
 #. Default: "Change assignee"
-#: ./browser/response.pt:248
+#: ./browser/response.pt:249
 msgid "Poi_label_newResponsibleManager"
 msgstr "Cambia responsabile"
 
 # ./content/PoiResponse.py
 #. Default: "Change issue severity"
-#: ./browser/response.pt:201
+#: ./browser/response.pt:202
 msgid "Poi_label_newSeverity"
 msgstr "Modifica l'importanza"
 
 # ./content/PoiResponse.py
 #. Default: "Change target release"
-#: ./browser/response.pt:226
+#: ./browser/response.pt:227
 msgid "Poi_label_newTargetRelease"
 msgstr "Cambia la versione di rilascio"
 
@@ -498,15 +525,31 @@ msgstr "Invia mail di notifica"
 # ./content/PoiTracker.py
 #. Default: "URL to Repository"
 #: ./content/tracker.py:372
+<<<<<<< HEAD
 
+=======
+>>>>>>> style_poi
 msgid "Poi_label_svnurl"
 msgstr "l'indirizzo del server di versioni di Subversion (SVN)"
 
 #. Default: "Watchers"
 #: ./content/tracker.py:324
+<<<<<<< HEAD
 
+=======
+>>>>>>> style_poi
 msgid "Poi_label_tracker_watchers"
 msgstr "Osservatori del gestore di richieste"
+
+#. Default: "Note: Repositories that use alphanumeric identification numbers need at least 4 characters to correctly identify the changeset when linking."
+#: ./browser/templates/automatic_links_help_view.pt:40
+msgid "Poi_repository_alphanumeric_help"
+msgstr "Nota: i repository che usano identificativi alfamunerici hanno bisogno di almeno 4 caratteri per poter identificare correttamente le modifiche da collegare a questa richiesta."
+
+#. Default: "Repository"
+#: ./browser/templates/automatic_links_help_view.pt:30
+msgid "Poi_repository_label"
+msgstr "Repository"
 
 #. Default: ""
 #: ./browser/response.py:555
@@ -560,7 +603,7 @@ msgstr "Gravità"
 msgid "Short Name"
 msgstr "Nome breve"
 
-#: ./browser/response.pt:277
+#: ./browser/response.pt:278
 msgid "Submit"
 msgstr "Invia"
 
@@ -594,6 +637,11 @@ msgstr "Non sei autorizzato a cancellare le risposte."
 #: ./browser/response.py:483
 msgid "You are not allowed to edit responses."
 msgstr "Non sei autorizzato a modificare le risposte."
+
+#. Default: "Automatic linking"
+#: ./browser/templates/automatic_links_help_view.pt:11
+msgid "authomatic_linking_label"
+msgstr "Collegamenti automatici"
 
 #. Default: "(${number} matches)"
 #: ./browser/templates/poi_issue_search.pt:44
@@ -758,7 +806,7 @@ msgstr "[${tracker_title}] #${issue_id} - Nuova richiesta: ${issue_title}"
 #. Default: "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
 #: ./browser/notifications.py:194
 msgid "poi_email_new_response_subject_template"
-msgstr ""
+msgstr "[${tracker_title}] #${issue_id} - Re: ${issue_title}"
 
 #. Default: "By area"
 #: ./browser/templates/poi_tracker_view.pt:168
@@ -792,7 +840,10 @@ msgstr "Log gestore richieste"
 
 #. Default: "Issues assigned to me"
 #: ./browser/templates/poi_tracker_view.pt:252
+<<<<<<< HEAD
 
+=======
+>>>>>>> style_poi
 msgid "poi_heading_my_issues"
 msgstr "Le mie richieste"
 
@@ -864,12 +915,12 @@ msgid "poi_issue_search_description"
 msgstr "Questo modulo ti permette di cercare la richiesta in base a diversi criteri. Per favore seleziona il criterio prescelto e clicca Cerca."
 
 #. Default: "Area"
-#: ./browser/templates/poi_issue_view.pt:110
+#: ./browser/templates/poi_issue_view.pt:115
 msgid "poi_label_area"
 msgstr "Area"
 
 #. Default: "Ticket Owner"
-#: ./browser/templates/poi_issue_view.pt:154
+#: ./browser/templates/poi_issue_view.pt:159
 msgid "poi_label_assignee"
 msgstr "Responsabile"
 
@@ -879,58 +930,57 @@ msgid "poi_label_attachment"
 msgstr "Allegato:"
 
 #. Default: "Contact Email"
-#: ./browser/templates/poi_issue_view.pt:136
+#: ./browser/templates/poi_issue_view.pt:141
 msgid "poi_label_issue_contact_email"
 msgstr "Contatto Email"
 
 #. Default: "Related issue(s):"
-#: ./browser/templates/poi_issue_view.pt:198
+#: ./browser/templates/poi_issue_view.pt:203
 msgid "poi_label_related"
 msgstr "Richieste correlate"
 
 #. Default: "Severity"
-#: ./browser/templates/poi_issue_view.pt:128
+#: ./browser/templates/poi_issue_view.pt:133
 msgid "poi_label_severity"
 msgstr "Priorità"
 
 #. Default: "State"
-#: ./browser/templates/poi_issue_view.pt:90
+#: ./browser/templates/poi_issue_view.pt:95
 msgid "poi_label_state"
 msgstr "Stato"
 
 #. Default: "Steps to reproduce:"
-#: ./browser/templates/poi_issue_view.pt:188
+#: ./browser/templates/poi_issue_view.pt:193
 msgid "poi_label_steps"
 msgstr "Passi da riprodurre."
 
 #. Default: "Submitted by"
-#: ./browser/templates/poi_issue_view.pt:143
+#: ./browser/templates/poi_issue_view.pt:148
 msgid "poi_label_submitted_by"
 msgstr "Inviato da"
 
 #. Default: "Submitted on"
-#: ./browser/templates/poi_issue_view.pt:150
+#: ./browser/templates/poi_issue_view.pt:155
 msgid "poi_label_submitted_on"
 msgstr "Inviato il"
 
-#. Default: "Tags"
-#: ./browser/templates/poi_issue_view.pt:79
 
+#: ./browser/templates/poi_issue_view.pt:84
 msgid "poi_label_tags"
 msgstr "Tags"
 
 #. Default: "Target release:"
-#: ./browser/templates/poi_issue_view.pt:165
+#: ./browser/templates/poi_issue_view.pt:170
 msgid "poi_label_target_release"
 msgstr "Rilascio previsto:"
 
 #. Default: "Issue type"
-#: ./browser/templates/poi_issue_view.pt:119
+#: ./browser/templates/poi_issue_view.pt:124
 msgid "poi_label_type"
 msgstr "Tipo di richiesta"
 
 #. Default: "Version:"
-#: ./browser/templates/poi_issue_view.pt:99
+#: ./browser/templates/poi_issue_view.pt:104
 msgid "poi_label_version"
 msgstr "Versione:"
 
@@ -945,7 +995,7 @@ msgid "poi_new_response_added"
 msgstr "${author} ha aggiunto una nuova risposta a ${name}:"
 
 #. Default: "Return to search results"
-#: ./browser/templates/poi_issue_view.pt:28
+#: ./browser/templates/poi_issue_view.pt:69
 msgid "poi_return_to_search_results"
 msgstr "Torna ai risultati della ricerca"
 
@@ -1081,13 +1131,17 @@ msgid "title_add_remove_attachments"
 msgstr "Aggiungi/rimuovi allegati"
 
 #. Default: "Add response"
-#: ./browser/response.pt:132
+#: ./browser/response.pt:133
+#: ./browser/templates/poi_issue_view.pt:217
 msgid "title_add_response"
 msgstr "Aggiungi risposta"
 
 #. Default: "Change History"
 #: ./browser/response.pt:11
+<<<<<<< HEAD
 
+=======
+>>>>>>> style_poi
 msgid "title_change_history"
 msgstr "Attività"
 

@@ -173,4 +173,10 @@
      class=".exporter.CSVExport"
      />
 
+   <browser:page
+     name="automatic_links_help"
+     for="*"
+     permission="zope2.View"
+     template="templates/automatic_links_help_view.pt"
+     />
 </configure>
