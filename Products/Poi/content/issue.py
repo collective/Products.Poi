@@ -250,7 +250,7 @@ class Issue(Container):
                 return parent
 
     def getContactEmail(self):
-        if hasattr(self, 'contact_email'):
+        if getattr(self, 'contact_email', ""):
             return self.contact_email
         try:
             return api.user.get(self.Creator()).getProperty('email')

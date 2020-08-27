@@ -13,19 +13,22 @@
 
 <body>
 
-<metal:title fill-slot="content-title"
+  <metal:title fill-slot="content-title"
              tal:define="trackerUrl context/aq_parent/absolute_url;">
 
     <div tal:condition="python:not ajax_load">
       <metal:header
       use-macro="context/@@poi_tracker_view/macros/trackerheader"></metal:header>
     </div>
+    
 
-  <h1 class="documentFirstHeading">
-    #<span tal:replace="context/getId" /> &#8212;
-    <span tal:replace="context/title"/>
-  </h1>
-</metal:title>
+    <h1 class="documentFirstHeading">
+      #<span tal:replace="context/getId" /> &#8212;
+      <span tal:replace="context/title"/>
+    </h1>
+
+    
+  </metal:title>
 
 <metal:description fill-slot="content-description">
   <metal:comment tal:content="nothing">
@@ -51,22 +54,42 @@
                   issueQueryString python:'%s/poi_issue_search?state=%s' %
                   (here.aq_parent.absolute_url(), '&amp;state='.join(activeStates),);">
 
-    <p><a href="${context/absolute_url}/edit"
-        class="context"
-        i18n:translate=""
-        tal:condition="python: user.has_permission('Modify portal content', here)">Edit issue</a></p>
+  
 
-    <div class="issue-tags" tal:condition="here/Subject">
-      <span class="issue-tags-label" i18n:translate="poi_label_tags">Tags:</span>
-        <span tal:repeat="tag here/Subject">
-          <a tal:content="tag" tal:attributes="href string:${here/aq_parent/absolute_url}/poi_issue_search?tags=${tag}"/>
-          <tal:div condition="not:repeat/tag/end">-</tal:div>
-        </span>
-    </div>
+    <!-- Issue Buttons and main infos -->
+    <div class="row " >
+      <div class="col-xs-12 col-sm-8">
+        <div class="buttons">
+         
 
-    <div class="row">
-    <div class="col-xs-12 col-sm-6">
-        <table class="vertical listing issue-info-box">
+          <tal:returnToSearch
+              tal:condition="cameFromSearch"
+              tal:define="backURL request/HTTP_REFERER | nothing;
+                          cameFromSearch python:backURL and backURL.startswith(here.aq_inner.aq_parent.absolute_url() + '/poi_issue_search');">
+            <a href=""
+              class="link-parent simple-link"        
+              tal:attributes="href backURL"
+              i18n:translate="poi_return_to_search_results">
+              Return to search results
+            </a>
+          </tal:returnToSearch>     
+
+           <a href="${context/absolute_url}/edit"
+          class="context"
+          i18n:translate=""
+          tal:condition="python: user.has_permission('Modify portal content', here)">Edit issue</a>               
+        </div>
+
+        <div class="issue-tags" tal:condition="here/Subject">
+          <span class="issue-tags-label" i18n:translate="poi_label_tags">Tags</span>:
+            <span tal:repeat="tag here/Subject">
+              <a tal:content="tag" tal:attributes="href string:${here/aq_parent/absolute_url}/poi_issue_search?tags=${tag}"/>
+              <tal:div condition="not:repeat/tag/end">-</tal:div>
+            </span>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <table class="vertical listing issue-info-box" tal:define="releases here/getReleasesVocab">
           <tr tal:define="state python:wftool.getInfoFor(here, 'review_state');
                           state_title python:wftool.getTitleForStateOnType(state, here.getPortalTypeName());">
             <th i18n:translate="poi_label_state">State</th>
@@ -113,19 +136,14 @@
                  tal:content="context/severity"
                  tal:attributes="href string:${issueQueryString}&amp;severity=${context/severity};" />
             </td>
+          </tr>                    
+          <tr tal:condition="context/contact_email">
+            <th i18n:translate="poi_label_issue_contact_email">Contact Email</th>
+            <td><a tal:content="context/contact_email"
+                  tal:attributes="href string:mailto:${context/contact_email};"
+                ></a>
+            </td>
           </tr>
-      </table>
-      </div>
-      <div class="col-xs-12 col-sm-6">
-          <table class="vertical listing issue-info-box"
-                 tal:define="releases here/getReleasesVocab">
-             <tr tal:condition="context/contact_email">
-               <th i18n:translate="poi_label_issue_contact_email">Contact Email</th>
-               <td><a tal:content="context/contact_email"
-                      tal:attributes="href string:mailto:${context/contact_email};"
-                    ></a>
-               </td>
-             </tr>
           <tr>
             <th i18n:translate="poi_label_submitted_by">Submitted by</th>
             <td
@@ -161,20 +179,11 @@
             </td>
           </tr>
         </table>
+      </div>
     </div>
-    </div>
+    <!-- -->
 
-    <div class="return-to-search"
-         tal:define="backURL request/HTTP_REFERER | nothing;
-                     cameFromSearch python:backURL and backURL.startswith(here.aq_inner.aq_parent.absolute_url() + '/poi_issue_search');">
-      <a href=""
-         class="link-parent"
-         tal:condition="cameFromSearch"
-         tal:attributes="href backURL"
-         i18n:translate="poi_return_to_search_results">
-        Return to search results
-      </a>
-    </div>
+    
 
     <div class="issue-details"
          tal:define="text context/linkedDetails"
@@ -204,6 +213,8 @@
           </ul>
         </dd>
     </dl>
+
+    <a href="#add-response-anchor" class="context" i18n:translate="title_add_response">Add response</a>
 
     <div class="visualClear"><!----></div>
 

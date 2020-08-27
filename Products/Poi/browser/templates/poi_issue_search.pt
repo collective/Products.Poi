@@ -26,35 +26,38 @@
 
     <metal:header use-macro="here/poi_tracker_view/macros/trackerheader"></metal:header>
     <tal:def define="sort_enabled python:True">
-      <metal:results use-macro="here/poi_issue_search_results/macros/issue_search_results">
-
-        <metal:intro fill-slot="intro-text">
-
-          <h1 class="documentFirstHeading trackerSearchHeading">
-              <span i18n:translate="poi_heading_search_results">Issue search results</span>
-
-              <strong class="discreet" tal:condition="nocall:results">
-                <span i18n:translate="batch_x_items_matching_your_criteria">(<span i18n:name="number" tal:content="python:len(results)">234</span> matches)</span>
-              </strong>
-
+      <div class="panel">
+        <metal:results use-macro="here/poi_issue_search_results/macros/issue_search_results">
+    
+          <metal:intro fill-slot="intro-text">
+            <div class="panel-heading">
+              <h1 class="documentFirstHeading trackerSearchHeading">
+                  <span i18n:translate="poi_heading_search_results">Issue search results</span>          
+              </h1>
               <a href=""
-                 class="link-parent visualNoPrint"
-                 tal:attributes="href string:${here/absolute_url}">
+                  class="link-parent simple-link visualNoPrint"
+                  tal:attributes="href string:${here/absolute_url}">
                 <span i18n:translate="poi_return_to_tracker">Return to tracker</span>
               </a>
-          </h1>
+              <div>
+                <strong class="discreet" tal:condition="nocall:results">
+                  <span i18n:translate="batch_x_items_matching_your_criteria">(<span i18n:name="number" tal:content="python:len(results)">234</span> matches)</span>
+                </strong>
+              </div>
 
-          <div tal:condition="not:nocall:results">
-            <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
-          </div>
+              <div tal:condition="not:nocall:results">
+                <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
+              </div>
+            </div>
+          </metal:intro>
 
-        </metal:intro>
 
-
-        <metal:footer fill-slot="footer">
-          <metal:nav use-macro="here/batch_macros/macros/navigation" />
-        </metal:footer>
-      </metal:results>
+          <metal:footer fill-slot="footer">
+            <metal:nav use-macro="here/batch_macros/macros/navigation" />
+          </metal:footer>
+        
+        </metal:results>
+      </div>
     </tal:def>
   </metal:main>
 </metal:main>
