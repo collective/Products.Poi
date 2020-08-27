@@ -46,7 +46,7 @@
               tal:attributes="action string:${portal_url}/login_form?came_from=${here/absolute_url}">
                 <a class="context pat-plone-modal" id="poi-login-form" href="#"
                     data-pat-plone-modal='{"prependContent": ".portalMessage", "title": "Log in", "width": "26em"}'
-                    tal:attributes="href string:${portal_url}/login"
+                    tal:attributes="href string:${portal_url}/login?came_from=${context/absolute_url}"
                     i18n:domain="plone"
                     i18n:translate="label_log_in;">
                     Log In
