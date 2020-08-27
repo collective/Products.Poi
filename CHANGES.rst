@@ -1,9 +1,17 @@
 Changelog for Poi
 =================
 
-4.0.4 (unreleased)
+4.1.0 (unreleased)
 ------------------
 
+- Python3 compatibility.
+  [abosio?]
+- Fix styles.
+  [giuliaghisini]
+- Update Italian translations.
+  [cekk gghisini daniele-andreotti]
+- Move automatic link helper popup into a separate view.
+  [cekk]
 
 4.0.3 (2020-02-24)
 ------------------
