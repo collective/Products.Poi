@@ -172,7 +172,6 @@ msgstr "Inserisci i tipi di richiesta previsti per questo gestore di richieste"
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organized by release."
 #: ./content/tracker.py:293
-#, fuzzy
 msgid "Poi_help_availableReleases"
 msgstr ""
 "Inserisci i rilasci a cui la richiesta può essere assegnata, uno per linea.\n"
@@ -281,7 +280,6 @@ msgstr "Inserire gli identificativi degli utenti che devono seguire questa richi
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted."
 #: ./content/tracker.py:360
-#, fuzzy
 msgid "Poi_help_mailingList"
 msgstr ""
 "Se specificato e se \"Invia mail di notifica\" è selezionato, una email sarà inviata a questo indirizzo ogni volta che una nuova richiesta o risposta saranno generate.\n"
@@ -315,7 +313,6 @@ msgstr "Per favore inserisci qui sotto la tua risposta."
 # ./content/PoiTracker.py
 #. Default: "If selected, all tracker assignees above will receive an email for new issues and all issue responses. Issue watchers will receive an email for all issue responses. Issue submitters will receive an email when the issue has been resolved."
 #: ./content/tracker.py:344
-#, fuzzy
 msgid "Poi_help_sendNotificationEmails"
 msgstr ""
 "Se selezionato, i manager del gestore delle richieste riceveranno una mail ogni volta che una nuova richiesta o risposta saranno generate, e chi ha inviato la richiesta riceverà una email quando sarà presente una nuova risposta o quando una richiesta verrà risolta, in attesa della conferma.\n"
@@ -324,7 +321,6 @@ msgstr ""
 # ./content/PoiTracker.py
 #. Default: "Please enter the URL to the related repository, e.g.: https://github.com/collective/Products.Poi/commit/%(rev)s for Products.Poi."
 #: ./content/tracker.py:374
-#, fuzzy
 msgid "Poi_help_svnurl"
 msgstr "Per favore inserisci l'URL del repository SVN connessi, ad esempio: http://dev.plone.org/changeset/%(rev)s/collective per i prodotti nella collective Plone (SVN)."
 
@@ -498,13 +494,11 @@ msgstr "Invia mail di notifica"
 # ./content/PoiTracker.py
 #. Default: "URL to Repository"
 #: ./content/tracker.py:372
-#, fuzzy
 msgid "Poi_label_svnurl"
 msgstr "l'indirizzo del server di versioni di Subversion (SVN)"
 
 #. Default: "Watchers"
 #: ./content/tracker.py:324
-#, fuzzy
 msgid "Poi_label_tracker_watchers"
 msgstr "Osservatori del gestore di richieste"
 
@@ -792,7 +786,6 @@ msgstr "Log gestore richieste"
 
 #. Default: "Issues assigned to me"
 #: ./browser/templates/poi_tracker_view.pt:252
-#, fuzzy
 msgid "poi_heading_my_issues"
 msgstr "Le mie richieste"
 
@@ -915,7 +908,6 @@ msgstr "Inviato il"
 
 #. Default: "Tags"
 #: ./browser/templates/poi_issue_view.pt:79
-#, fuzzy
 msgid "poi_label_tags"
 msgstr "Tags"
 
@@ -1087,7 +1079,6 @@ msgstr "Aggiungi risposta"
 
 #. Default: "Change History"
 #: ./browser/response.pt:11
-#, fuzzy
 msgid "title_change_history"
 msgstr "Attività"
 
