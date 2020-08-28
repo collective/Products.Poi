@@ -14,7 +14,7 @@
     </div>
   </metal:block>
 
-  <metal:block define-slot="intro-text" />
+  <metal:block define-slot="intro-text"/>
 
    <table tal:attributes="class string:listing issue-search-results serp-${serp_page}"
        tal:define="states context/getIssueWorkflowStates;
