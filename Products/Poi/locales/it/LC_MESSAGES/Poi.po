@@ -214,7 +214,7 @@ msgstr "Se necessario, seleziona un cambio di stato nella richiesta alla quale s
 #. Default: "Select the area this issue is relevant to."
 #: ./content/issue.py:103
 msgid "Poi_help_issue_area"
-msgstr "Selezionare l'area per la quale questa richiesta è rilevante."
+msgstr "Selezionare l'area a cui indirizzare la richiesta."
 
 #. Default: "Select which person, if any, is assigned to this issue."
 #: ./content/issue.py:140
@@ -275,7 +275,7 @@ msgstr "La versione di questa richiesta sarà risolta in "
 #. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
 #: ./content/issue.py:68
 msgid "Poi_help_issue_title"
-msgstr "Inserisci un breve titolo descrittivo della richiesta. Un buon titolo renderà più semplice per il project manager identificare e rispondere alla richiesta."
+msgstr "Inserisci un breve titolo descrittivo della richiesta. Un buon titolo renderà più semplice per [i gestori] identificare e rispondere alla richiesta."
 
 #. Default: "Select the type of issue."
 #: ./content/issue.py:110
@@ -585,7 +585,7 @@ msgstr "Invia"
 
 #: ./browser/templates/poi_tracker_view.pt:122
 msgid "Submit new issue"
-msgstr "Genera una nuova richiesta"
+msgstr "Invia una nuova richiesta"
 
 #: ./browser/response.py:421
 msgid "Target release"
