@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Products.Poi 2.0\n"
-"POT-Creation-Date: 2020-09-01 18:55+0000\n"
+"POT-Creation-Date: 2020-09-01 20:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1057,6 +1057,11 @@ msgstr ""
 #. Default: "Issue Types"
 #: ./browser/templates/poi_issue_search_form.pt:113
 msgid "poi_search_label_type"
+msgstr ""
+
+#. Default: "Exact Text Search"
+#: ./browser/templates/poi_issue_search_form.pt:56
+msgid "poi_searchmatch_label_text"
 msgstr ""
 
 #. Default: "Stop watching this"

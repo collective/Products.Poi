@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi 1.1.2\n"
-"POT-Creation-Date: 2020-09-01 18:55+0000\n"
+"POT-Creation-Date: 2020-09-01 20:05+0000\n"
 "PO-Revision-Date: 2008-11-19 17:32-0000\n"
 "Last-Translator: Nuno Cruz <nuno.cruz@inst-informatica.pt>\n"
 "Language-Team: NWEB <nwebmaster@inst-informatica.pt>\n"
@@ -1076,6 +1076,11 @@ msgstr "Texto da ocorrência"
 #: ./browser/templates/poi_issue_search_form.pt:113
 msgid "poi_search_label_type"
 msgstr "Tipos de ocorrência"
+
+#. Default: "Exact Text Search"
+#: ./browser/templates/poi_issue_search_form.pt:56
+msgid "poi_searchmatch_label_text"
+msgstr ""
 
 #. Default: "Stop watching this"
 #: ./browser/templates/poi_tracker_view.pt:68
