@@ -24,39 +24,32 @@ __author__ = """Rob McBroom <rob@sixfeetup.com>"""
 __docformat__ = 'plaintext'
 
 
+from collections import Counter
 from time import time
-from zope.component import adapts
-from zope.component import provideAdapter
-from zope.interface import implementer
-from zope import schema
-from zope.interface import Interface
-from zope.interface import Invalid
-from zope.interface import directlyProvides
-from zope.interface import provider
-from zope.schema.interfaces import IContextAwareDefaultFactory
-from zope.schema.interfaces import IContextSourceBinder
-from zope.schema.vocabulary import SimpleTerm
-from zope.schema.vocabulary import SimpleVocabulary
 
 from borg.localrole.interfaces import ILocalRoleProvider
-
-from collections import Counter
-from Products.Poi import PoiMessageFactory as _
+from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
 from plone import api
-from Products.Poi.utils import is_email
-from Products.Poi.utils import link_bugs
-from Products.Poi.utils import link_repo
 from plone.app.textfield import RichText
 from plone.app.z3cform.widget import AjaxSelectFieldWidget
-from plone.autoform.directives import widget
-from plone.autoform.directives import write_permission, read_permission
+from plone.autoform.directives import read_permission, widget, write_permission
 from plone.dexterity.content import Container
 from plone.memoize import ram
 from plone.protect.utils import addTokenToUrl
 from plone.supermodel import model
 from plone.z3cform.textlines import TextLinesFieldWidget
-from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
+from Products.Poi import PoiMessageFactory as _
+from Products.Poi.utils import is_email, link_bugs, link_repo
 from z3c.form import validator
+from zope import schema
+from zope.component import adapts, provideAdapter
+from zope.i18n import translate
+from zope.interface import (Interface, Invalid, directlyProvides, implementer,
+                            provider)
+from zope.schema.interfaces import (IContextAwareDefaultFactory,
+                                    IContextSourceBinder)
+from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
+from zope.globalrequest import getRequest
 
 
 DEFAULT_SEVERITIES = [
@@ -111,6 +104,7 @@ def default_severity(context):
     if hasattr(context, 'default_severity'):
         tracker = context
         return tracker.default_severity
+    #return translate(_(DEFAULT_SEVERITIES[0]), context=getRequest()),
     return DEFAULT_SEVERITIES[0]
 
 
@@ -125,6 +119,13 @@ def possibleSeverities(context):
     elif hasattr(context, 'context'):
         tracker = context.context.getTracker()
     else:
+        # DEFAULT_SEVERITIES = [
+        # translate(_(u'Critical'), context=getRequest()),
+        # translate(_(u'Important'), context=getRequest()),
+        # translate(_(u'Medium'), context=getRequest()),
+        # translate(_(u'Low'), context=getRequest()),
+        # ]
+
         return SimpleVocabulary.fromValues(DEFAULT_SEVERITIES)
     return SimpleVocabulary.fromValues(tracker.available_severities)
 

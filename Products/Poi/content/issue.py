@@ -157,7 +157,7 @@ class IIssue(model.Schema):
                       u"resolution is available. Note that your email "
                       u"address will not be displayed to others."),
         required=False,
-        defaultFactory=getContactEmail,
+        #defaultFactory=getContactEmail,
     )
 
     read_permission(watchers='Poi.ModifyIssueWatchers')
