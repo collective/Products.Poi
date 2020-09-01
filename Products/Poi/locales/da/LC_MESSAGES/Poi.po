@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.1.2\n"
-"POT-Creation-Date: 2020-09-01 20:05+0000\n"
+"POT-Creation-Date: 2020-09-01 20:09+0000\n"
 "PO-Revision-Date: 2008-12-08 09:42+0100\n"
 "Last-Translator: Jonas Nielsen <jonas@magenta-aps.dk>\n"
 "Language-Team: DA\n"
@@ -1095,6 +1095,11 @@ msgstr "Sagstekst"
 #: ./browser/templates/poi_issue_search_form.pt:113
 msgid "poi_search_label_type"
 msgstr "Tilgængelige sagstyper"
+
+#. Default: "Unchecking may result in slower search performance"
+#: ./browser/templates/poi_issue_search_form.pt:58
+msgid "poi_searchmatch_help_text"
+msgstr ""
 
 #. Default: "Exact Text Search"
 #: ./browser/templates/poi_issue_search_form.pt:56

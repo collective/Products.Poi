@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-pt-br\n"
-"POT-Creation-Date: 2020-09-01 20:05+0000\n"
+"POT-Creation-Date: 2020-09-01 20:09+0000\n"
 "PO-Revision-Date: 2012-04-09 13:59-0300\n"
 "Last-Translator: Gustavo Lepri <lepri@simplesconsultoria.com.br>\n"
 "Language-Team: Simples Consultoria <contato@simplesconsultoria.com.br>\n"
@@ -1078,6 +1078,11 @@ msgstr "Texto da Ocorrência"
 #: ./browser/templates/poi_issue_search_form.pt:113
 msgid "poi_search_label_type"
 msgstr "Tipos de Ocorrências"
+
+#. Default: "Unchecking may result in slower search performance"
+#: ./browser/templates/poi_issue_search_form.pt:58
+msgid "poi_searchmatch_help_text"
+msgstr ""
 
 #. Default: "Exact Text Search"
 #: ./browser/templates/poi_issue_search_form.pt:56
