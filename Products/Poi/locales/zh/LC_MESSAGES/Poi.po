@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2020-09-01 13:08+0000\n"
+"POT-Creation-Date: 2020-09-01 18:55+0000\n"
 "PO-Revision-Date: 2005-12-26 03:19 +0000\n"
 "Last-Translator: Junyong Pan <panjy@zopechina.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,7 +45,7 @@ msgstr ""
 msgid "An attachment has been added with id ${id}."
 msgstr ""
 
-#: ./content/tracker.py:230
+#: ./content/tracker.py:237
 msgid "Area"
 msgstr ""
 
@@ -70,7 +70,7 @@ msgstr ""
 msgid "Delete"
 msgstr "删除"
 
-#: ./content/tracker.py:177
+#: ./content/tracker.py:184
 msgid "Description"
 msgstr ""
 
@@ -82,7 +82,7 @@ msgstr "编辑"
 msgid "Edit issue"
 msgstr ""
 
-#: ./content/tracker.py:304
+#: ./content/tracker.py:311
 msgid "Enter users who will be responsible for solving the issues. Users also need to be added as Watchers to receive notifications."
 msgstr ""
 
@@ -107,7 +107,7 @@ msgstr ""
 msgid "Issue Information"
 msgstr ""
 
-#: ./content/tracker.py:252
+#: ./content/tracker.py:259
 msgid "Issue Type"
 msgstr ""
 
@@ -179,40 +179,40 @@ msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker."
-#: ./content/tracker.py:214
+#: ./content/tracker.py:221
 #, fuzzy
 msgid "Poi_help_availableAreas"
 msgstr "输入跟踪器中问题的主题或者领域，每行输入一个。格式是“代号 | 标题 | 描述”。"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker."
-#: ./content/tracker.py:237
+#: ./content/tracker.py:244
 #, fuzzy
 msgid "Poi_help_availableIssueTypes"
 msgstr "输入这个跟踪器的问题类型，每行输入一个。格式是“代号 | 标题 | 描述”。"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organized by release."
-#: ./content/tracker.py:287
+#: ./content/tracker.py:294
 #, fuzzy
 msgid "Poi_help_availableReleases"
 msgstr "输入问题可分配的版本号，每行一个。如果没有发行版本，问题就不会按照版本组织。"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
-#: ./content/tracker.py:260
+#: ./content/tracker.py:267
 msgid "Poi_help_availableSeverities"
 msgstr "输入不同类型的问题可选严重性，每行一个。"
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
-#: ./content/tracker.py:274
+#: ./content/tracker.py:281
 msgid "Poi_help_defaultSeverity"
 msgstr "选择问题的默认严重性"
 
 # ./content/PoiTracker.py
 #. Default: "Enter any introductory help text you'd like to display on the tracker front page."
-#: ./content/tracker.py:202
+#: ./content/tracker.py:209
 msgid "Poi_help_helpText"
 msgstr ""
 
@@ -300,7 +300,7 @@ msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted."
-#: ./content/tracker.py:354
+#: ./content/tracker.py:361
 #, fuzzy
 msgid "Poi_help_mailingList"
 msgstr "如果提供，而且如果“发送通知邮件”选中，每次张贴新的问题或者答复时，都将有一个通知邮件发送到这个地址。如果没有提供邮件地址，就只有管理人员收到邮件。"
@@ -331,30 +331,30 @@ msgstr "请在下面填写答复"
 
 # ./content/PoiTracker.py
 #. Default: "If selected, all tracker assignees above will receive an email for new issues and all issue responses. Issue watchers will receive an email for all issue responses. Issue submitters will receive an email when the issue has been resolved."
-#: ./content/tracker.py:338
+#: ./content/tracker.py:345
 #, fuzzy
 msgid "Poi_help_sendNotificationEmails"
 msgstr "如果选中，一旦张贴新的问题或者答复，管理人员将收到一个通知邮件；问题的提交人将在有新的答复，或问题解决、等待确认的时候收到通知邮件。"
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the URL to the related repository, e.g.: https://github.com/collective/Products.Poi/commit/%(rev)s for Products.Poi."
-#: ./content/tracker.py:368
+#: ./content/tracker.py:375
 msgid "Poi_help_svnurl"
 msgstr ""
 
 #. Default: "Describe the purpose of this tracker"
-#: ./content/tracker.py:193
+#: ./content/tracker.py:200
 msgid "Poi_help_tracker_description"
 msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
-#: ./content/tracker.py:185
+#: ./content/tracker.py:192
 msgid "Poi_help_tracker_title"
 msgstr "给跟踪器输入一个描述名"
 
 #. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
-#: ./content/tracker.py:319
+#: ./content/tracker.py:326
 msgid "Poi_help_tracker_watchers"
 msgstr ""
 
@@ -364,37 +364,37 @@ msgid "Poi_issues_label"
 msgstr ""
 
 #. Default: "Assignees"
-#: ./content/tracker.py:303
+#: ./content/tracker.py:310
 msgid "Poi_label_assignees"
 msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Areas"
-#: ./content/tracker.py:212
+#: ./content/tracker.py:219
 msgid "Poi_label_availableAreas"
 msgstr "领域"
 
 # ./content/PoiTracker.py
 #. Default: "Issue types"
-#: ./content/tracker.py:235
+#: ./content/tracker.py:242
 msgid "Poi_label_availableIssueTypes"
 msgstr "问题类型"
 
 # ./content/PoiTracker.py
 #. Default: "Available releases"
-#: ./content/tracker.py:283
+#: ./content/tracker.py:290
 msgid "Poi_label_availableReleases"
 msgstr "可用的版本"
 
 # ./content/PoiTracker.py
 #. Default: "Available severities"
-#: ./content/tracker.py:257
+#: ./content/tracker.py:264
 msgid "Poi_label_availableSeverities"
 msgstr "可用的严重性"
 
 # ./content/PoiTracker.py
 #. Default: "Default severity"
-#: ./content/tracker.py:269
+#: ./content/tracker.py:276
 msgid "Poi_label_defaultSeverity"
 msgstr "默认严重性"
 
@@ -482,7 +482,7 @@ msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Mailing list"
-#: ./content/tracker.py:350
+#: ./content/tracker.py:357
 msgid "Poi_label_mailingList"
 msgstr "邮件列表"
 
@@ -506,18 +506,18 @@ msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Send notification emails"
-#: ./content/tracker.py:334
+#: ./content/tracker.py:341
 msgid "Poi_label_sendNotificationEmails"
 msgstr "发送一个通知邮件"
 
 # ./content/PoiTracker.py
 #. Default: "URL to Repository"
-#: ./content/tracker.py:366
+#: ./content/tracker.py:373
 msgid "Poi_label_svnurl"
 msgstr ""
 
 #. Default: "Watchers"
-#: ./content/tracker.py:318
+#: ./content/tracker.py:325
 msgid "Poi_label_tracker_watchers"
 msgstr ""
 
@@ -579,7 +579,7 @@ msgstr ""
 msgid "Severity"
 msgstr ""
 
-#: ./content/tracker.py:171
+#: ./content/tracker.py:178
 msgid "Short Name"
 msgstr ""
 
@@ -606,7 +606,7 @@ msgstr ""
 msgid "This is an automated email, please do not reply."
 msgstr ""
 
-#: ./content/tracker.py:174
+#: ./content/tracker.py:181
 msgid "Title"
 msgstr ""
 
@@ -633,7 +633,7 @@ msgid "batch_x_items_matching_your_criteria"
 msgstr ""
 
 #. Default: "Description"
-#: ./content/tracker.py:192
+#: ./content/tracker.py:199
 msgid "description"
 msgstr ""
 
@@ -648,7 +648,7 @@ msgid "description_no_results_found"
 msgstr ""
 
 #. Default: "Help Text"
-#: ./content/tracker.py:201
+#: ./content/tracker.py:208
 msgid "help_text"
 msgstr ""
 
@@ -1108,7 +1108,7 @@ msgid "stop_watching_this"
 msgstr ""
 
 #. Default: "Title"
-#: ./content/tracker.py:184
+#: ./content/tracker.py:191
 msgid "title"
 msgstr ""
 
