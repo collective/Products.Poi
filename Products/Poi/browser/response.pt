@@ -53,15 +53,15 @@
                 tal:content="python:here.toLocalizedTime(response.date, long_format=True)" />
           <div class="metadataChanges">
               <tal:rep repeat="delta response/changes">
-                <span i18n:translate="" tal:content="string:${delta/name}" />:
+                <span i18n:domain="Poi" i18n:translate="" tal:content="string:${delta/name}" />:
                 <span class="issueChange"
                       i18n:translate=""
-                      i18n:domain="plone"
+                      i18n:domain="Poi"
                       tal:content="delta/before" />
                 &#8594;
                 <span class="issueChange"
                       i18n:translate=""
-                      i18n:domain="plone"
+                      i18n:domain="Poi"
                       tal:content="delta/after" />
                 <br tal:condition="not:repeat/delta/end" />
               </tal:rep>
@@ -257,7 +257,7 @@
                     </div>
 
                     <select name="current_assignee">
-                        <option value="">
+                        <option value="" i18n:translate="Poi_label_noneResponsibleManager">
                             No change
                         </option>
                         <tal:assignees repeat="option view/assignees_for_display">

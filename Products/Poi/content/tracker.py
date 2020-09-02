@@ -104,9 +104,8 @@ def default_severity(context):
     if hasattr(context, 'default_severity'):
         tracker = context
         return tracker.default_severity
-    #return translate(_(DEFAULT_SEVERITIES[0]), context=getRequest()),
     return DEFAULT_SEVERITIES[0]
-
+    
 
 def possibleSeverities(context):
     """
@@ -119,14 +118,8 @@ def possibleSeverities(context):
     elif hasattr(context, 'context'):
         tracker = context.context.getTracker()
     else:
-        # DEFAULT_SEVERITIES = [
-        # translate(_(u'Critical'), context=getRequest()),
-        # translate(_(u'Important'), context=getRequest()),
-        # translate(_(u'Medium'), context=getRequest()),
-        # translate(_(u'Low'), context=getRequest()),
-        # ]
-
         return SimpleVocabulary.fromValues(DEFAULT_SEVERITIES)
+
     return SimpleVocabulary.fromValues(tracker.available_severities)
 
 
@@ -264,6 +257,7 @@ class ITracker(model.Schema):
         title=_(u'Poi_label_availableSeverities',
                 default=u"Available severities"),
         default=DEFAULT_SEVERITIES,
+
         description=_(
             u'Poi_help_availableSeverities',
             default=(u"Enter the different type of issue severities "

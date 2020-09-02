@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Poi\n"
-"POT-Creation-Date: 2020-09-01 20:09+0000\n"
+"POT-Creation-Date: 2020-09-02 14:52+0000\n"
 "PO-Revision-Date: 2006-01-22 18:00+0900\n"
 "Last-Translator: TANIGUCHI Takaki <takaki@asis.media-as.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,7 +44,7 @@ msgstr ""
 msgid "An attachment has been added with id ${id}."
 msgstr ""
 
-#: ./content/tracker.py:237
+#: ./content/tracker.py:230
 msgid "Area"
 msgstr ""
 
@@ -69,7 +69,7 @@ msgstr ""
 msgid "Delete"
 msgstr "削除"
 
-#: ./content/tracker.py:184
+#: ./content/tracker.py:177
 msgid "Description"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr "編集"
 msgid "Edit issue"
 msgstr ""
 
-#: ./content/tracker.py:311
+#: ./content/tracker.py:305
 msgid "Enter users who will be responsible for solving the issues. Users also need to be added as Watchers to receive notifications."
 msgstr ""
 
@@ -106,7 +106,7 @@ msgstr ""
 msgid "Issue Information"
 msgstr ""
 
-#: ./content/tracker.py:259
+#: ./content/tracker.py:252
 msgid "Issue Type"
 msgstr ""
 
@@ -166,6 +166,10 @@ msgstr ""
 msgid "Poi Uninstall"
 msgstr ""
 
+#: ./profiles/default/workflows/poi_issue_workflow/definition.xml
+msgid "Poi issue workflow"
+msgstr ""
+
 #. Default: "This field will automatically link to other issues in this tracker when you use these formats"
 #: ./browser/templates/automatic_links_help_view.pt:19
 msgid "Poi_automatic_link_field_help"
@@ -178,40 +182,40 @@ msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker."
-#: ./content/tracker.py:221
+#: ./content/tracker.py:214
 #, fuzzy
 msgid "Poi_help_availableAreas"
 msgstr "このトラッカーのトピック/領域を入力して下さい。一行毎に一つの記述です。形式は\"短縮名 | タイトル  | 説明\" です。"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker."
-#: ./content/tracker.py:244
+#: ./content/tracker.py:237
 #, fuzzy
 msgid "Poi_help_availableIssueTypes"
 msgstr "この課題の種類を入力して下さい。一行毎に一つの記述です。形式は\"短縮名 | タイトル  | 説明\" です。"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organized by release."
-#: ./content/tracker.py:294
+#: ./content/tracker.py:288
 #, fuzzy
 msgid "Poi_help_availableReleases"
 msgstr "利用できる課題の重要度を一行毎に入力して下さい。"
 
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
-#: ./content/tracker.py:267
+#: ./content/tracker.py:261
 msgid "Poi_help_availableSeverities"
 msgstr "一行毎に使用する課題の重要度を入力して下さい。"
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
-#: ./content/tracker.py:281
+#: ./content/tracker.py:275
 msgid "Poi_help_defaultSeverity"
 msgstr "新規の課題のデフォルトの重要度を選択して下さい。"
 
 # ./content/PoiTracker.py
 #. Default: "Enter any introductory help text you'd like to display on the tracker front page."
-#: ./content/tracker.py:209
+#: ./content/tracker.py:202
 msgid "Poi_help_helpText"
 msgstr ""
 
@@ -222,12 +226,12 @@ msgid "Poi_help_issueTransition"
 msgstr "対応によって課題の状態が変更されるならば選択して下さい。"
 
 #. Default: "Select the area this issue is relevant to."
-#: ./content/issue.py:108
+#: ./content/issue.py:104
 msgid "Poi_help_issue_area"
 msgstr ""
 
 #. Default: "Select which person, if any, is assigned to this issue."
-#: ./content/issue.py:145
+#: ./content/issue.py:141
 msgid "Poi_help_issue_assignee"
 msgstr ""
 
@@ -237,69 +241,69 @@ msgid "Poi_help_issue_attachment"
 msgstr ""
 
 #. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
-#: ./content/issue.py:154
+#: ./content/issue.py:150
 msgid "Poi_help_issue_contact_email"
 msgstr ""
 
 #. Default: "Please provide further details. This field can create Automatic Links."
-#: ./content/issue.py:91
+#: ./content/issue.py:87
 msgid "Poi_help_issue_details"
 msgstr ""
 
 #. Default: "Last person to edit or add a Response"
-#: ./content/issue.py:235
+#: ./content/issue.py:230
 msgid "Poi_help_issue_last_actor"
 msgstr ""
 
 #. Default: "Link related issues."
-#: ./content/issue.py:217
+#: ./content/issue.py:212
 msgid "Poi_help_issue_related"
 msgstr ""
 
 #. Default: "Select the version the issue was found in."
-#: ./content/issue.py:82
+#: ./content/issue.py:78
 msgid "Poi_help_issue_release"
 msgstr ""
 
 #. Default: "Select the severity of this issue."
-#: ./content/issue.py:124
+#: ./content/issue.py:120
 msgid "Poi_help_issue_severity"
 msgstr ""
 
 #. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line. This field can create Automatic Links."
-#: ./content/issue.py:99
+#: ./content/issue.py:95
 msgid "Poi_help_issue_steps"
 msgstr ""
 
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: ./content/issue.py:192
+#: ./content/issue.py:187
 msgid "Poi_help_issue_subject"
 msgstr ""
 
 #. Default: "Release this issue is targetted to be fixed in."
-#: ./content/issue.py:134
+#: ./content/issue.py:130
 msgid "Poi_help_issue_target_release"
 msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
-#: ./content/issue.py:73
+#: ./content/issue.py:69
 msgid "Poi_help_issue_title"
 msgstr "短く説明的な課題のタイトルを入力して下さい。良いタイトルはプロジェクトとマネージャーの課題への認識と対応を用意にします。"
 
 #. Default: "Select the type of issue."
-#: ./content/issue.py:115
+#: ./content/issue.py:111
 msgid "Poi_help_issue_type"
 msgstr ""
 
 #. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
-#: ./content/issue.py:170
+#: ./content/issue.py:165
 msgid "Poi_help_issue_watchers"
 msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted."
-#: ./content/tracker.py:361
+#: ./content/tracker.py:355
 #, fuzzy
 msgid "Poi_help_mailingList"
 msgstr "もし与えられて，「通知メールを送る」が選択されていれば，新しい課題と対応が追加されるごとに電子メールが送信されます。メイリングリストのアドレスが指定されなければ，マネージャーは独立した電子メールを受け取ります。"
@@ -330,30 +334,30 @@ msgstr "対応を入力して下さい"
 
 # ./content/PoiTracker.py
 #. Default: "If selected, all tracker assignees above will receive an email for new issues and all issue responses. Issue watchers will receive an email for all issue responses. Issue submitters will receive an email when the issue has been resolved."
-#: ./content/tracker.py:345
+#: ./content/tracker.py:339
 #, fuzzy
 msgid "Poi_help_sendNotificationEmails"
 msgstr "もし選択されたなら，トラッカーマネージャーは新しい課題か対応が送られる毎に電子メールを受け取ります。課題の提出者は新しい対応がされたときと，課題が解決したときに確認を待つために電子メールを受け取ります。"
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the URL to the related repository, e.g.: https://github.com/collective/Products.Poi/commit/%(rev)s for Products.Poi."
-#: ./content/tracker.py:375
+#: ./content/tracker.py:369
 msgid "Poi_help_svnurl"
 msgstr ""
 
 #. Default: "Describe the purpose of this tracker"
-#: ./content/tracker.py:200
+#: ./content/tracker.py:193
 msgid "Poi_help_tracker_description"
 msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
-#: ./content/tracker.py:192
+#: ./content/tracker.py:185
 msgid "Poi_help_tracker_title"
 msgstr "このトラッカーの名称を入力して下さい。"
 
 #. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
-#: ./content/tracker.py:326
+#: ./content/tracker.py:320
 msgid "Poi_help_tracker_watchers"
 msgstr ""
 
@@ -363,37 +367,37 @@ msgid "Poi_issues_label"
 msgstr ""
 
 #. Default: "Assignees"
-#: ./content/tracker.py:310
+#: ./content/tracker.py:304
 msgid "Poi_label_assignees"
 msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Areas"
-#: ./content/tracker.py:219
+#: ./content/tracker.py:212
 msgid "Poi_label_availableAreas"
 msgstr "領域"
 
 # ./content/PoiTracker.py
 #. Default: "Issue types"
-#: ./content/tracker.py:242
+#: ./content/tracker.py:235
 msgid "Poi_label_availableIssueTypes"
 msgstr "課題の種別"
 
 # ./content/PoiTracker.py
 #. Default: "Available releases"
-#: ./content/tracker.py:290
+#: ./content/tracker.py:284
 msgid "Poi_label_availableReleases"
 msgstr "利用可能なリリース"
 
 # ./content/PoiTracker.py
 #. Default: "Available severities"
-#: ./content/tracker.py:264
+#: ./content/tracker.py:257
 msgid "Poi_label_availableSeverities"
 msgstr "利用可能な重要度"
 
 # ./content/PoiTracker.py
 #. Default: "Default severity"
-#: ./content/tracker.py:276
+#: ./content/tracker.py:270
 msgid "Poi_label_defaultSeverity"
 msgstr "デフォルトの重要度"
 
@@ -404,84 +408,84 @@ msgid "Poi_label_issueTransition"
 msgstr "課題の状態の変更"
 
 #. Default: "Area"
-#: ./content/issue.py:107
+#: ./content/issue.py:103
 msgid "Poi_label_issue_area"
 msgstr ""
 
 #. Default: "Assignee"
-#: ./content/issue.py:144
+#: ./content/issue.py:140
 msgid "Poi_label_issue_assignee"
 msgstr ""
 
 #. Default: "Contact Email"
-#: ./content/issue.py:153
+#: ./content/issue.py:149
 msgid "Poi_label_issue_contact_email"
 msgstr ""
 
 #. Default: "Details"
-#: ./content/issue.py:90
+#: ./content/issue.py:86
 msgid "Poi_label_issue_details"
 msgstr ""
 
 #. Default: "Leave this field empty"
-#: ./content/issue.py:227
+#: ./content/issue.py:222
 msgid "Poi_label_issue_empty"
 msgstr ""
 
 #. Default: "Last Actor"
-#: ./content/issue.py:233
+#: ./content/issue.py:228
 msgid "Poi_label_issue_last_actor"
 msgstr ""
 
 #. Default: "Related Issue(s)"
-#: ./content/issue.py:216
+#: ./content/issue.py:211
 msgid "Poi_label_issue_related"
 msgstr ""
 
 #. Default: "Release"
-#: ./content/issue.py:81
+#: ./content/issue.py:77
 msgid "Poi_label_issue_release"
 msgstr ""
 
 #. Default: "Severity"
-#: ./content/issue.py:123
+#: ./content/issue.py:119
 msgid "Poi_label_issue_severity"
 msgstr ""
 
 #. Default: "Steps To Reproduce"
-#: ./content/issue.py:98
+#: ./content/issue.py:94
 msgid "Poi_label_issue_steps"
 msgstr ""
 
 #. Default: "Subject"
-#: ./content/issue.py:191
+#: ./content/issue.py:186
 msgid "Poi_label_issue_subject"
 msgstr ""
 
 #. Default: "Target Release"
-#: ./content/issue.py:133
+#: ./content/issue.py:129
 msgid "Poi_label_issue_target_release"
 msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Title"
-#: ./content/issue.py:72
+#: ./content/issue.py:68
 msgid "Poi_label_issue_title"
 msgstr "タイトル"
 
 #. Default: "Issue Type"
-#: ./content/issue.py:114
+#: ./content/issue.py:110
 msgid "Poi_label_issue_type"
 msgstr ""
 
 #. Default: "Watchers"
-#: ./content/issue.py:169
+#: ./content/issue.py:164
 msgid "Poi_label_issue_watchers"
 msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Mailing list"
-#: ./content/tracker.py:357
+#: ./content/tracker.py:351
 msgid "Poi_label_mailingList"
 msgstr "メーリングリスト"
 
@@ -503,20 +507,25 @@ msgstr ""
 msgid "Poi_label_newTargetRelease"
 msgstr ""
 
+#. Default: "No change"
+#: ./browser/response.pt:260
+msgid "Poi_label_noneResponsibleManager"
+msgstr ""
+
 # ./content/PoiTracker.py
 #. Default: "Send notification emails"
-#: ./content/tracker.py:341
+#: ./content/tracker.py:335
 msgid "Poi_label_sendNotificationEmails"
 msgstr "通知メールを送る"
 
 # ./content/PoiTracker.py
 #. Default: "URL to Repository"
-#: ./content/tracker.py:373
+#: ./content/tracker.py:367
 msgid "Poi_label_svnurl"
 msgstr ""
 
 #. Default: "Watchers"
-#: ./content/tracker.py:325
+#: ./content/tracker.py:319
 msgid "Poi_label_tracker_watchers"
 msgstr ""
 
@@ -578,7 +587,7 @@ msgstr ""
 msgid "Severity"
 msgstr ""
 
-#: ./content/tracker.py:178
+#: ./content/tracker.py:171
 msgid "Short Name"
 msgstr ""
 
@@ -605,7 +614,7 @@ msgstr ""
 msgid "This is an automated email, please do not reply."
 msgstr ""
 
-#: ./content/tracker.py:181
+#: ./content/tracker.py:174
 msgid "Title"
 msgstr ""
 
@@ -631,8 +640,12 @@ msgstr ""
 msgid "batch_x_items_matching_your_criteria"
 msgstr ""
 
+#: ./profiles/default/workflows/poi_issue_workflow/definition.xml
+msgid "closed"
+msgstr ""
+
 #. Default: "Description"
-#: ./content/tracker.py:199
+#: ./content/tracker.py:192
 msgid "description"
 msgstr ""
 
@@ -647,8 +660,12 @@ msgid "description_no_results_found"
 msgstr ""
 
 #. Default: "Help Text"
-#: ./content/tracker.py:208
+#: ./content/tracker.py:201
 msgid "help_text"
+msgstr ""
+
+#: ./profiles/default/workflows/poi_issue_workflow/definition.xml
+msgid "in-progress"
 msgstr ""
 
 #. Default: "You are not allowed to edit this response."
@@ -737,10 +754,18 @@ msgstr ""
 msgid "msg_no_responses_can_be_added"
 msgstr ""
 
+#: ./profiles/default/workflows/poi_issue_workflow/definition.xml
+msgid "new"
+msgstr ""
+
 #. Default: "(Not assigned)"
 #: ./browser/templates/poi_issue_search_form.pt:170
 msgid "not_assigned"
 msgstr "(未割り当て)"
+
+#: ./profiles/default/workflows/poi_issue_workflow/definition.xml
+msgid "open"
+msgstr ""
 
 #. Default: "Added by"
 #: ./browser/response.pt:46
@@ -1111,13 +1136,25 @@ msgstr ""
 msgid "poi_searchmatch_label_text"
 msgstr ""
 
+#: ./profiles/default/workflows/poi_issue_workflow/definition.xml
+msgid "postponed"
+msgstr ""
+
+#: ./profiles/default/workflows/poi_issue_workflow/definition.xml
+msgid "rejected"
+msgstr ""
+
+#: ./profiles/default/workflows/poi_issue_workflow/definition.xml
+msgid "resolved"
+msgstr ""
+
 #. Default: "Stop watching this"
 #: ./browser/templates/poi_tracker_view.pt:68
 msgid "stop_watching_this"
 msgstr ""
 
 #. Default: "Title"
-#: ./content/tracker.py:191
+#: ./content/tracker.py:184
 msgid "title"
 msgstr ""
 
@@ -1145,6 +1182,10 @@ msgstr ""
 #. Default: "Error: no response found for editing"
 #: ./browser/templates/edit_response.pt:19
 msgid "title_error_no_response"
+msgstr ""
+
+#: ./profiles/default/workflows/poi_issue_workflow/definition.xml
+msgid "unconfirmed"
 msgstr ""
 
 #. Default: "View activity feed"
