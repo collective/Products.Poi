@@ -59,7 +59,7 @@ msgid "Tested and confirmed closed"
 msgstr "Test effettuati e chiusura confermata"
 
 msgid "In progress"
-msgstr "In gestione"
+msgstr "In trattazione"
 
 msgid "Being created"
 msgstr "Creato"
@@ -77,7 +77,7 @@ msgid "Rejected"
 msgstr "Rifiutato"
 
 msgid "Resolved"
-msgstr "Risolto"
+msgstr "Risolta"
 
 msgid "Unconfirmed"
 msgstr "Da confermare"
