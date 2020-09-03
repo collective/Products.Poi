@@ -104,7 +104,10 @@ def default_severity(context):
     if hasattr(context, 'default_severity'):
         tracker = context
         return tracker.default_severity
-    return DEFAULT_SEVERITIES[0]
+    
+    tracker_brain = api.content.find(UID=context._tracker_uid)[0]
+    tracker = tracker_brain.getObject()
+    return tracker.default_severity
     
 
 def possibleSeverities(context):

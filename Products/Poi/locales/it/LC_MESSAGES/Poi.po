@@ -93,7 +93,7 @@ msgstr "Importante"
 #: ./browser/templates/poi_email_resolved_issue_html.pt:32
 #: ./profiles/default/types/Issue.xml
 msgid "Issue"
-msgstr "Richieste"
+msgstr "Richiesta"
 
 #: ./browser/templates/poi_email_new_issue_html.pt:34
 #: ./browser/templates/poi_email_new_issue_plain.pt:19
