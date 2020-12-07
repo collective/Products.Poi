@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: poi-fr\n"
-"POT-Creation-Date: 2020-08-27 12:56+0000\n"
+"POT-Creation-Date: 2020-09-02 14:52+0000\n"
 "PO-Revision-Date: 2008-06-19 18:09+0200\n"
 "Last-Translator: Kevin Deldycke <kevin@deldycke.com>\n"
 "Language-Team: French <membres@traduc.org>\n"
@@ -22,6 +22,10 @@ msgstr ""
 "X-Is-Fallback-For: fr-be fr-ca fr-lu fr-mc fr-ch fr-fr\n"
 "X-Generator: KBabel 1.11.4\n"
 
+#: ./profiles/default/types/Tracker.xml
+msgid "A Poi Issue Tracker"
+msgstr ""
+
 #: ./profiles.zcml:14
 msgid "A friendly issue tracker"
 msgstr ""
@@ -36,16 +40,20 @@ msgstr "Un nouveau ticket a été créé dans le gestionnaire ${tracker_title} p
 msgid "A new response has been given to the issue ${issue_title} in the tracker ${tracker_title} by ${response_author}."
 msgstr "Une nouvelle réponse a été donnée à propos du ticket ${issue_title} du gestionnaire ${tracker_title} par ${response_author}."
 
+#: ./profiles/default/types/Issue.xml
+msgid "An Issue in a Poi Tracker"
+msgstr ""
+
 #: ./browser/templates/poi_email_new_response_html.pt:42
 #: ./browser/templates/poi_email_new_response_plain.pt:23
 msgid "An attachment has been added with id ${id}."
 msgstr "Une pièce jointe a été ajoutée avec l'identifiant ${id}."
 
-#: ./content/tracker.py:236
+#: ./content/tracker.py:230
 msgid "Area"
 msgstr ""
 
-#: ./browser/response.py:419
+#: ./browser/response.py:421
 msgid "Assignee"
 msgstr ""
 
@@ -54,11 +62,11 @@ msgid "Attachments"
 msgstr ""
 
 #. Default: ""
-#: ./browser/response.py:503
+#: ./browser/response.py:505
 msgid "Changes saved to response id ${response_id}."
 msgstr "Les modifications à la réponse ${response_id} sont enregistrées."
 
-#: ./content/tracker.py:63
+#: ./content/tracker.py:56
 msgid "Critical"
 msgstr ""
 
@@ -66,7 +74,7 @@ msgstr ""
 msgid "Delete"
 msgstr "Effacer"
 
-#: ./content/tracker.py:183
+#: ./content/tracker.py:177
 msgid "Description"
 msgstr ""
 
@@ -78,16 +86,17 @@ msgstr "Modifier"
 msgid "Edit issue"
 msgstr "Modifier le ticket"
 
-#: ./content/tracker.py:310
+#: ./content/tracker.py:305
 msgid "Enter users who will be responsible for solving the issues. Users also need to be added as Watchers to receive notifications."
 msgstr ""
 
-#: ./content/tracker.py:64
+#: ./content/tracker.py:57
 msgid "Important"
 msgstr ""
 
 #: ./browser/templates/poi_email_new_issue_html.pt:29
 #: ./browser/templates/poi_email_resolved_issue_html.pt:32
+#: ./profiles/default/types/Issue.xml
 msgid "Issue"
 msgstr "Ticket"
 
@@ -102,11 +111,11 @@ msgstr "Détails du ticket :"
 msgid "Issue Information"
 msgstr "Information sur le ticket"
 
-#: ./content/tracker.py:258
+#: ./content/tracker.py:252
 msgid "Issue Type"
 msgstr ""
 
-#: ./browser/response.py:413
+#: ./browser/response.py:415
 msgid "Issue state"
 msgstr "État du ticket"
 
@@ -116,19 +125,19 @@ msgstr "État du ticket"
 msgid "Issue:"
 msgstr "Ticket :"
 
-#: ./content/tracker.py:66
+#: ./content/tracker.py:59
 msgid "Low"
 msgstr ""
 
-#: ./content/tracker.py:65
+#: ./content/tracker.py:58
 msgid "Medium"
 msgstr ""
 
-#: ./browser/response.py:533
+#: ./browser/response.py:535
 msgid "No response selected for removal."
 msgstr "Aucune réponse n'est sélectionnée pour la suppression."
 
-#: ./browser/response.py:489
+#: ./browser/response.py:491
 msgid "No response selected for saving."
 msgstr "Aucune réponse n'est sélectionnée pour la sauvegarde."
 
@@ -136,7 +145,7 @@ msgstr "Aucune réponse n'est sélectionnée pour la sauvegarde."
 msgid "No response selected."
 msgstr "Aucune réponse n'est sélectionnée."
 
-#: ./browser/response.py:440
+#: ./browser/response.py:442
 msgid "No response text added and no issue changes made."
 msgstr "Aucun texte de réponse ajouté et aucune modification effectuée."
 
@@ -162,6 +171,10 @@ msgstr ""
 msgid "Poi Uninstall"
 msgstr ""
 
+#: ./profiles/default/workflows/poi_issue_workflow/definition.xml
+msgid "Poi issue workflow"
+msgstr ""
+
 #. Default: "This field will automatically link to other issues in this tracker when you use these formats"
 #: ./browser/templates/automatic_links_help_view.pt:19
 msgid "Poi_automatic_link_field_help"
@@ -174,38 +187,38 @@ msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue topics/areas for this tracker."
-#: ./content/tracker.py:220
+#: ./content/tracker.py:214
 msgid "Poi_help_availableAreas"
 msgstr "Entrer les sujets/domaines disponibles dans ce gestionnaire de tickets."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the issue types for this tracker."
-#: ./content/tracker.py:243
+#: ./content/tracker.py:237
 msgid "Poi_help_availableIssueTypes"
 msgstr "Entrer les types de tickets pour ce gestionnaire."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the releases which issues can be assigned to, one per line. If no releases are entered, issues will not be organized by release."
-#: ./content/tracker.py:293
+#: ./content/tracker.py:288
 #, fuzzy
 msgid "Poi_help_availableReleases"
 msgstr "Entrer les versions où les tickets peuvent être assignés, une par ligne. Si aucune version n'est entrée, les tickets ne seront pas organisés par version."
 
 # ./content/PoiTracker.py
 #. Default: "Enter the different type of issue severities that should be available, one per line."
-#: ./content/tracker.py:266
+#: ./content/tracker.py:261
 msgid "Poi_help_availableSeverities"
 msgstr "Entrer les différents types de criticités des tickets disponibles, un par ligne."
 
 # ./content/PoiTracker.py
 #. Default: "Select the default severity for new issues."
-#: ./content/tracker.py:280
+#: ./content/tracker.py:275
 msgid "Poi_help_defaultSeverity"
 msgstr "Sélectionnez une criticité par défaut pour les nouveaux tickets."
 
 # ./content/PoiTracker.py
 #. Default: "Enter any introductory help text you'd like to display on the tracker front page."
-#: ./content/tracker.py:208
+#: ./content/tracker.py:202
 msgid "Poi_help_helpText"
 msgstr "Entrer une notice d'emploi de votre gestionnaire de tickets qui sera affiché en page d'accueil de l'outil."
 
@@ -216,12 +229,12 @@ msgid "Poi_help_issueTransition"
 msgstr "Sélectionnez un changement d'état pour cette réponse, si cela est applicable."
 
 #. Default: "Select the area this issue is relevant to."
-#: ./content/issue.py:103
+#: ./content/issue.py:104
 msgid "Poi_help_issue_area"
 msgstr ""
 
 #. Default: "Select which person, if any, is assigned to this issue."
-#: ./content/issue.py:140
+#: ./content/issue.py:141
 msgid "Poi_help_issue_assignee"
 msgstr ""
 
@@ -231,69 +244,69 @@ msgid "Poi_help_issue_attachment"
 msgstr ""
 
 #. Default: "Please provide an email address where you can be contacted for further information or when a resolution is available. Note that your email address will not be displayed to others."
-#: ./content/issue.py:149
+#: ./content/issue.py:150
 msgid "Poi_help_issue_contact_email"
 msgstr ""
 
 #. Default: "Please provide further details. This field can create Automatic Links."
-#: ./content/issue.py:86
+#: ./content/issue.py:87
 msgid "Poi_help_issue_details"
 msgstr ""
 
 #. Default: "Last person to edit or add a Response"
-#: ./content/issue.py:229
+#: ./content/issue.py:230
 msgid "Poi_help_issue_last_actor"
 msgstr ""
 
 #. Default: "Link related issues."
-#: ./content/issue.py:211
+#: ./content/issue.py:212
 msgid "Poi_help_issue_related"
 msgstr ""
 
 #. Default: "Select the version the issue was found in."
-#: ./content/issue.py:77
+#: ./content/issue.py:78
 msgid "Poi_help_issue_release"
 msgstr ""
 
 #. Default: "Select the severity of this issue."
-#: ./content/issue.py:119
+#: ./content/issue.py:120
 msgid "Poi_help_issue_severity"
 msgstr ""
 
 #. Default: "If applicable, please provide the steps to reproduce the error or identify the issue, one per line. This field can create Automatic Links."
-#: ./content/issue.py:94
+#: ./content/issue.py:95
 msgid "Poi_help_issue_steps"
 msgstr ""
 
 #. Default: "Tags can be used to add arbitrary categorisation to issues. The list below shows existing tags which you can select, or you can add new ones."
-#: ./content/issue.py:186
+#: ./content/issue.py:187
 msgid "Poi_help_issue_subject"
 msgstr ""
 
 #. Default: "Release this issue is targetted to be fixed in."
-#: ./content/issue.py:129
+#: ./content/issue.py:130
 msgid "Poi_help_issue_target_release"
 msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
-#: ./content/issue.py:68
+#: ./content/issue.py:69
 msgid "Poi_help_issue_title"
 msgstr "Entrer un titre court et descriptif pour ce ticket. Un bon titre rendra plus facile pour les chefs de projets l'identification et pour réponse à ce ticket."
 
 #. Default: "Select the type of issue."
-#: ./content/issue.py:110
+#: ./content/issue.py:111
 msgid "Poi_help_issue_type"
 msgstr ""
 
 #. Default: "Enter the user ids of members who are watching this issue, one per line. E-mail addresses are allowed too. These persons will receive an email when a response is added to the issue. Members can also add themselves as watchers."
-#: ./content/issue.py:164
+#: ./content/issue.py:165
 msgid "Poi_help_issue_watchers"
 msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "If given, and if 'Send notification emails' is selected, an email will be sent to this address each time a new issue or response is posted."
-#: ./content/tracker.py:360
+#: ./content/tracker.py:355
 #, fuzzy
 msgid "Poi_help_mailingList"
 msgstr "Si ce champs est rempli, et si « Envoyer des courriels de notification » est coché, un message sera envoyé à cette adresse chaque fois qu'un nouveau ticket ou une nouvelle réponse sera postée. Si aucune adresse de liste de diffusion n'est donnée, les responsables recevront individuellement les messages."
@@ -324,31 +337,31 @@ msgstr "Veuillez saisir votre réponse ci-dessous"
 
 # ./content/PoiTracker.py
 #. Default: "If selected, all tracker assignees above will receive an email for new issues and all issue responses. Issue watchers will receive an email for all issue responses. Issue submitters will receive an email when the issue has been resolved."
-#: ./content/tracker.py:344
+#: ./content/tracker.py:339
 #, fuzzy
 msgid "Poi_help_sendNotificationEmails"
 msgstr "Si coché, les responsables du gestionnaire de tickets recevront un message chaque fois qu'un nouveau ticket ou qu'une nouvelle réponse sera créé, et les rapporteurs de bugs recevront un message lorsqu'il y aura une nouvelle réponse et lorsqu'un ticket aura été résolu, attendant la confirmation. Les techniciens reçoivent un email lorsqu'un bug leur a été assigné."
 
 # ./content/PoiTracker.py
 #. Default: "Please enter the URL to the related repository, e.g.: https://github.com/collective/Products.Poi/commit/%(rev)s for Products.Poi."
-#: ./content/tracker.py:374
+#: ./content/tracker.py:369
 #, fuzzy
 msgid "Poi_help_svnurl"
 msgstr "Merci de saisir l'Url vers le dépôt SVN correspondant au projet, e.g.: http://dev.plone.org/changeset/%(rev)s/collective pour les modules collective de Plone."
 
 #. Default: "Describe the purpose of this tracker"
-#: ./content/tracker.py:199
+#: ./content/tracker.py:193
 msgid "Poi_help_tracker_description"
 msgstr "Décrire le but de ce gestionnaire de bugs"
 
 # ./content/PoiTracker.py
 #. Default: "Enter a descriptive name for this tracker"
-#: ./content/tracker.py:191
+#: ./content/tracker.py:185
 msgid "Poi_help_tracker_title"
 msgstr "Entrer un nom descriptif pour ce gestionnaire."
 
 #. Default: "Enter the user ids of members who are watching this tracker, one per line. E-mail addresses are allowed too. These persons will receive an email when an issue or response is added to the tracker. Members can also add themselves as watchers."
-#: ./content/tracker.py:325
+#: ./content/tracker.py:320
 msgid "Poi_help_tracker_watchers"
 msgstr "Entrez les identifiants des utilisateurs qui observent ce ticket, un par la ligne. Ces utilisateurs recevront un message lorsqu'une réponse sera ajoutée à ce ticket. Les utilisateurs peuvent également s'ajouter comme observateurs."
 
@@ -358,37 +371,37 @@ msgid "Poi_issues_label"
 msgstr ""
 
 #. Default: "Assignees"
-#: ./content/tracker.py:309
+#: ./content/tracker.py:304
 msgid "Poi_label_assignees"
 msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Areas"
-#: ./content/tracker.py:218
+#: ./content/tracker.py:212
 msgid "Poi_label_availableAreas"
 msgstr "Domaines"
 
 # ./content/PoiTracker.py
 #. Default: "Issue types"
-#: ./content/tracker.py:241
+#: ./content/tracker.py:235
 msgid "Poi_label_availableIssueTypes"
 msgstr "Types de ticket"
 
 # ./content/PoiTracker.py
 #. Default: "Available releases"
-#: ./content/tracker.py:289
+#: ./content/tracker.py:284
 msgid "Poi_label_availableReleases"
 msgstr "Distributions disponibles"
 
 # ./content/PoiTracker.py
 #. Default: "Available severities"
-#: ./content/tracker.py:263
+#: ./content/tracker.py:257
 msgid "Poi_label_availableSeverities"
 msgstr "Sévérités disponibles"
 
 # ./content/PoiTracker.py
 #. Default: "Default severity"
-#: ./content/tracker.py:275
+#: ./content/tracker.py:270
 msgid "Poi_label_defaultSeverity"
 msgstr "Criticité par défaut"
 
@@ -399,84 +412,84 @@ msgid "Poi_label_issueTransition"
 msgstr "Modifier l'état du ticket"
 
 #. Default: "Area"
-#: ./content/issue.py:102
+#: ./content/issue.py:103
 msgid "Poi_label_issue_area"
 msgstr ""
 
 #. Default: "Assignee"
-#: ./content/issue.py:139
+#: ./content/issue.py:140
 msgid "Poi_label_issue_assignee"
 msgstr ""
 
 #. Default: "Contact Email"
-#: ./content/issue.py:148
+#: ./content/issue.py:149
 msgid "Poi_label_issue_contact_email"
 msgstr ""
 
 #. Default: "Details"
-#: ./content/issue.py:85
+#: ./content/issue.py:86
 msgid "Poi_label_issue_details"
 msgstr ""
 
 #. Default: "Leave this field empty"
-#: ./content/issue.py:221
+#: ./content/issue.py:222
 msgid "Poi_label_issue_empty"
 msgstr ""
 
 #. Default: "Last Actor"
-#: ./content/issue.py:227
+#: ./content/issue.py:228
 msgid "Poi_label_issue_last_actor"
 msgstr ""
 
 #. Default: "Related Issue(s)"
-#: ./content/issue.py:210
+#: ./content/issue.py:211
 msgid "Poi_label_issue_related"
 msgstr ""
 
 #. Default: "Release"
-#: ./content/issue.py:76
+#: ./content/issue.py:77
 msgid "Poi_label_issue_release"
 msgstr ""
 
 #. Default: "Severity"
-#: ./content/issue.py:118
+#: ./content/issue.py:119
 msgid "Poi_label_issue_severity"
 msgstr ""
 
 #. Default: "Steps To Reproduce"
-#: ./content/issue.py:93
+#: ./content/issue.py:94
 msgid "Poi_label_issue_steps"
 msgstr ""
 
 #. Default: "Subject"
-#: ./content/issue.py:185
+#: ./content/issue.py:186
 msgid "Poi_label_issue_subject"
 msgstr ""
 
 #. Default: "Target Release"
-#: ./content/issue.py:128
+#: ./content/issue.py:129
 msgid "Poi_label_issue_target_release"
 msgstr ""
 
 # ./content/PoiIssue.py
 #. Default: "Title"
-#: ./content/issue.py:67
+#: ./content/issue.py:68
 msgid "Poi_label_issue_title"
 msgstr "Titre"
 
 #. Default: "Issue Type"
-#: ./content/issue.py:109
+#: ./content/issue.py:110
 msgid "Poi_label_issue_type"
 msgstr ""
 
 #. Default: "Watchers"
-#: ./content/issue.py:163
+#: ./content/issue.py:164
 msgid "Poi_label_issue_watchers"
 msgstr ""
 
 # ./content/PoiTracker.py
 #. Default: "Mailing list"
-#: ./content/tracker.py:356
+#: ./content/tracker.py:351
 msgid "Poi_label_mailingList"
 msgstr "Liste de diffusion"
 
@@ -498,21 +511,26 @@ msgstr "Modifier la criticité du ticket"
 msgid "Poi_label_newTargetRelease"
 msgstr "Modifier la distribution voulue"
 
+#. Default: "No change"
+#: ./browser/response.pt:260
+msgid "Poi_label_noneResponsibleManager"
+msgstr ""
+
 # ./content/PoiTracker.py
 #. Default: "Send notification emails"
-#: ./content/tracker.py:340
+#: ./content/tracker.py:335
 msgid "Poi_label_sendNotificationEmails"
 msgstr "Envoyer des courriels de notification"
 
 # ./content/PoiTracker.py
 #. Default: "URL to Repository"
-#: ./content/tracker.py:372
+#: ./content/tracker.py:367
 #, fuzzy
 msgid "Poi_label_svnurl"
 msgstr "URL du SVN"
 
 #. Default: "Watchers"
-#: ./content/tracker.py:324
+#: ./content/tracker.py:319
 #, fuzzy
 msgid "Poi_label_tracker_watchers"
 msgstr "Observateurs du gestionnaire de tickets"
@@ -528,7 +546,7 @@ msgid "Poi_repository_label"
 msgstr ""
 
 #. Default: ""
-#: ./browser/response.py:555
+#: ./browser/response.py:557
 msgid "Removed response id ${response_id}."
 msgstr "La réponse « ${response_id} » a été supprimé."
 
@@ -543,12 +561,12 @@ msgstr "Détails de la réponse :"
 msgid "Response Information"
 msgstr "Informations sur la réponse"
 
-#: ./browser/response.py:493
+#: ./browser/response.py:495
 msgid "Response does not exist anymore; perhaps it was removed by another user."
 msgstr "La réponse n'existe plus; peut être qu'elle a été supprimée par un autre utilisateur."
 
 #. Default: ""
-#: ./browser/response.py:548
+#: ./browser/response.py:550
 msgid "Response id ${response_id} does not exist so it cannot be removed."
 msgstr "La réponse « ${response_id} » n'existe pas donc n'a pu être effacée."
 
@@ -558,7 +576,7 @@ msgid "Response id ${response_id} does not exist."
 msgstr "La réponse « ${response_id} » n'existe pas."
 
 #. Default: ""
-#: ./browser/response.py:540
+#: ./browser/response.py:542
 msgid "Response id ${response_id} is no integer so it cannot be removed."
 msgstr "L'identifiant « ${response_id} » de la réponse n'est pas un entier donc elle n'a pu être effacée."
 
@@ -571,11 +589,11 @@ msgstr "L'identifiant « ${response_id} » de la réponse n'est pas un entier."
 msgid "Search"
 msgstr "Rechercher"
 
-#: ./browser/response.py:418
+#: ./browser/response.py:420
 msgid "Severity"
 msgstr "Sévérité"
 
-#: ./content/tracker.py:177
+#: ./content/tracker.py:171
 msgid "Short Name"
 msgstr ""
 
@@ -587,7 +605,7 @@ msgstr ""
 msgid "Submit new issue"
 msgstr "Soumettre un nouveau ticket"
 
-#: ./browser/response.py:421
+#: ./browser/response.py:423
 msgid "Target release"
 msgstr "Distribution cible"
 
@@ -602,20 +620,24 @@ msgstr ""
 msgid "This is an automated email, please do not reply."
 msgstr "Ceci est un email automatique, merci de ne pas répondre."
 
-#: ./content/tracker.py:180
+#: ./content/tracker.py:174
 msgid "Title"
 msgstr ""
 
-#: ./browser/response.py:527
+#: ./profiles/default/types/Tracker.xml
+msgid "Tracker"
+msgstr ""
+
+#: ./browser/response.py:529
 msgid "You are not allowed to delete responses."
 msgstr "Vous n'êtes pas autorisé à effacer des réponses."
 
-#: ./browser/response.py:483
+#: ./browser/response.py:485
 msgid "You are not allowed to edit responses."
 msgstr "Vous n'êtes pas autorisé à modifier des réponses."
 
 #. Default: "Automatic linking"
-#: ./browser/templates/automatic_links_help_view.pt:11
+#: ./browser/templates/automatic_links_help_view.pt:16
 msgid "authomatic_linking_label"
 msgstr ""
 
@@ -624,8 +646,12 @@ msgstr ""
 msgid "batch_x_items_matching_your_criteria"
 msgstr ""
 
+#: ./profiles/default/workflows/poi_issue_workflow/definition.xml
+msgid "closed"
+msgstr ""
+
 #. Default: "Description"
-#: ./content/tracker.py:198
+#: ./content/tracker.py:192
 msgid "description"
 msgstr ""
 
@@ -640,8 +666,12 @@ msgid "description_no_results_found"
 msgstr ""
 
 #. Default: "Help Text"
-#: ./content/tracker.py:207
+#: ./content/tracker.py:201
 msgid "help_text"
+msgstr ""
+
+#: ./profiles/default/workflows/poi_issue_workflow/definition.xml
+msgid "in-progress"
 msgstr ""
 
 #. Default: "You are not allowed to edit this response."
@@ -729,10 +759,18 @@ msgstr "Si vous le pouvez, authentifiez-vous s'il vous plaît avant de poster un
 msgid "msg_no_responses_can_be_added"
 msgstr "Aucune réponse ne peut être ajoutée."
 
+#: ./profiles/default/workflows/poi_issue_workflow/definition.xml
+msgid "new"
+msgstr ""
+
 #. Default: "(Not assigned)"
 #: ./browser/templates/poi_issue_search_form.pt:170
 msgid "not_assigned"
 msgstr "(Non assigné)"
+
+#: ./profiles/default/workflows/poi_issue_workflow/definition.xml
+msgid "open"
+msgstr ""
 
 #. Default: "Added by"
 #: ./browser/response.pt:46
@@ -1087,13 +1125,35 @@ msgstr "Texte du ticket"
 msgid "poi_search_label_type"
 msgstr "Types de ticket"
 
+#. Default: "Unchecking may result in slower search performance"
+#: ./browser/templates/poi_issue_search_form.pt:58
+msgid "poi_searchmatch_help_text"
+msgstr ""
+
+#. Default: "Exact Text Search"
+#: ./browser/templates/poi_issue_search_form.pt:56
+msgid "poi_searchmatch_label_text"
+msgstr ""
+
+#: ./profiles/default/workflows/poi_issue_workflow/definition.xml
+msgid "postponed"
+msgstr ""
+
+#: ./profiles/default/workflows/poi_issue_workflow/definition.xml
+msgid "rejected"
+msgstr ""
+
+#: ./profiles/default/workflows/poi_issue_workflow/definition.xml
+msgid "resolved"
+msgstr ""
+
 #. Default: "Stop watching this"
 #: ./browser/templates/poi_tracker_view.pt:68
 msgid "stop_watching_this"
 msgstr ""
 
 #. Default: "Title"
-#: ./content/tracker.py:190
+#: ./content/tracker.py:184
 msgid "title"
 msgstr ""
 
@@ -1122,6 +1182,10 @@ msgstr "Modifier la réponse"
 #: ./browser/templates/edit_response.pt:19
 msgid "title_error_no_response"
 msgstr "Erreur: aucune réponse trouvée pour modification"
+
+#: ./profiles/default/workflows/poi_issue_workflow/definition.xml
+msgid "unconfirmed"
+msgstr ""
 
 #. Default: "View activity feed"
 #: ./browser/templates/poi_tracker_view.pt:40

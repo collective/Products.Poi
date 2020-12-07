@@ -244,8 +244,10 @@ class Base(BrowserView):
         transitions.append(dict(value='', label=PMF(u'No change'),
                                 checked="checked"))
         for tdef in wftool.getTransitionsFor(context):
+            label_value = tdef['title_or_id']
+            label_value = PMF(label_value)
             transitions.append(dict(value=tdef['id'],
-                                    label=tdef['title_or_id'], checked=''))
+                                    label=label_value, checked=''))
         return transitions
 
     @property
