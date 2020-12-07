@@ -288,7 +288,7 @@ msgstr "La versione di questa richiesta sarà risolta in "
 #. Default: "Enter a short, descriptive title for the issue. A good title will make it easier for project managers to identify and respond to the issue."
 #: ./content/issue.py:69
 msgid "Poi_help_issue_title"
-msgstr "Inserisci un breve titolo descrittivo della richiesta. Un buon titolo renderà più semplice per [i gestori] identificare e rispondere alla richiesta."
+msgstr "Inserisci un breve titolo descrittivo della richiesta. Un buon titolo renderà più semplice per i gestori identificare e rispondere alla richiesta."
 
 #. Default: "Select the type of issue."
 #: ./content/issue.py:111
